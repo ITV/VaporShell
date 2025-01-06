@@ -125,7 +125,7 @@ function New-VSSageMakerInferenceComponent {
             })]
         $EndpointName,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -152,7 +152,7 @@ function New-VSSageMakerInferenceComponent {
         [Parameter(Mandatory = $true)]
         $Specification,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         $RuntimeConfig,
 
         [Parameter(Mandatory = $false)]

@@ -9,6 +9,11 @@ function Add-VSMediaConnectBridgeSourceBridgeNetworkSource {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html
 
+    .PARAMETER MulticastSourceSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html#cfn-mediaconnect-bridgesource-bridgenetworksource-multicastsourcesettings
+        UpdateType: Mutable
+        Type: MulticastSourceSettings
+
     .PARAMETER NetworkName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html#cfn-mediaconnect-bridgesource-bridgenetworksource-networkname
         UpdateType: Mutable
@@ -38,6 +43,9 @@ function Add-VSMediaConnectBridgeSourceBridgeNetworkSource {
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $MulticastSourceSettings,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

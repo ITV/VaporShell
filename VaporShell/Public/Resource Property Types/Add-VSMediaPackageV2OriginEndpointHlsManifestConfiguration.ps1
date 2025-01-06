@@ -44,6 +44,11 @@ function Add-VSMediaPackageV2OriginEndpointHlsManifestConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER StartTag
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-starttag
+        UpdateType: Mutable
+        Type: StartTag
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -117,7 +122,10 @@ function Add-VSMediaPackageV2OriginEndpointHlsManifestConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Url
+        $Url,
+
+        [Parameter(Mandatory = $false)]
+        $StartTag
 
     )
 

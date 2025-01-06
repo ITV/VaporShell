@@ -19,6 +19,11 @@ function Add-VSIoTFleetWiseDecoderManifestNetworkInterfacesItems {
         UpdateType: Mutable
         Type: CanInterface
 
+    .PARAMETER CustomDecodingInterface
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html#cfn-iotfleetwise-decodermanifest-networkinterfacesitems-customdecodinginterface
+        UpdateType: Mutable
+        Type: CustomDecodingInterface
+
     .PARAMETER InterfaceId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html#cfn-iotfleetwise-decodermanifest-networkinterfacesitems-interfaceid
         UpdateType: Mutable
@@ -52,6 +57,9 @@ function Add-VSIoTFleetWiseDecoderManifestNetworkInterfacesItems {
 
         [Parameter(Mandatory = $false)]
         $CanInterface,
+
+        [Parameter(Mandatory = $false)]
+        $CustomDecodingInterface,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

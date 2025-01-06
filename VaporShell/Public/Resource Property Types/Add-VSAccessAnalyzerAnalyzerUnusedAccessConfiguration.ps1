@@ -11,8 +11,13 @@ function Add-VSAccessAnalyzerAnalyzerUnusedAccessConfiguration {
 
     .PARAMETER UnusedAccessAge
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-unusedaccessconfiguration.html#cfn-accessanalyzer-analyzer-unusedaccessconfiguration-unusedaccessage
-        UpdateType: Immutable
+        UpdateType: Conditional
         PrimitiveType: Integer
+
+    .PARAMETER AnalysisRule
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-unusedaccessconfiguration.html#cfn-accessanalyzer-analyzer-unusedaccessconfiguration-analysisrule
+        UpdateType: Conditional
+        Type: AnalysisRule
 
     .FUNCTIONALITY
         Vaporshell
@@ -33,7 +38,10 @@ function Add-VSAccessAnalyzerAnalyzerUnusedAccessConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $UnusedAccessAge
+        $UnusedAccessAge,
+
+        [Parameter(Mandatory = $false)]
+        $AnalysisRule
 
     )
 

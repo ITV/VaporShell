@@ -29,6 +29,11 @@ function Add-VSMediaLiveChannelVideoCodecSettings {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-h265settings
         UpdateType: Mutable
 
+    .PARAMETER Av1Settings
+        Type: Av1Settings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-videocodecsettings.html#cfn-medialive-channel-videocodecsettings-av1settings
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -48,7 +53,10 @@ function Add-VSMediaLiveChannelVideoCodecSettings {
         $H264Settings,
 
         [Parameter(Mandatory = $false)]
-        $H265Settings
+        $H265Settings,
+
+        [Parameter(Mandatory = $false)]
+        $Av1Settings
 
     )
 

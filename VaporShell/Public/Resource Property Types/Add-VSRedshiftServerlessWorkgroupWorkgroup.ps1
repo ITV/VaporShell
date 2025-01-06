@@ -80,6 +80,11 @@ function Add-VSRedshiftServerlessWorkgroupWorkgroup {
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER PricePerformanceTarget
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html#cfn-redshiftserverless-workgroup-workgroup-priceperformancetarget
+        UpdateType: Mutable
+        Type: PerformanceTarget
+
     .PARAMETER MaxCapacity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html#cfn-redshiftserverless-workgroup-workgroup-maxcapacity
         UpdateType: Mutable
@@ -222,6 +227,9 @@ function Add-VSRedshiftServerlessWorkgroupWorkgroup {
                 }
             })]
         $PubliclyAccessible,
+
+        [Parameter(Mandatory = $false)]
+        $PricePerformanceTarget,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

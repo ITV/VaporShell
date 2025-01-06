@@ -32,6 +32,16 @@ function New-VSLambdaEventSourceMapping {
         UpdateType: Mutable
         Type: FilterCriteria
 
+    .PARAMETER ProvisionedPollerConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-provisionedpollerconfig
+        UpdateType: Mutable
+        Type: ProvisionedPollerConfig
+
+    .PARAMETER MetricsConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-metricsconfig
+        UpdateType: Mutable
+        Type: MetricsConfig
+
     .PARAMETER FunctionName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
         UpdateType: Mutable
@@ -240,6 +250,12 @@ function New-VSLambdaEventSourceMapping {
 
         [Parameter(Mandatory = $false)]
         $FilterCriteria,
+
+        [Parameter(Mandatory = $false)]
+        $ProvisionedPollerConfig,
+
+        [Parameter(Mandatory = $false)]
+        $MetricsConfig,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

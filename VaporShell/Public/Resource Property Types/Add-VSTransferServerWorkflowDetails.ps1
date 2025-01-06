@@ -10,16 +10,18 @@ function Add-VSTransferServerWorkflowDetails {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetails.html
 
     .PARAMETER OnUpload
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetails.html#cfn-transfer-server-workflowdetails-onupload
-        ItemType: WorkflowDetail
         UpdateType: Mutable
+        Type: List
+        ItemType: WorkflowDetail
+        DuplicatesAllowed: True
 
     .PARAMETER OnPartialUpload
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetails.html#cfn-transfer-server-workflowdetails-onpartialupload
-        ItemType: WorkflowDetail
         UpdateType: Mutable
+        Type: List
+        ItemType: WorkflowDetail
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

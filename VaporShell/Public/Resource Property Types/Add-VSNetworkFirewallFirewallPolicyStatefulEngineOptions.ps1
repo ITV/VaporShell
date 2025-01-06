@@ -14,6 +14,11 @@ function Add-VSNetworkFirewallFirewallPolicyStatefulEngineOptions {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER FlowTimeouts
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html#cfn-networkfirewall-firewallpolicy-statefulengineoptions-flowtimeouts
+        UpdateType: Mutable
+        Type: FlowTimeouts
+
     .PARAMETER RuleOrder
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html#cfn-networkfirewall-firewallpolicy-statefulengineoptions-ruleorder
         UpdateType: Mutable
@@ -39,6 +44,9 @@ function Add-VSNetworkFirewallFirewallPolicyStatefulEngineOptions {
                 }
             })]
         $StreamExceptionPolicy,
+
+        [Parameter(Mandatory = $false)]
+        $FlowTimeouts,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

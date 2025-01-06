@@ -11,99 +11,99 @@ function Add-VSIoTWirelessDeviceProfileLoRaWANDeviceProfile {
 
     .PARAMETER PingSlotPeriod
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotperiod
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER ClassCTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classctimeout
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER RxFreq2
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-rxfreq2
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER RfRegion
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-rfregion
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ClassBTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-classbtimeout
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER RxDelay1
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-rxdelay1
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER SupportsClassC
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassc
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER SupportsClassB
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsclassb
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER RxDrOffset1
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-rxdroffset1
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER MaxEirp
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxeirp
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER FactoryPresetFreqsList
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-factorypresetfreqslist
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: List
         PrimitiveItemType: Integer
         DuplicatesAllowed: True
 
     .PARAMETER SupportsJoin
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supportsjoin
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER PingSlotDr
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotdr
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER MacVersion
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-macversion
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER PingSlotFreq
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-pingslotfreq
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER RegParamsRevision
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-regparamsrevision
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER RxDataRate2
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-rxdatarate2
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER Supports32BitFCnt
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-supports32bitfcnt
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER MaxDutyCycle
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-deviceprofile-lorawandeviceprofile.html#cfn-iotwireless-deviceprofile-lorawandeviceprofile-maxdutycycle
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .FUNCTIONALITY

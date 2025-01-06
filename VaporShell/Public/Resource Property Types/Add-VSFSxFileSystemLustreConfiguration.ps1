@@ -19,6 +19,11 @@ function Add-VSFSxFileSystemLustreConfiguration {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER EfaEnabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-efaenabled
+        PrimitiveType: Boolean
+        UpdateType: Immutable
+
     .PARAMETER ImportedFileChunkSize
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-importedfilechunksize
         PrimitiveType: Integer
@@ -106,6 +111,18 @@ function Add-VSFSxFileSystemLustreConfiguration {
                 }
             })]
         $AutoImportPolicy,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EfaEnabled,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

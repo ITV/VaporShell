@@ -44,21 +44,28 @@ function New-VSECSTaskSet {
         UpdateType: Immutable
         PrimitiveType: String
 
-    .PARAMETER NetworkConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
-        UpdateType: Immutable
-        Type: NetworkConfiguration
-
     .PARAMETER Scale
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
         UpdateType: Mutable
         Type: Scale
+
+    .PARAMETER NetworkConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
+        UpdateType: Immutable
+        Type: NetworkConfiguration
 
     .PARAMETER ServiceRegistries
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
         UpdateType: Immutable
         Type: List
         ItemType: ServiceRegistry
+        DuplicatesAllowed: True
+
+    .PARAMETER CapacityProviderStrategy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-capacityproviderstrategy
+        UpdateType: Immutable
+        Type: List
+        ItemType: CapacityProviderStrategyItem
         DuplicatesAllowed: True
 
     .PARAMETER LaunchType
@@ -210,10 +217,10 @@ function New-VSECSTaskSet {
         $Service,
 
         [Parameter(Mandatory = $false)]
-        $NetworkConfiguration,
+        $Scale,
 
         [Parameter(Mandatory = $false)]
-        $Scale,
+        $NetworkConfiguration,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -226,6 +233,18 @@ function New-VSECSTaskSet {
                 }
             })]
         $ServiceRegistries,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ECS.TaskSet.CapacityProviderStrategyItem"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CapacityProviderStrategy,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -336,6 +355,12 @@ function New-VSECSTaskSet {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ServiceRegistries -Value @($ServiceRegistries)
+                }
+                CapacityProviderStrategy {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name CapacityProviderStrategy -Value @($CapacityProviderStrategy)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

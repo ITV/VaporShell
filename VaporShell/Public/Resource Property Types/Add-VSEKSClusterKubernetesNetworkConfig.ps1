@@ -24,6 +24,11 @@ function Add-VSEKSClusterKubernetesNetworkConfig {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER ElasticLoadBalancing
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-elasticloadbalancing
+        UpdateType: Immutable
+        Type: ElasticLoadBalancing
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -67,7 +72,10 @@ function Add-VSEKSClusterKubernetesNetworkConfig {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $IpFamily
+        $IpFamily,
+
+        [Parameter(Mandatory = $false)]
+        $ElasticLoadBalancing
 
     )
 

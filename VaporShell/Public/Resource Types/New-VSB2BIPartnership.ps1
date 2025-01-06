@@ -34,6 +34,11 @@ function New-VSB2BIPartnership {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER CapabilityOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-capabilityoptions
+        UpdateType: Mutable
+        Type: CapabilityOptions
+
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-b2bi-partnership.html#cfn-b2bi-partnership-tags
         UpdateType: Mutable
@@ -134,7 +139,7 @@ function New-VSB2BIPartnership {
             })]
         $Email,
 
-        [Parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $true)]
         $Capabilities,
 
         [Parameter(Mandatory = $false)]
@@ -148,6 +153,9 @@ function New-VSB2BIPartnership {
                 }
             })]
         $Phone,
+
+        [Parameter(Mandatory = $false)]
+        $CapabilityOptions,
 
         [VaporShell.Core.TransformTag()]
         [Parameter(Mandatory = $false)]

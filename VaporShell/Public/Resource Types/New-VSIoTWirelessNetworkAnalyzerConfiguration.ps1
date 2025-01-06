@@ -38,7 +38,7 @@ function New-VSIoTWirelessNetworkAnalyzerConfiguration {
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-networkanalyzerconfiguration.html#cfn-iotwireless-networkanalyzerconfiguration-tags
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False

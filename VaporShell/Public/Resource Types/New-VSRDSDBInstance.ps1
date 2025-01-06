@@ -22,6 +22,11 @@ function New-VSRDSDBInstance {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER DBSystemId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-dbsystemid
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER CertificateDetails
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-certificatedetails
         UpdateType: Mutable
@@ -29,7 +34,7 @@ function New-VSRDSDBInstance {
 
     .PARAMETER Port
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html#cfn-rds-dbinstance-port
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DBClusterIdentifier
@@ -497,6 +502,18 @@ function New-VSRDSDBInstance {
                 }
             })]
         $Timezone,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DBSystemId,
 
         [Parameter(Mandatory = $false)]
         $CertificateDetails,

@@ -12,6 +12,11 @@ function New-VSCassandraKeyspace {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER ClientSideTimestampsEnabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-clientsidetimestampsenabled
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER KeyspaceName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
         UpdateType: Immutable
@@ -19,7 +24,7 @@ function New-VSCassandraKeyspace {
 
     .PARAMETER ReplicationSpecification
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-replicationspecification
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: ReplicationSpecification
 
     .PARAMETER Tags
@@ -92,6 +97,18 @@ function New-VSCassandraKeyspace {
             })]
         [System.String]
         $LogicalId,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ClientSideTimestampsEnabled,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

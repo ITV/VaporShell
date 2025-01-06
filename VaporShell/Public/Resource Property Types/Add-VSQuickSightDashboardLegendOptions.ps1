@@ -14,6 +14,11 @@ function Add-VSQuickSightDashboardLegendOptions {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER ValueFontConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-legendoptions.html#cfn-quicksight-dashboard-legendoptions-valuefontconfiguration
+        UpdateType: Mutable
+        Type: FontConfiguration
+
     .PARAMETER Title
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-legendoptions.html#cfn-quicksight-dashboard-legendoptions-title
         UpdateType: Mutable
@@ -54,6 +59,9 @@ function Add-VSQuickSightDashboardLegendOptions {
                 }
             })]
         $Position,
+
+        [Parameter(Mandatory = $false)]
+        $ValueFontConfiguration,
 
         [Parameter(Mandatory = $false)]
         $Title,

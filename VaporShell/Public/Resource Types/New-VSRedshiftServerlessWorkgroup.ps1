@@ -17,17 +17,17 @@ function New-VSRedshiftServerlessWorkgroup {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER Port
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-port
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
     .PARAMETER ConfigParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-configparameters
         UpdateType: Mutable
         Type: List
         ItemType: ConfigParameter
         DuplicatesAllowed: False
-
-    .PARAMETER Port
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-port
-        UpdateType: Mutable
-        PrimitiveType: Integer
 
     .PARAMETER WorkgroupName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-workgroupname
@@ -48,6 +48,11 @@ function New-VSRedshiftServerlessWorkgroup {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-publiclyaccessible
         UpdateType: Mutable
         PrimitiveType: Boolean
+
+    .PARAMETER PricePerformanceTarget
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-priceperformancetarget
+        UpdateType: Mutable
+        Type: PerformanceTarget
 
     .PARAMETER SecurityGroupIds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html#cfn-redshiftserverless-workgroup-securitygroupids
@@ -153,18 +158,6 @@ function New-VSRedshiftServerlessWorkgroup {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.RedshiftServerless.Workgroup.ConfigParameter"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ConfigParameters,
-
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -174,6 +167,18 @@ function New-VSRedshiftServerlessWorkgroup {
                 }
             })]
         $Port,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.RedshiftServerless.Workgroup.ConfigParameter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ConfigParameters,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -222,6 +227,9 @@ function New-VSRedshiftServerlessWorkgroup {
                 }
             })]
         $PubliclyAccessible,
+
+        [Parameter(Mandatory = $false)]
+        $PricePerformanceTarget,
 
         [Parameter(Mandatory = $false)]
         $SecurityGroupIds,

@@ -85,12 +85,12 @@ function New-VSElastiCacheServerlessCache {
 
     .PARAMETER MajorEngineVersion
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-majorengineversion
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Engine
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html#cfn-elasticache-serverlesscache-engine
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Tags

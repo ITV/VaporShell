@@ -14,6 +14,11 @@ function Add-VSSageMakerDomainDomainSettings {
         UpdateType: Mutable
         Type: DockerSettings
 
+    .PARAMETER ExecutionRoleIdentityConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-executionroleidentityconfig
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER RStudioServerProDomainSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html#cfn-sagemaker-domain-domainsettings-rstudioserverprodomainsettings
         UpdateType: Mutable
@@ -37,6 +42,18 @@ function Add-VSSageMakerDomainDomainSettings {
     (
         [Parameter(Mandatory = $false)]
         $DockerSettings,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ExecutionRoleIdentityConfig,
 
         [Parameter(Mandatory = $false)]
         $RStudioServerProDomainSettings,

@@ -19,6 +19,11 @@ function Add-VSBedrockKnowledgeBaseVectorKnowledgeBaseConfiguration {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER SupplementalDataStorageConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-vectorknowledgebaseconfiguration-supplementaldatastorageconfiguration
+        UpdateType: Immutable
+        Type: SupplementalDataStorageConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -41,7 +46,10 @@ function Add-VSBedrockKnowledgeBaseVectorKnowledgeBaseConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $EmbeddingModelArn
+        $EmbeddingModelArn,
+
+        [Parameter(Mandatory = $false)]
+        $SupplementalDataStorageConfiguration
 
     )
 

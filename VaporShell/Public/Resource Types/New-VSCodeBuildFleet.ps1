@@ -32,10 +32,25 @@ function New-VSCodeBuildFleet {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER ScalingConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-scalingconfiguration
+        UpdateType: Mutable
+        Type: ScalingConfigurationInput
+
     .PARAMETER BaseCapacity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-basecapacity
         UpdateType: Mutable
         PrimitiveType: Integer
+
+    .PARAMETER FleetProxyConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-fleetproxyconfiguration
+        UpdateType: Mutable
+        Type: ProxyConfiguration
+
+    .PARAMETER ComputeConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-computeconfiguration
+        UpdateType: Mutable
+        Type: ComputeConfiguration
 
     .PARAMETER ComputeType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-fleet.html#cfn-codebuild-fleet-computetype
@@ -172,6 +187,9 @@ function New-VSCodeBuildFleet {
         $ImageId,
 
         [Parameter(Mandatory = $false)]
+        $ScalingConfiguration,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -182,6 +200,12 @@ function New-VSCodeBuildFleet {
                 }
             })]
         $BaseCapacity,
+
+        [Parameter(Mandatory = $false)]
+        $FleetProxyConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $ComputeConfiguration,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

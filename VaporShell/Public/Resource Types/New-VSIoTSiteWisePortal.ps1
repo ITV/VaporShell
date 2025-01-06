@@ -32,6 +32,12 @@ function New-VSIoTSiteWisePortal {
         UpdateType: Mutable
         Type: Alarms
 
+    .PARAMETER PortalTypeConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaltypeconfiguration
+        UpdateType: Mutable
+        Type: Map
+        ItemType: PortalTypeEntry
+
     .PARAMETER PortalContactEmail
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
         UpdateType: Mutable
@@ -40,6 +46,11 @@ function New-VSIoTSiteWisePortal {
     .PARAMETER RoleArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER PortalType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaltype
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Tags
@@ -157,6 +168,18 @@ function New-VSIoTSiteWisePortal {
         [Parameter(Mandatory = $false)]
         $Alarms,
 
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.IoTSiteWise.Portal.PortalTypeEntry"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PortalTypeConfiguration,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -180,6 +203,18 @@ function New-VSIoTSiteWisePortal {
                 }
             })]
         $RoleArn,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PortalType,
 
         [VaporShell.Core.TransformTag()]
         [Parameter(Mandatory = $false)]

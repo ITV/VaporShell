@@ -12,6 +12,16 @@ function New-VSIoTDomainConfiguration {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER ApplicationProtocol
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-applicationprotocol
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ClientCertificateConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-clientcertificateconfig
+        UpdateType: Mutable
+        Type: ClientCertificateConfig
+
     .PARAMETER DomainConfigurationName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationname
         UpdateType: Immutable
@@ -26,21 +36,6 @@ function New-VSIoTDomainConfiguration {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationstatus
         UpdateType: Mutable
         PrimitiveType: String
-
-    .PARAMETER ServiceType
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER ValidationCertificateArn
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-validationcertificatearn
-        UpdateType: Immutable
-        PrimitiveType: String
-
-    .PARAMETER TlsConfig
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tlsconfig
-        UpdateType: Mutable
-        Type: TlsConfig
 
     .PARAMETER ServerCertificateArns
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
@@ -59,12 +54,32 @@ function New-VSIoTDomainConfiguration {
         UpdateType: Mutable
         Type: AuthorizerConfig
 
+    .PARAMETER ServiceType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ValidationCertificateArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-validationcertificatearn
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER TlsConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tlsconfig
+        UpdateType: Mutable
+        Type: TlsConfig
+
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tags
         UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: False
+
+    .PARAMETER AuthenticationType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authenticationtype
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -140,6 +155,21 @@ function New-VSIoTDomainConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $ApplicationProtocol,
+
+        [Parameter(Mandatory = $false)]
+        $ClientCertificateConfig,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $DomainConfigurationName,
 
         [Parameter(Mandatory = $false)]
@@ -165,6 +195,15 @@ function New-VSIoTDomainConfiguration {
                 }
             })]
         $DomainConfigurationStatus,
+
+        [Parameter(Mandatory = $false)]
+        $ServerCertificateArns,
+
+        [Parameter(Mandatory = $false)]
+        $ServerCertificateConfig,
+
+        [Parameter(Mandatory = $false)]
+        $AuthorizerConfig,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -193,18 +232,21 @@ function New-VSIoTDomainConfiguration {
         [Parameter(Mandatory = $false)]
         $TlsConfig,
 
-        [Parameter(Mandatory = $false)]
-        $ServerCertificateArns,
-
-        [Parameter(Mandatory = $false)]
-        $ServerCertificateConfig,
-
-        [Parameter(Mandatory = $false)]
-        $AuthorizerConfig,
-
         [VaporShell.Core.TransformTag()]
         [Parameter(Mandatory = $false)]
         $Tags,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AuthenticationType,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

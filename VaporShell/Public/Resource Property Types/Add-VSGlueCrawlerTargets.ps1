@@ -10,46 +10,53 @@ function Add-VSGlueCrawlerTargets {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html
 
     .PARAMETER S3Targets
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-s3targets
-        ItemType: S3Target
         UpdateType: Mutable
+        Type: List
+        ItemType: S3Target
+        DuplicatesAllowed: True
 
     .PARAMETER CatalogTargets
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-catalogtargets
-        ItemType: CatalogTarget
         UpdateType: Mutable
+        Type: List
+        ItemType: CatalogTarget
+        DuplicatesAllowed: True
 
     .PARAMETER DeltaTargets
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-deltatargets
-        ItemType: DeltaTarget
         UpdateType: Mutable
+        Type: List
+        ItemType: DeltaTarget
+        DuplicatesAllowed: True
 
     .PARAMETER MongoDBTargets
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-mongodbtargets
-        ItemType: MongoDBTarget
         UpdateType: Mutable
+        Type: List
+        ItemType: MongoDBTarget
+        DuplicatesAllowed: True
 
     .PARAMETER JdbcTargets
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-jdbctargets
-        ItemType: JdbcTarget
         UpdateType: Mutable
+        Type: List
+        ItemType: JdbcTarget
+        DuplicatesAllowed: True
 
     .PARAMETER DynamoDBTargets
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-dynamodbtargets
-        ItemType: DynamoDBTarget
         UpdateType: Mutable
+        Type: List
+        ItemType: DynamoDBTarget
+        DuplicatesAllowed: True
 
     .PARAMETER IcebergTargets
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-icebergtargets
-        ItemType: IcebergTarget
         UpdateType: Mutable
+        Type: List
+        ItemType: IcebergTarget
+        DuplicatesAllowed: True
 
     .FUNCTIONALITY
         Vaporshell

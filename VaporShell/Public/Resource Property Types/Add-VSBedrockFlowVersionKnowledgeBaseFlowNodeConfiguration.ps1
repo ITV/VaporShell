@@ -9,6 +9,11 @@ function Add-VSBedrockFlowVersionKnowledgeBaseFlowNodeConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html
 
+    .PARAMETER GuardrailConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flowversion-knowledgebaseflownodeconfiguration-guardrailconfiguration
+        UpdateType: Mutable
+        Type: GuardrailConfiguration
+
     .PARAMETER KnowledgeBaseId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flowversion-knowledgebaseflownodeconfiguration-knowledgebaseid
         UpdateType: Mutable
@@ -28,6 +33,9 @@ function Add-VSBedrockFlowVersionKnowledgeBaseFlowNodeConfiguration {
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $GuardrailConfiguration,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

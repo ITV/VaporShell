@@ -17,8 +17,8 @@ function New-VSMediaLiveInput {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-srtsettings
         UpdateType: Mutable
 
-    .PARAMETER Type
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-type
+    .PARAMETER InputNetworkLocation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputnetworklocation
         PrimitiveType: String
         UpdateType: Immutable
 
@@ -39,18 +39,6 @@ function New-VSMediaLiveInput {
         ItemType: MediaConnectFlowRequest
         UpdateType: Mutable
 
-    .PARAMETER InputSecurityGroups
-        PrimitiveItemType: String
-        Type: List
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputsecuritygroups
-        UpdateType: Mutable
-
-    .PARAMETER InputDevices
-        Type: List
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputdevices
-        ItemType: InputDeviceSettings
-        UpdateType: Mutable
-
     .PARAMETER Sources
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-sources
@@ -62,14 +50,36 @@ function New-VSMediaLiveInput {
         PrimitiveType: String
         UpdateType: Mutable
 
-    .PARAMETER Tags
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-tags
-        PrimitiveType: Json
-        UpdateType: Mutable
-
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-name
         PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER Type
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-type
+        PrimitiveType: String
+        UpdateType: Immutable
+
+    .PARAMETER InputSecurityGroups
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputsecuritygroups
+        UpdateType: Mutable
+
+    .PARAMETER MulticastSettings
+        Type: MulticastSettingsCreateRequest
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-multicastsettings
+        UpdateType: Mutable
+
+    .PARAMETER InputDevices
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputdevices
+        ItemType: InputDeviceSettings
+        UpdateType: Mutable
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-tags
+        PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
@@ -149,7 +159,7 @@ function New-VSMediaLiveInput {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Type,
+        $InputNetworkLocation,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -179,21 +189,6 @@ function New-VSMediaLiveInput {
         $MediaConnectFlows,
 
         [Parameter(Mandatory = $false)]
-        $InputSecurityGroups,
-
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.MediaLive.Input.InputDeviceSettings"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $InputDevices,
-
-        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Input.InputSourceRequest"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -219,7 +214,7 @@ function New-VSMediaLiveInput {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -227,7 +222,7 @@ function New-VSMediaLiveInput {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Tags,
+        $Name,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -239,7 +234,37 @@ function New-VSMediaLiveInput {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $Type,
+
+        [Parameter(Mandatory = $false)]
+        $InputSecurityGroups,
+
+        [Parameter(Mandatory = $false)]
+        $MulticastSettings,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.MediaLive.Input.InputDeviceSettings"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $InputDevices,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Tags,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -335,6 +360,12 @@ function New-VSMediaLiveInput {
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name MediaConnectFlows -Value @($MediaConnectFlows)
                 }
+                Sources {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Sources -Value @($Sources)
+                }
                 InputSecurityGroups {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -346,12 +377,6 @@ function New-VSMediaLiveInput {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name InputDevices -Value @($InputDevices)
-                }
-                Sources {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Sources -Value @($Sources)
                 }
                 Tags {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){

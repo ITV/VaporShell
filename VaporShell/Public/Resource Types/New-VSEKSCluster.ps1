@@ -17,6 +17,16 @@ function New-VSEKSCluster {
         UpdateType: Mutable
         Type: Logging
 
+    .PARAMETER ComputeConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-computeconfig
+        UpdateType: Mutable
+        Type: ComputeConfig
+
+    .PARAMETER StorageConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-storageconfig
+        UpdateType: Mutable
+        Type: StorageConfig
+
     .PARAMETER BootstrapSelfManagedAddons
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-bootstrapselfmanagedaddons
         UpdateType: Immutable
@@ -58,6 +68,11 @@ function New-VSEKSCluster {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-upgradepolicy
         UpdateType: Mutable
         Type: UpgradePolicy
+
+    .PARAMETER RemoteNetworkConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-remotenetworkconfig
+        UpdateType: Immutable
+        Type: RemoteNetworkConfig
 
     .PARAMETER Version
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-version
@@ -149,6 +164,12 @@ function New-VSEKSCluster {
         $Logging,
 
         [Parameter(Mandatory = $false)]
+        $ComputeConfig,
+
+        [Parameter(Mandatory = $false)]
+        $StorageConfig,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -207,6 +228,9 @@ function New-VSEKSCluster {
 
         [Parameter(Mandatory = $false)]
         $UpgradePolicy,
+
+        [Parameter(Mandatory = $false)]
+        $RemoteNetworkConfig,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

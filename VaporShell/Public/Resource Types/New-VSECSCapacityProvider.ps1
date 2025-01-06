@@ -93,7 +93,7 @@ function New-VSECSCapacityProvider {
         [System.String]
         $LogicalId,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         $AutoScalingGroupProvider,
 
         [VaporShell.Core.TransformTag()]

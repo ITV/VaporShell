@@ -10,15 +10,16 @@ function Add-VSBatchJobDefinitionRetryStrategy {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html
 
     .PARAMETER EvaluateOnExit
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-evaluateonexit
-        ItemType: EvaluateOnExit
         UpdateType: Mutable
+        Type: List
+        ItemType: EvaluateOnExit
+        DuplicatesAllowed: True
 
     .PARAMETER Attempts
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-retrystrategy.html#cfn-batch-jobdefinition-retrystrategy-attempts
-        PrimitiveType: Integer
         UpdateType: Mutable
+        PrimitiveType: Integer
 
     .FUNCTIONALITY
         Vaporshell

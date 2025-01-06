@@ -24,7 +24,7 @@ function New-VSIoTThingType {
 
     .PARAMETER ThingTypeProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingtype.html#cfn-iot-thingtype-thingtypeproperties
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: ThingTypeProperties
 
     .PARAMETER Tags

@@ -11,12 +11,12 @@ function Add-VSGameLiftContainerGroupDefinitionContainerEnvironment {
 
     .PARAMETER Value
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerenvironment.html#cfn-gamelift-containergroupdefinition-containerenvironment-value
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerenvironment.html#cfn-gamelift-containergroupdefinition-containerenvironment-name
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY

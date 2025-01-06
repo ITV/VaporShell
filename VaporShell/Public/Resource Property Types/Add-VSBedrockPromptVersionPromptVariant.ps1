@@ -46,7 +46,7 @@ function Add-VSBedrockPromptVersionPromptVariant {
         [Parameter(Mandatory = $false)]
         $InferenceConfiguration,
 
-        [Parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $true)]
         $TemplateConfiguration,
 
         [Parameter(Mandatory = $true)]

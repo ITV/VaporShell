@@ -11,12 +11,12 @@ function Add-VSGameLiftContainerGroupDefinitionContainerDependency {
 
     .PARAMETER Condition
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerdependency.html#cfn-gamelift-containergroupdefinition-containerdependency-condition
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ContainerName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerdependency.html#cfn-gamelift-containergroupdefinition-containerdependency-containername
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY

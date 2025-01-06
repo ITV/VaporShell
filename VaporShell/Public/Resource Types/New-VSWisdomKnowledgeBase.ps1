@@ -32,6 +32,11 @@ function New-VSWisdomKnowledgeBase {
         UpdateType: Immutable
         Type: ServerSideEncryptionConfiguration
 
+    .PARAMETER VectorIngestionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-vectoringestionconfiguration
+        UpdateType: Mutable
+        Type: VectorIngestionConfiguration
+
     .PARAMETER RenderingConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wisdom-knowledgebase.html#cfn-wisdom-knowledgebase-renderingconfiguration
         UpdateType: Mutable
@@ -142,6 +147,9 @@ function New-VSWisdomKnowledgeBase {
 
         [Parameter(Mandatory = $false)]
         $ServerSideEncryptionConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $VectorIngestionConfiguration,
 
         [Parameter(Mandatory = $false)]
         $RenderingConfiguration,

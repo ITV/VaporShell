@@ -20,6 +20,11 @@ function Add-VSBedrockAgentFunction {
         Type: Map
         ItemType: ParameterDetail
 
+    .PARAMETER RequireConfirmation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html#cfn-bedrock-agent-function-requireconfirmation
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-function.html#cfn-bedrock-agent-function-name
         UpdateType: Mutable
@@ -57,6 +62,18 @@ function Add-VSBedrockAgentFunction {
                 }
             })]
         $Parameters,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RequireConfirmation,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

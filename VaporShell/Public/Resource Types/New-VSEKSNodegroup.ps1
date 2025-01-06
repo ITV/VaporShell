@@ -45,6 +45,11 @@ function New-VSEKSNodegroup {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER NodeRepairConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderepairconfig
+        UpdateType: Mutable
+        Type: NodeRepairConfig
+
     .PARAMETER NodegroupName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-nodegroupname
         UpdateType: Immutable
@@ -219,6 +224,9 @@ function New-VSEKSNodegroup {
                 }
             })]
         $ReleaseVersion,
+
+        [Parameter(Mandatory = $false)]
+        $NodeRepairConfig,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

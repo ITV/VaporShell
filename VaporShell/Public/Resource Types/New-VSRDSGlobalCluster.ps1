@@ -32,6 +32,11 @@ function New-VSRDSGlobalCluster {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER GlobalEndpoint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalendpoint
+        UpdateType: Mutable
+        Type: GlobalEndpoint
+
     .PARAMETER DeletionProtection
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
         UpdateType: Mutable
@@ -165,6 +170,9 @@ function New-VSRDSGlobalCluster {
                 }
             })]
         $SourceDBClusterIdentifier,
+
+        [Parameter(Mandatory = $false)]
+        $GlobalEndpoint,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

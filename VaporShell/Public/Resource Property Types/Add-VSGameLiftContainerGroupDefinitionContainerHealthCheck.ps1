@@ -11,29 +11,29 @@ function Add-VSGameLiftContainerGroupDefinitionContainerHealthCheck {
 
     .PARAMETER Command
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html#cfn-gamelift-containergroupdefinition-containerhealthcheck-command
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
     .PARAMETER Timeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html#cfn-gamelift-containergroupdefinition-containerhealthcheck-timeout
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Retries
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html#cfn-gamelift-containergroupdefinition-containerhealthcheck-retries
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER Interval
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html#cfn-gamelift-containergroupdefinition-containerhealthcheck-interval
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER StartPeriod
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html#cfn-gamelift-containergroupdefinition-containerhealthcheck-startperiod
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Integer
 
     .FUNCTIONALITY

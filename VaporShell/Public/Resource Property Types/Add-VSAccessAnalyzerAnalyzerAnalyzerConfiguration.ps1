@@ -11,7 +11,7 @@ function Add-VSAccessAnalyzerAnalyzerAnalyzerConfiguration {
 
     .PARAMETER UnusedAccessConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analyzerconfiguration.html#cfn-accessanalyzer-analyzer-analyzerconfiguration-unusedaccessconfiguration
-        UpdateType: Immutable
+        UpdateType: Conditional
         Type: UnusedAccessConfiguration
 
     .FUNCTIONALITY

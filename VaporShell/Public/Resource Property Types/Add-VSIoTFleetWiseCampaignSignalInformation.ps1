@@ -14,6 +14,11 @@ function Add-VSIoTFleetWiseCampaignSignalInformation {
         UpdateType: Mutable
         PrimitiveType: Double
 
+    .PARAMETER DataPartitionId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html#cfn-iotfleetwise-campaign-signalinformation-datapartitionid
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER MinimumSamplingIntervalMs
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html#cfn-iotfleetwise-campaign-signalinformation-minimumsamplingintervalms
         UpdateType: Mutable
@@ -44,6 +49,18 @@ function Add-VSIoTFleetWiseCampaignSignalInformation {
                 }
             })]
         $MaxSampleCount,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DataPartitionId,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

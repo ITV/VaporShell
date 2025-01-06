@@ -12,12 +12,12 @@ function Add-VSQuickSightTemplateTablePaginatedReportOptions {
     .PARAMETER OverflowColumnHeaderVisibility
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablepaginatedreportoptions.html#cfn-quicksight-template-tablepaginatedreportoptions-overflowcolumnheadervisibility
         UpdateType: Mutable
-        PrimitiveType: String
+        PrimitiveType: Json
 
     .PARAMETER VerticalOverflowVisibility
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablepaginatedreportoptions.html#cfn-quicksight-template-tablepaginatedreportoptions-verticaloverflowvisibility
         UpdateType: Mutable
-        PrimitiveType: String
+        PrimitiveType: Json
 
     .FUNCTIONALITY
         Vaporshell
@@ -30,7 +30,7 @@ function Add-VSQuickSightTemplateTablePaginatedReportOptions {
     (
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -42,7 +42,7 @@ function Add-VSQuickSightTemplateTablePaginatedReportOptions {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -62,6 +62,34 @@ function Add-VSQuickSightTemplateTablePaginatedReportOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
+                OverflowColumnHeaderVisibility {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
+                }
+                VerticalOverflowVisibility {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
+                }
                 Default {
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
                 }

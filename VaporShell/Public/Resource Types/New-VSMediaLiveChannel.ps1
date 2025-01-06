@@ -23,16 +23,6 @@ function New-VSMediaLiveChannel {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-inputspecification
         UpdateType: Mutable
 
-    .PARAMETER ChannelClass
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-channelclass
-        PrimitiveType: String
-        UpdateType: Mutable
-
-    .PARAMETER EncoderSettings
-        Type: EncoderSettings
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-encodersettings
-        UpdateType: Mutable
-
     .PARAMETER Destinations
         Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-destinations
@@ -43,11 +33,6 @@ function New-VSMediaLiveChannel {
         Type: VpcOutputSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-vpc
         UpdateType: Immutable
-
-    .PARAMETER CdiInputSpecification
-        Type: CdiInputSpecification
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-cdiinputspecification
-        UpdateType: Mutable
 
     .PARAMETER Maintenance
         Type: MaintenanceCreateSettings
@@ -64,14 +49,34 @@ function New-VSMediaLiveChannel {
         PrimitiveType: String
         UpdateType: Mutable
 
-    .PARAMETER Tags
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-tags
-        PrimitiveType: Json
-        UpdateType: Mutable
-
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-name
         PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER ChannelClass
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-channelclass
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER EncoderSettings
+        Type: EncoderSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-encodersettings
+        UpdateType: Mutable
+
+    .PARAMETER AnywhereSettings
+        Type: AnywhereSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-anywheresettings
+        UpdateType: Immutable
+
+    .PARAMETER CdiInputSpecification
+        Type: CdiInputSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-cdiinputspecification
+        UpdateType: Mutable
+
+    .PARAMETER Tags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-tags
+        PrimitiveType: Json
         UpdateType: Mutable
 
     .PARAMETER DeletionPolicy
@@ -155,21 +160,6 @@ function New-VSMediaLiveChannel {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ChannelClass,
-
-        [Parameter(Mandatory = $false)]
-        $EncoderSettings,
-
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaLive.Channel.OutputDestination"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -182,9 +172,6 @@ function New-VSMediaLiveChannel {
 
         [Parameter(Mandatory = $false)]
         $Vpc,
-
-        [Parameter(Mandatory = $false)]
-        $CdiInputSpecification,
 
         [Parameter(Mandatory = $false)]
         $Maintenance,
@@ -215,7 +202,7 @@ function New-VSMediaLiveChannel {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -223,7 +210,7 @@ function New-VSMediaLiveChannel {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Tags,
+        $Name,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -235,7 +222,28 @@ function New-VSMediaLiveChannel {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Name,
+        $ChannelClass,
+
+        [Parameter(Mandatory = $false)]
+        $EncoderSettings,
+
+        [Parameter(Mandatory = $false)]
+        $AnywhereSettings,
+
+        [Parameter(Mandatory = $false)]
+        $CdiInputSpecification,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Tags,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -42,6 +42,13 @@ function New-VSQuickSightDashboard {
         UpdateType: Mutable
         Type: ValidationStrategy
 
+    .PARAMETER FolderArns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-folderarns
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .PARAMETER DashboardId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardid
         UpdateType: Immutable
@@ -188,6 +195,9 @@ function New-VSQuickSightDashboard {
         [Parameter(Mandatory = $false)]
         $ValidationStrategy,
 
+        [Parameter(Mandatory = $false)]
+        $FolderArns,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -330,6 +340,12 @@ function New-VSQuickSightDashboard {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                FolderArns {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name FolderArns -Value @($FolderArns)
                 }
                 Permissions {
                     if (!($ResourceParams["Properties"])) {

@@ -32,6 +32,11 @@ function New-VSOpenSearchServerlessSecurityConfig {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER IamIdentityCenterOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-securityconfig.html#cfn-opensearchserverless-securityconfig-iamidentitycenteroptions
+        UpdateType: Mutable
+        Type: IamIdentityCenterConfigOptions
+
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
 
@@ -134,6 +139,9 @@ function New-VSOpenSearchServerlessSecurityConfig {
                 }
             })]
         $Name,
+
+        [Parameter(Mandatory = $false)]
+        $IamIdentityCenterOptions,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

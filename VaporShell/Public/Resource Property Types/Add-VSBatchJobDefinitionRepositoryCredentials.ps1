@@ -7,12 +7,12 @@ function Add-VSBatchJobDefinitionRepositoryCredentials {
         Adds an AWS::Batch::JobDefinition.RepositoryCredentials resource property to the template.
 
     .LINK
-        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-repositorycredentials.html
+        http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-repositorycredentials.html
 
     .PARAMETER CredentialsParameter
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-repositorycredentials.html#cfn-batch-jobdefinition-taskcontainerproperties-repositorycredentials-credentialsparameter
-        PrimitiveType: String
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-repositorycredentials.html#cfn-batch-jobdefinition-repositorycredentials-credentialsparameter
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell

@@ -11,97 +11,97 @@ function Add-VSIoTWirelessServiceProfileLoRaWANServiceProfile {
 
     .PARAMETER DlBucketSize
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlbucketsize
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER MinGwDiversity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-mingwdiversity
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER DrMax
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmax
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER ReportDevStatusMargin
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusmargin
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER PrAllowed
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-prallowed
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER DlRate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlrate
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER UlRatePolicy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulratepolicy
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER ReportDevStatusBattery
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-reportdevstatusbattery
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER ChannelMask
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-channelmask
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER UlRate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulrate
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER AddGwMetadata
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-addgwmetadata
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER DlRatePolicy
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-dlratepolicy
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER HrAllowed
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-hrallowed
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER DrMin
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-drmin
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER TargetPer
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-targetper
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER NwkGeoLoc
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-nwkgeoloc
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER DevStatusReqFreq
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-devstatusreqfreq
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER UlBucketSize
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-ulbucketsize
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER RaAllowed
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-serviceprofile-lorawanserviceprofile.html#cfn-iotwireless-serviceprofile-lorawanserviceprofile-raallowed
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Boolean
 
     .FUNCTIONALITY

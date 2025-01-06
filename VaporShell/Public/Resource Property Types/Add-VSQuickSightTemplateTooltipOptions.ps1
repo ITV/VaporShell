@@ -17,7 +17,7 @@ function Add-VSQuickSightTemplateTooltipOptions {
     .PARAMETER TooltipVisibility
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tooltipoptions.html#cfn-quicksight-template-tooltipoptions-tooltipvisibility
         UpdateType: Mutable
-        PrimitiveType: String
+        PrimitiveType: Json
 
     .PARAMETER FieldBasedTooltip
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tooltipoptions.html#cfn-quicksight-template-tooltipoptions-fieldbasedtooltip
@@ -47,7 +47,7 @@ function Add-VSQuickSightTemplateTooltipOptions {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -70,6 +70,20 @@ function Add-VSQuickSightTemplateTooltipOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
+                TooltipVisibility {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
+                }
                 Default {
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
                 }

@@ -38,7 +38,7 @@ function New-VSAccessAnalyzerAnalyzer {
 
     .PARAMETER AnalyzerConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html#cfn-accessanalyzer-analyzer-analyzerconfiguration
-        UpdateType: Immutable
+        UpdateType: Conditional
         Type: AnalyzerConfiguration
 
     .PARAMETER DeletionPolicy
