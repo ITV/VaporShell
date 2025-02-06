@@ -14,6 +14,11 @@ function Add-VSEKSNodegroupUpdateConfig {
         UpdateType: Mutable
         PrimitiveType: Double
 
+    .PARAMETER UpdateStrategy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-updatestrategy
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER MaxUnavailable
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-updateconfig.html#cfn-eks-nodegroup-updateconfig-maxunavailable
         UpdateType: Mutable
@@ -39,6 +44,18 @@ function Add-VSEKSNodegroupUpdateConfig {
                 }
             })]
         $MaxUnavailablePercentage,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UpdateStrategy,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

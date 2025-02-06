@@ -14,6 +14,11 @@ function Add-VSBedrockDataSourceBedrockFoundationModelConfiguration {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER ParsingModality
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelconfiguration.html#cfn-bedrock-datasource-bedrockfoundationmodelconfiguration-parsingmodality
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER ParsingPrompt
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelconfiguration.html#cfn-bedrock-datasource-bedrockfoundationmodelconfiguration-parsingprompt
         UpdateType: Immutable
@@ -39,6 +44,18 @@ function Add-VSBedrockDataSourceBedrockFoundationModelConfiguration {
                 }
             })]
         $ModelArn,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ParsingModality,
 
         [Parameter(Mandatory = $false)]
         $ParsingPrompt

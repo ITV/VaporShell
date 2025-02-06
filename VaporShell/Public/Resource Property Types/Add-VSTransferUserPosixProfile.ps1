@@ -11,19 +11,20 @@ function Add-VSTransferUserPosixProfile {
 
     .PARAMETER Uid
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-posixprofile.html#cfn-transfer-user-posixprofile-uid
-        PrimitiveType: Double
         UpdateType: Mutable
+        PrimitiveType: Double
 
     .PARAMETER SecondaryGids
-        PrimitiveItemType: Double
-        Type: List
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-posixprofile.html#cfn-transfer-user-posixprofile-secondarygids
         UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: Double
+        DuplicatesAllowed: True
 
     .PARAMETER Gid
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-user-posixprofile.html#cfn-transfer-user-posixprofile-gid
-        PrimitiveType: Double
         UpdateType: Mutable
+        PrimitiveType: Double
 
     .FUNCTIONALITY
         Vaporshell

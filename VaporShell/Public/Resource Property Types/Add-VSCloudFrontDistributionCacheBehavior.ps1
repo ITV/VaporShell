@@ -43,6 +43,11 @@ function Add-VSCloudFrontDistributionCacheBehavior {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER GrpcConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-grpcconfig
+        UpdateType: Mutable
+        Type: GrpcConfig
+
     .PARAMETER RealtimeLogConfigArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-realtimelogconfigarn
         UpdateType: Mutable
@@ -201,6 +206,9 @@ function Add-VSCloudFrontDistributionCacheBehavior {
                 }
             })]
         $ResponseHeadersPolicyId,
+
+        [Parameter(Mandatory = $false)]
+        $GrpcConfig,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

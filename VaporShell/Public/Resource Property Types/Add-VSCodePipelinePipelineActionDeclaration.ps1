@@ -33,6 +33,20 @@ function Add-VSCodePipelinePipelineActionDeclaration {
         ItemType: OutputArtifact
         DuplicatesAllowed: False
 
+    .PARAMETER Commands
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-commands
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER OutputVariables
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-outputvariables
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
     .PARAMETER Region
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html#cfn-codepipeline-pipeline-actiondeclaration-region
         UpdateType: Mutable
@@ -110,6 +124,12 @@ function Add-VSCodePipelinePipelineActionDeclaration {
                 }
             })]
         $OutputArtifacts,
+
+        [Parameter(Mandatory = $false)]
+        $Commands,
+
+        [Parameter(Mandatory = $false)]
+        $OutputVariables,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

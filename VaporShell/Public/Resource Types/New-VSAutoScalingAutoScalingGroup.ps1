@@ -36,6 +36,11 @@ function New-VSAutoScalingAutoScalingGroup {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER AvailabilityZoneImpairmentPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-availabilityzoneimpairmentpolicy
+        UpdateType: Mutable
+        Type: AvailabilityZoneImpairmentPolicy
+
     .PARAMETER TargetGroupARNs
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-targetgrouparns
         UpdateType: Mutable
@@ -69,6 +74,11 @@ function New-VSAutoScalingAutoScalingGroup {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-defaultinstancewarmup
         UpdateType: Mutable
         PrimitiveType: Integer
+
+    .PARAMETER SkipZonalShiftValidation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-skipzonalshiftvalidation
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER NewInstancesProtectedFromScaleIn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-newinstancesprotectedfromscalein
@@ -121,6 +131,11 @@ function New-VSAutoScalingAutoScalingGroup {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER AvailabilityZoneDistribution
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-availabilityzonedistribution
+        UpdateType: Mutable
+        Type: AvailabilityZoneDistribution
+
     .PARAMETER MetricsCollection
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-metricscollection
         UpdateType: Mutable
@@ -155,6 +170,13 @@ function New-VSAutoScalingAutoScalingGroup {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER TrafficSources
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-trafficsources
+        UpdateType: Mutable
+        Type: List
+        ItemType: TrafficSourceIdentifier
+        DuplicatesAllowed: False
+
     .PARAMETER DesiredCapacityType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-desiredcapacitytype
         UpdateType: Mutable
@@ -162,8 +184,13 @@ function New-VSAutoScalingAutoScalingGroup {
 
     .PARAMETER PlacementGroup
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-placementgroup
-        UpdateType: Conditional
+        UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER CapacityReservationSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-capacityreservationspecification
+        UpdateType: Mutable
+        Type: CapacityReservationSpecification
 
     .PARAMETER HealthCheckType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#cfn-autoscaling-autoscalinggroup-healthchecktype
@@ -284,6 +311,9 @@ function New-VSAutoScalingAutoScalingGroup {
         $ServiceLinkedRoleARN,
 
         [Parameter(Mandatory = $false)]
+        $AvailabilityZoneImpairmentPolicy,
+
+        [Parameter(Mandatory = $false)]
         $TargetGroupARNs,
 
         [Parameter(Mandatory = $false)]
@@ -345,6 +375,18 @@ function New-VSAutoScalingAutoScalingGroup {
                 }
             })]
         $DefaultInstanceWarmup,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SkipZonalShiftValidation,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -419,6 +461,9 @@ function New-VSAutoScalingAutoScalingGroup {
         $AvailabilityZones,
 
         [Parameter(Mandatory = $false)]
+        $AvailabilityZoneDistribution,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.AutoScaling.AutoScalingGroup.MetricsCollection"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -474,6 +519,18 @@ function New-VSAutoScalingAutoScalingGroup {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.AutoScaling.AutoScalingGroup.TrafficSourceIdentifier"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TrafficSources,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -495,6 +552,9 @@ function New-VSAutoScalingAutoScalingGroup {
                 }
             })]
         $PlacementGroup,
+
+        [Parameter(Mandatory = $false)]
+        $CapacityReservationSpecification,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -646,6 +706,12 @@ function New-VSAutoScalingAutoScalingGroup {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name TerminationPolicies -Value @($TerminationPolicies)
+                }
+                TrafficSources {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name TrafficSources -Value @($TrafficSources)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

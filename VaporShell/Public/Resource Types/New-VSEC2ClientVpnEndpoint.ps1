@@ -61,6 +61,11 @@ function New-VSEC2ClientVpnEndpoint {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-securitygroupids
         UpdateType: Mutable
 
+    .PARAMETER DisconnectOnSessionTimeout
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-disconnectonsessiontimeout
+        PrimitiveType: Boolean
+        UpdateType: Mutable
+
     .PARAMETER ConnectionLogOptions
         Type: ConnectionLogOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-connectionlogoptions
@@ -240,6 +245,18 @@ function New-VSEC2ClientVpnEndpoint {
 
         [Parameter(Mandatory = $false)]
         $SecurityGroupIds,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DisconnectOnSessionTimeout,
 
         [Parameter(Mandatory = $true)]
         $ConnectionLogOptions,

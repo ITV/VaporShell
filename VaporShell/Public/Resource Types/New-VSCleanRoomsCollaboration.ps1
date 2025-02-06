@@ -12,6 +12,11 @@ function New-VSCleanRoomsCollaboration {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER AnalyticsEngine
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-analyticsengine
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER CreatorDisplayName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-creatordisplayname
         UpdateType: Immutable
@@ -57,6 +62,11 @@ function New-VSCleanRoomsCollaboration {
         Type: List
         ItemType: MemberSpecification
         DuplicatesAllowed: True
+
+    .PARAMETER CreatorMLMemberAbilities
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-creatormlmemberabilities
+        UpdateType: Immutable
+        Type: MLMemberAbilities
 
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-name
@@ -127,6 +137,18 @@ function New-VSCleanRoomsCollaboration {
         [System.String]
         $LogicalId,
 
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AnalyticsEngine,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -187,6 +209,9 @@ function New-VSCleanRoomsCollaboration {
                 }
             })]
         $Members,
+
+        [Parameter(Mandatory = $false)]
+        $CreatorMLMemberAbilities,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

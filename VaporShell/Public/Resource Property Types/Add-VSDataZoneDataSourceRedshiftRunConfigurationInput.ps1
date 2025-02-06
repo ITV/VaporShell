@@ -66,10 +66,10 @@ function Add-VSDataZoneDataSourceRedshiftRunConfigurationInput {
             })]
         $RelationalFilterConfigurations,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         $RedshiftCredentialConfiguration,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         $RedshiftStorage
 
     )

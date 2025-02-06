@@ -14,6 +14,11 @@ function Add-VSEMRServerlessApplicationMonitoringConfiguration {
         UpdateType: Conditional
         Type: S3MonitoringConfiguration
 
+    .PARAMETER PrometheusMonitoringConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-prometheusmonitoringconfiguration
+        UpdateType: Conditional
+        Type: PrometheusMonitoringConfiguration
+
     .PARAMETER ManagedPersistenceMonitoringConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-monitoringconfiguration.html#cfn-emrserverless-application-monitoringconfiguration-managedpersistencemonitoringconfiguration
         UpdateType: Conditional
@@ -35,6 +40,9 @@ function Add-VSEMRServerlessApplicationMonitoringConfiguration {
     (
         [Parameter(Mandatory = $false)]
         $S3MonitoringConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $PrometheusMonitoringConfiguration,
 
         [Parameter(Mandatory = $false)]
         $ManagedPersistenceMonitoringConfiguration,

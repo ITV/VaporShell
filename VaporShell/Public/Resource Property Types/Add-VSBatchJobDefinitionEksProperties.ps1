@@ -10,9 +10,9 @@ function Add-VSBatchJobDefinitionEksProperties {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksproperties.html
 
     .PARAMETER PodProperties
-        Type: PodProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksproperties.html#cfn-batch-jobdefinition-eksproperties-podproperties
         UpdateType: Mutable
+        Type: EksPodProperties
 
     .FUNCTIONALITY
         Vaporshell

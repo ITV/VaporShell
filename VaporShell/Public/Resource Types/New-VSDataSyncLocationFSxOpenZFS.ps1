@@ -14,7 +14,7 @@ function New-VSDataSyncLocationFSxOpenZFS {
 
     .PARAMETER Subdirectory
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html#cfn-datasync-locationfsxopenzfs-subdirectory
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER FsxFilesystemArn
@@ -24,7 +24,7 @@ function New-VSDataSyncLocationFSxOpenZFS {
 
     .PARAMETER Protocol
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html#cfn-datasync-locationfsxopenzfs-protocol
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: Protocol
 
     .PARAMETER SecurityGroupArns

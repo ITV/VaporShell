@@ -19,12 +19,12 @@ function New-VSDataSyncLocationFSxONTAP {
 
     .PARAMETER Subdirectory
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-subdirectory
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Protocol
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html#cfn-datasync-locationfsxontap-protocol
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: Protocol
 
     .PARAMETER SecurityGroupArns

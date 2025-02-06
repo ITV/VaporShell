@@ -49,6 +49,11 @@ function Add-VSMediaLiveChannelOutputSettings {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-cmafingestoutputsettings
         UpdateType: Mutable
 
+    .PARAMETER SrtOutputSettings
+        Type: SrtOutputSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-srtoutputsettings
+        UpdateType: Mutable
+
     .PARAMETER ArchiveOutputSettings
         Type: ArchiveOutputSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputsettings.html#cfn-medialive-channel-outputsettings-archiveoutputsettings
@@ -86,6 +91,9 @@ function Add-VSMediaLiveChannelOutputSettings {
 
         [Parameter(Mandatory = $false)]
         $CmafIngestOutputSettings,
+
+        [Parameter(Mandatory = $false)]
+        $SrtOutputSettings,
 
         [Parameter(Mandatory = $false)]
         $ArchiveOutputSettings

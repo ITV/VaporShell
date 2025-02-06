@@ -41,6 +41,13 @@ function New-VSConnectHoursOfOperation {
         ItemType: Tag
         DuplicatesAllowed: False
 
+    .PARAMETER HoursOfOperationOverrides
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-hoursofoperationoverrides
+        UpdateType: Mutable
+        Type: List
+        ItemType: HoursOfOperationOverride
+        DuplicatesAllowed: True
+
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html#cfn-connect-hoursofoperation-name
         UpdateType: Mutable
@@ -162,6 +169,18 @@ function New-VSConnectHoursOfOperation {
         [Parameter(Mandatory = $false)]
         $Tags,
 
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Connect.HoursOfOperation.HoursOfOperationOverride"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $HoursOfOperationOverrides,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -267,6 +286,12 @@ function New-VSConnectHoursOfOperation {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Tags -Value @($Tags)
+                }
+                HoursOfOperationOverrides {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name HoursOfOperationOverrides -Value @($HoursOfOperationOverrides)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

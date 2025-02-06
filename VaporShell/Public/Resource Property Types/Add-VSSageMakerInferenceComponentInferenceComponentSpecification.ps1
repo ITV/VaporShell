@@ -24,6 +24,11 @@ function Add-VSSageMakerInferenceComponentInferenceComponentSpecification {
         UpdateType: Mutable
         Type: InferenceComponentComputeResourceRequirements
 
+    .PARAMETER BaseInferenceComponentName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-baseinferencecomponentname
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER StartupParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html#cfn-sagemaker-inferencecomponent-inferencecomponentspecification-startupparameters
         UpdateType: Mutable
@@ -53,8 +58,20 @@ function Add-VSSageMakerInferenceComponentInferenceComponentSpecification {
             })]
         $ModelName,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         $ComputeResourceRequirements,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BaseInferenceComponentName,
 
         [Parameter(Mandatory = $false)]
         $StartupParameters

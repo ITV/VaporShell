@@ -19,7 +19,7 @@ function New-VSEC2TransitGatewayRouteTable {
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-tags
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True

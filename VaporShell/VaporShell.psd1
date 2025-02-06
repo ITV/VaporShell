@@ -12,7 +12,9 @@
     RootModule             = 'VaporShell.psm1'
 
     # Version number of this module.
-    ModuleVersion          = '2.13.0'
+    # NB do not change this in ECP when rebuilding only without making manual code changes in the repository.
+    #    Date will be appended to the PS module version automatically as part of the build process
+    ModuleVersion          = '2.14.0'
 
     # ID used to uniquely identify this module
     GUID                   = 'd526494c-6e59-41ff-ad05-eedbc1473b6a'

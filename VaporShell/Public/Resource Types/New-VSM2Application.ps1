@@ -136,7 +136,7 @@ function New-VSM2Application {
             })]
         $KmsKeyId,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         $Definition,
 
         [Parameter(Mandatory = $true)]

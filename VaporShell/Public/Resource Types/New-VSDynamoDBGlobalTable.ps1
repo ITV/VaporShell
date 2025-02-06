@@ -17,6 +17,38 @@ function New-VSDynamoDBGlobalTable {
         UpdateType: Mutable
         Type: SSESpecification
 
+    .PARAMETER StreamSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
+        UpdateType: Mutable
+        Type: StreamSpecification
+
+    .PARAMETER PointInTimeRecoverySpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification
+        UpdateType: Mutable
+        Type: PointInTimeRecoverySpecification
+
+    .PARAMETER WarmThroughput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-warmthroughput
+        UpdateType: Mutable
+        Type: WarmThroughput
+
+    .PARAMETER Replicas
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
+        UpdateType: Mutable
+        Type: List
+        ItemType: ReplicaSpecification
+        DuplicatesAllowed: False
+
+    .PARAMETER WriteProvisionedThroughputSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
+        UpdateType: Mutable
+        Type: WriteProvisionedThroughputSettings
+
+    .PARAMETER WriteOnDemandThroughputSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeondemandthroughputsettings
+        UpdateType: Mutable
+        Type: WriteOnDemandThroughputSettings
+
     .PARAMETER TableName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
         UpdateType: Immutable
@@ -28,11 +60,6 @@ function New-VSDynamoDBGlobalTable {
         Type: List
         ItemType: AttributeDefinition
         DuplicatesAllowed: False
-
-    .PARAMETER StreamSpecification
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
-        UpdateType: Mutable
-        Type: StreamSpecification
 
     .PARAMETER BillingMode
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
@@ -60,27 +87,10 @@ function New-VSDynamoDBGlobalTable {
         ItemType: LocalSecondaryIndex
         DuplicatesAllowed: False
 
-    .PARAMETER Replicas
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
-        UpdateType: Mutable
-        Type: List
-        ItemType: ReplicaSpecification
-        DuplicatesAllowed: False
-
-    .PARAMETER WriteProvisionedThroughputSettings
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
-        UpdateType: Mutable
-        Type: WriteProvisionedThroughputSettings
-
     .PARAMETER TimeToLiveSpecification
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
         UpdateType: Mutable
         Type: TimeToLiveSpecification
-
-    .PARAMETER WriteOnDemandThroughputSettings
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeondemandthroughputsettings
-        UpdateType: Mutable
-        Type: WriteOnDemandThroughputSettings
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -150,6 +160,33 @@ function New-VSDynamoDBGlobalTable {
         $SSESpecification,
 
         [Parameter(Mandatory = $false)]
+        $StreamSpecification,
+
+        [Parameter(Mandatory = $false)]
+        $PointInTimeRecoverySpecification,
+
+        [Parameter(Mandatory = $false)]
+        $WarmThroughput,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.ReplicaSpecification"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Replicas,
+
+        [Parameter(Mandatory = $false)]
+        $WriteProvisionedThroughputSettings,
+
+        [Parameter(Mandatory = $false)]
+        $WriteOnDemandThroughputSettings,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -172,9 +209,6 @@ function New-VSDynamoDBGlobalTable {
                 }
             })]
         $AttributeDefinitions,
-
-        [Parameter(Mandatory = $false)]
-        $StreamSpecification,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -224,26 +258,8 @@ function New-VSDynamoDBGlobalTable {
             })]
         $LocalSecondaryIndexes,
 
-        [Parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.ReplicaSpecification"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Replicas,
-
-        [Parameter(Mandatory = $false)]
-        $WriteProvisionedThroughputSettings,
-
         [Parameter(Mandatory = $false)]
         $TimeToLiveSpecification,
-
-        [Parameter(Mandatory = $false)]
-        $WriteOnDemandThroughputSettings,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -327,6 +343,12 @@ function New-VSDynamoDBGlobalTable {
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
                 }
+                Replicas {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Replicas -Value @($Replicas)
+                }
                 AttributeDefinitions {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
@@ -350,12 +372,6 @@ function New-VSDynamoDBGlobalTable {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name LocalSecondaryIndexes -Value @($LocalSecondaryIndexes)
-                }
-                Replicas {
-                    if (!($ResourceParams["Properties"])) {
-                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
-                    }
-                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Replicas -Value @($Replicas)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

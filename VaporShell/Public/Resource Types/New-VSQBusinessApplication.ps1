@@ -54,6 +54,11 @@ function New-VSQBusinessApplication {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER QuickSightConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-quicksightconfiguration
+        UpdateType: Immutable
+        Type: QuickSightConfiguration
+
     .PARAMETER PersonalizationConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html#cfn-qbusiness-application-personalizationconfiguration
         UpdateType: Mutable
@@ -213,6 +218,9 @@ function New-VSQBusinessApplication {
 
         [Parameter(Mandatory = $false)]
         $ClientIdsForOIDC,
+
+        [Parameter(Mandatory = $false)]
+        $QuickSightConfiguration,
 
         [Parameter(Mandatory = $false)]
         $PersonalizationConfiguration,

@@ -11,12 +11,12 @@ function Add-VSDataSyncLocationFSxONTAPProtocol {
 
     .PARAMETER SMB
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-protocol.html#cfn-datasync-locationfsxontap-protocol-smb
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: SMB
 
     .PARAMETER NFS
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-protocol.html#cfn-datasync-locationfsxontap-protocol-nfs
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: NFS
 
     .FUNCTIONALITY

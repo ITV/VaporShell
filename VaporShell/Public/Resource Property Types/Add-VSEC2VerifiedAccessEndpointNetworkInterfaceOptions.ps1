@@ -14,6 +14,13 @@ function Add-VSEC2VerifiedAccessEndpointNetworkInterfaceOptions {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER PortRanges
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-networkinterfaceoptions.html#cfn-ec2-verifiedaccessendpoint-networkinterfaceoptions-portranges
+        UpdateType: Mutable
+        Type: List
+        ItemType: PortRange
+        DuplicatesAllowed: False
+
     .PARAMETER NetworkInterfaceId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-networkinterfaceoptions.html#cfn-ec2-verifiedaccessendpoint-networkinterfaceoptions-networkinterfaceid
         UpdateType: Immutable
@@ -44,6 +51,18 @@ function Add-VSEC2VerifiedAccessEndpointNetworkInterfaceOptions {
                 }
             })]
         $Port,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.EC2.VerifiedAccessEndpoint.PortRange"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PortRanges,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

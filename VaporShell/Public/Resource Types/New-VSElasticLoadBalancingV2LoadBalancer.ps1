@@ -48,6 +48,16 @@ function New-VSElasticLoadBalancingV2LoadBalancer {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER MinimumLoadBalancerCapacity
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-minimumloadbalancercapacity
+        UpdateType: Mutable
+        Type: MinimumLoadBalancerCapacity
+
+    .PARAMETER EnablePrefixForIpv6SourceNat
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-enableprefixforipv6sourcenat
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-enforcesecuritygroupinboundrulesonprivatelinktraffic
         UpdateType: Mutable
@@ -189,6 +199,21 @@ function New-VSElasticLoadBalancingV2LoadBalancer {
                 }
             })]
         $Scheme,
+
+        [Parameter(Mandatory = $false)]
+        $MinimumLoadBalancerCapacity,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnablePrefixForIpv6SourceNat,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

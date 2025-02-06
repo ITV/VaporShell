@@ -11,7 +11,7 @@ function Add-VSAPSScraperDestination {
 
     .PARAMETER AmpConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-destination.html#cfn-aps-scraper-destination-ampconfiguration
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: AmpConfiguration
 
     .FUNCTIONALITY

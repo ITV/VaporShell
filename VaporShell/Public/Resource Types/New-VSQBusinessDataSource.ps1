@@ -37,6 +37,11 @@ function New-VSQBusinessDataSource {
         UpdateType: Mutable
         Type: DocumentEnrichmentConfiguration
 
+    .PARAMETER MediaExtractionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-mediaextractionconfiguration
+        UpdateType: Mutable
+        Type: MediaExtractionConfiguration
+
     .PARAMETER DisplayName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-displayname
         UpdateType: Mutable
@@ -178,6 +183,9 @@ function New-VSQBusinessDataSource {
 
         [Parameter(Mandatory = $false)]
         $DocumentEnrichmentConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $MediaExtractionConfiguration,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

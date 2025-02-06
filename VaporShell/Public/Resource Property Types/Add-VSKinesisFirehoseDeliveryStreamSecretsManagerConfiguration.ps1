@@ -11,17 +11,17 @@ function Add-VSKinesisFirehoseDeliveryStreamSecretsManagerConfiguration {
 
     .PARAMETER SecretARN
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html#cfn-kinesisfirehose-deliverystream-secretsmanagerconfiguration-secretarn
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .PARAMETER Enabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html#cfn-kinesisfirehose-deliverystream-secretsmanagerconfiguration-enabled
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: Boolean
 
     .PARAMETER RoleARN
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html#cfn-kinesisfirehose-deliverystream-secretsmanagerconfiguration-rolearn
-        UpdateType: Mutable
+        UpdateType: Conditional
         PrimitiveType: String
 
     .FUNCTIONALITY

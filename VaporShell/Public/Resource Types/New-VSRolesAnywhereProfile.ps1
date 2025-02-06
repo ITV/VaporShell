@@ -21,7 +21,7 @@ function New-VSRolesAnywhereProfile {
 
     .PARAMETER RequireInstanceProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html#cfn-rolesanywhere-profile-requireinstanceproperties
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Boolean
 
     .PARAMETER RoleArns

@@ -14,6 +14,11 @@ function Add-VSCleanRoomsCollaborationMemberSpecification {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER MLMemberAbilities
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-mlmemberabilities
+        UpdateType: Immutable
+        Type: MLMemberAbilities
+
     .PARAMETER DisplayName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html#cfn-cleanrooms-collaboration-memberspecification-displayname
         UpdateType: Immutable
@@ -51,6 +56,9 @@ function Add-VSCleanRoomsCollaborationMemberSpecification {
                 }
             })]
         $AccountId,
+
+        [Parameter(Mandatory = $false)]
+        $MLMemberAbilities,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

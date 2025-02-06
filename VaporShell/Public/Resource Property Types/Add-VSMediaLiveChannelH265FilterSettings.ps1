@@ -14,6 +14,11 @@ function Add-VSMediaLiveChannelH265FilterSettings {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265filtersettings.html#cfn-medialive-channel-h265filtersettings-temporalfiltersettings
         UpdateType: Mutable
 
+    .PARAMETER BandwidthReductionFilterSettings
+        Type: BandwidthReductionFilterSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265filtersettings.html#cfn-medialive-channel-h265filtersettings-bandwidthreductionfiltersettings
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -24,7 +29,10 @@ function Add-VSMediaLiveChannelH265FilterSettings {
     Param
     (
         [Parameter(Mandatory = $false)]
-        $TemporalFilterSettings
+        $TemporalFilterSettings,
+
+        [Parameter(Mandatory = $false)]
+        $BandwidthReductionFilterSettings
 
     )
 

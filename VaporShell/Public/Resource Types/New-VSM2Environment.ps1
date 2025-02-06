@@ -56,6 +56,11 @@ function New-VSM2Environment {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER NetworkType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-environment.html#cfn-m2-environment-networktype
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER EngineType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-environment.html#cfn-m2-environment-enginetype
         UpdateType: Immutable
@@ -216,6 +221,18 @@ function New-VSM2Environment {
                 }
             })]
         $Name,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $NetworkType,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

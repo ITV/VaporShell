@@ -11,7 +11,7 @@ function Add-VSDataSyncLocationFSxONTAPNFS {
 
     .PARAMETER MountOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-nfs.html#cfn-datasync-locationfsxontap-nfs-mountoptions
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: NfsMountOptions
 
     .FUNCTIONALITY

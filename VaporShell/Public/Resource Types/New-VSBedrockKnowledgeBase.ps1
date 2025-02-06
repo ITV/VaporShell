@@ -19,7 +19,7 @@ function New-VSBedrockKnowledgeBase {
 
     .PARAMETER KnowledgeBaseConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: KnowledgeBaseConfiguration
 
     .PARAMETER StorageConfiguration
@@ -122,7 +122,7 @@ function New-VSBedrockKnowledgeBase {
         [Parameter(Mandatory = $true)]
         $KnowledgeBaseConfiguration,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         $StorageConfiguration,
 
         [Parameter(Mandatory = $true)]

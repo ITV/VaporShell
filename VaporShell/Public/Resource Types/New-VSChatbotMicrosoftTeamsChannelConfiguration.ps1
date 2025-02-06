@@ -22,6 +22,13 @@ function New-VSChatbotMicrosoftTeamsChannelConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER CustomizationResourceArns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-customizationresourcearns
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .PARAMETER SnsTopicArns
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html#cfn-chatbot-microsoftteamschannelconfiguration-snstopicarns
         UpdateType: Mutable
@@ -155,6 +162,9 @@ function New-VSChatbotMicrosoftTeamsChannelConfiguration {
                 }
             })]
         $LoggingLevel,
+
+        [Parameter(Mandatory = $false)]
+        $CustomizationResourceArns,
 
         [Parameter(Mandatory = $false)]
         $SnsTopicArns,
@@ -307,6 +317,12 @@ function New-VSChatbotMicrosoftTeamsChannelConfiguration {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                CustomizationResourceArns {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name CustomizationResourceArns -Value @($CustomizationResourceArns)
                 }
                 SnsTopicArns {
                     if (!($ResourceParams["Properties"])) {

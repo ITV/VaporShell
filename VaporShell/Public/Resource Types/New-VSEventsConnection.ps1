@@ -22,6 +22,11 @@ function New-VSEventsConnection {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER InvocationConnectivityParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-invocationconnectivityparameters
+        UpdateType: Mutable
+        Type: InvocationConnectivityParameters
+
     .PARAMETER AuthorizationType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html#cfn-events-connection-authorizationtype
         UpdateType: Mutable
@@ -110,6 +115,9 @@ function New-VSEventsConnection {
                 }
             })]
         $Description,
+
+        [Parameter(Mandatory = $false)]
+        $InvocationConnectivityParameters,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -12,10 +12,22 @@ function New-VSQBusinessWebExperience {
     .PARAMETER LogicalId
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
+    .PARAMETER Origins
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-origins
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .PARAMETER Subtitle
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-subtitle
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER CustomizationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-customizationconfiguration
+        UpdateType: Mutable
+        Type: CustomizationConfiguration
 
     .PARAMETER SamplePromptsControlMode
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-samplepromptscontrolmode
@@ -53,6 +65,11 @@ function New-VSQBusinessWebExperience {
         Type: List
         ItemType: Tag
         DuplicatesAllowed: True
+
+    .PARAMETER BrowserExtensionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-browserextensionconfiguration
+        UpdateType: Mutable
+        Type: BrowserExtensionConfiguration
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -119,6 +136,9 @@ function New-VSQBusinessWebExperience {
         $LogicalId,
 
         [Parameter(Mandatory = $false)]
+        $Origins,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -129,6 +149,9 @@ function New-VSQBusinessWebExperience {
                 }
             })]
         $Subtitle,
+
+        [Parameter(Mandatory = $false)]
+        $CustomizationConfiguration,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -196,6 +219,9 @@ function New-VSQBusinessWebExperience {
         [VaporShell.Core.TransformTag()]
         [Parameter(Mandatory = $false)]
         $Tags,
+
+        [Parameter(Mandatory = $false)]
+        $BrowserExtensionConfiguration,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -278,6 +304,12 @@ function New-VSQBusinessWebExperience {
                 }
                 Condition {
                     $ResourceParams.Add("Condition",$Condition)
+                }
+                Origins {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Origins -Value @($Origins)
                 }
                 Tags {
                     if (!($ResourceParams["Properties"])) {

@@ -14,6 +14,11 @@ function Add-VSCleanRoomsCollaborationPaymentConfiguration {
         UpdateType: Immutable
         Type: QueryComputePaymentConfig
 
+    .PARAMETER MachineLearning
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html#cfn-cleanrooms-collaboration-paymentconfiguration-machinelearning
+        UpdateType: Immutable
+        Type: MLPaymentConfig
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -24,7 +29,10 @@ function Add-VSCleanRoomsCollaborationPaymentConfiguration {
     Param
     (
         [Parameter(Mandatory = $true)]
-        $QueryCompute
+        $QueryCompute,
+
+        [Parameter(Mandatory = $false)]
+        $MachineLearning
 
     )
 

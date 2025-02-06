@@ -35,6 +35,11 @@ function New-VSCognitoUserPool {
         UpdateType: Mutable
         Type: AdminCreateUserConfig
 
+    .PARAMETER UserPoolTier
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userpooltier
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER UsernameConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-usernameconfiguration
         UpdateType: Mutable
@@ -70,6 +75,11 @@ function New-VSCognitoUserPool {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER WebAuthnRelyingPartyID
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-webauthnrelyingpartyid
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER EmailAuthenticationSubject
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-emailauthenticationsubject
         UpdateType: Mutable
@@ -97,6 +107,11 @@ function New-VSCognitoUserPool {
 
     .PARAMETER SmsAuthenticationMessage
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-smsauthenticationmessage
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER WebAuthnUserVerification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-webauthnuserverification
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -240,6 +255,18 @@ function New-VSCognitoUserPool {
         $AdminCreateUserConfig,
 
         [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UserPoolTier,
+
+        [Parameter(Mandatory = $false)]
         $UsernameConfiguration,
 
         [Parameter(Mandatory = $false)]
@@ -297,6 +324,18 @@ function New-VSCognitoUserPool {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $WebAuthnRelyingPartyID,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $EmailAuthenticationSubject,
 
         [Parameter(Mandatory = $false)]
@@ -340,6 +379,18 @@ function New-VSCognitoUserPool {
                 }
             })]
         $SmsAuthenticationMessage,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $WebAuthnUserVerification,
 
         [Parameter(Mandatory = $false)]
         $UserPoolAddOns,

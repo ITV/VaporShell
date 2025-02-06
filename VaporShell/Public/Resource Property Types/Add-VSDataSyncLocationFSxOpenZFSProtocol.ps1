@@ -11,7 +11,7 @@ function Add-VSDataSyncLocationFSxOpenZFSProtocol {
 
     .PARAMETER NFS
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-protocol.html#cfn-datasync-locationfsxopenzfs-protocol-nfs
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: NFS
 
     .FUNCTIONALITY

@@ -39,6 +39,11 @@ function New-VSLexBot {
         UpdateType: Mutable
         Type: S3Location
 
+    .PARAMETER Replication
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-replication
+        UpdateType: Mutable
+        Type: Replication
+
     .PARAMETER TestBotAliasSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html#cfn-lex-bot-testbotaliassettings
         UpdateType: Mutable
@@ -187,6 +192,9 @@ function New-VSLexBot {
 
         [Parameter(Mandatory = $false)]
         $BotFileS3Location,
+
+        [Parameter(Mandatory = $false)]
+        $Replication,
 
         [Parameter(Mandatory = $false)]
         $TestBotAliasSettings,

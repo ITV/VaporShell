@@ -24,7 +24,7 @@ function New-VSKafkaConnectConnector {
 
     .PARAMETER ConnectorConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-connector.html#cfn-kafkaconnect-connector-connectorconfiguration
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: Map
         PrimitiveItemType: String
 

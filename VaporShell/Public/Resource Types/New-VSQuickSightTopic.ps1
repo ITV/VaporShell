@@ -29,6 +29,13 @@ function New-VSQuickSightTopic {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER FolderArns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-folderarns
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .PARAMETER TopicId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-topicid
         UpdateType: Immutable
@@ -38,6 +45,11 @@ function New-VSQuickSightTopic {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-userexperienceversion
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER ConfigOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-configoptions
+        UpdateType: Mutable
+        Type: TopicConfigOptions
 
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html#cfn-quicksight-topic-name
@@ -145,6 +157,9 @@ function New-VSQuickSightTopic {
         $AwsAccountId,
 
         [Parameter(Mandatory = $false)]
+        $FolderArns,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -167,6 +182,9 @@ function New-VSQuickSightTopic {
                 }
             })]
         $UserExperienceVersion,
+
+        [Parameter(Mandatory = $false)]
+        $ConfigOptions,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -267,6 +285,12 @@ function New-VSQuickSightTopic {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DataSets -Value @($DataSets)
+                }
+                FolderArns {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name FolderArns -Value @($FolderArns)
                 }
                 Default {
                     if (!($ResourceParams["Properties"])) {

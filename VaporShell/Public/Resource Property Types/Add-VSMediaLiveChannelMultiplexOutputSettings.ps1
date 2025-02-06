@@ -14,6 +14,11 @@ function Add-VSMediaLiveChannelMultiplexOutputSettings {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html#cfn-medialive-channel-multiplexoutputsettings-destination
         UpdateType: Mutable
 
+    .PARAMETER ContainerSettings
+        Type: MultiplexContainerSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-multiplexoutputsettings.html#cfn-medialive-channel-multiplexoutputsettings-containersettings
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -24,7 +29,10 @@ function Add-VSMediaLiveChannelMultiplexOutputSettings {
     Param
     (
         [Parameter(Mandatory = $false)]
-        $Destination
+        $Destination,
+
+        [Parameter(Mandatory = $false)]
+        $ContainerSettings
 
     )
 
