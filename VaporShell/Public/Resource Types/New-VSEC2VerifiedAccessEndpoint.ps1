@@ -54,6 +54,11 @@ function New-VSEC2VerifiedAccessEndpoint {
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER CidrOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-cidroptions
+        UpdateType: Mutable
+        Type: CidrOptions
+
     .PARAMETER EndpointDomainPrefix
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-endpointdomainprefix
         UpdateType: Immutable
@@ -68,6 +73,11 @@ function New-VSEC2VerifiedAccessEndpoint {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-policydocument
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER RdsOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-rdsoptions
+        UpdateType: Mutable
+        Type: RdsOptions
 
     .PARAMETER SseSpecification
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html#cfn-ec2-verifiedaccessendpoint-ssespecification
@@ -174,7 +184,7 @@ function New-VSEC2VerifiedAccessEndpoint {
             })]
         $Description,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -204,7 +214,7 @@ function New-VSEC2VerifiedAccessEndpoint {
         [Parameter(Mandatory = $false)]
         $LoadBalancerOptions,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -228,7 +238,10 @@ function New-VSEC2VerifiedAccessEndpoint {
             })]
         $PolicyEnabled,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $CidrOptions,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -263,6 +276,9 @@ function New-VSEC2VerifiedAccessEndpoint {
                 }
             })]
         $PolicyDocument,
+
+        [Parameter(Mandatory = $false)]
+        $RdsOptions,
 
         [Parameter(Mandatory = $false)]
         $SseSpecification,

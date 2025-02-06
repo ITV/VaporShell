@@ -11,7 +11,7 @@ function Add-VSDataSyncLocationFSxOpenZFSNFS {
 
     .PARAMETER MountOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-nfs.html#cfn-datasync-locationfsxopenzfs-nfs-mountoptions
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: MountOptions
 
     .FUNCTIONALITY

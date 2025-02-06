@@ -14,6 +14,11 @@ function Add-VSBedrockKnowledgeBaseKnowledgeBaseConfiguration {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER SqlKnowledgeBaseConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-sqlknowledgebaseconfiguration
+        UpdateType: Mutable
+        Type: SqlKnowledgeBaseConfiguration
+
     .PARAMETER KendraKnowledgeBaseConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-knowledgebaseconfiguration.html#cfn-bedrock-knowledgebase-knowledgebaseconfiguration-kendraknowledgebaseconfiguration
         UpdateType: Immutable
@@ -44,6 +49,9 @@ function Add-VSBedrockKnowledgeBaseKnowledgeBaseConfiguration {
                 }
             })]
         $Type,
+
+        [Parameter(Mandatory = $false)]
+        $SqlKnowledgeBaseConfiguration,
 
         [Parameter(Mandatory = $false)]
         $KendraKnowledgeBaseConfiguration,

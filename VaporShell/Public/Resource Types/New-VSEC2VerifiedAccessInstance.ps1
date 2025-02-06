@@ -34,6 +34,11 @@ function New-VSEC2VerifiedAccessInstance {
         UpdateType: Mutable
         Type: VerifiedAccessLogs
 
+    .PARAMETER CidrEndpointsCustomSubDomain
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-cidrendpointscustomsubdomain
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER VerifiedAccessTrustProviderIds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html#cfn-ec2-verifiedaccessinstance-verifiedaccesstrustproviderids
         UpdateType: Mutable
@@ -150,6 +155,18 @@ function New-VSEC2VerifiedAccessInstance {
 
         [Parameter(Mandatory = $false)]
         $LoggingConfigurations,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CidrEndpointsCustomSubDomain,
 
         [Parameter(Mandatory = $false)]
         $VerifiedAccessTrustProviderIds,

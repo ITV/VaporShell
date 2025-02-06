@@ -14,6 +14,11 @@ function Add-VSDynamoDBGlobalTablePointInTimeRecoverySpecification {
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER RecoveryPeriodInDays
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-pointintimerecoveryspecification.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification-recoveryperiodindays
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -33,7 +38,19 @@ function Add-VSDynamoDBGlobalTablePointInTimeRecoverySpecification {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PointInTimeRecoveryEnabled
+        $PointInTimeRecoveryEnabled,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RecoveryPeriodInDays
 
     )
 

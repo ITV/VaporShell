@@ -51,7 +51,7 @@ function New-VSEKSCluster {
 
     .PARAMETER KubernetesNetworkConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-kubernetesnetworkconfig
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: KubernetesNetworkConfig
 
     .PARAMETER RoleArn

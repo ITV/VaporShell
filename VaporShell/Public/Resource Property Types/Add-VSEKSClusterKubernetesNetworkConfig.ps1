@@ -16,7 +16,7 @@ function Add-VSEKSClusterKubernetesNetworkConfig {
 
     .PARAMETER ServiceIpv6Cidr
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-serviceipv6cidr
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER IpFamily
@@ -26,7 +26,7 @@ function Add-VSEKSClusterKubernetesNetworkConfig {
 
     .PARAMETER ElasticLoadBalancing
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-kubernetesnetworkconfig.html#cfn-eks-cluster-kubernetesnetworkconfig-elasticloadbalancing
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: ElasticLoadBalancing
 
     .FUNCTIONALITY

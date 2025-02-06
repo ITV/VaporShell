@@ -9,9 +9,24 @@ function Add-VSGlueTableOptimizerTableOptimizerConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html
 
+    .PARAMETER RetentionConfiguration
+        Type: RetentionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html#cfn-glue-tableoptimizer-tableoptimizerconfiguration-retentionconfiguration
+        UpdateType: Mutable
+
+    .PARAMETER OrphanFileDeletionConfiguration
+        Type: OrphanFileDeletionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html#cfn-glue-tableoptimizer-tableoptimizerconfiguration-orphanfiledeletionconfiguration
+        UpdateType: Mutable
+
     .PARAMETER Enabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html#cfn-glue-tableoptimizer-tableoptimizerconfiguration-enabled
         PrimitiveType: Boolean
+        UpdateType: Mutable
+
+    .PARAMETER VpcConfiguration
+        Type: VpcConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html#cfn-glue-tableoptimizer-tableoptimizerconfiguration-vpcconfiguration
         UpdateType: Mutable
 
     .PARAMETER RoleArn
@@ -28,6 +43,12 @@ function Add-VSGlueTableOptimizerTableOptimizerConfiguration {
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $RetentionConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $OrphanFileDeletionConfiguration,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
@@ -39,6 +60,9 @@ function Add-VSGlueTableOptimizerTableOptimizerConfiguration {
                 }
             })]
         $Enabled,
+
+        [Parameter(Mandatory = $false)]
+        $VpcConfiguration,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

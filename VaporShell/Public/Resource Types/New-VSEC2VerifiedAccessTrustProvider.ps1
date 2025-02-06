@@ -22,6 +22,11 @@ function New-VSEC2VerifiedAccessTrustProvider {
         UpdateType: Immutable
         Type: DeviceOptions
 
+    .PARAMETER NativeApplicationOidcOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccesstrustprovider-nativeapplicationoidcoptions
+        UpdateType: Mutable
+        Type: NativeApplicationOidcOptions
+
     .PARAMETER DeviceTrustProviderType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html#cfn-ec2-verifiedaccesstrustprovider-devicetrustprovidertype
         UpdateType: Immutable
@@ -137,6 +142,9 @@ function New-VSEC2VerifiedAccessTrustProvider {
 
         [Parameter(Mandatory = $false)]
         $DeviceOptions,
+
+        [Parameter(Mandatory = $false)]
+        $NativeApplicationOidcOptions,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

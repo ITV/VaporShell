@@ -66,6 +66,11 @@ function New-VSQBusinessWebExperience {
         ItemType: Tag
         DuplicatesAllowed: True
 
+    .PARAMETER BrowserExtensionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-webexperience.html#cfn-qbusiness-webexperience-browserextensionconfiguration
+        UpdateType: Mutable
+        Type: BrowserExtensionConfiguration
+
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
 
@@ -214,6 +219,9 @@ function New-VSQBusinessWebExperience {
         [VaporShell.Core.TransformTag()]
         [Parameter(Mandatory = $false)]
         $Tags,
+
+        [Parameter(Mandatory = $false)]
+        $BrowserExtensionConfiguration,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

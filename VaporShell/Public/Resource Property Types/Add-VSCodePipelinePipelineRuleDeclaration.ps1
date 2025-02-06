@@ -26,6 +26,13 @@ function Add-VSCodePipelinePipelineRuleDeclaration {
         ItemType: InputArtifact
         DuplicatesAllowed: False
 
+    .PARAMETER Commands
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-commands
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .PARAMETER Region
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html#cfn-codepipeline-pipeline-ruledeclaration-region
         UpdateType: Mutable
@@ -76,6 +83,9 @@ function Add-VSCodePipelinePipelineRuleDeclaration {
                 }
             })]
         $InputArtifacts,
+
+        [Parameter(Mandatory = $false)]
+        $Commands,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

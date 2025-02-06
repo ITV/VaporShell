@@ -11,7 +11,7 @@ function Add-VSEKSClusterElasticLoadBalancing {
 
     .PARAMETER Enabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-elasticloadbalancing.html#cfn-eks-cluster-elasticloadbalancing-enabled
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Boolean
 
     .FUNCTIONALITY

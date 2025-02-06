@@ -14,6 +14,11 @@ function Add-VSCleanRoomsMembershipMembershipPaymentConfiguration {
         UpdateType: Mutable
         Type: MembershipQueryComputePaymentConfig
 
+    .PARAMETER MachineLearning
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html#cfn-cleanrooms-membership-membershippaymentconfiguration-machinelearning
+        UpdateType: Mutable
+        Type: MembershipMLPaymentConfig
+
     .FUNCTIONALITY
         Vaporshell
     #>
@@ -24,7 +29,10 @@ function Add-VSCleanRoomsMembershipMembershipPaymentConfiguration {
     Param
     (
         [Parameter(Mandatory = $true)]
-        $QueryCompute
+        $QueryCompute,
+
+        [Parameter(Mandatory = $false)]
+        $MachineLearning
 
     )
 

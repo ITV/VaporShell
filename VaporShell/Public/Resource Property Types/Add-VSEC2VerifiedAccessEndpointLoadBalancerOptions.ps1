@@ -19,6 +19,13 @@ function Add-VSEC2VerifiedAccessEndpointLoadBalancerOptions {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER PortRanges
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-loadbalanceroptions.html#cfn-ec2-verifiedaccessendpoint-loadbalanceroptions-portranges
+        UpdateType: Mutable
+        Type: List
+        ItemType: PortRange
+        DuplicatesAllowed: False
+
     .PARAMETER Protocol
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-loadbalanceroptions.html#cfn-ec2-verifiedaccessendpoint-loadbalanceroptions-protocol
         UpdateType: Mutable
@@ -63,6 +70,18 @@ function Add-VSEC2VerifiedAccessEndpointLoadBalancerOptions {
                 }
             })]
         $Port,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.EC2.VerifiedAccessEndpoint.PortRange"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PortRanges,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -63,6 +63,11 @@ function New-VSCleanRoomsCollaboration {
         ItemType: MemberSpecification
         DuplicatesAllowed: True
 
+    .PARAMETER CreatorMLMemberAbilities
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-creatormlmemberabilities
+        UpdateType: Immutable
+        Type: MLMemberAbilities
+
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html#cfn-cleanrooms-collaboration-name
         UpdateType: Mutable
@@ -204,6 +209,9 @@ function New-VSCleanRoomsCollaboration {
                 }
             })]
         $Members,
+
+        [Parameter(Mandatory = $false)]
+        $CreatorMLMemberAbilities,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
