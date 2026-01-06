@@ -1,5 +1,5 @@
 function Convert-SpecToFunction {
-    [cmdletbinding()]
+    [CmdletBinding()]
     Param (
         [Parameter(Mandatory = $true,Position = 0)]
         [Object]
@@ -35,20 +35,34 @@ function Convert-SpecToFunction {
     }
     $PS1Path = "$Dir\$FunctionName.ps1"
 
-    # CFN spec has added properties on some resources which have the same names as some of the common properties which can be set on many other resources, e.g. Condition and UpdatePolicy.
+    # CFN spec has added properties on some resources which have the same names as some of the common CFN properties e.g. Condition and UpdatePolicy.
     # Where these exist as resource-specific properties, they must not be added as the common properties.
-    # Setting up the exclusions.
+    # Setting up the flags.
 
-    $resourcesToExcludeCondition = @(
-        'AWS::Events::EventBusPolicy'
-        'AWS::EntityResolution::PolicyStatement'
-    )
+    $addCommonCfnProperty = @{}
 
-    $resourcesToExcludeUpdatePolicy = @(
-        'AWS::Batch::ComputeEnvironment'
-    )
+    # set flags whether individual properties should be added or not based on whether the resource spec includes them
+    @(
+        'DeletionPolicy'
+        'UpdateReplacePolicy'
+        'DependsOn'
+        'Metadata'
+        'UpdatePolicy'
+        'Condition'
+    ) | ForEach-Object {
+        $addCommonCfnProperty[$_] = if ($ResourceType -ne "Property" -and $_ -notin $Properties.Name) {
+            $true
+         } else {
+            $false
+        }
+    }
 
+    # CreationPolicy is only supported on selected resources
+    if ($Name -in "AWS::AppStream::Fleet", "AWS::AutoScaling::AutoScalingGroup", "AWS::EC2::Instance", "AWS::CloudFormation::WaitCondition") {
+        $addCommonCfnProperty['CreationPolicy'] = $true
+    }
 
+    # start building the script content
     $scriptContents = @()
     $scriptContents += @"
 function $FunctionName {
@@ -63,12 +77,6 @@ function $FunctionName {
         $Link
 
 "@
-    if ($ResourceType -ne "Property") {
-        $scriptContents += @"
-    .PARAMETER LogicalId
-        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.`n
-"@
-    }
 
     foreach ($Prop in $Properties) {
         $scriptContents += @"
@@ -85,7 +93,7 @@ function $FunctionName {
         $scriptContents += ""
     }
 
-    if ($Name -eq "AWS::AutoScaling::AutoScalingGroup" -or $Name -eq "AWS::EC2::Instance" -or $Name -eq "AWS::CloudFormation::WaitCondition") {
+    if ($addCommonCfnProperty['CreationPolicy']) {
         $scriptContents += @"
     .PARAMETER CreationPolicy
         Use the CreationPolicy attribute when you want to wait on resource configuration actions before stack creation proceeds. For example, if you install and configure software applications on an EC2 instance, you might want those applications to be running before proceeding. In such cases, you can add a CreationPolicy attribute to the instance, and then send a success signal to the instance after the applications are installed and configured.
@@ -94,7 +102,7 @@ function $FunctionName {
 "@
     }
 
-    if ($ResourceType -ne "Property") {
+    if ($addCommonCfnProperty['DeletionPolicy']) {
         $scriptContents += @"
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -102,7 +110,11 @@ function $FunctionName {
         To keep a resource when its stack is deleted, specify Retain for that resource. You can use retain for any resource. For example, you can retain a nested stack, S3 bucket, or EC2 instance so that you can continue to use or modify those resources after you delete their stacks.
 
         You must use one of the following options: "Delete","Retain","Snapshot"
+"@
+    }
 
+    if ($addCommonCfnProperty['UpdateReplacePolicy']) {
+        $scriptContents += @"
     .PARAMETER UpdateReplacePolicy
         Use the UpdateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
 
@@ -120,41 +132,58 @@ function $FunctionName {
         UpdateReplacePolicy differs from the DeletionPolicy attribute in that it only applies to resources replaced during stack updates. Use DeletionPolicy for resources deleted when a stack is deleted, or when the resource definition itself is deleted from the template as part of a stack update.
 
         You must use one of the following options: "Delete","Retain","Snapshot"
+"@
+    }
 
+    if ($addCommonCfnProperty['DependsOn']) {
+        $scriptContents += @"
     .PARAMETER DependsOn
         With the DependsOn attribute you can specify that the creation of a specific resource follows another. When you add a DependsOn attribute to a resource, that resource is created only after the creation of the resource specified in the DependsOn attribute.
 
         This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
+"@
+    }
 
+    if ($addCommonCfnProperty['Metadata']) {
+        $scriptContents += @"
     .PARAMETER Metadata
         The Metadata attribute enables you to associate structured data with a resource. By adding a Metadata attribute to a resource, you can add data in JSON or YAML to the resource declaration. In addition, you can use intrinsic functions (such as GetAtt and Ref), parameters, and pseudo parameters within the Metadata attribute to add those interpreted values.
 
         You must use a PSCustomObject containing key/value pairs here. This will be returned when describing the resource using AWS CLI.`n
 "@
+    }
 
-        if ($Name -notin $resourcesToExcludeUpdatePolicy) {
-            $scriptContents += @"
+    if ($addCommonCfnProperty['UpdatePolicy']) {
+        $scriptContents += @"
     .PARAMETER UpdatePolicy
         Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to certain resources. AWS CloudFormation invokes one of three update policies depending on the type of change you make.
 
         You must use the "Add-UpdatePolicy" function here.`n
 "@
-        }
+    }
 
-        if ($Name -notin $resourcesToExcludeCondition) {
-            $scriptContents += @"
+    if ($addCommonCfnProperty['Condition']) {
+        $scriptContents += @"
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.`n
 "@
-        }
     }
+
+    # LogicalId moved to the end because it applies to all resources, so it makes it easy to ensure there is no comma after the last property definition
+    if ($ResourceType -ne "Property") {
+        $scriptContents += @"
+    .PARAMETER LogicalId
+        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.`n
+"@
+    }
+
     $scriptContents += @"
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('$TypeName')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 "@
     if ($passProps = $Properties.Name | Where-Object { $_ -like "*Password*" -or $_ -like "*Credential*" }) {
         foreach ($pProp in $passProps) {
@@ -169,21 +198,7 @@ function $FunctionName {
     Param
     (
 "@
-    if ($ResourceType -ne "Property") {
-        $scriptContents += @"
-        [Parameter(Mandatory = `$true, Position = 0)]
-        [ValidateScript( {
-                if (`$_ -match "^[a-zA-Z0-9]*$") {
-                    `$true
-                }
-                else {
-                    `$PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
-                }
-            })]
-        [System.String]
-        `$LogicalId,`n
-"@
-    }
+
     $PCount = 0
     $Properties | ForEach-Object { $PCount++ }
     $i = 0
@@ -363,9 +378,9 @@ function $FunctionName {
         # ensure definitions are separated by blank lines
         $scriptContents += ""
     }
-    if ($ResourceType -ne "Property") {
-        if ($Name -notin "AWS::AutoScaling::AutoScalingGroup", "AWS::EC2::Instance", "AWS::CloudFormation::WaitCondition") {
-            $scriptContents += @"
+
+    if ($addCommonCfnProperty['CreationPolicy']) {
+        $scriptContents += @"
         [Parameter(Mandatory = `$false)]
         [ValidateScript( {
                 `$allowedTypes = "Vaporshell.Resource.CreationPolicy"
@@ -378,16 +393,34 @@ function $FunctionName {
             })]
         `$CreationPolicy,`n
 "@
-        }
+    }
+
+    if ($addCommonCfnProperty['DeletionPolicy']) {
         $scriptContents += @"
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
-        `$DeletionPolicy,
+        `$DeletionPolicy,`n
+"@
+    }
 
+    if ($addCommonCfnProperty['UpdateReplacePolicy']) {
+        $scriptContents += @"
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
-        `$UpdateReplacePolicy,
+        `$UpdateReplacePolicy,`n
+"@
+    }
 
+    if ($addCommonCfnProperty['DependsOn']) {
+        $scriptContents += @"
+        [Parameter(Mandatory = `$false)]
+        [System.String[]]
+        `$DependsOn,`n
+"@
+    }
+
+    if ($addCommonCfnProperty['Metadata']) {
+        $scriptContents += @"
         [Parameter(Mandatory = `$false)]
         [ValidateScript( {
                 `$allowedTypes = "System.Management.Automation.PSCustomObject"
@@ -400,10 +433,10 @@ function $FunctionName {
             })]
         `$Metadata,`n
 "@
+    }
 
-        # add UpdatePolicy where applicable
-        if ($Name -notin $resourcesToExcludeUpdatePolicy) {
-            $scriptContents += @"
+    if ($addCommonCfnProperty['UpdatePolicy']) {
+        $scriptContents += @"
         [Parameter(Mandatory = `$false)]
         [ValidateScript( {
                 `$allowedTypes = "Vaporshell.Resource.UpdatePolicy"
@@ -416,21 +449,29 @@ function $FunctionName {
             })]
         `$UpdatePolicy,`n
 "@
-        }
+    }
 
-        # add Condition where applicable
-        if ($Name -notin $resourcesToExcludeCondition) {
-            $scriptContents += @"
+    if ($addCommonCfnProperty['Condition']) {
+        $scriptContents += @"
         [Parameter(Mandatory = `$false)]
         `$Condition,`n
 "@
-        }
+    }
 
-        # DependsOn moved to the end - it is not conditional which simplifies handling "no comma after the last property definition"
+    # LogicalId moved to the end because it applies to all resources, so it makes it easy to ensure there is no comma after the last property definition
+    if ($ResourceType -ne "Property") {
         $scriptContents += @"
-        [Parameter(Mandatory = `$false)]
-        [System.String[]]
-        `$DependsOn
+        [Parameter(Mandatory = `$true, Position = 0)]
+        [ValidateScript( {
+                if (`$_ -match "^[a-zA-Z0-9]*$") {
+                    `$true
+                }
+                else {
+                    `$PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
+                }
+            })]
+        [System.String]
+        `$LogicalId
     )
 
     Begin {
@@ -444,38 +485,69 @@ function $FunctionName {
     Process {
         foreach (`$key in `$PSBoundParameters.Keys | Where-Object {`$commonParams -notcontains `$_}) {
             switch (`$key) {
-                LogicalId {}
+                'LogicalId' {}
 "@
-        if ($Name -eq "AWS::AutoScaling::AutoScalingGroup" -or $Name -eq "AWS::EC2::Instance" -or $Name -eq "AWS::CloudFormation::WaitCondition") {
-            $scriptContents += @"
-                CreationPolicy {
+    }
+    if ($addCommonCfnProperty['CreationPolicy']) {
+        $scriptContents += @"
+                'CreationPolicy' {
                     `$ResourceParams.Add("CreationPolicy",`$CreationPolicy)
                 }
 "@
-        }
+    }
+
+    if ($addCommonCfnProperty['DeletionPolicy']) {
         $scriptContents += @"
-                DeletionPolicy {
+                'DeletionPolicy' {
                     `$ResourceParams.Add("DeletionPolicy",`$DeletionPolicy)
                 }
-                UpdateReplacePolicy {
+"@
+    }
+
+    if ($addCommonCfnProperty['UpdateReplacePolicy']) {
+        $scriptContents += @"
+                'UpdateReplacePolicy' {
                     `$ResourceParams.Add("UpdateReplacePolicy",`$UpdateReplacePolicy)
                 }
-                DependsOn {
+"@
+    }
+
+    if ($addCommonCfnProperty['DependsOn']) {
+        $scriptContents += @"
+                'DependsOn' {
                     `$ResourceParams.Add("DependsOn",`$DependsOn)
                 }
-                Metadata {
+"@
+    }
+
+    if ($addCommonCfnProperty['Metadata']) {
+        $scriptContents += @"
+                'Metadata' {
                     `$ResourceParams.Add("Metadata",`$Metadata)
                 }
-                UpdatePolicy {
+"@
+    }
+
+    if ($addCommonCfnProperty['UpdatePolicy']) {
+        $scriptContents += @"
+                'UpdatePolicy' {
                     `$ResourceParams.Add("UpdatePolicy",`$UpdatePolicy)
                 }
-                Condition {
+"@
+    }
+
+    if ($addCommonCfnProperty['Condition']) {
+        $scriptContents += @"
+                'Condition' {
                     `$ResourceParams.Add("Condition",`$Condition)
                 }
 "@
+    }
+
+    if ($ResourceType -ne "Property") {
         foreach ($Prop in $Properties | Where-Object { $_.Value.Type -eq "List" }) {
             $scriptContents += @"
-                $($Prop.Name) {
+                '$($Prop.Name)' {
                     if (!(`$ResourceParams["Properties"])) {
                         `$ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
@@ -483,9 +555,10 @@ function $FunctionName {
                 }
 "@
         }
+
         foreach ($Prop in $Properties | Where-Object { $_.Value.PrimitiveType -eq "Json" }) {
             $scriptContents += @"
-                $($Prop.Name) {
+                '$($Prop.Name)' {
                     if ((`$PSBoundParameters[`$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             `$JSONObject = (ConvertFrom-Json -InputObject `$PSBoundParameters[`$key] -ErrorAction Stop)
@@ -504,6 +577,7 @@ function $FunctionName {
                 }
 "@
         }
+
         $scriptContents += @"
                 Default {
                     if (!(`$ResourceParams["Properties"])) {
@@ -522,8 +596,7 @@ function $FunctionName {
     }
 }
 "@
-    }
-    else {
+    } else {
         $scriptContents += @"
     )
 
@@ -538,7 +611,7 @@ function $FunctionName {
 "@
         foreach ($Prop in $Properties | Where-Object { $_.Value.PrimitiveType -eq "Json" }) {
             $scriptContents += @"
-                $($Prop.Name) {
+                '$($Prop.Name)' {
                     if ((`$PSBoundParameters[`$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             `$JSONObject = (ConvertFrom-Json -InputObject `$PSBoundParameters[`$key] -ErrorAction Stop)
@@ -556,7 +629,7 @@ function $FunctionName {
         }
         if ($FunctionName -eq 'Add-VSLambdaFunctionCode') {
             $scriptContents += @"
-                ZipFilePath {
+                'ZipFilePath' {
                     `$obj | Add-Member -MemberType NoteProperty -Name 'ZipFile' -Value ([System.IO.File]::ReadAllText(`$ZipFilePath))
                 }
 "@
