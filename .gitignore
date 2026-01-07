@@ -8,7 +8,8 @@ vaporshell-snippets**
 TestResults**.xml
 VaporShell.zip
 ci/https*
-VaporShell/Public
+# VaporShell/Public/Resource\ Types/
+# VaporShell/Public/Resource\ Property\ Types/
 
 # User-specific files
 *.suo
