@@ -3,21 +3,25 @@ $basePath = (Resolve-Path "$($docsPath)/..").Path
 
 Push-Location $basePath
 
-if ((Get-PSRepository -Name PSGallery).InstallationPolicy -ne 'Trusted') {
-    Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -Verbose:$false
-}
-try {
-    $null = Get-PackageProvider -Name Nuget -ForceBootstrap -Verbose:$false -ErrorAction Stop
-}
-catch {
-    throw
-}
-
-'platyPS' | ForEach-Object {
-    Write-Host "[$_] Resolving module"
-    Install-Module $_ -Repository PSGallery -Scope CurrentUser -ErrorAction SilentlyContinue
-    Import-Module $_
-}
+# Commenting this out for now to speed up execution
+# This should not be required in EP.
+# platyPS is part of standard EP developer workstation build as well as CICD server build
+#
+# if ((Get-PSRepository -Name PSGallery).InstallationPolicy -ne 'Trusted') {
+#     Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -Verbose:$false
+# }
+#
+# try {
+#     $null = Get-PackageProvider -Name Nuget -ForceBootstrap -Verbose:$false -ErrorAction Stop
+# } catch {
+#     throw
+# }
+#
+# 'platyPS' | ForEach-Object {
+#     Write-Host "[$_] Resolving module"
+#     Install-Module $_ -Repository PSGallery -Scope CurrentUser -ErrorAction SilentlyContinue
+#     Import-Module $_
+# }
 
 #region purpose: Unload / load module
 if (Get-Module VaporShell*) {
@@ -44,27 +48,27 @@ $vsCommands | ForEach-Object -Parallel {
     New-MarkdownHelp -Command "VaporShell\$_" -Force -NoMetadata -OutputFolder "$($docsPath)\docs\glossary"
 } -ThrottleLimit 10
 
-$files = Get-ChildItem "$($docsPath)/docs/glossary" -Exclude "index.md"
+# Comment this out for now to speed up execution - adding a dummy example to generated commands instead of removing the placeholder here
+# $files = Get-ChildItem "$($docsPath)/docs/glossary" -Exclude "index.md"
+# foreach ($file in $files) {
+#     Write-Host -ForegroundColor Cyan "Updating $($file.BaseName)"
 
-foreach ($file in $files) {
-    Write-Host -ForegroundColor Cyan "Updating $($file.BaseName)"
-
-    $md = Get-Content $file.FullName
-    if ($md -match [RegEx]::Escape('PS C:\> {{ Add example code here }}')) {
-        $updated = [System.Collections.Generic.List[string]]::new()
-        $exStart = [array]::IndexOf($md,'## EXAMPLES')
-        $parStart = [array]::IndexOf($md,'## PARAMETERS')
-        $md[0..($exStart-1)] | ForEach-Object {
-            $updated.Add($_)
-        }
-        $md[$parStart..($md.Count-1)] | ForEach-Object {
-            $updated.Add($_)
-        }
-        $updated | Set-Content $file.FullName -Force
-    }
-    else {
-        $md | Set-Content $file.FullName -Force
-    }
-}
+#     $md = Get-Content $file.FullName
+#     if ($md -match [RegEx]::Escape('PS C:\> {{ Add example code here }}')) {
+#         $updated = [System.Collections.Generic.List[string]]::new()
+#         $exStart = [array]::IndexOf($md,'## EXAMPLES')
+#         $parStart = [array]::IndexOf($md,'## PARAMETERS')
+#         $md[0..($exStart-1)] | ForEach-Object {
+#             $updated.Add($_)
+#         }
+#         $md[$parStart..($md.Count-1)] | ForEach-Object {
+#             $updated.Add($_)
+#         }
+#         $updated | Set-Content $file.FullName -Force
+#     }
+#     else {
+#         $md | Set-Content $file.FullName -Force
+#     }
+# }
 
 Set-Location $basePath
