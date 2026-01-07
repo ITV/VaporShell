@@ -28,7 +28,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.ECP_TOKEN }}
           BRANCH: gh-pages
           FOLDER: docs
           COMMIT_MESSAGE: '[skip ci] Updating docs from GitHub Actions'
