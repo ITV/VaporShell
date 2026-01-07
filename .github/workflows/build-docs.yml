@@ -15,14 +15,12 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v6
-        with:
-          ref: main
 
       - name: Install PowerShell Modules 📦
         run: |
             Install-Module -Name platyPS -Force -Scope CurrentUser
         shell: pwsh
-        
+
       - name: Build 🔧
         run: |
             . ./docs/ci/glossarydataCSVGenerator.ps1
