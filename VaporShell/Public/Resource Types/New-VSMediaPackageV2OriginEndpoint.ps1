@@ -9,17 +9,16 @@ function New-VSMediaPackageV2OriginEndpoint {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html
 
-    .PARAMETER LogicalId
-        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
+    .PARAMETER MssManifests
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-mssmanifests
+        UpdateType: Mutable
+        Type: List
+        ItemType: MssManifestConfiguration
+        DuplicatesAllowed: True
 
     .PARAMETER Description
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-description
         UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER ChannelName
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-channelname
-        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER LowLatencyHlsManifests
@@ -39,22 +38,12 @@ function New-VSMediaPackageV2OriginEndpoint {
         UpdateType: Mutable
         Type: ForceEndpointErrorConfiguration
 
-    .PARAMETER OriginEndpointName
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-originendpointname
-        UpdateType: Immutable
-        PrimitiveType: String
-
     .PARAMETER HlsManifests
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-hlsmanifests
         UpdateType: Mutable
         Type: List
         ItemType: HlsManifestConfiguration
         DuplicatesAllowed: True
-
-    .PARAMETER ChannelGroupName
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-channelgroupname
-        UpdateType: Immutable
-        PrimitiveType: String
 
     .PARAMETER DashManifests
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-dashmanifests
@@ -67,6 +56,21 @@ function New-VSMediaPackageV2OriginEndpoint {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-segment
         UpdateType: Mutable
         Type: Segment
+
+    .PARAMETER ChannelName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-channelname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER OriginEndpointName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-originendpointname
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER ChannelGroupName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-channelgroupname
+        UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-originendpoint.html#cfn-mediapackagev2-originendpoint-tags
@@ -123,26 +127,29 @@ function New-VSMediaPackageV2OriginEndpoint {
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
+    .PARAMETER LogicalId
+        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true, Position = 0)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                if ($_ -match "^[a-zA-Z0-9]*$") {
+                $allowedTypes = "Vaporshell.Resource.MediaPackageV2.OriginEndpoint.MssManifestConfiguration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        [System.String]
-        $LogicalId,
+        $MssManifests,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -155,18 +162,6 @@ function New-VSMediaPackageV2OriginEndpoint {
                 }
             })]
         $Description,
-
-        [Parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ChannelName,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -195,18 +190,6 @@ function New-VSMediaPackageV2OriginEndpoint {
         [Parameter(Mandatory = $false)]
         $ForceEndpointErrorConfiguration,
 
-        [Parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $OriginEndpointName,
-
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaPackageV2.OriginEndpoint.HlsManifestConfiguration"
@@ -218,18 +201,6 @@ function New-VSMediaPackageV2OriginEndpoint {
                 }
             })]
         $HlsManifests,
-
-        [Parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ChannelGroupName,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -245,6 +216,42 @@ function New-VSMediaPackageV2OriginEndpoint {
 
         [Parameter(Mandatory = $false)]
         $Segment,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ChannelName,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $OriginEndpointName,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ChannelGroupName,
 
         [VaporShell.Core.TransformTag()]
         [Parameter(Mandatory = $false)]
@@ -262,18 +269,6 @@ function New-VSMediaPackageV2OriginEndpoint {
             })]
         $StartoverWindowSeconds,
 
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $CreationPolicy,
-
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -281,6 +276,10 @@ function New-VSMediaPackageV2OriginEndpoint {
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -309,9 +308,17 @@ function New-VSMediaPackageV2OriginEndpoint {
         [Parameter(Mandatory = $false)]
         $Condition,
 
-        [Parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn
+        [Parameter(Mandatory = $true, Position = 0)]
+        [ValidateScript( {
+                if ($_ -match "^[a-zA-Z0-9]*$") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
+                }
+            })]
+        [System.String]
+        $LogicalId
     )
 
     Begin {
@@ -325,44 +332,50 @@ function New-VSMediaPackageV2OriginEndpoint {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                LogicalId {}
-                DeletionPolicy {
+                'LogicalId' {}
+                'DeletionPolicy' {
                     $ResourceParams.Add("DeletionPolicy",$DeletionPolicy)
                 }
-                UpdateReplacePolicy {
+                'UpdateReplacePolicy' {
                     $ResourceParams.Add("UpdateReplacePolicy",$UpdateReplacePolicy)
                 }
-                DependsOn {
+                'DependsOn' {
                     $ResourceParams.Add("DependsOn",$DependsOn)
                 }
-                Metadata {
+                'Metadata' {
                     $ResourceParams.Add("Metadata",$Metadata)
                 }
-                UpdatePolicy {
+                'UpdatePolicy' {
                     $ResourceParams.Add("UpdatePolicy",$UpdatePolicy)
                 }
-                Condition {
+                'Condition' {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                LowLatencyHlsManifests {
+                'MssManifests' {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name MssManifests -Value @($MssManifests)
+                }
+                'LowLatencyHlsManifests' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name LowLatencyHlsManifests -Value @($LowLatencyHlsManifests)
                 }
-                HlsManifests {
+                'HlsManifests' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name HlsManifests -Value @($HlsManifests)
                 }
-                DashManifests {
+                'DashManifests' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DashManifests -Value @($DashManifests)
                 }
-                Tags {
+                'Tags' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }

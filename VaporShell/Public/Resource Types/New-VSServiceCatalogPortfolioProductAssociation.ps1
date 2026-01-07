@@ -9,28 +9,25 @@ function New-VSServiceCatalogPortfolioProductAssociation {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioproductassociation.html
 
-    .PARAMETER LogicalId
-        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
-
     .PARAMETER SourcePortfolioId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioproductassociation.html#cfn-servicecatalog-portfolioproductassociation-sourceportfolioid
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER AcceptLanguage
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioproductassociation.html#cfn-servicecatalog-portfolioproductassociation-acceptlanguage
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER PortfolioId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioproductassociation.html#cfn-servicecatalog-portfolioproductassociation-portfolioid
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER ProductId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioproductassociation.html#cfn-servicecatalog-portfolioproductassociation-productid
-        PrimitiveType: String
         UpdateType: Immutable
+        PrimitiveType: String
 
     .PARAMETER DeletionPolicy
         With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted. You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy attribute, AWS CloudFormation deletes the resource by default.
@@ -75,27 +72,18 @@ function New-VSServiceCatalogPortfolioProductAssociation {
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
+    .PARAMETER LogicalId
+        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.ServiceCatalog.PortfolioProductAssociation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true, Position = 0)]
-        [ValidateScript( {
-                if ($_ -match "^[a-zA-Z0-9]*$") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
-                }
-            })]
-        [System.String]
-        $LogicalId,
-
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -120,7 +108,7 @@ function New-VSServiceCatalogPortfolioProductAssociation {
             })]
         $AcceptLanguage,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -132,7 +120,7 @@ function New-VSServiceCatalogPortfolioProductAssociation {
             })]
         $PortfolioId,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -144,18 +132,6 @@ function New-VSServiceCatalogPortfolioProductAssociation {
             })]
         $ProductId,
 
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $CreationPolicy,
-
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -163,6 +139,10 @@ function New-VSServiceCatalogPortfolioProductAssociation {
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -191,9 +171,17 @@ function New-VSServiceCatalogPortfolioProductAssociation {
         [Parameter(Mandatory = $false)]
         $Condition,
 
-        [Parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn
+        [Parameter(Mandatory = $true, Position = 0)]
+        [ValidateScript( {
+                if ($_ -match "^[a-zA-Z0-9]*$") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
+                }
+            })]
+        [System.String]
+        $LogicalId
     )
 
     Begin {
@@ -207,23 +195,23 @@ function New-VSServiceCatalogPortfolioProductAssociation {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                LogicalId {}
-                DeletionPolicy {
+                'LogicalId' {}
+                'DeletionPolicy' {
                     $ResourceParams.Add("DeletionPolicy",$DeletionPolicy)
                 }
-                UpdateReplacePolicy {
+                'UpdateReplacePolicy' {
                     $ResourceParams.Add("UpdateReplacePolicy",$UpdateReplacePolicy)
                 }
-                DependsOn {
+                'DependsOn' {
                     $ResourceParams.Add("DependsOn",$DependsOn)
                 }
-                Metadata {
+                'Metadata' {
                     $ResourceParams.Add("Metadata",$Metadata)
                 }
-                UpdatePolicy {
+                'UpdatePolicy' {
                     $ResourceParams.Add("UpdatePolicy",$UpdatePolicy)
                 }
-                Condition {
+                'Condition' {
                     $ResourceParams.Add("Condition",$Condition)
                 }
                 Default {

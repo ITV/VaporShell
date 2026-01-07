@@ -9,8 +9,10 @@ function New-VSDynamoDBGlobalTable {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html
 
-    .PARAMETER LogicalId
-        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
+    .PARAMETER MultiRegionConsistency
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-multiregionconsistency
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER SSESpecification
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
@@ -21,11 +23,6 @@ function New-VSDynamoDBGlobalTable {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
         UpdateType: Mutable
         Type: StreamSpecification
-
-    .PARAMETER PointInTimeRecoverySpecification
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-pointintimerecoveryspecification
-        UpdateType: Mutable
-        Type: PointInTimeRecoverySpecification
 
     .PARAMETER WarmThroughput
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-warmthroughput
@@ -48,6 +45,13 @@ function New-VSDynamoDBGlobalTable {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeondemandthroughputsettings
         UpdateType: Mutable
         Type: WriteOnDemandThroughputSettings
+
+    .PARAMETER GlobalTableWitnesses
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globaltablewitnesses
+        UpdateType: Mutable
+        Type: List
+        ItemType: GlobalTableWitness
+        DuplicatesAllowed: False
 
     .PARAMETER TableName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
@@ -135,35 +139,35 @@ function New-VSDynamoDBGlobalTable {
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
+    .PARAMETER LogicalId
+        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true, Position = 0)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                if ($_ -match "^[a-zA-Z0-9]*$") {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        [System.String]
-        $LogicalId,
+        $MultiRegionConsistency,
 
         [Parameter(Mandatory = $false)]
         $SSESpecification,
 
         [Parameter(Mandatory = $false)]
         $StreamSpecification,
-
-        [Parameter(Mandatory = $false)]
-        $PointInTimeRecoverySpecification,
 
         [Parameter(Mandatory = $false)]
         $WarmThroughput,
@@ -185,6 +189,18 @@ function New-VSDynamoDBGlobalTable {
 
         [Parameter(Mandatory = $false)]
         $WriteOnDemandThroughputSettings,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.DynamoDB.GlobalTable.GlobalTableWitness"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $GlobalTableWitnesses,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -261,18 +277,6 @@ function New-VSDynamoDBGlobalTable {
         [Parameter(Mandatory = $false)]
         $TimeToLiveSpecification,
 
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $CreationPolicy,
-
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -280,6 +284,10 @@ function New-VSDynamoDBGlobalTable {
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -308,9 +316,17 @@ function New-VSDynamoDBGlobalTable {
         [Parameter(Mandatory = $false)]
         $Condition,
 
-        [Parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn
+        [Parameter(Mandatory = $true, Position = 0)]
+        [ValidateScript( {
+                if ($_ -match "^[a-zA-Z0-9]*$") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
+                }
+            })]
+        [System.String]
+        $LogicalId
     )
 
     Begin {
@@ -324,50 +340,56 @@ function New-VSDynamoDBGlobalTable {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                LogicalId {}
-                DeletionPolicy {
+                'LogicalId' {}
+                'DeletionPolicy' {
                     $ResourceParams.Add("DeletionPolicy",$DeletionPolicy)
                 }
-                UpdateReplacePolicy {
+                'UpdateReplacePolicy' {
                     $ResourceParams.Add("UpdateReplacePolicy",$UpdateReplacePolicy)
                 }
-                DependsOn {
+                'DependsOn' {
                     $ResourceParams.Add("DependsOn",$DependsOn)
                 }
-                Metadata {
+                'Metadata' {
                     $ResourceParams.Add("Metadata",$Metadata)
                 }
-                UpdatePolicy {
+                'UpdatePolicy' {
                     $ResourceParams.Add("UpdatePolicy",$UpdatePolicy)
                 }
-                Condition {
+                'Condition' {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Replicas {
+                'Replicas' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Replicas -Value @($Replicas)
                 }
-                AttributeDefinitions {
+                'GlobalTableWitnesses' {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name GlobalTableWitnesses -Value @($GlobalTableWitnesses)
+                }
+                'AttributeDefinitions' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name AttributeDefinitions -Value @($AttributeDefinitions)
                 }
-                GlobalSecondaryIndexes {
+                'GlobalSecondaryIndexes' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name GlobalSecondaryIndexes -Value @($GlobalSecondaryIndexes)
                 }
-                KeySchema {
+                'KeySchema' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name KeySchema -Value @($KeySchema)
                 }
-                LocalSecondaryIndexes {
+                'LocalSecondaryIndexes' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }

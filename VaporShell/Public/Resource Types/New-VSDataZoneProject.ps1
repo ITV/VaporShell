@@ -9,8 +9,22 @@ function New-VSDataZoneProject {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html
 
-    .PARAMETER LogicalId
-        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
+    .PARAMETER DomainUnitId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-domainunitid
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ProjectProfileId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-projectprofileid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER UserParameters
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-userparameters
+        UpdateType: Mutable
+        Type: List
+        ItemType: EnvironmentConfigurationUserParameter
+        DuplicatesAllowed: True
 
     .PARAMETER Description
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-description
@@ -24,14 +38,19 @@ function New-VSDataZoneProject {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
-    .PARAMETER DomainIdentifier
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-domainidentifier
-        UpdateType: Immutable
+    .PARAMETER ProjectProfileVersion
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-projectprofileversion
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-name
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER DomainIdentifier
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html#cfn-datazone-project-domainidentifier
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DeletionPolicy
@@ -77,26 +96,53 @@ function New-VSDataZoneProject {
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
+    .PARAMETER LogicalId
+        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.Project')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true, Position = 0)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                if ($_ -match "^[a-zA-Z0-9]*$") {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        [System.String]
-        $LogicalId,
+        $DomainUnitId,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ProjectProfileId,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.DataZone.Project.EnvironmentConfigurationUserParameter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UserParameters,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -113,7 +159,7 @@ function New-VSDataZoneProject {
         [Parameter(Mandatory = $false)]
         $GlossaryTerms,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -123,7 +169,7 @@ function New-VSDataZoneProject {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DomainIdentifier,
+        $ProjectProfileVersion,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -137,9 +183,9 @@ function New-VSDataZoneProject {
             })]
         $Name,
 
-        [Parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -147,7 +193,7 @@ function New-VSDataZoneProject {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CreationPolicy,
+        $DomainIdentifier,
 
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
@@ -156,6 +202,10 @@ function New-VSDataZoneProject {
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -184,9 +234,17 @@ function New-VSDataZoneProject {
         [Parameter(Mandatory = $false)]
         $Condition,
 
-        [Parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn
+        [Parameter(Mandatory = $true, Position = 0)]
+        [ValidateScript( {
+                if ($_ -match "^[a-zA-Z0-9]*$") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
+                }
+            })]
+        [System.String]
+        $LogicalId
     )
 
     Begin {
@@ -200,26 +258,32 @@ function New-VSDataZoneProject {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                LogicalId {}
-                DeletionPolicy {
+                'LogicalId' {}
+                'DeletionPolicy' {
                     $ResourceParams.Add("DeletionPolicy",$DeletionPolicy)
                 }
-                UpdateReplacePolicy {
+                'UpdateReplacePolicy' {
                     $ResourceParams.Add("UpdateReplacePolicy",$UpdateReplacePolicy)
                 }
-                DependsOn {
+                'DependsOn' {
                     $ResourceParams.Add("DependsOn",$DependsOn)
                 }
-                Metadata {
+                'Metadata' {
                     $ResourceParams.Add("Metadata",$Metadata)
                 }
-                UpdatePolicy {
+                'UpdatePolicy' {
                     $ResourceParams.Add("UpdatePolicy",$UpdatePolicy)
                 }
-                Condition {
+                'Condition' {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                GlossaryTerms {
+                'UserParameters' {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name UserParameters -Value @($UserParameters)
+                }
+                'GlossaryTerms' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }

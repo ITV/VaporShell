@@ -9,13 +9,32 @@ function New-VSIAMSAMLProvider {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html
 
-    .PARAMETER LogicalId
-        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
+    .PARAMETER AddPrivateKey
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-addprivatekey
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER RemovePrivateKey
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-removeprivatekey
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER AssertionEncryptionMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-assertionencryptionmode
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER SamlMetadataDocument
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-samlmetadatadocument
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER PrivateKeyList
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-privatekeylist
+        UpdateType: Mutable
+        Type: List
+        ItemType: SAMLPrivateKey
+        DuplicatesAllowed: True
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html#cfn-iam-samlprovider-tags
@@ -72,28 +91,55 @@ function New-VSIAMSAMLProvider {
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
+    .PARAMETER LogicalId
+        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.IAM.SAMLProvider')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true, Position = 0)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                if ($_ -match "^[a-zA-Z0-9]*$") {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
                 else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        [System.String]
-        $LogicalId,
+        $AddPrivateKey,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RemovePrivateKey,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AssertionEncryptionMode,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -104,6 +150,18 @@ function New-VSIAMSAMLProvider {
                 }
             })]
         $SamlMetadataDocument,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.IAM.SAMLProvider.SAMLPrivateKey"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PrivateKeyList,
 
         [VaporShell.Core.TransformTag()]
         [Parameter(Mandatory = $false)]
@@ -121,18 +179,6 @@ function New-VSIAMSAMLProvider {
             })]
         $Name,
 
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $CreationPolicy,
-
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $DeletionPolicy,
@@ -140,6 +186,10 @@ function New-VSIAMSAMLProvider {
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -168,9 +218,17 @@ function New-VSIAMSAMLProvider {
         [Parameter(Mandatory = $false)]
         $Condition,
 
-        [Parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn
+        [Parameter(Mandatory = $true, Position = 0)]
+        [ValidateScript( {
+                if ($_ -match "^[a-zA-Z0-9]*$") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
+                }
+            })]
+        [System.String]
+        $LogicalId
     )
 
     Begin {
@@ -184,26 +242,32 @@ function New-VSIAMSAMLProvider {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                LogicalId {}
-                DeletionPolicy {
+                'LogicalId' {}
+                'DeletionPolicy' {
                     $ResourceParams.Add("DeletionPolicy",$DeletionPolicy)
                 }
-                UpdateReplacePolicy {
+                'UpdateReplacePolicy' {
                     $ResourceParams.Add("UpdateReplacePolicy",$UpdateReplacePolicy)
                 }
-                DependsOn {
+                'DependsOn' {
                     $ResourceParams.Add("DependsOn",$DependsOn)
                 }
-                Metadata {
+                'Metadata' {
                     $ResourceParams.Add("Metadata",$Metadata)
                 }
-                UpdatePolicy {
+                'UpdatePolicy' {
                     $ResourceParams.Add("UpdatePolicy",$UpdatePolicy)
                 }
-                Condition {
+                'Condition' {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                Tags {
+                'PrivateKeyList' {
+                    if (!($ResourceParams["Properties"])) {
+                        $ResourceParams.Add("Properties",([PSCustomObject]@{}))
+                    }
+                    $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name PrivateKeyList -Value @($PrivateKeyList)
+                }
+                'Tags' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }

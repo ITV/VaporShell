@@ -9,9 +9,6 @@ function New-VSQuickSightDataSet {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html
 
-    .PARAMETER LogicalId
-        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
-
     .PARAMETER PhysicalTableMap
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-physicaltablemap
         UpdateType: Mutable
@@ -24,10 +21,10 @@ function New-VSQuickSightDataSet {
         Type: Map
         ItemType: FieldFolder
 
-    .PARAMETER DataSetId
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
-        UpdateType: Immutable
-        PrimitiveType: String
+    .PARAMETER SemanticModelConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-semanticmodelconfiguration
+        UpdateType: Mutable
+        Type: SemanticModelConfiguration
 
     .PARAMETER FolderArns
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-folderarns
@@ -36,30 +33,25 @@ function New-VSQuickSightDataSet {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER DataSetId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetid
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER PerformanceConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-performanceconfiguration
         UpdateType: Mutable
         Type: PerformanceConfiguration
 
-    .PARAMETER RowLevelPermissionDataSet
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiondataset
+    .PARAMETER IngestionWaitPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
         UpdateType: Mutable
-        Type: RowLevelPermissionDataSet
+        Type: IngestionWaitPolicy
 
     .PARAMETER DataSetRefreshProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-datasetrefreshproperties
         UpdateType: Mutable
         Type: DataSetRefreshProperties
-
-    .PARAMETER RowLevelPermissionTagConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-rowlevelpermissiontagconfiguration
-        UpdateType: Mutable
-        Type: RowLevelPermissionTagConfiguration
-
-    .PARAMETER IngestionWaitPolicy
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-ingestionwaitpolicy
-        UpdateType: Mutable
-        Type: IngestionWaitPolicy
 
     .PARAMETER ColumnLevelPermissionRules
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-columnlevelpermissionrules
@@ -92,11 +84,12 @@ function New-VSQuickSightDataSet {
         ItemType: DatasetParameter
         DuplicatesAllowed: True
 
-    .PARAMETER LogicalTableMap
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-logicaltablemap
+    .PARAMETER Permissions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
         UpdateType: Mutable
-        Type: Map
-        ItemType: LogicalTable
+        Type: List
+        ItemType: ResourcePermission
+        DuplicatesAllowed: True
 
     .PARAMETER AwsAccountId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-awsaccountid
@@ -108,12 +101,15 @@ function New-VSQuickSightDataSet {
         UpdateType: Mutable
         Type: DataSetUsageConfiguration
 
-    .PARAMETER Permissions
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-permissions
+    .PARAMETER UseAs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-useas
         UpdateType: Mutable
-        Type: List
-        ItemType: ResourcePermission
-        DuplicatesAllowed: True
+        PrimitiveType: String
+
+    .PARAMETER DataPrepConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-dataprepconfiguration
+        UpdateType: Mutable
+        Type: DataPrepConfiguration
 
     .PARAMETER Tags
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dataset.html#cfn-quicksight-dataset-tags
@@ -165,27 +161,18 @@ function New-VSQuickSightDataSet {
     .PARAMETER Condition
         Logical ID of the condition that this resource needs to be true in order for this resource to be provisioned.
 
+    .PARAMETER LogicalId
+        The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true, Position = 0)]
-        [ValidateScript( {
-                if ($_ -match "^[a-zA-Z0-9]*$") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
-                }
-            })]
-        [System.String]
-        $LogicalId,
-
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.PhysicalTable"
@@ -211,6 +198,12 @@ function New-VSQuickSightDataSet {
         $FieldFolders,
 
         [Parameter(Mandatory = $false)]
+        $SemanticModelConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $FolderArns,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -223,22 +216,13 @@ function New-VSQuickSightDataSet {
         $DataSetId,
 
         [Parameter(Mandatory = $false)]
-        $FolderArns,
-
-        [Parameter(Mandatory = $false)]
         $PerformanceConfiguration,
 
         [Parameter(Mandatory = $false)]
-        $RowLevelPermissionDataSet,
+        $IngestionWaitPolicy,
 
         [Parameter(Mandatory = $false)]
         $DataSetRefreshProperties,
-
-        [Parameter(Mandatory = $false)]
-        $RowLevelPermissionTagConfiguration,
-
-        [Parameter(Mandatory = $false)]
-        $IngestionWaitPolicy,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -302,7 +286,7 @@ function New-VSQuickSightDataSet {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.LogicalTable"
+                $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.ResourcePermission"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -310,7 +294,7 @@ function New-VSQuickSightDataSet {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $LogicalTableMap,
+        $Permissions,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -329,7 +313,7 @@ function New-VSQuickSightDataSet {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.ResourcePermission"
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
                 }
@@ -337,23 +321,14 @@ function New-VSQuickSightDataSet {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Permissions,
+        $UseAs,
+
+        [Parameter(Mandatory = $false)]
+        $DataPrepConfiguration,
 
         [VaporShell.Core.TransformTag()]
         [Parameter(Mandatory = $false)]
         $Tags,
-
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.CreationPolicy"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $CreationPolicy,
 
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
@@ -362,6 +337,10 @@ function New-VSQuickSightDataSet {
         [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
+
+        [Parameter(Mandatory = $false)]
+        [System.String[]]
+        $DependsOn,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -390,9 +369,17 @@ function New-VSQuickSightDataSet {
         [Parameter(Mandatory = $false)]
         $Condition,
 
-        [Parameter(Mandatory = $false)]
-        [System.String[]]
-        $DependsOn
+        [Parameter(Mandatory = $true, Position = 0)]
+        [ValidateScript( {
+                if ($_ -match "^[a-zA-Z0-9]*$") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String 'The LogicalID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.'))
+                }
+            })]
+        [System.String]
+        $LogicalId
     )
 
     Begin {
@@ -406,56 +393,56 @@ function New-VSQuickSightDataSet {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                LogicalId {}
-                DeletionPolicy {
+                'LogicalId' {}
+                'DeletionPolicy' {
                     $ResourceParams.Add("DeletionPolicy",$DeletionPolicy)
                 }
-                UpdateReplacePolicy {
+                'UpdateReplacePolicy' {
                     $ResourceParams.Add("UpdateReplacePolicy",$UpdateReplacePolicy)
                 }
-                DependsOn {
+                'DependsOn' {
                     $ResourceParams.Add("DependsOn",$DependsOn)
                 }
-                Metadata {
+                'Metadata' {
                     $ResourceParams.Add("Metadata",$Metadata)
                 }
-                UpdatePolicy {
+                'UpdatePolicy' {
                     $ResourceParams.Add("UpdatePolicy",$UpdatePolicy)
                 }
-                Condition {
+                'Condition' {
                     $ResourceParams.Add("Condition",$Condition)
                 }
-                FolderArns {
+                'FolderArns' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name FolderArns -Value @($FolderArns)
                 }
-                ColumnLevelPermissionRules {
+                'ColumnLevelPermissionRules' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ColumnLevelPermissionRules -Value @($ColumnLevelPermissionRules)
                 }
-                ColumnGroups {
+                'ColumnGroups' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name ColumnGroups -Value @($ColumnGroups)
                 }
-                DatasetParameters {
+                'DatasetParameters' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name DatasetParameters -Value @($DatasetParameters)
                 }
-                Permissions {
+                'Permissions' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
                     $ResourceParams["Properties"] | Add-Member -MemberType NoteProperty -Name Permissions -Value @($Permissions)
                 }
-                Tags {
+                'Tags' {
                     if (!($ResourceParams["Properties"])) {
                         $ResourceParams.Add("Properties",([PSCustomObject]@{}))
                     }
