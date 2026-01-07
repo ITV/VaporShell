@@ -23,8 +23,9 @@ jobs:
 
       - name: Build 🔧
         run: |
-            . ./docs/ci/glossarydataCSVGenerator.ps1
+            # glossaryUpdater.ps1 must run first since the VaporShell module is built there
             . ./docs/ci/glossaryUpdater.ps1
+            . ./docs/ci/glossarydataCSVGenerator.ps1
         shell: pwsh
 
       - name: Deploy 🚀
