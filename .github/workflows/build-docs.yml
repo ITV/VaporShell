@@ -14,9 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           ref: main
+          fetch-depth: 0
 
       - name: Install PowerShell Modules 📦
         run: |
@@ -30,9 +31,9 @@ jobs:
         shell: pwsh
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          ACCESS_TOKEN: ${{ secrets.ECP_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: docs
-          COMMIT_MESSAGE: '[skip ci] Updating docs from GitHub Actions'
+          token: ${{ secrets.ECP_TOKEN }}
+          branch: gh-pages
+          folder: docs
+          commit-message: '[skip ci] Updating docs from GitHub Actions'
