@@ -109,7 +109,7 @@ function $FunctionName {
 
         To keep a resource when its stack is deleted, specify Retain for that resource. You can use retain for any resource. For example, you can retain a nested stack, S3 bucket, or EC2 instance so that you can continue to use or modify those resources after you delete their stacks.
 
-        You must use one of the following options: "Delete","Retain","Snapshot"
+        You must use one of the following options: "Delete","Retain","Snapshot"`n
 "@
     }
 
@@ -131,7 +131,7 @@ function $FunctionName {
 
         UpdateReplacePolicy differs from the DeletionPolicy attribute in that it only applies to resources replaced during stack updates. Use DeletionPolicy for resources deleted when a stack is deleted, or when the resource definition itself is deleted from the template as part of a stack update.
 
-        You must use one of the following options: "Delete","Retain","Snapshot"
+        You must use one of the following options: "Delete","Retain","Snapshot"`n
 "@
     }
 
@@ -140,7 +140,7 @@ function $FunctionName {
     .PARAMETER DependsOn
         With the DependsOn attribute you can specify that the creation of a specific resource follows another. When you add a DependsOn attribute to a resource, that resource is created only after the creation of the resource specified in the DependsOn attribute.
 
-        This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.
+        This parameter takes a string or list of strings representing Logical IDs of resources that must be created prior to this resource being created.`n
 "@
     }
 
