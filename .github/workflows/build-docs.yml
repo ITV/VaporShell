@@ -18,6 +18,11 @@ jobs:
         with:
           ref: main
 
+      - name: Install PowerShell Modules 📦
+        run: |
+            Install-Module -Name platyPS, PoshRSJob -Force -Scope CurrentUser
+        shell: pwsh
+        
       - name: Build 🔧
         run: |
             . ./docs/ci/glossarydataCSVGenerator.ps1
