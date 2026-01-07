@@ -12,15 +12,22 @@ function Update-VSResourceFunctions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [CmdletBinding()]
     Param()
-    $vsPath = (Resolve-Path "$PSScriptRoot\..\VaporShell").Path
-    $vsTypeFuncPath = (Resolve-Path "$vsPath\Public\Resource Types").Path
-    $vsPropFuncPath = (Resolve-Path "$vsPath\Public\Resource Property Types").Path
-    $vsSdkFunctions = (Get-ChildItem (Resolve-Path "$vsPath\Public\SDK Wrappers").Path -Recurse -Filter '*.ps1').BaseName
-    $current = Find-Module VaporShell -Repository PSGallery -AllowPrerelease
+
+    $vsPath = (Resolve-Path "$PSScriptRoot/../VaporShell").Path
+    $vsTypeFuncPath = (Resolve-Path "$vsPath/Public/Resource Types").Path
+    $vsPropFuncPath = (Resolve-Path "$vsPath/Public/Resource Property Types").Path
+    $vsSdkFunctions = (Get-ChildItem (Resolve-Path "$vsPath/Public/SDK Wrappers").Path -Recurse -Filter '*.ps1').BaseName
+
+    # NB the check below will work on EP developer workstations but not currently on CICD server as ECP repository is not configured there.
+    # However for the time being builds are not run on CICD server.
+    $current = Find-Module VaporShell -Repository ECP
     $BeforeTypeCount = ($current.Includes.Command | Where-Object {$_ -match '^New\-VS' -and $_ -notin $vsSdkFunctions}).Count
     $BeforePropCount = ($current.Includes.Command | Where-Object {$_ -match '^Add\-VS' -and $_ -notin $vsSdkFunctions}).Count
+
+    # URLs for CFN spec
     $regHash = @{
         'us-east-1 (N. Virginia)'     = 'https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
         'ap-east-1 (Hong Kong)' = 'https://cfn-resource-specifications-ap-east-1-prod.s3.ap-east-1.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json'
@@ -61,6 +68,7 @@ function Update-VSResourceFunctions {
     foreach ($resource in $specs.PropertyTypes.PSObject.Properties) {
         $final['PropertyTypes'][$resource.Name] = $resource
     }
+
     # Get the rest and add anything missing from us-east-1 for full coverage
     foreach ($region in $regHash.GetEnumerator() | Where-Object {$_.Key -ne 'us-east-1 (N. Virginia)'}) {
         try {
@@ -83,6 +91,12 @@ function Update-VSResourceFunctions {
             Write-Host -ForegroundColor Yellow "WARNING: Failed to get specs from region: $($_.Key)"
         }
     }
+
+    # Clean up the directories with dynamically generated content to ensure no legacy files are included in the module
+    Get-ChildItem $vsTypeFuncPath | Remove-Item -Force -Recurse
+    Get-ChildItem $vsPropFuncPath | Remove-Item -Force -Recurse
+
+    # Regenerate New-VS... and Add-VS... commands
     foreach ($resource in $final['ResourceTypes'].Values | Sort-Object Name) {
         Write-Verbose "Updating Resource Type [$($resource.Name)]"
         Convert-SpecToFunction -Resource $resource -ResourceType Resource
@@ -91,11 +105,14 @@ function Update-VSResourceFunctions {
         Write-Verbose "Updating Resource Property [$($resource.Name)]"
         Convert-SpecToFunction -Resource $resource -ResourceType Property
     }
+
+    # Get some stats
     $AfterTypeCount = (Get-ChildItem -Path (Resolve-Path "$vsPath\Public\Resource Types").Path).Count
     $AfterPropCount = (Get-ChildItem -Path (Resolve-Path "$vsPath\Public\Resource Property Types").Path).Count
     $newType = $AfterTypeCount - $BeforeTypeCount
     $newProp = $AfterPropCount - $BeforePropCount
     Write-Verbose "`n`n$newType new Resource Type and $newProp Resource Property Type functions added to Vaporshell [$($newType + $newProp) total]`n"
+
     Write-Host "Resource function update stats:"
     [PSCustomObject][Ordered]@{
         'Resource Type Functions [Before]' = $BeforeTypeCount
