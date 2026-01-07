@@ -20,7 +20,7 @@ jobs:
 
       - name: Install PowerShell Modules 📦
         run: |
-            Install-Module -Name platyPS, PoshRSJob -Force -Scope CurrentUser
+            Install-Module -Name platyPS -Force -Scope CurrentUser
         shell: pwsh
         
       - name: Build 🔧
