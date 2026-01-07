@@ -1,19 +1,28 @@
 name: Build and Deploy Docs
+permissions:
+  contents: write
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - '*'
+  workflow_dispatch:
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
         with:
-          persist-credentials: false
+          ref: main
 
+      - name: Install PowerShell Modules 📦
+        run: |
+            Install-Module -Name platyPS -Force -Scope CurrentUser
+        shell: pwsh
+        
       - name: Build 🔧
         run: |
             . ./docs/ci/glossarydataCSVGenerator.ps1
@@ -21,9 +30,9 @@ jobs:
         shell: pwsh
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN: ${{ secrets.ECP_TOKEN }}
           BRANCH: gh-pages
           FOLDER: docs
           COMMIT_MESSAGE: '[skip ci] Updating docs from GitHub Actions'
