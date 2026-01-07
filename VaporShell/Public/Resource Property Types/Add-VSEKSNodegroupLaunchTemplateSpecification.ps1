@@ -29,7 +29,7 @@ function Add-VSEKSNodegroupLaunchTemplateSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Nodegroup.LaunchTemplateSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

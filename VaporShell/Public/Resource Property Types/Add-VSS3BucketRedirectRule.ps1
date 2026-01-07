@@ -39,7 +39,7 @@ function Add-VSS3BucketRedirectRule {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.RedirectRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

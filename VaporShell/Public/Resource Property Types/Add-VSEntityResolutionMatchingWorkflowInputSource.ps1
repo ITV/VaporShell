@@ -29,7 +29,7 @@ function Add-VSEntityResolutionMatchingWorkflowInputSource {
     #>
 
     [OutputType('Vaporshell.Resource.EntityResolution.MatchingWorkflow.InputSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

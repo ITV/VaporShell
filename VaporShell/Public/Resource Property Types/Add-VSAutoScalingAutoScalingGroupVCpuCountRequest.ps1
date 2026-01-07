@@ -24,7 +24,7 @@ function Add-VSAutoScalingAutoScalingGroupVCpuCountRequest {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.VCpuCountRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

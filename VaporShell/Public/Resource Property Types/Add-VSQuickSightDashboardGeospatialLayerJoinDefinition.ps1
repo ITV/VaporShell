@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardGeospatialLayerJoinDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GeospatialLayerJoinDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

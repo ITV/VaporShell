@@ -29,7 +29,7 @@ function Add-VSIoTFleetWiseCampaignDataPartition {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.DataPartition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

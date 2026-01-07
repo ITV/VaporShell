@@ -36,7 +36,7 @@ function Add-VSDataZoneDataSourceGlueRunConfigurationInput {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.DataSource.GlueRunConfigurationInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

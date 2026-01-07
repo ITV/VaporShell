@@ -34,7 +34,7 @@ function Add-VSIoTAnalyticsPipelineLambda {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Pipeline.Lambda')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

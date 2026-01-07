@@ -24,7 +24,7 @@ function Add-VSBedrockAgentAPISchema {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Agent.APISchema')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

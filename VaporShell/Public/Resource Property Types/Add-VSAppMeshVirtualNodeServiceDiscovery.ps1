@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualNodeServiceDiscovery {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.ServiceDiscovery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

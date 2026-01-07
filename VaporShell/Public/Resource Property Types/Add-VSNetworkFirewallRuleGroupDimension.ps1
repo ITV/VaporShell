@@ -19,7 +19,7 @@ function Add-VSNetworkFirewallRuleGroupDimension {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.Dimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

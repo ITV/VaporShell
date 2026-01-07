@@ -24,7 +24,7 @@ function Add-VSImageBuilderInfrastructureConfigurationInstanceMetadataOptions {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.InfrastructureConfiguration.InstanceMetadataOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

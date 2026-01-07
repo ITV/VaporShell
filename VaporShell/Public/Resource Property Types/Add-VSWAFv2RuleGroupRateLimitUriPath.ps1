@@ -21,7 +21,7 @@ function Add-VSWAFv2RuleGroupRateLimitUriPath {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.RateLimitUriPath')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

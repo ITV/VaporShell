@@ -19,7 +19,7 @@ function Add-VSAppFlowConnectorProfileDynatraceConnectorProfileProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.DynatraceConnectorProfileProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

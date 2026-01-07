@@ -21,7 +21,7 @@ function Add-VSForecastDatasetSchema {
     #>
 
     [OutputType('Vaporshell.Resource.Forecast.Dataset.Schema')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -31,7 +31,7 @@ function Add-VSECSServiceEBSTagSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.EBSTagSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

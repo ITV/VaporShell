@@ -24,7 +24,7 @@ function Add-VSBatchJobDefinitionResourceRequirement {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.ResourceRequirement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

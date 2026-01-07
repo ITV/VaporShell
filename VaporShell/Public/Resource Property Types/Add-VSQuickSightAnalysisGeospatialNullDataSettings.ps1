@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisGeospatialNullDataSettings {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialNullDataSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

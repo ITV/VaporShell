@@ -51,7 +51,7 @@ function Add-VSFraudDetectorDetectorLabel {
     #>
 
     [OutputType('Vaporshell.Resource.FraudDetector.Detector.Label')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

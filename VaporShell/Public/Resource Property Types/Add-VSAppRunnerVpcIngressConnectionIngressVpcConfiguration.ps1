@@ -24,7 +24,7 @@ function Add-VSAppRunnerVpcIngressConnectionIngressVpcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.VpcIngressConnection.IngressVpcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

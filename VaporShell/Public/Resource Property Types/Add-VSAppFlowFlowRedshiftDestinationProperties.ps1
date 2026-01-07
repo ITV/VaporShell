@@ -34,7 +34,7 @@ function Add-VSAppFlowFlowRedshiftDestinationProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.RedshiftDestinationProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

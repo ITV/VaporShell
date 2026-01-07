@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardCategoricalMeasureField {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.CategoricalMeasureField')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

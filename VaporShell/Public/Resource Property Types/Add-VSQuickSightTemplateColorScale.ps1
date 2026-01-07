@@ -31,7 +31,7 @@ function Add-VSQuickSightTemplateColorScale {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ColorScale')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

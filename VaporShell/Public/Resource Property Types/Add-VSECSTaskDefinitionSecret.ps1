@@ -24,7 +24,7 @@ function Add-VSECSTaskDefinitionSecret {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.Secret')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

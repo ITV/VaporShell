@@ -26,7 +26,7 @@ function Add-VSWisdomMessageTemplateGroupingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.MessageTemplate.GroupingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

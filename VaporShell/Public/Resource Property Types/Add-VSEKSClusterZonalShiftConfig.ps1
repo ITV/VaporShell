@@ -19,7 +19,7 @@ function Add-VSEKSClusterZonalShiftConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.ZonalShiftConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSRedshiftEndpointAccessVpcSecurityGroup {
     #>
 
     [OutputType('Vaporshell.Resource.Redshift.EndpointAccess.VpcSecurityGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

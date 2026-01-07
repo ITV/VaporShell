@@ -34,7 +34,7 @@ function Add-VSSageMakerModelPackageMetadataProperties {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.MetadataProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

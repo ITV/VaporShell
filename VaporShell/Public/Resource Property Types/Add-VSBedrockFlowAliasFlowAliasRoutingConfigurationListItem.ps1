@@ -19,7 +19,7 @@ function Add-VSBedrockFlowAliasFlowAliasRoutingConfigurationListItem {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.FlowAlias.FlowAliasRoutingConfigurationListItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

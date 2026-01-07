@@ -112,7 +112,7 @@ function Add-VSEC2SpotFleetSpotFleetLaunchSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.SpotFleetLaunchSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateTotalAggregationFunction {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TotalAggregationFunction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

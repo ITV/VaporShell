@@ -33,7 +33,7 @@ function Add-VSWAFv2WebACLResponseInspectionHeader {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ResponseInspectionHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

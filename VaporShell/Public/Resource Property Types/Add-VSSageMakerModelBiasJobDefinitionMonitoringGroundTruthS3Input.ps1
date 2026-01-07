@@ -19,7 +19,7 @@ function Add-VSSageMakerModelBiasJobDefinitionMonitoringGroundTruthS3Input {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.MonitoringGroundTruthS3Input')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

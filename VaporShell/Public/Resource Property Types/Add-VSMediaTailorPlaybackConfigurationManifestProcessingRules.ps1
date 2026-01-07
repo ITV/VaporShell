@@ -19,7 +19,7 @@ function Add-VSMediaTailorPlaybackConfigurationManifestProcessingRules {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.PlaybackConfiguration.ManifestProcessingRules')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

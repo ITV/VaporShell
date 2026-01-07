@@ -19,7 +19,7 @@ function Add-VSDynamoDBGlobalTableReplicaStreamSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.ReplicaStreamSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

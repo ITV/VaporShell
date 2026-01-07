@@ -19,7 +19,7 @@ function Add-VSEventsRuleDeadLetterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.DeadLetterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

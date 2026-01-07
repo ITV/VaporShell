@@ -24,7 +24,7 @@ function Add-VSQuickSightDataSourceDataSourceErrorInfo {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.DataSourceErrorInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

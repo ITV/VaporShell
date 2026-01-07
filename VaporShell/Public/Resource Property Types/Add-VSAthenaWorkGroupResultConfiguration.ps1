@@ -34,7 +34,7 @@ function Add-VSAthenaWorkGroupResultConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Athena.WorkGroup.ResultConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

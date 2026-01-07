@@ -24,7 +24,7 @@ function Add-VSSageMakerModelCardTrainingHyperParameter {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.TrainingHyperParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

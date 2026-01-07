@@ -24,7 +24,7 @@ function Add-VSVpcLatticeRulePathMatchType {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.Rule.PathMatchType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

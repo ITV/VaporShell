@@ -79,7 +79,7 @@ function Add-VSLexBotIntentConfirmationSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.IntentConfirmationSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

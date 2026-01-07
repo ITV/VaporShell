@@ -19,7 +19,7 @@ function Add-VSEC2InstanceHibernationOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.HibernationOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

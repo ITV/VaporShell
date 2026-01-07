@@ -31,7 +31,7 @@ function Add-VSEntityResolutionMatchingWorkflowRuleBasedProperties {
     #>
 
     [OutputType('Vaporshell.Resource.EntityResolution.MatchingWorkflow.RuleBasedProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

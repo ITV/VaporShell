@@ -35,7 +35,7 @@ function Add-VSQuickSightAnalysisPivotTableAggregatedFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PivotTableAggregatedFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

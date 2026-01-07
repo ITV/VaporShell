@@ -11,7 +11,7 @@ function Add-VSKinesisFirehoseDeliveryStreamKMSEncryptionConfig {
 
     .PARAMETER AWSKMSKeyARN
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html#cfn-kinesisfirehose-deliverystream-kmsencryptionconfig-awskmskeyarn
-        UpdateType: Conditional
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -19,7 +19,7 @@ function Add-VSKinesisFirehoseDeliveryStreamKMSEncryptionConfig {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.KMSEncryptionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

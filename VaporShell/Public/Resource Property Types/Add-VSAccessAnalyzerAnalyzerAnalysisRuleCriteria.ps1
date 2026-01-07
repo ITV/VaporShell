@@ -26,7 +26,7 @@ function Add-VSAccessAnalyzerAnalyzerAnalysisRuleCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.AccessAnalyzer.Analyzer.AnalysisRuleCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -55,7 +55,7 @@ function Add-VSAccessAnalyzerAnalyzerAnalysisRuleCriteria {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                ResourceTags {
+                'ResourceTags' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

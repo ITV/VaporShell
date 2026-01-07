@@ -24,7 +24,7 @@ function Add-VSRDSDBProxyEndpointTagFormat {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBProxyEndpoint.TagFormat')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

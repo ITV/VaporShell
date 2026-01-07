@@ -26,7 +26,7 @@ function Add-VSQuickSightTemplatePivotTableFieldCollapseStateTarget {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PivotTableFieldCollapseStateTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

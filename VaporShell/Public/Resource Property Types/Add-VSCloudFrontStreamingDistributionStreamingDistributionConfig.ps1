@@ -50,7 +50,7 @@ function Add-VSCloudFrontStreamingDistributionStreamingDistributionConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.StreamingDistribution.StreamingDistributionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

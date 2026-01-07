@@ -19,7 +19,7 @@ function Add-VSMediaLiveNetworkIpPool {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Network.IpPool')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

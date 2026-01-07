@@ -46,7 +46,7 @@ function Add-VSGammaDilithiumJobDefinitionLinuxParameters {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.LinuxParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

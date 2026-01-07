@@ -24,7 +24,7 @@ function Add-VSBillingConductorCustomLineItemBillingPeriodRange {
     #>
 
     [OutputType('Vaporshell.Resource.BillingConductor.CustomLineItem.BillingPeriodRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

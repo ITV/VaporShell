@@ -24,7 +24,7 @@ function Add-VSAppFlowConnectorProfileAmplitudeConnectorProfileCredentials {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.AmplitudeConnectorProfileCredentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSSageMakerPipelinePipelineDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Pipeline.PipelineDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

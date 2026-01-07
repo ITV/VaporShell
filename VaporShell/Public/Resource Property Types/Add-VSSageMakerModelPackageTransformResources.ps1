@@ -29,7 +29,7 @@ function Add-VSSageMakerModelPackageTransformResources {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.TransformResources')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

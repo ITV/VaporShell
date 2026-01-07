@@ -39,7 +39,7 @@ function Add-VSSSMPatchBaselineRule {
     #>
 
     [OutputType('Vaporshell.Resource.SSM.PatchBaseline.Rule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

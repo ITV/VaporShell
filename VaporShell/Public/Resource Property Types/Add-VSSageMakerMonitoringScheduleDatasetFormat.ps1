@@ -29,7 +29,7 @@ function Add-VSSageMakerMonitoringScheduleDatasetFormat {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.DatasetFormat')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

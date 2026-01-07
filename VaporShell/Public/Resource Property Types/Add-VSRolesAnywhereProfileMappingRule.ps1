@@ -19,7 +19,7 @@ function Add-VSRolesAnywhereProfileMappingRule {
     #>
 
     [OutputType('Vaporshell.Resource.RolesAnywhere.Profile.MappingRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,6 +44,16 @@ function Add-VSIoTFleetWiseDecoderManifestObdSignal {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER IsSigned
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-issigned
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER SignalValueType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-signalvaluetype
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER ServiceMode
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html#cfn-iotfleetwise-decodermanifest-obdsignal-servicemode
         UpdateType: Mutable
@@ -59,7 +69,7 @@ function Add-VSIoTFleetWiseDecoderManifestObdSignal {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.DecoderManifest.ObdSignal')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -146,6 +156,30 @@ function Add-VSIoTFleetWiseDecoderManifestObdSignal {
                 }
             })]
         $Pid,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IsSigned,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SignalValueType,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

@@ -19,7 +19,7 @@ function Add-VSConfigDeliveryChannelConfigSnapshotDeliveryProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Config.DeliveryChannel.ConfigSnapshotDeliveryProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

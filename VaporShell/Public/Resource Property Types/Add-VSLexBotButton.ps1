@@ -24,7 +24,7 @@ function Add-VSLexBotButton {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.Button')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

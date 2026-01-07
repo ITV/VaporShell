@@ -35,7 +35,7 @@ function Add-VSConnectTaskTemplateConstraints {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.TaskTemplate.Constraints')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

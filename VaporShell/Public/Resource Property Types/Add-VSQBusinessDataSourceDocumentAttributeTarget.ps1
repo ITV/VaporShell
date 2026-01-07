@@ -29,7 +29,7 @@ function Add-VSQBusinessDataSourceDocumentAttributeTarget {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.DataSource.DocumentAttributeTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

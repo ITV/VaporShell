@@ -24,7 +24,7 @@ function Add-VSWAFv2WebACLCustomHTTPHeader {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.CustomHTTPHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

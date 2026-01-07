@@ -36,7 +36,7 @@ function Add-VSMediaPackagePackagingConfigurationSpekeKeyProvider {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.PackagingConfiguration.SpekeKeyProvider')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

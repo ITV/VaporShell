@@ -24,7 +24,7 @@ function Add-VSEC2NetworkInsightsAnalysisPortRange {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAnalysis.PortRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

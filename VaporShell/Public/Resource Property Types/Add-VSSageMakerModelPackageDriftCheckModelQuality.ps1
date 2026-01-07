@@ -24,7 +24,7 @@ function Add-VSSageMakerModelPackageDriftCheckModelQuality {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.DriftCheckModelQuality')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

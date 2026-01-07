@@ -24,6 +24,16 @@ function Add-VSSageMakerSpaceSpaceSettings {
         UpdateType: Mutable
         Type: SpaceCodeEditorAppSettings
 
+    .PARAMETER SpaceManagedResources
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-spacemanagedresources
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER RemoteAccess
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-remoteaccess
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER JupyterServerAppSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html#cfn-sagemaker-space-spacesettings-jupyterserverappsettings
         UpdateType: Mutable
@@ -51,7 +61,7 @@ function Add-VSSageMakerSpaceSpaceSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.SpaceSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -63,6 +73,30 @@ function Add-VSSageMakerSpaceSpaceSettings {
 
         [Parameter(Mandatory = $false)]
         $CodeEditorAppSettings,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SpaceManagedResources,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RemoteAccess,
 
         [Parameter(Mandatory = $false)]
         $JupyterServerAppSettings,

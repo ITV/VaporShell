@@ -39,7 +39,7 @@ function Add-VSEC2VerifiedAccessInstanceVerifiedAccessTrustProvider {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessInstance.VerifiedAccessTrustProvider')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

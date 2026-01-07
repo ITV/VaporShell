@@ -19,7 +19,7 @@ function Add-VSEventsRuleNetworkConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.NetworkConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

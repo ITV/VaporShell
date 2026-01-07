@@ -19,7 +19,7 @@ function Add-VSIoTMitigationActionPublishFindingToSnsParams {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.MitigationAction.PublishFindingToSnsParams')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

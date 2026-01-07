@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisLoadingAnimation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.LoadingAnimation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

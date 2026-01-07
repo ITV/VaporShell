@@ -24,7 +24,7 @@ function Add-VSDynamoDBTableTimeToLiveSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.Table.TimeToLiveSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

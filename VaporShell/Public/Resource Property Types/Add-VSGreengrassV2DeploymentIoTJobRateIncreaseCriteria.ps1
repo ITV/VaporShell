@@ -24,7 +24,7 @@ function Add-VSGreengrassV2DeploymentIoTJobRateIncreaseCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.Deployment.IoTJobRateIncreaseCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateSetParameterValueConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SetParameterValueConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

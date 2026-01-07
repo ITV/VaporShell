@@ -26,7 +26,7 @@ function Add-VSCustomerProfilesEventTriggerEventTriggerCondition {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.EventTrigger.EventTriggerCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

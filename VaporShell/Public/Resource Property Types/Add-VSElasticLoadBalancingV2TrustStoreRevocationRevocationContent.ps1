@@ -34,7 +34,7 @@ function Add-VSElasticLoadBalancingV2TrustStoreRevocationRevocationContent {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.TrustStoreRevocation.RevocationContent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

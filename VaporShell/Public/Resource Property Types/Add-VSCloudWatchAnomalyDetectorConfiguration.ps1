@@ -25,7 +25,7 @@ function Add-VSCloudWatchAnomalyDetectorConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CloudWatch.AnomalyDetector.Configuration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

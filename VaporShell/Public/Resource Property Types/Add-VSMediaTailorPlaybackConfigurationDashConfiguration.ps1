@@ -29,7 +29,7 @@ function Add-VSMediaTailorPlaybackConfigurationDashConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.PlaybackConfiguration.DashConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

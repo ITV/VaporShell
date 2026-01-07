@@ -24,7 +24,7 @@ function Add-VSB2BICapabilityX12Details {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Capability.X12Details')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

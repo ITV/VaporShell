@@ -19,7 +19,7 @@ function Add-VSAppMeshVirtualGatewayVirtualGatewayListenerTlsSdsCertificate {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayListenerTlsSdsCertificate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

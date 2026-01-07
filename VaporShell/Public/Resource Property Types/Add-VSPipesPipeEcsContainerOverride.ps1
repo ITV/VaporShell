@@ -62,7 +62,7 @@ function Add-VSPipesPipeEcsContainerOverride {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.EcsContainerOverride')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

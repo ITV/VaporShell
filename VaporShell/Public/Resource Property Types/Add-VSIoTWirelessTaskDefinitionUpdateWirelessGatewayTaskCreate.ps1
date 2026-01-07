@@ -29,7 +29,7 @@ function Add-VSIoTWirelessTaskDefinitionUpdateWirelessGatewayTaskCreate {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.TaskDefinition.UpdateWirelessGatewayTaskCreate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

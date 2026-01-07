@@ -34,7 +34,7 @@ function Add-VSWisdomAIGuardrailGuardrailRegexConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIGuardrail.GuardrailRegexConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

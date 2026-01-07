@@ -24,7 +24,7 @@ function Add-VSSSOPermissionSetCustomerManagedPolicyReference {
     #>
 
     [OutputType('Vaporshell.Resource.SSO.PermissionSet.CustomerManagedPolicyReference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

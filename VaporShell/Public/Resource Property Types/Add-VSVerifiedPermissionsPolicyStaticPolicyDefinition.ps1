@@ -24,7 +24,7 @@ function Add-VSVerifiedPermissionsPolicyStaticPolicyDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.VerifiedPermissions.Policy.StaticPolicyDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

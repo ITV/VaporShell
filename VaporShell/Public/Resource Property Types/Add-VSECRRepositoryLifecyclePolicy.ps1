@@ -24,7 +24,7 @@ function Add-VSECRRepositoryLifecyclePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.ECR.Repository.LifecyclePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

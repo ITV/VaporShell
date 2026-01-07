@@ -34,7 +34,7 @@ function Add-VSCassandraTableAutoScalingSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Cassandra.Table.AutoScalingSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

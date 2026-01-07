@@ -44,7 +44,7 @@ function Add-VSLicenseManagerLicenseEntitlement {
     #>
 
     [OutputType('Vaporshell.Resource.LicenseManager.License.Entitlement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSMediaLiveInputInputVpcRequest {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Input.InputVpcRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

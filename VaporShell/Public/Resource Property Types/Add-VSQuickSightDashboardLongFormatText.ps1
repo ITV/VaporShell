@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardLongFormatText {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.LongFormatText')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

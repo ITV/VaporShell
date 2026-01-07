@@ -34,7 +34,7 @@ function Add-VSGameLiftBuildStorageLocation {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.Build.StorageLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

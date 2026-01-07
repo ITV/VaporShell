@@ -35,7 +35,7 @@ function Add-VSQuickSightTemplateKPIFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.KPIFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

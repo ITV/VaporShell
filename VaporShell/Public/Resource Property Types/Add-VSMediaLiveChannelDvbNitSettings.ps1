@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelDvbNitSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.DvbNitSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

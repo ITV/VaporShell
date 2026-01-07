@@ -19,7 +19,7 @@ function Add-VSApplicationSignalsServiceLevelObjectiveBurnRateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.BurnRateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

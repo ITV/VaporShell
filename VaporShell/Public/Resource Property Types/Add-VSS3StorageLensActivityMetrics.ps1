@@ -19,7 +19,7 @@ function Add-VSS3StorageLensActivityMetrics {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.ActivityMetrics')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

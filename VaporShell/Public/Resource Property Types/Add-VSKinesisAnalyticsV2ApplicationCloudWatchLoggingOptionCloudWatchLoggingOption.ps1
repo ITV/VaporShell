@@ -19,7 +19,7 @@ function Add-VSKinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLog
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.ApplicationCloudWatchLoggingOption.CloudWatchLoggingOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

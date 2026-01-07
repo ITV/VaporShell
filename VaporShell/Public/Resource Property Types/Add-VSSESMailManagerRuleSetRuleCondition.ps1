@@ -44,7 +44,7 @@ function Add-VSSESMailManagerRuleSetRuleCondition {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.RuleCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardArcAxisConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ArcAxisConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

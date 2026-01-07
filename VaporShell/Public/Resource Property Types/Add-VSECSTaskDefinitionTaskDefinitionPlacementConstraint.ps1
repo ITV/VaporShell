@@ -24,7 +24,7 @@ function Add-VSECSTaskDefinitionTaskDefinitionPlacementConstraint {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.TaskDefinitionPlacementConstraint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

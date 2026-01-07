@@ -31,7 +31,7 @@ function Add-VSCodeBuildFleetFleetProxyRule {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Fleet.FleetProxyRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardPanelTitleOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PanelTitleOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSBedrockKnowledgeBaseMongoDbAtlasFieldMapping {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.MongoDbAtlasFieldMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

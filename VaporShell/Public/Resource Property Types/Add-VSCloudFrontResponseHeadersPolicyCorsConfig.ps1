@@ -49,7 +49,7 @@ function Add-VSCloudFrontResponseHeadersPolicyCorsConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.CorsConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","AccessControlAllowCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","AccessControlAllowCredentials")]
 

@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardLineChartMarkerStyleSettings {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.LineChartMarkerStyleSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

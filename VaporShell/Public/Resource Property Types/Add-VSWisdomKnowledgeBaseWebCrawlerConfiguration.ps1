@@ -43,7 +43,7 @@ function Add-VSWisdomKnowledgeBaseWebCrawlerConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.WebCrawlerConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSAppStreamFleetDomainJoinInfo {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.Fleet.DomainJoinInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

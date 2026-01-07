@@ -39,7 +39,7 @@ function Add-VSWAFRegionalByteMatchSetByteMatchTuple {
     #>
 
     [OutputType('Vaporshell.Resource.WAFRegional.ByteMatchSet.ByteMatchTuple')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

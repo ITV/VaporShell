@@ -54,7 +54,7 @@ function Add-VSDMSDataProviderMongoDbSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.DataProvider.MongoDbSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

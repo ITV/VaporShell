@@ -24,7 +24,7 @@ function Add-VSDataBrewProjectSample {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Project.Sample')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

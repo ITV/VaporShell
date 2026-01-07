@@ -44,7 +44,7 @@ function Add-VSLambdaFunctionCode {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Function.Code')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -130,7 +130,7 @@ function Add-VSLambdaFunctionCode {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                ZipFilePath {
+                'ZipFilePath' {
                     $obj | Add-Member -MemberType NoteProperty -Name 'ZipFile' -Value ([System.IO.File]::ReadAllText($ZipFilePath))
                 }
                 Default {

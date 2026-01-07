@@ -19,7 +19,7 @@ function Add-VSMSKClusterStorageInfo {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.StorageInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

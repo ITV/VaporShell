@@ -58,6 +58,11 @@ function Add-VSEC2LaunchTemplateNetworkInterface {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER EnaQueueCount
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-enaqueuecount
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
     .PARAMETER Ipv6Prefixes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6prefixes
         UpdateType: Mutable
@@ -134,7 +139,7 @@ function Add-VSEC2LaunchTemplateNetworkInterface {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.NetworkInterface')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -245,6 +250,18 @@ function Add-VSEC2LaunchTemplateNetworkInterface {
                 }
             })]
         $Ipv4PrefixCount,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnaQueueCount,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

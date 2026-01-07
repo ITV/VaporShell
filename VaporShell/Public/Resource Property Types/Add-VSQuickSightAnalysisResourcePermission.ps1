@@ -26,7 +26,7 @@ function Add-VSQuickSightAnalysisResourcePermission {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ResourcePermission')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -55,7 +55,7 @@ function Add-VSElasticLoadBalancingV2ListenerAuthenticateCognitoConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.Listener.AuthenticateCognitoConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

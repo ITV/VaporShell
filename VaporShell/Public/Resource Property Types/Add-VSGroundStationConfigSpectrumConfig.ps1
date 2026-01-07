@@ -29,7 +29,7 @@ function Add-VSGroundStationConfigSpectrumConfig {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.Config.SpectrumConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightThemeSheetStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Theme.SheetStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

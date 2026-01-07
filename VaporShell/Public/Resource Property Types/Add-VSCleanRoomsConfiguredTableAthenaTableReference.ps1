@@ -11,22 +11,27 @@ function Add-VSCleanRoomsConfiguredTableAthenaTableReference {
 
     .PARAMETER WorkGroup
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html#cfn-cleanrooms-configuredtable-athenatablereference-workgroup
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER TableName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html#cfn-cleanrooms-configuredtable-athenatablereference-tablename
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER DatabaseName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html#cfn-cleanrooms-configuredtable-athenatablereference-databasename
-        UpdateType: Immutable
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Region
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html#cfn-cleanrooms-configuredtable-athenatablereference-region
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER OutputLocation
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html#cfn-cleanrooms-configuredtable-athenatablereference-outputlocation
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -34,7 +39,7 @@ function Add-VSCleanRoomsConfiguredTableAthenaTableReference {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTable.AthenaTableReference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -73,6 +78,18 @@ function Add-VSCleanRoomsConfiguredTableAthenaTableReference {
                 }
             })]
         $DatabaseName,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Region,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

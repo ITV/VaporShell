@@ -26,7 +26,7 @@ function Add-VSBillingConductorCustomLineItemCustomLineItemPercentageChargeDetai
     #>
 
     [OutputType('Vaporshell.Resource.BillingConductor.CustomLineItem.CustomLineItemPercentageChargeDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

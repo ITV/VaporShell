@@ -39,7 +39,7 @@ function Add-VSApiGatewayDocumentationPartLocation {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.DocumentationPart.Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

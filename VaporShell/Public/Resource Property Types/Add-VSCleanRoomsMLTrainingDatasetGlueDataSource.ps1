@@ -29,7 +29,7 @@ function Add-VSCleanRoomsMLTrainingDatasetGlueDataSource {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRoomsML.TrainingDataset.GlueDataSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

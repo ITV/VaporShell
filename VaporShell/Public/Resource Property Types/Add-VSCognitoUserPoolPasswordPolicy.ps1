@@ -49,7 +49,7 @@ function Add-VSCognitoUserPoolPasswordPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.PasswordPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","TemporaryPasswordValidityDays")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","TemporaryPasswordValidityDays")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","PasswordHistorySize")]

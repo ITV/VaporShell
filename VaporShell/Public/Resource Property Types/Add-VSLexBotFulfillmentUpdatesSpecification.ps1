@@ -34,7 +34,7 @@ function Add-VSLexBotFulfillmentUpdatesSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.FulfillmentUpdatesSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

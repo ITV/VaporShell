@@ -54,7 +54,7 @@ function Add-VSImageBuilderImageRecipeEbsInstanceBlockDeviceSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.ImageRecipe.EbsInstanceBlockDeviceSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplatePercentVisibleRange {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PercentVisibleRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

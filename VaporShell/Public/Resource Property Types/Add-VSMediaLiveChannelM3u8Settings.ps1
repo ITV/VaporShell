@@ -109,7 +109,7 @@ function Add-VSMediaLiveChannelM3u8Settings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.M3u8Settings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

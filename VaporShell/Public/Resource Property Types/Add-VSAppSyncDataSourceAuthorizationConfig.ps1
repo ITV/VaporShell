@@ -10,21 +10,21 @@ function Add-VSAppSyncDataSourceAuthorizationConfig {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html
 
     .PARAMETER AwsIamConfig
-        Type: AwsIamConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html#cfn-appsync-datasource-authorizationconfig-awsiamconfig
         UpdateType: Mutable
+        Type: AwsIamConfig
 
     .PARAMETER AuthorizationType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html#cfn-appsync-datasource-authorizationconfig-authorizationtype
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.DataSource.AuthorizationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

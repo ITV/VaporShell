@@ -29,7 +29,7 @@ function Add-VSMediaConnectBridgeFailoverConfig {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Bridge.FailoverConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

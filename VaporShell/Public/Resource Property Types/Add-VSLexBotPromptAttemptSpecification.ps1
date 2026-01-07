@@ -34,7 +34,7 @@ function Add-VSLexBotPromptAttemptSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.PromptAttemptSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

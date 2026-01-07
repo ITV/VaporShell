@@ -26,7 +26,7 @@ function Add-VSGlueDatabasePrincipalPrivileges {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Database.PrincipalPrivileges')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

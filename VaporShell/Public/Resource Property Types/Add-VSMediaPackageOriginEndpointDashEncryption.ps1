@@ -24,7 +24,7 @@ function Add-VSMediaPackageOriginEndpointDashEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.DashEncryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -9,6 +9,12 @@ function Add-VSBudgetsBudgetBudgetData {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html
 
+    .PARAMETER Metrics
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-metrics
+        UpdateType: Mutable
+
     .PARAMETER BudgetLimit
         Type: Spend
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetlimit
@@ -19,10 +25,15 @@ function Add-VSBudgetsBudgetBudgetData {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod
         UpdateType: Mutable
 
+    .PARAMETER BillingViewArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-billingviewarn
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER AutoAdjustData
         Type: AutoAdjustData
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-autoadjustdata
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER TimeUnit
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeunit
@@ -32,11 +43,16 @@ function Add-VSBudgetsBudgetBudgetData {
     .PARAMETER PlannedBudgetLimits
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits
         PrimitiveType: Json
-        UpdateType: Immutable
+        UpdateType: Mutable
 
     .PARAMETER CostFilters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costfilters
         PrimitiveType: Json
+        UpdateType: Mutable
+
+    .PARAMETER FilterExpression
+        Type: Expression
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-filterexpression
         UpdateType: Mutable
 
     .PARAMETER BudgetName
@@ -59,15 +75,30 @@ function Add-VSBudgetsBudgetBudgetData {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.Budget.BudgetData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $Metrics,
+
         [Parameter(Mandatory = $false)]
         $BudgetLimit,
 
         [Parameter(Mandatory = $false)]
         $TimePeriod,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BillingViewArn,
 
         [Parameter(Mandatory = $false)]
         $AutoAdjustData,
@@ -109,6 +140,9 @@ function Add-VSBudgetsBudgetBudgetData {
         $CostFilters,
 
         [Parameter(Mandatory = $false)]
+        $FilterExpression,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -145,7 +179,7 @@ function Add-VSBudgetsBudgetBudgetData {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                PlannedBudgetLimits {
+                'PlannedBudgetLimits' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -159,7 +193,7 @@ function Add-VSBudgetsBudgetBudgetData {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                CostFilters {
+                'CostFilters' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

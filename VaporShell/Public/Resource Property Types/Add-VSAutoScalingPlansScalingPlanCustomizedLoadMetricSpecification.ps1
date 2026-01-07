@@ -40,7 +40,7 @@ function Add-VSAutoScalingPlansScalingPlanCustomizedLoadMetricSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScalingPlans.ScalingPlan.CustomizedLoadMetricSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

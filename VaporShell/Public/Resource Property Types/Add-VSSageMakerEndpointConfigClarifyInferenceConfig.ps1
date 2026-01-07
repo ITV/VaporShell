@@ -72,7 +72,7 @@ function Add-VSSageMakerEndpointConfigClarifyInferenceConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.ClarifyInferenceConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

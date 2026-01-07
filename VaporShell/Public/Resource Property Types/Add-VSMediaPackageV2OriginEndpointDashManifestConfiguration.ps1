@@ -14,6 +14,38 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER DrmSignaling
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-drmsignaling
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Compactness
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-compactness
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER ProgramInformation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-programinformation
+        UpdateType: Mutable
+        Type: DashProgramInformation
+
+    .PARAMETER FilterConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-filterconfiguration
+        UpdateType: Mutable
+        Type: FilterConfiguration
+
+    .PARAMETER SegmentTemplateFormat
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-segmenttemplateformat
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER BaseUrls
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-baseurls
+        UpdateType: Mutable
+        Type: List
+        ItemType: DashBaseUrl
+        DuplicatesAllowed: True
+
     .PARAMETER ManifestName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-manifestname
         UpdateType: Mutable
@@ -26,11 +58,6 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
-    .PARAMETER DrmSignaling
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-drmsignaling
-        UpdateType: Mutable
-        PrimitiveType: String
-
     .PARAMETER SuggestedPresentationDelaySeconds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-suggestedpresentationdelayseconds
         UpdateType: Mutable
@@ -41,25 +68,32 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
         UpdateType: Mutable
         Type: DashUtcTiming
 
+    .PARAMETER SubtitleConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-subtitleconfiguration
+        UpdateType: Mutable
+        Type: DashSubtitleConfiguration
+
     .PARAMETER MinBufferTimeSeconds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-minbuffertimeseconds
         UpdateType: Mutable
         PrimitiveType: Integer
 
-    .PARAMETER FilterConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-filterconfiguration
+    .PARAMETER Profiles
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-profiles
         UpdateType: Mutable
-        Type: FilterConfiguration
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
+    .PARAMETER DvbSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-dvbsettings
+        UpdateType: Mutable
+        Type: DashDvbSettings
 
     .PARAMETER MinUpdatePeriodSeconds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-minupdateperiodseconds
         UpdateType: Mutable
         PrimitiveType: Integer
-
-    .PARAMETER SegmentTemplateFormat
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-segmenttemplateformat
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .PARAMETER ScteDash
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-dashmanifestconfiguration-sctedash
@@ -71,7 +105,7 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint.DashManifestConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -86,6 +120,60 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
                 }
             })]
         $ManifestWindowSeconds,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DrmSignaling,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Compactness,
+
+        [Parameter(Mandatory = $false)]
+        $ProgramInformation,
+
+        [Parameter(Mandatory = $false)]
+        $FilterConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SegmentTemplateFormat,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.MediaPackageV2.OriginEndpoint.DashBaseUrl"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BaseUrls,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -104,18 +192,6 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $DrmSignaling,
-
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -130,6 +206,9 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
         $UtcTiming,
 
         [Parameter(Mandatory = $false)]
+        $SubtitleConfiguration,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -142,7 +221,10 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
         $MinBufferTimeSeconds,
 
         [Parameter(Mandatory = $false)]
-        $FilterConfiguration,
+        $Profiles,
+
+        [Parameter(Mandatory = $false)]
+        $DvbSettings,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -155,18 +237,6 @@ function Add-VSMediaPackageV2OriginEndpointDashManifestConfiguration {
                 }
             })]
         $MinUpdatePeriodSeconds,
-
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $SegmentTemplateFormat,
 
         [Parameter(Mandatory = $false)]
         $ScteDash

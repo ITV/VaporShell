@@ -24,7 +24,7 @@ function Add-VSMediaLiveSdiSourceTags {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.SdiSource.Tags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

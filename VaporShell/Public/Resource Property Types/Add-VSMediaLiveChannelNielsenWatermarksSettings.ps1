@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelNielsenWatermarksSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.NielsenWatermarksSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

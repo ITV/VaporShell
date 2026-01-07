@@ -34,7 +34,7 @@ function Add-VSQuickSightRefreshScheduleScheduleFrequency {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.RefreshSchedule.ScheduleFrequency')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

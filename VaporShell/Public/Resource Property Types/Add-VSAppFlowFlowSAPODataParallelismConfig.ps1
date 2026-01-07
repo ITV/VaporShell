@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowSAPODataParallelismConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.SAPODataParallelismConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

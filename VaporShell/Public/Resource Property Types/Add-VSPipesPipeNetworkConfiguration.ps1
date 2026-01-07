@@ -19,7 +19,7 @@ function Add-VSPipesPipeNetworkConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.NetworkConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSDataPipelinePipelineField {
     #>
 
     [OutputType('Vaporshell.Resource.DataPipeline.Pipeline.Field')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

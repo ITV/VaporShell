@@ -21,7 +21,7 @@ function Add-VSQuickSightDataSetDateTimeDatasetParameterDefaultValues {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.DateTimeDatasetParameterDefaultValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSPinpointEmailDedicatedIpPoolTags {
     #>
 
     [OutputType('Vaporshell.Resource.PinpointEmail.DedicatedIpPool.Tags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

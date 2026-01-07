@@ -24,7 +24,7 @@ function Add-VSCognitoUserPoolPreTokenGenerationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.PreTokenGenerationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSConfigOrganizationConformancePackConformancePackInputParameter {
     #>
 
     [OutputType('Vaporshell.Resource.Config.OrganizationConformancePack.ConformancePackInputParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

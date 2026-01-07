@@ -26,7 +26,7 @@ function Add-VSImageBuilderContainerRecipeInstanceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.ContainerRecipe.InstanceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEC2SpotFleetBaselineEbsBandwidthMbpsRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.BaselineEbsBandwidthMbpsRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

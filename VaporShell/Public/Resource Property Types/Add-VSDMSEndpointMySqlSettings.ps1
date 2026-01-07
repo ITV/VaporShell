@@ -59,7 +59,7 @@ function Add-VSDMSEndpointMySqlSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.MySqlSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

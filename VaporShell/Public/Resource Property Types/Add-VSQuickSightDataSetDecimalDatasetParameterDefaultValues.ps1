@@ -21,7 +21,7 @@ function Add-VSQuickSightDataSetDecimalDatasetParameterDefaultValues {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.DecimalDatasetParameterDefaultValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSSageMakerInferenceExperimentModelVariantConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.InferenceExperiment.ModelVariantConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSCodeArtifactPackageGroupRestrictions {
     #>
 
     [OutputType('Vaporshell.Resource.CodeArtifact.PackageGroup.Restrictions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

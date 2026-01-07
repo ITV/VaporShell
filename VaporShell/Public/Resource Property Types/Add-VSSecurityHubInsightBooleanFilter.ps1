@@ -19,7 +19,7 @@ function Add-VSSecurityHubInsightBooleanFilter {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.Insight.BooleanFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

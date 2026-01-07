@@ -75,7 +75,7 @@ function Add-VSEC2SpotFleetInstanceNetworkInterfaceSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.InstanceNetworkInterfaceSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSDynamoDBGlobalTableReplicaGlobalSecondaryIndexSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.ReplicaGlobalSecondaryIndexSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

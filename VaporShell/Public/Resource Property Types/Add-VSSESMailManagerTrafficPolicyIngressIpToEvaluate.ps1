@@ -19,7 +19,7 @@ function Add-VSSESMailManagerTrafficPolicyIngressIpToEvaluate {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerTrafficPolicy.IngressIpToEvaluate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

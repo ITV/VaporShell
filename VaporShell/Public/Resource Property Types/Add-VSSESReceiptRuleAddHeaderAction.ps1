@@ -24,7 +24,7 @@ function Add-VSSESReceiptRuleAddHeaderAction {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ReceiptRule.AddHeaderAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

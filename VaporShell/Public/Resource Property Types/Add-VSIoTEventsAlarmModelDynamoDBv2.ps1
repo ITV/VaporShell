@@ -24,7 +24,7 @@ function Add-VSIoTEventsAlarmModelDynamoDBv2 {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.AlarmModel.DynamoDBv2')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -25,7 +25,7 @@ function Add-VSBudgetsBudgetNotificationWithSubscribers {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.Budget.NotificationWithSubscribers')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

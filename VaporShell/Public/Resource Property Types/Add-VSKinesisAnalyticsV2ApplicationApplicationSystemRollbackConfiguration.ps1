@@ -19,7 +19,7 @@ function Add-VSKinesisAnalyticsV2ApplicationApplicationSystemRollbackConfigurati
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.ApplicationSystemRollbackConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

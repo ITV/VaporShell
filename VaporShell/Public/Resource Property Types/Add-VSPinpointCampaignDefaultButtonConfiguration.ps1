@@ -44,7 +44,7 @@ function Add-VSPinpointCampaignDefaultButtonConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.DefaultButtonConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

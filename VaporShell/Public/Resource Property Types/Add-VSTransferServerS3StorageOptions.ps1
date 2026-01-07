@@ -19,7 +19,7 @@ function Add-VSTransferServerS3StorageOptions {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.Server.S3StorageOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

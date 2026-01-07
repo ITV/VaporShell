@@ -24,7 +24,7 @@ function Add-VSOmicsVariantStoreSseConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Omics.VariantStore.SseConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSCleanRoomsMLTrainingDatasetColumnSchema {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRoomsML.TrainingDataset.ColumnSchema')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

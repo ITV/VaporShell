@@ -26,7 +26,7 @@ function Add-VSResourceGroupsGroupConfigurationItem {
     #>
 
     [OutputType('Vaporshell.Resource.ResourceGroups.Group.ConfigurationItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSB2BITransformerSampleDocuments {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Transformer.SampleDocuments')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

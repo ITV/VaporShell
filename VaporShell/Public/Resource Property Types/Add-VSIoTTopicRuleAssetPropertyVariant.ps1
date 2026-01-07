@@ -34,7 +34,7 @@ function Add-VSIoTTopicRuleAssetPropertyVariant {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.AssetPropertyVariant')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

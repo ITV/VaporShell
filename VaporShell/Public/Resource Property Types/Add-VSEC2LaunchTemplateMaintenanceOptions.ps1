@@ -19,7 +19,7 @@ function Add-VSEC2LaunchTemplateMaintenanceOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.MaintenanceOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

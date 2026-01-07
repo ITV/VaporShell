@@ -10,31 +10,31 @@ function Add-VSSSMMaintenanceWindowTaskTaskInvocationParameters {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html
 
     .PARAMETER MaintenanceWindowRunCommandParameters
-        Type: MaintenanceWindowRunCommandParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters
         UpdateType: Mutable
+        Type: MaintenanceWindowRunCommandParameters
 
     .PARAMETER MaintenanceWindowAutomationParameters
-        Type: MaintenanceWindowAutomationParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters
         UpdateType: Mutable
+        Type: MaintenanceWindowAutomationParameters
 
     .PARAMETER MaintenanceWindowStepFunctionsParameters
-        Type: MaintenanceWindowStepFunctionsParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters
         UpdateType: Mutable
+        Type: MaintenanceWindowStepFunctionsParameters
 
     .PARAMETER MaintenanceWindowLambdaParameters
-        Type: MaintenanceWindowLambdaParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters
         UpdateType: Mutable
+        Type: MaintenanceWindowLambdaParameters
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.SSM.MaintenanceWindowTask.TaskInvocationParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

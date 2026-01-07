@@ -19,7 +19,7 @@ function Add-VSSageMakerMonitoringScheduleCsv {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.Csv')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

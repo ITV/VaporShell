@@ -34,7 +34,7 @@ function Add-VSEC2SpotFleetBlockDeviceMapping {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.BlockDeviceMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

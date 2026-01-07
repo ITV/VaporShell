@@ -26,7 +26,7 @@ function Add-VSQuickSightTopicCellValueSynonym {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.CellValueSynonym')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

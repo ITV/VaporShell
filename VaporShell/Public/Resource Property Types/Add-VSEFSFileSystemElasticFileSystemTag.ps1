@@ -24,7 +24,7 @@ function Add-VSEFSFileSystemElasticFileSystemTag {
     #>
 
     [OutputType('Vaporshell.Resource.EFS.FileSystem.ElasticFileSystemTag')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

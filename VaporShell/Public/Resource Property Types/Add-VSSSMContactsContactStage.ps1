@@ -33,7 +33,7 @@ function Add-VSSSMContactsContactStage {
     #>
 
     [OutputType('Vaporshell.Resource.SSMContacts.Contact.Stage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

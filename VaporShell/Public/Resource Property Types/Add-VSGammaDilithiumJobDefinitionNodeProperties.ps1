@@ -30,7 +30,7 @@ function Add-VSGammaDilithiumJobDefinitionNodeProperties {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.NodeProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

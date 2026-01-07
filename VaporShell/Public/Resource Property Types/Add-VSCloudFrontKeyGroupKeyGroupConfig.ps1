@@ -31,7 +31,7 @@ function Add-VSCloudFrontKeyGroupKeyGroupConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.KeyGroup.KeyGroupConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

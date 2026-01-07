@@ -24,7 +24,7 @@ function Add-VSOpenSearchServiceDomainIdp {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.Idp')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

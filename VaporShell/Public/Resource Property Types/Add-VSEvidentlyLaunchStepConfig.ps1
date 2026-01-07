@@ -33,7 +33,7 @@ function Add-VSEvidentlyLaunchStepConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Launch.StepConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

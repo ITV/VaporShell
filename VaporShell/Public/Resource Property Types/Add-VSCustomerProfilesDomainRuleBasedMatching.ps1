@@ -56,7 +56,7 @@ function Add-VSCustomerProfilesDomainRuleBasedMatching {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Domain.RuleBasedMatching')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSDMSDataProviderMySqlSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.DataProvider.MySqlSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

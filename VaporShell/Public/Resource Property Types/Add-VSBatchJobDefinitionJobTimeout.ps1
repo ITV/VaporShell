@@ -19,7 +19,7 @@ function Add-VSBatchJobDefinitionJobTimeout {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.JobTimeout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

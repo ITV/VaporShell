@@ -19,7 +19,7 @@ function Add-VSDataSyncTaskVerified {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.Task.Verified')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

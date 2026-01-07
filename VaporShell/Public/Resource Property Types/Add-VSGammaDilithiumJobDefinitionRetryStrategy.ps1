@@ -25,7 +25,7 @@ function Add-VSGammaDilithiumJobDefinitionRetryStrategy {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.RetryStrategy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

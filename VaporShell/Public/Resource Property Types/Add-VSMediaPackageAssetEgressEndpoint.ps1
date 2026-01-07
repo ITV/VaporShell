@@ -24,7 +24,7 @@ function Add-VSMediaPackageAssetEgressEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.Asset.EgressEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

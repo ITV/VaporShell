@@ -56,7 +56,7 @@ function Add-VSNetworkFirewallRuleGroupMatchAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.MatchAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

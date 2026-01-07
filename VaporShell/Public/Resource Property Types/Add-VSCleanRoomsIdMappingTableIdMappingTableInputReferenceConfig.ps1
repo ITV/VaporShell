@@ -24,7 +24,7 @@ function Add-VSCleanRoomsIdMappingTableIdMappingTableInputReferenceConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.IdMappingTable.IdMappingTableInputReferenceConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

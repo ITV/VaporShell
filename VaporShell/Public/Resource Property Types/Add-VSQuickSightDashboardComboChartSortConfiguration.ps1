@@ -38,7 +38,7 @@ function Add-VSQuickSightDashboardComboChartSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ComboChartSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

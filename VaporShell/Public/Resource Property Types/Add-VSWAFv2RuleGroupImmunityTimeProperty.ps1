@@ -19,7 +19,7 @@ function Add-VSWAFv2RuleGroupImmunityTimeProperty {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.ImmunityTimeProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -31,7 +31,7 @@ function Add-VSBedrockKnowledgeBaseRedshiftConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.RedshiftConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

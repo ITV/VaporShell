@@ -34,7 +34,7 @@ function Add-VSEMRInstanceFleetConfigVolumeSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceFleetConfig.VolumeSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

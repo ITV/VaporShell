@@ -64,7 +64,7 @@ function Add-VSPCAConnectorADTemplateSubjectNameFlagsV2 {
     #>
 
     [OutputType('Vaporshell.Resource.PCAConnectorAD.Template.SubjectNameFlagsV2')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

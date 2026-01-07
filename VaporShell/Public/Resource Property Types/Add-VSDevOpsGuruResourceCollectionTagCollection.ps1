@@ -26,7 +26,7 @@ function Add-VSDevOpsGuruResourceCollectionTagCollection {
     #>
 
     [OutputType('Vaporshell.Resource.DevOpsGuru.ResourceCollection.TagCollection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

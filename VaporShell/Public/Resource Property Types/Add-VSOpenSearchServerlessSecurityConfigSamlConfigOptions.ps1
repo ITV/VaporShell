@@ -14,6 +14,11 @@ function Add-VSOpenSearchServerlessSecurityConfigSamlConfigOptions {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER OpenSearchServerlessEntityId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html#cfn-opensearchserverless-securityconfig-samlconfigoptions-opensearchserverlessentityid
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER UserAttribute
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html#cfn-opensearchserverless-securityconfig-samlconfigoptions-userattribute
         UpdateType: Mutable
@@ -34,7 +39,7 @@ function Add-VSOpenSearchServerlessSecurityConfigSamlConfigOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchServerless.SecurityConfig.SamlConfigOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -49,6 +54,18 @@ function Add-VSOpenSearchServerlessSecurityConfigSamlConfigOptions {
                 }
             })]
         $SessionTimeout,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $OpenSearchServerlessEntityId,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

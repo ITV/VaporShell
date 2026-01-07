@@ -19,7 +19,7 @@ function Add-VSEC2InstanceCreditSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.CreditSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

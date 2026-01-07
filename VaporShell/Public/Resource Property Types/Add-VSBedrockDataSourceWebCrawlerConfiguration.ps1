@@ -16,6 +16,11 @@ function Add-VSBedrockDataSourceWebCrawlerConfiguration {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER UserAgentHeader
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-useragentheader
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER CrawlerLimits
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-crawlerlimits
         UpdateType: Mutable
@@ -33,17 +38,34 @@ function Add-VSBedrockDataSourceWebCrawlerConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER UserAgent
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html#cfn-bedrock-datasource-webcrawlerconfiguration-useragent
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.WebCrawlerConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
         $InclusionFilters,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UserAgentHeader,
 
         [Parameter(Mandatory = $false)]
         $CrawlerLimits,
@@ -61,7 +83,19 @@ function Add-VSBedrockDataSourceWebCrawlerConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Scope
+        $Scope,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UserAgent
 
     )
 

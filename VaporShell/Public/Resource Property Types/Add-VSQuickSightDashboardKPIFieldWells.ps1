@@ -35,7 +35,7 @@ function Add-VSQuickSightDashboardKPIFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.KPIFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

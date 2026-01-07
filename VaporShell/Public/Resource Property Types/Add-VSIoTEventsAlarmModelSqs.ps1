@@ -29,7 +29,7 @@ function Add-VSIoTEventsAlarmModelSqs {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.AlarmModel.Sqs')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

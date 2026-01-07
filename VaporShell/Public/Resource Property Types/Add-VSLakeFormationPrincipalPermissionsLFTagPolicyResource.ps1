@@ -31,7 +31,7 @@ function Add-VSLakeFormationPrincipalPermissionsLFTagPolicyResource {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.PrincipalPermissions.LFTagPolicyResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

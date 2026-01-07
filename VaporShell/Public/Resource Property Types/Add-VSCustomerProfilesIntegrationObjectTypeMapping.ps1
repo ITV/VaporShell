@@ -24,7 +24,7 @@ function Add-VSCustomerProfilesIntegrationObjectTypeMapping {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.ObjectTypeMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

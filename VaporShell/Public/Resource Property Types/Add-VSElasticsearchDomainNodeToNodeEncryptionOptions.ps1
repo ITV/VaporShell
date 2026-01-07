@@ -19,7 +19,7 @@ function Add-VSElasticsearchDomainNodeToNodeEncryptionOptions {
     #>
 
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.NodeToNodeEncryptionOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

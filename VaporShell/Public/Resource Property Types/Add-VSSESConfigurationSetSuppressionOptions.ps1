@@ -21,7 +21,7 @@ function Add-VSSESConfigurationSetSuppressionOptions {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSet.SuppressionOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

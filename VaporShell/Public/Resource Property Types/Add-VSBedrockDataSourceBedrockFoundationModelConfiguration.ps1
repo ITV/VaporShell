@@ -29,7 +29,7 @@ function Add-VSBedrockDataSourceBedrockFoundationModelConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.BedrockFoundationModelConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

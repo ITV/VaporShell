@@ -24,7 +24,7 @@ function Add-VSCassandraTableClusteringKeyColumn {
     #>
 
     [OutputType('Vaporshell.Resource.Cassandra.Table.ClusteringKeyColumn')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

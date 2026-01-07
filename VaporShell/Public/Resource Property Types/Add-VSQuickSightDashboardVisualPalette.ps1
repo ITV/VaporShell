@@ -26,7 +26,7 @@ function Add-VSQuickSightDashboardVisualPalette {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.VisualPalette')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

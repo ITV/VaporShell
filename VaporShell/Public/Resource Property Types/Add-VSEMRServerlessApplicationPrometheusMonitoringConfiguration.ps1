@@ -19,7 +19,7 @@ function Add-VSEMRServerlessApplicationPrometheusMonitoringConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.PrometheusMonitoringConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

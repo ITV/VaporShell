@@ -19,7 +19,7 @@ function Add-VSGroundStationConfigAntennaDownlinkConfig {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.Config.AntennaDownlinkConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

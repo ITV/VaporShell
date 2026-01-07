@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardSheetControlLayout {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SheetControlLayout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

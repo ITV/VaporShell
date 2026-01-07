@@ -24,7 +24,7 @@ function Add-VSLexBotAliasTextLogSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.BotAlias.TextLogSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

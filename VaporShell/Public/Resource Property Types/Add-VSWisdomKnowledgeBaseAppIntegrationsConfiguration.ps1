@@ -26,7 +26,7 @@ function Add-VSWisdomKnowledgeBaseAppIntegrationsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.AppIntegrationsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisGeospatialStaticFileSource {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialStaticFileSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

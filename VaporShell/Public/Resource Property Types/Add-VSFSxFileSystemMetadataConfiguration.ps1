@@ -24,7 +24,7 @@ function Add-VSFSxFileSystemMetadataConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.FileSystem.MetadataConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

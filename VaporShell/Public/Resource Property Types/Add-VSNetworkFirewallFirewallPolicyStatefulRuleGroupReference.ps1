@@ -24,12 +24,17 @@ function Add-VSNetworkFirewallFirewallPolicyStatefulRuleGroupReference {
         UpdateType: Mutable
         Type: StatefulRuleGroupOverride
 
+    .PARAMETER DeepThreatInspection
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html#cfn-networkfirewall-firewallpolicy-statefulrulegroupreference-deepthreatinspection
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.FirewallPolicy.StatefulRuleGroupReference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -58,7 +63,19 @@ function Add-VSNetworkFirewallFirewallPolicyStatefulRuleGroupReference {
         $Priority,
 
         [Parameter(Mandatory = $false)]
-        $Override
+        $Override,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DeepThreatInspection
 
     )
 

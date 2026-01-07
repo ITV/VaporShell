@@ -49,7 +49,7 @@ function Add-VSS3BucketReplicationDestination {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.ReplicationDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

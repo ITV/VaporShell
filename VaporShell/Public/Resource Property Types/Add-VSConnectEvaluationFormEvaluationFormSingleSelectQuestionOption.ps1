@@ -14,6 +14,11 @@ function Add-VSConnectEvaluationFormEvaluationFormSingleSelectQuestionOption {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER AutomaticFailConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-automaticfailconfiguration
+        UpdateType: Mutable
+        Type: AutomaticFailConfiguration
+
     .PARAMETER Text
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionoption.html#cfn-connect-evaluationform-evaluationformsingleselectquestionoption-text
         UpdateType: Mutable
@@ -34,7 +39,7 @@ function Add-VSConnectEvaluationFormEvaluationFormSingleSelectQuestionOption {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -49,6 +54,9 @@ function Add-VSConnectEvaluationFormEvaluationFormSingleSelectQuestionOption {
                 }
             })]
         $Score,
+
+        [Parameter(Mandatory = $false)]
+        $AutomaticFailConfiguration,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

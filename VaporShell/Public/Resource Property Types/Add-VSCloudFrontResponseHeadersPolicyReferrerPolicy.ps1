@@ -24,7 +24,7 @@ function Add-VSCloudFrontResponseHeadersPolicyReferrerPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.ReferrerPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

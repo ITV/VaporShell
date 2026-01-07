@@ -24,7 +24,7 @@ function Add-VSIoTSecurityProfileAlertTarget {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.SecurityProfile.AlertTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

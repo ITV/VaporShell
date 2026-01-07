@@ -19,7 +19,7 @@ function Add-VSCleanRoomsCollaborationQueryComputePaymentConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Collaboration.QueryComputePaymentConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

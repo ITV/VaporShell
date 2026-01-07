@@ -19,7 +19,7 @@ function Add-VSEC2SpotFleetTargetGroup {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.TargetGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

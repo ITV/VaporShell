@@ -26,7 +26,7 @@ function Add-VSLightsailDistributionCookieObject {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Distribution.CookieObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

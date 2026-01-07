@@ -29,7 +29,7 @@ function Add-VSAppFlowFlowSAPODataSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.SAPODataSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

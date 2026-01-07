@@ -19,7 +19,7 @@ function Add-VSDevOpsGuruNotificationChannelSnsChannelConfig {
     #>
 
     [OutputType('Vaporshell.Resource.DevOpsGuru.NotificationChannel.SnsChannelConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

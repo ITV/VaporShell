@@ -11,14 +11,14 @@ function Add-VSEKSClusterRemoteNetworkConfig {
 
     .PARAMETER RemoteNodeNetworks
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotenetworkconfig.html#cfn-eks-cluster-remotenetworkconfig-remotenodenetworks
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         ItemType: RemoteNodeNetwork
         DuplicatesAllowed: True
 
     .PARAMETER RemotePodNetworks
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotenetworkconfig.html#cfn-eks-cluster-remotenetworkconfig-remotepodnetworks
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         ItemType: RemotePodNetwork
         DuplicatesAllowed: True
@@ -28,7 +28,7 @@ function Add-VSEKSClusterRemoteNetworkConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.RemoteNetworkConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

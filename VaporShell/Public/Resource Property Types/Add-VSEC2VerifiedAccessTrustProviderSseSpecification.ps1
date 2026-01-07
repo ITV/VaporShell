@@ -24,7 +24,7 @@ function Add-VSEC2VerifiedAccessTrustProviderSseSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessTrustProvider.SseSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

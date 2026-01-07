@@ -33,7 +33,7 @@ function Add-VSQuickSightAnalysisPredefinedHierarchy {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PredefinedHierarchy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

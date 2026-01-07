@@ -19,7 +19,7 @@ function Add-VSOpenSearchServiceDomainSnapshotOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.SnapshotOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

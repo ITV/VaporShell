@@ -29,7 +29,7 @@ function Add-VSAppMeshVirtualNodeTlsValidationContextTrust {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.TlsValidationContextTrust')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

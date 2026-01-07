@@ -19,7 +19,7 @@ function Add-VSKinesisFirehoseDeliveryStreamSplunkRetryOptions {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.SplunkRetryOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

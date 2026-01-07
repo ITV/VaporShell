@@ -24,7 +24,7 @@ function Add-VSAppConfigConfigurationProfileValidators {
     #>
 
     [OutputType('Vaporshell.Resource.AppConfig.ConfigurationProfile.Validators')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

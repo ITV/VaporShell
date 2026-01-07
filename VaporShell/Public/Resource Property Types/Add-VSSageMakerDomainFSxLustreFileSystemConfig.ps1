@@ -24,7 +24,7 @@ function Add-VSSageMakerDomainFSxLustreFileSystemConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.FSxLustreFileSystemConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

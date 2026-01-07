@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardGridLayoutScreenCanvasSizeOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GridLayoutScreenCanvasSizeOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

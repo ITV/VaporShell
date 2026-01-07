@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardTextControlPlaceholderOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TextControlPlaceholderOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

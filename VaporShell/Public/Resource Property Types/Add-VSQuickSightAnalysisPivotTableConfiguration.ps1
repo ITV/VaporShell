@@ -34,6 +34,11 @@ function Add-VSQuickSightAnalysisPivotTableConfiguration {
         UpdateType: Mutable
         Type: PivotTableFieldOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottableconfiguration.html#cfn-quicksight-analysis-pivottableconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER TotalOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-pivottableconfiguration.html#cfn-quicksight-analysis-pivottableconfiguration-totaloptions
         UpdateType: Mutable
@@ -44,7 +49,7 @@ function Add-VSQuickSightAnalysisPivotTableConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PivotTableConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,6 +67,9 @@ function Add-VSQuickSightAnalysisPivotTableConfiguration {
 
         [Parameter(Mandatory = $false)]
         $FieldOptions,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         $TotalOptions

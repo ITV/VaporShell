@@ -29,7 +29,7 @@ function Add-VSStepFunctionsStateMachineEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.StepFunctions.StateMachine.EncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

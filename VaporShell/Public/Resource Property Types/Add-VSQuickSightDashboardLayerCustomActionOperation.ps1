@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardLayerCustomActionOperation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.LayerCustomActionOperation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

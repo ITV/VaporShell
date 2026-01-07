@@ -24,7 +24,7 @@ function Add-VSWisdomMessageTemplateAgentAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.MessageTemplate.AgentAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

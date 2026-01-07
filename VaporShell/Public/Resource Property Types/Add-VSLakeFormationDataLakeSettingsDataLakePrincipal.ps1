@@ -19,7 +19,7 @@ function Add-VSLakeFormationDataLakeSettingsDataLakePrincipal {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.DataLakeSettings.DataLakePrincipal')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

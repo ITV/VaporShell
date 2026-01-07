@@ -9,8 +9,22 @@ function Add-VSSageMakerUserProfileStudioWebPortalSettings {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html
 
+    .PARAMETER HiddenSageMakerImageVersionAliases
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html#cfn-sagemaker-userprofile-studiowebportalsettings-hiddensagemakerimageversionaliases
+        UpdateType: Mutable
+        Type: List
+        ItemType: HiddenSageMakerImage
+        DuplicatesAllowed: False
+
     .PARAMETER HiddenAppTypes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html#cfn-sagemaker-userprofile-studiowebportalsettings-hiddenapptypes
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
+    .PARAMETER HiddenInstanceTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html#cfn-sagemaker-userprofile-studiowebportalsettings-hiddeninstancetypes
         UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
@@ -28,12 +42,27 @@ function Add-VSSageMakerUserProfileStudioWebPortalSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.StudioWebPortalSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.SageMaker.UserProfile.HiddenSageMakerImage"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $HiddenSageMakerImageVersionAliases,
+
+        [Parameter(Mandatory = $false)]
         $HiddenAppTypes,
+
+        [Parameter(Mandatory = $false)]
+        $HiddenInstanceTypes,
 
         [Parameter(Mandatory = $false)]
         $HiddenMlTools

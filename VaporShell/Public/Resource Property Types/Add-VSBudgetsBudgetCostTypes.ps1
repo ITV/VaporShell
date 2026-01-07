@@ -69,7 +69,7 @@ function Add-VSBudgetsBudgetCostTypes {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.Budget.CostTypes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

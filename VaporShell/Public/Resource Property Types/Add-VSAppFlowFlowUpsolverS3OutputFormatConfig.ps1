@@ -29,7 +29,7 @@ function Add-VSAppFlowFlowUpsolverS3OutputFormatConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.UpsolverS3OutputFormatConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

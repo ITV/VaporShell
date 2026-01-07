@@ -26,7 +26,7 @@ function Add-VSWisdomKnowledgeBaseHierarchicalChunkingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.HierarchicalChunkingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSEC2LaunchTemplateConnectionTrackingSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.ConnectionTrackingSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

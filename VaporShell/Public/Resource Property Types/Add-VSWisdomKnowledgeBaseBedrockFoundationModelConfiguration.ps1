@@ -24,7 +24,7 @@ function Add-VSWisdomKnowledgeBaseBedrockFoundationModelConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.BedrockFoundationModelConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

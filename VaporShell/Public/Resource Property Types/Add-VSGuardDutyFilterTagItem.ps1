@@ -24,7 +24,7 @@ function Add-VSGuardDutyFilterTagItem {
     #>
 
     [OutputType('Vaporshell.Resource.GuardDuty.Filter.TagItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

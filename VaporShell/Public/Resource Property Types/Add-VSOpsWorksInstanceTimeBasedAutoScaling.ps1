@@ -63,7 +63,7 @@ function Add-VSOpsWorksInstanceTimeBasedAutoScaling {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.Instance.TimeBasedAutoScaling')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

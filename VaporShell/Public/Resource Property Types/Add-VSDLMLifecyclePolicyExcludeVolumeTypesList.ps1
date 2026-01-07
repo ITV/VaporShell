@@ -14,7 +14,7 @@ function Add-VSDLMLifecyclePolicyExcludeVolumeTypesList {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.ExcludeVolumeTypesList')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

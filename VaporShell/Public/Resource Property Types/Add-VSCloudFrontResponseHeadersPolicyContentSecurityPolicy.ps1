@@ -24,7 +24,7 @@ function Add-VSCloudFrontResponseHeadersPolicyContentSecurityPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.ContentSecurityPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

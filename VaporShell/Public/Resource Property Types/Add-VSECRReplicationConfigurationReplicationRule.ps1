@@ -28,7 +28,7 @@ function Add-VSECRReplicationConfigurationReplicationRule {
     #>
 
     [OutputType('Vaporshell.Resource.ECR.ReplicationConfiguration.ReplicationRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

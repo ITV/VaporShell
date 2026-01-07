@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisHistogramFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.HistogramFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

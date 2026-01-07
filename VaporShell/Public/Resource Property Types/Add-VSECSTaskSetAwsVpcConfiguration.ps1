@@ -33,7 +33,7 @@ function Add-VSECSTaskSetAwsVpcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskSet.AwsVpcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

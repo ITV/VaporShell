@@ -34,7 +34,7 @@ function Add-VSRDSDBSecurityGroupIngress {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBSecurityGroup.Ingress')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSImageBuilderLifecyclePolicyAction {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.LifecyclePolicy.Action')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

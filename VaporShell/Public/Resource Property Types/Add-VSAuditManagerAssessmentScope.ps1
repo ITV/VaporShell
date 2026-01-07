@@ -28,7 +28,7 @@ function Add-VSAuditManagerAssessmentScope {
     #>
 
     [OutputType('Vaporshell.Resource.AuditManager.Assessment.Scope')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

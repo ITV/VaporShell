@@ -29,7 +29,7 @@ function Add-VSGlueTableColumn {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Table.Column')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

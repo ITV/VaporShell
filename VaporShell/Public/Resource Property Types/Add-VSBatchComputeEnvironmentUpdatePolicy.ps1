@@ -24,7 +24,7 @@ function Add-VSBatchComputeEnvironmentUpdatePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.ComputeEnvironment.UpdatePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

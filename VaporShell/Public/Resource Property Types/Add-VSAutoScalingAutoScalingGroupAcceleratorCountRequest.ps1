@@ -24,7 +24,7 @@ function Add-VSAutoScalingAutoScalingGroupAcceleratorCountRequest {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.AcceleratorCountRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

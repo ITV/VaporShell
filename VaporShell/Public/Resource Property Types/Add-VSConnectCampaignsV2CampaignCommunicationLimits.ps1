@@ -21,7 +21,7 @@ function Add-VSConnectCampaignsV2CampaignCommunicationLimits {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.CommunicationLimits')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

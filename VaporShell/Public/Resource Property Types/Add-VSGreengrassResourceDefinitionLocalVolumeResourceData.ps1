@@ -29,7 +29,7 @@ function Add-VSGreengrassResourceDefinitionLocalVolumeResourceData {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.ResourceDefinition.LocalVolumeResourceData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

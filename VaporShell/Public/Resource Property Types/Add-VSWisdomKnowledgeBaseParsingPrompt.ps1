@@ -19,7 +19,7 @@ function Add-VSWisdomKnowledgeBaseParsingPrompt {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.ParsingPrompt')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

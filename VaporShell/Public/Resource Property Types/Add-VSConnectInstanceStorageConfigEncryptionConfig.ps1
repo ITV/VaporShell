@@ -24,7 +24,7 @@ function Add-VSConnectInstanceStorageConfigEncryptionConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.InstanceStorageConfig.EncryptionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

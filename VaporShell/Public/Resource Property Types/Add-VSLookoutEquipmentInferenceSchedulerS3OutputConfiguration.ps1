@@ -24,7 +24,7 @@ function Add-VSLookoutEquipmentInferenceSchedulerS3OutputConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.LookoutEquipment.InferenceScheduler.S3OutputConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

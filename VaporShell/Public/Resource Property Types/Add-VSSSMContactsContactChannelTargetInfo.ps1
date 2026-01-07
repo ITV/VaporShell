@@ -24,7 +24,7 @@ function Add-VSSSMContactsContactChannelTargetInfo {
     #>
 
     [OutputType('Vaporshell.Resource.SSMContacts.Contact.ChannelTargetInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSIoTJobTemplateJobExecutionsRolloutConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.JobTemplate.JobExecutionsRolloutConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

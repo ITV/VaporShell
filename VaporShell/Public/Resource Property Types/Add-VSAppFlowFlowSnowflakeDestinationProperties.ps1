@@ -34,7 +34,7 @@ function Add-VSAppFlowFlowSnowflakeDestinationProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.SnowflakeDestinationProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

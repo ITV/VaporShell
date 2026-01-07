@@ -29,7 +29,7 @@ function Add-VSSageMakerMonitoringScheduleNetworkConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.NetworkConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

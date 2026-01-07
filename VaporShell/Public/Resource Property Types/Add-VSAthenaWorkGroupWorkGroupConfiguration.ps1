@@ -34,6 +34,11 @@ function Add-VSAthenaWorkGroupWorkGroupConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER EngineConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineconfiguration
+        UpdateType: Mutable
+        Type: EngineConfiguration
+
     .PARAMETER CustomerContentEncryptionConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-customercontentencryptionconfiguration
         UpdateType: Mutable
@@ -42,12 +47,22 @@ function Add-VSAthenaWorkGroupWorkGroupConfiguration {
     .PARAMETER BytesScannedCutoffPerQuery
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
         UpdateType: Mutable
-        PrimitiveType: Integer
+        PrimitiveType: Long
+
+    .PARAMETER MonitoringConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-monitoringconfiguration
+        UpdateType: Mutable
+        Type: MonitoringConfiguration
 
     .PARAMETER RequesterPaysEnabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
         UpdateType: Mutable
         PrimitiveType: Boolean
+
+    .PARAMETER ManagedQueryResultsConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-managedqueryresultsconfiguration
+        UpdateType: Mutable
+        Type: ManagedQueryResultsConfiguration
 
     .PARAMETER ExecutionRole
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-executionrole
@@ -59,7 +74,7 @@ function Add-VSAthenaWorkGroupWorkGroupConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Athena.WorkGroup.WorkGroupConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -106,19 +121,16 @@ function Add-VSAthenaWorkGroupWorkGroupConfiguration {
         $AdditionalConfiguration,
 
         [Parameter(Mandatory = $false)]
+        $EngineConfiguration,
+
+        [Parameter(Mandatory = $false)]
         $CustomerContentEncryptionConfiguration,
 
         [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $BytesScannedCutoffPerQuery,
+
+        [Parameter(Mandatory = $false)]
+        $MonitoringConfiguration,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -131,6 +143,9 @@ function Add-VSAthenaWorkGroupWorkGroupConfiguration {
                 }
             })]
         $RequesterPaysEnabled,
+
+        [Parameter(Mandatory = $false)]
+        $ManagedQueryResultsConfiguration,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

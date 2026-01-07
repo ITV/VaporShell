@@ -29,7 +29,7 @@ function Add-VSDLMLifecyclePolicyDeprecateRule {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.DeprecateRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

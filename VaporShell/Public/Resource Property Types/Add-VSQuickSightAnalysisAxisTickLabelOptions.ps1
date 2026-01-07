@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisAxisTickLabelOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.AxisTickLabelOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

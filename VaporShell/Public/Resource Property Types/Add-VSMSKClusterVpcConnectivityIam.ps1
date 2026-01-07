@@ -19,7 +19,7 @@ function Add-VSMSKClusterVpcConnectivityIam {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.VpcConnectivityIam')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

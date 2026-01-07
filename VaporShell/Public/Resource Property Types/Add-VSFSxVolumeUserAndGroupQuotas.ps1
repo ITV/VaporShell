@@ -29,7 +29,7 @@ function Add-VSFSxVolumeUserAndGroupQuotas {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.Volume.UserAndGroupQuotas')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

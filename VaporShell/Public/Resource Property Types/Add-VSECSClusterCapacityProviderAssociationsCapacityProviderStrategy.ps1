@@ -29,7 +29,7 @@ function Add-VSECSClusterCapacityProviderAssociationsCapacityProviderStrategy {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.ClusterCapacityProviderAssociations.CapacityProviderStrategy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

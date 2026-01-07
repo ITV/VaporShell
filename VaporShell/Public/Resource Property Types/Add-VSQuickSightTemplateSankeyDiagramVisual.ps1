@@ -46,7 +46,7 @@ function Add-VSQuickSightTemplateSankeyDiagramVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SankeyDiagramVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

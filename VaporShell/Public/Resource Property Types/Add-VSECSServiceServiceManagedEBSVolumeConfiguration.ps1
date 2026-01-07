@@ -71,7 +71,7 @@ function Add-VSECSServiceServiceManagedEBSVolumeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.ServiceManagedEBSVolumeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

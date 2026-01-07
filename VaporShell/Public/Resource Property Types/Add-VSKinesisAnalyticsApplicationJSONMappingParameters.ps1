@@ -19,7 +19,7 @@ function Add-VSKinesisAnalyticsApplicationJSONMappingParameters {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalytics.Application.JSONMappingParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

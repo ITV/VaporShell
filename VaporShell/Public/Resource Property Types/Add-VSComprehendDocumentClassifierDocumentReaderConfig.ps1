@@ -31,7 +31,7 @@ function Add-VSComprehendDocumentClassifierDocumentReaderConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Comprehend.DocumentClassifier.DocumentReaderConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

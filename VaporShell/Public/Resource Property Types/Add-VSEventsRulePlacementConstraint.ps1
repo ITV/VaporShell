@@ -24,7 +24,7 @@ function Add-VSEventsRulePlacementConstraint {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.PlacementConstraint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

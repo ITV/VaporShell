@@ -19,7 +19,7 @@ function Add-VSConnectTaskTemplateReadOnlyFieldInfo {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.TaskTemplate.ReadOnlyFieldInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

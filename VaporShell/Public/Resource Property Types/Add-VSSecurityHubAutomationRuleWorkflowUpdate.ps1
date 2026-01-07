@@ -19,7 +19,7 @@ function Add-VSSecurityHubAutomationRuleWorkflowUpdate {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.WorkflowUpdate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

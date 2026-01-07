@@ -39,7 +39,7 @@ function Add-VSWAFv2WebACLRuleAction {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RuleAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

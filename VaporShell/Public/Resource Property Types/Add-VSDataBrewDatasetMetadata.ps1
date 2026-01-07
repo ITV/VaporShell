@@ -19,7 +19,7 @@ function Add-VSDataBrewDatasetMetadata {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.Metadata')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -9,6 +9,11 @@ function Add-VSConnectEvaluationFormEvaluationFormNumericQuestionAutomation {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html
 
+    .PARAMETER AnswerSource
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html#cfn-connect-evaluationform-evaluationformnumericquestionautomation-answersource
+        UpdateType: Mutable
+        Type: EvaluationFormQuestionAutomationAnswerSource
+
     .PARAMETER PropertyValue
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionautomation.html#cfn-connect-evaluationform-evaluationformnumericquestionautomation-propertyvalue
         UpdateType: Mutable
@@ -19,11 +24,14 @@ function Add-VSConnectEvaluationFormEvaluationFormNumericQuestionAutomation {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.EvaluationFormNumericQuestionAutomation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $AnswerSource,
+
+        [Parameter(Mandatory = $false)]
         $PropertyValue
 
     )

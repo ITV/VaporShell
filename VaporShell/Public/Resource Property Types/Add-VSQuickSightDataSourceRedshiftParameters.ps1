@@ -44,7 +44,7 @@ function Add-VSQuickSightDataSourceRedshiftParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.RedshiftParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

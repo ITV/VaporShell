@@ -44,7 +44,7 @@ function Add-VSQuickSightTemplateGridLayoutElement {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.GridLayoutElement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

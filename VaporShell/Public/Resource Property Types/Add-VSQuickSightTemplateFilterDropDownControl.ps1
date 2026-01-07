@@ -54,7 +54,7 @@ function Add-VSQuickSightTemplateFilterDropDownControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FilterDropDownControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

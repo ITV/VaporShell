@@ -34,7 +34,7 @@ function Add-VSCloudFrontPublicKeyPublicKeyConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.PublicKey.PublicKeyConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

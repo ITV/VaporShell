@@ -19,7 +19,7 @@ function Add-VSS3MultiRegionAccessPointPolicyPolicyStatus {
     #>
 
     [OutputType('Vaporshell.Resource.S3.MultiRegionAccessPointPolicy.PolicyStatus')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

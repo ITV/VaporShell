@@ -24,7 +24,7 @@ function Add-VSAppStreamFleetComputeCapacity {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.Fleet.ComputeCapacity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

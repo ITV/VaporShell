@@ -30,7 +30,7 @@ function Add-VSGammaDilithiumJobDefinitionTmpfs {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.Tmpfs')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

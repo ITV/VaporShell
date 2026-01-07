@@ -19,7 +19,7 @@ function Add-VSS3OutpostsEndpointNetworkInterface {
     #>
 
     [OutputType('Vaporshell.Resource.S3Outposts.Endpoint.NetworkInterface')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

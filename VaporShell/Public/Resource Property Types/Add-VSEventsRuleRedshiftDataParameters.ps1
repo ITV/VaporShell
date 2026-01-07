@@ -51,7 +51,7 @@ function Add-VSEventsRuleRedshiftDataParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.RedshiftDataParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSRekognitionStreamProcessorKinesisVideoStream {
     #>
 
     [OutputType('Vaporshell.Resource.Rekognition.StreamProcessor.KinesisVideoStream')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

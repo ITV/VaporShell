@@ -19,7 +19,7 @@ function Add-VSLexBotSSMLMessage {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.SSMLMessage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

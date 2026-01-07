@@ -64,7 +64,7 @@ function Add-VSSchedulerScheduleTarget {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.Target')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

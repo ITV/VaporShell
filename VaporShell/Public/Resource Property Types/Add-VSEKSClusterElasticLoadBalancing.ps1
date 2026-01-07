@@ -19,7 +19,7 @@ function Add-VSEKSClusterElasticLoadBalancing {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.ElasticLoadBalancing')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

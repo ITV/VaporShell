@@ -31,7 +31,7 @@ function Add-VSEKSClusterOutpostConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.OutpostConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

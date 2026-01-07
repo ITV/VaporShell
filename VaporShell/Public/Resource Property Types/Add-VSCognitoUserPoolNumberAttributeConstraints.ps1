@@ -24,7 +24,7 @@ function Add-VSCognitoUserPoolNumberAttributeConstraints {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.NumberAttributeConstraints')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

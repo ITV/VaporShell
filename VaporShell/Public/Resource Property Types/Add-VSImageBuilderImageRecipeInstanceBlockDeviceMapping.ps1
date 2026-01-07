@@ -34,7 +34,7 @@ function Add-VSImageBuilderImageRecipeInstanceBlockDeviceMapping {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.ImageRecipe.InstanceBlockDeviceMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

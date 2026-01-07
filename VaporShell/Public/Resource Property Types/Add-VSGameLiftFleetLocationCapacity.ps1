@@ -29,7 +29,7 @@ function Add-VSGameLiftFleetLocationCapacity {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.Fleet.LocationCapacity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -45,7 +45,7 @@ function Add-VSGameLiftFleetLocationCapacity {
             })]
         $MinSize,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

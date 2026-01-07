@@ -44,7 +44,7 @@ function Add-VSApplicationAutoScalingScalableTargetScheduledAction {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationAutoScaling.ScalableTarget.ScheduledAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

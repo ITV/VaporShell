@@ -34,7 +34,7 @@ function Add-VSAppMeshVirtualGatewayVirtualGatewayListener {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayListener')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

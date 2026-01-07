@@ -26,7 +26,7 @@ function Add-VSEMRInstanceGroupConfigAutoScalingPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceGroupConfig.AutoScalingPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

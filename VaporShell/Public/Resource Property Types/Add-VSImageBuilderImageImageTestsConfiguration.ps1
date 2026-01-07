@@ -24,7 +24,7 @@ function Add-VSImageBuilderImageImageTestsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.Image.ImageTestsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

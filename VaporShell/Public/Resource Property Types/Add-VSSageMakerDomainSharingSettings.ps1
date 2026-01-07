@@ -29,7 +29,7 @@ function Add-VSSageMakerDomainSharingSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.SharingSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -31,7 +31,7 @@ function Add-VSEKSClusterComputeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.ComputeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

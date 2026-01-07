@@ -11,17 +11,17 @@ function Add-VSIoTFleetWiseCampaignDataDestinationConfig {
 
     .PARAMETER S3Config
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html#cfn-iotfleetwise-campaign-datadestinationconfig-s3config
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: S3Config
 
     .PARAMETER MqttTopicConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html#cfn-iotfleetwise-campaign-datadestinationconfig-mqtttopicconfig
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: MqttTopicConfig
 
     .PARAMETER TimestreamConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html#cfn-iotfleetwise-campaign-datadestinationconfig-timestreamconfig
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: TimestreamConfig
 
     .FUNCTIONALITY
@@ -29,7 +29,7 @@ function Add-VSIoTFleetWiseCampaignDataDestinationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.DataDestinationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

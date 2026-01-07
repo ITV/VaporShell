@@ -39,7 +39,7 @@ function Add-VSSESMailManagerRuleSetS3Action {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.S3Action')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

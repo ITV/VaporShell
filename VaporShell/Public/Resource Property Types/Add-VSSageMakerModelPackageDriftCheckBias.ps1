@@ -29,7 +29,7 @@ function Add-VSSageMakerModelPackageDriftCheckBias {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.DriftCheckBias')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

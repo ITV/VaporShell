@@ -26,7 +26,7 @@ function Add-VSEvidentlyExperimentOnlineAbConfigObject {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Experiment.OnlineAbConfigObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardComboChartFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ComboChartFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

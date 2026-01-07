@@ -29,7 +29,7 @@ function Add-VSQuickSightDataSourceDatabricksParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.DatabricksParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

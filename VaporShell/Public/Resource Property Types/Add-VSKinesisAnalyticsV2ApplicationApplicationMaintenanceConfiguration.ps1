@@ -19,7 +19,7 @@ function Add-VSKinesisAnalyticsV2ApplicationApplicationMaintenanceConfiguration 
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.ApplicationMaintenanceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -76,7 +76,7 @@ function Add-VSQuickSightAnalysisFreeFormLayoutElement {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FreeFormLayoutElement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSDataSyncLocationFSxOpenZFSProtocol {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationFSxOpenZFS.Protocol')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

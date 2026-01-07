@@ -29,7 +29,7 @@ function Add-VSPersonalizeSolutionIntegerHyperParameterRange {
     #>
 
     [OutputType('Vaporshell.Resource.Personalize.Solution.IntegerHyperParameterRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

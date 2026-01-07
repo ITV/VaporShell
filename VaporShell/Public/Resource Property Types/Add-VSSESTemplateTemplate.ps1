@@ -34,7 +34,7 @@ function Add-VSSESTemplateTemplate {
     #>
 
     [OutputType('Vaporshell.Resource.SES.Template.Template')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

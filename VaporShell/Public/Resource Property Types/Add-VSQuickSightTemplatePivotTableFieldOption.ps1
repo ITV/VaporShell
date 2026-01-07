@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplatePivotTableFieldOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PivotTableFieldOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -79,7 +79,7 @@ function Add-VSQuickSightTemplatePivotTableFieldOption {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Visibility {
+                'Visibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

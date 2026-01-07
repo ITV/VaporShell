@@ -31,7 +31,7 @@ function Add-VSGlueTableSkewedInfo {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Table.SkewedInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -63,7 +63,7 @@ function Add-VSGlueTableSkewedInfo {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                SkewedColumnValueLocationMaps {
+                'SkewedColumnValueLocationMaps' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

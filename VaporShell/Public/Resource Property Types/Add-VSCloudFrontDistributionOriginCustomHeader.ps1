@@ -24,7 +24,7 @@ function Add-VSCloudFrontDistributionOriginCustomHeader {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.OriginCustomHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

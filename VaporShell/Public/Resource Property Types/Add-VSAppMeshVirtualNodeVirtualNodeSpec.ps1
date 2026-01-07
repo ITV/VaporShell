@@ -41,7 +41,7 @@ function Add-VSAppMeshVirtualNodeVirtualNodeSpec {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.VirtualNodeSpec')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

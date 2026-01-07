@@ -29,7 +29,7 @@ function Add-VSSageMakerEndpointBlueGreenUpdatePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Endpoint.BlueGreenUpdatePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

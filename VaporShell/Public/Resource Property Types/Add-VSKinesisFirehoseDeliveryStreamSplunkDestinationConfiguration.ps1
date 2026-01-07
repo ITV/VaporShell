@@ -69,7 +69,7 @@ function Add-VSKinesisFirehoseDeliveryStreamSplunkDestinationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.SplunkDestinationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

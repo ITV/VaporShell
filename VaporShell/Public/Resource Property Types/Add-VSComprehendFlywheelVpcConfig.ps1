@@ -28,7 +28,7 @@ function Add-VSComprehendFlywheelVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Comprehend.Flywheel.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

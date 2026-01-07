@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowTrendmicroSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.TrendmicroSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSCodePipelinePipelineBeforeEntryConditions {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.BeforeEntryConditions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

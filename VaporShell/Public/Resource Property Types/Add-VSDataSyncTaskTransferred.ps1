@@ -19,7 +19,7 @@ function Add-VSDataSyncTaskTransferred {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.Task.Transferred')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

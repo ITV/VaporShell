@@ -19,7 +19,7 @@ function Add-VSWAFv2RuleGroupBlockAction {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.BlockAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

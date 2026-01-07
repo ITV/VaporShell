@@ -24,7 +24,7 @@ function Add-VSLexBotVoiceSettings {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.VoiceSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

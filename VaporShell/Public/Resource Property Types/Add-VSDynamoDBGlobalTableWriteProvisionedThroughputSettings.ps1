@@ -19,7 +19,7 @@ function Add-VSDynamoDBGlobalTableWriteProvisionedThroughputSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.WriteProvisionedThroughputSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

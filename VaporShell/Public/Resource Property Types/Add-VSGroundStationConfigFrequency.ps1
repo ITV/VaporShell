@@ -24,7 +24,7 @@ function Add-VSGroundStationConfigFrequency {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.Config.Frequency')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

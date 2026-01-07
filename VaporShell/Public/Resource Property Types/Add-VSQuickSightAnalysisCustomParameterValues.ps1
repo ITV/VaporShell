@@ -42,7 +42,7 @@ function Add-VSQuickSightAnalysisCustomParameterValues {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.CustomParameterValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

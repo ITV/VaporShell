@@ -24,7 +24,7 @@ function Add-VSNetworkFirewallRuleGroupPortRange {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.PortRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

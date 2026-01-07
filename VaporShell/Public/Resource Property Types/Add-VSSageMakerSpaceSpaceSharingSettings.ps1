@@ -19,7 +19,7 @@ function Add-VSSageMakerSpaceSpaceSharingSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.SpaceSharingSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

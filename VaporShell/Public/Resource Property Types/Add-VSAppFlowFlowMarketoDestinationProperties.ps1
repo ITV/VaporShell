@@ -24,7 +24,7 @@ function Add-VSAppFlowFlowMarketoDestinationProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.MarketoDestinationProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

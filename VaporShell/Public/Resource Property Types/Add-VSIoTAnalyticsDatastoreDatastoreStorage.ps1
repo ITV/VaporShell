@@ -29,7 +29,7 @@ function Add-VSIoTAnalyticsDatastoreDatastoreStorage {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Datastore.DatastoreStorage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -61,7 +61,7 @@ function Add-VSIoTAnalyticsDatastoreDatastoreStorage {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                ServiceManagedS3 {
+                'ServiceManagedS3' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

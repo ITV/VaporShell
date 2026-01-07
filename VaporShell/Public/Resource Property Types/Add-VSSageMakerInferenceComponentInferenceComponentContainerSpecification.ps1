@@ -35,7 +35,7 @@ function Add-VSSageMakerInferenceComponentInferenceComponentContainerSpecificati
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.InferenceComponent.InferenceComponentContainerSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

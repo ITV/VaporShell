@@ -24,7 +24,7 @@ function Add-VSPipesPipeEcsInferenceAcceleratorOverride {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.EcsInferenceAcceleratorOverride')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

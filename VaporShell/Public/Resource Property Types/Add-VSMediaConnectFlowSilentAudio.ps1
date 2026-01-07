@@ -24,7 +24,7 @@ function Add-VSMediaConnectFlowSilentAudio {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.SilentAudio')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSGlueDatabaseDatabaseIdentifier {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Database.DatabaseIdentifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

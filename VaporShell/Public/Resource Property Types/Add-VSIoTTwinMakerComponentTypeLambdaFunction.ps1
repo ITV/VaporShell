@@ -19,7 +19,7 @@ function Add-VSIoTTwinMakerComponentTypeLambdaFunction {
     #>
 
     [OutputType('Vaporshell.Resource.IoTTwinMaker.ComponentType.LambdaFunction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

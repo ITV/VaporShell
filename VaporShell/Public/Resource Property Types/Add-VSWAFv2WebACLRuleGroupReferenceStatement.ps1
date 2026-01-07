@@ -33,7 +33,7 @@ function Add-VSWAFv2WebACLRuleGroupReferenceStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RuleGroupReferenceStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

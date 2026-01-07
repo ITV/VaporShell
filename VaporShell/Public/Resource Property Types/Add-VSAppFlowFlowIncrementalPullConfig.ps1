@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowIncrementalPullConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.IncrementalPullConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

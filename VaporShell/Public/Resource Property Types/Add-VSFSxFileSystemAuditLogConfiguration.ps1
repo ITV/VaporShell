@@ -29,7 +29,7 @@ function Add-VSFSxFileSystemAuditLogConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.FileSystem.AuditLogConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

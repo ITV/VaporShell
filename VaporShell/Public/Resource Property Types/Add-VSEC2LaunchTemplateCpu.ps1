@@ -21,7 +21,7 @@ function Add-VSEC2LaunchTemplateCpu {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.Cpu')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

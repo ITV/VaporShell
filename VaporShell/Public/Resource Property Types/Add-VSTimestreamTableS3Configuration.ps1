@@ -34,7 +34,7 @@ function Add-VSTimestreamTableS3Configuration {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.Table.S3Configuration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

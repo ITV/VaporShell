@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardHeaderFooterSectionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.HeaderFooterSectionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

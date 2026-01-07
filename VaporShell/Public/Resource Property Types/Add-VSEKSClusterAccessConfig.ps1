@@ -24,7 +24,7 @@ function Add-VSEKSClusterAccessConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.AccessConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

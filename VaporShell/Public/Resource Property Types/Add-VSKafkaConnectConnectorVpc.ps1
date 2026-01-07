@@ -28,7 +28,7 @@ function Add-VSKafkaConnectConnectorVpc {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.Vpc')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

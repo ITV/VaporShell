@@ -24,7 +24,7 @@ function Add-VSGuardDutyDetectorCFNFeatureAdditionalConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GuardDuty.Detector.CFNFeatureAdditionalConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

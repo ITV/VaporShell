@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisPanelTitleOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PanelTitleOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

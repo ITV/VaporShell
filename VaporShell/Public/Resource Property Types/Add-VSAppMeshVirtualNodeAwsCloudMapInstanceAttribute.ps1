@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualNodeAwsCloudMapInstanceAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.AwsCloudMapInstanceAttribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

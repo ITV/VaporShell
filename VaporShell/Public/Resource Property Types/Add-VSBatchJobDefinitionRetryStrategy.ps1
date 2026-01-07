@@ -26,7 +26,7 @@ function Add-VSBatchJobDefinitionRetryStrategy {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.RetryStrategy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

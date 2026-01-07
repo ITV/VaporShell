@@ -24,7 +24,7 @@ function Add-VSIoTJobTemplateRateIncreaseCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.JobTemplate.RateIncreaseCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

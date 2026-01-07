@@ -34,7 +34,7 @@ function Add-VSDataSyncTaskOverrides {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.Task.Overrides')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSIoTSiteWiseAssetModelAssetModelHierarchy {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.AssetModel.AssetModelHierarchy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

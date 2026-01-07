@@ -39,7 +39,7 @@ function Add-VSCustomerProfilesIntegrationConnectorOperator {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.ConnectorOperator')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

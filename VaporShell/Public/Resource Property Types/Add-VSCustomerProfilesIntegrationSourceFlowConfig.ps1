@@ -34,7 +34,7 @@ function Add-VSCustomerProfilesIntegrationSourceFlowConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.SourceFlowConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

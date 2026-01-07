@@ -80,7 +80,7 @@ function Add-VSMediaLiveChannelAudioDescription {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioDescription')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

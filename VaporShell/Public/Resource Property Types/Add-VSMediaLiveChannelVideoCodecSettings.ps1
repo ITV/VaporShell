@@ -39,7 +39,7 @@ function Add-VSMediaLiveChannelVideoCodecSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.VideoCodecSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

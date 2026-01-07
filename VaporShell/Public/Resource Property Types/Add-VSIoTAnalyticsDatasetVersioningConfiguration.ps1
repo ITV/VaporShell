@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsDatasetVersioningConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.VersioningConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSSageMakerModelBiasJobDefinitionDatasetFormat {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.DatasetFormat')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

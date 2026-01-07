@@ -34,7 +34,7 @@ function Add-VSConnectRuleFieldValue {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.Rule.FieldValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -96,7 +96,7 @@ function Add-VSConnectRuleFieldValue {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                EmptyValue {
+                'EmptyValue' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

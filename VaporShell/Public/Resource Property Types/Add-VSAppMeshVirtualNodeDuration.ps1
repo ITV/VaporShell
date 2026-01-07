@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualNodeDuration {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.Duration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

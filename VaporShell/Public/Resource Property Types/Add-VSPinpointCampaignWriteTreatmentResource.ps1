@@ -49,7 +49,7 @@ function Add-VSPinpointCampaignWriteTreatmentResource {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.WriteTreatmentResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

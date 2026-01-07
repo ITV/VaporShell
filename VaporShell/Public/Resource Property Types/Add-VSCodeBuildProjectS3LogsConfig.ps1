@@ -29,7 +29,7 @@ function Add-VSCodeBuildProjectS3LogsConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.S3LogsConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

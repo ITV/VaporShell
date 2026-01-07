@@ -51,7 +51,7 @@ function Add-VSDataBrewJobOutput {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Job.Output')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

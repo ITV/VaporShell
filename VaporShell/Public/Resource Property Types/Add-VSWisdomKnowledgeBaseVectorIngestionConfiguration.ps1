@@ -24,7 +24,7 @@ function Add-VSWisdomKnowledgeBaseVectorIngestionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.VectorIngestionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

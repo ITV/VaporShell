@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelCmafIngestOutputSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.CmafIngestOutputSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

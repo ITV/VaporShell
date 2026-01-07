@@ -34,7 +34,7 @@ function Add-VSOpenSearchServiceDomainJWTOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.JWTOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

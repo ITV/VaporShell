@@ -19,7 +19,7 @@ function Add-VSRekognitionStreamProcessorNotificationChannel {
     #>
 
     [OutputType('Vaporshell.Resource.Rekognition.StreamProcessor.NotificationChannel')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

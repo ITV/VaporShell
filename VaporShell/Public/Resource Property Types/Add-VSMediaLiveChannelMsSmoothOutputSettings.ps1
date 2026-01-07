@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelMsSmoothOutputSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.MsSmoothOutputSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

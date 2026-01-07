@@ -26,7 +26,7 @@ function Add-VSNetworkFirewallRuleGroupRuleVariables {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.RuleVariables')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

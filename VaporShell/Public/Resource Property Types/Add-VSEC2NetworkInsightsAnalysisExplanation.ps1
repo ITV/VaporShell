@@ -283,7 +283,7 @@ function Add-VSEC2NetworkInsightsAnalysisExplanation {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAnalysis.Explanation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

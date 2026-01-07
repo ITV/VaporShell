@@ -11,12 +11,12 @@ function Add-VSGroundStationDataflowEndpointGroupRangedSocketAddress {
 
     .PARAMETER PortRange
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedsocketaddress.html#cfn-groundstation-dataflowendpointgroup-rangedsocketaddress-portrange
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: IntegerRange
 
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedsocketaddress.html#cfn-groundstation-dataflowendpointgroup-rangedsocketaddress-name
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -24,7 +24,7 @@ function Add-VSGroundStationDataflowEndpointGroupRangedSocketAddress {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.DataflowEndpointGroup.RangedSocketAddress')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

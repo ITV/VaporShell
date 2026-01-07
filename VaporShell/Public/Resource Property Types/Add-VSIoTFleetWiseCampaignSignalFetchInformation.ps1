@@ -11,24 +11,24 @@ function Add-VSIoTFleetWiseCampaignSignalFetchInformation {
 
     .PARAMETER Actions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchinformation.html#cfn-iotfleetwise-campaign-signalfetchinformation-actions
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
     .PARAMETER FullyQualifiedName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchinformation.html#cfn-iotfleetwise-campaign-signalfetchinformation-fullyqualifiedname
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER SignalFetchConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchinformation.html#cfn-iotfleetwise-campaign-signalfetchinformation-signalfetchconfig
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: SignalFetchConfig
 
     .PARAMETER ConditionLanguageVersion
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchinformation.html#cfn-iotfleetwise-campaign-signalfetchinformation-conditionlanguageversion
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Double
 
     .FUNCTIONALITY
@@ -36,7 +36,7 @@ function Add-VSIoTFleetWiseCampaignSignalFetchInformation {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.SignalFetchInformation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

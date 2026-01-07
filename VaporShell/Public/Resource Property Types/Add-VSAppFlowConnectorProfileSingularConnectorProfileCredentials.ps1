@@ -19,7 +19,7 @@ function Add-VSAppFlowConnectorProfileSingularConnectorProfileCredentials {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.SingularConnectorProfileCredentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

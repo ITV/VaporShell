@@ -35,7 +35,7 @@ function Add-VSCodeDeployDeploymentGroupLoadBalancerInfo {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.LoadBalancerInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

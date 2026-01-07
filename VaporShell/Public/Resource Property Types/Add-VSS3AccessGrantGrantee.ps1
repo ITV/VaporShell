@@ -24,7 +24,7 @@ function Add-VSS3AccessGrantGrantee {
     #>
 
     [OutputType('Vaporshell.Resource.S3.AccessGrant.Grantee')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

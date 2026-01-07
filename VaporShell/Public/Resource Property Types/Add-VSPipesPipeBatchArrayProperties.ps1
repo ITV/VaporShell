@@ -19,7 +19,7 @@ function Add-VSPipesPipeBatchArrayProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.BatchArrayProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSQuickSightDashboardResourcePermission {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ResourcePermission')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSSESVdmAttributesDashboardAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.SES.VdmAttributes.DashboardAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

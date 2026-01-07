@@ -24,7 +24,7 @@ function Add-VSPCSComputeNodeGroupSlurmCustomSetting {
     #>
 
     [OutputType('Vaporshell.Resource.PCS.ComputeNodeGroup.SlurmCustomSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

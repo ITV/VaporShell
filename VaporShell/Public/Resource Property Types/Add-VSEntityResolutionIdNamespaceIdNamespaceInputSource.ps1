@@ -24,7 +24,7 @@ function Add-VSEntityResolutionIdNamespaceIdNamespaceInputSource {
     #>
 
     [OutputType('Vaporshell.Resource.EntityResolution.IdNamespace.IdNamespaceInputSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

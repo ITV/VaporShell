@@ -36,7 +36,7 @@ function Add-VSBedrockFlowVersionPromptModelInferenceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.PromptModelInferenceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

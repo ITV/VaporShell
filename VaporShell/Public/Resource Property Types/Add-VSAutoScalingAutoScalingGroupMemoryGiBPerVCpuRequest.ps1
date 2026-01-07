@@ -24,7 +24,7 @@ function Add-VSAutoScalingAutoScalingGroupMemoryGiBPerVCpuRequest {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.MemoryGiBPerVCpuRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

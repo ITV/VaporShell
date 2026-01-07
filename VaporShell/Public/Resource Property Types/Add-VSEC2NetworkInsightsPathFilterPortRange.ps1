@@ -24,7 +24,7 @@ function Add-VSEC2NetworkInsightsPathFilterPortRange {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsPath.FilterPortRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

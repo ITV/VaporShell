@@ -24,7 +24,7 @@ function Add-VSCloudFrontDistributionFunctionAssociation {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.FunctionAssociation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

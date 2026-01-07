@@ -24,7 +24,7 @@ function Add-VSAppMeshRouteGrpcTimeout {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.GrpcTimeout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

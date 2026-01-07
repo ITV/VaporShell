@@ -24,7 +24,7 @@ function Add-VSCodePipelinePipelineStageTransition {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.StageTransition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

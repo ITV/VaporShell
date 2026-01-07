@@ -21,7 +21,7 @@ function Add-VSCodeDeployDeploymentGroupOnPremisesTagSet {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.OnPremisesTagSet')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

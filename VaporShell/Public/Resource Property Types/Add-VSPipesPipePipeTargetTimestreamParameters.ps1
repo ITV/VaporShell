@@ -60,7 +60,7 @@ function Add-VSPipesPipePipeTargetTimestreamParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeTargetTimestreamParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

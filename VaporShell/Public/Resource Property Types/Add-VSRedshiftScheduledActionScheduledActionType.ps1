@@ -29,7 +29,7 @@ function Add-VSRedshiftScheduledActionScheduledActionType {
     #>
 
     [OutputType('Vaporshell.Resource.Redshift.ScheduledAction.ScheduledActionType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

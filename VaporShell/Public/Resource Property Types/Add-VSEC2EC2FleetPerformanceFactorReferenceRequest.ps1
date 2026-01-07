@@ -19,7 +19,7 @@ function Add-VSEC2EC2FleetPerformanceFactorReferenceRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.PerformanceFactorReferenceRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSCassandraTableTargetTrackingScalingPolicyConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Cassandra.Table.TargetTrackingScalingPolicyConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

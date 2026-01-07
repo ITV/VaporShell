@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisSectionStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SectionStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

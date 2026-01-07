@@ -29,7 +29,7 @@ function Add-VSAutoScalingLaunchConfigurationMetadataOptions {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.LaunchConfiguration.MetadataOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -31,7 +31,7 @@ function Add-VSRedshiftEndpointAccessVpcEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.Redshift.EndpointAccess.VpcEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

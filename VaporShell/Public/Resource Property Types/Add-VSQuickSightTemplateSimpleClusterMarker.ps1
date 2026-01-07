@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateSimpleClusterMarker {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SimpleClusterMarker')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

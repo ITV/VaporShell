@@ -24,7 +24,7 @@ function Add-VSGlueMLTransformTransformEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.MLTransform.TransformEncryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

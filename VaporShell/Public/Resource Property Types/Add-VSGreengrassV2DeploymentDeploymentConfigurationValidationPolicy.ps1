@@ -19,7 +19,7 @@ function Add-VSGreengrassV2DeploymentDeploymentConfigurationValidationPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.Deployment.DeploymentConfigurationValidationPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

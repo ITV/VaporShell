@@ -19,7 +19,7 @@ function Add-VSIoTAnalyticsDatasetTriggeringDataset {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.TriggeringDataset')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

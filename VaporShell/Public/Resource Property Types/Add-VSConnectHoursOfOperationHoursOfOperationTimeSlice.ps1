@@ -24,7 +24,7 @@ function Add-VSConnectHoursOfOperationHoursOfOperationTimeSlice {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.HoursOfOperation.HoursOfOperationTimeSlice')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSIoTFleetWiseCampaignTimeBasedCollectionScheme {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.TimeBasedCollectionScheme')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

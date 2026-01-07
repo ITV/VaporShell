@@ -29,7 +29,7 @@ function Add-VSS3BucketReplicationRuleFilter {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.ReplicationRuleFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSAppIntegrationsApplicationApplicationSourceConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppIntegrations.Application.ApplicationSourceConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

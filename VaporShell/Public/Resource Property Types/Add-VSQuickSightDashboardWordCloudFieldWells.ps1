@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardWordCloudFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.WordCloudFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

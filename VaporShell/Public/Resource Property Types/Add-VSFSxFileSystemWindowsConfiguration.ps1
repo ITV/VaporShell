@@ -75,7 +75,7 @@ function Add-VSFSxFileSystemWindowsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.FileSystem.WindowsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

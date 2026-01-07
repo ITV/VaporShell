@@ -64,7 +64,7 @@ function Add-VSDMSDataProviderOracleSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.DataProvider.OracleSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

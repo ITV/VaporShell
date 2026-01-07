@@ -19,7 +19,7 @@ function Add-VSLambdaCodeSigningConfigCodeSigningPolicies {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.CodeSigningConfig.CodeSigningPolicies')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

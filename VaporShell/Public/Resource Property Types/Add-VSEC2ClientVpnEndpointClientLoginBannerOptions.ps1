@@ -24,7 +24,7 @@ function Add-VSEC2ClientVpnEndpointClientLoginBannerOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.ClientVpnEndpoint.ClientLoginBannerOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

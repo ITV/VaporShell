@@ -34,7 +34,7 @@ function Add-VSAppSyncApiOpenIDConnectConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.Api.OpenIDConnectConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSElastiCacheCacheClusterCloudWatchLogsDestinationDetails {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.CacheCluster.CloudWatchLogsDestinationDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

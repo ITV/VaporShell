@@ -26,7 +26,7 @@ function Add-VSDataBrewJobEntityDetectorConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Job.EntityDetectorConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSElasticBeanstalkApplicationMaxCountRule {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticBeanstalk.Application.MaxCountRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

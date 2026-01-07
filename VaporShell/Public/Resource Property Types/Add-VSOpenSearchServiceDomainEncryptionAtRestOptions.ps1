@@ -24,7 +24,7 @@ function Add-VSOpenSearchServiceDomainEncryptionAtRestOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.EncryptionAtRestOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSECSTaskDefinitionMountPoint {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.MountPoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

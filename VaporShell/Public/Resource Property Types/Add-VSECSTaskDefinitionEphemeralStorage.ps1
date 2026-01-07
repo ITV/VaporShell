@@ -19,7 +19,7 @@ function Add-VSECSTaskDefinitionEphemeralStorage {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.EphemeralStorage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -41,7 +41,7 @@ function Add-VSKendraIndexRelevance {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.Index.Relevance')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

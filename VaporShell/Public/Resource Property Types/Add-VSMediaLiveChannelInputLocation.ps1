@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelInputLocation {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.InputLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","PasswordParam")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","PasswordParam")]
 

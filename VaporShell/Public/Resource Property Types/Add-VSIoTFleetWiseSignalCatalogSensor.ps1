@@ -51,7 +51,7 @@ function Add-VSIoTFleetWiseSignalCatalogSensor {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.SignalCatalog.Sensor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

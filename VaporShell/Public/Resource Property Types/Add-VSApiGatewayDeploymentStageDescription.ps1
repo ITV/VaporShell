@@ -114,7 +114,7 @@ function Add-VSApiGatewayDeploymentStageDescription {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.Deployment.StageDescription')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

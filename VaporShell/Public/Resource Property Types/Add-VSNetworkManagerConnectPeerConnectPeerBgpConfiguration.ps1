@@ -34,7 +34,7 @@ function Add-VSNetworkManagerConnectPeerConnectPeerBgpConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.ConnectPeer.ConnectPeerBgpConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

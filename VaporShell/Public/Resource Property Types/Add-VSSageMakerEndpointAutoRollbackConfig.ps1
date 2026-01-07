@@ -20,7 +20,7 @@ function Add-VSSageMakerEndpointAutoRollbackConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Endpoint.AutoRollbackConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

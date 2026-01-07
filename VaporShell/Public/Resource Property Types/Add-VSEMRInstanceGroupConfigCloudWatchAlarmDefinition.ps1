@@ -61,7 +61,7 @@ function Add-VSEMRInstanceGroupConfigCloudWatchAlarmDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceGroupConfig.CloudWatchAlarmDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

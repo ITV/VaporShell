@@ -39,7 +39,7 @@ function Add-VSCodeBuildProjectProjectBuildBatchConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.ProjectBuildBatchConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

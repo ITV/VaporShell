@@ -38,7 +38,7 @@ function Add-VSAmplifyUIBuilderFormFieldValidationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Form.FieldValidationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

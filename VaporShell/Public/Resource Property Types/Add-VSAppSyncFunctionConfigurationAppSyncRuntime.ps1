@@ -24,7 +24,7 @@ function Add-VSAppSyncFunctionConfigurationAppSyncRuntime {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.FunctionConfiguration.AppSyncRuntime')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

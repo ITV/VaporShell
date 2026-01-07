@@ -26,7 +26,7 @@ function Add-VSSecurityLakeDataLakeReplicationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityLake.DataLake.ReplicationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

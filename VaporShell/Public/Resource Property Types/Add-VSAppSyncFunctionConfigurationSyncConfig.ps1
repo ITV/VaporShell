@@ -29,7 +29,7 @@ function Add-VSAppSyncFunctionConfigurationSyncConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.FunctionConfiguration.SyncConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

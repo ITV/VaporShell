@@ -44,7 +44,7 @@ function Add-VSPinpointInAppTemplateDefaultButtonConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.InAppTemplate.DefaultButtonConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

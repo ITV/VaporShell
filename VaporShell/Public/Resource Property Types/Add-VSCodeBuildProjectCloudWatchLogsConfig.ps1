@@ -29,7 +29,7 @@ function Add-VSCodeBuildProjectCloudWatchLogsConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.CloudWatchLogsConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

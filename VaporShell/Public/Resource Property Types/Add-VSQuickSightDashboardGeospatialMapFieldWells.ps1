@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardGeospatialMapFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GeospatialMapFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

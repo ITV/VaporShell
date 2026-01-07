@@ -19,7 +19,7 @@ function Add-VSRUMAppMonitorCustomEvents {
     #>
 
     [OutputType('Vaporshell.Resource.RUM.AppMonitor.CustomEvents')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

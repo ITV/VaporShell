@@ -24,7 +24,7 @@ function Add-VSKinesisStreamStreamEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.Kinesis.Stream.StreamEncryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSDataSyncLocationEFSEc2Config {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationEFS.Ec2Config')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

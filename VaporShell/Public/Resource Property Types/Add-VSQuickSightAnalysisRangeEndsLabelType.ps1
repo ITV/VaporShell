@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisRangeEndsLabelType {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.RangeEndsLabelType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

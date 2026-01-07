@@ -51,7 +51,7 @@ function Add-VSIoTTwinMakerEntityComponent {
     #>
 
     [OutputType('Vaporshell.Resource.IoTTwinMaker.Entity.Component')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

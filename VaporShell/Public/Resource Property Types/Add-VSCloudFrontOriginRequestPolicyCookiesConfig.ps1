@@ -26,7 +26,7 @@ function Add-VSCloudFrontOriginRequestPolicyCookiesConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.OriginRequestPolicy.CookiesConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

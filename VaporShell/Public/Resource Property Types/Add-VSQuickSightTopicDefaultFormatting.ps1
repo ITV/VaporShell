@@ -24,7 +24,7 @@ function Add-VSQuickSightTopicDefaultFormatting {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.DefaultFormatting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

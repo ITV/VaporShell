@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateSheetElementConfigurationOverrides {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SheetElementConfigurationOverrides')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -45,7 +45,7 @@ function Add-VSQuickSightTemplateSheetElementConfigurationOverrides {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Visibility {
+                'Visibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

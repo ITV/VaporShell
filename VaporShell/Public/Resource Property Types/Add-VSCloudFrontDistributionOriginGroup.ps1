@@ -34,7 +34,7 @@ function Add-VSCloudFrontDistributionOriginGroup {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.OriginGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSCloudWatchAlarmDimension {
     #>
 
     [OutputType('Vaporshell.Resource.CloudWatch.Alarm.Dimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

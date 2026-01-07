@@ -41,7 +41,7 @@ function Add-VSApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationAutoScaling.ScalingPolicy.StepScalingPolicyConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

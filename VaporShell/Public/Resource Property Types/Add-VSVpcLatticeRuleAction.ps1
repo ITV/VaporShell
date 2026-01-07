@@ -24,7 +24,7 @@ function Add-VSVpcLatticeRuleAction {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.Rule.Action')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

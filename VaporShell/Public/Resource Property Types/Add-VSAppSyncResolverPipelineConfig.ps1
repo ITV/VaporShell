@@ -21,7 +21,7 @@ function Add-VSAppSyncResolverPipelineConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.Resolver.PipelineConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEventSchemasRegistryTagsEntry {
     #>
 
     [OutputType('Vaporshell.Resource.EventSchemas.Registry.TagsEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

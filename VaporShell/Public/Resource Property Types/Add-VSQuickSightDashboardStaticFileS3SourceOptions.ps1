@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardStaticFileS3SourceOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.StaticFileS3SourceOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

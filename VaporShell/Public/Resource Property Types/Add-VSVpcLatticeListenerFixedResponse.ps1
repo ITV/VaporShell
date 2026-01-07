@@ -19,7 +19,7 @@ function Add-VSVpcLatticeListenerFixedResponse {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.Listener.FixedResponse')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

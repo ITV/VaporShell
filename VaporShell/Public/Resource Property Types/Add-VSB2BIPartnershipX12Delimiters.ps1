@@ -29,7 +29,7 @@ function Add-VSB2BIPartnershipX12Delimiters {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Partnership.X12Delimiters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

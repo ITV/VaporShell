@@ -24,7 +24,7 @@ function Add-VSPipesPipeBatchJobDependency {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.BatchJobDependency')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

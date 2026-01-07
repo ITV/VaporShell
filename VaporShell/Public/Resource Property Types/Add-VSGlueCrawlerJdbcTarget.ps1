@@ -38,7 +38,7 @@ function Add-VSGlueCrawlerJdbcTarget {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Crawler.JdbcTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSLambdaEventSourceMappingOnFailure {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.EventSourceMapping.OnFailure')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

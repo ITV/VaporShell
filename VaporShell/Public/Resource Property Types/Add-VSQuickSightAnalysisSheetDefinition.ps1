@@ -28,17 +28,17 @@ function Add-VSQuickSightAnalysisSheetDefinition {
         ItemType: SheetTextBox
         DuplicatesAllowed: True
 
+    .PARAMETER ContentType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheetdefinition.html#cfn-quicksight-analysis-sheetdefinition-contenttype
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER Layouts
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheetdefinition.html#cfn-quicksight-analysis-sheetdefinition-layouts
         UpdateType: Mutable
         Type: List
         ItemType: Layout
         DuplicatesAllowed: True
-
-    .PARAMETER ContentType
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheetdefinition.html#cfn-quicksight-analysis-sheetdefinition-contenttype
-        UpdateType: Mutable
-        PrimitiveType: String
 
     .PARAMETER SheetId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sheetdefinition.html#cfn-quicksight-analysis-sheetdefinition-sheetid
@@ -88,7 +88,7 @@ function Add-VSQuickSightAnalysisSheetDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SheetDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -130,18 +130,6 @@ function Add-VSQuickSightAnalysisSheetDefinition {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.Layout"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Layouts,
-
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -151,6 +139,18 @@ function Add-VSQuickSightAnalysisSheetDefinition {
                 }
             })]
         $ContentType,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.Analysis.Layout"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Layouts,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

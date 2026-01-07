@@ -29,7 +29,7 @@ function Add-VSS3OutpostsBucketFilter {
     #>
 
     [OutputType('Vaporshell.Resource.S3Outposts.Bucket.Filter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

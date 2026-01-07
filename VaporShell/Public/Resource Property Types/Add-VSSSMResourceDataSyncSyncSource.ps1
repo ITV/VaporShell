@@ -36,7 +36,7 @@ function Add-VSSSMResourceDataSyncSyncSource {
     #>
 
     [OutputType('Vaporshell.Resource.SSM.ResourceDataSync.SyncSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

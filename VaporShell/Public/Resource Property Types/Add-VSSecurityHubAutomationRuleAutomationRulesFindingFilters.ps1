@@ -259,7 +259,7 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFilters {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.AutomationRulesFindingFilters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSIoTTopicRuleAssetPropertyValue {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.AssetPropertyValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

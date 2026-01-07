@@ -24,7 +24,7 @@ function Add-VSBedrockDataSourceCrawlFilterConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.CrawlFilterConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

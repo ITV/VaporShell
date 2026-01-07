@@ -24,7 +24,7 @@ function Add-VSEC2NetworkAclEntryIcmp {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkAclEntry.Icmp')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

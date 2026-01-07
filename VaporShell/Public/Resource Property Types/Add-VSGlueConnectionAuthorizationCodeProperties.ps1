@@ -24,7 +24,7 @@ function Add-VSGlueConnectionAuthorizationCodeProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Connection.AuthorizationCodeProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

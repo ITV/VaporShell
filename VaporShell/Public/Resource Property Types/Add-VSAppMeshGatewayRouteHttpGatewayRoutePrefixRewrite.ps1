@@ -24,7 +24,7 @@ function Add-VSAppMeshGatewayRouteHttpGatewayRoutePrefixRewrite {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.HttpGatewayRoutePrefixRewrite')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

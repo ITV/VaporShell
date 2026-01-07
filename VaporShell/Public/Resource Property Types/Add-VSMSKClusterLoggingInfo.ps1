@@ -19,7 +19,7 @@ function Add-VSMSKClusterLoggingInfo {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.LoggingInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

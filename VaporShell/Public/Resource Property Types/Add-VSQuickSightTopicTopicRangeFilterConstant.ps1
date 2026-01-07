@@ -24,7 +24,7 @@ function Add-VSQuickSightTopicTopicRangeFilterConstant {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.TopicRangeFilterConstant')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

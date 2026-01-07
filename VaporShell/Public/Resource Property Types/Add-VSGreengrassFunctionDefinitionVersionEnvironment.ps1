@@ -35,7 +35,7 @@ function Add-VSGreengrassFunctionDefinitionVersionEnvironment {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.FunctionDefinitionVersion.Environment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -88,7 +88,7 @@ function Add-VSGreengrassFunctionDefinitionVersionEnvironment {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Variables {
+                'Variables' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

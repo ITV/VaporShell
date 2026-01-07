@@ -117,12 +117,17 @@ function Add-VSQuickSightTemplateLineChartConfiguration {
         UpdateType: Mutable
         Type: ChartAxisLabelOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-linechartconfiguration.html#cfn-quicksight-template-linechartconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.LineChartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -229,7 +234,10 @@ function Add-VSQuickSightTemplateLineChartConfiguration {
         $SecondaryYAxisDisplayOptions,
 
         [Parameter(Mandatory = $false)]
-        $XAxisLabelOptions
+        $XAxisLabelOptions,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions
 
     )
 

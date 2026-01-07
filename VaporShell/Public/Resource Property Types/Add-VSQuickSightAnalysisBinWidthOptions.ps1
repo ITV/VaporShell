@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisBinWidthOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.BinWidthOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

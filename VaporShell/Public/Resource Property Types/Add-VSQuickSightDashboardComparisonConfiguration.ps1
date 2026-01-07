@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardComparisonConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ComparisonConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

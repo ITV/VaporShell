@@ -24,7 +24,7 @@ function Add-VSS3MultiRegionAccessPointRegion {
     #>
 
     [OutputType('Vaporshell.Resource.S3.MultiRegionAccessPoint.Region')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

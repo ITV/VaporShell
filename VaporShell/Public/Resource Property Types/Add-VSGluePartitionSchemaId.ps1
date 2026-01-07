@@ -29,7 +29,7 @@ function Add-VSGluePartitionSchemaId {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Partition.SchemaId')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

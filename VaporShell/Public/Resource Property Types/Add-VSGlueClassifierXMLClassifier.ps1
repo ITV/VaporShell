@@ -29,7 +29,7 @@ function Add-VSGlueClassifierXMLClassifier {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Classifier.XMLClassifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

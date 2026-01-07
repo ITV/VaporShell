@@ -24,7 +24,7 @@ function Add-VSS3BucketServerSideEncryptionByDefault {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.ServerSideEncryptionByDefault')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

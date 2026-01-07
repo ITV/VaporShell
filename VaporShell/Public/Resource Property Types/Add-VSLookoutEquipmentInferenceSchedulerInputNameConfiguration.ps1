@@ -24,7 +24,7 @@ function Add-VSLookoutEquipmentInferenceSchedulerInputNameConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.LookoutEquipment.InferenceScheduler.InputNameConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSDataSyncLocationAzureBlobAzureBlobSasConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationAzureBlob.AzureBlobSasConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

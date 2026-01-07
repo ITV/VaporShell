@@ -14,7 +14,7 @@ function Add-VSLakeFormationPermissionsTableWildcard {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.Permissions.TableWildcard')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

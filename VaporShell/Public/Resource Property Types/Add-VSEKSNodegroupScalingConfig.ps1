@@ -29,7 +29,7 @@ function Add-VSEKSNodegroupScalingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Nodegroup.ScalingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSSchedulerScheduleDeadLetterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.DeadLetterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

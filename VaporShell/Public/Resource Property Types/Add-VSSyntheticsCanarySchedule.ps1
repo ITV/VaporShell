@@ -14,6 +14,11 @@ function Add-VSSyntheticsCanarySchedule {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER RetryConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-retryconfig
+        UpdateType: Mutable
+        Type: RetryConfig
+
     .PARAMETER Expression
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression
         UpdateType: Mutable
@@ -24,7 +29,7 @@ function Add-VSSyntheticsCanarySchedule {
     #>
 
     [OutputType('Vaporshell.Resource.Synthetics.Canary.Schedule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -39,6 +44,9 @@ function Add-VSSyntheticsCanarySchedule {
                 }
             })]
         $DurationInSeconds,
+
+        [Parameter(Mandatory = $false)]
+        $RetryConfig,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

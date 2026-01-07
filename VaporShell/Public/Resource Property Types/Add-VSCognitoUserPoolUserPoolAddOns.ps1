@@ -24,7 +24,7 @@ function Add-VSCognitoUserPoolUserPoolAddOns {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.UserPoolAddOns')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

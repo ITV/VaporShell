@@ -20,7 +20,7 @@ function Add-VSNetworkFirewallFirewallPolicyPolicyVariables {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.FirewallPolicy.PolicyVariables')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisAggregationSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.AggregationSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

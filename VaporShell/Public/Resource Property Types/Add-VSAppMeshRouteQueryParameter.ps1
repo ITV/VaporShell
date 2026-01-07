@@ -24,7 +24,7 @@ function Add-VSAppMeshRouteQueryParameter {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.QueryParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

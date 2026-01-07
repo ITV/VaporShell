@@ -24,7 +24,7 @@ function Add-VSGameLiftMatchmakingConfigurationGameProperty {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.MatchmakingConfiguration.GameProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

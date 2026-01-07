@@ -21,7 +21,7 @@ function Add-VSCognitoUserPoolUserAttributeUpdateSettings {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.UserAttributeUpdateSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

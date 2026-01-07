@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateLocalNavigationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.LocalNavigationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

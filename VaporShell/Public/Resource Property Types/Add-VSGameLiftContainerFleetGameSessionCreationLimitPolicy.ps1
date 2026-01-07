@@ -24,7 +24,7 @@ function Add-VSGameLiftContainerFleetGameSessionCreationLimitPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerFleet.GameSessionCreationLimitPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisDataPathLabelType {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DataPathLabelType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

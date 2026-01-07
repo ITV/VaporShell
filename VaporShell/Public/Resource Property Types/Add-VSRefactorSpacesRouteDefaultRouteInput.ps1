@@ -19,7 +19,7 @@ function Add-VSRefactorSpacesRouteDefaultRouteInput {
     #>
 
     [OutputType('Vaporshell.Resource.RefactorSpaces.Route.DefaultRouteInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

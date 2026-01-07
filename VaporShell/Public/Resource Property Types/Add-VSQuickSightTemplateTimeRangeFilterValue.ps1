@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateTimeRangeFilterValue {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TimeRangeFilterValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

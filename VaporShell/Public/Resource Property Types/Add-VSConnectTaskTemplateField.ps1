@@ -36,7 +36,7 @@ function Add-VSConnectTaskTemplateField {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.TaskTemplate.Field')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

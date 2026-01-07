@@ -24,7 +24,7 @@ function Add-VSBudgetsBudgetSpend {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.Budget.Spend')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

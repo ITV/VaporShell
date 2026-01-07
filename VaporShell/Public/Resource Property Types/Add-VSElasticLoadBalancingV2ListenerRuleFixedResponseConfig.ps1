@@ -29,7 +29,7 @@ function Add-VSElasticLoadBalancingV2ListenerRuleFixedResponseConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.FixedResponseConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

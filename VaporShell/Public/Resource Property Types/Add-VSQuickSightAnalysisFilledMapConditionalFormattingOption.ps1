@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisFilledMapConditionalFormattingOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FilledMapConditionalFormattingOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

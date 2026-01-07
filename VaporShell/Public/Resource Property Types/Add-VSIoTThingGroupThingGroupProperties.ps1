@@ -24,7 +24,7 @@ function Add-VSIoTThingGroupThingGroupProperties {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.ThingGroup.ThingGroupProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

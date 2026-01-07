@@ -31,7 +31,7 @@ function Add-VSQuickSightDashboardEmptyVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.EmptyVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

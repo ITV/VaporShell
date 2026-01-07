@@ -19,7 +19,7 @@ function Add-VSSageMakerModelPackageSecurityConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.SecurityConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

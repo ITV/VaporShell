@@ -31,7 +31,7 @@ function Add-VSConfigConfigurationAggregatorOrganizationAggregationSource {
     #>
 
     [OutputType('Vaporshell.Resource.Config.ConfigurationAggregator.OrganizationAggregationSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

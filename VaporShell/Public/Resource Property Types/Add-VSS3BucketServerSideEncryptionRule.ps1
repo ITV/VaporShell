@@ -14,6 +14,11 @@ function Add-VSS3BucketServerSideEncryptionRule {
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER BlockedEncryptionTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-blockedencryptiontypes
+        UpdateType: Mutable
+        Type: BlockedEncryptionTypes
+
     .PARAMETER ServerSideEncryptionByDefault
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-serversideencryptionbydefault
         UpdateType: Mutable
@@ -24,7 +29,7 @@ function Add-VSS3BucketServerSideEncryptionRule {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.ServerSideEncryptionRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -39,6 +44,9 @@ function Add-VSS3BucketServerSideEncryptionRule {
                 }
             })]
         $BucketKeyEnabled,
+
+        [Parameter(Mandatory = $false)]
+        $BlockedEncryptionTypes,
 
         [Parameter(Mandatory = $false)]
         $ServerSideEncryptionByDefault

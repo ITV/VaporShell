@@ -24,7 +24,7 @@ function Add-VSAppFlowFlowEventBridgeDestinationProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.EventBridgeDestinationProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSElastiCacheUserAuthenticationMode {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.User.AuthenticationMode')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Passwords")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Passwords")]
 

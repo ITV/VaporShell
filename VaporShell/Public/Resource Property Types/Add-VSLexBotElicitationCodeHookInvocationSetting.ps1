@@ -24,7 +24,7 @@ function Add-VSLexBotElicitationCodeHookInvocationSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.ElicitationCodeHookInvocationSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

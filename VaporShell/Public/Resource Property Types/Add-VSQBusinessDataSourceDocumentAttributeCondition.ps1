@@ -29,7 +29,7 @@ function Add-VSQBusinessDataSourceDocumentAttributeCondition {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.DataSource.DocumentAttributeCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

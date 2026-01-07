@@ -26,7 +26,7 @@ function Add-VSDynamoDBGlobalTableProjection {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.Projection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSAppStreamEntitlementAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.Entitlement.Attribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

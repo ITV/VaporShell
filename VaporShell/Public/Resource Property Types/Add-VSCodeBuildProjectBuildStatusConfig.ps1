@@ -24,7 +24,7 @@ function Add-VSCodeBuildProjectBuildStatusConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.BuildStatusConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

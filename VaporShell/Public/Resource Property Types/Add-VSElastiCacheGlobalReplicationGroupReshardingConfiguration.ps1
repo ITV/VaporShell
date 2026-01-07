@@ -26,7 +26,7 @@ function Add-VSElastiCacheGlobalReplicationGroupReshardingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.GlobalReplicationGroup.ReshardingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

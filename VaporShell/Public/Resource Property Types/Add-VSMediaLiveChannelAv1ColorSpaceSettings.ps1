@@ -34,7 +34,7 @@ function Add-VSMediaLiveChannelAv1ColorSpaceSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.Av1ColorSpaceSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

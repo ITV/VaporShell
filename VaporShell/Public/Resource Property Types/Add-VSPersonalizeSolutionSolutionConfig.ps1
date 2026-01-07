@@ -41,7 +41,7 @@ function Add-VSPersonalizeSolutionSolutionConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Personalize.Solution.SolutionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

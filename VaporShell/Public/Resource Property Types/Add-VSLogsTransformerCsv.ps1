@@ -36,7 +36,7 @@ function Add-VSLogsTransformerCsv {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.Csv')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

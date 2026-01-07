@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardRangeEndsLabelType {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.RangeEndsLabelType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

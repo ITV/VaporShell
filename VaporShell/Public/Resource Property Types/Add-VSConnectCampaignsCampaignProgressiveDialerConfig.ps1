@@ -24,7 +24,7 @@ function Add-VSConnectCampaignsCampaignProgressiveDialerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaigns.Campaign.ProgressiveDialerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

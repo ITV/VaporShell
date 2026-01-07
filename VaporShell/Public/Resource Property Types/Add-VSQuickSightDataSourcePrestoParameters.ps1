@@ -29,7 +29,7 @@ function Add-VSQuickSightDataSourcePrestoParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.PrestoParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

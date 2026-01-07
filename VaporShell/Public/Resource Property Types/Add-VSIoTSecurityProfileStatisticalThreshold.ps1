@@ -19,7 +19,7 @@ function Add-VSIoTSecurityProfileStatisticalThreshold {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.SecurityProfile.StatisticalThreshold')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

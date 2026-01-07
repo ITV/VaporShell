@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateAxisScale {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.AxisScale')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

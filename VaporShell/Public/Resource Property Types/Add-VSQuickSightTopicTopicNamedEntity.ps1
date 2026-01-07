@@ -43,7 +43,7 @@ function Add-VSQuickSightTopicTopicNamedEntity {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.TopicNamedEntity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

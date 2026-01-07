@@ -24,6 +24,11 @@ function Add-VSLexBotBotLocale {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER GenerativeAISettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-generativeaisettings
+        UpdateType: Mutable
+        Type: GenerativeAISettings
+
     .PARAMETER CustomVocabulary
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-customvocabulary
         UpdateType: Mutable
@@ -35,6 +40,16 @@ function Add-VSLexBotBotLocale {
         Type: List
         ItemType: SlotType
         DuplicatesAllowed: False
+
+    .PARAMETER UnifiedSpeechSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-unifiedspeechsettings
+        UpdateType: Mutable
+        Type: UnifiedSpeechSettings
+
+    .PARAMETER SpeechDetectionSensitivity
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-speechdetectionsensitivity
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER Intents
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-botlocale.html#cfn-lex-bot-botlocale-intents
@@ -53,7 +68,7 @@ function Add-VSLexBotBotLocale {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.BotLocale')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -94,6 +109,9 @@ function Add-VSLexBotBotLocale {
         $Description,
 
         [Parameter(Mandatory = $false)]
+        $GenerativeAISettings,
+
+        [Parameter(Mandatory = $false)]
         $CustomVocabulary,
 
         [Parameter(Mandatory = $false)]
@@ -107,6 +125,21 @@ function Add-VSLexBotBotLocale {
                 }
             })]
         $SlotTypes,
+
+        [Parameter(Mandatory = $false)]
+        $UnifiedSpeechSettings,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SpeechDetectionSensitivity,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

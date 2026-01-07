@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardStaticFile {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.StaticFile')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

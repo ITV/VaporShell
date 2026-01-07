@@ -20,7 +20,7 @@ function Add-VSGlueMLTransformInputRecordTables {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.MLTransform.InputRecordTables')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

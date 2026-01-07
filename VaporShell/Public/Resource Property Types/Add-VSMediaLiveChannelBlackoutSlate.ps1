@@ -39,7 +39,7 @@ function Add-VSMediaLiveChannelBlackoutSlate {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.BlackoutSlate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

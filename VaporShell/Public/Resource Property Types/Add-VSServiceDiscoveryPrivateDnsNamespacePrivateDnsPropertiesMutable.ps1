@@ -19,7 +19,7 @@ function Add-VSServiceDiscoveryPrivateDnsNamespacePrivateDnsPropertiesMutable {
     #>
 
     [OutputType('Vaporshell.Resource.ServiceDiscovery.PrivateDnsNamespace.PrivateDnsPropertiesMutable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

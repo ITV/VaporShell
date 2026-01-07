@@ -44,7 +44,7 @@ function Add-VSNotificationsContactsEmailContactEmailContact {
     #>
 
     [OutputType('Vaporshell.Resource.NotificationsContacts.EmailContact.EmailContact')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

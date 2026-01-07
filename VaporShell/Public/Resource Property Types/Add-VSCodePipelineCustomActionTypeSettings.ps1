@@ -34,7 +34,7 @@ function Add-VSCodePipelineCustomActionTypeSettings {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.CustomActionType.Settings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

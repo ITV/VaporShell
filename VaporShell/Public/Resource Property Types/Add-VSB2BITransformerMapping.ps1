@@ -24,7 +24,7 @@ function Add-VSB2BITransformerMapping {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Transformer.Mapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

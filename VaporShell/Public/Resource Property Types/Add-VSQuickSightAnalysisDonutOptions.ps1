@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisDonutOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DonutOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

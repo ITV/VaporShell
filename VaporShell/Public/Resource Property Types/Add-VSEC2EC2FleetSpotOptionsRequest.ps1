@@ -54,7 +54,7 @@ function Add-VSEC2EC2FleetSpotOptionsRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.SpotOptionsRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSApplicationInsightsApplicationProcess {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.Process')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

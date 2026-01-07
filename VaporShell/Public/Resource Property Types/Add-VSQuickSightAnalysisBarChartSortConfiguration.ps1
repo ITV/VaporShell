@@ -50,7 +50,7 @@ function Add-VSQuickSightAnalysisBarChartSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.BarChartSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

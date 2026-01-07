@@ -48,7 +48,7 @@ function Add-VSDataBrewRulesetRule {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Ruleset.Rule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

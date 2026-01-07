@@ -26,7 +26,7 @@ function Add-VSSSMIncidentsResponsePlanSsmParameter {
     #>
 
     [OutputType('Vaporshell.Resource.SSMIncidents.ResponsePlan.SsmParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

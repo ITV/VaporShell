@@ -34,7 +34,7 @@ function Add-VSEC2IPAMPoolSourceResource {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.IPAMPool.SourceResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

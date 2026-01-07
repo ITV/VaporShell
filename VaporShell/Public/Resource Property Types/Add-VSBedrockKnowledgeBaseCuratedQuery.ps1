@@ -24,7 +24,7 @@ function Add-VSBedrockKnowledgeBaseCuratedQuery {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.CuratedQuery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSB2BIPartnershipOutboundEdiOptions {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Partnership.OutboundEdiOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

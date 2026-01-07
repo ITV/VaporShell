@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelH264FilterSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.H264FilterSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

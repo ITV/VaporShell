@@ -19,7 +19,7 @@ function Add-VSSESEmailIdentityFeedbackAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.SES.EmailIdentity.FeedbackAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

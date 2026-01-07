@@ -24,7 +24,7 @@ function Add-VSStepFunctionsStateMachineAliasRoutingConfigurationVersion {
     #>
 
     [OutputType('Vaporshell.Resource.StepFunctions.StateMachineAlias.RoutingConfigurationVersion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSEventsRuleSqsParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.SqsParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

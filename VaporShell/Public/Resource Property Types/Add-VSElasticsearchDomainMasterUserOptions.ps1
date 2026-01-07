@@ -29,7 +29,7 @@ function Add-VSElasticsearchDomainMasterUserOptions {
     #>
 
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.MasterUserOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","MasterUserPassword")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","MasterUserPassword")]
 

@@ -19,7 +19,7 @@ function Add-VSCloudFrontDistributionRestrictions {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.Restrictions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

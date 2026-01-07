@@ -24,7 +24,7 @@ function Add-VSCustomerProfilesCalculatedAttributeDefinitionThreshold {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.CalculatedAttributeDefinition.Threshold')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

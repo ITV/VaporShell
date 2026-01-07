@@ -24,7 +24,7 @@ function Add-VSFSxStorageVirtualMachineActiveDirectoryConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.StorageVirtualMachine.ActiveDirectoryConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

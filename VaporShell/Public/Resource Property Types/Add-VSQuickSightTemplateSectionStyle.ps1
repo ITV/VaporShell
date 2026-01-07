@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateSectionStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SectionStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

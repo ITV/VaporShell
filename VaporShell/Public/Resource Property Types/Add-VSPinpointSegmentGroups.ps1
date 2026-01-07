@@ -36,7 +36,7 @@ function Add-VSPinpointSegmentGroups {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Segment.Groups')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

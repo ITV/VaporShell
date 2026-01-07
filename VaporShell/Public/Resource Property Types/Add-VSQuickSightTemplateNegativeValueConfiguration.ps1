@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateNegativeValueConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.NegativeValueConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

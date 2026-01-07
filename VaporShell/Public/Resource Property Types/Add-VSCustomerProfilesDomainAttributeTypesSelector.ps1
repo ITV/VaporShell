@@ -40,7 +40,7 @@ function Add-VSCustomerProfilesDomainAttributeTypesSelector {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Domain.AttributeTypesSelector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

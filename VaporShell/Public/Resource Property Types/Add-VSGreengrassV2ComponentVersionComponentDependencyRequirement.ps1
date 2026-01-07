@@ -24,7 +24,7 @@ function Add-VSGreengrassV2ComponentVersionComponentDependencyRequirement {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.ComponentVersion.ComponentDependencyRequirement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

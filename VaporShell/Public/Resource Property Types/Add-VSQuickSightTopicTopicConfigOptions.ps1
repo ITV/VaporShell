@@ -19,7 +19,7 @@ function Add-VSQuickSightTopicTopicConfigOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.TopicConfigOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

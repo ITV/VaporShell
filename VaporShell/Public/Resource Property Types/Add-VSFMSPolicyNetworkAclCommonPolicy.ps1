@@ -19,7 +19,7 @@ function Add-VSFMSPolicyNetworkAclCommonPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.FMS.Policy.NetworkAclCommonPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

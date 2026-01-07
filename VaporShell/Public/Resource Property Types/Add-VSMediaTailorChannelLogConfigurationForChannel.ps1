@@ -21,7 +21,7 @@ function Add-VSMediaTailorChannelLogConfigurationForChannel {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.Channel.LogConfigurationForChannel')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

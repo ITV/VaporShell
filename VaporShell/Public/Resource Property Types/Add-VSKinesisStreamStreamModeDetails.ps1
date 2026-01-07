@@ -19,7 +19,7 @@ function Add-VSKinesisStreamStreamModeDetails {
     #>
 
     [OutputType('Vaporshell.Resource.Kinesis.Stream.StreamModeDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

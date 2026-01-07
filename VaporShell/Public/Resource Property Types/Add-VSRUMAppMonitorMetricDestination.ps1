@@ -36,7 +36,7 @@ function Add-VSRUMAppMonitorMetricDestination {
     #>
 
     [OutputType('Vaporshell.Resource.RUM.AppMonitor.MetricDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

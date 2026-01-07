@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateTableFieldCustomTextContent {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TableFieldCustomTextContent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

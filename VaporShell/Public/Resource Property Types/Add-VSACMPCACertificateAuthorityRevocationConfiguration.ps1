@@ -24,7 +24,7 @@ function Add-VSACMPCACertificateAuthorityRevocationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.CertificateAuthority.RevocationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

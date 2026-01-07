@@ -34,7 +34,7 @@ function Add-VSElasticsearchDomainAdvancedSecurityOptionsInput {
     #>
 
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.AdvancedSecurityOptionsInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

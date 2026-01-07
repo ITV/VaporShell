@@ -19,7 +19,7 @@ function Add-VSWAFv2RuleGroupCountAction {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.CountAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

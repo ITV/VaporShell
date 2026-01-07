@@ -24,7 +24,7 @@ function Add-VSM2ApplicationDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.M2.Application.Definition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

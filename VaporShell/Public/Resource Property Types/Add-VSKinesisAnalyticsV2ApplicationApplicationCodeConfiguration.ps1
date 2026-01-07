@@ -24,7 +24,7 @@ function Add-VSKinesisAnalyticsV2ApplicationApplicationCodeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.ApplicationCodeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSLookoutEquipmentInferenceSchedulerDataInputConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.LookoutEquipment.InferenceScheduler.DataInputConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

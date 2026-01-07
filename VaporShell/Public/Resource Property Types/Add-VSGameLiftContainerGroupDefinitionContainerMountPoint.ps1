@@ -29,7 +29,7 @@ function Add-VSGameLiftContainerGroupDefinitionContainerMountPoint {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerGroupDefinition.ContainerMountPoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

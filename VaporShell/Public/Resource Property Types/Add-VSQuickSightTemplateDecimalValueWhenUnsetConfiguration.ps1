@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateDecimalValueWhenUnsetConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DecimalValueWhenUnsetConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

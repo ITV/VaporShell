@@ -19,7 +19,7 @@ function Add-VSSageMakerModelExplainabilityJobDefinitionConstraintsResource {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.ConstraintsResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -31,7 +31,7 @@ function Add-VSWAFv2LoggingConfigurationFilter {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.LoggingConfiguration.Filter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

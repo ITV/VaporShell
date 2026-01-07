@@ -39,7 +39,7 @@ function Add-VSEvidentlyFeatureVariationObject {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Feature.VariationObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

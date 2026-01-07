@@ -19,7 +19,7 @@ function Add-VSMSKClusterEncryptionAtRest {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.EncryptionAtRest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

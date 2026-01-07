@@ -24,7 +24,7 @@ function Add-VSEMRClusterBootstrapActionConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.BootstrapActionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

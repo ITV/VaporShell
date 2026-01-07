@@ -19,7 +19,7 @@ function Add-VSBedrockFlowFlowConditionalConnectionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Flow.FlowConditionalConnectionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

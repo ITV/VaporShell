@@ -29,7 +29,7 @@ function Add-VSDLMLifecyclePolicyExclusions {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.Exclusions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

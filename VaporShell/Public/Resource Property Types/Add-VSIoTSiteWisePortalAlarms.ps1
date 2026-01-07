@@ -24,7 +24,7 @@ function Add-VSIoTSiteWisePortalAlarms {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.Portal.Alarms')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSManagedBlockchainNodeNodeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ManagedBlockchain.Node.NodeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -54,7 +54,7 @@ function Add-VSQuickSightDashboardCurrencyDisplayFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.CurrencyDisplayFormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

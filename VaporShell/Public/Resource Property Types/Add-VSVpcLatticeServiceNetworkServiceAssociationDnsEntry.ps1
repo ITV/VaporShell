@@ -24,7 +24,7 @@ function Add-VSVpcLatticeServiceNetworkServiceAssociationDnsEntry {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.ServiceNetworkServiceAssociation.DnsEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

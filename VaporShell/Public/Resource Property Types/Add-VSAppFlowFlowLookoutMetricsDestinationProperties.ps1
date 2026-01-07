@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowLookoutMetricsDestinationProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.LookoutMetricsDestinationProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

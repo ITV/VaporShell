@@ -69,7 +69,7 @@ function Add-VSAuditManagerAssessmentDelegation {
     #>
 
     [OutputType('Vaporshell.Resource.AuditManager.Assessment.Delegation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

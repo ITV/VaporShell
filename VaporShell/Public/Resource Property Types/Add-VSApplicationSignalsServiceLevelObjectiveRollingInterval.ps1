@@ -24,7 +24,7 @@ function Add-VSApplicationSignalsServiceLevelObjectiveRollingInterval {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.RollingInterval')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

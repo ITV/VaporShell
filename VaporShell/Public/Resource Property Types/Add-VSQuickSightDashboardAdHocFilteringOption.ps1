@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardAdHocFilteringOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.AdHocFilteringOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSSSMContactsRotationMonthlySetting {
     #>
 
     [OutputType('Vaporshell.Resource.SSMContacts.Rotation.MonthlySetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

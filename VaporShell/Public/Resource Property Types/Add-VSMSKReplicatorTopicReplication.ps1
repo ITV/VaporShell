@@ -53,7 +53,7 @@ function Add-VSMSKReplicatorTopicReplication {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Replicator.TopicReplication')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

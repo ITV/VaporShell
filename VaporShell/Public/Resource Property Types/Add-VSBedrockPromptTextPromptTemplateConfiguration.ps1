@@ -21,6 +21,11 @@ function Add-VSBedrockPromptTextPromptTemplateConfiguration {
         UpdateType: Mutable
         Type: TextS3Location
 
+    .PARAMETER CachePoint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-textprompttemplateconfiguration.html#cfn-bedrock-prompt-textprompttemplateconfiguration-cachepoint
+        UpdateType: Mutable
+        Type: CachePointBlock
+
     .PARAMETER Text
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-textprompttemplateconfiguration.html#cfn-bedrock-prompt-textprompttemplateconfiguration-text
         UpdateType: Mutable
@@ -31,7 +36,7 @@ function Add-VSBedrockPromptTextPromptTemplateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Prompt.TextPromptTemplateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -49,6 +54,9 @@ function Add-VSBedrockPromptTextPromptTemplateConfiguration {
 
         [Parameter(Mandatory = $false)]
         $TextS3Location,
+
+        [Parameter(Mandatory = $false)]
+        $CachePoint,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

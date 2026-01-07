@@ -24,7 +24,7 @@ function Add-VSEFSAccessPointAccessPointTag {
     #>
 
     [OutputType('Vaporshell.Resource.EFS.AccessPoint.AccessPointTag')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

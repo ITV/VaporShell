@@ -44,7 +44,7 @@ function Add-VSQuickSightAnalysisPercentageDisplayFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PercentageDisplayFormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

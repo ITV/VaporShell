@@ -39,7 +39,7 @@ function Add-VSSageMakerEndpointConfigClarifyShapConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.ClarifyShapConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

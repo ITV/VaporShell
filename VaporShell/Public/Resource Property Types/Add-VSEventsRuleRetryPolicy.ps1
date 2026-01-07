@@ -24,7 +24,7 @@ function Add-VSEventsRuleRetryPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.RetryPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSSageMakerModelPackageModelAccessConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.ModelAccessConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

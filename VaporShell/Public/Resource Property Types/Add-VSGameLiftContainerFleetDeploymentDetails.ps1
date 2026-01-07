@@ -19,7 +19,7 @@ function Add-VSGameLiftContainerFleetDeploymentDetails {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerFleet.DeploymentDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

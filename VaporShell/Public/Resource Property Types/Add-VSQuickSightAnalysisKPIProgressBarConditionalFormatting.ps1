@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisKPIProgressBarConditionalFormatting {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.KPIProgressBarConditionalFormatting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

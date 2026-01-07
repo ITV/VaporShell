@@ -24,7 +24,7 @@ function Add-VSEMRStepKeyValue {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Step.KeyValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

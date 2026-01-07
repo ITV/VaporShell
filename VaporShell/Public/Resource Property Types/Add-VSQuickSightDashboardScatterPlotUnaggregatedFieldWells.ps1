@@ -49,7 +49,7 @@ function Add-VSQuickSightDashboardScatterPlotUnaggregatedFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ScatterPlotUnaggregatedFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

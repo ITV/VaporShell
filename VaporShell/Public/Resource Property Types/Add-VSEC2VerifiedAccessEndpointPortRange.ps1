@@ -24,7 +24,7 @@ function Add-VSEC2VerifiedAccessEndpointPortRange {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessEndpoint.PortRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

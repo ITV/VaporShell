@@ -49,7 +49,7 @@ function Add-VSMediaConnectFlowFmtp {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.Fmtp')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

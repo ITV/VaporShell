@@ -36,7 +36,7 @@ function Add-VSWAFv2RuleGroupSizeConstraintStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.SizeConstraintStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSBudgetsBudgetSubscriber {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.Budget.Subscriber')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

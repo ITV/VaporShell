@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisFieldLabelType {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FieldLabelType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

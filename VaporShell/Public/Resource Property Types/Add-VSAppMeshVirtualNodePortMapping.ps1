@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualNodePortMapping {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.PortMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

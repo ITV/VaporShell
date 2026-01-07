@@ -19,7 +19,7 @@ function Add-VSS3BucketSseKmsEncryptedObjects {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.SseKmsEncryptedObjects')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

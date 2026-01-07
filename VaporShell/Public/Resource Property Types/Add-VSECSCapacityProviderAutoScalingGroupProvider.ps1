@@ -34,7 +34,7 @@ function Add-VSECSCapacityProviderAutoScalingGroupProvider {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.CapacityProvider.AutoScalingGroupProvider')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

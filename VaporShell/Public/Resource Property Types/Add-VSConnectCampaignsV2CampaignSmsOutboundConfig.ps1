@@ -24,7 +24,7 @@ function Add-VSConnectCampaignsV2CampaignSmsOutboundConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.SmsOutboundConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

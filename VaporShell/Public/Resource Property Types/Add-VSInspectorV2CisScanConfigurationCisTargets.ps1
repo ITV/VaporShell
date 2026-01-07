@@ -26,7 +26,7 @@ function Add-VSInspectorV2CisScanConfigurationCisTargets {
     #>
 
     [OutputType('Vaporshell.Resource.InspectorV2.CisScanConfiguration.CisTargets')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -55,7 +55,7 @@ function Add-VSInspectorV2CisScanConfigurationCisTargets {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                TargetResourceTags {
+                'TargetResourceTags' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

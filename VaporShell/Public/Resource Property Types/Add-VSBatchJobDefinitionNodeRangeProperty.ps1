@@ -36,12 +36,17 @@ function Add-VSBatchJobDefinitionNodeRangeProperty {
         UpdateType: Mutable
         Type: EksProperties
 
+    .PARAMETER ConsumableResourceProperties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-consumableresourceproperties
+        UpdateType: Mutable
+        Type: ConsumableResourceProperties
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.NodeRangeProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -67,7 +72,10 @@ function Add-VSBatchJobDefinitionNodeRangeProperty {
         $InstanceTypes,
 
         [Parameter(Mandatory = $false)]
-        $EksProperties
+        $EksProperties,
+
+        [Parameter(Mandatory = $false)]
+        $ConsumableResourceProperties
 
     )
 

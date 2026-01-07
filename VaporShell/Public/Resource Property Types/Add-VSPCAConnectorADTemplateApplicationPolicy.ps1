@@ -24,7 +24,7 @@ function Add-VSPCAConnectorADTemplateApplicationPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.PCAConnectorAD.Template.ApplicationPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

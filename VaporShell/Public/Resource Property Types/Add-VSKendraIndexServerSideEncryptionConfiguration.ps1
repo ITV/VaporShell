@@ -19,7 +19,7 @@ function Add-VSKendraIndexServerSideEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.Index.ServerSideEncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

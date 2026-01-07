@@ -58,7 +58,7 @@ function Add-VSQuickSightTemplateFilledMapVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FilledMapVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

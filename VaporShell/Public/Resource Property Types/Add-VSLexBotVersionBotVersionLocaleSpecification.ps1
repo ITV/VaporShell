@@ -24,7 +24,7 @@ function Add-VSLexBotVersionBotVersionLocaleSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.BotVersion.BotVersionLocaleSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

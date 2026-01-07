@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisDimensionField {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DimensionField')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

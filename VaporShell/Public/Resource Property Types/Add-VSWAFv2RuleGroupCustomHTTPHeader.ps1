@@ -24,7 +24,7 @@ function Add-VSWAFv2RuleGroupCustomHTTPHeader {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.CustomHTTPHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

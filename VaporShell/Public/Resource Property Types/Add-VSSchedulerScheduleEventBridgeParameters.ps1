@@ -24,7 +24,7 @@ function Add-VSSchedulerScheduleEventBridgeParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.EventBridgeParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

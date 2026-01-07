@@ -42,7 +42,7 @@ function Add-VSQuickSightTemplateLineChartAggregatedFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.LineChartAggregatedFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

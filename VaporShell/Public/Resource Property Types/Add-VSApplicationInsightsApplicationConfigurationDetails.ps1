@@ -74,7 +74,7 @@ function Add-VSApplicationInsightsApplicationConfigurationDetails {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.ConfigurationDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

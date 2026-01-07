@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisPieChartFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PieChartFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

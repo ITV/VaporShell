@@ -40,7 +40,7 @@ function Add-VSBedrockPromptVersionChatPromptTemplateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.PromptVersion.ChatPromptTemplateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

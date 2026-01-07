@@ -44,7 +44,7 @@ function Add-VSResilienceHubAppResourceMapping {
     #>
 
     [OutputType('Vaporshell.Resource.ResilienceHub.App.ResourceMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

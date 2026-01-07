@@ -14,7 +14,7 @@ function Add-VSGlueSecurityConfigurationS3Encryptions {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.SecurityConfiguration.S3Encryptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

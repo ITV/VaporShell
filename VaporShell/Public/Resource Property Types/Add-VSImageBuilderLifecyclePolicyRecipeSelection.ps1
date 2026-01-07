@@ -24,7 +24,7 @@ function Add-VSImageBuilderLifecyclePolicyRecipeSelection {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.LifecyclePolicy.RecipeSelection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

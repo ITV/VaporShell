@@ -26,7 +26,7 @@ function Add-VSQuickSightFolderResourcePermission {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Folder.ResourcePermission')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

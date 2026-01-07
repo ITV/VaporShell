@@ -21,7 +21,7 @@ function Add-VSIoTThingTypeMqtt5Configuration {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.ThingType.Mqtt5Configuration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

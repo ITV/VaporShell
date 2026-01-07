@@ -24,7 +24,7 @@ function Add-VSAuditManagerAssessmentRole {
     #>
 
     [OutputType('Vaporshell.Resource.AuditManager.Assessment.Role')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQBusinessDataAccessorActionFilterConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.DataAccessor.ActionFilterConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

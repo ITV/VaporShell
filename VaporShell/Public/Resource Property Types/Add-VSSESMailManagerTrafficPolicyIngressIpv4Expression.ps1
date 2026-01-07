@@ -31,7 +31,7 @@ function Add-VSSESMailManagerTrafficPolicyIngressIpv4Expression {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerTrafficPolicy.IngressIpv4Expression')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSPCAConnectorSCEPConnectorMobileDeviceManagement {
     #>
 
     [OutputType('Vaporshell.Resource.PCAConnectorSCEP.Connector.MobileDeviceManagement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

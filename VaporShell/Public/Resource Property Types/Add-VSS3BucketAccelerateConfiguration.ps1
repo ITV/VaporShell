@@ -19,7 +19,7 @@ function Add-VSS3BucketAccelerateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.AccelerateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

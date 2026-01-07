@@ -19,7 +19,7 @@ function Add-VSSageMakerWorkteamNotificationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Workteam.NotificationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

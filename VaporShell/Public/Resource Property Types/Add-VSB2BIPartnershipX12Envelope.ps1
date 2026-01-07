@@ -9,6 +9,11 @@ function Add-VSB2BIPartnershipX12Envelope {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12envelope.html
 
+    .PARAMETER WrapOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12envelope.html#cfn-b2bi-partnership-x12envelope-wrapoptions
+        UpdateType: Mutable
+        Type: WrapOptions
+
     .PARAMETER Common
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12envelope.html#cfn-b2bi-partnership-x12envelope-common
         UpdateType: Mutable
@@ -19,10 +24,13 @@ function Add-VSB2BIPartnershipX12Envelope {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Partnership.X12Envelope')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $WrapOptions,
+
         [Parameter(Mandatory = $false)]
         $Common
 

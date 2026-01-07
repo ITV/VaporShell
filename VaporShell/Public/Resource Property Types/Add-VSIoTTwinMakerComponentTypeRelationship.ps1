@@ -24,7 +24,7 @@ function Add-VSIoTTwinMakerComponentTypeRelationship {
     #>
 
     [OutputType('Vaporshell.Resource.IoTTwinMaker.ComponentType.Relationship')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

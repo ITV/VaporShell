@@ -24,7 +24,7 @@ function Add-VSApiGatewayV2ApiGatewayManagedOverridesAccessLogSettings {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGatewayV2.ApiGatewayManagedOverrides.AccessLogSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

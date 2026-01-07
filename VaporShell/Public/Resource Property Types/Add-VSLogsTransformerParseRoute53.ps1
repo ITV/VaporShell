@@ -19,7 +19,7 @@ function Add-VSLogsTransformerParseRoute53 {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.ParseRoute53')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

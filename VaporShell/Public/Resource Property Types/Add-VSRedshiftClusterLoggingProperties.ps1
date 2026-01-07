@@ -36,7 +36,7 @@ function Add-VSRedshiftClusterLoggingProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Redshift.Cluster.LoggingProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

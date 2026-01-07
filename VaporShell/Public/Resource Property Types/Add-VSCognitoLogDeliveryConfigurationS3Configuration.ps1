@@ -19,7 +19,7 @@ function Add-VSCognitoLogDeliveryConfigurationS3Configuration {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.LogDeliveryConfiguration.S3Configuration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

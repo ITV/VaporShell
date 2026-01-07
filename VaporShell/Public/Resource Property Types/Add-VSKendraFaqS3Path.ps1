@@ -24,7 +24,7 @@ function Add-VSKendraFaqS3Path {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.Faq.S3Path')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

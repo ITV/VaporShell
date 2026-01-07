@@ -29,7 +29,7 @@ function Add-VSBedrockKnowledgeBaseRedshiftQueryEngineStorageConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.RedshiftQueryEngineStorageConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

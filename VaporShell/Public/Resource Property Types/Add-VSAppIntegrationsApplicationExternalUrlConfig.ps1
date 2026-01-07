@@ -26,7 +26,7 @@ function Add-VSAppIntegrationsApplicationExternalUrlConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppIntegrations.Application.ExternalUrlConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

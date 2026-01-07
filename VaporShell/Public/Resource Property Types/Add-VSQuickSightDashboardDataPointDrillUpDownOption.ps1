@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardDataPointDrillUpDownOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DataPointDrillUpDownOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

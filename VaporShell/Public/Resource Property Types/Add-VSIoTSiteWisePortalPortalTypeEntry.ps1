@@ -21,7 +21,7 @@ function Add-VSIoTSiteWisePortalPortalTypeEntry {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.Portal.PortalTypeEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

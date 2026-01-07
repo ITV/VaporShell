@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelArchiveOutputSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.ArchiveOutputSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

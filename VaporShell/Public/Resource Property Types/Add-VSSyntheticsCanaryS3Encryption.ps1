@@ -24,7 +24,7 @@ function Add-VSSyntheticsCanaryS3Encryption {
     #>
 
     [OutputType('Vaporshell.Resource.Synthetics.Canary.S3Encryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

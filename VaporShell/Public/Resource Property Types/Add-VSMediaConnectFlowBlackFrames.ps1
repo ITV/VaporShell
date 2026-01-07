@@ -24,7 +24,7 @@ function Add-VSMediaConnectFlowBlackFrames {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.BlackFrames')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

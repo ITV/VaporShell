@@ -19,7 +19,7 @@ function Add-VSDataBrewJobS3TableOutputOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Job.S3TableOutputOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

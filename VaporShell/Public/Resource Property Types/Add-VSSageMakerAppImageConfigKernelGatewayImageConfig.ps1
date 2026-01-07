@@ -26,7 +26,7 @@ function Add-VSSageMakerAppImageConfigKernelGatewayImageConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.AppImageConfig.KernelGatewayImageConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

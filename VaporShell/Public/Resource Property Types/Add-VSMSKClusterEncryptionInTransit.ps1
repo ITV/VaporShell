@@ -24,7 +24,7 @@ function Add-VSMSKClusterEncryptionInTransit {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.EncryptionInTransit')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

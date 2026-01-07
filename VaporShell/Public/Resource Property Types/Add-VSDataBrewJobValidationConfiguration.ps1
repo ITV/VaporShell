@@ -24,7 +24,7 @@ function Add-VSDataBrewJobValidationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Job.ValidationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

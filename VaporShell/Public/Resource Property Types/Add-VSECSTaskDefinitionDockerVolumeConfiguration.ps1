@@ -41,7 +41,7 @@ function Add-VSECSTaskDefinitionDockerVolumeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.DockerVolumeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

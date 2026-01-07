@@ -24,7 +24,7 @@ function Add-VSAppStreamAppBlockBuilderAccessEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.AppBlockBuilder.AccessEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

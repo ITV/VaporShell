@@ -31,7 +31,7 @@ function Add-VSQuickSightDashboardColorScale {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ColorScale')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

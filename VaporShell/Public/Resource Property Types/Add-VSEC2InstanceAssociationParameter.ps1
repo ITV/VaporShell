@@ -26,7 +26,7 @@ function Add-VSEC2InstanceAssociationParameter {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.AssociationParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

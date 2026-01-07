@@ -29,7 +29,7 @@ function Add-VSPinpointEmailConfigurationSetEventDestinationDimensionConfigurati
     #>
 
     [OutputType('Vaporshell.Resource.PinpointEmail.ConfigurationSetEventDestination.DimensionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

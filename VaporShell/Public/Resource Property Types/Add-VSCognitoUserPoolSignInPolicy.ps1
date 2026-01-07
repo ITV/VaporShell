@@ -21,7 +21,7 @@ function Add-VSCognitoUserPoolSignInPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.SignInPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

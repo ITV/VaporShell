@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisImageInteractionOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ImageInteractionOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

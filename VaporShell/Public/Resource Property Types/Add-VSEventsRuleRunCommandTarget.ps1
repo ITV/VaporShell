@@ -26,7 +26,7 @@ function Add-VSEventsRuleRunCommandTarget {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.RunCommandTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSGameLiftContainerGroupDefinitionPortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerGroupDefinition.PortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

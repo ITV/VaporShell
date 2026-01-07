@@ -43,7 +43,7 @@ function Add-VSECRPublicRepositoryRepositoryCatalogData {
     #>
 
     [OutputType('Vaporshell.Resource.ECR.PublicRepository.RepositoryCatalogData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightTopicTopicSingularFilterConstant {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.TopicSingularFilterConstant')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -9,6 +9,13 @@ function Add-VSGlueCrawlerTargets {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html
 
+    .PARAMETER HudiTargets
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-huditargets
+        UpdateType: Mutable
+        Type: List
+        ItemType: HudiTarget
+        DuplicatesAllowed: True
+
     .PARAMETER S3Targets
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-targets.html#cfn-glue-crawler-targets-s3targets
         UpdateType: Mutable
@@ -63,10 +70,22 @@ function Add-VSGlueCrawlerTargets {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Crawler.Targets')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Glue.Crawler.HudiTarget"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $HudiTargets,
+
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Glue.Crawler.S3Target"

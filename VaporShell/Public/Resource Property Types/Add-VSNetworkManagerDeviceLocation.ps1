@@ -29,7 +29,7 @@ function Add-VSNetworkManagerDeviceLocation {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.Device.Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

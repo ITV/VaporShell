@@ -49,7 +49,7 @@ function Add-VSAppMeshVirtualGatewayVirtualGatewayHealthCheckPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayHealthCheckPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

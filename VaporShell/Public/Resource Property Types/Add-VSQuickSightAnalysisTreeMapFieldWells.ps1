@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisTreeMapFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TreeMapFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

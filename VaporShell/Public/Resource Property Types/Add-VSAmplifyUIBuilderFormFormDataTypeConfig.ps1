@@ -24,7 +24,7 @@ function Add-VSAmplifyUIBuilderFormFormDataTypeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Form.FormDataTypeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

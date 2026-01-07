@@ -19,7 +19,7 @@ function Add-VSIoTJobTemplateTimeoutConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.JobTemplate.TimeoutConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

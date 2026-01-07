@@ -24,7 +24,7 @@ function Add-VSECSTaskDefinitionFSxAuthorizationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.FSxAuthorizationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","CredentialsParameter")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","CredentialsParameter")]
 

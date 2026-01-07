@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelMp2Settings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.Mp2Settings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

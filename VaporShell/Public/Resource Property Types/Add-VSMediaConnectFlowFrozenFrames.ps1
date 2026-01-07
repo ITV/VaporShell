@@ -24,7 +24,7 @@ function Add-VSMediaConnectFlowFrozenFrames {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.FrozenFrames')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

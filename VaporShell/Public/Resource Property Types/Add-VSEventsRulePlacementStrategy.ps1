@@ -24,7 +24,7 @@ function Add-VSEventsRulePlacementStrategy {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.PlacementStrategy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

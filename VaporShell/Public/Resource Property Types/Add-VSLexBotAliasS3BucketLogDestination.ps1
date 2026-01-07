@@ -29,7 +29,7 @@ function Add-VSLexBotAliasS3BucketLogDestination {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.BotAlias.S3BucketLogDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

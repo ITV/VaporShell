@@ -28,7 +28,7 @@ function Add-VSQuickSightTemplateTableAggregatedFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TableAggregatedFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

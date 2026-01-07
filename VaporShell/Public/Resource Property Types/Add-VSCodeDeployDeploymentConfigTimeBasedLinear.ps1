@@ -24,7 +24,7 @@ function Add-VSCodeDeployDeploymentConfigTimeBasedLinear {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentConfig.TimeBasedLinear')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

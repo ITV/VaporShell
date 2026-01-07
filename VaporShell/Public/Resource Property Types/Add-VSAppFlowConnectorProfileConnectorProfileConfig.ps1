@@ -24,7 +24,7 @@ function Add-VSAppFlowConnectorProfileConnectorProfileConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.ConnectorProfileConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","ConnectorProfileCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","ConnectorProfileCredentials")]
 

@@ -24,7 +24,7 @@ function Add-VSPCSComputeNodeGroupScalingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.PCS.ComputeNodeGroup.ScalingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

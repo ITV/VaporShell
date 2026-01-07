@@ -21,7 +21,7 @@ function Add-VSConfigConfigurationRecorderExclusionByResourceTypes {
     #>
 
     [OutputType('Vaporshell.Resource.Config.ConfigurationRecorder.ExclusionByResourceTypes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSNeptuneGraphGraphVectorSearchConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.NeptuneGraph.Graph.VectorSearchConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

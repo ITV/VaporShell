@@ -24,7 +24,7 @@ function Add-VSVerifiedPermissionsIdentitySourceIdentitySourceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.VerifiedPermissions.IdentitySource.IdentitySourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

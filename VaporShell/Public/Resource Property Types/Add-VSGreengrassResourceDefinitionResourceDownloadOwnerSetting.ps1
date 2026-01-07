@@ -24,7 +24,7 @@ function Add-VSGreengrassResourceDefinitionResourceDownloadOwnerSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.ResourceDefinition.ResourceDownloadOwnerSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

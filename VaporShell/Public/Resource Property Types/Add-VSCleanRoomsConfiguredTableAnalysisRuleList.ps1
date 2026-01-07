@@ -40,7 +40,7 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleList {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTable.AnalysisRuleList')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

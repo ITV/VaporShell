@@ -33,7 +33,7 @@ function Add-VSCodeBuildFleetVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Fleet.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

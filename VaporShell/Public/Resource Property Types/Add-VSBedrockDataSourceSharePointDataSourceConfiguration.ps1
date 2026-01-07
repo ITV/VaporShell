@@ -24,7 +24,7 @@ function Add-VSBedrockDataSourceSharePointDataSourceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.SharePointDataSourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

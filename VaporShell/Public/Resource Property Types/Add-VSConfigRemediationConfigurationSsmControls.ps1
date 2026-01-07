@@ -24,7 +24,7 @@ function Add-VSConfigRemediationConfigurationSsmControls {
     #>
 
     [OutputType('Vaporshell.Resource.Config.RemediationConfiguration.SsmControls')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

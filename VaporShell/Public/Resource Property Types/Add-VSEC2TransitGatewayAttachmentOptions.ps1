@@ -34,7 +34,7 @@ function Add-VSEC2TransitGatewayAttachmentOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.TransitGatewayAttachment.Options')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

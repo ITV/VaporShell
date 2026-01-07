@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateFilterScopeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FilterScopeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -53,7 +53,7 @@ function Add-VSQuickSightTemplateFilterScopeConfiguration {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                AllSheets {
+                'AllSheets' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

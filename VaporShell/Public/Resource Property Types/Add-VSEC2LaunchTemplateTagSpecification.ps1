@@ -26,7 +26,7 @@ function Add-VSEC2LaunchTemplateTagSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.TagSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

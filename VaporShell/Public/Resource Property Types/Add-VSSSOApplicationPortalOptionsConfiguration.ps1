@@ -24,7 +24,7 @@ function Add-VSSSOApplicationPortalOptionsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.SSO.Application.PortalOptionsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -70,6 +70,11 @@ function Add-VSEC2InstanceNetworkInterface {
         UpdateType: Immutable
         PrimitiveType: Boolean
 
+    .PARAMETER EnaSrdSpecification
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-networkinterface.html#cfn-ec2-instance-networkinterface-enasrdspecification
+        UpdateType: Immutable
+        Type: EnaSrdSpecification
+
     .PARAMETER Ipv6AddressCount
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-networkinterface.html#cfn-ec2-instance-networkinterface-ipv6addresscount
         UpdateType: Immutable
@@ -85,7 +90,7 @@ function Add-VSEC2InstanceNetworkInterface {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.NetworkInterface')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -211,6 +216,9 @@ function Add-VSEC2InstanceNetworkInterface {
                 }
             })]
         $AssociateCarrierIpAddress,
+
+        [Parameter(Mandatory = $false)]
+        $EnaSrdSpecification,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

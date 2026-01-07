@@ -19,7 +19,7 @@ function Add-VSManagedBlockchainMemberVotingPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.ManagedBlockchain.Member.VotingPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

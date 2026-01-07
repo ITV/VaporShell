@@ -53,7 +53,7 @@ function Add-VSQuickSightTemplateBarChartVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.BarChartVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

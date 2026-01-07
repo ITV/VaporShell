@@ -11,7 +11,7 @@ function Add-VSEC2EC2FleetTargetCapacitySpecificationRequest {
 
     .PARAMETER DefaultTargetCapacityType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-defaulttargetcapacitytype
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER TotalTargetCapacity
@@ -31,7 +31,7 @@ function Add-VSEC2EC2FleetTargetCapacitySpecificationRequest {
 
     .PARAMETER TargetCapacityUnitType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-targetcapacityunittype
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -39,7 +39,7 @@ function Add-VSEC2EC2FleetTargetCapacitySpecificationRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.TargetCapacitySpecificationRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

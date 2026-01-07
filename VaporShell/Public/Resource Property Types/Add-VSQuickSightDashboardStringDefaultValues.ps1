@@ -26,7 +26,7 @@ function Add-VSQuickSightDashboardStringDefaultValues {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.StringDefaultValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

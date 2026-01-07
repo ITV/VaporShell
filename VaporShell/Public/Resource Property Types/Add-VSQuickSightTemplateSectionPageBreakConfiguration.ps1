@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateSectionPageBreakConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SectionPageBreakConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

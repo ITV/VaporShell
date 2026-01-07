@@ -75,7 +75,7 @@ function Add-VSGameLiftContainerGroupDefinitionSupportContainerDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerGroupDefinition.SupportContainerDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

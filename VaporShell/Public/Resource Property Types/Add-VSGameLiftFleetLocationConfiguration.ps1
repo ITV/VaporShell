@@ -24,7 +24,7 @@ function Add-VSGameLiftFleetLocationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.Fleet.LocationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

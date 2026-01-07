@@ -28,7 +28,7 @@ function Add-VSQuickSightDashboardFilledMapAggregatedFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FilledMapAggregatedFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

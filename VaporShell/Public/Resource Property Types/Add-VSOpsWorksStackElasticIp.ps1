@@ -24,7 +24,7 @@ function Add-VSOpsWorksStackElasticIp {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.Stack.ElasticIp')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

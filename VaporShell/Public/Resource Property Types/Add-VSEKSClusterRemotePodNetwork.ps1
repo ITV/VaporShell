@@ -11,7 +11,7 @@ function Add-VSEKSClusterRemotePodNetwork {
 
     .PARAMETER Cidrs
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotepodnetwork.html#cfn-eks-cluster-remotepodnetwork-cidrs
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
@@ -21,7 +21,7 @@ function Add-VSEKSClusterRemotePodNetwork {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.RemotePodNetwork')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

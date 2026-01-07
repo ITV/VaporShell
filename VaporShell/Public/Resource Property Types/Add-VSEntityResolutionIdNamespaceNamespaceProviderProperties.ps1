@@ -25,7 +25,7 @@ function Add-VSEntityResolutionIdNamespaceNamespaceProviderProperties {
     #>
 
     [OutputType('Vaporshell.Resource.EntityResolution.IdNamespace.NamespaceProviderProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

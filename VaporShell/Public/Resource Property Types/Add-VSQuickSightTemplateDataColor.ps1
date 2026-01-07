@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateDataColor {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DataColor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

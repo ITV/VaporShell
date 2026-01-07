@@ -24,7 +24,7 @@ function Add-VSSageMakerFeatureGroupTtlDuration {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.FeatureGroup.TtlDuration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

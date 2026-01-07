@@ -29,7 +29,7 @@ function Add-VSBedrockAgentParameterDetail {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Agent.ParameterDetail')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

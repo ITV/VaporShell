@@ -72,7 +72,7 @@ function Add-VSDeadlineFleetServiceManagedEc2InstanceCapabilities {
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Fleet.ServiceManagedEc2InstanceCapabilities')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

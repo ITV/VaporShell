@@ -24,7 +24,7 @@ function Add-VSEMRServerlessApplicationAutoStopConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.AutoStopConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

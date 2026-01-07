@@ -21,7 +21,7 @@ function Add-VSKinesisAnalyticsV2ApplicationEnvironmentProperties {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.EnvironmentProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

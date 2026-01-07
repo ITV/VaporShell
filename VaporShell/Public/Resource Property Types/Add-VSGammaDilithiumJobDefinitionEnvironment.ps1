@@ -24,7 +24,7 @@ function Add-VSGammaDilithiumJobDefinitionEnvironment {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.Environment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

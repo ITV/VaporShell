@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualRouterPortMapping {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualRouter.PortMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

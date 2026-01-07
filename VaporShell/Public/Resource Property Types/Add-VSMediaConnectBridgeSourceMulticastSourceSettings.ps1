@@ -19,7 +19,7 @@ function Add-VSMediaConnectBridgeSourceMulticastSourceSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.BridgeSource.MulticastSourceSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSDataZoneDataSourceRedshiftClusterStorage {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.DataSource.RedshiftClusterStorage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

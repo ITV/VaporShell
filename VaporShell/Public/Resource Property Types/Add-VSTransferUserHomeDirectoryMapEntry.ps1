@@ -29,7 +29,7 @@ function Add-VSTransferUserHomeDirectoryMapEntry {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.User.HomeDirectoryMapEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

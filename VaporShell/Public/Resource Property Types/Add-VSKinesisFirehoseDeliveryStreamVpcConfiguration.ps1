@@ -33,7 +33,7 @@ function Add-VSKinesisFirehoseDeliveryStreamVpcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.VpcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

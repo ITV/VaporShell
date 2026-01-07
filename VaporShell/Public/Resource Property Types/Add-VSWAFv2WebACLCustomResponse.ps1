@@ -31,7 +31,7 @@ function Add-VSWAFv2WebACLCustomResponse {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.CustomResponse')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

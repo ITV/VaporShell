@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardFieldSeriesItem {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FieldSeriesItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

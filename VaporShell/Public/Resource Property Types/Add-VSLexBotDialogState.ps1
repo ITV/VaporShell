@@ -31,7 +31,7 @@ function Add-VSLexBotDialogState {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.DialogState')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

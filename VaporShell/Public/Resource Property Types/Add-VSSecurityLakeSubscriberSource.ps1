@@ -24,7 +24,7 @@ function Add-VSSecurityLakeSubscriberSource {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityLake.Subscriber.Source')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

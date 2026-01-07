@@ -26,7 +26,7 @@ function Add-VSConnectSecurityProfileApplication {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.SecurityProfile.Application')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

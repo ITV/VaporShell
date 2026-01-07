@@ -31,7 +31,7 @@ function Add-VSNetworkManagerTransitGatewayRouteTableAttachmentProposedSegmentCh
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.TransitGatewayRouteTableAttachment.ProposedSegmentChange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

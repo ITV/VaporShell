@@ -29,7 +29,7 @@ function Add-VSMediaTailorSourceLocationSecretsManagerAccessTokenConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.SourceLocation.SecretsManagerAccessTokenConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSDataSyncLocationHDFSNameNode {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationHDFS.NameNode')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

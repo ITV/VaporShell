@@ -19,7 +19,7 @@ function Add-VSNetworkFirewallFirewallPolicyFlowTimeouts {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.FirewallPolicy.FlowTimeouts')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

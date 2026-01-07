@@ -64,7 +64,7 @@ function Add-VSQuickSightAnalysisNumericRangeFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.NumericRangeFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

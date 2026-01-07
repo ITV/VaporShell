@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelMulticastInputSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.MulticastInputSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

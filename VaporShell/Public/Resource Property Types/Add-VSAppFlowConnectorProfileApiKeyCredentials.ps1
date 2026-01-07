@@ -24,7 +24,7 @@ function Add-VSAppFlowConnectorProfileApiKeyCredentials {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.ApiKeyCredentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

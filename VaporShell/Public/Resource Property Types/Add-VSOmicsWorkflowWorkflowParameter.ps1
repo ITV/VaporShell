@@ -24,7 +24,7 @@ function Add-VSOmicsWorkflowWorkflowParameter {
     #>
 
     [OutputType('Vaporshell.Resource.Omics.Workflow.WorkflowParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

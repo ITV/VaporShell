@@ -29,7 +29,7 @@ function Add-VSCEAnomalySubscriptionSubscriber {
     #>
 
     [OutputType('Vaporshell.Resource.CE.AnomalySubscription.Subscriber')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

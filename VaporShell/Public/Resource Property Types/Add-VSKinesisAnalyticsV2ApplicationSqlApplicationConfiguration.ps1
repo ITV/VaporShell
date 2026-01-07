@@ -21,7 +21,7 @@ function Add-VSKinesisAnalyticsV2ApplicationSqlApplicationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.SqlApplicationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

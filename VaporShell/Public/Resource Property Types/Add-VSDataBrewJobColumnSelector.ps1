@@ -24,7 +24,7 @@ function Add-VSDataBrewJobColumnSelector {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Job.ColumnSelector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

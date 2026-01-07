@@ -34,7 +34,7 @@ function Add-VSSageMakerUserProfileIdleSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.IdleSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSQuickSightDashboardColorsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ColorsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

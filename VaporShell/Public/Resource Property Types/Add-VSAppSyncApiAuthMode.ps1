@@ -19,7 +19,7 @@ function Add-VSAppSyncApiAuthMode {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.Api.AuthMode')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

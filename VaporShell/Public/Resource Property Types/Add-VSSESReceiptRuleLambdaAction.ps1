@@ -29,7 +29,7 @@ function Add-VSSESReceiptRuleLambdaAction {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ReceiptRule.LambdaAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSEC2EC2FleetBaselinePerformanceFactorsRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.BaselinePerformanceFactorsRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

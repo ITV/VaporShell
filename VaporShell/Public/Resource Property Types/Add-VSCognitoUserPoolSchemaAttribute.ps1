@@ -49,7 +49,7 @@ function Add-VSCognitoUserPoolSchemaAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.SchemaAttribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

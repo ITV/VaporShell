@@ -26,7 +26,7 @@ function Add-VSIoTEventsDetectorModelDetectorModelDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.DetectorModel.DetectorModelDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

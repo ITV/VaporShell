@@ -29,7 +29,7 @@ function Add-VSAppTestTestCaseStepAction {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.StepAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

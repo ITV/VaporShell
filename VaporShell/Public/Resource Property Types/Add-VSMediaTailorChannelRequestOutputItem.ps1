@@ -34,7 +34,7 @@ function Add-VSMediaTailorChannelRequestOutputItem {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.Channel.RequestOutputItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

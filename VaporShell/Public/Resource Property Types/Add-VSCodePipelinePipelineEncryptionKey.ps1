@@ -24,7 +24,7 @@ function Add-VSCodePipelinePipelineEncryptionKey {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.EncryptionKey')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

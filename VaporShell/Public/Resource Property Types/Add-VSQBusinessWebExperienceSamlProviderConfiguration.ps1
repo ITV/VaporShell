@@ -19,7 +19,7 @@ function Add-VSQBusinessWebExperienceSamlProviderConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.WebExperience.SamlProviderConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

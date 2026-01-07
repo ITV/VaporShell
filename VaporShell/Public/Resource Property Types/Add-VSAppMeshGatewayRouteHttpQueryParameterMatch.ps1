@@ -19,7 +19,7 @@ function Add-VSAppMeshGatewayRouteHttpQueryParameterMatch {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.HttpQueryParameterMatch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

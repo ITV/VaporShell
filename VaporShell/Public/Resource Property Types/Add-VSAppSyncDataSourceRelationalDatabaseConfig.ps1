@@ -10,21 +10,21 @@ function Add-VSAppSyncDataSourceRelationalDatabaseConfig {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html
 
     .PARAMETER RdsHttpEndpointConfig
-        Type: RdsHttpEndpointConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html#cfn-appsync-datasource-relationaldatabaseconfig-rdshttpendpointconfig
         UpdateType: Mutable
+        Type: RdsHttpEndpointConfig
 
     .PARAMETER RelationalDatabaseSourceType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html#cfn-appsync-datasource-relationaldatabaseconfig-relationaldatabasesourcetype
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.DataSource.RelationalDatabaseConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSAPSScraperScrapeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.APS.Scraper.ScrapeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

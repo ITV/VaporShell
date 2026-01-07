@@ -25,7 +25,7 @@ function Add-VSPinpointCampaignSetDimension {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.SetDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

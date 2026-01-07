@@ -39,7 +39,7 @@ function Add-VSDMSDataProviderPostgreSqlSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.DataProvider.PostgreSqlSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

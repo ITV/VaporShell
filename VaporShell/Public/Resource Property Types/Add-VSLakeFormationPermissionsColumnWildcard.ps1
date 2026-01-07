@@ -20,7 +20,7 @@ function Add-VSLakeFormationPermissionsColumnWildcard {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.Permissions.ColumnWildcard')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

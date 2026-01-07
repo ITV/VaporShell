@@ -24,7 +24,7 @@ function Add-VSBackupBackupPlanAdvancedBackupSettingResourceType {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.BackupPlan.AdvancedBackupSettingResourceType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,7 +62,7 @@ function Add-VSBackupBackupPlanAdvancedBackupSettingResourceType {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                BackupOptions {
+                'BackupOptions' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

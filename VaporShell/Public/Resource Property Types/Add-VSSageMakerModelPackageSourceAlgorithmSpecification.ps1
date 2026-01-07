@@ -21,7 +21,7 @@ function Add-VSSageMakerModelPackageSourceAlgorithmSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.SourceAlgorithmSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

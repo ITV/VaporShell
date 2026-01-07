@@ -26,7 +26,7 @@ function Add-VSVerifiedPermissionsIdentitySourceOpenIdConnectAccessTokenConfigur
     #>
 
     [OutputType('Vaporshell.Resource.VerifiedPermissions.IdentitySource.OpenIdConnectAccessTokenConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

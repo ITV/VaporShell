@@ -29,7 +29,7 @@ function Add-VSCodePipelinePipelineVariableDeclaration {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.VariableDeclaration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

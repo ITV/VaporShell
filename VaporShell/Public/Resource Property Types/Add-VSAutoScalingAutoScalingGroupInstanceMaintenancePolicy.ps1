@@ -24,7 +24,7 @@ function Add-VSAutoScalingAutoScalingGroupInstanceMaintenancePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.InstanceMaintenancePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

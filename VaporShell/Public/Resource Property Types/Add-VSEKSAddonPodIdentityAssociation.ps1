@@ -24,7 +24,7 @@ function Add-VSEKSAddonPodIdentityAssociation {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Addon.PodIdentityAssociation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

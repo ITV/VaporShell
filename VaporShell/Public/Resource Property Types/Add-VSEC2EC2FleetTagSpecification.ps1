@@ -26,7 +26,7 @@ function Add-VSEC2EC2FleetTagSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.TagSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

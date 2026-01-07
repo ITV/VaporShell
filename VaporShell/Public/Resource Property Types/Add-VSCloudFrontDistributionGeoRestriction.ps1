@@ -26,7 +26,7 @@ function Add-VSCloudFrontDistributionGeoRestriction {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.GeoRestriction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

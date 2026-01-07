@@ -34,7 +34,7 @@ function Add-VSSageMakerPipelineS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Pipeline.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

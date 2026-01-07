@@ -36,7 +36,7 @@ function Add-VSWisdomAIAgentSelfServiceAIAgentConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIAgent.SelfServiceAIAgentConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

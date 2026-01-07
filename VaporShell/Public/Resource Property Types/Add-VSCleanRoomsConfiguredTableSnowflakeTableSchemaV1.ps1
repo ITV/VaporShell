@@ -11,12 +11,12 @@ function Add-VSCleanRoomsConfiguredTableSnowflakeTableSchemaV1 {
 
     .PARAMETER ColumnName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-snowflaketableschemav1.html#cfn-cleanrooms-configuredtable-snowflaketableschemav1-columnname
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ColumnType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-snowflaketableschemav1.html#cfn-cleanrooms-configuredtable-snowflaketableschemav1-columntype
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -24,7 +24,7 @@ function Add-VSCleanRoomsConfiguredTableSnowflakeTableSchemaV1 {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTable.SnowflakeTableSchemaV1')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

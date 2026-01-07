@@ -30,7 +30,7 @@ function Add-VSApiGatewayDeploymentDeploymentCanarySettings {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.Deployment.DeploymentCanarySettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

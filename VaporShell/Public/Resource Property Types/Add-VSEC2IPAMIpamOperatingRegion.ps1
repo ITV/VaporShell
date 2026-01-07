@@ -19,7 +19,7 @@ function Add-VSEC2IPAMIpamOperatingRegion {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.IPAM.IpamOperatingRegion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

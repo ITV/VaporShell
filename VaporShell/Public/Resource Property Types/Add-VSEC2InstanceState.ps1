@@ -24,7 +24,7 @@ function Add-VSEC2InstanceState {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.State')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSIdentityStoreGroupMembershipMemberId {
     #>
 
     [OutputType('Vaporshell.Resource.IdentityStore.GroupMembership.MemberId')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

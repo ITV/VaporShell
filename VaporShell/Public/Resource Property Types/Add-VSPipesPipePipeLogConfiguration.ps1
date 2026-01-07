@@ -41,7 +41,7 @@ function Add-VSPipesPipePipeLogConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeLogConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

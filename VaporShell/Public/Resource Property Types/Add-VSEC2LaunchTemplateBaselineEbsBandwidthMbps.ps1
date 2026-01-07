@@ -24,7 +24,7 @@ function Add-VSEC2LaunchTemplateBaselineEbsBandwidthMbps {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.BaselineEbsBandwidthMbps')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

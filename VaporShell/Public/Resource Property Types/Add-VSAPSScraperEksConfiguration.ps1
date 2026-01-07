@@ -33,7 +33,7 @@ function Add-VSAPSScraperEksConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.APS.Scraper.EksConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

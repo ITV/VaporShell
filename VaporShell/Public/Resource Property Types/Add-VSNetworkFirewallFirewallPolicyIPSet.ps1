@@ -21,7 +21,7 @@ function Add-VSNetworkFirewallFirewallPolicyIPSet {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.FirewallPolicy.IPSet')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

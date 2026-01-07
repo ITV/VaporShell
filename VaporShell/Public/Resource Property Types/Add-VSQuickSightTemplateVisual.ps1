@@ -134,7 +134,7 @@ function Add-VSQuickSightTemplateVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.Visual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisIntegerValueWhenUnsetConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.IntegerValueWhenUnsetConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

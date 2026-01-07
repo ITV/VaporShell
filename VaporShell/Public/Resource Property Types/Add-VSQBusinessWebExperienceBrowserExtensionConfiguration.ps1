@@ -21,7 +21,7 @@ function Add-VSQBusinessWebExperienceBrowserExtensionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.WebExperience.BrowserExtensionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

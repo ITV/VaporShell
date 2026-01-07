@@ -40,7 +40,7 @@ function Add-VSSSMQuickSetupConfigurationManagerStatusSummary {
     #>
 
     [OutputType('Vaporshell.Resource.SSMQuickSetup.ConfigurationManager.StatusSummary')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

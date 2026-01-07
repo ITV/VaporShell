@@ -48,7 +48,7 @@ function Add-VSWorkSpacesWebDataProtectionSettingsInlineRedactionPattern {
     #>
 
     [OutputType('Vaporshell.Resource.WorkSpacesWeb.DataProtectionSettings.InlineRedactionPattern')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

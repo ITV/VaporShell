@@ -28,7 +28,7 @@ function Add-VSNetworkFirewallRuleGroupStatelessRulesAndCustomActions {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.StatelessRulesAndCustomActions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

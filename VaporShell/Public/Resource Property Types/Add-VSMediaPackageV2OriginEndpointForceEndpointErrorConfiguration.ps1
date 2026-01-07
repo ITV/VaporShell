@@ -21,7 +21,7 @@ function Add-VSMediaPackageV2OriginEndpointForceEndpointErrorConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint.ForceEndpointErrorConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

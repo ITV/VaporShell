@@ -29,7 +29,7 @@ function Add-VSBedrockKnowledgeBaseOpenSearchServerlessConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.OpenSearchServerlessConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

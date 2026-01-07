@@ -19,7 +19,7 @@ function Add-VSGameLiftGameSessionQueueGameSessionQueueDestination {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.GameSessionQueue.GameSessionQueueDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

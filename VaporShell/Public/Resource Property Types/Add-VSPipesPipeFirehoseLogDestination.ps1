@@ -19,7 +19,7 @@ function Add-VSPipesPipeFirehoseLogDestination {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.FirehoseLogDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

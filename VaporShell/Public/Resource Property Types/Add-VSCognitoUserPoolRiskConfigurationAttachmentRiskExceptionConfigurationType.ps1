@@ -28,7 +28,7 @@ function Add-VSCognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurat
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPoolRiskConfigurationAttachment.RiskExceptionConfigurationType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

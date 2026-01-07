@@ -24,7 +24,7 @@ function Add-VSAppStreamImageBuilderDomainJoinInfo {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.ImageBuilder.DomainJoinInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

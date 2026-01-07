@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualNodeHttpTimeout {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.HttpTimeout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

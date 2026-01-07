@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardImageStaticFile {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ImageStaticFile')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

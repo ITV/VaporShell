@@ -29,7 +29,7 @@ function Add-VSKendraDataSourceDocumentAttributeTarget {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.DataSource.DocumentAttributeTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

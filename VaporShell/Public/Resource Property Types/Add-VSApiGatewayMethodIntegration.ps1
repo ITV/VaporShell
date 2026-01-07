@@ -31,6 +31,11 @@ function Add-VSApiGatewayMethodIntegration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER ResponseTransferMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-responsetransfermode
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER Uri
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-uri
         UpdateType: Mutable
@@ -64,6 +69,11 @@ function Add-VSApiGatewayMethodIntegration {
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
+    .PARAMETER IntegrationTarget
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-integrationtarget
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER ContentHandling
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html#cfn-apigateway-method-integration-contenthandling
         UpdateType: Mutable
@@ -90,7 +100,7 @@ function Add-VSApiGatewayMethodIntegration {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.Method.Integration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Credentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Credentials")]
 
@@ -154,6 +164,18 @@ function Add-VSApiGatewayMethodIntegration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $ResponseTransferMode,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $Uri,
 
         [Parameter(Mandatory = $false)]
@@ -198,6 +220,18 @@ function Add-VSApiGatewayMethodIntegration {
 
         [Parameter(Mandatory = $false)]
         $CacheKeyParameters,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IntegrationTarget,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

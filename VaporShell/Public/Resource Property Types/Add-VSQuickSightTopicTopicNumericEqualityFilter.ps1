@@ -24,7 +24,7 @@ function Add-VSQuickSightTopicTopicNumericEqualityFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.TopicNumericEqualityFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

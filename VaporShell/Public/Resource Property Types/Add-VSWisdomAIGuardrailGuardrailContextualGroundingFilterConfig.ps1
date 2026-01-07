@@ -24,7 +24,7 @@ function Add-VSWisdomAIGuardrailGuardrailContextualGroundingFilterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIGuardrail.GuardrailContextualGroundingFilterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSPCSComputeNodeGroupInstanceConfig {
     #>
 
     [OutputType('Vaporshell.Resource.PCS.ComputeNodeGroup.InstanceConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

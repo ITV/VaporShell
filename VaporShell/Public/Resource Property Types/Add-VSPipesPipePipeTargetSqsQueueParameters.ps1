@@ -24,7 +24,7 @@ function Add-VSPipesPipePipeTargetSqsQueueParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeTargetSqsQueueParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

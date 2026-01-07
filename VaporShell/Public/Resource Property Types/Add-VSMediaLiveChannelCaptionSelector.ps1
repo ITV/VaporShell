@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelCaptionSelector {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.CaptionSelector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

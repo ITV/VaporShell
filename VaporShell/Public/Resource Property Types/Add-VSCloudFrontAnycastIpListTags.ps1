@@ -21,7 +21,7 @@ function Add-VSCloudFrontAnycastIpListTags {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.AnycastIpList.Tags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

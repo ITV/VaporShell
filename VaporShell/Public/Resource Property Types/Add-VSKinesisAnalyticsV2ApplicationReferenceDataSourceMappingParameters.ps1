@@ -24,7 +24,7 @@ function Add-VSKinesisAnalyticsV2ApplicationReferenceDataSourceMappingParameters
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.ApplicationReferenceDataSource.MappingParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

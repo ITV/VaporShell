@@ -21,7 +21,7 @@ function Add-VSIoTJobTemplateAbortConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.JobTemplate.AbortConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

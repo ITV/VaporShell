@@ -24,7 +24,7 @@ function Add-VSRoute53RecordSetGroupCidrRoutingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Route53.RecordSetGroup.CidrRoutingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

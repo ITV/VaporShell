@@ -19,7 +19,7 @@ function Add-VSSageMakerModelPackageModelInput {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.ModelInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

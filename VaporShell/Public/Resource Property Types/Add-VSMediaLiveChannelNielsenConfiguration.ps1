@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelNielsenConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.NielsenConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

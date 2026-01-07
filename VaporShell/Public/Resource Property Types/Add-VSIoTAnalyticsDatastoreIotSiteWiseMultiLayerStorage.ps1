@@ -19,7 +19,7 @@ function Add-VSIoTAnalyticsDatastoreIotSiteWiseMultiLayerStorage {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Datastore.IotSiteWiseMultiLayerStorage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

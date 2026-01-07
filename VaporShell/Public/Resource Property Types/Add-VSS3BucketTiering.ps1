@@ -24,7 +24,7 @@ function Add-VSS3BucketTiering {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.Tiering')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSImageBuilderImageImageScanningConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.Image.ImageScanningConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

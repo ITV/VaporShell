@@ -24,7 +24,7 @@ function Add-VSSageMakerEndpointCapacitySize {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Endpoint.CapacitySize')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

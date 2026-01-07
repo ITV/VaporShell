@@ -25,7 +25,7 @@ function Add-VSECSTaskDefinitionFirelensConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.FirelensConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSMWAAEnvironmentModuleLoggingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MWAA.Environment.ModuleLoggingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

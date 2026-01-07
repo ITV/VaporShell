@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateBoxPlotFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.BoxPlotFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

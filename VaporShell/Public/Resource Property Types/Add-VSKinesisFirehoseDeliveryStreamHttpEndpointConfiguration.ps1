@@ -29,7 +29,7 @@ function Add-VSKinesisFirehoseDeliveryStreamHttpEndpointConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.HttpEndpointConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

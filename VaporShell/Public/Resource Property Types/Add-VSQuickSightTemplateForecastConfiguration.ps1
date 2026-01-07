@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateForecastConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ForecastConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

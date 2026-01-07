@@ -19,7 +19,7 @@ function Add-VSSageMakerModelBiasJobDefinitionStoppingCondition {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.StoppingCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

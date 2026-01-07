@@ -36,7 +36,7 @@ function Add-VSApplicationInsightsApplicationWindowsEvent {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.WindowsEvent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSLexBotKendraConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.KendraConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

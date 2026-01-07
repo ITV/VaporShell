@@ -24,7 +24,7 @@ function Add-VSGammaDilithiumJobDefinitionSecret {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.Secret')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

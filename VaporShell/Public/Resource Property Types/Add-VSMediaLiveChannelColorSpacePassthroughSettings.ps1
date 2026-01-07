@@ -14,7 +14,7 @@ function Add-VSMediaLiveChannelColorSpacePassthroughSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.ColorSpacePassthroughSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSAppStreamFleetS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.Fleet.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSImageBuilderInfrastructureConfigurationLogging {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.InfrastructureConfiguration.Logging')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

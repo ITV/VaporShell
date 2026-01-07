@@ -26,7 +26,7 @@ function Add-VSCleanRoomsIdNamespaceAssociationIdNamespaceAssociationInputRefere
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.IdNamespaceAssociation.IdNamespaceAssociationInputReferenceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSElasticLoadBalancingLoadBalancerConnectionSettings {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.ConnectionSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

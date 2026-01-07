@@ -19,7 +19,7 @@ function Add-VSCleanRoomsMembershipMembershipModelInferencePaymentConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Membership.MembershipModelInferencePaymentConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

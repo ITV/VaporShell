@@ -66,7 +66,7 @@ function Add-VSKinesisFirehoseDeliveryStreamOrcSerDe {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.OrcSerDe')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

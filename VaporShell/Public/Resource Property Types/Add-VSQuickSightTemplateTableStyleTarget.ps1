@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateTableStyleTarget {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TableStyleTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

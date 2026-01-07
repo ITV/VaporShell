@@ -24,7 +24,7 @@ function Add-VSGlueTableOrder {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Table.Order')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

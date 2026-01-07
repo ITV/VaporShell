@@ -31,7 +31,7 @@ function Add-VSECSTaskDefinitionProxyConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.ProxyConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

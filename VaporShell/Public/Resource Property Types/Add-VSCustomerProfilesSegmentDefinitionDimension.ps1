@@ -25,7 +25,7 @@ function Add-VSCustomerProfilesSegmentDefinitionDimension {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.SegmentDefinition.Dimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

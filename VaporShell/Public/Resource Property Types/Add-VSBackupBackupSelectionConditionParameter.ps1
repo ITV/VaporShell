@@ -24,7 +24,7 @@ function Add-VSBackupBackupSelectionConditionParameter {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.BackupSelection.ConditionParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

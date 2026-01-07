@@ -66,7 +66,7 @@ function Add-VSCleanRoomsConfiguredTableAnalysisRuleAggregation {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTable.AnalysisRuleAggregation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

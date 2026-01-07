@@ -19,7 +19,7 @@ function Add-VSSESConfigurationSetSendingOptions {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSet.SendingOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

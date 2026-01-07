@@ -19,7 +19,7 @@ function Add-VSLexBotCustomPayload {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.CustomPayload')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

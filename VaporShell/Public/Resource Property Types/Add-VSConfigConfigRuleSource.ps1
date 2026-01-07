@@ -36,7 +36,7 @@ function Add-VSConfigConfigRuleSource {
     #>
 
     [OutputType('Vaporshell.Resource.Config.ConfigRule.Source')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

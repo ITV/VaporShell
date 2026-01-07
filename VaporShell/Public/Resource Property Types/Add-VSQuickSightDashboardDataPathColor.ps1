@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardDataPathColor {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DataPathColor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualNodeClientTlsCertificate {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.ClientTlsCertificate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

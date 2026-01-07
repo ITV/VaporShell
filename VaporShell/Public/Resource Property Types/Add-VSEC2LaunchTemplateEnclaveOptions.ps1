@@ -19,7 +19,7 @@ function Add-VSEC2LaunchTemplateEnclaveOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.EnclaveOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

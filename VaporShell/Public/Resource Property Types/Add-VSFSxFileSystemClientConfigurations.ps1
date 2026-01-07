@@ -25,7 +25,7 @@ function Add-VSFSxFileSystemClientConfigurations {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.FileSystem.ClientConfigurations')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

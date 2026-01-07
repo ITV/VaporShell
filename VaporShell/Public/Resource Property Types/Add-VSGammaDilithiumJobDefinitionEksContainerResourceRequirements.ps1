@@ -24,7 +24,7 @@ function Add-VSGammaDilithiumJobDefinitionEksContainerResourceRequirements {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.EksContainerResourceRequirements')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,7 +62,7 @@ function Add-VSGammaDilithiumJobDefinitionEksContainerResourceRequirements {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Limits {
+                'Limits' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -76,7 +76,7 @@ function Add-VSGammaDilithiumJobDefinitionEksContainerResourceRequirements {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                Requests {
+                'Requests' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardGeospatialLineWidth {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GeospatialLineWidth')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

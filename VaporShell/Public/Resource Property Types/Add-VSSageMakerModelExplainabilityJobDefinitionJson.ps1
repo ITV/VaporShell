@@ -19,7 +19,7 @@ function Add-VSSageMakerModelExplainabilityJobDefinitionJson {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.Json')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

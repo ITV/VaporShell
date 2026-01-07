@@ -34,7 +34,7 @@ function Add-VSCustomerProfilesDomainDomainStats {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Domain.DomainStats')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

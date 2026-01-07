@@ -29,7 +29,7 @@ function Add-VSWAFv2RuleGroupVisibilityConfig {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.VisibilityConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

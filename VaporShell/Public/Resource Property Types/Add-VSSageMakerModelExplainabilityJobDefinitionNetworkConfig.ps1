@@ -29,7 +29,7 @@ function Add-VSSageMakerModelExplainabilityJobDefinitionNetworkConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.NetworkConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

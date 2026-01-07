@@ -50,6 +50,11 @@ function Add-VSCodeBuildProjectEnvironment {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER DockerServer
+        Type: DockerServer
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-dockerserver
+        UpdateType: Mutable
+
     .PARAMETER Certificate
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-certificate
         PrimitiveType: String
@@ -60,7 +65,7 @@ function Add-VSCodeBuildProjectEnvironment {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.Environment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","ImagePullCredentialsType")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","ImagePullCredentialsType")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","RegistryCredential")]
@@ -145,6 +150,9 @@ function Add-VSCodeBuildProjectEnvironment {
                 }
             })]
         $ComputeType,
+
+        [Parameter(Mandatory = $false)]
+        $DockerServer,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

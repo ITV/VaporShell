@@ -34,7 +34,7 @@ function Add-VSGreengrassCoreDefinitionVersionCore {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.CoreDefinitionVersion.Core')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSLambdaEventInvokeConfigOnFailure {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.EventInvokeConfig.OnFailure')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

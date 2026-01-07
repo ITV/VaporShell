@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelMaintenanceCreateSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.MaintenanceCreateSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

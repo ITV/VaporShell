@@ -29,7 +29,7 @@ function Add-VSECSTaskDefinitionUlimit {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.Ulimit')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

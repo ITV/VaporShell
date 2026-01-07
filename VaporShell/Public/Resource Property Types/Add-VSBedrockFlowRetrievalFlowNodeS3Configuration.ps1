@@ -19,7 +19,7 @@ function Add-VSBedrockFlowRetrievalFlowNodeS3Configuration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Flow.RetrievalFlowNodeS3Configuration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

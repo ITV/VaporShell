@@ -49,7 +49,7 @@ function Add-VSMediaLiveChannelGlobalConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.GlobalConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

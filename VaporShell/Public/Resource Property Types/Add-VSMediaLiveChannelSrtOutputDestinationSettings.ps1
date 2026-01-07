@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelSrtOutputDestinationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.SrtOutputDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

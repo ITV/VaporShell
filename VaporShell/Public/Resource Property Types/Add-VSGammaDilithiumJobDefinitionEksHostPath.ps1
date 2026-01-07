@@ -19,7 +19,7 @@ function Add-VSGammaDilithiumJobDefinitionEksHostPath {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.EksHostPath')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

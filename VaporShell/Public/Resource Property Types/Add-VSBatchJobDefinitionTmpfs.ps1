@@ -31,7 +31,7 @@ function Add-VSBatchJobDefinitionTmpfs {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.Tmpfs')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSSageMakerSpaceResourceSpec {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.ResourceSpec')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

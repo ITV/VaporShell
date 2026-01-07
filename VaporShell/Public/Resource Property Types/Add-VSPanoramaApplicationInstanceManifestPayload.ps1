@@ -19,7 +19,7 @@ function Add-VSPanoramaApplicationInstanceManifestPayload {
     #>
 
     [OutputType('Vaporshell.Resource.Panorama.ApplicationInstance.ManifestPayload')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

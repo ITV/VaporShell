@@ -29,7 +29,7 @@ function Add-VSCognitoUserPoolInviteMessageTemplate {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.InviteMessageTemplate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

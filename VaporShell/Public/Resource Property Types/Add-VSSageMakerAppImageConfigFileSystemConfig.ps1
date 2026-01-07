@@ -29,7 +29,7 @@ function Add-VSSageMakerAppImageConfigFileSystemConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.AppImageConfig.FileSystemConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

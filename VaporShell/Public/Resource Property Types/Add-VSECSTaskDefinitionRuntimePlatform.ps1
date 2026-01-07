@@ -24,7 +24,7 @@ function Add-VSECSTaskDefinitionRuntimePlatform {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.RuntimePlatform')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

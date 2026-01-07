@@ -34,7 +34,7 @@ function Add-VSGlueTableTableIdentifier {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Table.TableIdentifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

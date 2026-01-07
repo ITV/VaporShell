@@ -34,7 +34,7 @@ function Add-VSMediaPackageChannelIngestEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.Channel.IngestEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
 

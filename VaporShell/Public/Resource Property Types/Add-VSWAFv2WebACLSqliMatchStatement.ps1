@@ -31,7 +31,7 @@ function Add-VSWAFv2WebACLSqliMatchStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.SqliMatchStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

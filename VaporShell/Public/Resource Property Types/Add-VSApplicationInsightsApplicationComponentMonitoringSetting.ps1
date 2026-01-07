@@ -44,7 +44,7 @@ function Add-VSApplicationInsightsApplicationComponentMonitoringSetting {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.ComponentMonitoringSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

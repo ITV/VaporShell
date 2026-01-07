@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateKPIPrimaryValueConditionalFormatting {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.KPIPrimaryValueConditionalFormatting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

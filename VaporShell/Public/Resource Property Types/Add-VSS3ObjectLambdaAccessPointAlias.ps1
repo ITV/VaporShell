@@ -24,7 +24,7 @@ function Add-VSS3ObjectLambdaAccessPointAlias {
     #>
 
     [OutputType('Vaporshell.Resource.S3ObjectLambda.AccessPoint.Alias')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

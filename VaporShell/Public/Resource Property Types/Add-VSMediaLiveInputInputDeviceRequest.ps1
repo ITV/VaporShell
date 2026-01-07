@@ -19,7 +19,7 @@ function Add-VSMediaLiveInputInputDeviceRequest {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Input.InputDeviceRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

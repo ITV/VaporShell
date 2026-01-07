@@ -19,7 +19,7 @@ function Add-VSSageMakerSpaceEFSFileSystem {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.EFSFileSystem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

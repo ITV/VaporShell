@@ -29,7 +29,7 @@ function Add-VSInspectorV2FilterMapFilter {
     #>
 
     [OutputType('Vaporshell.Resource.InspectorV2.Filter.MapFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

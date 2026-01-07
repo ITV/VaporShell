@@ -44,7 +44,7 @@ function Add-VSIoTSiteWiseAssetAssetProperty {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.Asset.AssetProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

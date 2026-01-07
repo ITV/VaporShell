@@ -24,7 +24,7 @@ function Add-VSBatchJobDefinitionEksEmptyDir {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.EksEmptyDir')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

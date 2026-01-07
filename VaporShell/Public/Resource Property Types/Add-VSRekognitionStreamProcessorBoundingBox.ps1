@@ -34,7 +34,7 @@ function Add-VSRekognitionStreamProcessorBoundingBox {
     #>
 
     [OutputType('Vaporshell.Resource.Rekognition.StreamProcessor.BoundingBox')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

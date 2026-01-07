@@ -54,7 +54,7 @@ function Add-VSAppFlowFlowScheduledTriggerProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.ScheduledTriggerProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

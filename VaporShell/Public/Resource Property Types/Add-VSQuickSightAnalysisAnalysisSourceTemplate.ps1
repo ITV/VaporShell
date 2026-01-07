@@ -26,7 +26,7 @@ function Add-VSQuickSightAnalysisAnalysisSourceTemplate {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.AnalysisSourceTemplate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

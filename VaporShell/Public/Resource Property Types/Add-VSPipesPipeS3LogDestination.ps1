@@ -34,7 +34,7 @@ function Add-VSPipesPipeS3LogDestination {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.S3LogDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

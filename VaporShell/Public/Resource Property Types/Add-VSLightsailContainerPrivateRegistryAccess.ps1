@@ -19,7 +19,7 @@ function Add-VSLightsailContainerPrivateRegistryAccess {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Container.PrivateRegistryAccess')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

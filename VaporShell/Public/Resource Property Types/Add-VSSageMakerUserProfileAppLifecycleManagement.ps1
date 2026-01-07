@@ -19,7 +19,7 @@ function Add-VSSageMakerUserProfileAppLifecycleManagement {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.AppLifecycleManagement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -9,6 +9,11 @@ function Add-VSCloudFrontDistributionS3OriginConfig {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html
 
+    .PARAMETER OriginReadTimeout
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originreadtimeout
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
     .PARAMETER OriginAccessIdentity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originaccessidentity
         UpdateType: Mutable
@@ -19,10 +24,22 @@ function Add-VSCloudFrontDistributionS3OriginConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.S3OriginConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $OriginReadTimeout,
+
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

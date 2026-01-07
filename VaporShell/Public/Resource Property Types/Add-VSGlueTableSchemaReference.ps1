@@ -29,7 +29,7 @@ function Add-VSGlueTableSchemaReference {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Table.SchemaReference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSAppConfigExtensionParameter {
     #>
 
     [OutputType('Vaporshell.Resource.AppConfig.Extension.Parameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSOpenSearchServiceDomainEBSOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.EBSOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

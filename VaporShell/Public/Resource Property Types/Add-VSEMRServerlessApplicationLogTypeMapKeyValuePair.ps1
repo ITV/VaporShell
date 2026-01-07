@@ -26,7 +26,7 @@ function Add-VSEMRServerlessApplicationLogTypeMapKeyValuePair {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.LogTypeMapKeyValuePair')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

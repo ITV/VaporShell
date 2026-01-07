@@ -19,7 +19,7 @@ function Add-VSVoiceIDDomainServerSideEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.VoiceID.Domain.ServerSideEncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

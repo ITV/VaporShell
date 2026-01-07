@@ -31,7 +31,7 @@ function Add-VSCodeBuildFleetScalingConfigurationInput {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Fleet.ScalingConfigurationInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

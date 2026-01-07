@@ -19,7 +19,7 @@ function Add-VSElasticLoadBalancingV2LoadBalancerMinimumLoadBalancerCapacity {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.LoadBalancer.MinimumLoadBalancerCapacity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

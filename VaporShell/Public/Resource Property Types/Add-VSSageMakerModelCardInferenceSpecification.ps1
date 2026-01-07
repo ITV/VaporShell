@@ -21,7 +21,7 @@ function Add-VSSageMakerModelCardInferenceSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.InferenceSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

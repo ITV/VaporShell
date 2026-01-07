@@ -19,7 +19,7 @@ function Add-VSLexBotDialogCodeHookSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.DialogCodeHookSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

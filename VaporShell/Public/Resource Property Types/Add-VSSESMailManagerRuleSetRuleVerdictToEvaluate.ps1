@@ -24,7 +24,7 @@ function Add-VSSESMailManagerRuleSetRuleVerdictToEvaluate {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.RuleVerdictToEvaluate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

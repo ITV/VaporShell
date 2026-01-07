@@ -103,7 +103,7 @@ function Add-VSRoute53HealthCheckHealthCheckConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Route53.HealthCheck.HealthCheckConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

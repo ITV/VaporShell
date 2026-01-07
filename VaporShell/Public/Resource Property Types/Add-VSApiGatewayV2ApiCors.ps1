@@ -52,7 +52,7 @@ function Add-VSApiGatewayV2ApiCors {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGatewayV2.Api.Cors')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","AllowCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","AllowCredentials")]
 

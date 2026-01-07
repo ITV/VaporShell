@@ -19,7 +19,7 @@ function Add-VSMediaLiveInputMediaConnectFlowRequest {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Input.MediaConnectFlowRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

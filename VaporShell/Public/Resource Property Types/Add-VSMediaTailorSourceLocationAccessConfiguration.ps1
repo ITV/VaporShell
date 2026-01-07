@@ -24,7 +24,7 @@ function Add-VSMediaTailorSourceLocationAccessConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.SourceLocation.AccessConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

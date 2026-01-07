@@ -29,7 +29,7 @@ function Add-VSCodeDeployDeploymentGroupBlueGreenDeploymentConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.BlueGreenDeploymentConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

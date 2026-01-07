@@ -24,7 +24,7 @@ function Add-VSTimestreamTableMagneticStoreWriteProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.Table.MagneticStoreWriteProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

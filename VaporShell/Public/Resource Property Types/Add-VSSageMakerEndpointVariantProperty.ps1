@@ -19,7 +19,7 @@ function Add-VSSageMakerEndpointVariantProperty {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Endpoint.VariantProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

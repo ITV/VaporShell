@@ -24,7 +24,7 @@ function Add-VSSecurityHubInsightDateRange {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.Insight.DateRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

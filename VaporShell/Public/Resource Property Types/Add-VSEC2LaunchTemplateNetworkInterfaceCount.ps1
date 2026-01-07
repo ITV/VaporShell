@@ -24,7 +24,7 @@ function Add-VSEC2LaunchTemplateNetworkInterfaceCount {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.NetworkInterfaceCount')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

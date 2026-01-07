@@ -29,7 +29,7 @@ function Add-VSAmplifyUIBuilderFormFormButton {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Form.FormButton')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

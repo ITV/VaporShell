@@ -34,7 +34,7 @@ function Add-VSGlueClassifierGrokClassifier {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Classifier.GrokClassifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSForecastDatasetEncryptionConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Forecast.Dataset.EncryptionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

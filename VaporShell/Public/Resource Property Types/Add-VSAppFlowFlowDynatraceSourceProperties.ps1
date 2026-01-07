@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowDynatraceSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.DynatraceSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

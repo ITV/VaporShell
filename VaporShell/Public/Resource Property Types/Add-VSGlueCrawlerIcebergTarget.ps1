@@ -38,7 +38,7 @@ function Add-VSGlueCrawlerIcebergTarget {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Crawler.IcebergTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSIoTTopicRuleCloudwatchAlarmAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.CloudwatchAlarmAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSIoTJobTemplateRetryCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.JobTemplate.RetryCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

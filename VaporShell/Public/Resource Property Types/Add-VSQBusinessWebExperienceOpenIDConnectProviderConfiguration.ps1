@@ -24,7 +24,7 @@ function Add-VSQBusinessWebExperienceOpenIDConnectProviderConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.WebExperience.OpenIDConnectProviderConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

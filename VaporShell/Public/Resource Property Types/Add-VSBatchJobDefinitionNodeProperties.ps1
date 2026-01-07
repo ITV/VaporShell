@@ -31,7 +31,7 @@ function Add-VSBatchJobDefinitionNodeProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.NodeProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

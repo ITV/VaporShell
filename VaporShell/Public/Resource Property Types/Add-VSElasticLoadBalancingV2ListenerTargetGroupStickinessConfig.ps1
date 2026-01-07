@@ -24,7 +24,7 @@ function Add-VSElasticLoadBalancingV2ListenerTargetGroupStickinessConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.Listener.TargetGroupStickinessConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

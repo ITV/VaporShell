@@ -51,7 +51,7 @@ function Add-VSQuickSightTemplateTopBottomFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TopBottomFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

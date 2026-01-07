@@ -24,7 +24,7 @@ function Add-VSConnectCampaignsV2CampaignAnswerMachineDetectionConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.AnswerMachineDetectionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

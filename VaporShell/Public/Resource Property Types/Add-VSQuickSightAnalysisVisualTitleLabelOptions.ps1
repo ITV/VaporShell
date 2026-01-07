@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisVisualTitleLabelOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.VisualTitleLabelOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

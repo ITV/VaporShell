@@ -29,7 +29,7 @@ function Add-VSECSClusterExecuteCommandConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Cluster.ExecuteCommandConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

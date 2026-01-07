@@ -29,7 +29,7 @@ function Add-VSConnectUserUserProficiency {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.User.UserProficiency')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSSecurityHubAutomationRuleNumberFilter {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.NumberFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

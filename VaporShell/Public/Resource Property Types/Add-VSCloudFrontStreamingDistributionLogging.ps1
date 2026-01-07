@@ -29,7 +29,7 @@ function Add-VSCloudFrontStreamingDistributionLogging {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.StreamingDistribution.Logging')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

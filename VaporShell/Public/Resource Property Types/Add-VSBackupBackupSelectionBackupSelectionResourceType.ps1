@@ -50,7 +50,7 @@ function Add-VSBackupBackupSelectionBackupSelectionResourceType {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.BackupSelection.BackupSelectionResourceType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

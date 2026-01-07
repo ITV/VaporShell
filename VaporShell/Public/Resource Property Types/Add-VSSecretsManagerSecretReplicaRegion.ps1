@@ -24,7 +24,7 @@ function Add-VSSecretsManagerSecretReplicaRegion {
     #>
 
     [OutputType('Vaporshell.Resource.SecretsManager.Secret.ReplicaRegion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSAppRunnerServiceEgressConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.EgressConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

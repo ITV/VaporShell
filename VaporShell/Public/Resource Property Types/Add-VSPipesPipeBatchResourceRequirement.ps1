@@ -24,7 +24,7 @@ function Add-VSPipesPipeBatchResourceRequirement {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.BatchResourceRequirement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

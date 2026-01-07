@@ -24,7 +24,7 @@ function Add-VSEC2LaunchTemplateCapacityReservationTarget {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.CapacityReservationTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardColumnIdentifier {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ColumnIdentifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

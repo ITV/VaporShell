@@ -19,7 +19,7 @@ function Add-VSNetworkManagerConnectAttachmentConnectAttachmentOptions {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.ConnectAttachment.ConnectAttachmentOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

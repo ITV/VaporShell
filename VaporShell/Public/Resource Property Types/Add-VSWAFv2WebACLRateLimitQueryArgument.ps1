@@ -26,7 +26,7 @@ function Add-VSWAFv2WebACLRateLimitQueryArgument {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RateLimitQueryArgument')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

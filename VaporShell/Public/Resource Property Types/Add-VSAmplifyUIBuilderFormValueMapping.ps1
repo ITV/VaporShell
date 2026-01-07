@@ -24,7 +24,7 @@ function Add-VSAmplifyUIBuilderFormValueMapping {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Form.ValueMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

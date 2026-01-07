@@ -19,7 +19,7 @@ function Add-VSEFSFileSystemBackupPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.EFS.FileSystem.BackupPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

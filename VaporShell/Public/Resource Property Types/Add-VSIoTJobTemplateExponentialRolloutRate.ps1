@@ -29,7 +29,7 @@ function Add-VSIoTJobTemplateExponentialRolloutRate {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.JobTemplate.ExponentialRolloutRate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

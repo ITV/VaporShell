@@ -19,7 +19,7 @@ function Add-VSOSISPipelineBufferOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OSIS.Pipeline.BufferOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

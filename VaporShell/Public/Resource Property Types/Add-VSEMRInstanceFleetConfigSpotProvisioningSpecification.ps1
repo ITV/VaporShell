@@ -34,7 +34,7 @@ function Add-VSEMRInstanceFleetConfigSpotProvisioningSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceFleetConfig.SpotProvisioningSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

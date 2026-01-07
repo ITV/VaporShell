@@ -28,7 +28,7 @@ function Add-VSWAFv2WebACLResponseInspectionBodyContains {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ResponseInspectionBodyContains')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

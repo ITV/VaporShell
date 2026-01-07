@@ -19,7 +19,7 @@ function Add-VSDataZoneEnvironmentActionsAwsConsoleLinkParameters {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.EnvironmentActions.AwsConsoleLinkParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSApiGatewayV2RouteResponseParameterConstraints {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGatewayV2.RouteResponse.ParameterConstraints')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

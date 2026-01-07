@@ -19,7 +19,7 @@ function Add-VSLexBotPlainTextMessage {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.PlainTextMessage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

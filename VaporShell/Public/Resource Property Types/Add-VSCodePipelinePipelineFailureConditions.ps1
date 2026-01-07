@@ -31,7 +31,7 @@ function Add-VSCodePipelinePipelineFailureConditions {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.FailureConditions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

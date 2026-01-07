@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardDataFieldSeriesItem {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DataFieldSeriesItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

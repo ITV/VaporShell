@@ -49,7 +49,7 @@ function Add-VSEC2InstanceEbs {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.Ebs')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

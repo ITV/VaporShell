@@ -19,7 +19,7 @@ function Add-VSCloudFrontDistributionOriginGroupFailoverCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.OriginGroupFailoverCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSAppMeshVirtualNodeBackend {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.Backend')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelAudioDolbyEDecode {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioDolbyEDecode')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSElasticLoadBalancingV2ListenerListenerAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.Listener.ListenerAttribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSSageMakerModelCardTrainingEnvironment {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.TrainingEnvironment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

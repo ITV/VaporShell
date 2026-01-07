@@ -19,7 +19,7 @@ function Add-VSWAFv2WebACLChallengeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ChallengeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

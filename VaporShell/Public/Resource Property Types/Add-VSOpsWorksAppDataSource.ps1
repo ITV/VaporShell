@@ -29,7 +29,7 @@ function Add-VSOpsWorksAppDataSource {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.App.DataSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

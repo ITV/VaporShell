@@ -19,7 +19,7 @@ function Add-VSCodeDeployDeploymentGroupELBInfo {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.ELBInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

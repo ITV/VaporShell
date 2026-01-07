@@ -26,7 +26,7 @@ function Add-VSEKSNodegroupRemoteAccess {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Nodegroup.RemoteAccess')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

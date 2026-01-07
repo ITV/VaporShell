@@ -39,7 +39,7 @@ function Add-VSAutoScalingScalingPolicyMetricDataQuery {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.ScalingPolicy.MetricDataQuery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -40,7 +40,7 @@ function Add-VSQuickSightAnalysisPluginVisualFieldWell {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PluginVisualFieldWell')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

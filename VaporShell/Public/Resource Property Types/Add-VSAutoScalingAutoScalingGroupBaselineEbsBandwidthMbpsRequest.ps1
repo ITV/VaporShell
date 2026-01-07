@@ -24,7 +24,7 @@ function Add-VSAutoScalingAutoScalingGroupBaselineEbsBandwidthMbpsRequest {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.BaselineEbsBandwidthMbpsRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

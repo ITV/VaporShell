@@ -19,7 +19,7 @@ function Add-VSBedrockDataSourceWebSourceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.WebSourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

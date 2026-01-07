@@ -24,7 +24,7 @@ function Add-VSKinesisAnalyticsV2ApplicationCSVMappingParameters {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.CSVMappingParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSLogsTransformerSubstituteString {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.SubstituteString')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

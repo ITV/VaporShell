@@ -21,7 +21,7 @@ function Add-VSQuickSightAnalysisKPISortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.KPISortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

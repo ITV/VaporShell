@@ -24,7 +24,7 @@ function Add-VSFSxFileSystemReadCacheConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.FileSystem.ReadCacheConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

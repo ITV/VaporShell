@@ -19,7 +19,7 @@ function Add-VSSchedulerScheduleNetworkConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.NetworkConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

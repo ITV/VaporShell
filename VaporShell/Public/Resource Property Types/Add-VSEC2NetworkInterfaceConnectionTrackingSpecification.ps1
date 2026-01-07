@@ -29,7 +29,7 @@ function Add-VSEC2NetworkInterfaceConnectionTrackingSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInterface.ConnectionTrackingSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

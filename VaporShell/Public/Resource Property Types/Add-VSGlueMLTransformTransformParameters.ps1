@@ -24,7 +24,7 @@ function Add-VSGlueMLTransformTransformParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.MLTransform.TransformParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -31,7 +31,7 @@ function Add-VSNetworkManagerVpcAttachmentProposedNetworkFunctionGroupChange {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.VpcAttachment.ProposedNetworkFunctionGroupChange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

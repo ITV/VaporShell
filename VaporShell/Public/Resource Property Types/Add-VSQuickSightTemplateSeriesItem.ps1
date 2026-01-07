@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateSeriesItem {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SeriesItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

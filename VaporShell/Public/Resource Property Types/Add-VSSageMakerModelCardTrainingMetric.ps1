@@ -29,7 +29,7 @@ function Add-VSSageMakerModelCardTrainingMetric {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.TrainingMetric')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

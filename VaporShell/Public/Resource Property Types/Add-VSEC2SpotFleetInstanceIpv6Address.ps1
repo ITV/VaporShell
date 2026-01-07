@@ -19,7 +19,7 @@ function Add-VSEC2SpotFleetInstanceIpv6Address {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.InstanceIpv6Address')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

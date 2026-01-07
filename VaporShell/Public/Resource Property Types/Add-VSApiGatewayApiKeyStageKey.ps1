@@ -24,7 +24,7 @@ function Add-VSApiGatewayApiKeyStageKey {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.ApiKey.StageKey')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

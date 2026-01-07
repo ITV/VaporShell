@@ -31,7 +31,7 @@ function Add-VSCodeDeployDeploymentGroupAlarmConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.AlarmConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

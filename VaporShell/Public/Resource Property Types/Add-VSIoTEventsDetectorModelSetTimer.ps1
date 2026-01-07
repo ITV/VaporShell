@@ -29,7 +29,7 @@ function Add-VSIoTEventsDetectorModelSetTimer {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.DetectorModel.SetTimer')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

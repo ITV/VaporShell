@@ -19,7 +19,7 @@ function Add-VSWAFv2RuleGroupChallengeAction {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.ChallengeAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

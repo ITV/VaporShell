@@ -29,7 +29,7 @@ function Add-VSBatchJobDefinitionVolume {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.Volume')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

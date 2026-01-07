@@ -19,7 +19,7 @@ function Add-VSEC2IPAMPoolProvisionedCidr {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.IPAMPool.ProvisionedCidr')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

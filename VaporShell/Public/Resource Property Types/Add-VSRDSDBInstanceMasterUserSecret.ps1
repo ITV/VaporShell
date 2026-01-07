@@ -24,7 +24,7 @@ function Add-VSRDSDBInstanceMasterUserSecret {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBInstance.MasterUserSecret')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

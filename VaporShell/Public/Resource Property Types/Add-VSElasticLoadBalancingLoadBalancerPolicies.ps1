@@ -45,7 +45,7 @@ function Add-VSElasticLoadBalancingLoadBalancerPolicies {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.Policies')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

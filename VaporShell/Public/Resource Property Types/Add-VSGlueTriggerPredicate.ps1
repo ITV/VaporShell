@@ -26,7 +26,7 @@ function Add-VSGlueTriggerPredicate {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Trigger.Predicate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

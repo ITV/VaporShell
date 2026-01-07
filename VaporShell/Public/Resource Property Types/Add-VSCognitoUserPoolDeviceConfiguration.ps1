@@ -24,7 +24,7 @@ function Add-VSCognitoUserPoolDeviceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.DeviceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

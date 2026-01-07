@@ -24,7 +24,7 @@ function Add-VSIoTEventsAlarmModelAssetPropertyTimestamp {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.AlarmModel.AssetPropertyTimestamp')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

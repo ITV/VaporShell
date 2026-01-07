@@ -24,7 +24,7 @@ function Add-VSIoTTwinMakerEntityError {
     #>
 
     [OutputType('Vaporshell.Resource.IoTTwinMaker.Entity.Error')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

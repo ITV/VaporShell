@@ -29,7 +29,7 @@ function Add-VSSESMailManagerRuleSetRelayAction {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.RelayAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

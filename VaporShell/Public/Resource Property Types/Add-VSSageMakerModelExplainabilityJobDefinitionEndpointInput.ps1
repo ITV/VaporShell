@@ -49,7 +49,7 @@ function Add-VSSageMakerModelExplainabilityJobDefinitionEndpointInput {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.EndpointInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

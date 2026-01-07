@@ -21,7 +21,7 @@ function Add-VSQuickSightTemplateFilledMapSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FilledMapSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

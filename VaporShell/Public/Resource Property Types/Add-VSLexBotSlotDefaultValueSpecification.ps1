@@ -21,7 +21,7 @@ function Add-VSLexBotSlotDefaultValueSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.SlotDefaultValueSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

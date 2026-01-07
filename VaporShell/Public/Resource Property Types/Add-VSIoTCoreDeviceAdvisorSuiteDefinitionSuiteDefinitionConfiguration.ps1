@@ -41,7 +41,7 @@ function Add-VSIoTCoreDeviceAdvisorSuiteDefinitionSuiteDefinitionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IoTCoreDeviceAdvisor.SuiteDefinition.SuiteDefinitionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSElasticBeanstalkApplicationApplicationResourceLifecycleConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticBeanstalk.Application.ApplicationResourceLifecycleConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

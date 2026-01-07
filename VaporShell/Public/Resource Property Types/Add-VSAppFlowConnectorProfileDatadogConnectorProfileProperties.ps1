@@ -19,7 +19,7 @@ function Add-VSAppFlowConnectorProfileDatadogConnectorProfileProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.DatadogConnectorProfileProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

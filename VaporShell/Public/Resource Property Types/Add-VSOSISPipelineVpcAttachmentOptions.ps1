@@ -24,7 +24,7 @@ function Add-VSOSISPipelineVpcAttachmentOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OSIS.Pipeline.VpcAttachmentOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

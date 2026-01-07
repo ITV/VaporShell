@@ -24,7 +24,7 @@ function Add-VSSageMakerProjectServiceCatalogProvisionedProductDetails {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Project.ServiceCatalogProvisionedProductDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

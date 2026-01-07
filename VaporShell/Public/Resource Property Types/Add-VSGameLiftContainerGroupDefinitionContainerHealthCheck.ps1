@@ -41,7 +41,7 @@ function Add-VSGameLiftContainerGroupDefinitionContainerHealthCheck {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerGroupDefinition.ContainerHealthCheck')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

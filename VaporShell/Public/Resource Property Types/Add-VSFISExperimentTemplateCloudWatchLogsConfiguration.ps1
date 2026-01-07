@@ -19,7 +19,7 @@ function Add-VSFISExperimentTemplateCloudWatchLogsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FIS.ExperimentTemplate.CloudWatchLogsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

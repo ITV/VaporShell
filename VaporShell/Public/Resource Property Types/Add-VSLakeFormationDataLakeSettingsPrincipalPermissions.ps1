@@ -25,7 +25,7 @@ function Add-VSLakeFormationDataLakeSettingsPrincipalPermissions {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.DataLakeSettings.PrincipalPermissions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

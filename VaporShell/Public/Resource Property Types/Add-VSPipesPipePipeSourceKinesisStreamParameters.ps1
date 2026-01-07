@@ -59,7 +59,7 @@ function Add-VSPipesPipePipeSourceKinesisStreamParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeSourceKinesisStreamParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSS3BucketS3KeyFilter {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.S3KeyFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

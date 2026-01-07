@@ -59,7 +59,7 @@ function Add-VSLexBotPostDialogCodeHookInvocationSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.PostDialogCodeHookInvocationSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

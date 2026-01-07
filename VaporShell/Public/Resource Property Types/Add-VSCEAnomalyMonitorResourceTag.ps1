@@ -24,7 +24,7 @@ function Add-VSCEAnomalyMonitorResourceTag {
     #>
 
     [OutputType('Vaporshell.Resource.CE.AnomalyMonitor.ResourceTag')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

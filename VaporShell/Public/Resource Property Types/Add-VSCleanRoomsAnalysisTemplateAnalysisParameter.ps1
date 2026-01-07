@@ -29,7 +29,7 @@ function Add-VSCleanRoomsAnalysisTemplateAnalysisParameter {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.AnalysisTemplate.AnalysisParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

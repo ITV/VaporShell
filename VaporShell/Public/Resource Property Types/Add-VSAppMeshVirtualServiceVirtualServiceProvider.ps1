@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualServiceVirtualServiceProvider {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualService.VirtualServiceProvider')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSKinesisAnalyticsV2ApplicationMonitoringConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.MonitoringConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

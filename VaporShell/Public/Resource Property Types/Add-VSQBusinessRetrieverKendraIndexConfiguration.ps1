@@ -19,7 +19,7 @@ function Add-VSQBusinessRetrieverKendraIndexConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Retriever.KendraIndexConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

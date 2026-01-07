@@ -21,7 +21,7 @@ function Add-VSCustomerProfilesEventTriggerEventTriggerDimension {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.EventTrigger.EventTriggerDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

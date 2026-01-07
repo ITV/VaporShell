@@ -21,7 +21,7 @@ function Add-VSQuickSightDashboardPluginVisualOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PluginVisualOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisMappedDataSetParameter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.MappedDataSetParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

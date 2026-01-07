@@ -28,7 +28,7 @@ function Add-VSCloudFormationLambdaHookStackNames {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.LambdaHook.StackNames')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

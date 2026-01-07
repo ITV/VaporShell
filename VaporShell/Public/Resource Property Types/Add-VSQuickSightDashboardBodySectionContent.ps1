@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardBodySectionContent {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.BodySectionContent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

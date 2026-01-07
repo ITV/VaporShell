@@ -24,7 +24,7 @@ function Add-VSResilienceHubResiliencyPolicyFailurePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.ResilienceHub.ResiliencyPolicy.FailurePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

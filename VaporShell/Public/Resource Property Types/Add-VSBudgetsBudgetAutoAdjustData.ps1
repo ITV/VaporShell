@@ -24,7 +24,7 @@ function Add-VSBudgetsBudgetAutoAdjustData {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.Budget.AutoAdjustData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSMediaLiveInputMulticastSourceCreateRequest {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Input.MulticastSourceCreateRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

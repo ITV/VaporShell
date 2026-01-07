@@ -24,7 +24,7 @@ function Add-VSSageMakerDeviceFleetEdgeOutputConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.DeviceFleet.EdgeOutputConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

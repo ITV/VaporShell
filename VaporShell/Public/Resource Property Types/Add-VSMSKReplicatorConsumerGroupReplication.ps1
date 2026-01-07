@@ -38,7 +38,7 @@ function Add-VSMSKReplicatorConsumerGroupReplication {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Replicator.ConsumerGroupReplication')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

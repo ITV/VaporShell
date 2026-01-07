@@ -31,6 +31,13 @@ function Add-VSElasticLoadBalancingV2ListenerRuleRuleCondition {
         UpdateType: Mutable
         Type: QueryStringConfig
 
+    .PARAMETER RegexValues
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-regexvalues
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
     .PARAMETER HostHeaderConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-rulecondition.html#cfn-elasticloadbalancingv2-listenerrule-rulecondition-hostheaderconfig
         UpdateType: Mutable
@@ -56,7 +63,7 @@ function Add-VSElasticLoadBalancingV2ListenerRuleRuleCondition {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.RuleCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -80,6 +87,9 @@ function Add-VSElasticLoadBalancingV2ListenerRuleRuleCondition {
 
         [Parameter(Mandatory = $false)]
         $QueryStringConfig,
+
+        [Parameter(Mandatory = $false)]
+        $RegexValues,
 
         [Parameter(Mandatory = $false)]
         $HostHeaderConfig,

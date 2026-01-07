@@ -29,7 +29,7 @@ function Add-VSSageMakerModelBiasJobDefinitionNetworkConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.NetworkConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

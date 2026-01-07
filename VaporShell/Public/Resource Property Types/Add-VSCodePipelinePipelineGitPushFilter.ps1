@@ -29,7 +29,7 @@ function Add-VSCodePipelinePipelineGitPushFilter {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.GitPushFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

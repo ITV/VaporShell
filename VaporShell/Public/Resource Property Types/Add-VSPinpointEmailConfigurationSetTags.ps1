@@ -24,7 +24,7 @@ function Add-VSPinpointEmailConfigurationSetTags {
     #>
 
     [OutputType('Vaporshell.Resource.PinpointEmail.ConfigurationSet.Tags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

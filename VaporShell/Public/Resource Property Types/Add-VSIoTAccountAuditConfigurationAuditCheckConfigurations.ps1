@@ -62,12 +62,17 @@ function Add-VSIoTAccountAuditConfigurationAuditCheckConfigurations {
     .PARAMETER DeviceCertificateExpiringCheck
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificateexpiringcheck
         UpdateType: Mutable
-        Type: AuditCheckConfiguration
+        Type: DeviceCertExpirationAuditCheckConfiguration
 
     .PARAMETER IoTPolicyPotentialMisConfigurationCheck
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotpolicypotentialmisconfigurationcheck
         UpdateType: Mutable
         Type: AuditCheckConfiguration
+
+    .PARAMETER DeviceCertificateAgeCheck
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-devicecertificateagecheck
+        UpdateType: Mutable
+        Type: DeviceCertAgeAuditCheckConfiguration
 
     .PARAMETER IotPolicyOverlyPermissiveCheck
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html#cfn-iot-accountauditconfiguration-auditcheckconfigurations-iotpolicyoverlypermissivecheck
@@ -94,7 +99,7 @@ function Add-VSIoTAccountAuditConfigurationAuditCheckConfigurations {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.AccountAuditConfiguration.AuditCheckConfigurations')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -133,6 +138,9 @@ function Add-VSIoTAccountAuditConfigurationAuditCheckConfigurations {
 
         [Parameter(Mandatory = $false)]
         $IoTPolicyPotentialMisConfigurationCheck,
+
+        [Parameter(Mandatory = $false)]
+        $DeviceCertificateAgeCheck,
 
         [Parameter(Mandatory = $false)]
         $IotPolicyOverlyPermissiveCheck,

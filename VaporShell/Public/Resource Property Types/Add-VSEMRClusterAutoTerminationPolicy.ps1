@@ -19,7 +19,7 @@ function Add-VSEMRClusterAutoTerminationPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.AutoTerminationPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

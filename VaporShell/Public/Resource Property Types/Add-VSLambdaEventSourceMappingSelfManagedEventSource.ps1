@@ -19,7 +19,7 @@ function Add-VSLambdaEventSourceMappingSelfManagedEventSource {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.EventSourceMapping.SelfManagedEventSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

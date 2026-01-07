@@ -76,7 +76,7 @@ function Add-VSGlueConnectionConnectionInput {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Connection.ConnectionInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","ValidateCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","ValidateCredentials")]
 
@@ -200,7 +200,7 @@ function Add-VSGlueConnectionConnectionInput {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                PythonProperties {
+                'PythonProperties' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -214,7 +214,7 @@ function Add-VSGlueConnectionConnectionInput {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                SparkProperties {
+                'SparkProperties' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -228,7 +228,7 @@ function Add-VSGlueConnectionConnectionInput {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                ConnectionProperties {
+                'ConnectionProperties' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -242,7 +242,7 @@ function Add-VSGlueConnectionConnectionInput {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                AthenaProperties {
+                'AthenaProperties' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

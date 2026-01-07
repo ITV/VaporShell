@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisLineChartDefaultSeriesSettings {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.LineChartDefaultSeriesSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

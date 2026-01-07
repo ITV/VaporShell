@@ -135,7 +135,7 @@ function Add-VSEC2SpotFleetSpotFleetRequestConfigData {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.SpotFleetRequestConfigData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

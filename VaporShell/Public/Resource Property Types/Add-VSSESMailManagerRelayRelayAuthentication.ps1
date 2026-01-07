@@ -24,7 +24,7 @@ function Add-VSSESMailManagerRelayRelayAuthentication {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRelay.RelayAuthentication')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,7 +62,7 @@ function Add-VSSESMailManagerRelayRelayAuthentication {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                NoAuthentication {
+                'NoAuthentication' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

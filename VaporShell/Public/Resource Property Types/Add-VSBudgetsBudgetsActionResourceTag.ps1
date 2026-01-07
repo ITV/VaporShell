@@ -24,7 +24,7 @@ function Add-VSBudgetsBudgetsActionResourceTag {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.BudgetsAction.ResourceTag')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

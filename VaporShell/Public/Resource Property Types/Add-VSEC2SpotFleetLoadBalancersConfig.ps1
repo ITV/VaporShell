@@ -24,7 +24,7 @@ function Add-VSEC2SpotFleetLoadBalancersConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.LoadBalancersConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

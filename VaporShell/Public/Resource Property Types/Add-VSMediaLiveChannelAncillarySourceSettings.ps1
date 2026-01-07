@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelAncillarySourceSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AncillarySourceSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

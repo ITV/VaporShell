@@ -19,7 +19,7 @@ function Add-VSEC2SpotFleetClassicLoadBalancer {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.ClassicLoadBalancer')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

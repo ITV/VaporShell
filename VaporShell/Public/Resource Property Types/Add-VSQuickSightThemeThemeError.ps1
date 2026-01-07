@@ -24,7 +24,7 @@ function Add-VSQuickSightThemeThemeError {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Theme.ThemeError')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

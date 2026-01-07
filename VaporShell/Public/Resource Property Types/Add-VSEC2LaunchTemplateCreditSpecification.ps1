@@ -19,7 +19,7 @@ function Add-VSEC2LaunchTemplateCreditSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.CreditSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSWisdomKnowledgeBaseSemanticChunkingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.SemanticChunkingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

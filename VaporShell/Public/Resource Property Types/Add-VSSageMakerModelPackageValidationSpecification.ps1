@@ -26,7 +26,7 @@ function Add-VSSageMakerModelPackageValidationSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.ValidationSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

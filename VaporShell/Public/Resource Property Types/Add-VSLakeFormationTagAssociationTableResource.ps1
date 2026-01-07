@@ -34,7 +34,7 @@ function Add-VSLakeFormationTagAssociationTableResource {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.TagAssociation.TableResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -96,7 +96,7 @@ function Add-VSLakeFormationTagAssociationTableResource {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                TableWildcard {
+                'TableWildcard' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

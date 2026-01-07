@@ -29,7 +29,7 @@ function Add-VSPinpointCampaignInAppMessageHeaderConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.InAppMessageHeaderConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

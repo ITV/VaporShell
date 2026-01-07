@@ -24,7 +24,7 @@ function Add-VSApplicationInsightsApplicationAlarm {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.Alarm')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

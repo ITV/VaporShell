@@ -39,7 +39,7 @@ function Add-VSPersonalizeDatasetDatasetImportJob {
     #>
 
     [OutputType('Vaporshell.Resource.Personalize.Dataset.DatasetImportJob')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

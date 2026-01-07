@@ -24,7 +24,7 @@ function Add-VSCustomerProfilesIntegrationTriggerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.TriggerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

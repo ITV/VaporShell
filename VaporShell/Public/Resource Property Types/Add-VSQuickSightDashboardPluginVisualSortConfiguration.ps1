@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardPluginVisualSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PluginVisualSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

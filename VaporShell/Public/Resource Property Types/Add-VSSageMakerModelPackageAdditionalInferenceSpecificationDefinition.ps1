@@ -59,7 +59,7 @@ function Add-VSSageMakerModelPackageAdditionalInferenceSpecificationDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.AdditionalInferenceSpecificationDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

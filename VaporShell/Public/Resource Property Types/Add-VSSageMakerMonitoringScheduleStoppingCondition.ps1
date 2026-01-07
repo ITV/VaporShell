@@ -19,7 +19,7 @@ function Add-VSSageMakerMonitoringScheduleStoppingCondition {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.StoppingCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

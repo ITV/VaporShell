@@ -14,8 +14,8 @@ function Add-VSPCSComputeNodeGroupCustomLaunchTemplate {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER Id
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-customlaunchtemplate.html#cfn-pcs-computenodegroup-customlaunchtemplate-id
+    .PARAMETER TemplateId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-computenodegroup-customlaunchtemplate.html#cfn-pcs-computenodegroup-customlaunchtemplate-templateid
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -24,7 +24,7 @@ function Add-VSPCSComputeNodeGroupCustomLaunchTemplate {
     #>
 
     [OutputType('Vaporshell.Resource.PCS.ComputeNodeGroup.CustomLaunchTemplate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -40,7 +40,7 @@ function Add-VSPCSComputeNodeGroupCustomLaunchTemplate {
             })]
         $Version,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,7 +50,7 @@ function Add-VSPCSComputeNodeGroupCustomLaunchTemplate {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Id
+        $TemplateId
 
     )
 

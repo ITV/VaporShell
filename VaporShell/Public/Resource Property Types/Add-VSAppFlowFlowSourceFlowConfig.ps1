@@ -39,7 +39,7 @@ function Add-VSAppFlowFlowSourceFlowConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.SourceFlowConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

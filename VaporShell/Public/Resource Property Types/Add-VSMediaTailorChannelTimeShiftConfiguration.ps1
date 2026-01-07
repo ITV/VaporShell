@@ -19,7 +19,7 @@ function Add-VSMediaTailorChannelTimeShiftConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.Channel.TimeShiftConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

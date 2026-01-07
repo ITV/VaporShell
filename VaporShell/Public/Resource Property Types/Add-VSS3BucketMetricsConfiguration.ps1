@@ -36,7 +36,7 @@ function Add-VSS3BucketMetricsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.MetricsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

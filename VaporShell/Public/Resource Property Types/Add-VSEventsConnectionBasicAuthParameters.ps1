@@ -24,7 +24,7 @@ function Add-VSEventsConnectionBasicAuthParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Connection.BasicAuthParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
 

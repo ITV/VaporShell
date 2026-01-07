@@ -24,7 +24,7 @@ function Add-VSECSTaskDefinitionResourceRequirement {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.ResourceRequirement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisSheetTextBox {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SheetTextBox')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

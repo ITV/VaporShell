@@ -24,7 +24,7 @@ function Add-VSCloudFrontKeyValueStoreImportSource {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.KeyValueStore.ImportSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

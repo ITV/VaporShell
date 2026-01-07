@@ -30,7 +30,7 @@ function Add-VSGammaDilithiumJobDefinitionDevice {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.Device')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

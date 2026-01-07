@@ -19,7 +19,7 @@ function Add-VSWAFv2WebACLFieldIdentifier {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.FieldIdentifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

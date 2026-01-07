@@ -44,7 +44,7 @@ function Add-VSGrafanaWorkspaceAssertionAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.Grafana.Workspace.AssertionAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

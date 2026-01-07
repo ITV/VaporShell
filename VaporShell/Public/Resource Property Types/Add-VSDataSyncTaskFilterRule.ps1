@@ -24,7 +24,7 @@ function Add-VSDataSyncTaskFilterRule {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.Task.FilterRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

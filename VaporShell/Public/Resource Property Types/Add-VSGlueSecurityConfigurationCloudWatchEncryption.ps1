@@ -24,7 +24,7 @@ function Add-VSGlueSecurityConfigurationCloudWatchEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.SecurityConfiguration.CloudWatchEncryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

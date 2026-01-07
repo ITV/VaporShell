@@ -19,7 +19,7 @@ function Add-VSQBusinessDataSourceImageExtractionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.DataSource.ImageExtractionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

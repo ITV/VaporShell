@@ -44,7 +44,7 @@ function Add-VSEC2EC2FleetOnDemandOptionsRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.OnDemandOptionsRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

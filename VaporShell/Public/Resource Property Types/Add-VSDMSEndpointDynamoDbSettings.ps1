@@ -19,7 +19,7 @@ function Add-VSDMSEndpointDynamoDbSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.DynamoDbSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

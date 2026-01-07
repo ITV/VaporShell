@@ -39,7 +39,7 @@ function Add-VSPinpointCampaignLimits {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.Limits')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

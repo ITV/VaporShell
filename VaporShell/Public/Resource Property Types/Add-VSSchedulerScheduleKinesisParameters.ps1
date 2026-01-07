@@ -19,7 +19,7 @@ function Add-VSSchedulerScheduleKinesisParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.KinesisParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

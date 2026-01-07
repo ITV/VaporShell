@@ -21,7 +21,7 @@ function Add-VSNetworkFirewallRuleGroupIPSet {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.IPSet')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

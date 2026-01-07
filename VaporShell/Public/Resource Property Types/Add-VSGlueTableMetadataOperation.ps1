@@ -14,7 +14,7 @@ function Add-VSGlueTableMetadataOperation {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Table.MetadataOperation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

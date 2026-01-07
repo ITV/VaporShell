@@ -29,7 +29,7 @@ function Add-VSCodeDeployDeploymentGroupTagFilter {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.TagFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -11,17 +11,17 @@ function Add-VSGameLiftContainerFleetLocationCapacity {
 
     .PARAMETER MinSize
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationcapacity.html#cfn-gamelift-containerfleet-locationcapacity-minsize
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER DesiredEC2Instances
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationcapacity.html#cfn-gamelift-containerfleet-locationcapacity-desiredec2instances
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER MaxSize
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationcapacity.html#cfn-gamelift-containerfleet-locationcapacity-maxsize
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Integer
 
     .FUNCTIONALITY
@@ -29,7 +29,7 @@ function Add-VSGameLiftContainerFleetLocationCapacity {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerFleet.LocationCapacity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -45,7 +45,7 @@ function Add-VSGameLiftContainerFleetLocationCapacity {
             })]
         $MinSize,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

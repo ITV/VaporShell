@@ -24,7 +24,7 @@ function Add-VSTransferWorkflowEfsInputFileLocation {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.Workflow.EfsInputFileLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

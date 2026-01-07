@@ -46,7 +46,7 @@ function Add-VSIoTTopicRuleRepublishActionHeaders {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.RepublishActionHeaders')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

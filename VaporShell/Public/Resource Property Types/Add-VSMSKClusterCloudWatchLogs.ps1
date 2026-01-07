@@ -24,7 +24,7 @@ function Add-VSMSKClusterCloudWatchLogs {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.CloudWatchLogs')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

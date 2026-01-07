@@ -21,7 +21,7 @@ function Add-VSWisdomKnowledgeBaseUrlConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.UrlConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

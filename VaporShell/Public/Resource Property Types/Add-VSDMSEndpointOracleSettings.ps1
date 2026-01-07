@@ -190,7 +190,7 @@ function Add-VSDMSEndpointOracleSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.OracleSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","AsmPassword")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","AsmPassword")]
 

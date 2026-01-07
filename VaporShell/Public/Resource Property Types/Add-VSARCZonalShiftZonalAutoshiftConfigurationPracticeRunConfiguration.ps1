@@ -42,7 +42,7 @@ function Add-VSARCZonalShiftZonalAutoshiftConfigurationPracticeRunConfiguration 
     #>
 
     [OutputType('Vaporshell.Resource.ARCZonalShift.ZonalAutoshiftConfiguration.PracticeRunConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

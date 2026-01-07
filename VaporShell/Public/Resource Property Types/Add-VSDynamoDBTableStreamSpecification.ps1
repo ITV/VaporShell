@@ -24,7 +24,7 @@ function Add-VSDynamoDBTableStreamSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.Table.StreamSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSEC2LaunchTemplateIpv6PrefixSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.Ipv6PrefixSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -41,7 +41,7 @@ function Add-VSBedrockAgentInferenceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Agent.InferenceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

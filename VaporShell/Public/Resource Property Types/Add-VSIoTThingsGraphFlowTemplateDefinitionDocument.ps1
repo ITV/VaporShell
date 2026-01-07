@@ -24,7 +24,7 @@ function Add-VSIoTThingsGraphFlowTemplateDefinitionDocument {
     #>
 
     [OutputType('Vaporshell.Resource.IoTThingsGraph.FlowTemplate.DefinitionDocument')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

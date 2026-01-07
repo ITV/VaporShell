@@ -73,7 +73,7 @@ function Add-VSDLMLifecyclePolicySchedule {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.Schedule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

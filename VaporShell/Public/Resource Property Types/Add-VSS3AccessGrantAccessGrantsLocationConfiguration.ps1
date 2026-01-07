@@ -19,7 +19,7 @@ function Add-VSS3AccessGrantAccessGrantsLocationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.AccessGrant.AccessGrantsLocationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

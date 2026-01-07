@@ -41,7 +41,7 @@ function Add-VSQuickSightDashboardIntegerParameterDeclaration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.IntegerParameterDeclaration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

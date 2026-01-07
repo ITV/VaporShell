@@ -19,7 +19,7 @@ function Add-VSBedrockDataSourceSharePointCrawlerConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.SharePointCrawlerConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

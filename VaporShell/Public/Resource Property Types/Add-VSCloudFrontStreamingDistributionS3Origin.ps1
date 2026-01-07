@@ -24,7 +24,7 @@ function Add-VSCloudFrontStreamingDistributionS3Origin {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.StreamingDistribution.S3Origin')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

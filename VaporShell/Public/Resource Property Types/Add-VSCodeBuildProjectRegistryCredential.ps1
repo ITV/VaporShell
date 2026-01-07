@@ -24,7 +24,7 @@ function Add-VSCodeBuildProjectRegistryCredential {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.RegistryCredential')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Credential")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Credential")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","CredentialProvider")]

@@ -29,7 +29,7 @@ function Add-VSSSMIncidentsResponsePlanPagerDutyConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.SSMIncidents.ResponsePlan.PagerDutyConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -33,7 +33,7 @@ function Add-VSQuickSightTemplateFilterOperationSelectedFieldsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FilterOperationSelectedFieldsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

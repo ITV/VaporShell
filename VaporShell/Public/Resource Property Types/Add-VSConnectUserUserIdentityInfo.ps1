@@ -39,7 +39,7 @@ function Add-VSConnectUserUserIdentityInfo {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.User.UserIdentityInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

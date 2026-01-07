@@ -24,7 +24,7 @@ function Add-VSRedshiftServerlessWorkgroupConfigParameter {
     #>
 
     [OutputType('Vaporshell.Resource.RedshiftServerless.Workgroup.ConfigParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

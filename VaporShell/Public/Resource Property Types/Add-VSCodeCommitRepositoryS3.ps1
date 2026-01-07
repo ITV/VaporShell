@@ -29,7 +29,7 @@ function Add-VSCodeCommitRepositoryS3 {
     #>
 
     [OutputType('Vaporshell.Resource.CodeCommit.Repository.S3')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

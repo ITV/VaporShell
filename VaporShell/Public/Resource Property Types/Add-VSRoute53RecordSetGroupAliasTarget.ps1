@@ -29,7 +29,7 @@ function Add-VSRoute53RecordSetGroupAliasTarget {
     #>
 
     [OutputType('Vaporshell.Resource.Route53.RecordSetGroup.AliasTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -109,7 +109,7 @@ function Add-VSMediaLiveChannelMsSmoothGroupSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.MsSmoothGroupSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

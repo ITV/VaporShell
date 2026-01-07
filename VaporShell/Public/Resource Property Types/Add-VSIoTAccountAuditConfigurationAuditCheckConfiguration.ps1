@@ -19,7 +19,7 @@ function Add-VSIoTAccountAuditConfigurationAuditCheckConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.AccountAuditConfiguration.AuditCheckConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

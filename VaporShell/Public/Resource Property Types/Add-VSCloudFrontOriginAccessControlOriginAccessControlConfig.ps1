@@ -39,7 +39,7 @@ function Add-VSCloudFrontOriginAccessControlOriginAccessControlConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.OriginAccessControl.OriginAccessControlConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

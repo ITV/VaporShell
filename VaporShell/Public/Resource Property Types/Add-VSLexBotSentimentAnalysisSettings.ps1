@@ -19,7 +19,7 @@ function Add-VSLexBotSentimentAnalysisSettings {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.SentimentAnalysisSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSKinesisFirehoseDeliveryStreamSnowflakeRoleConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.SnowflakeRoleConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -31,7 +31,7 @@ function Add-VSQuickSightTemplateDataSetConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DataSetConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSRoute53RecordSetGroupCoordinates {
     #>
 
     [OutputType('Vaporshell.Resource.Route53.RecordSetGroup.Coordinates')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

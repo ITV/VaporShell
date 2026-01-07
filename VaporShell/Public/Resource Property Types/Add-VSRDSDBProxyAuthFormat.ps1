@@ -39,7 +39,7 @@ function Add-VSRDSDBProxyAuthFormat {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBProxy.AuthFormat')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","ClientPasswordAuthType")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","ClientPasswordAuthType")]
 

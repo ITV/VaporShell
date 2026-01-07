@@ -19,7 +19,7 @@ function Add-VSLexBotObfuscationSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.ObfuscationSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -28,7 +28,7 @@ function Add-VSAutoScalingAutoScalingGroupNotificationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.NotificationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

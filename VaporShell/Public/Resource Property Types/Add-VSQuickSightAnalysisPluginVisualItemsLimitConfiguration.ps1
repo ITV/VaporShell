@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisPluginVisualItemsLimitConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PluginVisualItemsLimitConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

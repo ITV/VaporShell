@@ -29,7 +29,7 @@ function Add-VSCodePipelinePipelineArtifactStore {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.ArtifactStore')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

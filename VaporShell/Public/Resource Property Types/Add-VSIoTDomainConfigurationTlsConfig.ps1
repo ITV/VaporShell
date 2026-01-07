@@ -19,7 +19,7 @@ function Add-VSIoTDomainConfigurationTlsConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.DomainConfiguration.TlsConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

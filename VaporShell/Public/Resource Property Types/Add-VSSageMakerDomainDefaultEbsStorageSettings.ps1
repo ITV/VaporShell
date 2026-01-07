@@ -24,7 +24,7 @@ function Add-VSSageMakerDomainDefaultEbsStorageSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.DefaultEbsStorageSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

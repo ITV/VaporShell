@@ -19,7 +19,7 @@ function Add-VSGammaDilithiumJobDefinitionEphemeralStorage {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.EphemeralStorage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

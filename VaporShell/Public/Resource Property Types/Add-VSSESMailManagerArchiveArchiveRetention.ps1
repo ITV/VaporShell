@@ -19,7 +19,7 @@ function Add-VSSESMailManagerArchiveArchiveRetention {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerArchive.ArchiveRetention')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

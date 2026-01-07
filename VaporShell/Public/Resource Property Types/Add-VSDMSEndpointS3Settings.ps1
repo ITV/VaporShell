@@ -219,7 +219,7 @@ function Add-VSDMSEndpointS3Settings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.S3Settings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

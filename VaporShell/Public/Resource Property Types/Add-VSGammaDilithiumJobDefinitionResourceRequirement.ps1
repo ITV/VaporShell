@@ -24,7 +24,7 @@ function Add-VSGammaDilithiumJobDefinitionResourceRequirement {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.ResourceRequirement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

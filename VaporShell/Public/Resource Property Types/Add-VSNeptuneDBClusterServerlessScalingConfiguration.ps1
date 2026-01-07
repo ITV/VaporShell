@@ -24,7 +24,7 @@ function Add-VSNeptuneDBClusterServerlessScalingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Neptune.DBCluster.ServerlessScalingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,7 +44,7 @@ function Add-VSDataBrewJobDataCatalogOutput {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Job.DataCatalogOutput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

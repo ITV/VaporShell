@@ -19,12 +19,22 @@ function Add-VSConnectEvaluationFormEvaluationFormQuestionTypeProperties {
         UpdateType: Mutable
         Type: EvaluationFormSingleSelectQuestionProperties
 
+    .PARAMETER MultiSelect
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html#cfn-connect-evaluationform-evaluationformquestiontypeproperties-multiselect
+        UpdateType: Mutable
+        Type: EvaluationFormMultiSelectQuestionProperties
+
+    .PARAMETER Text
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestiontypeproperties.html#cfn-connect-evaluationform-evaluationformquestiontypeproperties-text
+        UpdateType: Mutable
+        Type: EvaluationFormTextQuestionProperties
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.EvaluationFormQuestionTypeProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -32,7 +42,13 @@ function Add-VSConnectEvaluationFormEvaluationFormQuestionTypeProperties {
         $Numeric,
 
         [Parameter(Mandatory = $false)]
-        $SingleSelect
+        $SingleSelect,
+
+        [Parameter(Mandatory = $false)]
+        $MultiSelect,
+
+        [Parameter(Mandatory = $false)]
+        $Text
 
     )
 

@@ -19,7 +19,7 @@ function Add-VSFISExperimentTemplateOutputs {
     #>
 
     [OutputType('Vaporshell.Resource.FIS.ExperimentTemplate.Outputs')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

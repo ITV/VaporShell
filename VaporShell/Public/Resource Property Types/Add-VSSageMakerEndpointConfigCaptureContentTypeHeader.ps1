@@ -26,7 +26,7 @@ function Add-VSSageMakerEndpointConfigCaptureContentTypeHeader {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.CaptureContentTypeHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

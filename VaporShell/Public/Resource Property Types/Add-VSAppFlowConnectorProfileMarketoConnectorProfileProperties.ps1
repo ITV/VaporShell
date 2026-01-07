@@ -19,7 +19,7 @@ function Add-VSAppFlowConnectorProfileMarketoConnectorProfileProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.MarketoConnectorProfileProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -41,7 +41,7 @@ function Add-VSStepFunctionsStateMachineAliasDeploymentPreference {
     #>
 
     [OutputType('Vaporshell.Resource.StepFunctions.StateMachineAlias.DeploymentPreference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

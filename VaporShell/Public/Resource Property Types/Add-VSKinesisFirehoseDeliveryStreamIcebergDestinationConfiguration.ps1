@@ -16,44 +16,59 @@ function Add-VSKinesisFirehoseDeliveryStreamIcebergDestinationConfiguration {
 
     .PARAMETER S3Configuration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-s3configuration
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: S3DestinationConfiguration
 
     .PARAMETER DestinationTableConfigurationList
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-destinationtableconfigurationlist
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         ItemType: DestinationTableConfiguration
         DuplicatesAllowed: True
 
     .PARAMETER BufferingHints
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-bufferinghints
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: BufferingHints
+
+    .PARAMETER TableCreationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-tablecreationconfiguration
+        UpdateType: Mutable
+        Type: TableCreationConfiguration
 
     .PARAMETER RetryOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-retryoptions
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: RetryOptions
 
     .PARAMETER s3BackupMode
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-s3backupmode
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ProcessingConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-processingconfiguration
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: ProcessingConfiguration
+
+    .PARAMETER SchemaEvolutionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-schemaevolutionconfiguration
+        UpdateType: Mutable
+        Type: SchemaEvolutionConfiguration
+
+    .PARAMETER AppendOnly
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-appendonly
+        UpdateType: Mutable
+        PrimitiveType: Boolean
 
     .PARAMETER CloudWatchLoggingOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-cloudwatchloggingoptions
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: CloudWatchLoggingOptions
 
     .PARAMETER RoleARN
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-icebergdestinationconfiguration-rolearn
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -61,7 +76,7 @@ function Add-VSKinesisFirehoseDeliveryStreamIcebergDestinationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.IcebergDestinationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -87,6 +102,9 @@ function Add-VSKinesisFirehoseDeliveryStreamIcebergDestinationConfiguration {
         $BufferingHints,
 
         [Parameter(Mandatory = $false)]
+        $TableCreationConfiguration,
+
+        [Parameter(Mandatory = $false)]
         $RetryOptions,
 
         [Parameter(Mandatory = $false)]
@@ -103,6 +121,21 @@ function Add-VSKinesisFirehoseDeliveryStreamIcebergDestinationConfiguration {
 
         [Parameter(Mandatory = $false)]
         $ProcessingConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $SchemaEvolutionConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AppendOnly,
 
         [Parameter(Mandatory = $false)]
         $CloudWatchLoggingOptions,

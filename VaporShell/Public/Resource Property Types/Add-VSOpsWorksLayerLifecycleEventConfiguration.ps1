@@ -19,7 +19,7 @@ function Add-VSOpsWorksLayerLifecycleEventConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.Layer.LifecycleEventConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

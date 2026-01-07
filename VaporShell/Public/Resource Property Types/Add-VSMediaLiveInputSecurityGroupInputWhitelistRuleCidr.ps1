@@ -19,7 +19,7 @@ function Add-VSMediaLiveInputSecurityGroupInputWhitelistRuleCidr {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.InputSecurityGroup.InputWhitelistRuleCidr')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSCodeDeployDeploymentGroupECSService {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.ECSService')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

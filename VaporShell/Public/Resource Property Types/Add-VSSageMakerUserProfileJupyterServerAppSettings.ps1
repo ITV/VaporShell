@@ -26,7 +26,7 @@ function Add-VSSageMakerUserProfileJupyterServerAppSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.JupyterServerAppSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

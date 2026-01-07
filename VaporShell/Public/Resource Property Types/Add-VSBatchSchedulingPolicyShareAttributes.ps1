@@ -24,7 +24,7 @@ function Add-VSBatchSchedulingPolicyShareAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.SchedulingPolicy.ShareAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

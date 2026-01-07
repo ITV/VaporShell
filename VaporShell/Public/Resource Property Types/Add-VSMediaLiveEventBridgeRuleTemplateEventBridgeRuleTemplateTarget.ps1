@@ -19,7 +19,7 @@ function Add-VSMediaLiveEventBridgeRuleTemplateEventBridgeRuleTemplateTarget {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.EventBridgeRuleTemplate.EventBridgeRuleTemplateTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

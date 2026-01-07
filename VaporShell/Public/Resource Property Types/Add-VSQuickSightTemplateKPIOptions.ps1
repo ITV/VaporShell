@@ -59,7 +59,7 @@ function Add-VSQuickSightTemplateKPIOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.KPIOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

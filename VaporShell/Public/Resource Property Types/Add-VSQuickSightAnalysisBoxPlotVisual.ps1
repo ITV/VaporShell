@@ -53,7 +53,7 @@ function Add-VSQuickSightAnalysisBoxPlotVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.BoxPlotVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

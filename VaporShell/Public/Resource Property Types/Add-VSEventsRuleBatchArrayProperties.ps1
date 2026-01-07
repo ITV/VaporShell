@@ -19,7 +19,7 @@ function Add-VSEventsRuleBatchArrayProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.BatchArrayProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSIoTSiteWiseAccessPolicyAccessPolicyIdentity {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.AccessPolicy.AccessPolicyIdentity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

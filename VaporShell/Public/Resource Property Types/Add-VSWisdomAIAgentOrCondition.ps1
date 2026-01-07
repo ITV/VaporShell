@@ -26,7 +26,7 @@ function Add-VSWisdomAIAgentOrCondition {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIAgent.OrCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

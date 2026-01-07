@@ -26,7 +26,7 @@ function Add-VSLightsailInstanceNetworking {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Instance.Networking')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

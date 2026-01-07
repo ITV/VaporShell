@@ -24,7 +24,7 @@ function Add-VSGameLiftContainerFleetConnectionPortRange {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerFleet.ConnectionPortRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

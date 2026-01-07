@@ -19,7 +19,7 @@ function Add-VSEC2LaunchTemplateReference {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.Reference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

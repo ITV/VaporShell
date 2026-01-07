@@ -107,7 +107,7 @@ function Add-VSQuickSightTopicTopicCalculatedField {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.TopicCalculatedField')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

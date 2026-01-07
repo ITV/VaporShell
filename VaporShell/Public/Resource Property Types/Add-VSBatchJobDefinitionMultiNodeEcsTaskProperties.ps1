@@ -31,6 +31,11 @@ function Add-VSBatchJobDefinitionMultiNodeEcsTaskProperties {
         ItemType: Volume
         DuplicatesAllowed: True
 
+    .PARAMETER EnableExecuteCommand
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-multinodeecstaskproperties.html#cfn-batch-jobdefinition-multinodeecstaskproperties-enableexecutecommand
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER Containers
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-multinodeecstaskproperties.html#cfn-batch-jobdefinition-multinodeecstaskproperties-containers
         UpdateType: Mutable
@@ -48,7 +53,7 @@ function Add-VSBatchJobDefinitionMultiNodeEcsTaskProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.MultiNodeEcsTaskProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -99,6 +104,18 @@ function Add-VSBatchJobDefinitionMultiNodeEcsTaskProperties {
                 }
             })]
         $Volumes,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnableExecuteCommand,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

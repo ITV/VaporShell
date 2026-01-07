@@ -19,7 +19,7 @@ function Add-VSCodeArtifactPackageGroupOriginConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CodeArtifact.PackageGroup.OriginConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSMSKConfigurationLatestRevision {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Configuration.LatestRevision')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

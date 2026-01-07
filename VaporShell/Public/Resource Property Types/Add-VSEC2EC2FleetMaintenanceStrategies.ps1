@@ -19,7 +19,7 @@ function Add-VSEC2EC2FleetMaintenanceStrategies {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.MaintenanceStrategies')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

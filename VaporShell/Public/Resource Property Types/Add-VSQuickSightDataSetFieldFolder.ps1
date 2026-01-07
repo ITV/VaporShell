@@ -26,7 +26,7 @@ function Add-VSQuickSightDataSetFieldFolder {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.FieldFolder')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

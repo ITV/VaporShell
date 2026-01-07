@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardNumericRangeFilterValue {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.NumericRangeFilterValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

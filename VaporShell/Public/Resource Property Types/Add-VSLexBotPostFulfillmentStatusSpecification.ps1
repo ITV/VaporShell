@@ -59,7 +59,7 @@ function Add-VSLexBotPostFulfillmentStatusSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.PostFulfillmentStatusSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

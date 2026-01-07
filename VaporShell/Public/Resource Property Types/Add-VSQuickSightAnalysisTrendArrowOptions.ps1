@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisTrendArrowOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TrendArrowOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

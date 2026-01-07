@@ -44,7 +44,7 @@ function Add-VSAmplifyUIBuilderFormSectionalElement {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Form.SectionalElement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

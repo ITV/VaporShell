@@ -39,7 +39,7 @@ function Add-VSApiGatewayV2ApiGatewayManagedOverridesRouteSettings {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGatewayV2.ApiGatewayManagedOverrides.RouteSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

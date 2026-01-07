@@ -29,12 +29,17 @@ function Add-VSQuickSightTemplateBodySectionConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER RepeatConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectionconfiguration.html#cfn-quicksight-template-bodysectionconfiguration-repeatconfiguration
+        UpdateType: Mutable
+        Type: BodySectionRepeatConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.BodySectionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -57,7 +62,10 @@ function Add-VSQuickSightTemplateBodySectionConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SectionId
+        $SectionId,
+
+        [Parameter(Mandatory = $false)]
+        $RepeatConfiguration
 
     )
 

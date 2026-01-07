@@ -24,7 +24,7 @@ function Add-VSSSOPermissionSetPermissionsBoundary {
     #>
 
     [OutputType('Vaporshell.Resource.SSO.PermissionSet.PermissionsBoundary')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

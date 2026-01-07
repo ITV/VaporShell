@@ -29,7 +29,7 @@ function Add-VSDataBrewDatasetDatetimeOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.DatetimeOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

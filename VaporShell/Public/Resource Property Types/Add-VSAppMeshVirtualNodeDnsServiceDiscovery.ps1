@@ -29,7 +29,7 @@ function Add-VSAppMeshVirtualNodeDnsServiceDiscovery {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.DnsServiceDiscovery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

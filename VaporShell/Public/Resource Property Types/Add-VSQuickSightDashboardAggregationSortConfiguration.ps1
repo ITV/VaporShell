@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardAggregationSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.AggregationSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

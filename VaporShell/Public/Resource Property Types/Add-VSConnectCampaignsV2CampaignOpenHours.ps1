@@ -21,7 +21,7 @@ function Add-VSConnectCampaignsV2CampaignOpenHours {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.OpenHours')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSDynamoDBGlobalTableSSESpecification {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.SSESpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

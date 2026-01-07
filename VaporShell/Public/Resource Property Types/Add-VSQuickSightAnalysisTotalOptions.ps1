@@ -46,7 +46,7 @@ function Add-VSQuickSightAnalysisTotalOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TotalOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

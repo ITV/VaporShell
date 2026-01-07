@@ -49,7 +49,7 @@ function Add-VSDMSEndpointRedisSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.RedisSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","AuthPassword")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","AuthPassword")]
 

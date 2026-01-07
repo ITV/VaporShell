@@ -36,7 +36,7 @@ function Add-VSQuickSightDashboardPivotTableCellConditionalFormatting {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PivotTableCellConditionalFormatting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

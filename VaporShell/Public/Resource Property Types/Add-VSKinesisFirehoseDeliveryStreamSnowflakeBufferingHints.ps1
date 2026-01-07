@@ -24,7 +24,7 @@ function Add-VSKinesisFirehoseDeliveryStreamSnowflakeBufferingHints {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.SnowflakeBufferingHints')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSConnectCampaignsV2CampaignTimeRange {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.TimeRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

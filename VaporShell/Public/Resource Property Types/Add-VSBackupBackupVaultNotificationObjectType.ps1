@@ -26,7 +26,7 @@ function Add-VSBackupBackupVaultNotificationObjectType {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.BackupVault.NotificationObjectType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

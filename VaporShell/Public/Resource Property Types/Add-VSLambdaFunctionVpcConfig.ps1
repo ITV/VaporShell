@@ -33,7 +33,7 @@ function Add-VSLambdaFunctionVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Function.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

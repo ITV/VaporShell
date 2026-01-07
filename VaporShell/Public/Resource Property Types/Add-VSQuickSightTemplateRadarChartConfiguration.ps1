@@ -79,6 +79,11 @@ function Add-VSQuickSightTemplateRadarChartConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartconfiguration.html#cfn-quicksight-template-radarchartconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER AlternateBandEvenColor
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-radarchartconfiguration.html#cfn-quicksight-template-radarchartconfiguration-alternatebandevencolor
         UpdateType: Mutable
@@ -89,7 +94,7 @@ function Add-VSQuickSightTemplateRadarChartConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.RadarChartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -181,6 +186,9 @@ function Add-VSQuickSightTemplateRadarChartConfiguration {
         $AlternateBandOddColor,
 
         [Parameter(Mandatory = $false)]
+        $Interactions,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -202,7 +210,7 @@ function Add-VSQuickSightTemplateRadarChartConfiguration {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                AlternateBandColorsVisibility {
+                'AlternateBandColorsVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

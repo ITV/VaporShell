@@ -29,7 +29,7 @@ function Add-VSBatchComputeEnvironmentEc2ConfigurationObject {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.ComputeEnvironment.Ec2ConfigurationObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

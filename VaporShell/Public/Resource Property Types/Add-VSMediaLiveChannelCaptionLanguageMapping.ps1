@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelCaptionLanguageMapping {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.CaptionLanguageMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSS3BucketNoncurrentVersionExpiration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.NoncurrentVersionExpiration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

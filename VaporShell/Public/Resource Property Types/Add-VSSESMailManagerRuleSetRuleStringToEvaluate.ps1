@@ -19,12 +19,17 @@ function Add-VSSESMailManagerRuleSetRuleStringToEvaluate {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER Analysis
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html#cfn-ses-mailmanagerruleset-rulestringtoevaluate-analysis
+        UpdateType: Mutable
+        Type: Analysis
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.RuleStringToEvaluate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -50,7 +55,10 @@ function Add-VSSESMailManagerRuleSetRuleStringToEvaluate {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MimeHeaderAttribute
+        $MimeHeaderAttribute,
+
+        [Parameter(Mandatory = $false)]
+        $Analysis
 
     )
 

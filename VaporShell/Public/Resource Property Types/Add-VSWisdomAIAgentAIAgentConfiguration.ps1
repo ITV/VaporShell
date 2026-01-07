@@ -14,22 +14,37 @@ function Add-VSWisdomAIAgentAIAgentConfiguration {
         UpdateType: Mutable
         Type: ManualSearchAIAgentConfiguration
 
+    .PARAMETER EmailOverviewAIAgentConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-emailoverviewaiagentconfiguration
+        UpdateType: Mutable
+        Type: EmailOverviewAIAgentConfiguration
+
     .PARAMETER SelfServiceAIAgentConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-selfserviceaiagentconfiguration
         UpdateType: Mutable
         Type: SelfServiceAIAgentConfiguration
+
+    .PARAMETER EmailResponseAIAgentConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-emailresponseaiagentconfiguration
+        UpdateType: Mutable
+        Type: EmailResponseAIAgentConfiguration
 
     .PARAMETER AnswerRecommendationAIAgentConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-answerrecommendationaiagentconfiguration
         UpdateType: Mutable
         Type: AnswerRecommendationAIAgentConfiguration
 
+    .PARAMETER EmailGenerativeAnswerAIAgentConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html#cfn-wisdom-aiagent-aiagentconfiguration-emailgenerativeansweraiagentconfiguration
+        UpdateType: Mutable
+        Type: EmailGenerativeAnswerAIAgentConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIAgent.AIAgentConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -37,10 +52,19 @@ function Add-VSWisdomAIAgentAIAgentConfiguration {
         $ManualSearchAIAgentConfiguration,
 
         [Parameter(Mandatory = $false)]
+        $EmailOverviewAIAgentConfiguration,
+
+        [Parameter(Mandatory = $false)]
         $SelfServiceAIAgentConfiguration,
 
         [Parameter(Mandatory = $false)]
-        $AnswerRecommendationAIAgentConfiguration
+        $EmailResponseAIAgentConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $AnswerRecommendationAIAgentConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $EmailGenerativeAnswerAIAgentConfiguration
 
     )
 

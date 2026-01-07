@@ -24,7 +24,7 @@ function Add-VSNetworkManagerLinkBandwidth {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.Link.Bandwidth')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

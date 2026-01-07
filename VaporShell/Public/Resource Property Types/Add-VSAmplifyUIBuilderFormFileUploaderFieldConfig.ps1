@@ -46,7 +46,7 @@ function Add-VSAmplifyUIBuilderFormFileUploaderFieldConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Form.FileUploaderFieldConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

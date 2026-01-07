@@ -19,7 +19,7 @@ function Add-VSMediaPackagePackagingConfigurationCmafEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.PackagingConfiguration.CmafEncryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

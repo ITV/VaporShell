@@ -19,7 +19,7 @@ function Add-VSCognitoUserPoolAdvancedSecurityAdditionalFlows {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.AdvancedSecurityAdditionalFlows')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

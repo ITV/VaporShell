@@ -126,7 +126,7 @@ function Add-VSCloudFrontDistributionDefaultCacheBehavior {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.DefaultCacheBehavior')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSIoTFleetWiseCampaignDataPartitionUploadOptions {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.DataPartitionUploadOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

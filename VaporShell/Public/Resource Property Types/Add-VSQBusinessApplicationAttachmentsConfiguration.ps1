@@ -19,7 +19,7 @@ function Add-VSQBusinessApplicationAttachmentsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Application.AttachmentsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

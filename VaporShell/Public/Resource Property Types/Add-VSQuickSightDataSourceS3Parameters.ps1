@@ -24,7 +24,7 @@ function Add-VSQuickSightDataSourceS3Parameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.S3Parameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

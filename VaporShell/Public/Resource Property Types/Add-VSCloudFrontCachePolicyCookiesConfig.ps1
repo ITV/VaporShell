@@ -26,7 +26,7 @@ function Add-VSCloudFrontCachePolicyCookiesConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.CachePolicy.CookiesConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

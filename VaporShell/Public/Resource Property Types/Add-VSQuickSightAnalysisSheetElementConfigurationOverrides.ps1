@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisSheetElementConfigurationOverrides {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SheetElementConfigurationOverrides')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

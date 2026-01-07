@@ -31,7 +31,7 @@ function Add-VSRedshiftServerlessWorkgroupEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.RedshiftServerless.Workgroup.Endpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

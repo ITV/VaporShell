@@ -19,7 +19,7 @@ function Add-VSEKSClusterLoggingTypeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.LoggingTypeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

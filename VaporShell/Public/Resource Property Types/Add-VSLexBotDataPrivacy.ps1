@@ -19,7 +19,7 @@ function Add-VSLexBotDataPrivacy {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.DataPrivacy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

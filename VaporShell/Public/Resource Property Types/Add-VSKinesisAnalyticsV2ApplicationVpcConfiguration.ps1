@@ -28,7 +28,7 @@ function Add-VSKinesisAnalyticsV2ApplicationVpcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.VpcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

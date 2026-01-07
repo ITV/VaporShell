@@ -29,7 +29,7 @@ function Add-VSBedrockDataSourceSalesforceSourceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.SalesforceSourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","CredentialsSecretArn")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","CredentialsSecretArn")]
 

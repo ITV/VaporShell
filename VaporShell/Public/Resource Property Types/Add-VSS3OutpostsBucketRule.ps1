@@ -44,7 +44,7 @@ function Add-VSS3OutpostsBucketRule {
     #>
 
     [OutputType('Vaporshell.Resource.S3Outposts.Bucket.Rule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

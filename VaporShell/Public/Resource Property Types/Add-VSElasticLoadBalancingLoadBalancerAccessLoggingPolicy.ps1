@@ -34,7 +34,7 @@ function Add-VSElasticLoadBalancingLoadBalancerAccessLoggingPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.AccessLoggingPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

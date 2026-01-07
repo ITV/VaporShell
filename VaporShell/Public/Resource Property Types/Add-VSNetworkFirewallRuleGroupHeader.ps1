@@ -44,7 +44,7 @@ function Add-VSNetworkFirewallRuleGroupHeader {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.Header')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

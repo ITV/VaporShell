@@ -29,7 +29,7 @@ function Add-VSAppFlowFlowS3DestinationProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.S3DestinationProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

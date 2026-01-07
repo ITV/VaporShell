@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardSpacing {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.Spacing')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

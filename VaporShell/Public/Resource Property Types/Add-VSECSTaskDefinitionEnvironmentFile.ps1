@@ -24,7 +24,7 @@ function Add-VSECSTaskDefinitionEnvironmentFile {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.EnvironmentFile')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

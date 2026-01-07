@@ -19,7 +19,7 @@ function Add-VSIoTTopicRuleDestinationHttpUrlDestinationSummary {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRuleDestination.HttpUrlDestinationSummary')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

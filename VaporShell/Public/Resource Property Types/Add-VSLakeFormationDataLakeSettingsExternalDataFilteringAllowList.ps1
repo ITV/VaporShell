@@ -14,7 +14,7 @@ function Add-VSLakeFormationDataLakeSettingsExternalDataFilteringAllowList {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.DataLakeSettings.ExternalDataFilteringAllowList')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

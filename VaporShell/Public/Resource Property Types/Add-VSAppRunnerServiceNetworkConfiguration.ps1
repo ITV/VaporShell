@@ -29,7 +29,7 @@ function Add-VSAppRunnerServiceNetworkConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.NetworkConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

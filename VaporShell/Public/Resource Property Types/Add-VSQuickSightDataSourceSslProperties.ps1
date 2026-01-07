@@ -19,7 +19,7 @@ function Add-VSQuickSightDataSourceSslProperties {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.SslProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

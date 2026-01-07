@@ -26,7 +26,7 @@ function Add-VSQuickSightDashboardSameSheetTargetVisualConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SameSheetTargetVisualConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

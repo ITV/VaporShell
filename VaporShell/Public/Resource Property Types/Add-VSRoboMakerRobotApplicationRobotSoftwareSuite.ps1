@@ -11,24 +11,24 @@ function Add-VSRoboMakerRobotApplicationRobotSoftwareSuite {
 
     .PARAMETER Version
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-robotsoftwaresuite.html#cfn-robomaker-robotapplication-robotsoftwaresuite-version
-        UpdateType: Mutable
         PrimitiveType: String
+        UpdateType: Mutable
 
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-robotapplication-robotsoftwaresuite.html#cfn-robomaker-robotapplication-robotsoftwaresuite-name
-        UpdateType: Mutable
         PrimitiveType: String
+        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.RoboMaker.RobotApplication.RobotSoftwareSuite')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

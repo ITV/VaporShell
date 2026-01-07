@@ -51,7 +51,7 @@ function Add-VSEC2VerifiedAccessEndpointRdsOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessEndpoint.RdsOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

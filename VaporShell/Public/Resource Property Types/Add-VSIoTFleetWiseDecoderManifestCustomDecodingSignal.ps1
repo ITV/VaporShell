@@ -19,7 +19,7 @@ function Add-VSIoTFleetWiseDecoderManifestCustomDecodingSignal {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.DecoderManifest.CustomDecodingSignal')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

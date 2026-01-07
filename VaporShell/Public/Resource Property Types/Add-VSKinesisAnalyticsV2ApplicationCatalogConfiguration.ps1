@@ -19,7 +19,7 @@ function Add-VSKinesisAnalyticsV2ApplicationCatalogConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.CatalogConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

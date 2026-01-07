@@ -24,7 +24,7 @@ function Add-VSGameLiftFleetResourceCreationLimitPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.Fleet.ResourceCreationLimitPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

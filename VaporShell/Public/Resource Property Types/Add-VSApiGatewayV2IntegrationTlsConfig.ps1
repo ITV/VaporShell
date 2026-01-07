@@ -19,7 +19,7 @@ function Add-VSApiGatewayV2IntegrationTlsConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGatewayV2.Integration.TlsConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

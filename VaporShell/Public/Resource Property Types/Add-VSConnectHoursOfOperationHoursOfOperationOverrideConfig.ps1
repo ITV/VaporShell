@@ -29,7 +29,7 @@ function Add-VSConnectHoursOfOperationHoursOfOperationOverrideConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.HoursOfOperation.HoursOfOperationOverrideConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

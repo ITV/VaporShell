@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateWordCloudFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.WordCloudFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSConnectTaskTemplateRequiredFieldInfo {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.TaskTemplate.RequiredFieldInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -51,7 +51,7 @@ function Add-VSFraudDetectorEventTypeEntityType {
     #>
 
     [OutputType('Vaporshell.Resource.FraudDetector.EventType.EntityType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

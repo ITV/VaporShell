@@ -53,7 +53,7 @@ function Add-VSQuickSightDashboardWordCloudVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.WordCloudVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

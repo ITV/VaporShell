@@ -39,7 +39,7 @@ function Add-VSQuickSightAnalysisPeriodToDateComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PeriodToDateComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

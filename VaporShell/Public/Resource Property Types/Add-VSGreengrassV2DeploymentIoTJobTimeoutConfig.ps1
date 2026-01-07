@@ -19,7 +19,7 @@ function Add-VSGreengrassV2DeploymentIoTJobTimeoutConfig {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.Deployment.IoTJobTimeoutConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

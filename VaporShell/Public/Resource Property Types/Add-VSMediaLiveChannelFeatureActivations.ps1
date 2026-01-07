@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelFeatureActivations {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.FeatureActivations')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

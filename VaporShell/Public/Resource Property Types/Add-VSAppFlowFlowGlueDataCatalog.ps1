@@ -29,7 +29,7 @@ function Add-VSAppFlowFlowGlueDataCatalog {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.GlueDataCatalog')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

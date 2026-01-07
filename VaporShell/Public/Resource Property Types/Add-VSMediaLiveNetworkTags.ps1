@@ -24,7 +24,7 @@ function Add-VSMediaLiveNetworkTags {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Network.Tags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

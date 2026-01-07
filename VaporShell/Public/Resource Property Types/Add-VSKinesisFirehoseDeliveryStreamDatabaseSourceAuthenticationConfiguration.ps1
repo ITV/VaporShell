@@ -19,7 +19,7 @@ function Add-VSKinesisFirehoseDeliveryStreamDatabaseSourceAuthenticationConfigur
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.DatabaseSourceAuthenticationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

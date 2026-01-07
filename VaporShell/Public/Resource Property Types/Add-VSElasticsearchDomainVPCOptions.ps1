@@ -28,7 +28,7 @@ function Add-VSElasticsearchDomainVPCOptions {
     #>
 
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.VPCOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

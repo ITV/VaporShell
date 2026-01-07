@@ -29,6 +29,11 @@ function Add-VSS3StorageLensStorageLensConfiguration {
         UpdateType: Mutable
         Type: BucketsAndRegions
 
+    .PARAMETER PrefixDelimiter
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-prefixdelimiter
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER AwsOrg
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
         UpdateType: Mutable
@@ -49,12 +54,17 @@ function Add-VSS3StorageLensStorageLensConfiguration {
         UpdateType: Mutable
         Type: DataExport
 
+    .PARAMETER ExpandedPrefixesDataExport
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-expandedprefixesdataexport
+        UpdateType: Mutable
+        Type: StorageLensExpandedPrefixesDataExport
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.StorageLensConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -78,6 +88,18 @@ function Add-VSS3StorageLensStorageLensConfiguration {
 
         [Parameter(Mandatory = $false)]
         $Include,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PrefixDelimiter,
 
         [Parameter(Mandatory = $false)]
         $AwsOrg,
@@ -107,7 +129,10 @@ function Add-VSS3StorageLensStorageLensConfiguration {
         $StorageLensArn,
 
         [Parameter(Mandatory = $false)]
-        $DataExport
+        $DataExport,
+
+        [Parameter(Mandatory = $false)]
+        $ExpandedPrefixesDataExport
 
     )
 

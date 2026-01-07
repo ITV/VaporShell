@@ -19,7 +19,7 @@ function Add-VSWAFv2RuleGroupLabel {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.Label')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

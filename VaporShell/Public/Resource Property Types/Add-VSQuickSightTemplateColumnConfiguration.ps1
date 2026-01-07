@@ -34,7 +34,7 @@ function Add-VSQuickSightTemplateColumnConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ColumnConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

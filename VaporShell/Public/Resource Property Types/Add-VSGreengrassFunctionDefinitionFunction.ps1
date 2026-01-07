@@ -29,7 +29,7 @@ function Add-VSGreengrassFunctionDefinitionFunction {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.FunctionDefinition.Function')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

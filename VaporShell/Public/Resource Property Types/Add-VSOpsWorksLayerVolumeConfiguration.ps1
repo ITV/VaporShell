@@ -49,7 +49,7 @@ function Add-VSOpsWorksLayerVolumeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.Layer.VolumeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

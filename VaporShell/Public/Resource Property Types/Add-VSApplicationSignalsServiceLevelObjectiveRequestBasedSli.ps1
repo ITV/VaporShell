@@ -29,7 +29,7 @@ function Add-VSApplicationSignalsServiceLevelObjectiveRequestBasedSli {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.RequestBasedSli')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

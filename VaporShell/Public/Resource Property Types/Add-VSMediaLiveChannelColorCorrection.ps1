@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelColorCorrection {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.ColorCorrection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

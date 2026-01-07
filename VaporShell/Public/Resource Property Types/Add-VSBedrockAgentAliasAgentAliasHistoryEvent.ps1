@@ -31,7 +31,7 @@ function Add-VSBedrockAgentAliasAgentAliasHistoryEvent {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.AgentAlias.AgentAliasHistoryEvent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

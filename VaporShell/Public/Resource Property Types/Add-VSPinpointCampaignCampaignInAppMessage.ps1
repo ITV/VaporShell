@@ -30,7 +30,7 @@ function Add-VSPinpointCampaignCampaignInAppMessage {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.CampaignInAppMessage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -80,7 +80,7 @@ function Add-VSPinpointCampaignCampaignInAppMessage {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                CustomConfig {
+                'CustomConfig' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

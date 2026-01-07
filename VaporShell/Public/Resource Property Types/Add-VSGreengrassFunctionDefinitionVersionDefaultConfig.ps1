@@ -19,7 +19,7 @@ function Add-VSGreengrassFunctionDefinitionVersionDefaultConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.FunctionDefinitionVersion.DefaultConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

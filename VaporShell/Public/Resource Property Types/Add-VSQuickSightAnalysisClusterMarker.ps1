@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisClusterMarker {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ClusterMarker')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

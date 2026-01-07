@@ -29,7 +29,7 @@ function Add-VSWAFv2WebACLVisibilityConfig {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.VisibilityConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

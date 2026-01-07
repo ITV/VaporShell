@@ -19,7 +19,7 @@ function Add-VSWisdomKnowledgeBaseRenderingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.RenderingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

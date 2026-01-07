@@ -19,7 +19,7 @@ function Add-VSMSKReplicatorReplicationStartingPosition {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Replicator.ReplicationStartingPosition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

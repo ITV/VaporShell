@@ -29,7 +29,7 @@ function Add-VSDataZoneUserProfileSsoUserProfileDetails {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.UserProfile.SsoUserProfileDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

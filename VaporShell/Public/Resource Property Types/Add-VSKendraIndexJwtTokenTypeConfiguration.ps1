@@ -49,7 +49,7 @@ function Add-VSKendraIndexJwtTokenTypeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.Index.JwtTokenTypeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

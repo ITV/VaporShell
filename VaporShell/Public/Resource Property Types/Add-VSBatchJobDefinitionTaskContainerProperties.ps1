@@ -75,6 +75,11 @@ function Add-VSBatchJobDefinitionTaskContainerProperties {
         ItemType: MountPoint
         DuplicatesAllowed: True
 
+    .PARAMETER FirelensConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html#cfn-batch-jobdefinition-taskcontainerproperties-firelensconfiguration
+        UpdateType: Mutable
+        Type: FirelensConfiguration
+
     .PARAMETER DependsOn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html#cfn-batch-jobdefinition-taskcontainerproperties-dependson
         UpdateType: Mutable
@@ -108,7 +113,7 @@ function Add-VSBatchJobDefinitionTaskContainerProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.TaskContainerProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","RepositoryCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","RepositoryCredentials")]
 
@@ -230,6 +235,9 @@ function Add-VSBatchJobDefinitionTaskContainerProperties {
                 }
             })]
         $MountPoints,
+
+        [Parameter(Mandatory = $false)]
+        $FirelensConfiguration,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

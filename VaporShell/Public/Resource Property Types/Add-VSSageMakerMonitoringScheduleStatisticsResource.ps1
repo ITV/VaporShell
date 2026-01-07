@@ -19,7 +19,7 @@ function Add-VSSageMakerMonitoringScheduleStatisticsResource {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.StatisticsResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

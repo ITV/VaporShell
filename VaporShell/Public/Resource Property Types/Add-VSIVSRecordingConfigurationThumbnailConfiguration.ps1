@@ -36,7 +36,7 @@ function Add-VSIVSRecordingConfigurationThumbnailConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IVS.RecordingConfiguration.ThumbnailConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

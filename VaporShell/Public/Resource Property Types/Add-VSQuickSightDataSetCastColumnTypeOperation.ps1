@@ -34,7 +34,7 @@ function Add-VSQuickSightDataSetCastColumnTypeOperation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.CastColumnTypeOperation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

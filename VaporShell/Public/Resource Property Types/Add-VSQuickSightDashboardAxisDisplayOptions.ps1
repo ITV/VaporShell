@@ -44,7 +44,7 @@ function Add-VSQuickSightDashboardAxisDisplayOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.AxisDisplayOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

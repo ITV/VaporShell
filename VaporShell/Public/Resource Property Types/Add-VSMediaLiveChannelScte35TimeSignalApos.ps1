@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelScte35TimeSignalApos {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.Scte35TimeSignalApos')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

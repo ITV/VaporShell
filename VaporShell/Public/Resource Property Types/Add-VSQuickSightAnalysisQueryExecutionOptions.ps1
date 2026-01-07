@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisQueryExecutionOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.QueryExecutionOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -38,7 +38,7 @@ function Add-VSIoTTopicRuleDestinationVpcDestinationProperties {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRuleDestination.VpcDestinationProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

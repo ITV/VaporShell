@@ -31,7 +31,7 @@ function Add-VSNetworkManagerSiteToSiteVpnAttachmentProposedSegmentChange {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.SiteToSiteVpnAttachment.ProposedSegmentChange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

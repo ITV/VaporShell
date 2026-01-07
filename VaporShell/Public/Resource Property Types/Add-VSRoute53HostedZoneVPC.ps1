@@ -24,7 +24,7 @@ function Add-VSRoute53HostedZoneVPC {
     #>
 
     [OutputType('Vaporshell.Resource.Route53.HostedZone.VPC')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

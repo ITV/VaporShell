@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardTableBorderOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TableBorderOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

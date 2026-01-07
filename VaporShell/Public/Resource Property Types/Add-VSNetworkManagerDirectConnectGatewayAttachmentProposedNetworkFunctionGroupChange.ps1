@@ -31,7 +31,7 @@ function Add-VSNetworkManagerDirectConnectGatewayAttachmentProposedNetworkFuncti
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.DirectConnectGatewayAttachment.ProposedNetworkFunctionGroupChange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

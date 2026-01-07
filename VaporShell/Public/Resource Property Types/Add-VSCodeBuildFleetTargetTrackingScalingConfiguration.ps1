@@ -24,7 +24,7 @@ function Add-VSCodeBuildFleetTargetTrackingScalingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Fleet.TargetTrackingScalingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

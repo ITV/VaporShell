@@ -29,7 +29,7 @@ function Add-VSSageMakerDeviceDevice {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Device.Device')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

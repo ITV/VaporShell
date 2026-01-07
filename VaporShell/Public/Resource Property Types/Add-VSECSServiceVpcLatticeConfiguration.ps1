@@ -29,7 +29,7 @@ function Add-VSECSServiceVpcLatticeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.VpcLatticeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

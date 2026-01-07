@@ -54,7 +54,7 @@ function Add-VSEC2VerifiedAccessTrustProviderNativeApplicationOidcOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessTrustProvider.NativeApplicationOidcOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

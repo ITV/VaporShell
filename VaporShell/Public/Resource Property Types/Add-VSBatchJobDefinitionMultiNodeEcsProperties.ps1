@@ -21,7 +21,7 @@ function Add-VSBatchJobDefinitionMultiNodeEcsProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.MultiNodeEcsProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSSageMakerUserProfileCustomImage {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.CustomImage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

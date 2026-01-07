@@ -29,7 +29,7 @@ function Add-VSMSKClusterS3 {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.S3')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

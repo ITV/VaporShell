@@ -19,7 +19,7 @@ function Add-VSAppMeshVirtualServiceVirtualServiceSpec {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualService.VirtualServiceSpec')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

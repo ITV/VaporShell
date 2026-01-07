@@ -24,7 +24,7 @@ function Add-VSGammaDilithiumJobDefinitionEksSecret {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.EksSecret')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

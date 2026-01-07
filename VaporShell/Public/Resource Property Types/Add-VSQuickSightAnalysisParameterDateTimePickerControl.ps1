@@ -34,7 +34,7 @@ function Add-VSQuickSightAnalysisParameterDateTimePickerControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ParameterDateTimePickerControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

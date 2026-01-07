@@ -29,7 +29,7 @@ function Add-VSEC2ClientVpnEndpointConnectionLogOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.ClientVpnEndpoint.ConnectionLogOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

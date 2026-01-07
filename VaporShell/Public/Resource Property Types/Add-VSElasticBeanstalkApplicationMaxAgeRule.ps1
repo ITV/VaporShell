@@ -29,7 +29,7 @@ function Add-VSElasticBeanstalkApplicationMaxAgeRule {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticBeanstalk.Application.MaxAgeRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

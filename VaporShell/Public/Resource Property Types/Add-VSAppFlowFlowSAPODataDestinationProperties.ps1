@@ -41,7 +41,7 @@ function Add-VSAppFlowFlowSAPODataDestinationProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.SAPODataDestinationProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

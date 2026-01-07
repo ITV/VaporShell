@@ -20,7 +20,7 @@ function Add-VSGreengrassLoggerDefinitionLoggerDefinitionVersion {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.LoggerDefinition.LoggerDefinitionVersion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowInforNexusSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.InforNexusSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

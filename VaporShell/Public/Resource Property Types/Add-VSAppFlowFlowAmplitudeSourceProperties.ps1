@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowAmplitudeSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.AmplitudeSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

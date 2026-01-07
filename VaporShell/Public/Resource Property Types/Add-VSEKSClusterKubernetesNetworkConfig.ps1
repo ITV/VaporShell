@@ -34,7 +34,7 @@ function Add-VSEKSClusterKubernetesNetworkConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.KubernetesNetworkConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

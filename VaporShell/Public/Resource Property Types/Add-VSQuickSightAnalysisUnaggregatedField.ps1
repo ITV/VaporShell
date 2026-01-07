@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisUnaggregatedField {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.UnaggregatedField')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

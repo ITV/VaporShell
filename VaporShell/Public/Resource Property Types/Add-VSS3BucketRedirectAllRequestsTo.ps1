@@ -24,7 +24,7 @@ function Add-VSS3BucketRedirectAllRequestsTo {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.RedirectAllRequestsTo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

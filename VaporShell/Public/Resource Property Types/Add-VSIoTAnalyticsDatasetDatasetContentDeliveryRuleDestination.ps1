@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsDatasetDatasetContentDeliveryRuleDestination {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.DatasetContentDeliveryRuleDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

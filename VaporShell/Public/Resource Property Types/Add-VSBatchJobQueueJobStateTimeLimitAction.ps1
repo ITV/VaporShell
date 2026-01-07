@@ -34,7 +34,7 @@ function Add-VSBatchJobQueueJobStateTimeLimitAction {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobQueue.JobStateTimeLimitAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

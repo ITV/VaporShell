@@ -34,7 +34,7 @@ function Add-VSMediaPackageOriginEndpointMssPackage {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.MssPackage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

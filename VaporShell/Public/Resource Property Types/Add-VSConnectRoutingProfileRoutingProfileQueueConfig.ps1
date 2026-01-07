@@ -29,7 +29,7 @@ function Add-VSConnectRoutingProfileRoutingProfileQueueConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.RoutingProfile.RoutingProfileQueueConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

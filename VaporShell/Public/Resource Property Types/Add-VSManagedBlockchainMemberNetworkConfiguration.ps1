@@ -44,7 +44,7 @@ function Add-VSManagedBlockchainMemberNetworkConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ManagedBlockchain.Member.NetworkConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

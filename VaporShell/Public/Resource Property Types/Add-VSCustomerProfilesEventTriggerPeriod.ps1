@@ -34,7 +34,7 @@ function Add-VSCustomerProfilesEventTriggerPeriod {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.EventTrigger.Period')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

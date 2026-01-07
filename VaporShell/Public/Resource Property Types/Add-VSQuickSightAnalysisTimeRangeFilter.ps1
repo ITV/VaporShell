@@ -64,7 +64,7 @@ function Add-VSQuickSightAnalysisTimeRangeFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TimeRangeFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

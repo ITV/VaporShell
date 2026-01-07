@@ -71,7 +71,7 @@ function Add-VSQuickSightTopicTopicFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.TopicFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

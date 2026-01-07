@@ -44,7 +44,7 @@ function Add-VSECSTaskDefinitionPortMapping {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.PortMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

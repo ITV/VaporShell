@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelArchiveS3Settings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.ArchiveS3Settings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

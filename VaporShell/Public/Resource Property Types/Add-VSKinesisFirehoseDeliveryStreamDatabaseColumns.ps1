@@ -28,7 +28,7 @@ function Add-VSKinesisFirehoseDeliveryStreamDatabaseColumns {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.DatabaseColumns')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

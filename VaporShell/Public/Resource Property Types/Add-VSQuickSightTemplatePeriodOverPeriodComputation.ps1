@@ -34,7 +34,7 @@ function Add-VSQuickSightTemplatePeriodOverPeriodComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PeriodOverPeriodComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

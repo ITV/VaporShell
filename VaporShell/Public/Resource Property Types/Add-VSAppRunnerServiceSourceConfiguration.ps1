@@ -34,7 +34,7 @@ function Add-VSAppRunnerServiceSourceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.SourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

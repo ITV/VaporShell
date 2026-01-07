@@ -36,7 +36,7 @@ function Add-VSLexBotImageResponseCard {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.ImageResponseCard')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

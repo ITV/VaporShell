@@ -29,7 +29,7 @@ function Add-VSDeadlineFleetEc2EbsVolume {
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Fleet.Ec2EbsVolume')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

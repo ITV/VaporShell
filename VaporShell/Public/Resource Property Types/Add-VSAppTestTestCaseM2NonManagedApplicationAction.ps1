@@ -24,7 +24,7 @@ function Add-VSAppTestTestCaseM2NonManagedApplicationAction {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.M2NonManagedApplicationAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

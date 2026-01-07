@@ -24,7 +24,7 @@ function Add-VSCloudFrontRealtimeLogConfigKinesisStreamConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.RealtimeLogConfig.KinesisStreamConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

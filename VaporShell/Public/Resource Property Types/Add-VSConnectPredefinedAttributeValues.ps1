@@ -21,7 +21,7 @@ function Add-VSConnectPredefinedAttributeValues {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.PredefinedAttribute.Values')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

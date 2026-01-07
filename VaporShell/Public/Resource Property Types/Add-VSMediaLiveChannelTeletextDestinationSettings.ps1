@@ -14,7 +14,7 @@ function Add-VSMediaLiveChannelTeletextDestinationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.TeletextDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

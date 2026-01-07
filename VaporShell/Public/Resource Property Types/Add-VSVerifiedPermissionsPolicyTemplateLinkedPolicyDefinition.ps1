@@ -29,7 +29,7 @@ function Add-VSVerifiedPermissionsPolicyTemplateLinkedPolicyDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.VerifiedPermissions.Policy.TemplateLinkedPolicyDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

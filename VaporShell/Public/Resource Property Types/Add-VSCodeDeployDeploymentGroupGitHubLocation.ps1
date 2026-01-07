@@ -24,7 +24,7 @@ function Add-VSCodeDeployDeploymentGroupGitHubLocation {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.GitHubLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

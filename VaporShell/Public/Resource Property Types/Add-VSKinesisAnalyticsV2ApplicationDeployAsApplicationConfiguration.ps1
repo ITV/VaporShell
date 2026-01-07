@@ -19,7 +19,7 @@ function Add-VSKinesisAnalyticsV2ApplicationDeployAsApplicationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.DeployAsApplicationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

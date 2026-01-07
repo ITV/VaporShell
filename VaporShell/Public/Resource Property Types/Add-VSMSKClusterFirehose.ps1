@@ -24,7 +24,7 @@ function Add-VSMSKClusterFirehose {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.Firehose')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

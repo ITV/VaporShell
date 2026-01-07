@@ -34,7 +34,7 @@ function Add-VSPinpointApplicationSettingsLimits {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.ApplicationSettings.Limits')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSGreengrassV2ComponentVersionLambdaDeviceMount {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaDeviceMount')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

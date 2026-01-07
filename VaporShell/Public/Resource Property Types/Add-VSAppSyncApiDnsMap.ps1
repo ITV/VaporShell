@@ -24,7 +24,7 @@ function Add-VSAppSyncApiDnsMap {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.Api.DnsMap')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSResilienceHubAppPhysicalResourceId {
     #>
 
     [OutputType('Vaporshell.Resource.ResilienceHub.App.PhysicalResourceId')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

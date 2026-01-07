@@ -29,7 +29,7 @@ function Add-VSS3BucketLoggingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.LoggingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSIoTAnalyticsPipelineFilter {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Pipeline.Filter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

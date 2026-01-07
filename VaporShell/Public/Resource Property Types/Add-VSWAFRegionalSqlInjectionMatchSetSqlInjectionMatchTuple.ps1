@@ -24,7 +24,7 @@ function Add-VSWAFRegionalSqlInjectionMatchSetSqlInjectionMatchTuple {
     #>
 
     [OutputType('Vaporshell.Resource.WAFRegional.SqlInjectionMatchSet.SqlInjectionMatchTuple')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

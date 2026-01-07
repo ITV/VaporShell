@@ -29,7 +29,7 @@ function Add-VSCodeDeployDeploymentGroupRevisionLocation {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.RevisionLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

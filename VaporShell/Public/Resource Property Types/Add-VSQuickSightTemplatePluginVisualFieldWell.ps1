@@ -40,7 +40,7 @@ function Add-VSQuickSightTemplatePluginVisualFieldWell {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PluginVisualFieldWell')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

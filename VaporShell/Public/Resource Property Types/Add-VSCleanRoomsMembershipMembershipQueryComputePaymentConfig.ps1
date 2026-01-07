@@ -19,7 +19,7 @@ function Add-VSCleanRoomsMembershipMembershipQueryComputePaymentConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Membership.MembershipQueryComputePaymentConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

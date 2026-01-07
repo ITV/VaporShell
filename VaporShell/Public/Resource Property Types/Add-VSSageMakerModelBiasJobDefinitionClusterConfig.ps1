@@ -34,7 +34,7 @@ function Add-VSSageMakerModelBiasJobDefinitionClusterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.ClusterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSGroundStationConfigUplinkSpectrumConfig {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.Config.UplinkSpectrumConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

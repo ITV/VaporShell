@@ -64,7 +64,7 @@ function Add-VSApiGatewayDeploymentMethodSetting {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.Deployment.MethodSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

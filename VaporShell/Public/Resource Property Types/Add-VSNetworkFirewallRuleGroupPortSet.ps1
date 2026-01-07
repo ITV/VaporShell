@@ -21,7 +21,7 @@ function Add-VSNetworkFirewallRuleGroupPortSet {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.PortSet')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

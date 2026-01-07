@@ -49,6 +49,11 @@ function Add-VSQuickSightDashboardWaterfallChartConfiguration {
         UpdateType: Mutable
         Type: WaterfallChartColorConfiguration
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-waterfallchartconfiguration.html#cfn-quicksight-dashboard-waterfallchartconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER CategoryAxisDisplayOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-waterfallchartconfiguration.html#cfn-quicksight-dashboard-waterfallchartconfiguration-categoryaxisdisplayoptions
         UpdateType: Mutable
@@ -69,7 +74,7 @@ function Add-VSQuickSightDashboardWaterfallChartConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.WaterfallChartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -96,6 +101,9 @@ function Add-VSQuickSightDashboardWaterfallChartConfiguration {
 
         [Parameter(Mandatory = $false)]
         $ColorConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         $CategoryAxisDisplayOptions,

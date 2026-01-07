@@ -26,7 +26,7 @@ function Add-VSWAFv2RuleGroupXssMatchStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.XssMatchStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

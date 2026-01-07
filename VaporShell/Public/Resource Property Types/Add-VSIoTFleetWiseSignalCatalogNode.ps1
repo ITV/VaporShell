@@ -34,7 +34,7 @@ function Add-VSIoTFleetWiseSignalCatalogNode {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.SignalCatalog.Node')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSBatchJobDefinitionHost {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.Host')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

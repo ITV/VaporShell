@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisDataSetReference {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DataSetReference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

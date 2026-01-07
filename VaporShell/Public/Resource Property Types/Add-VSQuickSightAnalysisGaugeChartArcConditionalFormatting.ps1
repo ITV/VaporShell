@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisGaugeChartArcConditionalFormatting {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GaugeChartArcConditionalFormatting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

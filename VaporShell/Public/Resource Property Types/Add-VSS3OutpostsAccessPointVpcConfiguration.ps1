@@ -19,7 +19,7 @@ function Add-VSS3OutpostsAccessPointVpcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3Outposts.AccessPoint.VpcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

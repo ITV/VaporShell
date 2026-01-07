@@ -46,7 +46,7 @@ function Add-VSLogsMetricFilterMetricTransformation {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.MetricFilter.MetricTransformation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -20,7 +20,7 @@ function Add-VSIoTThingAttributePayload {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.Thing.AttributePayload')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

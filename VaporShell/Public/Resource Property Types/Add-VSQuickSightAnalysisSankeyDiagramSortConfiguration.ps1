@@ -31,7 +31,7 @@ function Add-VSQuickSightAnalysisSankeyDiagramSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SankeyDiagramSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

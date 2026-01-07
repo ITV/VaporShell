@@ -24,7 +24,7 @@ function Add-VSAppFlowFlowTriggerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.TriggerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

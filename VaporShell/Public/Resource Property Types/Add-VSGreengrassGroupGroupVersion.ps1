@@ -49,7 +49,7 @@ function Add-VSGreengrassGroupGroupVersion {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.Group.GroupVersion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

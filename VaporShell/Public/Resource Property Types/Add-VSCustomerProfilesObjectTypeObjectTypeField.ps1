@@ -29,7 +29,7 @@ function Add-VSCustomerProfilesObjectTypeObjectTypeField {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.ObjectType.ObjectTypeField')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

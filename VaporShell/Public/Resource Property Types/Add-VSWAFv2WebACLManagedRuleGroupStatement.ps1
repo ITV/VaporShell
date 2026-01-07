@@ -55,7 +55,7 @@ function Add-VSWAFv2WebACLManagedRuleGroupStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ManagedRuleGroupStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

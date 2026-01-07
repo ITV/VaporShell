@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsDatastoreColumn {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Datastore.Column')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

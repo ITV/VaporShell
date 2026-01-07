@@ -24,7 +24,7 @@ function Add-VSAppMeshRouteDuration {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.Duration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

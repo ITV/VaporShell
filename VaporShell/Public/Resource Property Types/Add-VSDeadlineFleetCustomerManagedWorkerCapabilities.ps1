@@ -65,7 +65,7 @@ function Add-VSDeadlineFleetCustomerManagedWorkerCapabilities {
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Fleet.CustomerManagedWorkerCapabilities')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

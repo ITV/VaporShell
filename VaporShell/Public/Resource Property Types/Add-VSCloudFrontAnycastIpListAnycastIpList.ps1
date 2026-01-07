@@ -9,6 +9,11 @@ function Add-VSCloudFrontAnycastIpListAnycastIpList {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html
 
+    .PARAMETER IpAddressType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html#cfn-cloudfront-anycastiplist-anycastiplist-ipaddresstype
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER Status
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html#cfn-cloudfront-anycastiplist-anycastiplist-status
         UpdateType: Mutable
@@ -41,6 +46,13 @@ function Add-VSCloudFrontAnycastIpListAnycastIpList {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER IpamCidrConfigResults
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html#cfn-cloudfront-anycastiplist-anycastiplist-ipamcidrconfigresults
+        UpdateType: Mutable
+        Type: List
+        ItemType: IpamCidrConfigResult
+        DuplicatesAllowed: True
+
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html#cfn-cloudfront-anycastiplist-anycastiplist-name
         UpdateType: Mutable
@@ -51,10 +63,22 @@ function Add-VSCloudFrontAnycastIpListAnycastIpList {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.AnycastIpList.AnycastIpList')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IpAddressType,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -117,6 +141,18 @@ function Add-VSCloudFrontAnycastIpListAnycastIpList {
                 }
             })]
         $Arn,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.CloudFront.AnycastIpList.IpamCidrConfigResult"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IpamCidrConfigResults,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

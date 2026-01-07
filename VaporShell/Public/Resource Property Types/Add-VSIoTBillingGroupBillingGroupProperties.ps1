@@ -19,7 +19,7 @@ function Add-VSIoTBillingGroupBillingGroupProperties {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.BillingGroup.BillingGroupProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

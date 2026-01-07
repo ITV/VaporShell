@@ -34,7 +34,7 @@ function Add-VSCloudFrontDistributionCustomErrorResponse {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.CustomErrorResponse')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

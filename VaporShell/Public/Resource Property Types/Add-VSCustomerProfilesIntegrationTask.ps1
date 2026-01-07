@@ -43,7 +43,7 @@ function Add-VSCustomerProfilesIntegrationTask {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.Task')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

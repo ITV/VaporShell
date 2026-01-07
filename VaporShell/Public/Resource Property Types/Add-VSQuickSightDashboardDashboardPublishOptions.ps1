@@ -14,16 +14,6 @@ function Add-VSQuickSightDashboardDashboardPublishOptions {
         UpdateType: Mutable
         Type: SheetControlsOption
 
-    .PARAMETER ExportToCSVOption
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-exporttocsvoption
-        UpdateType: Mutable
-        Type: ExportToCSVOption
-
-    .PARAMETER DataPointMenuLabelOption
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-datapointmenulabeloption
-        UpdateType: Mutable
-        Type: DataPointMenuLabelOption
-
     .PARAMETER DataPointDrillUpDownOption
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-datapointdrillupdownoption
         UpdateType: Mutable
@@ -39,15 +29,10 @@ function Add-VSQuickSightDashboardDashboardPublishOptions {
         UpdateType: Mutable
         Type: DashboardVisualPublishOptions
 
-    .PARAMETER VisualMenuOption
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-visualmenuoption
+    .PARAMETER DataStoriesSharingOption
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-datastoriessharingoption
         UpdateType: Mutable
-        PrimitiveType: Json
-
-    .PARAMETER DataPointTooltipOption
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-datapointtooltipoption
-        UpdateType: Mutable
-        Type: DataPointTooltipOption
+        Type: DataStoriesSharingOption
 
     .PARAMETER VisualAxisSortOption
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-visualaxissortoption
@@ -59,6 +44,41 @@ function Add-VSQuickSightDashboardDashboardPublishOptions {
         UpdateType: Mutable
         Type: ExportWithHiddenFieldsOption
 
+    .PARAMETER QuickSuiteActionsOption
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-quicksuiteactionsoption
+        UpdateType: Mutable
+        Type: QuickSuiteActionsOption
+
+    .PARAMETER ExecutiveSummaryOption
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-executivesummaryoption
+        UpdateType: Mutable
+        Type: ExecutiveSummaryOption
+
+    .PARAMETER ExportToCSVOption
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-exporttocsvoption
+        UpdateType: Mutable
+        Type: ExportToCSVOption
+
+    .PARAMETER DataPointMenuLabelOption
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-datapointmenulabeloption
+        UpdateType: Mutable
+        Type: DataPointMenuLabelOption
+
+    .PARAMETER VisualMenuOption
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-visualmenuoption
+        UpdateType: Mutable
+        Type: VisualMenuOption
+
+    .PARAMETER DataPointTooltipOption
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-datapointtooltipoption
+        UpdateType: Mutable
+        Type: DataPointTooltipOption
+
+    .PARAMETER DataQAEnabledOption
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-dataqaenabledoption
+        UpdateType: Mutable
+        Type: DataQAEnabledOption
+
     .PARAMETER SheetLayoutElementMaximizationOption
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html#cfn-quicksight-dashboard-dashboardpublishoptions-sheetlayoutelementmaximizationoption
         UpdateType: Mutable
@@ -69,18 +89,12 @@ function Add-VSQuickSightDashboardDashboardPublishOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DashboardPublishOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
         $SheetControlsOption,
-
-        [Parameter(Mandatory = $false)]
-        $ExportToCSVOption,
-
-        [Parameter(Mandatory = $false)]
-        $DataPointMenuLabelOption,
 
         [Parameter(Mandatory = $false)]
         $DataPointDrillUpDownOption,
@@ -92,25 +106,34 @@ function Add-VSQuickSightDashboardDashboardPublishOptions {
         $VisualPublishOptions,
 
         [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $VisualMenuOption,
-
-        [Parameter(Mandatory = $false)]
-        $DataPointTooltipOption,
+        $DataStoriesSharingOption,
 
         [Parameter(Mandatory = $false)]
         $VisualAxisSortOption,
 
         [Parameter(Mandatory = $false)]
         $ExportWithHiddenFieldsOption,
+
+        [Parameter(Mandatory = $false)]
+        $QuickSuiteActionsOption,
+
+        [Parameter(Mandatory = $false)]
+        $ExecutiveSummaryOption,
+
+        [Parameter(Mandatory = $false)]
+        $ExportToCSVOption,
+
+        [Parameter(Mandatory = $false)]
+        $DataPointMenuLabelOption,
+
+        [Parameter(Mandatory = $false)]
+        $VisualMenuOption,
+
+        [Parameter(Mandatory = $false)]
+        $DataPointTooltipOption,
+
+        [Parameter(Mandatory = $false)]
+        $DataQAEnabledOption,
 
         [Parameter(Mandatory = $false)]
         $SheetLayoutElementMaximizationOption
@@ -125,20 +148,6 @@ function Add-VSQuickSightDashboardDashboardPublishOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                VisualMenuOption {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
                 Default {
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
                 }

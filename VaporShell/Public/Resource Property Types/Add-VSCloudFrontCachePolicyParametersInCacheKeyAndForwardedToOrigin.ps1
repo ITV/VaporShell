@@ -39,7 +39,7 @@ function Add-VSCloudFrontCachePolicyParametersInCacheKeyAndForwardedToOrigin {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.CachePolicy.ParametersInCacheKeyAndForwardedToOrigin')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

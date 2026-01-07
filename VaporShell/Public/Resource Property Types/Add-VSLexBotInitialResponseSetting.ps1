@@ -34,7 +34,7 @@ function Add-VSLexBotInitialResponseSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.InitialResponseSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

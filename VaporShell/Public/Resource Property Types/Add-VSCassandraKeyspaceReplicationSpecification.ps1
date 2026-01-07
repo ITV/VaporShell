@@ -26,7 +26,7 @@ function Add-VSCassandraKeyspaceReplicationSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Cassandra.Keyspace.ReplicationSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSCodeStarNotificationsNotificationRuleTarget {
     #>
 
     [OutputType('Vaporshell.Resource.CodeStarNotifications.NotificationRule.Target')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -28,7 +28,7 @@ function Add-VSSageMakerModelExplainabilityJobDefinitionVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

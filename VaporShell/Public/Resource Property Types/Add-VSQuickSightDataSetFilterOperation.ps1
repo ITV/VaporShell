@@ -9,21 +9,42 @@ function Add-VSQuickSightDataSetFilterOperation {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html
 
+    .PARAMETER DateFilterCondition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-datefiltercondition
+        UpdateType: Mutable
+        Type: DataSetDateFilterCondition
+
+    .PARAMETER StringFilterCondition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-stringfiltercondition
+        UpdateType: Mutable
+        Type: DataSetStringFilterCondition
+
     .PARAMETER ConditionExpression
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-conditionexpression
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER NumericFilterCondition
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-filteroperation.html#cfn-quicksight-dataset-filteroperation-numericfiltercondition
+        UpdateType: Mutable
+        Type: DataSetNumericFilterCondition
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.FilterOperation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $DateFilterCondition,
+
+        [Parameter(Mandatory = $false)]
+        $StringFilterCondition,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,7 +54,10 @@ function Add-VSQuickSightDataSetFilterOperation {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ConditionExpression
+        $ConditionExpression,
+
+        [Parameter(Mandatory = $false)]
+        $NumericFilterCondition
 
     )
 

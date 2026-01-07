@@ -19,7 +19,7 @@ function Add-VSEC2LaunchTemplateHibernationOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.HibernationOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSBCMDataExportsExportResourceTag {
     #>
 
     [OutputType('Vaporshell.Resource.BCMDataExports.Export.ResourceTag')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

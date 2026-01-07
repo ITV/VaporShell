@@ -33,7 +33,7 @@ function Add-VSEMRInstanceFleetConfigConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceFleetConfig.Configuration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

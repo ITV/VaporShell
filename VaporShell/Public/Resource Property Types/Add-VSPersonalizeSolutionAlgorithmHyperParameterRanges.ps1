@@ -35,7 +35,7 @@ function Add-VSPersonalizeSolutionAlgorithmHyperParameterRanges {
     #>
 
     [OutputType('Vaporshell.Resource.Personalize.Solution.AlgorithmHyperParameterRanges')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

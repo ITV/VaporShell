@@ -49,7 +49,7 @@ function Add-VSQuickSightAnalysisParameterSliderControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ParameterSliderControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

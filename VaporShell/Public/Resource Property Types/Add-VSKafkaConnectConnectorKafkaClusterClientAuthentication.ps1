@@ -19,7 +19,7 @@ function Add-VSKafkaConnectConnectorKafkaClusterClientAuthentication {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.KafkaClusterClientAuthentication')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

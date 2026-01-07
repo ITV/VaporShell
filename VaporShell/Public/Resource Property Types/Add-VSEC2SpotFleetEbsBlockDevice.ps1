@@ -44,7 +44,7 @@ function Add-VSEC2SpotFleetEbsBlockDevice {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.EbsBlockDevice')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

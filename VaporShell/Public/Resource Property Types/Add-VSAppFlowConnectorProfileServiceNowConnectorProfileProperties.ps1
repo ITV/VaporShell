@@ -19,7 +19,7 @@ function Add-VSAppFlowConnectorProfileServiceNowConnectorProfileProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.ServiceNowConnectorProfileProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

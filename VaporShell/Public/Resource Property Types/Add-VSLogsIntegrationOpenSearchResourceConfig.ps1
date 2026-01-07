@@ -41,7 +41,7 @@ function Add-VSLogsIntegrationOpenSearchResourceConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Integration.OpenSearchResourceConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

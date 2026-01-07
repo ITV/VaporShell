@@ -24,7 +24,7 @@ function Add-VSSESMailManagerTrafficPolicyIngressBooleanExpression {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerTrafficPolicy.IngressBooleanExpression')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

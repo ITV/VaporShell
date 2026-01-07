@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardGeospatialHeatmapDataColor {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GeospatialHeatmapDataColor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

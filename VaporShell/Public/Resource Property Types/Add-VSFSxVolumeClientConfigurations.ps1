@@ -25,7 +25,7 @@ function Add-VSFSxVolumeClientConfigurations {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.Volume.ClientConfigurations')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

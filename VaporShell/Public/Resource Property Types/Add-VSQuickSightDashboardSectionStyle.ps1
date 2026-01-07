@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardSectionStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SectionStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

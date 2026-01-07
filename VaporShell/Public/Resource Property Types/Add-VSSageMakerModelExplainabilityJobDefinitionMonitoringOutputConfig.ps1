@@ -26,7 +26,7 @@ function Add-VSSageMakerModelExplainabilityJobDefinitionMonitoringOutputConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.MonitoringOutputConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSEC2VPNConnectionPhase1DHGroupNumbersRequestListValue {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VPNConnection.Phase1DHGroupNumbersRequestListValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSBedrockDataSourceTransformation {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.Transformation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

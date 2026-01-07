@@ -54,7 +54,7 @@ function Add-VSLightsailDatabaseRelationalDatabaseParameter {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Database.RelationalDatabaseParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

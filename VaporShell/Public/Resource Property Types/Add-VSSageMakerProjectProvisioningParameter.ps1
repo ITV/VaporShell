@@ -24,7 +24,7 @@ function Add-VSSageMakerProjectProvisioningParameter {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Project.ProvisioningParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

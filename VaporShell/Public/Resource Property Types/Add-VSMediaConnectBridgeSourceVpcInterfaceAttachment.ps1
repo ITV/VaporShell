@@ -19,7 +19,7 @@ function Add-VSMediaConnectBridgeSourceVpcInterfaceAttachment {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.BridgeSource.VpcInterfaceAttachment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

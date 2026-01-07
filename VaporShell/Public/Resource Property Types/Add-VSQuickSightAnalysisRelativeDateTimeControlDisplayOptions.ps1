@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisRelativeDateTimeControlDisplayOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.RelativeDateTimeControlDisplayOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

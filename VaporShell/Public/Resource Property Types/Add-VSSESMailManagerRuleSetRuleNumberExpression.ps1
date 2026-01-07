@@ -29,7 +29,7 @@ function Add-VSSESMailManagerRuleSetRuleNumberExpression {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.RuleNumberExpression')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

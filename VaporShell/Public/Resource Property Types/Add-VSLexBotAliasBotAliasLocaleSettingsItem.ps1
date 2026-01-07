@@ -24,7 +24,7 @@ function Add-VSLexBotAliasBotAliasLocaleSettingsItem {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.BotAlias.BotAliasLocaleSettingsItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

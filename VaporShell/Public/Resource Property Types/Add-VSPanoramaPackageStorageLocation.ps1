@@ -39,7 +39,7 @@ function Add-VSPanoramaPackageStorageLocation {
     #>
 
     [OutputType('Vaporshell.Resource.Panorama.Package.StorageLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

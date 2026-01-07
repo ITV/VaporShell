@@ -29,7 +29,7 @@ function Add-VSDLMLifecyclePolicyCrossRegionCopyAction {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.CrossRegionCopyAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

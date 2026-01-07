@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardAxisLabelReferenceOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.AxisLabelReferenceOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

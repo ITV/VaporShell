@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardTextConditionalFormat {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TextConditionalFormat')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

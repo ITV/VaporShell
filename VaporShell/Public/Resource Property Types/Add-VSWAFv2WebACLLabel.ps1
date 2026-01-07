@@ -19,7 +19,7 @@ function Add-VSWAFv2WebACLLabel {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.Label')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

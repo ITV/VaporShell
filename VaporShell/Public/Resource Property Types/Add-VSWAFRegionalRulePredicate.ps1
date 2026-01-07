@@ -29,7 +29,7 @@ function Add-VSWAFRegionalRulePredicate {
     #>
 
     [OutputType('Vaporshell.Resource.WAFRegional.Rule.Predicate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

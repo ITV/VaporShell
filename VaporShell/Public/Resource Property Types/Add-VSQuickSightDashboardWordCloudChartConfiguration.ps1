@@ -29,12 +29,17 @@ function Add-VSQuickSightDashboardWordCloudChartConfiguration {
         UpdateType: Mutable
         Type: WordCloudOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-wordcloudchartconfiguration.html#cfn-quicksight-dashboard-wordcloudchartconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.WordCloudChartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -48,7 +53,10 @@ function Add-VSQuickSightDashboardWordCloudChartConfiguration {
         $FieldWells,
 
         [Parameter(Mandatory = $false)]
-        $WordCloudOptions
+        $WordCloudOptions,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions
 
     )
 

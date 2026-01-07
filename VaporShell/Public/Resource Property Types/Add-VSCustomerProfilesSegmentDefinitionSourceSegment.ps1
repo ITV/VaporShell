@@ -19,7 +19,7 @@ function Add-VSCustomerProfilesSegmentDefinitionSourceSegment {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.SegmentDefinition.SourceSegment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSElasticLoadBalancingV2ListenerRuleSourceIpConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.SourceIpConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

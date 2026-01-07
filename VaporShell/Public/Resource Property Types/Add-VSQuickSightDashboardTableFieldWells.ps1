@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardTableFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TableFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

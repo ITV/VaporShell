@@ -19,7 +19,7 @@ function Add-VSSageMakerModelQualityJobDefinitionStoppingCondition {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelQualityJobDefinition.StoppingCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

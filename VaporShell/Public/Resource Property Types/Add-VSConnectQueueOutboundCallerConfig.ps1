@@ -29,7 +29,7 @@ function Add-VSConnectQueueOutboundCallerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.Queue.OutboundCallerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSTransferWorkflowS3Tag {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.Workflow.S3Tag')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

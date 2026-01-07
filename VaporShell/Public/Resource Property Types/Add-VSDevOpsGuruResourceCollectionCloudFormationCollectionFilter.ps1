@@ -21,7 +21,7 @@ function Add-VSDevOpsGuruResourceCollectionCloudFormationCollectionFilter {
     #>
 
     [OutputType('Vaporshell.Resource.DevOpsGuru.ResourceCollection.CloudFormationCollectionFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

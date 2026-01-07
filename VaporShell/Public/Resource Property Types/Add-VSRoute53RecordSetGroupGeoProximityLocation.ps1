@@ -34,7 +34,7 @@ function Add-VSRoute53RecordSetGroupGeoProximityLocation {
     #>
 
     [OutputType('Vaporshell.Resource.Route53.RecordSetGroup.GeoProximityLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

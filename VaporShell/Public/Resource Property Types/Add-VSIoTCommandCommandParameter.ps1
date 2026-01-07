@@ -34,7 +34,7 @@ function Add-VSIoTCommandCommandParameter {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.Command.CommandParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

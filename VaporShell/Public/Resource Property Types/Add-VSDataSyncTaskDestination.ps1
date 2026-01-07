@@ -19,7 +19,7 @@ function Add-VSDataSyncTaskDestination {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.Task.Destination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

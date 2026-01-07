@@ -26,7 +26,7 @@ function Add-VSQuickSightTemplateCategoryDrillDownFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.CategoryDrillDownFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

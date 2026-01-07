@@ -19,7 +19,7 @@ function Add-VSWAFv2WebACLExcludedRule {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ExcludedRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSIoTWirelessPartnerAccountSidewalkAccountInfoWithFingerprint {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.PartnerAccount.SidewalkAccountInfoWithFingerprint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSCodeGuruProfilerProfilingGroupAgentPermissions {
     #>
 
     [OutputType('Vaporshell.Resource.CodeGuruProfiler.ProfilingGroup.AgentPermissions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

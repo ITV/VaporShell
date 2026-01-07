@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateMappedDataSetParameter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.MappedDataSetParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

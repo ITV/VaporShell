@@ -29,7 +29,7 @@ function Add-VSPipesPipeSingleMeasureMapping {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.SingleMeasureMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

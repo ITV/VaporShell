@@ -29,7 +29,7 @@ function Add-VSSecurityHubAutomationRuleMapFilter {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.MapFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

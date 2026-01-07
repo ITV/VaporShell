@@ -19,7 +19,7 @@ function Add-VSRDSGlobalClusterGlobalEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.GlobalCluster.GlobalEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSQuickSightTopicTopicNumericRangeFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.TopicNumericRangeFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

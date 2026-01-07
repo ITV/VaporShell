@@ -28,7 +28,7 @@ function Add-VSDataBrewJobStatisticsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Job.StatisticsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

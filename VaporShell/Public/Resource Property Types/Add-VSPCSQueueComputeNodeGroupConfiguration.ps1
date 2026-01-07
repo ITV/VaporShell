@@ -19,7 +19,7 @@ function Add-VSPCSQueueComputeNodeGroupConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.PCS.Queue.ComputeNodeGroupConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

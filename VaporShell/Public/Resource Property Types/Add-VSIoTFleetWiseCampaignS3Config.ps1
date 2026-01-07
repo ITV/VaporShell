@@ -11,22 +11,22 @@ function Add-VSIoTFleetWiseCampaignS3Config {
 
     .PARAMETER BucketArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-s3config.html#cfn-iotfleetwise-campaign-s3config-bucketarn
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER DataFormat
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-s3config.html#cfn-iotfleetwise-campaign-s3config-dataformat
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER StorageCompressionFormat
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-s3config.html#cfn-iotfleetwise-campaign-s3config-storagecompressionformat
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Prefix
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-s3config.html#cfn-iotfleetwise-campaign-s3config-prefix
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -34,7 +34,7 @@ function Add-VSIoTFleetWiseCampaignS3Config {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.S3Config')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

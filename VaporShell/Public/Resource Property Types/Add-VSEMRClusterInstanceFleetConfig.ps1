@@ -46,7 +46,7 @@ function Add-VSEMRClusterInstanceFleetConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.InstanceFleetConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

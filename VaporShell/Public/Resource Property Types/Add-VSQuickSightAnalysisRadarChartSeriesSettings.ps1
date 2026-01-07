@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisRadarChartSeriesSettings {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.RadarChartSeriesSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

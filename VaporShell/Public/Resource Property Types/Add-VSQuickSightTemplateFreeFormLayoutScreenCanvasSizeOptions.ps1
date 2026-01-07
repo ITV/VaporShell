@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateFreeFormLayoutScreenCanvasSizeOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FreeFormLayoutScreenCanvasSizeOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

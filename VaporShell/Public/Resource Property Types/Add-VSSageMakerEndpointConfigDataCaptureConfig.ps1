@@ -45,7 +45,7 @@ function Add-VSSageMakerEndpointConfigDataCaptureConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.DataCaptureConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

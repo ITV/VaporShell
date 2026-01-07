@@ -21,7 +21,7 @@ function Add-VSLambdaEventSourceMappingMetricsConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.EventSourceMapping.MetricsConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

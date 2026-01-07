@@ -28,7 +28,7 @@ function Add-VSCloudFormationGuardHookStackNames {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.GuardHook.StackNames')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

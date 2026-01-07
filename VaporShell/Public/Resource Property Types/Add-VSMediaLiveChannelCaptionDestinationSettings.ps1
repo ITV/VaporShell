@@ -79,7 +79,7 @@ function Add-VSMediaLiveChannelCaptionDestinationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.CaptionDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

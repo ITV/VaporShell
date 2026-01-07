@@ -24,7 +24,7 @@ function Add-VSAutoScalingAutoScalingGroupNetworkInterfaceCountRequest {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.NetworkInterfaceCountRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

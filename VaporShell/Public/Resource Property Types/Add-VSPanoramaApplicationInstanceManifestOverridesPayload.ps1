@@ -19,7 +19,7 @@ function Add-VSPanoramaApplicationInstanceManifestOverridesPayload {
     #>
 
     [OutputType('Vaporshell.Resource.Panorama.ApplicationInstance.ManifestOverridesPayload')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

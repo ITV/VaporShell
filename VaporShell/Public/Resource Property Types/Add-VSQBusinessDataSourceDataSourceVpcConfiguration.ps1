@@ -28,7 +28,7 @@ function Add-VSQBusinessDataSourceDataSourceVpcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.DataSource.DataSourceVpcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

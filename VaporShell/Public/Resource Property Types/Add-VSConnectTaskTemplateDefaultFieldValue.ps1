@@ -24,7 +24,7 @@ function Add-VSConnectTaskTemplateDefaultFieldValue {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.TaskTemplate.DefaultFieldValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

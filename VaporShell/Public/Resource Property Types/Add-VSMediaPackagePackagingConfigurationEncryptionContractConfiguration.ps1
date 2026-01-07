@@ -24,7 +24,7 @@ function Add-VSMediaPackagePackagingConfigurationEncryptionContractConfiguration
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.PackagingConfiguration.EncryptionContractConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

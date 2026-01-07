@@ -33,7 +33,7 @@ function Add-VSDeviceFarmProjectVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.DeviceFarm.Project.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

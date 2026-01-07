@@ -24,7 +24,7 @@ function Add-VSSageMakerInferenceExperimentInferenceExperimentSchedule {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.InferenceExperiment.InferenceExperimentSchedule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

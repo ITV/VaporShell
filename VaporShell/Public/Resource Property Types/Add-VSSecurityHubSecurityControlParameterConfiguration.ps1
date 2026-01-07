@@ -24,7 +24,7 @@ function Add-VSSecurityHubSecurityControlParameterConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.SecurityControl.ParameterConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

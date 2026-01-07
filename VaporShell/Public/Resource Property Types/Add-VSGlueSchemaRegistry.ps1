@@ -24,7 +24,7 @@ function Add-VSGlueSchemaRegistry {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Schema.Registry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -9,6 +9,11 @@ function Add-VSBedrockPromptVersionSystemContentBlock {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-systemcontentblock.html
 
+    .PARAMETER CachePoint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-systemcontentblock.html#cfn-bedrock-promptversion-systemcontentblock-cachepoint
+        UpdateType: Mutable
+        Type: CachePointBlock
+
     .PARAMETER Text
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-systemcontentblock.html#cfn-bedrock-promptversion-systemcontentblock-text
         UpdateType: Mutable
@@ -19,11 +24,14 @@ function Add-VSBedrockPromptVersionSystemContentBlock {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.PromptVersion.SystemContentBlock')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $CachePoint,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

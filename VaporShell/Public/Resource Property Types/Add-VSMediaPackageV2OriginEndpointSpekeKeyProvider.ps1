@@ -41,7 +41,7 @@ function Add-VSMediaPackageV2OriginEndpointSpekeKeyProvider {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint.SpekeKeyProvider')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

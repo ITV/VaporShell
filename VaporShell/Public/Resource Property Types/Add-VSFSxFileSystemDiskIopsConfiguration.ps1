@@ -24,7 +24,7 @@ function Add-VSFSxFileSystemDiskIopsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.FileSystem.DiskIopsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

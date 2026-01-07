@@ -24,7 +24,7 @@ function Add-VSGroundStationConfigEirp {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.Config.Eirp')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

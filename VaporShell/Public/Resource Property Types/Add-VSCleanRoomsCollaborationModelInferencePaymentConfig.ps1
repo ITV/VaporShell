@@ -19,7 +19,7 @@ function Add-VSCleanRoomsCollaborationModelInferencePaymentConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Collaboration.ModelInferencePaymentConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

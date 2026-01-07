@@ -14,6 +14,16 @@ function Add-VSBedrockGuardrailContextualGroundingFilterConfig {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER Action
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingfilterconfig.html#cfn-bedrock-guardrail-contextualgroundingfilterconfig-action
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Enabled
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingfilterconfig.html#cfn-bedrock-guardrail-contextualgroundingfilterconfig-enabled
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER Threshold
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingfilterconfig.html#cfn-bedrock-guardrail-contextualgroundingfilterconfig-threshold
         UpdateType: Mutable
@@ -24,7 +34,7 @@ function Add-VSBedrockGuardrailContextualGroundingFilterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Guardrail.ContextualGroundingFilterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -39,6 +49,30 @@ function Add-VSBedrockGuardrailContextualGroundingFilterConfig {
                 }
             })]
         $Type,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Action,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Enabled,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

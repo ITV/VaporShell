@@ -14,7 +14,7 @@ function Add-VSLakeFormationDataLakeSettingsCreateTableDefaultPermissions {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.DataLakeSettings.CreateTableDefaultPermissions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

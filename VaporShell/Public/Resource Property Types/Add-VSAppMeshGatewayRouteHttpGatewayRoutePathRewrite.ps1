@@ -19,7 +19,7 @@ function Add-VSAppMeshGatewayRouteHttpGatewayRoutePathRewrite {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.HttpGatewayRoutePathRewrite')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

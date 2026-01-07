@@ -19,7 +19,7 @@ function Add-VSOmicsAnnotationStoreStoreOptions {
     #>
 
     [OutputType('Vaporshell.Resource.Omics.AnnotationStore.StoreOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

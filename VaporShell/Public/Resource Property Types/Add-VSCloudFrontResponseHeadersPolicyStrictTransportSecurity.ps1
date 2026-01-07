@@ -34,7 +34,7 @@ function Add-VSCloudFrontResponseHeadersPolicyStrictTransportSecurity {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.StrictTransportSecurity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

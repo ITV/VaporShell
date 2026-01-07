@@ -21,7 +21,7 @@ function Add-VSQuickSightAnalysisTablePinnedFieldOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TablePinnedFieldOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

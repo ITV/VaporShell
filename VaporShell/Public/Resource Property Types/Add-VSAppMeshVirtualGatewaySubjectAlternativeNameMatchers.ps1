@@ -20,7 +20,7 @@ function Add-VSAppMeshVirtualGatewaySubjectAlternativeNameMatchers {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.SubjectAlternativeNameMatchers')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSAppTestTestCaseM2ManagedActionProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.M2ManagedActionProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

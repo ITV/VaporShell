@@ -24,7 +24,7 @@ function Add-VSElasticLoadBalancingV2TargetGroupTargetGroupAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.TargetGroup.TargetGroupAttribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

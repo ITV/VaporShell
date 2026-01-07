@@ -24,7 +24,7 @@ function Add-VSIoTFleetWiseSignalCatalogBranch {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.SignalCatalog.Branch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

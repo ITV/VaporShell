@@ -31,7 +31,7 @@ function Add-VSQuickSightDashboardFieldBasedTooltip {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FieldBasedTooltip')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

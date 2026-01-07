@@ -24,7 +24,7 @@ function Add-VSPCSClusterScheduler {
     #>
 
     [OutputType('Vaporshell.Resource.PCS.Cluster.Scheduler')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

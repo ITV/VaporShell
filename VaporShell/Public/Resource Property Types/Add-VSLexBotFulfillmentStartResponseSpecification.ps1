@@ -31,7 +31,7 @@ function Add-VSLexBotFulfillmentStartResponseSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.FulfillmentStartResponseSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

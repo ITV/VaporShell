@@ -19,7 +19,7 @@ function Add-VSIoTMitigationActionReplaceDefaultPolicyVersionParams {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.MitigationAction.ReplaceDefaultPolicyVersionParams')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

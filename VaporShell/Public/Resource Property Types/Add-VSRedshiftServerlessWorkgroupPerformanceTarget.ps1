@@ -24,7 +24,7 @@ function Add-VSRedshiftServerlessWorkgroupPerformanceTarget {
     #>
 
     [OutputType('Vaporshell.Resource.RedshiftServerless.Workgroup.PerformanceTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

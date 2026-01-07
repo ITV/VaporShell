@@ -19,7 +19,7 @@ function Add-VSImageBuilderImageRecipeSystemsManagerAgent {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.ImageRecipe.SystemsManagerAgent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

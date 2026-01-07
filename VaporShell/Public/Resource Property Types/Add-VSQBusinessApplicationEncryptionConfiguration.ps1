@@ -19,7 +19,7 @@ function Add-VSQBusinessApplicationEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Application.EncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

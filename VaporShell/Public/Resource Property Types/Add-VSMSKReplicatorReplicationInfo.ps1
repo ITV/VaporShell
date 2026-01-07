@@ -39,7 +39,7 @@ function Add-VSMSKReplicatorReplicationInfo {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Replicator.ReplicationInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

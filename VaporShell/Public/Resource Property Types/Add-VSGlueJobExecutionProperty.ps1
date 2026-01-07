@@ -19,7 +19,7 @@ function Add-VSGlueJobExecutionProperty {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Job.ExecutionProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

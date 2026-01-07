@@ -29,7 +29,7 @@ function Add-VSSecurityHubInsightDateFilter {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.Insight.DateFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

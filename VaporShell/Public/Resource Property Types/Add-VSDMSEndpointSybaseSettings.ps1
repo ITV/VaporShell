@@ -24,7 +24,7 @@ function Add-VSDMSEndpointSybaseSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.SybaseSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

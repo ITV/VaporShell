@@ -24,7 +24,7 @@ function Add-VSECSClusterManagedStorageConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Cluster.ManagedStorageConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

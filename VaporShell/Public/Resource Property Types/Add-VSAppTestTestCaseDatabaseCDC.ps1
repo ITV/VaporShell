@@ -24,7 +24,7 @@ function Add-VSAppTestTestCaseDatabaseCDC {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.DatabaseCDC')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

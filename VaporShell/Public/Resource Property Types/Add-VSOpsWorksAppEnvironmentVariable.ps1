@@ -29,7 +29,7 @@ function Add-VSOpsWorksAppEnvironmentVariable {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.App.EnvironmentVariable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

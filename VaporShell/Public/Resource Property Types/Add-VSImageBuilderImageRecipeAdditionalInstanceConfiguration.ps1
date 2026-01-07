@@ -24,7 +24,7 @@ function Add-VSImageBuilderImageRecipeAdditionalInstanceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.ImageRecipe.AdditionalInstanceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

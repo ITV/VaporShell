@@ -24,7 +24,7 @@ function Add-VSEC2LaunchTemplateTotalLocalStorageGB {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.TotalLocalStorageGB')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

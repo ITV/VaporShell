@@ -39,7 +39,7 @@ function Add-VSAppFlowConnectorProfileOAuth2Credentials {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.OAuth2Credentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

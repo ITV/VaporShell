@@ -24,7 +24,7 @@ function Add-VSB2BICapabilityS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Capability.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

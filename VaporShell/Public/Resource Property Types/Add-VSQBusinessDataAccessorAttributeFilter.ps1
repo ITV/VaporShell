@@ -68,7 +68,7 @@ function Add-VSQBusinessDataAccessorAttributeFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.DataAccessor.AttributeFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSSageMakerClusterClusterLifeCycleConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Cluster.ClusterLifeCycleConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

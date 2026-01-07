@@ -29,7 +29,7 @@ function Add-VSWAFv2RuleGroupHeaders {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.Headers')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSMediaTailorPlaybackConfigurationAdMarkerPassthrough {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.PlaybackConfiguration.AdMarkerPassthrough')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

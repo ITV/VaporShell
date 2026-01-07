@@ -24,7 +24,7 @@ function Add-VSS3BucketTagFilter {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.TagFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

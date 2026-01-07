@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateReferenceLineCustomLabelConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ReferenceLineCustomLabelConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

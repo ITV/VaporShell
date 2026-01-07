@@ -19,7 +19,7 @@ function Add-VSChatbotCustomActionCustomActionDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.Chatbot.CustomAction.CustomActionDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSRDSOptionGroupOptionSetting {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.OptionGroup.OptionSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

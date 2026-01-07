@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateRollingDateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.RollingDateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

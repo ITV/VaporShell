@@ -28,7 +28,7 @@ function Add-VSNetworkFirewallRuleGroupTCPFlagField {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.TCPFlagField')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

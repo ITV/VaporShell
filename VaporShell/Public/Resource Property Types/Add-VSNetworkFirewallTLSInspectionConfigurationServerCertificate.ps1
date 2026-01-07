@@ -19,7 +19,7 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationServerCertificate {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.TLSInspectionConfiguration.ServerCertificate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

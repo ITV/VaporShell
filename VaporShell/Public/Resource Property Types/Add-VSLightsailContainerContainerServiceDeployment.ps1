@@ -26,7 +26,7 @@ function Add-VSLightsailContainerContainerServiceDeployment {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Container.ContainerServiceDeployment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

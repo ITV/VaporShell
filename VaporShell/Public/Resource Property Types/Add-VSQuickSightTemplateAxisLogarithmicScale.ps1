@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateAxisLogarithmicScale {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.AxisLogarithmicScale')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

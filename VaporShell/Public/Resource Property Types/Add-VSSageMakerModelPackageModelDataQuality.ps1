@@ -24,7 +24,7 @@ function Add-VSSageMakerModelPackageModelDataQuality {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.ModelDataQuality')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

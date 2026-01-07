@@ -26,7 +26,7 @@ function Add-VSQuickSightTemplateWordCloudSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.WordCloudSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

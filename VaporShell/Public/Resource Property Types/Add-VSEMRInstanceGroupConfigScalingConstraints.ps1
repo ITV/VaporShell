@@ -24,7 +24,7 @@ function Add-VSEMRInstanceGroupConfigScalingConstraints {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceGroupConfig.ScalingConstraints')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSSageMakerModelExplainabilityJobDefinitionStoppingCondition {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.StoppingCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

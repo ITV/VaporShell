@@ -34,12 +34,17 @@ function Add-VSMediaLiveChannelH265ColorSpaceSettings {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-hdr10settings
         UpdateType: Mutable
 
+    .PARAMETER Hlg2020Settings
+        Type: Hlg2020Settings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265colorspacesettings.html#cfn-medialive-channel-h265colorspacesettings-hlg2020settings
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.H265ColorSpaceSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -56,7 +61,10 @@ function Add-VSMediaLiveChannelH265ColorSpaceSettings {
         $DolbyVision81Settings,
 
         [Parameter(Mandatory = $false)]
-        $Hdr10Settings
+        $Hdr10Settings,
+
+        [Parameter(Mandatory = $false)]
+        $Hlg2020Settings
 
     )
 

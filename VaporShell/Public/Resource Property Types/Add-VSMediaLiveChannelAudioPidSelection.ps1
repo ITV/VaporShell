@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelAudioPidSelection {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioPidSelection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

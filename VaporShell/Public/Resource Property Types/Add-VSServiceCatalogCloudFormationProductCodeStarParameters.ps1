@@ -34,7 +34,7 @@ function Add-VSServiceCatalogCloudFormationProductCodeStarParameters {
     #>
 
     [OutputType('Vaporshell.Resource.ServiceCatalog.CloudFormationProduct.CodeStarParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

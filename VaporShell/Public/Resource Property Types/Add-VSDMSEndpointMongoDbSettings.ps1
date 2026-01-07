@@ -79,7 +79,7 @@ function Add-VSDMSEndpointMongoDbSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.MongoDbSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
 

@@ -39,7 +39,7 @@ function Add-VSEC2LaunchTemplateMetadataOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.MetadataOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSDynamoDBGlobalTableWarmThroughput {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.WarmThroughput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

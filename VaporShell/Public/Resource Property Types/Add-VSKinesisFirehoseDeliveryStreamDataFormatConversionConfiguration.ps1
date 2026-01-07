@@ -34,7 +34,7 @@ function Add-VSKinesisFirehoseDeliveryStreamDataFormatConversionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.DataFormatConversionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

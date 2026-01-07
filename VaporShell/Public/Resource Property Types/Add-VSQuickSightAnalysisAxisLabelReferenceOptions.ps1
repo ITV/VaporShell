@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisAxisLabelReferenceOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.AxisLabelReferenceOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

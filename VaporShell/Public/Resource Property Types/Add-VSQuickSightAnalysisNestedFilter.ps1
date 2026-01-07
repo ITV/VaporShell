@@ -34,7 +34,7 @@ function Add-VSQuickSightAnalysisNestedFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.NestedFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

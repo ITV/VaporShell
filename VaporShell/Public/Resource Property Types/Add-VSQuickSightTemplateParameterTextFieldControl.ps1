@@ -34,7 +34,7 @@ function Add-VSQuickSightTemplateParameterTextFieldControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ParameterTextFieldControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

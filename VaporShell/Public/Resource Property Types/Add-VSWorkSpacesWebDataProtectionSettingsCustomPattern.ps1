@@ -34,7 +34,7 @@ function Add-VSWorkSpacesWebDataProtectionSettingsCustomPattern {
     #>
 
     [OutputType('Vaporshell.Resource.WorkSpacesWeb.DataProtectionSettings.CustomPattern')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

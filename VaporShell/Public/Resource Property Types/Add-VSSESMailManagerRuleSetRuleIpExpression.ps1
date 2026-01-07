@@ -31,7 +31,7 @@ function Add-VSSESMailManagerRuleSetRuleIpExpression {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.RuleIpExpression')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

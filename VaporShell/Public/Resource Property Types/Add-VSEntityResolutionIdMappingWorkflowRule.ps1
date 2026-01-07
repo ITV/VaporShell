@@ -26,7 +26,7 @@ function Add-VSEntityResolutionIdMappingWorkflowRule {
     #>
 
     [OutputType('Vaporshell.Resource.EntityResolution.IdMappingWorkflow.Rule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

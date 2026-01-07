@@ -26,7 +26,7 @@ function Add-VSIoTTwinMakerEntityPropertyGroup {
     #>
 
     [OutputType('Vaporshell.Resource.IoTTwinMaker.Entity.PropertyGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

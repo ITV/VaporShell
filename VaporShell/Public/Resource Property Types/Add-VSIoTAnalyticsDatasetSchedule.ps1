@@ -19,7 +19,7 @@ function Add-VSIoTAnalyticsDatasetSchedule {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.Schedule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

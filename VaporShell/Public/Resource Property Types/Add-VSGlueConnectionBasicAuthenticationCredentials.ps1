@@ -24,7 +24,7 @@ function Add-VSGlueConnectionBasicAuthenticationCredentials {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Connection.BasicAuthenticationCredentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
 

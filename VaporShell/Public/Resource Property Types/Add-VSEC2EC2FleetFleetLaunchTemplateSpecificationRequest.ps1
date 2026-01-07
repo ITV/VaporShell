@@ -29,7 +29,7 @@ function Add-VSEC2EC2FleetFleetLaunchTemplateSpecificationRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.FleetLaunchTemplateSpecificationRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

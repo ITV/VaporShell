@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelNetworkInputSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.NetworkInputSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

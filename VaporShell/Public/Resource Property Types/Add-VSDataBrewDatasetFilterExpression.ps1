@@ -26,7 +26,7 @@ function Add-VSDataBrewDatasetFilterExpression {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.FilterExpression')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

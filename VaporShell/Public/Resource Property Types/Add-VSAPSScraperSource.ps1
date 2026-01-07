@@ -14,17 +14,25 @@ function Add-VSAPSScraperSource {
         UpdateType: Immutable
         Type: EksConfiguration
 
+    .PARAMETER VpcConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-source.html#cfn-aps-scraper-source-vpcconfiguration
+        UpdateType: Immutable
+        Type: VpcConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.APS.Scraper.Source')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true)]
-        $EksConfiguration
+        [Parameter(Mandatory = $false)]
+        $EksConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $VpcConfiguration
 
     )
 

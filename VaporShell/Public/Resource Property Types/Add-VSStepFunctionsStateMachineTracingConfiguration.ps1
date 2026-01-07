@@ -19,7 +19,7 @@ function Add-VSStepFunctionsStateMachineTracingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.StepFunctions.StateMachine.TracingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

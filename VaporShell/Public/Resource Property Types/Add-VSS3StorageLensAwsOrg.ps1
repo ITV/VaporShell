@@ -19,7 +19,7 @@ function Add-VSS3StorageLensAwsOrg {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.AwsOrg')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -25,7 +25,7 @@ function Add-VSDataZoneEnvironmentBlueprintConfigurationRegionalParameter {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.EnvironmentBlueprintConfiguration.RegionalParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

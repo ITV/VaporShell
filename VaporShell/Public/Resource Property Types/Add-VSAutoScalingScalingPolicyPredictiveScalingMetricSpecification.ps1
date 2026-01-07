@@ -49,7 +49,7 @@ function Add-VSAutoScalingScalingPolicyPredictiveScalingMetricSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.ScalingPolicy.PredictiveScalingMetricSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualGatewayVirtualGatewayPortMapping {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayPortMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

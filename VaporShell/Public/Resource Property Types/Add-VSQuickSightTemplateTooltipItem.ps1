@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateTooltipItem {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TooltipItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

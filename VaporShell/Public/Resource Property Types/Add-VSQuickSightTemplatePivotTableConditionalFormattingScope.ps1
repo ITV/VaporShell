@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplatePivotTableConditionalFormattingScope {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PivotTableConditionalFormattingScope')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSLambdaFunctionTracingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Function.TracingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -35,7 +35,7 @@ function Add-VSMediaLiveInputInputDestinationRequest {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Input.InputDestinationRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

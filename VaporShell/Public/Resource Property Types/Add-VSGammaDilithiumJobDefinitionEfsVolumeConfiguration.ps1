@@ -39,7 +39,7 @@ function Add-VSGammaDilithiumJobDefinitionEfsVolumeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.EfsVolumeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

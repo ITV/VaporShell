@@ -24,7 +24,7 @@ function Add-VSEMRClusterMetricDimension {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.MetricDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

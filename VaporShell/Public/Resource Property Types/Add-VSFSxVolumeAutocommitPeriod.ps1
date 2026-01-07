@@ -24,7 +24,7 @@ function Add-VSFSxVolumeAutocommitPeriod {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.Volume.AutocommitPeriod')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

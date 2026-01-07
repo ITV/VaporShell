@@ -19,7 +19,7 @@ function Add-VSKendraRankingExecutionPlanCapacityUnitsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KendraRanking.ExecutionPlan.CapacityUnitsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

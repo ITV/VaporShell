@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardGeospatialLineSymbolStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GeospatialLineSymbolStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

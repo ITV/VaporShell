@@ -29,7 +29,7 @@ function Add-VSEFSAccessPointCreationInfo {
     #>
 
     [OutputType('Vaporshell.Resource.EFS.AccessPoint.CreationInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

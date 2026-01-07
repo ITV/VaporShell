@@ -21,7 +21,7 @@ function Add-VSIoTAnalyticsDatastoreSchemaDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Datastore.SchemaDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

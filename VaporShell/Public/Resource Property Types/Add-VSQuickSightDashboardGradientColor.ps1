@@ -21,7 +21,7 @@ function Add-VSQuickSightDashboardGradientColor {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GradientColor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

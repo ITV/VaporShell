@@ -35,7 +35,7 @@ function Add-VSDLMLifecyclePolicyFastRestoreRule {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.FastRestoreRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

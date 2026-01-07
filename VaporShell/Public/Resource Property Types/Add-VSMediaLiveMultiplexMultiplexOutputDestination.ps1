@@ -19,7 +19,7 @@ function Add-VSMediaLiveMultiplexMultiplexOutputDestination {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Multiplex.MultiplexOutputDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSSageMakerModelExplainabilityJobDefinitionDatasetFormat {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.DatasetFormat')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

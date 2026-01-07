@@ -254,7 +254,7 @@ function Add-VSMediaLiveChannelM2tsSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.M2tsSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

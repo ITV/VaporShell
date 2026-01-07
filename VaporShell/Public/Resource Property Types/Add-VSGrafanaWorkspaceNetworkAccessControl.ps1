@@ -28,7 +28,7 @@ function Add-VSGrafanaWorkspaceNetworkAccessControl {
     #>
 
     [OutputType('Vaporshell.Resource.Grafana.Workspace.NetworkAccessControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

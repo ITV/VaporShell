@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowSingularSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.SingularSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

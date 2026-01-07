@@ -34,7 +34,7 @@ function Add-VSImageBuilderLifecyclePolicyFilter {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.LifecyclePolicy.Filter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

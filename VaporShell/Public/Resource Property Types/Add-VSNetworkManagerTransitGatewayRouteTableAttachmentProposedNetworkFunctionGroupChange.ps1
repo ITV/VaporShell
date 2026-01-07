@@ -31,7 +31,7 @@ function Add-VSNetworkManagerTransitGatewayRouteTableAttachmentProposedNetworkFu
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.TransitGatewayRouteTableAttachment.ProposedNetworkFunctionGroupChange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

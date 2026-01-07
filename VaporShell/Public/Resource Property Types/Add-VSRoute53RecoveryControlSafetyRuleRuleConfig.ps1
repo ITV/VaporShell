@@ -29,7 +29,7 @@ function Add-VSRoute53RecoveryControlSafetyRuleRuleConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Route53RecoveryControl.SafetyRule.RuleConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSSageMakerMonitoringScheduleS3Output {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.S3Output')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

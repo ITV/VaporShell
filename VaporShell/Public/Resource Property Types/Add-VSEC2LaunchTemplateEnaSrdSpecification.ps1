@@ -24,7 +24,7 @@ function Add-VSEC2LaunchTemplateEnaSrdSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.EnaSrdSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

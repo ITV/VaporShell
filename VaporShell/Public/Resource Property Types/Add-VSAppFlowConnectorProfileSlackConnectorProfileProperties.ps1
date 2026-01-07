@@ -19,7 +19,7 @@ function Add-VSAppFlowConnectorProfileSlackConnectorProfileProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.SlackConnectorProfileProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

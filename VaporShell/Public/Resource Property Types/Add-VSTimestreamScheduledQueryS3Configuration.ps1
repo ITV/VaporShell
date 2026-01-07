@@ -29,7 +29,7 @@ function Add-VSTimestreamScheduledQueryS3Configuration {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.ScheduledQuery.S3Configuration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

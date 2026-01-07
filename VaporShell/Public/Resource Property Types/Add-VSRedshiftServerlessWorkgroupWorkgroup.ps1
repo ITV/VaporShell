@@ -75,6 +75,11 @@ function Add-VSRedshiftServerlessWorkgroupWorkgroup {
         ItemType: ConfigParameter
         DuplicatesAllowed: False
 
+    .PARAMETER TrackName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html#cfn-redshiftserverless-workgroup-workgroup-trackname
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER PubliclyAccessible
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html#cfn-redshiftserverless-workgroup-workgroup-publiclyaccessible
         UpdateType: Mutable
@@ -95,7 +100,7 @@ function Add-VSRedshiftServerlessWorkgroupWorkgroup {
     #>
 
     [OutputType('Vaporshell.Resource.RedshiftServerless.Workgroup.Workgroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -215,6 +220,18 @@ function Add-VSRedshiftServerlessWorkgroupWorkgroup {
                 }
             })]
         $ConfigParameters,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TrackName,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

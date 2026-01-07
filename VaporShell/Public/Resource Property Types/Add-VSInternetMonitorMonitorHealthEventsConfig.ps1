@@ -34,7 +34,7 @@ function Add-VSInternetMonitorMonitorHealthEventsConfig {
     #>
 
     [OutputType('Vaporshell.Resource.InternetMonitor.Monitor.HealthEventsConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

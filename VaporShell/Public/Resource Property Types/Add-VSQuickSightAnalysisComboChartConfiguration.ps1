@@ -96,12 +96,17 @@ function Add-VSQuickSightAnalysisComboChartConfiguration {
         UpdateType: Mutable
         Type: AxisDisplayOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-combochartconfiguration.html#cfn-quicksight-analysis-combochartconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ComboChartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -172,7 +177,10 @@ function Add-VSQuickSightAnalysisComboChartConfiguration {
         $FieldWells,
 
         [Parameter(Mandatory = $false)]
-        $SecondaryYAxisDisplayOptions
+        $SecondaryYAxisDisplayOptions,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions
 
     )
 

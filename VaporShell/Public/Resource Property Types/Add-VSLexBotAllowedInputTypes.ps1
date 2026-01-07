@@ -24,7 +24,7 @@ function Add-VSLexBotAllowedInputTypes {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.AllowedInputTypes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

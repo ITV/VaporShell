@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardStringFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.StringFormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEMRClusterScalingAction {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.ScalingAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

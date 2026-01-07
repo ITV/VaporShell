@@ -44,7 +44,7 @@ function Add-VSOpsWorksLayerAutoScalingThresholds {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.Layer.AutoScalingThresholds')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateSheetImageScalingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SheetImageScalingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

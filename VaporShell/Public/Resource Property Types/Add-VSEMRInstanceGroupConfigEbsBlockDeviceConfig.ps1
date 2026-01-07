@@ -24,7 +24,7 @@ function Add-VSEMRInstanceGroupConfigEbsBlockDeviceConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceGroupConfig.EbsBlockDeviceConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEC2LaunchTemplateMemoryGiBPerVCpu {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.MemoryGiBPerVCpu')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

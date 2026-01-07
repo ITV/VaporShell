@@ -19,7 +19,7 @@ function Add-VSAuditManagerAssessmentAWSService {
     #>
 
     [OutputType('Vaporshell.Resource.AuditManager.Assessment.AWSService')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

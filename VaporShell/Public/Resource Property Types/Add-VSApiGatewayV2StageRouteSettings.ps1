@@ -39,7 +39,7 @@ function Add-VSApiGatewayV2StageRouteSettings {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGatewayV2.Stage.RouteSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

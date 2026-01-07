@@ -45,7 +45,7 @@ function Add-VSSSMQuickSetupConfigurationManagerConfigurationDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.SSMQuickSetup.ConfigurationManager.ConfigurationDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

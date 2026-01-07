@@ -19,7 +19,7 @@ function Add-VSEC2TransitGatewayConnectTransitGatewayConnectOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.TransitGatewayConnect.TransitGatewayConnectOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

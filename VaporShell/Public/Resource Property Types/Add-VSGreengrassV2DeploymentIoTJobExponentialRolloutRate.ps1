@@ -29,7 +29,7 @@ function Add-VSGreengrassV2DeploymentIoTJobExponentialRolloutRate {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.Deployment.IoTJobExponentialRolloutRate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSMSKClusterBrokerLogs {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.BrokerLogs')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightDataSourceVpcConnectionProperties {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.VpcConnectionProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSS3ExpressDirectoryBucketBucketEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.S3Express.DirectoryBucket.BucketEncryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

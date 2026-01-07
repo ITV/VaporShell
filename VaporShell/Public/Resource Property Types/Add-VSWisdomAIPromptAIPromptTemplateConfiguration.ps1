@@ -19,7 +19,7 @@ function Add-VSWisdomAIPromptAIPromptTemplateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIPrompt.AIPromptTemplateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

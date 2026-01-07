@@ -19,7 +19,7 @@ function Add-VSSageMakerSpaceSpaceIdleSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.SpaceIdleSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

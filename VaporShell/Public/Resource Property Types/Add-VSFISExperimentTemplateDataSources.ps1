@@ -21,7 +21,7 @@ function Add-VSFISExperimentTemplateDataSources {
     #>
 
     [OutputType('Vaporshell.Resource.FIS.ExperimentTemplate.DataSources')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

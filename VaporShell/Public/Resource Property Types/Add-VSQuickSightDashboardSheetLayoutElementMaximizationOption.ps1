@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardSheetLayoutElementMaximizationOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SheetLayoutElementMaximizationOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

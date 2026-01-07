@@ -29,7 +29,7 @@ function Add-VSEC2LaunchTemplateCpuOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.CpuOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

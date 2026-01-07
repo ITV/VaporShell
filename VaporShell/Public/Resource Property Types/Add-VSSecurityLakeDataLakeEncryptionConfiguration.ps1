@@ -19,7 +19,7 @@ function Add-VSSecurityLakeDataLakeEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityLake.DataLake.EncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,12 +19,17 @@ function Add-VSImageBuilderImagePipelineSchedule {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER AutoDisablePolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-autodisablepolicy
+        UpdateType: Mutable
+        Type: AutoDisablePolicy
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.ImagePipeline.Schedule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -50,7 +55,10 @@ function Add-VSImageBuilderImagePipelineSchedule {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $PipelineExecutionStartCondition
+        $PipelineExecutionStartCondition,
+
+        [Parameter(Mandatory = $false)]
+        $AutoDisablePolicy
 
     )
 

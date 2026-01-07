@@ -12,7 +12,7 @@ function Add-VSKafkaConnectConnectorWorkerConfiguration {
     .PARAMETER Revision
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html#cfn-kafkaconnect-connector-workerconfiguration-revision
         UpdateType: Immutable
-        PrimitiveType: Integer
+        PrimitiveType: Long
 
     .PARAMETER WorkerConfigurationArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html#cfn-kafkaconnect-connector-workerconfiguration-workerconfigurationarn
@@ -24,20 +24,11 @@ function Add-VSKafkaConnectConnectorWorkerConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.WorkerConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $Revision,
 
         [Parameter(Mandatory = $true)]

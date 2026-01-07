@@ -24,7 +24,7 @@ function Add-VSWAFSizeConstraintSetFieldToMatch {
     #>
 
     [OutputType('Vaporshell.Resource.WAF.SizeConstraintSet.FieldToMatch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

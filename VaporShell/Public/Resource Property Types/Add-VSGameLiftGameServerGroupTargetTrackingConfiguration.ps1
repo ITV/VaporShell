@@ -19,7 +19,7 @@ function Add-VSGameLiftGameServerGroupTargetTrackingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.GameServerGroup.TargetTrackingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

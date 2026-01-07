@@ -58,7 +58,7 @@ function Add-VSSageMakerDomainDefaultSpaceSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.DefaultSpaceSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -69,7 +69,7 @@ function Add-VSElasticsearchDomainElasticsearchClusterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.ElasticsearchClusterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

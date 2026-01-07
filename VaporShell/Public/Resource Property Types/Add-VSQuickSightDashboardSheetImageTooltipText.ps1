@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardSheetImageTooltipText {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SheetImageTooltipText')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

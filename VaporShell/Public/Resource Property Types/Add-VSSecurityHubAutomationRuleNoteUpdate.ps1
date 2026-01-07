@@ -24,7 +24,7 @@ function Add-VSSecurityHubAutomationRuleNoteUpdate {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.NoteUpdate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,7 +62,7 @@ function Add-VSSecurityHubAutomationRuleNoteUpdate {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                UpdatedBy {
+                'UpdatedBy' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

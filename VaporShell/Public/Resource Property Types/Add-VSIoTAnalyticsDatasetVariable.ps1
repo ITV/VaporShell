@@ -39,7 +39,7 @@ function Add-VSIoTAnalyticsDatasetVariable {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.Variable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

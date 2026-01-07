@@ -29,7 +29,7 @@ function Add-VSBudgetsBudgetsActionDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.BudgetsAction.Definition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

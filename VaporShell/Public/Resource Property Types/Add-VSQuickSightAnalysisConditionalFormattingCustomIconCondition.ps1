@@ -34,7 +34,7 @@ function Add-VSQuickSightAnalysisConditionalFormattingCustomIconCondition {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ConditionalFormattingCustomIconCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

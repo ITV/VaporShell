@@ -24,7 +24,7 @@ function Add-VSVerifiedPermissionsPolicyEntityIdentifier {
     #>
 
     [OutputType('Vaporshell.Resource.VerifiedPermissions.Policy.EntityIdentifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

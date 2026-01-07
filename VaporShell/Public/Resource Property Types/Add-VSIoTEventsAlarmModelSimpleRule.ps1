@@ -29,7 +29,7 @@ function Add-VSIoTEventsAlarmModelSimpleRule {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.AlarmModel.SimpleRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

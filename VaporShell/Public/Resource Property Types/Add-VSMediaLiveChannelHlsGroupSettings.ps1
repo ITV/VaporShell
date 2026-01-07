@@ -231,7 +231,7 @@ function Add-VSMediaLiveChannelHlsGroupSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.HlsGroupSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

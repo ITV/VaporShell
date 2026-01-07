@@ -19,7 +19,7 @@ function Add-VSIoTTopicRuleHttpAuthorization {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.HttpAuthorization')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSLexBotAudioLogSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.AudioLogSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

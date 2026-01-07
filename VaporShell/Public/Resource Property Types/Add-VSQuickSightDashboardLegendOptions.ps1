@@ -44,7 +44,7 @@ function Add-VSQuickSightDashboardLegendOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.LegendOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

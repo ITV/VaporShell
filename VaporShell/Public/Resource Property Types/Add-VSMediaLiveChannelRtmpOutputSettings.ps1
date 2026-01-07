@@ -34,7 +34,7 @@ function Add-VSMediaLiveChannelRtmpOutputSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.RtmpOutputSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

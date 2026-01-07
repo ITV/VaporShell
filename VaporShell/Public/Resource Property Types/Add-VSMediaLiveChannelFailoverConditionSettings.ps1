@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelFailoverConditionSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.FailoverConditionSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

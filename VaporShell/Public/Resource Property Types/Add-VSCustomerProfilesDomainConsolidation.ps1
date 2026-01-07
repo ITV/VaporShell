@@ -19,7 +19,7 @@ function Add-VSCustomerProfilesDomainConsolidation {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Domain.Consolidation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -45,7 +45,7 @@ function Add-VSCustomerProfilesDomainConsolidation {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                MatchingAttributesList {
+                'MatchingAttributesList' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

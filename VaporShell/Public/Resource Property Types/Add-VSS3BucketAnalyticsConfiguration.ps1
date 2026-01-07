@@ -36,7 +36,7 @@ function Add-VSS3BucketAnalyticsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.AnalyticsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

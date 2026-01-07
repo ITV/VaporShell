@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelFrameCaptureSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.FrameCaptureSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

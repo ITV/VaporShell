@@ -24,7 +24,7 @@ function Add-VSPinpointEmailIdentityTags {
     #>
 
     [OutputType('Vaporshell.Resource.PinpointEmail.Identity.Tags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

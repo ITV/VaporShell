@@ -31,7 +31,7 @@ function Add-VSBatchJobDefinitionDevice {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.Device')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

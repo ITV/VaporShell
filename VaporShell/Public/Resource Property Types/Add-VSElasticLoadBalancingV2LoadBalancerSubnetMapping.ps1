@@ -39,7 +39,7 @@ function Add-VSElasticLoadBalancingV2LoadBalancerSubnetMapping {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.LoadBalancer.SubnetMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

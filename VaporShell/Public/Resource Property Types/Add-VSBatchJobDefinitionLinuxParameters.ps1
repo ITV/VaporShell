@@ -48,7 +48,7 @@ function Add-VSBatchJobDefinitionLinuxParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.LinuxParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

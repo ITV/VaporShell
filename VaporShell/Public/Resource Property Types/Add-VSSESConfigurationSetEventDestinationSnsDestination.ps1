@@ -19,7 +19,7 @@ function Add-VSSESConfigurationSetEventDestinationSnsDestination {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSetEventDestination.SnsDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

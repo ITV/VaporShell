@@ -19,7 +19,7 @@ function Add-VSDAXClusterSSESpecification {
     #>
 
     [OutputType('Vaporshell.Resource.DAX.Cluster.SSESpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

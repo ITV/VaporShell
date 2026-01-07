@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisHeatMapFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.HeatMapFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

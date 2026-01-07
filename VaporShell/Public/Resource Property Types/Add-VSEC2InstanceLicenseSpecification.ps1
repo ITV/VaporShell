@@ -19,7 +19,7 @@ function Add-VSEC2InstanceLicenseSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.LicenseSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

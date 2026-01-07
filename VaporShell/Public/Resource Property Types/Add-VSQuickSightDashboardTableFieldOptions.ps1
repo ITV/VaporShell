@@ -21,6 +21,13 @@ function Add-VSQuickSightDashboardTableFieldOptions {
         UpdateType: Mutable
         Type: TablePinnedFieldOptions
 
+    .PARAMETER TransposedTableOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tablefieldoptions.html#cfn-quicksight-dashboard-tablefieldoptions-transposedtableoptions
+        UpdateType: Mutable
+        Type: List
+        ItemType: TransposedTableOption
+        DuplicatesAllowed: True
+
     .PARAMETER SelectedFieldOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-tablefieldoptions.html#cfn-quicksight-dashboard-tablefieldoptions-selectedfieldoptions
         UpdateType: Mutable
@@ -33,7 +40,7 @@ function Add-VSQuickSightDashboardTableFieldOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TableFieldOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -42,6 +49,18 @@ function Add-VSQuickSightDashboardTableFieldOptions {
 
         [Parameter(Mandatory = $false)]
         $PinnedFieldOptions,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.QuickSight.Dashboard.TransposedTableOption"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TransposedTableOptions,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -35,7 +35,7 @@ function Add-VSQuickSightDashboardPivotTableAggregatedFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PivotTableAggregatedFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

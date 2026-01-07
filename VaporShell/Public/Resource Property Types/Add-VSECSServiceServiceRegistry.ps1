@@ -34,7 +34,7 @@ function Add-VSECSServiceServiceRegistry {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.ServiceRegistry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

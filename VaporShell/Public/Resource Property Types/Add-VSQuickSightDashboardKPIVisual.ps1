@@ -58,7 +58,7 @@ function Add-VSQuickSightDashboardKPIVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.KPIVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

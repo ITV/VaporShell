@@ -36,7 +36,7 @@ function Add-VSKinesisAnalyticsV2ApplicationZeppelinApplicationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.ZeppelinApplicationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

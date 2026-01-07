@@ -59,7 +59,7 @@ function Add-VSIoTTopicRuleDynamoDBAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.DynamoDBAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

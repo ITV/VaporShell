@@ -24,7 +24,7 @@ function Add-VSAmazonMQConfigurationTagsEntry {
     #>
 
     [OutputType('Vaporshell.Resource.AmazonMQ.Configuration.TagsEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

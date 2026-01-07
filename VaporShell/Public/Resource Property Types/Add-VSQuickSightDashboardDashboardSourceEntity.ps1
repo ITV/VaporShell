@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardDashboardSourceEntity {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DashboardSourceEntity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

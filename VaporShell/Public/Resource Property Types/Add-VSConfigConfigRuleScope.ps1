@@ -36,7 +36,7 @@ function Add-VSConfigConfigRuleScope {
     #>
 
     [OutputType('Vaporshell.Resource.Config.ConfigRule.Scope')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

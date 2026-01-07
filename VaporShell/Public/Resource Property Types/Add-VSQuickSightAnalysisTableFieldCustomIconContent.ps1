@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisTableFieldCustomIconContent {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TableFieldCustomIconContent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

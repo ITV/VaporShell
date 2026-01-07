@@ -26,7 +26,7 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
     .PARAMETER NetworkPerformanceOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-networkperformanceoptions
         UpdateType: Mutable
-        PrimitiveType: Json
+        Type: NetworkPerformanceOptions
 
     .PARAMETER UserData
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-userdata
@@ -59,20 +59,6 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-ebsoptimized
         UpdateType: Mutable
         PrimitiveType: Boolean
-
-    .PARAMETER ElasticGpuSpecifications
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticgpuspecifications
-        UpdateType: Mutable
-        Type: List
-        ItemType: ElasticGpuSpecification
-        DuplicatesAllowed: True
-
-    .PARAMETER ElasticInferenceAccelerators
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-elasticinferenceaccelerators
-        UpdateType: Mutable
-        Type: List
-        ItemType: LaunchTemplateElasticInferenceAccelerator
-        DuplicatesAllowed: True
 
     .PARAMETER Placement
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-placement
@@ -190,7 +176,7 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.LaunchTemplateData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -210,15 +196,6 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
         $TagSpecifications,
 
         [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $NetworkPerformanceOptions,
 
         [Parameter(Mandatory = $false)]
@@ -274,30 +251,6 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
                 }
             })]
         $EbsOptimized,
-
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.EC2.LaunchTemplate.ElasticGpuSpecification"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ElasticGpuSpecifications,
-
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "Vaporshell.Resource.EC2.LaunchTemplate.LaunchTemplateElasticInferenceAccelerator"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $ElasticInferenceAccelerators,
 
         [Parameter(Mandatory = $false)]
         $Placement,
@@ -453,20 +406,6 @@ function Add-VSEC2LaunchTemplateLaunchTemplateData {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                NetworkPerformanceOptions {
-                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
-                        try {
-                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
-                        }
-                        catch {
-                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
-                        }
-                    }
-                    else {
-                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
-                    }
-                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
-                }
                 Default {
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $PSBoundParameters.$key
                 }

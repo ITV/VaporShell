@@ -24,7 +24,7 @@ function Add-VSMediaConnectBridgeIngressGatewayBridge {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Bridge.IngressGatewayBridge')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

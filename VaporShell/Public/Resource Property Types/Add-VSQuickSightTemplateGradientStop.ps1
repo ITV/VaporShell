@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateGradientStop {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.GradientStop')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

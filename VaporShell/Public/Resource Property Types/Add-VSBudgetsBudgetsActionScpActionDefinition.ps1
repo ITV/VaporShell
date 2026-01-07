@@ -26,7 +26,7 @@ function Add-VSBudgetsBudgetsActionScpActionDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.BudgetsAction.ScpActionDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

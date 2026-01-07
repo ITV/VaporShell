@@ -24,7 +24,7 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANUpdateGatewayTaskEntry {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.TaskDefinition.LoRaWANUpdateGatewayTaskEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

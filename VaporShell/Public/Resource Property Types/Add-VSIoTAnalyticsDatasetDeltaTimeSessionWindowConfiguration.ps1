@@ -19,7 +19,7 @@ function Add-VSIoTAnalyticsDatasetDeltaTimeSessionWindowConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.DeltaTimeSessionWindowConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

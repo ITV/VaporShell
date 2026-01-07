@@ -24,7 +24,7 @@ function Add-VSBatchJobDefinitionEksSecret {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.EksSecret')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

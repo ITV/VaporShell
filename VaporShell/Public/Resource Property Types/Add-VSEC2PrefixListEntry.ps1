@@ -24,7 +24,7 @@ function Add-VSEC2PrefixListEntry {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.PrefixList.Entry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

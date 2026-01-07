@@ -23,6 +23,13 @@ function Add-VSLocationAPIKeyApiKeyRestrictions {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER AllowAndroidApps
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-apikeyrestrictions.html#cfn-location-apikey-apikeyrestrictions-allowandroidapps
+        UpdateType: Mutable
+        Type: List
+        ItemType: AndroidApp
+        DuplicatesAllowed: True
+
     .PARAMETER AllowReferers
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-apikeyrestrictions.html#cfn-location-apikey-apikeyrestrictions-allowreferers
         UpdateType: Mutable
@@ -30,12 +37,19 @@ function Add-VSLocationAPIKeyApiKeyRestrictions {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER AllowAppleApps
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-apikey-apikeyrestrictions.html#cfn-location-apikey-apikeyrestrictions-allowappleapps
+        UpdateType: Mutable
+        Type: List
+        ItemType: AppleApp
+        DuplicatesAllowed: True
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.Location.APIKey.ApiKeyRestrictions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -46,7 +60,31 @@ function Add-VSLocationAPIKeyApiKeyRestrictions {
         $AllowResources,
 
         [Parameter(Mandatory = $false)]
-        $AllowReferers
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Location.APIKey.AndroidApp"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AllowAndroidApps,
+
+        [Parameter(Mandatory = $false)]
+        $AllowReferers,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Location.APIKey.AppleApp"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AllowAppleApps
 
     )
 

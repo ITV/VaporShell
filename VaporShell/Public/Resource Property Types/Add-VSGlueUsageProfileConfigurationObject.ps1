@@ -36,7 +36,7 @@ function Add-VSGlueUsageProfileConfigurationObject {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.UsageProfile.ConfigurationObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

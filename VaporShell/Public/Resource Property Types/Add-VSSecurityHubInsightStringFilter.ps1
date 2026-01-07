@@ -24,7 +24,7 @@ function Add-VSSecurityHubInsightStringFilter {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.Insight.StringFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSWAFv2RuleGroupGeoMatchStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.GeoMatchStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

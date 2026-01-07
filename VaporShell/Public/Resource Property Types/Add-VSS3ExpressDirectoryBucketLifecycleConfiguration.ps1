@@ -21,7 +21,7 @@ function Add-VSS3ExpressDirectoryBucketLifecycleConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3Express.DirectoryBucket.LifecycleConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

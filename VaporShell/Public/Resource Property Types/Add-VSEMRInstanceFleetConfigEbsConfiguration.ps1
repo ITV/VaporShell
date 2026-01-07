@@ -26,7 +26,7 @@ function Add-VSEMRInstanceFleetConfigEbsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceFleetConfig.EbsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

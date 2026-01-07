@@ -29,7 +29,7 @@ function Add-VSSageMakerInferenceComponentDeployedImage {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.InferenceComponent.DeployedImage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

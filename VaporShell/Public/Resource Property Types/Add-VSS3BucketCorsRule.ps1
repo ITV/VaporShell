@@ -52,7 +52,7 @@ function Add-VSS3BucketCorsRule {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.CorsRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

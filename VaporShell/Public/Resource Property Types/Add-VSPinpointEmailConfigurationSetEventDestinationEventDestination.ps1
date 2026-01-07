@@ -45,7 +45,7 @@ function Add-VSPinpointEmailConfigurationSetEventDestinationEventDestination {
     #>
 
     [OutputType('Vaporshell.Resource.PinpointEmail.ConfigurationSetEventDestination.EventDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

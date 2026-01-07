@@ -19,7 +19,7 @@ function Add-VSIoTSiteWiseAssetModelPropertyPathDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.AssetModel.PropertyPathDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

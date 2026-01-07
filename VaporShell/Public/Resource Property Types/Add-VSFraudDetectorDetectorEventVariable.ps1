@@ -71,7 +71,7 @@ function Add-VSFraudDetectorDetectorEventVariable {
     #>
 
     [OutputType('Vaporshell.Resource.FraudDetector.Detector.EventVariable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

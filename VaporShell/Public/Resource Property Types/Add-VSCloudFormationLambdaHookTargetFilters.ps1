@@ -42,7 +42,7 @@ function Add-VSCloudFormationLambdaHookTargetFilters {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.LambdaHook.TargetFilters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

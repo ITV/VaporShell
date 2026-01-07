@@ -44,7 +44,7 @@ function Add-VSGammaDilithiumJobDefinitionEksContainerSecurityContext {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.EksContainerSecurityContext')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

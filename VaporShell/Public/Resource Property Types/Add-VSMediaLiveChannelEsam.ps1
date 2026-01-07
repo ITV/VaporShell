@@ -44,7 +44,7 @@ function Add-VSMediaLiveChannelEsam {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.Esam')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","PasswordParam")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","PasswordParam")]
 

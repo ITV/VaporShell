@@ -24,7 +24,7 @@ function Add-VSGlueSchemaSchemaVersion {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Schema.SchemaVersion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

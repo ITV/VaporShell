@@ -29,7 +29,7 @@ function Add-VSImageBuilderDistributionConfigurationFastLaunchLaunchTemplateSpec
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.DistributionConfiguration.FastLaunchLaunchTemplateSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

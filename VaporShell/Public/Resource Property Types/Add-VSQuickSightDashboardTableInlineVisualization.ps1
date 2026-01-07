@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardTableInlineVisualization {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TableInlineVisualization')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

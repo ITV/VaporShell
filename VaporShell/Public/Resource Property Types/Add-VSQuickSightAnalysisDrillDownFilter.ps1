@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisDrillDownFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DrillDownFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

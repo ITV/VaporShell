@@ -49,7 +49,7 @@ function Add-VSMediaLiveChannelHlsAkamaiSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.HlsAkamaiSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

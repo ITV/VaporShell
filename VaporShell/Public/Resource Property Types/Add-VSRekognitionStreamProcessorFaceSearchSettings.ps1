@@ -24,7 +24,7 @@ function Add-VSRekognitionStreamProcessorFaceSearchSettings {
     #>
 
     [OutputType('Vaporshell.Resource.Rekognition.StreamProcessor.FaceSearchSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

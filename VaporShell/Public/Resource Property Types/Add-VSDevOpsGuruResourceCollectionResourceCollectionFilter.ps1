@@ -26,7 +26,7 @@ function Add-VSDevOpsGuruResourceCollectionResourceCollectionFilter {
     #>
 
     [OutputType('Vaporshell.Resource.DevOpsGuru.ResourceCollection.ResourceCollectionFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

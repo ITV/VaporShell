@@ -46,7 +46,7 @@ function Add-VSCustomerProfilesIntegrationFlowDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.FlowDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

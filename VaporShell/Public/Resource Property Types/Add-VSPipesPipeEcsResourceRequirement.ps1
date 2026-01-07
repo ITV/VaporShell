@@ -24,7 +24,7 @@ function Add-VSPipesPipeEcsResourceRequirement {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.EcsResourceRequirement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

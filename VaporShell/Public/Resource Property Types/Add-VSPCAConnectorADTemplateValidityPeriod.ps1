@@ -24,7 +24,7 @@ function Add-VSPCAConnectorADTemplateValidityPeriod {
     #>
 
     [OutputType('Vaporshell.Resource.PCAConnectorAD.Template.ValidityPeriod')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

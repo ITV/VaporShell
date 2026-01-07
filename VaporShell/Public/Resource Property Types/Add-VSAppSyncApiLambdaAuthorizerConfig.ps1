@@ -29,7 +29,7 @@ function Add-VSAppSyncApiLambdaAuthorizerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.Api.LambdaAuthorizerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

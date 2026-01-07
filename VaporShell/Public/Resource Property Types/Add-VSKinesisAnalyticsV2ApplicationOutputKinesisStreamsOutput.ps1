@@ -19,7 +19,7 @@ function Add-VSKinesisAnalyticsV2ApplicationOutputKinesisStreamsOutput {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.ApplicationOutput.KinesisStreamsOutput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

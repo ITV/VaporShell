@@ -21,7 +21,7 @@ function Add-VSGreengrassV2DeploymentIoTJobAbortConfig {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.Deployment.IoTJobAbortConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

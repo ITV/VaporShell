@@ -21,7 +21,7 @@ function Add-VSAthenaCapacityReservationCapacityAssignment {
     #>
 
     [OutputType('Vaporshell.Resource.Athena.CapacityReservation.CapacityAssignment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

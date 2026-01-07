@@ -26,7 +26,7 @@ function Add-VSLightsailDistributionQueryStringObject {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Distribution.QueryStringObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

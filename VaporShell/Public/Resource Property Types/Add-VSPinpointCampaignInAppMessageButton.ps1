@@ -34,7 +34,7 @@ function Add-VSPinpointCampaignInAppMessageButton {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.InAppMessageButton')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

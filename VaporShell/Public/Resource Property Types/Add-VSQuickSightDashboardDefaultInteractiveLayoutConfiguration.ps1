@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardDefaultInteractiveLayoutConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DefaultInteractiveLayoutConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

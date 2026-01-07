@@ -29,7 +29,7 @@ function Add-VSEMRClusterOnDemandResizingSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.OnDemandResizingSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

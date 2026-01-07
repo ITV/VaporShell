@@ -24,7 +24,7 @@ function Add-VSEC2NetworkInsightsAnalysisAnalysisLoadBalancerListener {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAnalysis.AnalysisLoadBalancerListener')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

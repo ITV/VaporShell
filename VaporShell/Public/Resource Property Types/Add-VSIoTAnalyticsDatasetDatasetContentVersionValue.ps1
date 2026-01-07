@@ -19,7 +19,7 @@ function Add-VSIoTAnalyticsDatasetDatasetContentVersionValue {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.DatasetContentVersionValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,7 +44,7 @@ function Add-VSElasticLoadBalancingV2ListenerRedirectConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.Listener.RedirectConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

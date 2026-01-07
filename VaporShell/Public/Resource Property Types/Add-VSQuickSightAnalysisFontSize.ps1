@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisFontSize {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FontSize')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

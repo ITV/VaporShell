@@ -29,7 +29,7 @@ function Add-VSCognitoIdentityPoolCognitoIdentityProvider {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.IdentityPool.CognitoIdentityProvider')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

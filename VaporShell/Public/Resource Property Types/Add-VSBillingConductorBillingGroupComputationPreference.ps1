@@ -19,7 +19,7 @@ function Add-VSBillingConductorBillingGroupComputationPreference {
     #>
 
     [OutputType('Vaporshell.Resource.BillingConductor.BillingGroup.ComputationPreference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

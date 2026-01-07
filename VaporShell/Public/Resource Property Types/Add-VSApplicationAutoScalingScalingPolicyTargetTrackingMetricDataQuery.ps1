@@ -39,7 +39,7 @@ function Add-VSApplicationAutoScalingScalingPolicyTargetTrackingMetricDataQuery 
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationAutoScaling.ScalingPolicy.TargetTrackingMetricDataQuery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

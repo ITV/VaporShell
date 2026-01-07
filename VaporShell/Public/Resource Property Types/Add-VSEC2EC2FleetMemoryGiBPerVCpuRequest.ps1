@@ -24,7 +24,7 @@ function Add-VSEC2EC2FleetMemoryGiBPerVCpuRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.MemoryGiBPerVCpuRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

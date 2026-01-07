@@ -19,7 +19,7 @@ function Add-VSKinesisFirehoseDeliveryStreamRedshiftRetryOptions {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.RedshiftRetryOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSPinpointPushTemplateDefaultPushNotificationTemplate {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.PushTemplate.DefaultPushNotificationTemplate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

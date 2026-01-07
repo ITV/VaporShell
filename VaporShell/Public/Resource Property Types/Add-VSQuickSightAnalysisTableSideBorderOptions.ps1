@@ -44,7 +44,7 @@ function Add-VSQuickSightAnalysisTableSideBorderOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TableSideBorderOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

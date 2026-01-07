@@ -26,7 +26,7 @@ function Add-VSWAFv2WebACLRateLimitCookie {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RateLimitCookie')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

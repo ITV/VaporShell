@@ -19,7 +19,7 @@ function Add-VSTimestreamInfluxDBInstanceLogDeliveryConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.InfluxDBInstance.LogDeliveryConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

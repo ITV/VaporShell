@@ -19,7 +19,7 @@ function Add-VSAppMeshVirtualNodeVirtualNodeGrpcConnectionPool {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.VirtualNodeGrpcConnectionPool')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

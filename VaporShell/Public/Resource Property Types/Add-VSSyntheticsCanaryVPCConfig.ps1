@@ -38,7 +38,7 @@ function Add-VSSyntheticsCanaryVPCConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Synthetics.Canary.VPCConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

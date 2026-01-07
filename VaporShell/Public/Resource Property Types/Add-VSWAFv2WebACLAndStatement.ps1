@@ -21,7 +21,7 @@ function Add-VSWAFv2WebACLAndStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.AndStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

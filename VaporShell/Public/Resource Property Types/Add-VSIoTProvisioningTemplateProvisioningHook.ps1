@@ -24,7 +24,7 @@ function Add-VSIoTProvisioningTemplateProvisioningHook {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.ProvisioningTemplate.ProvisioningHook')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

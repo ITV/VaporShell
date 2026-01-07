@@ -24,7 +24,7 @@ function Add-VSKinesisFirehoseDeliveryStreamAmazonopensearchserviceBufferingHint
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.AmazonopensearchserviceBufferingHints')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

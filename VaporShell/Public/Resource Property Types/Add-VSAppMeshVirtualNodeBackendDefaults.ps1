@@ -19,7 +19,7 @@ function Add-VSAppMeshVirtualNodeBackendDefaults {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.BackendDefaults')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

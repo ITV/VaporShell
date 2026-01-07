@@ -19,7 +19,7 @@ function Add-VSSSMIncidentsResponsePlanIntegration {
     #>
 
     [OutputType('Vaporshell.Resource.SSMIncidents.ResponsePlan.Integration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

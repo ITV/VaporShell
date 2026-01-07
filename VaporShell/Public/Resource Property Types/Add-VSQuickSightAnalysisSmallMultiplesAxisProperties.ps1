@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisSmallMultiplesAxisProperties {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SmallMultiplesAxisProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

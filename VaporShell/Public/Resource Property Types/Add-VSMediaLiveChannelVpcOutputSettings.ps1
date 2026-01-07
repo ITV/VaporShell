@@ -32,7 +32,7 @@ function Add-VSMediaLiveChannelVpcOutputSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.VpcOutputSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

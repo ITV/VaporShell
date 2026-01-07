@@ -26,7 +26,7 @@ function Add-VSBedrockDataSourceCustomTransformationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.CustomTransformationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

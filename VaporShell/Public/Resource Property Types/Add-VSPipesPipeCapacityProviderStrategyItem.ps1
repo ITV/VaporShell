@@ -29,7 +29,7 @@ function Add-VSPipesPipeCapacityProviderStrategyItem {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.CapacityProviderStrategyItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

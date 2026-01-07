@@ -29,7 +29,7 @@ function Add-VSMediaLiveInputInputSourceRequest {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Input.InputSourceRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","PasswordParam")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","PasswordParam")]
 

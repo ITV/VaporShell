@@ -11,19 +11,19 @@ function Add-VSGameLiftContainerFleetLocationConfiguration {
 
     .PARAMETER LocationCapacity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationconfiguration.html#cfn-gamelift-containerfleet-locationconfiguration-locationcapacity
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: LocationCapacity
 
     .PARAMETER StoppedActions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationconfiguration.html#cfn-gamelift-containerfleet-locationconfiguration-stoppedactions
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
     .PARAMETER Location
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationconfiguration.html#cfn-gamelift-containerfleet-locationconfiguration-location
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -31,7 +31,7 @@ function Add-VSGameLiftContainerFleetLocationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerFleet.LocationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -38,7 +38,7 @@ function Add-VSOSISPipelineVpcOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OSIS.Pipeline.VpcOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

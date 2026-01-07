@@ -26,7 +26,7 @@ function Add-VSBedrockFlowVersionTextPromptTemplateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.TextPromptTemplateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

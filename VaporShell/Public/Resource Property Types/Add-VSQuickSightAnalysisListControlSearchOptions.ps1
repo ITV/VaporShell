@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisListControlSearchOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ListControlSearchOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

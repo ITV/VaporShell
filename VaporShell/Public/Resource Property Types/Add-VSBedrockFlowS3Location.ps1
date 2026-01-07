@@ -29,7 +29,7 @@ function Add-VSBedrockFlowS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Flow.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSSESConfigurationSetVdmOptions {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSet.VdmOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSSageMakerEndpointConfigClarifyExplainerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.ClarifyExplainerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

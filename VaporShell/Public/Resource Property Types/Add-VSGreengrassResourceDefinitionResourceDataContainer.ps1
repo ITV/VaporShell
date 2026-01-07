@@ -39,7 +39,7 @@ function Add-VSGreengrassResourceDefinitionResourceDataContainer {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.ResourceDefinition.ResourceDataContainer')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

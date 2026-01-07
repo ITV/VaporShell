@@ -49,7 +49,7 @@ function Add-VSQuickSightDashboardNumberDisplayFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.NumberDisplayFormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

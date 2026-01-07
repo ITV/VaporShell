@@ -39,7 +39,7 @@ function Add-VSElasticLoadBalancingLoadBalancerHealthCheck {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.HealthCheck')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

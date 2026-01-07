@@ -19,7 +19,7 @@ function Add-VSConfigConfigRuleEvaluationModeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Config.ConfigRule.EvaluationModeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

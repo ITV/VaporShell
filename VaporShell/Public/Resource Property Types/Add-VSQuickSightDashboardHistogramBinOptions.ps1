@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardHistogramBinOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.HistogramBinOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

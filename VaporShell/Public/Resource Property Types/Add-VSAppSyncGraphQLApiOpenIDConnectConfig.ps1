@@ -34,7 +34,7 @@ function Add-VSAppSyncGraphQLApiOpenIDConnectConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.GraphQLApi.OpenIDConnectConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

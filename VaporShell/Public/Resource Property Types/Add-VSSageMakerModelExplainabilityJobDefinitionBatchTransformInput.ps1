@@ -54,7 +54,7 @@ function Add-VSSageMakerModelExplainabilityJobDefinitionBatchTransformInput {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.BatchTransformInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -28,7 +28,7 @@ function Add-VSS3StorageLensBucketsAndRegions {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.BucketsAndRegions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

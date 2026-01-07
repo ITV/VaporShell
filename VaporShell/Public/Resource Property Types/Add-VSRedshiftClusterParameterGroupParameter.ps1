@@ -24,7 +24,7 @@ function Add-VSRedshiftClusterParameterGroupParameter {
     #>
 
     [OutputType('Vaporshell.Resource.Redshift.ClusterParameterGroup.Parameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

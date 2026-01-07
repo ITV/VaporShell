@@ -19,7 +19,7 @@ function Add-VSKafkaConnectConnectorScaleInPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.ScaleInPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

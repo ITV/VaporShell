@@ -19,7 +19,7 @@ function Add-VSGameLiftFleetAnywhereConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.Fleet.AnywhereConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

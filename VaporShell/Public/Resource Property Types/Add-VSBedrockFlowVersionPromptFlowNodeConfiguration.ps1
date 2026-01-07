@@ -24,7 +24,7 @@ function Add-VSBedrockFlowVersionPromptFlowNodeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.PromptFlowNodeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

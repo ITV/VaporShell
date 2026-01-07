@@ -39,7 +39,7 @@ function Add-VSECSTaskDefinitionEFSVolumeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.EFSVolumeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

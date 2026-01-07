@@ -24,7 +24,7 @@ function Add-VSMSKClusterConfigurationInfo {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.ConfigurationInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

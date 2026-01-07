@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsDatasetDeltaTime {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.DeltaTime')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSEventsRuleRunCommandParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.RunCommandParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

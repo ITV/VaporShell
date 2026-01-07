@@ -24,7 +24,7 @@ function Add-VSEC2InstanceCpuOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.CpuOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSPinpointInAppTemplateButtonConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.InAppTemplate.ButtonConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisScrollBarOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ScrollBarOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSDeviceFarmDevicePoolRule {
     #>
 
     [OutputType('Vaporshell.Resource.DeviceFarm.DevicePool.Rule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

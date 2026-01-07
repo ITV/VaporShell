@@ -49,7 +49,7 @@ function Add-VSOpsWorksLayerRecipes {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.Layer.Recipes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

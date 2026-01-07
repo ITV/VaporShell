@@ -19,7 +19,7 @@ function Add-VSDataBrewDatasetJsonOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.JsonOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

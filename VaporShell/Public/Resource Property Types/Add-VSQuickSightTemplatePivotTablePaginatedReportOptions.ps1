@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplatePivotTablePaginatedReportOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PivotTablePaginatedReportOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,7 +62,7 @@ function Add-VSQuickSightTemplatePivotTablePaginatedReportOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                OverflowColumnHeaderVisibility {
+                'OverflowColumnHeaderVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -76,7 +76,7 @@ function Add-VSQuickSightTemplatePivotTablePaginatedReportOptions {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                VerticalOverflowVisibility {
+                'VerticalOverflowVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

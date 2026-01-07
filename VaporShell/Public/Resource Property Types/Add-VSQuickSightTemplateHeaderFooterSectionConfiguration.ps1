@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateHeaderFooterSectionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.HeaderFooterSectionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

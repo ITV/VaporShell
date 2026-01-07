@@ -25,7 +25,7 @@ function Add-VSImageBuilderLifecyclePolicyExclusionRules {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.LifecyclePolicy.ExclusionRules')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

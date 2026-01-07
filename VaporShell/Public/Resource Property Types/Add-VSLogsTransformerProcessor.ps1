@@ -54,6 +54,11 @@ function Add-VSLogsTransformerProcessor {
         UpdateType: Mutable
         Type: AddKeys
 
+    .PARAMETER ParseToOCSF
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-processor.html#cfn-logs-transformer-processor-parsetoocsf
+        UpdateType: Mutable
+        Type: ParseToOCSF
+
     .PARAMETER SubstituteString
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-processor.html#cfn-logs-transformer-processor-substitutestring
         UpdateType: Mutable
@@ -124,7 +129,7 @@ function Add-VSLogsTransformerProcessor {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.Processor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -154,6 +159,9 @@ function Add-VSLogsTransformerProcessor {
 
         [Parameter(Mandatory = $false)]
         $AddKeys,
+
+        [Parameter(Mandatory = $false)]
+        $ParseToOCSF,
 
         [Parameter(Mandatory = $false)]
         $SubstituteString,

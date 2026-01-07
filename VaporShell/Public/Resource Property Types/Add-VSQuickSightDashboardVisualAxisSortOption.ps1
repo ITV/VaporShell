@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardVisualAxisSortOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.VisualAxisSortOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

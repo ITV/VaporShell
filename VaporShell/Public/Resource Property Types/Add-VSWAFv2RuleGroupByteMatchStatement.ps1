@@ -41,7 +41,7 @@ function Add-VSWAFv2RuleGroupByteMatchStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.ByteMatchStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

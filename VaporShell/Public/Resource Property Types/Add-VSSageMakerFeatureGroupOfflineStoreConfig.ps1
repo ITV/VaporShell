@@ -34,7 +34,7 @@ function Add-VSSageMakerFeatureGroupOfflineStoreConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.FeatureGroup.OfflineStoreConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

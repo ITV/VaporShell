@@ -28,7 +28,7 @@ function Add-VSFMSPolicyIEMap {
     #>
 
     [OutputType('Vaporshell.Resource.FMS.Policy.IEMap')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

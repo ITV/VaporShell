@@ -24,7 +24,7 @@ function Add-VSGreengrassFunctionDefinitionVersionRunAs {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.FunctionDefinitionVersion.RunAs')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

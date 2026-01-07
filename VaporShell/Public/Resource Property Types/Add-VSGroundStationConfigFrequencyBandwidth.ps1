@@ -24,7 +24,7 @@ function Add-VSGroundStationConfigFrequencyBandwidth {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.Config.FrequencyBandwidth')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSS3BucketReplicaModifications {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.ReplicaModifications')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

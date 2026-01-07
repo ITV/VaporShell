@@ -24,7 +24,7 @@ function Add-VSGuardDutyIPSetTagItem {
     #>
 
     [OutputType('Vaporshell.Resource.GuardDuty.IPSet.TagItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

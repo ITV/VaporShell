@@ -24,7 +24,7 @@ function Add-VSEC2EC2FleetNetworkInterfaceCountRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.NetworkInterfaceCountRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

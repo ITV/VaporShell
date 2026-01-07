@@ -19,7 +19,7 @@ function Add-VSAthenaWorkGroupAclConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Athena.WorkGroup.AclConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

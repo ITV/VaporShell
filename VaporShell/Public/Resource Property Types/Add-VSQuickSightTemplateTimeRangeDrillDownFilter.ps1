@@ -34,7 +34,7 @@ function Add-VSQuickSightTemplateTimeRangeDrillDownFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TimeRangeDrillDownFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

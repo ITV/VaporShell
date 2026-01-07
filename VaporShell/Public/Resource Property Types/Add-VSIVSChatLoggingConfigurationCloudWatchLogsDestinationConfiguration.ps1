@@ -19,7 +19,7 @@ function Add-VSIVSChatLoggingConfigurationCloudWatchLogsDestinationConfiguration
     #>
 
     [OutputType('Vaporshell.Resource.IVSChat.LoggingConfiguration.CloudWatchLogsDestinationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

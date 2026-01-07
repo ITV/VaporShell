@@ -26,7 +26,7 @@ function Add-VSAppTestTestCaseFileMetadata {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.FileMetadata')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

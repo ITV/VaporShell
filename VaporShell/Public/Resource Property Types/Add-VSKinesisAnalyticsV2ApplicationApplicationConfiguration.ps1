@@ -14,6 +14,11 @@ function Add-VSKinesisAnalyticsV2ApplicationApplicationConfiguration {
         UpdateType: Mutable
         Type: ApplicationCodeConfiguration
 
+    .PARAMETER ApplicationEncryptionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-applicationencryptionconfiguration
+        UpdateType: Mutable
+        Type: ApplicationEncryptionConfiguration
+
     .PARAMETER EnvironmentProperties
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationconfiguration.html#cfn-kinesisanalyticsv2-application-applicationconfiguration-environmentproperties
         UpdateType: Mutable
@@ -56,12 +61,15 @@ function Add-VSKinesisAnalyticsV2ApplicationApplicationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.ApplicationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
         $ApplicationCodeConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $ApplicationEncryptionConfiguration,
 
         [Parameter(Mandatory = $false)]
         $EnvironmentProperties,

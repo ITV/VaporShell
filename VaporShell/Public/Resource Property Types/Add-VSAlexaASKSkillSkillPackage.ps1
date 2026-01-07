@@ -39,7 +39,7 @@ function Add-VSAlexaASKSkillSkillPackage {
     #>
 
     [OutputType('Vaporshell.Resource.Alexa.ASK.Skill.SkillPackage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

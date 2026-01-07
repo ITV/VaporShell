@@ -29,7 +29,7 @@ function Add-VSSageMakerModelPackageBias {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.Bias')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

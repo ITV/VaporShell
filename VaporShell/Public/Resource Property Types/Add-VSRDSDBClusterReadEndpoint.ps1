@@ -19,7 +19,7 @@ function Add-VSRDSDBClusterReadEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBCluster.ReadEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

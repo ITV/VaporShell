@@ -24,7 +24,7 @@ function Add-VSCleanRoomsMembershipMembershipProtectedQueryResultConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Membership.MembershipProtectedQueryResultConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

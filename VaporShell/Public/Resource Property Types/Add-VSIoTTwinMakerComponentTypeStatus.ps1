@@ -24,7 +24,7 @@ function Add-VSIoTTwinMakerComponentTypeStatus {
     #>
 
     [OutputType('Vaporshell.Resource.IoTTwinMaker.ComponentType.Status')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

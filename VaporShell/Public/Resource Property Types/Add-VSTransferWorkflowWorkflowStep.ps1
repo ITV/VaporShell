@@ -44,7 +44,7 @@ function Add-VSTransferWorkflowWorkflowStep {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.Workflow.WorkflowStep')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

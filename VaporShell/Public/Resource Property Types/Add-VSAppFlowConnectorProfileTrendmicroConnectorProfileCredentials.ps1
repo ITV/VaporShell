@@ -19,7 +19,7 @@ function Add-VSAppFlowConnectorProfileTrendmicroConnectorProfileCredentials {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.TrendmicroConnectorProfileCredentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

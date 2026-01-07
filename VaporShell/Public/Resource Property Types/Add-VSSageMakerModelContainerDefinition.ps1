@@ -64,7 +64,7 @@ function Add-VSSageMakerModelContainerDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Model.ContainerDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -171,7 +171,7 @@ function Add-VSSageMakerModelContainerDefinition {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Environment {
+                'Environment' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

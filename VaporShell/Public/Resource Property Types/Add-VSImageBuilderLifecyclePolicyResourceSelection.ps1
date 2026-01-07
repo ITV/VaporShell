@@ -27,7 +27,7 @@ function Add-VSImageBuilderLifecyclePolicyResourceSelection {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.LifecyclePolicy.ResourceSelection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSS3ObjectLambdaAccessPointAwsLambda {
     #>
 
     [OutputType('Vaporshell.Resource.S3ObjectLambda.AccessPoint.AwsLambda')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

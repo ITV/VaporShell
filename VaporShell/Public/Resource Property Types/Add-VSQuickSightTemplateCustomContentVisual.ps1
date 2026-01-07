@@ -51,7 +51,7 @@ function Add-VSQuickSightTemplateCustomContentVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.CustomContentVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

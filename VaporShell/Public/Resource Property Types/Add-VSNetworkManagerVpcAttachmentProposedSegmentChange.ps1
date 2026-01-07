@@ -31,7 +31,7 @@ function Add-VSNetworkManagerVpcAttachmentProposedSegmentChange {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.VpcAttachment.ProposedSegmentChange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

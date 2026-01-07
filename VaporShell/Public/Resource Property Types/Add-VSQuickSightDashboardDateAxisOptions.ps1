@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardDateAxisOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DateAxisOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

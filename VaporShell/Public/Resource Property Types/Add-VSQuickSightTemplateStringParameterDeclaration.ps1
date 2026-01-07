@@ -41,7 +41,7 @@ function Add-VSQuickSightTemplateStringParameterDeclaration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.StringParameterDeclaration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

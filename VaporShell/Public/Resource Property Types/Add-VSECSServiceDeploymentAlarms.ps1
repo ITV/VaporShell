@@ -31,7 +31,7 @@ function Add-VSECSServiceDeploymentAlarms {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.DeploymentAlarms')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

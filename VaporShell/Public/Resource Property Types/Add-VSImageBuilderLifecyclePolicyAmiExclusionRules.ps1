@@ -44,7 +44,7 @@ function Add-VSImageBuilderLifecyclePolicyAmiExclusionRules {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.LifecyclePolicy.AmiExclusionRules')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

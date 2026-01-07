@@ -24,7 +24,7 @@ function Add-VSMSKClusterEncryptionInfo {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.EncryptionInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

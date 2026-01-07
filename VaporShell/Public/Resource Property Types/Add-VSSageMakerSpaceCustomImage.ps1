@@ -29,7 +29,7 @@ function Add-VSSageMakerSpaceCustomImage {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.CustomImage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

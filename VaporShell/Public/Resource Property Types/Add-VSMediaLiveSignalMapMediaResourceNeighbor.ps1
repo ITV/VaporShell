@@ -24,7 +24,7 @@ function Add-VSMediaLiveSignalMapMediaResourceNeighbor {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.SignalMap.MediaResourceNeighbor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

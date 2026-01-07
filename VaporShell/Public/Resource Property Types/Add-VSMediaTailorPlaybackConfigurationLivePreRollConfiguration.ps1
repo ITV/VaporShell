@@ -24,7 +24,7 @@ function Add-VSMediaTailorPlaybackConfigurationLivePreRollConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.PlaybackConfiguration.LivePreRollConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

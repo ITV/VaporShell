@@ -29,7 +29,7 @@ function Add-VSLightsailContainerPublicEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Container.PublicEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

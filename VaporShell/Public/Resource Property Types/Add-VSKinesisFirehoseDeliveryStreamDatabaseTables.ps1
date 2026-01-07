@@ -28,7 +28,7 @@ function Add-VSKinesisFirehoseDeliveryStreamDatabaseTables {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.DatabaseTables')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

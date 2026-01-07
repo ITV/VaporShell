@@ -34,7 +34,7 @@ function Add-VSElasticsearchDomainCognitoOptions {
     #>
 
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.CognitoOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

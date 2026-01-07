@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardDonutOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DonutOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

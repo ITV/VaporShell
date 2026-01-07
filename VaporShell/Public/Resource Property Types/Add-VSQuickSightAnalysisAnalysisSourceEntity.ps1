@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisAnalysisSourceEntity {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.AnalysisSourceEntity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

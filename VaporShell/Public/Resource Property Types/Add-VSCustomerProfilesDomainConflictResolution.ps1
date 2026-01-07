@@ -24,7 +24,7 @@ function Add-VSCustomerProfilesDomainConflictResolution {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Domain.ConflictResolution')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -46,10 +46,20 @@ function Add-VSCloudFrontDistributionOrigin {
         UpdateType: Mutable
         Type: S3OriginConfig
 
+    .PARAMETER VpcOriginConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-vpcoriginconfig
+        UpdateType: Mutable
+        Type: VpcOriginConfig
+
     .PARAMETER OriginPath
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER ResponseCompletionTimeout
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-responsecompletiontimeout
+        UpdateType: Mutable
+        PrimitiveType: Integer
 
     .PARAMETER Id
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-id
@@ -66,7 +76,7 @@ function Add-VSCloudFrontDistributionOrigin {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.Origin')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -137,6 +147,9 @@ function Add-VSCloudFrontDistributionOrigin {
         $S3OriginConfig,
 
         [Parameter(Mandatory = $false)]
+        $VpcOriginConfig,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -147,6 +160,18 @@ function Add-VSCloudFrontDistributionOrigin {
                 }
             })]
         $OriginPath,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ResponseCompletionTimeout,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

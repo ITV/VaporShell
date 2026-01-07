@@ -16,6 +16,11 @@ function Add-VSECSServiceServiceConnectConfiguration {
         ItemType: ServiceConnectService
         DuplicatesAllowed: True
 
+    .PARAMETER AccessLogConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-accesslogconfiguration
+        UpdateType: Mutable
+        Type: ServiceConnectAccessLogConfiguration
+
     .PARAMETER Enabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html#cfn-ecs-service-serviceconnectconfiguration-enabled
         UpdateType: Mutable
@@ -36,7 +41,7 @@ function Add-VSECSServiceServiceConnectConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.ServiceConnectConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -51,6 +56,9 @@ function Add-VSECSServiceServiceConnectConfiguration {
                 }
             })]
         $Services,
+
+        [Parameter(Mandatory = $false)]
+        $AccessLogConfiguration,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

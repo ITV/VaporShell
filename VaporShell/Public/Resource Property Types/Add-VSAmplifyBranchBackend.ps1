@@ -19,7 +19,7 @@ function Add-VSAmplifyBranchBackend {
     #>
 
     [OutputType('Vaporshell.Resource.Amplify.Branch.Backend')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

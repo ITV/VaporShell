@@ -24,7 +24,7 @@ function Add-VSRedshiftClusterEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.Redshift.Cluster.Endpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

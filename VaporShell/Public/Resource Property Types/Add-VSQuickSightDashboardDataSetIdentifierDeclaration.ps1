@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardDataSetIdentifierDeclaration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DataSetIdentifierDeclaration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

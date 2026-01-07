@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardSingleAxisOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SingleAxisOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

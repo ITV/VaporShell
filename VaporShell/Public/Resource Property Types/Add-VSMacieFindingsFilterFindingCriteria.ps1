@@ -20,7 +20,7 @@ function Add-VSMacieFindingsFilterFindingCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.Macie.FindingsFilter.FindingCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

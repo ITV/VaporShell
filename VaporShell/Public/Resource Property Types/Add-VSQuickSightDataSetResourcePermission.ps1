@@ -26,7 +26,7 @@ function Add-VSQuickSightDataSetResourcePermission {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.ResourcePermission')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSRDSDBClusterEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBCluster.Endpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

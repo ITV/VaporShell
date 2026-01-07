@@ -14,6 +14,11 @@ function Add-VSB2BIPartnershipX12OutboundEdiHeaders {
         UpdateType: Mutable
         Type: X12Delimiters
 
+    .PARAMETER ControlNumbers
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html#cfn-b2bi-partnership-x12outboundediheaders-controlnumbers
+        UpdateType: Mutable
+        Type: X12ControlNumbers
+
     .PARAMETER FunctionalGroupHeaders
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html#cfn-b2bi-partnership-x12outboundediheaders-functionalgroupheaders
         UpdateType: Mutable
@@ -29,17 +34,25 @@ function Add-VSB2BIPartnershipX12OutboundEdiHeaders {
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER Gs05TimeFormat
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-x12outboundediheaders.html#cfn-b2bi-partnership-x12outboundediheaders-gs05timeformat
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Partnership.X12OutboundEdiHeaders')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
         $Delimiters,
+
+        [Parameter(Mandatory = $false)]
+        $ControlNumbers,
 
         [Parameter(Mandatory = $false)]
         $FunctionalGroupHeaders,
@@ -57,7 +70,19 @@ function Add-VSB2BIPartnershipX12OutboundEdiHeaders {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ValidateEdi
+        $ValidateEdi,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Gs05TimeFormat
 
     )
 

@@ -19,7 +19,7 @@ function Add-VSSESConfigurationSetReputationOptions {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSet.ReputationOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

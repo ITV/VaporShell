@@ -14,7 +14,7 @@ function Add-VSSageMakerEndpointConfigClarifyHeader {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.ClarifyHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

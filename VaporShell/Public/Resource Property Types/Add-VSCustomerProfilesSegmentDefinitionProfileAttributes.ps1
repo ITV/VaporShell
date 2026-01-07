@@ -14,6 +14,11 @@ function Add-VSCustomerProfilesSegmentDefinitionProfileAttributes {
         UpdateType: Immutable
         Type: ExtraLengthValueProfileDimension
 
+    .PARAMETER ProfileType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profileattributes.html#cfn-customerprofiles-segmentdefinition-profileattributes-profiletype
+        UpdateType: Immutable
+        Type: ProfileTypeDimension
+
     .PARAMETER BusinessName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profileattributes.html#cfn-customerprofiles-segmentdefinition-profileattributes-businessname
         UpdateType: Immutable
@@ -120,12 +125,15 @@ function Add-VSCustomerProfilesSegmentDefinitionProfileAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.SegmentDefinition.ProfileAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
         $AdditionalInformation,
+
+        [Parameter(Mandatory = $false)]
+        $ProfileType,
 
         [Parameter(Mandatory = $false)]
         $BusinessName,

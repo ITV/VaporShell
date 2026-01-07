@@ -34,6 +34,11 @@ function Add-VSQuickSightAnalysisFilledMapConfiguration {
         UpdateType: Mutable
         Type: TooltipOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filledmapconfiguration.html#cfn-quicksight-analysis-filledmapconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER WindowOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-filledmapconfiguration.html#cfn-quicksight-analysis-filledmapconfiguration-windowoptions
         UpdateType: Mutable
@@ -44,7 +49,7 @@ function Add-VSQuickSightAnalysisFilledMapConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FilledMapConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,6 +67,9 @@ function Add-VSQuickSightAnalysisFilledMapConfiguration {
 
         [Parameter(Mandatory = $false)]
         $Tooltip,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         $WindowOptions

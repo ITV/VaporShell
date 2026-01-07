@@ -24,7 +24,7 @@ function Add-VSIoTSiteWiseGatewayGatewayCapabilitySummary {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.Gateway.GatewayCapabilitySummary')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

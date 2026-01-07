@@ -29,7 +29,7 @@ function Add-VSKafkaConnectCustomPluginS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.CustomPlugin.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

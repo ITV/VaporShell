@@ -34,7 +34,7 @@ function Add-VSOpenSearchServiceDomainCognitoOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.CognitoOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

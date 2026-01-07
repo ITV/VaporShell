@@ -24,7 +24,7 @@ function Add-VSMSKClusterPrometheus {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.Prometheus')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

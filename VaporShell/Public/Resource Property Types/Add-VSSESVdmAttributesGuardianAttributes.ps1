@@ -19,7 +19,7 @@ function Add-VSSESVdmAttributesGuardianAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.SES.VdmAttributes.GuardianAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

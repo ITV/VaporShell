@@ -24,7 +24,7 @@ function Add-VSSecurityLakeSubscriberAwsLogSource {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityLake.Subscriber.AwsLogSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

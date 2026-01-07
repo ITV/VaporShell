@@ -34,7 +34,7 @@ function Add-VSMediaLiveChannelCaptionRectangle {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.CaptionRectangle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

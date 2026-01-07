@@ -29,7 +29,7 @@ function Add-VSEC2FlowLogDestinationOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.FlowLog.DestinationOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

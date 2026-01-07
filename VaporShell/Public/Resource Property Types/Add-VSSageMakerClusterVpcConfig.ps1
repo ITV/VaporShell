@@ -28,7 +28,7 @@ function Add-VSSageMakerClusterVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Cluster.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

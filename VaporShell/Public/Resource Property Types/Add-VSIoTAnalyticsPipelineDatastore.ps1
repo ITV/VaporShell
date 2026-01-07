@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsPipelineDatastore {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Pipeline.Datastore')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

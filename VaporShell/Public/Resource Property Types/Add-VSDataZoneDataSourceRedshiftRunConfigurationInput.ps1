@@ -36,7 +36,7 @@ function Add-VSDataZoneDataSourceRedshiftRunConfigurationInput {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.DataSource.RedshiftRunConfigurationInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","RedshiftCredentialConfiguration")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","RedshiftCredentialConfiguration")]
 

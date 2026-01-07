@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateExcludePeriodConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ExcludePeriodConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

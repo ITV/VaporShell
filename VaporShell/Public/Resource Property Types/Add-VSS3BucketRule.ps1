@@ -100,7 +100,7 @@ function Add-VSS3BucketRule {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.Rule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

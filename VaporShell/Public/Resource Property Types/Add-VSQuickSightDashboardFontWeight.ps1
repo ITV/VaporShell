@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardFontWeight {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FontWeight')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

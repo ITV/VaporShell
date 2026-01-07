@@ -19,7 +19,7 @@ function Add-VSBedrockDataSourceS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

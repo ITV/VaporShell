@@ -21,7 +21,7 @@ function Add-VSCognitoUserPoolAccountRecoverySetting {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.AccountRecoverySetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

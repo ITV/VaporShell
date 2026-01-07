@@ -29,7 +29,7 @@ function Add-VSSageMakerCodeRepositoryGitConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.CodeRepository.GitConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

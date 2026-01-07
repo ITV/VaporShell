@@ -34,7 +34,7 @@ function Add-VSQuickSightAnalysisLineChartLineStyleSettings {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.LineChartLineStyleSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

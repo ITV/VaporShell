@@ -49,7 +49,7 @@ function Add-VSIoTFleetWiseDecoderManifestObdInterface {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.DecoderManifest.ObdInterface')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -64,7 +64,7 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesFindingFieldsUpdate {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.AutomationRulesFindingFieldsUpdate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

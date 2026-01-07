@@ -46,7 +46,7 @@ function Add-VSECSServiceServiceConnectService {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.ServiceConnectService')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

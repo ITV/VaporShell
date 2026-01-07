@@ -19,6 +19,11 @@ function Add-VSDMSDataProviderSettings {
         UpdateType: Mutable
         Type: OracleSettings
 
+    .PARAMETER SybaseAseSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-sybaseasesettings
+        UpdateType: Mutable
+        Type: SybaseAseSettings
+
     .PARAMETER MicrosoftSqlServerSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-microsoftsqlserversettings
         UpdateType: Mutable
@@ -29,10 +34,20 @@ function Add-VSDMSDataProviderSettings {
         UpdateType: Mutable
         Type: RedshiftSettings
 
+    .PARAMETER IbmDb2zOsSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-ibmdb2zossettings
+        UpdateType: Mutable
+        Type: IbmDb2zOsSettings
+
     .PARAMETER MySqlSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-mysqlsettings
         UpdateType: Mutable
         Type: MySqlSettings
+
+    .PARAMETER IbmDb2LuwSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-ibmdb2luwsettings
+        UpdateType: Mutable
+        Type: IbmDb2LuwSettings
 
     .PARAMETER DocDbSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html#cfn-dms-dataprovider-settings-docdbsettings
@@ -54,7 +69,7 @@ function Add-VSDMSDataProviderSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.DataProvider.Settings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -65,13 +80,22 @@ function Add-VSDMSDataProviderSettings {
         $OracleSettings,
 
         [Parameter(Mandatory = $false)]
+        $SybaseAseSettings,
+
+        [Parameter(Mandatory = $false)]
         $MicrosoftSqlServerSettings,
 
         [Parameter(Mandatory = $false)]
         $RedshiftSettings,
 
         [Parameter(Mandatory = $false)]
+        $IbmDb2zOsSettings,
+
+        [Parameter(Mandatory = $false)]
         $MySqlSettings,
+
+        [Parameter(Mandatory = $false)]
+        $IbmDb2LuwSettings,
 
         [Parameter(Mandatory = $false)]
         $DocDbSettings,

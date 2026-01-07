@@ -32,7 +32,7 @@ function Add-VSAppTestTestCaseBatch {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.Batch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

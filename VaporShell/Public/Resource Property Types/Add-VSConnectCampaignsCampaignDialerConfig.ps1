@@ -29,7 +29,7 @@ function Add-VSConnectCampaignsCampaignDialerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaigns.Campaign.DialerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

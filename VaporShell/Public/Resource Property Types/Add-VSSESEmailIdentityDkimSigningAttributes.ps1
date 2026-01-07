@@ -29,7 +29,7 @@ function Add-VSSESEmailIdentityDkimSigningAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.SES.EmailIdentity.DkimSigningAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

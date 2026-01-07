@@ -29,7 +29,7 @@ function Add-VSImageBuilderDistributionConfigurationLaunchTemplateConfiguration 
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.DistributionConfiguration.LaunchTemplateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

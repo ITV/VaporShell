@@ -34,7 +34,7 @@ function Add-VSAppFlowConnectorProfileZendeskConnectorProfileCredentials {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.ZendeskConnectorProfileCredentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

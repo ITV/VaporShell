@@ -30,7 +30,7 @@ function Add-VSServiceDiscoveryServiceDnsConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ServiceDiscovery.Service.DnsConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

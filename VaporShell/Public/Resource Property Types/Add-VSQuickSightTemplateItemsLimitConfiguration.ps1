@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateItemsLimitConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ItemsLimitConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

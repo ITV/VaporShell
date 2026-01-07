@@ -19,7 +19,7 @@ function Add-VSEKSClusterProvider {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.Provider')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

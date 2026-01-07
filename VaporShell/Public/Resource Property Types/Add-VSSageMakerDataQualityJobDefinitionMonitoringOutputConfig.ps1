@@ -26,7 +26,7 @@ function Add-VSSageMakerDataQualityJobDefinitionMonitoringOutputConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.DataQualityJobDefinition.MonitoringOutputConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

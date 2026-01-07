@@ -19,7 +19,7 @@ function Add-VSStepFunctionsStateMachineCloudWatchLogsLogGroup {
     #>
 
     [OutputType('Vaporshell.Resource.StepFunctions.StateMachine.CloudWatchLogsLogGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

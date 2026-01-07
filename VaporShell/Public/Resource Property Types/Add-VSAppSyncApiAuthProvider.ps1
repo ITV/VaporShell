@@ -34,7 +34,7 @@ function Add-VSAppSyncApiAuthProvider {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.Api.AuthProvider')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

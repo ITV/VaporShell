@@ -24,12 +24,17 @@ function Add-VSDeadlineFleetCustomerManagedFleetConfiguration {
         UpdateType: Mutable
         Type: CustomerManagedWorkerCapabilities
 
+    .PARAMETER TagPropagationMode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-customermanagedfleetconfiguration.html#cfn-deadline-fleet-customermanagedfleetconfiguration-tagpropagationmode
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Fleet.CustomerManagedFleetConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -58,7 +63,19 @@ function Add-VSDeadlineFleetCustomerManagedFleetConfiguration {
         $Mode,
 
         [Parameter(Mandatory = $true)]
-        $WorkerCapabilities
+        $WorkerCapabilities,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TagPropagationMode
 
     )
 

@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisWhatIfPointScenario {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.WhatIfPointScenario')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

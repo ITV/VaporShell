@@ -29,7 +29,7 @@ function Add-VSGlueTableSchemaId {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Table.SchemaId')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

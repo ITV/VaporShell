@@ -21,7 +21,7 @@ function Add-VSLexBotReplication {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.Replication')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

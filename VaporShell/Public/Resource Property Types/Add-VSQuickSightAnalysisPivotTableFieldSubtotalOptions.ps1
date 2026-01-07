@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisPivotTableFieldSubtotalOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PivotTableFieldSubtotalOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

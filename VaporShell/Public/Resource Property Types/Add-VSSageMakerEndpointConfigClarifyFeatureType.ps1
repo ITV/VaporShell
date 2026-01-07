@@ -14,7 +14,7 @@ function Add-VSSageMakerEndpointConfigClarifyFeatureType {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.ClarifyFeatureType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

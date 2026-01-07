@@ -29,7 +29,7 @@ function Add-VSEC2TransitGatewayMulticastDomainOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.TransitGatewayMulticastDomain.Options')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

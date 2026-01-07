@@ -21,7 +21,7 @@ function Add-VSAutoScalingAutoScalingGroupCpuPerformanceFactorRequest {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.CpuPerformanceFactorRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

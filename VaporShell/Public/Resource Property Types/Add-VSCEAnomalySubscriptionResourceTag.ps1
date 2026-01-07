@@ -24,7 +24,7 @@ function Add-VSCEAnomalySubscriptionResourceTag {
     #>
 
     [OutputType('Vaporshell.Resource.CE.AnomalySubscription.ResourceTag')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

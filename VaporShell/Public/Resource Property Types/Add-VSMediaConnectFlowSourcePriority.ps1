@@ -19,7 +19,7 @@ function Add-VSMediaConnectFlowSourcePriority {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.SourcePriority')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

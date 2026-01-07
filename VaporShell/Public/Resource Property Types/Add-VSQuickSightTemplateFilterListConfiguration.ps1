@@ -36,7 +36,7 @@ function Add-VSQuickSightTemplateFilterListConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FilterListConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

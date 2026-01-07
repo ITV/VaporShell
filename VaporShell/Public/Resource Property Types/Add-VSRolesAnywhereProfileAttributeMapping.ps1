@@ -26,7 +26,7 @@ function Add-VSRolesAnywhereProfileAttributeMapping {
     #>
 
     [OutputType('Vaporshell.Resource.RolesAnywhere.Profile.AttributeMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

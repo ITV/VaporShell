@@ -29,7 +29,7 @@ function Add-VSEC2InstanceLaunchTemplateSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.LaunchTemplateSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSEKSNodegroupUpdateConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Nodegroup.UpdateConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

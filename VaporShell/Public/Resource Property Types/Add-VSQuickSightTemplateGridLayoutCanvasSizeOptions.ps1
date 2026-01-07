@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateGridLayoutCanvasSizeOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.GridLayoutCanvasSizeOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

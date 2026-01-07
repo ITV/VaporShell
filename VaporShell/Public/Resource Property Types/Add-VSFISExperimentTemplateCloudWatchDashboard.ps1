@@ -19,7 +19,7 @@ function Add-VSFISExperimentTemplateCloudWatchDashboard {
     #>
 
     [OutputType('Vaporshell.Resource.FIS.ExperimentTemplate.CloudWatchDashboard')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

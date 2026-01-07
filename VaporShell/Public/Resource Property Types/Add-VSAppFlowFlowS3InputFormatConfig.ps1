@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowS3InputFormatConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.S3InputFormatConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

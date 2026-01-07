@@ -24,7 +24,7 @@ function Add-VSNetworkFirewallFirewallSubnetMapping {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.Firewall.SubnetMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

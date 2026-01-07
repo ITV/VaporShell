@@ -26,7 +26,7 @@ function Add-VSSyntheticsCanaryBaseScreenshot {
     #>
 
     [OutputType('Vaporshell.Resource.Synthetics.Canary.BaseScreenshot')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

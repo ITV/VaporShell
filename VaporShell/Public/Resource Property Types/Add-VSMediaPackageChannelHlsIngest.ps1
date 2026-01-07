@@ -21,7 +21,7 @@ function Add-VSMediaPackageChannelHlsIngest {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.Channel.HlsIngest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEC2SpotFleetTotalLocalStorageGBRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.TotalLocalStorageGBRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSBedrockDataSourceConfluenceCrawlerConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.ConfluenceCrawlerConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

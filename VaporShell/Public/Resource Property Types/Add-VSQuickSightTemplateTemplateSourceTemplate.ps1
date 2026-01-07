@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateTemplateSourceTemplate {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TemplateSourceTemplate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSShieldProtectionAction {
     #>
 
     [OutputType('Vaporshell.Resource.Shield.Protection.Action')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,7 +62,7 @@ function Add-VSShieldProtectionAction {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Block {
+                'Block' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -76,7 +76,7 @@ function Add-VSShieldProtectionAction {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                Count {
+                'Count' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

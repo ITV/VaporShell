@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardDecimalValueWhenUnsetConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DecimalValueWhenUnsetConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

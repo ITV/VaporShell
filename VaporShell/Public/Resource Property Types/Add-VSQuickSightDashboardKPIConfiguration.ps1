@@ -24,12 +24,17 @@ function Add-VSQuickSightDashboardKPIConfiguration {
         UpdateType: Mutable
         Type: KPIFieldWells
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-kpiconfiguration.html#cfn-quicksight-dashboard-kpiconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.KPIConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -40,7 +45,10 @@ function Add-VSQuickSightDashboardKPIConfiguration {
         $KPIOptions,
 
         [Parameter(Mandatory = $false)]
-        $FieldWells
+        $FieldWells,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions
 
     )
 

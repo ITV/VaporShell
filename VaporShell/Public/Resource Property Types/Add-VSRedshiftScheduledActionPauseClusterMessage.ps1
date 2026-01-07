@@ -19,7 +19,7 @@ function Add-VSRedshiftScheduledActionPauseClusterMessage {
     #>
 
     [OutputType('Vaporshell.Resource.Redshift.ScheduledAction.PauseClusterMessage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSOpenSearchServiceApplicationAppConfig {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Application.AppConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

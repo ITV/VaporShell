@@ -99,7 +99,7 @@ function Add-VSAppFlowFlowSourceConnectorProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.SourceConnectorProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEC2VerifiedAccessGroupSseSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessGroup.SseSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

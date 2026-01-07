@@ -19,7 +19,7 @@ function Add-VSCassandraTableScalingPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.Cassandra.Table.ScalingPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

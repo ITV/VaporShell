@@ -19,7 +19,7 @@ function Add-VSConnectCampaignsV2CampaignEmailOutboundMode {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.EmailOutboundMode')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -45,7 +45,7 @@ function Add-VSConnectCampaignsV2CampaignEmailOutboundMode {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                AgentlessConfig {
+                'AgentlessConfig' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

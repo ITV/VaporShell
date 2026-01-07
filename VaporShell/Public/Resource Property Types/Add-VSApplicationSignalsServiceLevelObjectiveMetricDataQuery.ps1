@@ -39,7 +39,7 @@ function Add-VSApplicationSignalsServiceLevelObjectiveMetricDataQuery {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.MetricDataQuery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

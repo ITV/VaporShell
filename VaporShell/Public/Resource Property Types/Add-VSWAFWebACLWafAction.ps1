@@ -19,7 +19,7 @@ function Add-VSWAFWebACLWafAction {
     #>
 
     [OutputType('Vaporshell.Resource.WAF.WebACL.WafAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

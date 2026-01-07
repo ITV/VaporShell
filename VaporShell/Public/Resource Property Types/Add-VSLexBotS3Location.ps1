@@ -29,7 +29,7 @@ function Add-VSLexBotS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

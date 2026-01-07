@@ -49,7 +49,7 @@ function Add-VSAppFlowConnectorProfileSnowflakeConnectorProfileProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.SnowflakeConnectorProfileProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSOpenSearchServiceDomainDomainEndpointOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.DomainEndpointOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

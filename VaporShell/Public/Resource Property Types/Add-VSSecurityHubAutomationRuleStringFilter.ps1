@@ -24,7 +24,7 @@ function Add-VSSecurityHubAutomationRuleStringFilter {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.StringFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

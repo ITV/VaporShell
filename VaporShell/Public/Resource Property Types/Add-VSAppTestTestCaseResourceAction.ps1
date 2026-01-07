@@ -29,7 +29,7 @@ function Add-VSAppTestTestCaseResourceAction {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.ResourceAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

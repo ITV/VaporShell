@@ -51,7 +51,7 @@ function Add-VSSageMakerModelCardContent {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.Content')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

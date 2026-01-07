@@ -26,7 +26,7 @@ function Add-VSLightsailContainerPublicDomainName {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Container.PublicDomainName')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

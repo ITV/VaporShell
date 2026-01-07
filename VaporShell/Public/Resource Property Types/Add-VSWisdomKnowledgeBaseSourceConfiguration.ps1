@@ -24,7 +24,7 @@ function Add-VSWisdomKnowledgeBaseSourceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.SourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

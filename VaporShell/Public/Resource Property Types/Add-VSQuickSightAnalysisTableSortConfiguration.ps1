@@ -26,7 +26,7 @@ function Add-VSQuickSightAnalysisTableSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TableSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

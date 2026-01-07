@@ -19,7 +19,7 @@ function Add-VSAppRunnerObservabilityConfigurationTraceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.ObservabilityConfiguration.TraceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSAPSScraperDestination {
     #>
 
     [OutputType('Vaporshell.Resource.APS.Scraper.Destination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

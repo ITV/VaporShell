@@ -24,7 +24,7 @@ function Add-VSPinpointSegmentGPSPoint {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Segment.GPSPoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

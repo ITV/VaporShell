@@ -34,7 +34,7 @@ function Add-VSKinesisAnalyticsV2ApplicationParallelismConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.ParallelismConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

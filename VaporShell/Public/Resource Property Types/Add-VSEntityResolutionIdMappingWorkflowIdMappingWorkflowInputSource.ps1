@@ -29,7 +29,7 @@ function Add-VSEntityResolutionIdMappingWorkflowIdMappingWorkflowInputSource {
     #>
 
     [OutputType('Vaporshell.Resource.EntityResolution.IdMappingWorkflow.IdMappingWorkflowInputSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -33,7 +33,7 @@ function Add-VSPipesPipeAwsVpcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.AwsVpcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

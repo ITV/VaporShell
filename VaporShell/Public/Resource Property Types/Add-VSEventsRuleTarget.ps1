@@ -99,7 +99,7 @@ function Add-VSEventsRuleTarget {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.Target')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

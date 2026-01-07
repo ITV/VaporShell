@@ -29,7 +29,7 @@ function Add-VSIoTTopicRuleStepFunctionsAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.StepFunctionsAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

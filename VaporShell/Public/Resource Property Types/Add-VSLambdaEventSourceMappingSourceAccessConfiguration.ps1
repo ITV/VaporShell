@@ -24,7 +24,7 @@ function Add-VSLambdaEventSourceMappingSourceAccessConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.EventSourceMapping.SourceAccessConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

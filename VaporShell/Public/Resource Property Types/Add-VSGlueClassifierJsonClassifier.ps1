@@ -24,7 +24,7 @@ function Add-VSGlueClassifierJsonClassifier {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Classifier.JsonClassifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

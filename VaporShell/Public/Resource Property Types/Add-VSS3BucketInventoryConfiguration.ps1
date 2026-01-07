@@ -51,7 +51,7 @@ function Add-VSS3BucketInventoryConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.InventoryConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

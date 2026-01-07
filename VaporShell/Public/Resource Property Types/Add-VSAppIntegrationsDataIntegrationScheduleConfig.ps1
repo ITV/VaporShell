@@ -29,7 +29,7 @@ function Add-VSAppIntegrationsDataIntegrationScheduleConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppIntegrations.DataIntegration.ScheduleConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

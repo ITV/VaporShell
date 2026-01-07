@@ -19,7 +19,7 @@ function Add-VSEC2LaunchTemplateIpv4PrefixSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.Ipv4PrefixSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

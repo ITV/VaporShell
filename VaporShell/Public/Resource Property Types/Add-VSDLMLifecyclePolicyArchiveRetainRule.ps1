@@ -19,7 +19,7 @@ function Add-VSDLMLifecyclePolicyArchiveRetainRule {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.ArchiveRetainRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

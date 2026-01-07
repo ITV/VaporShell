@@ -21,7 +21,7 @@ function Add-VSCleanRoomsCollaborationMLMemberAbilities {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Collaboration.MLMemberAbilities')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

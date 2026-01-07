@@ -29,7 +29,7 @@ function Add-VSEventsRuleCapacityProviderStrategyItem {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.CapacityProviderStrategyItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

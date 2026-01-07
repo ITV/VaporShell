@@ -63,7 +63,7 @@ function Add-VSIoTSiteWiseAssetModelAssetModelCompositeModel {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.AssetModel.AssetModelCompositeModel')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

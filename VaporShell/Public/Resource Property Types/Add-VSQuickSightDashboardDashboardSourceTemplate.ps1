@@ -26,7 +26,7 @@ function Add-VSQuickSightDashboardDashboardSourceTemplate {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DashboardSourceTemplate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

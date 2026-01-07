@@ -34,7 +34,7 @@ function Add-VSElastiCacheCacheClusterLogDeliveryConfigurationRequest {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.CacheCluster.LogDeliveryConfigurationRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

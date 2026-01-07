@@ -64,7 +64,7 @@ function Add-VSKinesisFirehoseDeliveryStreamAmazonOpenSearchServerlessDestinatio
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.AmazonOpenSearchServerlessDestinationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

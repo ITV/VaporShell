@@ -19,7 +19,7 @@ function Add-VSMediaConvertJobTemplateAccelerationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConvert.JobTemplate.AccelerationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

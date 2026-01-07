@@ -24,7 +24,7 @@ function Add-VSKinesisAnalyticsV2ApplicationRecordFormat {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.RecordFormat')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

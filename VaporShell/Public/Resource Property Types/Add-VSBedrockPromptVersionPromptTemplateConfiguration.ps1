@@ -24,7 +24,7 @@ function Add-VSBedrockPromptVersionPromptTemplateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.PromptVersion.PromptTemplateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

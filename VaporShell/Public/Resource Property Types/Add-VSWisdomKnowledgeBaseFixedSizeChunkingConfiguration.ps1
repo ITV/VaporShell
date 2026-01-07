@@ -24,7 +24,7 @@ function Add-VSWisdomKnowledgeBaseFixedSizeChunkingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.FixedSizeChunkingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSQuickSightThemeTypography {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Theme.Typography')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

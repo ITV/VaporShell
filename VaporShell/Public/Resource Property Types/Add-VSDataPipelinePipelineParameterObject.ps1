@@ -26,7 +26,7 @@ function Add-VSDataPipelinePipelineParameterObject {
     #>
 
     [OutputType('Vaporshell.Resource.DataPipeline.Pipeline.ParameterObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

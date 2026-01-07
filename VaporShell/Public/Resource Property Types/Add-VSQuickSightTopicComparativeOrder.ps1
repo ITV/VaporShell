@@ -31,7 +31,7 @@ function Add-VSQuickSightTopicComparativeOrder {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.ComparativeOrder')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

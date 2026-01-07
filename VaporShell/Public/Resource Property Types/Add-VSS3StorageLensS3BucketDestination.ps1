@@ -44,7 +44,7 @@ function Add-VSS3StorageLensS3BucketDestination {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.S3BucketDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

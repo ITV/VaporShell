@@ -19,7 +19,7 @@ function Add-VSDataZoneDataSourceRecommendationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.DataSource.RecommendationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

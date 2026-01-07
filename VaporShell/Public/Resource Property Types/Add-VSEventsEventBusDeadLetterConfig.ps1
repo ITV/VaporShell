@@ -19,7 +19,7 @@ function Add-VSEventsEventBusDeadLetterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Events.EventBus.DeadLetterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSGlobalAcceleratorEndpointGroupPortOverride {
     #>
 
     [OutputType('Vaporshell.Resource.GlobalAccelerator.EndpointGroup.PortOverride')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

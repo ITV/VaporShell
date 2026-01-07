@@ -26,7 +26,7 @@ function Add-VSSageMakerDomainDockerSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.DockerSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

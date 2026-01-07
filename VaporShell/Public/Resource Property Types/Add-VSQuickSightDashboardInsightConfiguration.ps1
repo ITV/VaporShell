@@ -21,12 +21,17 @@ function Add-VSQuickSightDashboardInsightConfiguration {
         UpdateType: Mutable
         Type: CustomNarrativeOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-insightconfiguration.html#cfn-quicksight-dashboard-insightconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.InsightConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -43,7 +48,10 @@ function Add-VSQuickSightDashboardInsightConfiguration {
         $Computations,
 
         [Parameter(Mandatory = $false)]
-        $CustomNarrative
+        $CustomNarrative,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions
 
     )
 

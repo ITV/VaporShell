@@ -19,7 +19,7 @@ function Add-VSAppRunnerServiceIngressConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.IngressConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

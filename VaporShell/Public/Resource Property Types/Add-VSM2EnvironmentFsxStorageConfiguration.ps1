@@ -24,7 +24,7 @@ function Add-VSM2EnvironmentFsxStorageConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.M2.Environment.FsxStorageConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisReferenceLineStaticDataConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ReferenceLineStaticDataConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSConnectTaskTemplateFieldIdentifier {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.TaskTemplate.FieldIdentifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

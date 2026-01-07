@@ -39,7 +39,7 @@ function Add-VSMediaPackageOriginEndpointHlsEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.HlsEncryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

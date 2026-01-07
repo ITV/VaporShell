@@ -21,7 +21,7 @@ function Add-VSCloudFrontResponseHeadersPolicyAccessControlExposeHeaders {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.AccessControlExposeHeaders')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

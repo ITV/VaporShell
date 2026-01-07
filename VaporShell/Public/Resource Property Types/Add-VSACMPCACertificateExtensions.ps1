@@ -47,7 +47,7 @@ function Add-VSACMPCACertificateExtensions {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.Certificate.Extensions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

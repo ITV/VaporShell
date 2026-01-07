@@ -49,7 +49,7 @@ function Add-VSS3ExpressDirectoryBucketRule {
     #>
 
     [OutputType('Vaporshell.Resource.S3Express.DirectoryBucket.Rule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

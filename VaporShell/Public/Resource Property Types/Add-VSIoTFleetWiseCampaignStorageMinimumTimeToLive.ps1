@@ -24,7 +24,7 @@ function Add-VSIoTFleetWiseCampaignStorageMinimumTimeToLive {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.StorageMinimumTimeToLive')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

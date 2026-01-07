@@ -41,7 +41,7 @@ function Add-VSQuickSightTemplateIntegerParameterDeclaration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.IntegerParameterDeclaration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

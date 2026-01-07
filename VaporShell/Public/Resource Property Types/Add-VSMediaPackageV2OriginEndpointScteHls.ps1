@@ -19,7 +19,7 @@ function Add-VSMediaPackageV2OriginEndpointScteHls {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint.ScteHls')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

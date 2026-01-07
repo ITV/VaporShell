@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardSecondaryValueOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SecondaryValueOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

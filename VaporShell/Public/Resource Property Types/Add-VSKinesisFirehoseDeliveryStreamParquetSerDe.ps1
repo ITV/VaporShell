@@ -44,7 +44,7 @@ function Add-VSKinesisFirehoseDeliveryStreamParquetSerDe {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.ParquetSerDe')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSMediaPackageV2OriginEndpointDashUtcTiming {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint.DashUtcTiming')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

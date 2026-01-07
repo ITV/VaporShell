@@ -19,7 +19,7 @@ function Add-VSSESConfigurationSetEventDestinationEventBridgeDestination {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSetEventDestination.EventBridgeDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

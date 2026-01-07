@@ -39,7 +39,7 @@ function Add-VSQuickSightTemplateSmallMultiplesOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SmallMultiplesOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,7 +44,7 @@ function Add-VSIoTFleetWiseDecoderManifestSignalDecodersItems {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.DecoderManifest.SignalDecodersItems')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSMediaPackagePackagingGroupAuthorization {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.PackagingGroup.Authorization')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

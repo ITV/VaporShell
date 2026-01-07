@@ -24,7 +24,7 @@ function Add-VSDynamoDBGlobalTableAttributeDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.AttributeDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

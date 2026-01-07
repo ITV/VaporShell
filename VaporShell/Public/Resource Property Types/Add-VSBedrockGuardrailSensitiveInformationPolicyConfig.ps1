@@ -28,7 +28,7 @@ function Add-VSBedrockGuardrailSensitiveInformationPolicyConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Guardrail.SensitiveInformationPolicyConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

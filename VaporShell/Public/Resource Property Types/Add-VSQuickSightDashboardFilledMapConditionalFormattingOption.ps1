@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardFilledMapConditionalFormattingOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FilledMapConditionalFormattingOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

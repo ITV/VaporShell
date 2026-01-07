@@ -19,7 +19,7 @@ function Add-VSTimestreamTableMagneticStoreRejectedDataLocation {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.Table.MagneticStoreRejectedDataLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

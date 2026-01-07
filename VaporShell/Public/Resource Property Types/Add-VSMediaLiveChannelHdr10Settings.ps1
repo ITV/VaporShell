@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelHdr10Settings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.Hdr10Settings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

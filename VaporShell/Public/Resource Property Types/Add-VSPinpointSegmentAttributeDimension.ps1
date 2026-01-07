@@ -25,7 +25,7 @@ function Add-VSPinpointSegmentAttributeDimension {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Segment.AttributeDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

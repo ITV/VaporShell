@@ -19,7 +19,7 @@ function Add-VSOSISPipelineCloudWatchLogDestination {
     #>
 
     [OutputType('Vaporshell.Resource.OSIS.Pipeline.CloudWatchLogDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

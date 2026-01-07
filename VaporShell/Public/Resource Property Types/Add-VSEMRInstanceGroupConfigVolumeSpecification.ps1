@@ -34,7 +34,7 @@ function Add-VSEMRInstanceGroupConfigVolumeSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceGroupConfig.VolumeSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

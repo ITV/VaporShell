@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateSectionBasedLayoutPaperCanvasSizeOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SectionBasedLayoutPaperCanvasSizeOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

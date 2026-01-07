@@ -39,7 +39,7 @@ function Add-VSSageMakerModelCardIntendedUses {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.IntendedUses')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

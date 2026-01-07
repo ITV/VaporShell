@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardFilterTextFieldControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FilterTextFieldControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSKinesisAnalyticsV2ApplicationInputProcessingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.InputProcessingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

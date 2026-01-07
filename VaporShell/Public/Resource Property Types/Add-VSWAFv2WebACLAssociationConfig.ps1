@@ -20,7 +20,7 @@ function Add-VSWAFv2WebACLAssociationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.AssociationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

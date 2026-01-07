@@ -50,7 +50,7 @@ function Add-VSSageMakerModelPackageTransformJobDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.TransformJobDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

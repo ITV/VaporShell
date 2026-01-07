@@ -29,7 +29,7 @@ function Add-VSSecurityHubInsightMapFilter {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.Insight.MapFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

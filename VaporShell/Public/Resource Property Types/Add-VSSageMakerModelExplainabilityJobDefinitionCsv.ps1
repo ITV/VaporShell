@@ -19,7 +19,7 @@ function Add-VSSageMakerModelExplainabilityJobDefinitionCsv {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.Csv')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

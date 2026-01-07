@@ -29,7 +29,7 @@ function Add-VSSageMakerFeatureGroupDataCatalogConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.FeatureGroup.DataCatalogConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

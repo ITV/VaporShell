@@ -19,7 +19,7 @@ function Add-VSWisdomKnowledgeBaseServerSideEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.ServerSideEncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

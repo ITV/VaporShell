@@ -29,7 +29,7 @@ function Add-VSCustomerProfilesSegmentDefinitionRangeOverride {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.SegmentDefinition.RangeOverride')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

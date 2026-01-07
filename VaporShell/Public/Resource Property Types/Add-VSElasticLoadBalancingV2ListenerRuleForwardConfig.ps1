@@ -26,7 +26,7 @@ function Add-VSElasticLoadBalancingV2ListenerRuleForwardConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.ForwardConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

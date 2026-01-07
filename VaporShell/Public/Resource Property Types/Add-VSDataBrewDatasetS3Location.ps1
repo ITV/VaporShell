@@ -29,7 +29,7 @@ function Add-VSDataBrewDatasetS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

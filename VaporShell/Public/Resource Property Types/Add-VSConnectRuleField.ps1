@@ -24,7 +24,7 @@ function Add-VSConnectRuleField {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.Rule.Field')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

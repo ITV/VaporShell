@@ -24,7 +24,7 @@ function Add-VSSSMGuiConnectPreferencesIdleConnectionAlert {
     #>
 
     [OutputType('Vaporshell.Resource.SSMGuiConnect.Preferences.IdleConnectionAlert')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

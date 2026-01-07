@@ -49,7 +49,7 @@ function Add-VSFMSPolicyNetworkAclEntry {
     #>
 
     [OutputType('Vaporshell.Resource.FMS.Policy.NetworkAclEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSAmplifyUIBuilderFormFormInputBindingPropertiesValueProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Form.FormInputBindingPropertiesValueProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

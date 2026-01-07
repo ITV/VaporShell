@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelMaintenanceUpdateSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.MaintenanceUpdateSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

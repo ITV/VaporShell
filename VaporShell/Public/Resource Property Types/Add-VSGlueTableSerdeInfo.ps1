@@ -29,7 +29,7 @@ function Add-VSGlueTableSerdeInfo {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Table.SerdeInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -79,7 +79,7 @@ function Add-VSGlueTableSerdeInfo {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Parameters {
+                'Parameters' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

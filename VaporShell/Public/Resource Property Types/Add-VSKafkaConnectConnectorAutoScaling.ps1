@@ -39,7 +39,7 @@ function Add-VSKafkaConnectConnectorAutoScaling {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.AutoScaling')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

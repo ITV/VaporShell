@@ -21,7 +21,7 @@ function Add-VSKinesisFirehoseDeliveryStreamHiveJsonSerDe {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.HiveJsonSerDe')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -28,7 +28,7 @@ function Add-VSGrafanaWorkspaceVpcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Grafana.Workspace.VpcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

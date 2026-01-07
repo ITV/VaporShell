@@ -44,7 +44,7 @@ function Add-VSEC2NetworkInsightsAnalysisAnalysisAclRule {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAnalysis.AnalysisAclRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

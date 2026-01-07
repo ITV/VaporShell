@@ -35,7 +35,7 @@ function Add-VSQuickSightTemplateGeospatialMapAggregatedFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.GeospatialMapAggregatedFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

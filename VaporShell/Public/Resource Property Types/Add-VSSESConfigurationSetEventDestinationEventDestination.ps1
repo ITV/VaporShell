@@ -51,7 +51,7 @@ function Add-VSSESConfigurationSetEventDestinationEventDestination {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSetEventDestination.EventDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

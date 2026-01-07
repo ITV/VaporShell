@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelTemporalFilterSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.TemporalFilterSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

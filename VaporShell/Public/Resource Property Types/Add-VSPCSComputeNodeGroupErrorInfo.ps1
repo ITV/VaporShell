@@ -24,7 +24,7 @@ function Add-VSPCSComputeNodeGroupErrorInfo {
     #>
 
     [OutputType('Vaporshell.Resource.PCS.ComputeNodeGroup.ErrorInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

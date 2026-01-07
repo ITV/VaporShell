@@ -29,7 +29,7 @@ function Add-VSIoTAccountAuditConfigurationAuditNotificationTarget {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.AccountAuditConfiguration.AuditNotificationTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

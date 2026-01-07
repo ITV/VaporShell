@@ -30,7 +30,7 @@ function Add-VSGlueConnectionPhysicalConnectionRequirements {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Connection.PhysicalConnectionRequirements')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

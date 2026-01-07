@@ -34,7 +34,7 @@ function Add-VSS3BucketDestination {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.Destination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

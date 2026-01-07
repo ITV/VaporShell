@@ -26,7 +26,7 @@ function Add-VSQuickSightTemplateTableSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TableSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

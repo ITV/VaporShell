@@ -19,7 +19,7 @@ function Add-VSS3BucketDeleteMarkerReplication {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.DeleteMarkerReplication')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

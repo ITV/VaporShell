@@ -107,7 +107,7 @@ function Add-VSQuickSightTopicTopicColumn {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.TopicColumn')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

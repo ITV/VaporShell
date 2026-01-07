@@ -24,7 +24,7 @@ function Add-VSSSMDocumentDocumentRequires {
     #>
 
     [OutputType('Vaporshell.Resource.SSM.Document.DocumentRequires')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

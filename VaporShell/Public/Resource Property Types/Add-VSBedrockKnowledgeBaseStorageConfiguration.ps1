@@ -9,10 +9,25 @@ function Add-VSBedrockKnowledgeBaseStorageConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html
 
+    .PARAMETER S3VectorsConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-s3vectorsconfiguration
+        UpdateType: Immutable
+        Type: S3VectorsConfiguration
+
+    .PARAMETER OpensearchManagedClusterConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-opensearchmanagedclusterconfiguration
+        UpdateType: Immutable
+        Type: OpenSearchManagedClusterConfiguration
+
     .PARAMETER OpensearchServerlessConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-opensearchserverlessconfiguration
         UpdateType: Immutable
         Type: OpenSearchServerlessConfiguration
+
+    .PARAMETER NeptuneAnalyticsConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-neptuneanalyticsconfiguration
+        UpdateType: Immutable
+        Type: NeptuneAnalyticsConfiguration
 
     .PARAMETER Type
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-storageconfiguration.html#cfn-bedrock-knowledgebase-storageconfiguration-type
@@ -39,12 +54,21 @@ function Add-VSBedrockKnowledgeBaseStorageConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.StorageConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
+        $S3VectorsConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $OpensearchManagedClusterConfiguration,
+
+        [Parameter(Mandatory = $false)]
         $OpensearchServerlessConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $NeptuneAnalyticsConfiguration,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

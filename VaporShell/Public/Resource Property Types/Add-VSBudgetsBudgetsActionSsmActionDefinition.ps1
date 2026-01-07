@@ -31,7 +31,7 @@ function Add-VSBudgetsBudgetsActionSsmActionDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.BudgetsAction.SsmActionDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSCleanRoomsCollaborationDataEncryptionMetadata {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Collaboration.DataEncryptionMetadata')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

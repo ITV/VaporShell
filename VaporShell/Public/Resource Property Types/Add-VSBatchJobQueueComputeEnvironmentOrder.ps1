@@ -24,7 +24,7 @@ function Add-VSBatchJobQueueComputeEnvironmentOrder {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobQueue.ComputeEnvironmentOrder')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSEMRServerlessApplicationImageConfigurationInput {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.ImageConfigurationInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

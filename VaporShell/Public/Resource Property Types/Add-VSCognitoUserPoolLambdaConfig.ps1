@@ -84,7 +84,7 @@ function Add-VSCognitoUserPoolLambdaConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.LambdaConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSLogsTransformerDeleteKeys {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.DeleteKeys')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

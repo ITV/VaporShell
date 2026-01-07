@@ -34,7 +34,7 @@ function Add-VSPinpointCampaignTemplateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.TemplateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

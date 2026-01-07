@@ -9,6 +9,11 @@ function Add-VSBedrockPromptVersionTool {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-tool.html
 
+    .PARAMETER CachePoint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-tool.html#cfn-bedrock-promptversion-tool-cachepoint
+        UpdateType: Mutable
+        Type: CachePointBlock
+
     .PARAMETER ToolSpec
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-tool.html#cfn-bedrock-promptversion-tool-toolspec
         UpdateType: Mutable
@@ -19,11 +24,14 @@ function Add-VSBedrockPromptVersionTool {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.PromptVersion.Tool')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $CachePoint,
+
+        [Parameter(Mandatory = $false)]
         $ToolSpec
 
     )

@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisSheetControlInfoIconLabelOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SheetControlInfoIconLabelOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

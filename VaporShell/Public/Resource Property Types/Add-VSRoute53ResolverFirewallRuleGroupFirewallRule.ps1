@@ -74,7 +74,7 @@ function Add-VSRoute53ResolverFirewallRuleGroupFirewallRule {
     #>
 
     [OutputType('Vaporshell.Resource.Route53Resolver.FirewallRuleGroup.FirewallRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

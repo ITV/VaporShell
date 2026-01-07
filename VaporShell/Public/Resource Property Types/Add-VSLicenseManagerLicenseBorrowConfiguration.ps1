@@ -24,7 +24,7 @@ function Add-VSLicenseManagerLicenseBorrowConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.LicenseManager.License.BorrowConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

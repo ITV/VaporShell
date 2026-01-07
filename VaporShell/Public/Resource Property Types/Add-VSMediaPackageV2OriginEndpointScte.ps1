@@ -21,7 +21,7 @@ function Add-VSMediaPackageV2OriginEndpointScte {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint.Scte')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

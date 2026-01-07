@@ -59,7 +59,7 @@ function Add-VSQuickSightTemplatePanelConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PanelConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -172,7 +172,7 @@ function Add-VSQuickSightTemplatePanelConfiguration {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                BackgroundVisibility {
+                'BackgroundVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -186,7 +186,7 @@ function Add-VSQuickSightTemplatePanelConfiguration {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                BorderVisibility {
+                'BorderVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -200,7 +200,7 @@ function Add-VSQuickSightTemplatePanelConfiguration {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                GutterVisibility {
+                'GutterVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

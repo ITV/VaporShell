@@ -24,7 +24,7 @@ function Add-VSEvidentlyExperimentTreatmentToWeight {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Experiment.TreatmentToWeight')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

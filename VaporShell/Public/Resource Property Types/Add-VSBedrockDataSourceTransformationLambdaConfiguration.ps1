@@ -19,7 +19,7 @@ function Add-VSBedrockDataSourceTransformationLambdaConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.TransformationLambdaConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

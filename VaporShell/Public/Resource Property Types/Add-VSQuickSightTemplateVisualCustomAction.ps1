@@ -41,7 +41,7 @@ function Add-VSQuickSightTemplateVisualCustomAction {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.VisualCustomAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSDynamoDBTableS3BucketSource {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.Table.S3BucketSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

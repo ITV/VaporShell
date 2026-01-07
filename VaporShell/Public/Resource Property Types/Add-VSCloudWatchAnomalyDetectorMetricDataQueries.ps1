@@ -14,7 +14,7 @@ function Add-VSCloudWatchAnomalyDetectorMetricDataQueries {
     #>
 
     [OutputType('Vaporshell.Resource.CloudWatch.AnomalyDetector.MetricDataQueries')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

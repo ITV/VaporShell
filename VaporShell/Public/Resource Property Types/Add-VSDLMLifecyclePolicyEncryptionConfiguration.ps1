@@ -24,7 +24,7 @@ function Add-VSDLMLifecyclePolicyEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.EncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

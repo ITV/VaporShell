@@ -59,7 +59,7 @@ function Add-VSACMPCACertificateAuthorityKeyUsage {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.CertificateAuthority.KeyUsage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

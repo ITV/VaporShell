@@ -29,7 +29,7 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANGatewayVersion {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.TaskDefinition.LoRaWANGatewayVersion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

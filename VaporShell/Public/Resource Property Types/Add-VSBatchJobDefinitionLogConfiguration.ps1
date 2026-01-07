@@ -32,7 +32,7 @@ function Add-VSBatchJobDefinitionLogConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.LogConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

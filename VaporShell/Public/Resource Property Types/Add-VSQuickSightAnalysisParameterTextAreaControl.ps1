@@ -39,7 +39,7 @@ function Add-VSQuickSightAnalysisParameterTextAreaControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ParameterTextAreaControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

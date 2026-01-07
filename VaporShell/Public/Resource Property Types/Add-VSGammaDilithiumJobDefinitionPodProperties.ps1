@@ -63,7 +63,7 @@ function Add-VSGammaDilithiumJobDefinitionPodProperties {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.PodProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

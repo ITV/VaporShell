@@ -29,7 +29,7 @@ function Add-VSIoTCACertificateRegistrationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.CACertificate.RegistrationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

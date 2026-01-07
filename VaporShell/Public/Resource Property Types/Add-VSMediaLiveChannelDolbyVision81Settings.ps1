@@ -14,7 +14,7 @@ function Add-VSMediaLiveChannelDolbyVision81Settings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.DolbyVision81Settings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

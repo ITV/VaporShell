@@ -19,7 +19,7 @@ function Add-VSLocationPlaceIndexDataSourceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Location.PlaceIndex.DataSourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

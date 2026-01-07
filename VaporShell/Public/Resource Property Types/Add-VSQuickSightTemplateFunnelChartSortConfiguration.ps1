@@ -26,7 +26,7 @@ function Add-VSQuickSightTemplateFunnelChartSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FunnelChartSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

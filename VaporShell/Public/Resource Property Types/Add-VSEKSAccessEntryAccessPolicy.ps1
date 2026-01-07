@@ -24,7 +24,7 @@ function Add-VSEKSAccessEntryAccessPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.AccessEntry.AccessPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

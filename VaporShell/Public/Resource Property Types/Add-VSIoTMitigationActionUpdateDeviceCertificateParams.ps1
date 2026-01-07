@@ -19,7 +19,7 @@ function Add-VSIoTMitigationActionUpdateDeviceCertificateParams {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.MitigationAction.UpdateDeviceCertificateParams')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

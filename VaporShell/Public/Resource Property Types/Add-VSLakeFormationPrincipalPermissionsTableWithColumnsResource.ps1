@@ -41,7 +41,7 @@ function Add-VSLakeFormationPrincipalPermissionsTableWithColumnsResource {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.PrincipalPermissions.TableWithColumnsResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

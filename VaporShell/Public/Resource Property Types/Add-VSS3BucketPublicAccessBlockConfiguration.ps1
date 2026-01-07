@@ -34,7 +34,7 @@ function Add-VSS3BucketPublicAccessBlockConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.PublicAccessBlockConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

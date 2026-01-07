@@ -26,7 +26,7 @@ function Add-VSIoTFleetMetricAggregationType {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.FleetMetric.AggregationType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEventsConnectionApiKeyAuthParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Connection.ApiKeyAuthParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

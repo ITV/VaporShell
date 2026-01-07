@@ -55,7 +55,7 @@ function Add-VSS3StorageLensGroupFilter {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLensGroup.Filter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSFraudDetectorDetectorModel {
     #>
 
     [OutputType('Vaporshell.Resource.FraudDetector.Detector.Model')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

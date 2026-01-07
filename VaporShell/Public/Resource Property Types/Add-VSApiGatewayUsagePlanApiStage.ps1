@@ -30,7 +30,7 @@ function Add-VSApiGatewayUsagePlanApiStage {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.UsagePlan.ApiStage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

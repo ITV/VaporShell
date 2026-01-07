@@ -34,7 +34,7 @@ function Add-VSConnectQuickConnectQuickConnectConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.QuickConnect.QuickConnectConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

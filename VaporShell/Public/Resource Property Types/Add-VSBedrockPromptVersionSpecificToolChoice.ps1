@@ -19,7 +19,7 @@ function Add-VSBedrockPromptVersionSpecificToolChoice {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.PromptVersion.SpecificToolChoice')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

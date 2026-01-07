@@ -24,7 +24,7 @@ function Add-VSBedrockFlowVersionFlowDataConnectionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.FlowDataConnectionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

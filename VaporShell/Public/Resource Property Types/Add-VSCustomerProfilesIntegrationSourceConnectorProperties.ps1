@@ -39,7 +39,7 @@ function Add-VSCustomerProfilesIntegrationSourceConnectorProperties {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.SourceConnectorProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

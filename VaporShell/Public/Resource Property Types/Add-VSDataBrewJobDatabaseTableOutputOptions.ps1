@@ -24,7 +24,7 @@ function Add-VSDataBrewJobDatabaseTableOutputOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Job.DatabaseTableOutputOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

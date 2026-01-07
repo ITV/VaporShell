@@ -44,7 +44,7 @@ function Add-VSQuickSightAnalysisReferenceLineLabelConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ReferenceLineLabelConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

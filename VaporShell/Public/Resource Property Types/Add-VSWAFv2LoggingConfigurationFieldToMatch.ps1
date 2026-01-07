@@ -34,7 +34,7 @@ function Add-VSWAFv2LoggingConfigurationFieldToMatch {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.LoggingConfiguration.FieldToMatch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -87,7 +87,7 @@ function Add-VSWAFv2LoggingConfigurationFieldToMatch {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                QueryString {
+                'QueryString' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -101,7 +101,7 @@ function Add-VSWAFv2LoggingConfigurationFieldToMatch {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                UriPath {
+                'UriPath' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -115,7 +115,7 @@ function Add-VSWAFv2LoggingConfigurationFieldToMatch {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                Method {
+                'Method' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

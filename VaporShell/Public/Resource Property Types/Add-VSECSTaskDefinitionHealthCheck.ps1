@@ -41,7 +41,7 @@ function Add-VSECSTaskDefinitionHealthCheck {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.HealthCheck')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

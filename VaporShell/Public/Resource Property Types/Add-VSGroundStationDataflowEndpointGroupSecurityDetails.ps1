@@ -11,21 +11,21 @@ function Add-VSGroundStationDataflowEndpointGroupSecurityDetails {
 
     .PARAMETER SubnetIds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html#cfn-groundstation-dataflowendpointgroup-securitydetails-subnetids
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
     .PARAMETER SecurityGroupIds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html#cfn-groundstation-dataflowendpointgroup-securitydetails-securitygroupids
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
     .PARAMETER RoleArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-securitydetails.html#cfn-groundstation-dataflowendpointgroup-securitydetails-rolearn
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -33,7 +33,7 @@ function Add-VSGroundStationDataflowEndpointGroupSecurityDetails {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.DataflowEndpointGroup.SecurityDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

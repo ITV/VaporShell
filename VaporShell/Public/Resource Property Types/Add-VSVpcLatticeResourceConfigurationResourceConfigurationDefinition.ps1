@@ -29,7 +29,7 @@ function Add-VSVpcLatticeResourceConfigurationResourceConfigurationDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.ResourceConfiguration.ResourceConfigurationDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

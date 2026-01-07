@@ -24,7 +24,7 @@ function Add-VSEC2LaunchTemplateVCpuCount {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.VCpuCount')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

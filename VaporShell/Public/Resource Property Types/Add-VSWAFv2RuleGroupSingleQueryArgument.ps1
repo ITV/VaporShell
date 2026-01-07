@@ -19,7 +19,7 @@ function Add-VSWAFv2RuleGroupSingleQueryArgument {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.SingleQueryArgument')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

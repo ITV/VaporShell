@@ -24,7 +24,7 @@ function Add-VSMediaPackageV2OriginEndpointStartTag {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint.StartTag')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

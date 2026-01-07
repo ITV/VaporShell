@@ -19,7 +19,7 @@ function Add-VSBedrockFlowVersionStorageFlowNodeS3Configuration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.StorageFlowNodeS3Configuration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

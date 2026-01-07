@@ -21,7 +21,7 @@ function Add-VSLambdaCodeSigningConfigAllowedPublishers {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.CodeSigningConfig.AllowedPublishers')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

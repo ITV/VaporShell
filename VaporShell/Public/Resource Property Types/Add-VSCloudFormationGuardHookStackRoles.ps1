@@ -28,7 +28,7 @@ function Add-VSCloudFormationGuardHookStackRoles {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.GuardHook.StackRoles')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

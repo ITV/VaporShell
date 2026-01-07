@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelHlsS3Settings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.HlsS3Settings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

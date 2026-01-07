@@ -29,6 +29,11 @@ function Add-VSIoTFleetWiseDecoderManifestCanSignal {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER SignalValueType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-signalvaluetype
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER StartBit
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html#cfn-iotfleetwise-decodermanifest-cansignal-startbit
         UpdateType: Mutable
@@ -54,7 +59,7 @@ function Add-VSIoTFleetWiseDecoderManifestCanSignal {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.DecoderManifest.CanSignal')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -105,6 +110,18 @@ function Add-VSIoTFleetWiseDecoderManifestCanSignal {
                 }
             })]
         $IsSigned,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SignalValueType,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

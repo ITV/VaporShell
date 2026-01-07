@@ -9,6 +9,11 @@ function Add-VSQuickSightDataSetPhysicalTable {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html
 
+    .PARAMETER SaaSTable
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-saastable
+        UpdateType: Mutable
+        Type: SaaSTable
+
     .PARAMETER RelationalTable
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-physicaltable.html#cfn-quicksight-dataset-physicaltable-relationaltable
         UpdateType: Mutable
@@ -29,10 +34,13 @@ function Add-VSQuickSightDataSetPhysicalTable {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.PhysicalTable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $SaaSTable,
+
         [Parameter(Mandatory = $false)]
         $RelationalTable,
 

@@ -26,7 +26,7 @@ function Add-VSComprehendFlywheelDocumentClassificationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Comprehend.Flywheel.DocumentClassificationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSAppMeshVirtualNodeOutlierDetection {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.OutlierDetection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

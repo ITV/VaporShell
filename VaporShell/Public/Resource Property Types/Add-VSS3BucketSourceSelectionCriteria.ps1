@@ -24,7 +24,7 @@ function Add-VSS3BucketSourceSelectionCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.SourceSelectionCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

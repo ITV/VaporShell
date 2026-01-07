@@ -19,7 +19,7 @@ function Add-VSEKSClusterUpgradePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.UpgradePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

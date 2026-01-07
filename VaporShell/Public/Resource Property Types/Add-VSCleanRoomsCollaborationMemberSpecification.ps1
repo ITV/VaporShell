@@ -41,7 +41,7 @@ function Add-VSCleanRoomsCollaborationMemberSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Collaboration.MemberSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -72,7 +72,7 @@ function Add-VSCleanRoomsCollaborationMemberSpecification {
             })]
         $DisplayName,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         $MemberAbilities,
 
         [Parameter(Mandatory = $false)]

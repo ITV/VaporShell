@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelArchiveContainerSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.ArchiveContainerSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

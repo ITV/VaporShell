@@ -34,7 +34,7 @@ function Add-VSGlueMLTransformFindMatchesParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.MLTransform.FindMatchesParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

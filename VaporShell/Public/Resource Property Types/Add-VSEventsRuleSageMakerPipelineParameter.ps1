@@ -24,7 +24,7 @@ function Add-VSEventsRuleSageMakerPipelineParameter {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.SageMakerPipelineParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

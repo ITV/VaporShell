@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateFilledMapShapeConditionalFormatting {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FilledMapShapeConditionalFormatting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

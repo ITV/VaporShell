@@ -24,7 +24,7 @@ function Add-VSSecurityHubAutomationRuleDateRange {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.DateRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

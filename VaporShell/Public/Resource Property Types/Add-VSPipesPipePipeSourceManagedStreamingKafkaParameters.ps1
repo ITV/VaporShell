@@ -44,7 +44,7 @@ function Add-VSPipesPipePipeSourceManagedStreamingKafkaParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeSourceManagedStreamingKafkaParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Credentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Credentials")]
 

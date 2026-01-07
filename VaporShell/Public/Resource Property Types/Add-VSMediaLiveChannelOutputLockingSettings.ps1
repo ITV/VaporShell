@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelOutputLockingSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.OutputLockingSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

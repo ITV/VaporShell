@@ -39,7 +39,7 @@ function Add-VSCognitoUserPoolEmailConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.EmailConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSGameLiftContainerFleetIpPermission {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerFleet.IpPermission')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEventsConnectionClientParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Connection.ClientParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -109,7 +109,7 @@ function Add-VSIoTWirelessServiceProfileLoRaWANServiceProfile {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.ServiceProfile.LoRaWANServiceProfile')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

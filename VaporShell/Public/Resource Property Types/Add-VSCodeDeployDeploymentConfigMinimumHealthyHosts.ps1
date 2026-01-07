@@ -24,7 +24,7 @@ function Add-VSCodeDeployDeploymentConfigMinimumHealthyHosts {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentConfig.MinimumHealthyHosts')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

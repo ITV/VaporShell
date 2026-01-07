@@ -19,7 +19,7 @@ function Add-VSEntityResolutionIdMappingWorkflowIntermediateSourceConfiguration 
     #>
 
     [OutputType('Vaporshell.Resource.EntityResolution.IdMappingWorkflow.IntermediateSourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSInternetMonitorMonitorS3Config {
     #>
 
     [OutputType('Vaporshell.Resource.InternetMonitor.Monitor.S3Config')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

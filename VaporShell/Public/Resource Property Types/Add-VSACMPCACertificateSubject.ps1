@@ -91,7 +91,7 @@ function Add-VSACMPCACertificateSubject {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.Certificate.Subject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

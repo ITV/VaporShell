@@ -19,7 +19,7 @@ function Add-VSB2BITransformerFormatOptions {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Transformer.FormatOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

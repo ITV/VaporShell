@@ -11,12 +11,12 @@ function Add-VSKinesisFirehoseDeliveryStreamProcessorParameter {
 
     .PARAMETER ParameterValue
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametervalue
-        UpdateType: Conditional
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ParameterName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametername
-        UpdateType: Conditional
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -24,7 +24,7 @@ function Add-VSKinesisFirehoseDeliveryStreamProcessorParameter {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.ProcessorParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

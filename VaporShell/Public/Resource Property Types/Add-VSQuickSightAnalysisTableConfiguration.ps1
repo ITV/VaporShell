@@ -41,6 +41,11 @@ function Add-VSQuickSightAnalysisTableConfiguration {
         UpdateType: Mutable
         Type: TableFieldOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tableconfiguration.html#cfn-quicksight-analysis-tableconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER TotalOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-tableconfiguration.html#cfn-quicksight-analysis-tableconfiguration-totaloptions
         UpdateType: Mutable
@@ -51,7 +56,7 @@ function Add-VSQuickSightAnalysisTableConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TableConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -81,6 +86,9 @@ function Add-VSQuickSightAnalysisTableConfiguration {
 
         [Parameter(Mandatory = $false)]
         $FieldOptions,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         $TotalOptions

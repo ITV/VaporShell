@@ -24,7 +24,7 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramPipelineDetail {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Multiplexprogram.MultiplexProgramPipelineDetail')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

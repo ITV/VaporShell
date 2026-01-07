@@ -28,7 +28,7 @@ function Add-VSBedrockGuardrailWordPolicyConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Guardrail.WordPolicyConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

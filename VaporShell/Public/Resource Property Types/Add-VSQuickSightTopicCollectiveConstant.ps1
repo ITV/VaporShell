@@ -21,7 +21,7 @@ function Add-VSQuickSightTopicCollectiveConstant {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.CollectiveConstant')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

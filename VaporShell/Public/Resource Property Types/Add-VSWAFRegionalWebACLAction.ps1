@@ -19,7 +19,7 @@ function Add-VSWAFRegionalWebACLAction {
     #>
 
     [OutputType('Vaporshell.Resource.WAFRegional.WebACL.Action')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -42,6 +42,13 @@ function Add-VSBackupBackupPlanBackupRuleResourceType {
         UpdateType: Mutable
         Type: LifecycleResourceType
 
+    .PARAMETER IndexActions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-indexactions
+        UpdateType: Mutable
+        Type: List
+        ItemType: IndexActionsResourceType
+        DuplicatesAllowed: True
+
     .PARAMETER TargetBackupVault
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault
         UpdateType: Mutable
@@ -57,6 +64,11 @@ function Add-VSBackupBackupPlanBackupRuleResourceType {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER TargetLogicallyAirGappedBackupVaultArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetlogicallyairgappedbackupvaultarn
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER RuleName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename
         UpdateType: Mutable
@@ -67,7 +79,7 @@ function Add-VSBackupBackupPlanBackupRuleResourceType {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.BackupPlan.BackupRuleResourceType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -126,6 +138,18 @@ function Add-VSBackupBackupPlanBackupRuleResourceType {
         [Parameter(Mandatory = $false)]
         $Lifecycle,
 
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Backup.BackupPlan.IndexActionsResourceType"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IndexActions,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -161,6 +185,18 @@ function Add-VSBackupBackupPlanBackupRuleResourceType {
                 }
             })]
         $ScheduleExpressionTimezone,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $TargetLogicallyAirGappedBackupVaultArn,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

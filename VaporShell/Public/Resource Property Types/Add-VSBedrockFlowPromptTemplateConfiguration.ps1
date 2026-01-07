@@ -19,7 +19,7 @@ function Add-VSBedrockFlowPromptTemplateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Flow.PromptTemplateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

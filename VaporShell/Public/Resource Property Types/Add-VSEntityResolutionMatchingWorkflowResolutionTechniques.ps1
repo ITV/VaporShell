@@ -24,12 +24,17 @@ function Add-VSEntityResolutionMatchingWorkflowResolutionTechniques {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER RuleConditionProperties
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-resolutiontechniques.html#cfn-entityresolution-matchingworkflow-resolutiontechniques-ruleconditionproperties
+        UpdateType: Mutable
+        Type: RuleConditionProperties
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.EntityResolution.MatchingWorkflow.ResolutionTechniques')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -49,7 +54,10 @@ function Add-VSEntityResolutionMatchingWorkflowResolutionTechniques {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ResolutionType
+        $ResolutionType,
+
+        [Parameter(Mandatory = $false)]
+        $RuleConditionProperties
 
     )
 

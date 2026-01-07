@@ -19,7 +19,7 @@ function Add-VSSageMakerModelPackageExplainability {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.Explainability')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

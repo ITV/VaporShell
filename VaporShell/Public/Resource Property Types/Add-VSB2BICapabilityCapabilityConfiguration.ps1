@@ -19,7 +19,7 @@ function Add-VSB2BICapabilityCapabilityConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Capability.CapabilityConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

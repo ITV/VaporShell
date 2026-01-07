@@ -19,7 +19,7 @@ function Add-VSMediaConnectFlowAudioMonitoringSetting {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.AudioMonitoringSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

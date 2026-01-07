@@ -24,7 +24,7 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationCheckCertificateRevocati
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.TLSInspectionConfiguration.CheckCertificateRevocationStatus')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

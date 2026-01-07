@@ -29,7 +29,7 @@ function Add-VSResilienceHubAppEventSubscription {
     #>
 
     [OutputType('Vaporshell.Resource.ResilienceHub.App.EventSubscription')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

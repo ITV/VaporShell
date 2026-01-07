@@ -26,7 +26,7 @@ function Add-VSLexBotIntentOverride {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.IntentOverride')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

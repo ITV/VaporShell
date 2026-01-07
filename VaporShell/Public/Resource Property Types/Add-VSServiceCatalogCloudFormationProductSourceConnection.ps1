@@ -24,7 +24,7 @@ function Add-VSServiceCatalogCloudFormationProductSourceConnection {
     #>
 
     [OutputType('Vaporshell.Resource.ServiceCatalog.CloudFormationProduct.SourceConnection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

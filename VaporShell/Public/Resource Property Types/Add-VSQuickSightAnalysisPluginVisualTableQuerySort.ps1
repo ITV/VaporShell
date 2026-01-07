@@ -26,7 +26,7 @@ function Add-VSQuickSightAnalysisPluginVisualTableQuerySort {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PluginVisualTableQuerySort')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

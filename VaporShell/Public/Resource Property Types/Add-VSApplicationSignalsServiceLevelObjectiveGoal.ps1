@@ -29,7 +29,7 @@ function Add-VSApplicationSignalsServiceLevelObjectiveGoal {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.Goal')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

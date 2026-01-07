@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelInputChannelLevel {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.InputChannelLevel')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

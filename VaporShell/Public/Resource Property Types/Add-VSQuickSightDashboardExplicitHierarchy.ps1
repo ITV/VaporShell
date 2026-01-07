@@ -33,7 +33,7 @@ function Add-VSQuickSightDashboardExplicitHierarchy {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ExplicitHierarchy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

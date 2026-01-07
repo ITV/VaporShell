@@ -35,7 +35,7 @@ function Add-VSQuickSightTemplateHeatMapAggregatedFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.HeatMapAggregatedFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

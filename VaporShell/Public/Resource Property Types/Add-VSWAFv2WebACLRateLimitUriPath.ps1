@@ -21,7 +21,7 @@ function Add-VSWAFv2WebACLRateLimitUriPath {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RateLimitUriPath')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

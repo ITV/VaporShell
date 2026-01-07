@@ -24,7 +24,7 @@ function Add-VSBedrockFlowVersionGuardrailConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.GuardrailConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

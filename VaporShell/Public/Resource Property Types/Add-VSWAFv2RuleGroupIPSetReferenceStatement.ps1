@@ -24,7 +24,7 @@ function Add-VSWAFv2RuleGroupIPSetReferenceStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.IPSetReferenceStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

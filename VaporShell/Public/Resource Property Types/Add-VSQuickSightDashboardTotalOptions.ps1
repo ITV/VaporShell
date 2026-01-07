@@ -46,7 +46,7 @@ function Add-VSQuickSightDashboardTotalOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TotalOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

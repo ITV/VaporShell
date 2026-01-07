@@ -31,7 +31,7 @@ function Add-VSLakeFormationTagAssociationLFTagPair {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.TagAssociation.LFTagPair')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

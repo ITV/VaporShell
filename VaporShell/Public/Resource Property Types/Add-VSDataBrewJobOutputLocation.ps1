@@ -29,7 +29,7 @@ function Add-VSDataBrewJobOutputLocation {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Job.OutputLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

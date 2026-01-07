@@ -33,7 +33,7 @@ function Add-VSWisdomAIAgentTagFilter {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIAgent.TagFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

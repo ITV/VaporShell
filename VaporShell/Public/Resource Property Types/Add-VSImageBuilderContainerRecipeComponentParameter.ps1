@@ -26,7 +26,7 @@ function Add-VSImageBuilderContainerRecipeComponentParameter {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.ContainerRecipe.ComponentParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

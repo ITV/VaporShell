@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisDecimalPlacesConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DecimalPlacesConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

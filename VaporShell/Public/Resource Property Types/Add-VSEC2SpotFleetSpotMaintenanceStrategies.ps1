@@ -19,7 +19,7 @@ function Add-VSEC2SpotFleetSpotMaintenanceStrategies {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.SpotMaintenanceStrategies')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

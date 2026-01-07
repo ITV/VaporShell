@@ -24,7 +24,7 @@ function Add-VSEvidentlyProjectDataDeliveryObject {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Project.DataDeliveryObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

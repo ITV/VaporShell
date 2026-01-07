@@ -24,7 +24,7 @@ function Add-VSCognitoUserPoolCustomSMSSender {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.CustomSMSSender')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

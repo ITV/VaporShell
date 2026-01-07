@@ -38,7 +38,7 @@ function Add-VSCloudFormationStackSetDeploymentTargets {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.StackSet.DeploymentTargets')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

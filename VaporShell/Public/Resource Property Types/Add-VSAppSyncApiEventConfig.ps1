@@ -47,7 +47,7 @@ function Add-VSAppSyncApiEventConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.Api.EventConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

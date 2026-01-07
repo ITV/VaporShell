@@ -19,7 +19,7 @@ function Add-VSConfigConfigurationRecorderRecordingStrategy {
     #>
 
     [OutputType('Vaporshell.Resource.Config.ConfigurationRecorder.RecordingStrategy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

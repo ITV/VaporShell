@@ -24,7 +24,7 @@ function Add-VSDataSyncLocationHDFSQopConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationHDFS.QopConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

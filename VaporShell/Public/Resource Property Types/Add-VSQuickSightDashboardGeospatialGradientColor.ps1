@@ -36,7 +36,7 @@ function Add-VSQuickSightDashboardGeospatialGradientColor {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GeospatialGradientColor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

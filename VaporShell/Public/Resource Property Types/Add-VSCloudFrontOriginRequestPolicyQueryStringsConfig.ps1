@@ -26,7 +26,7 @@ function Add-VSCloudFrontOriginRequestPolicyQueryStringsConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.OriginRequestPolicy.QueryStringsConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

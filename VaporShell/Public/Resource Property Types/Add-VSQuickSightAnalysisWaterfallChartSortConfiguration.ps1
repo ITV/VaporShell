@@ -26,7 +26,7 @@ function Add-VSQuickSightAnalysisWaterfallChartSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.WaterfallChartSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

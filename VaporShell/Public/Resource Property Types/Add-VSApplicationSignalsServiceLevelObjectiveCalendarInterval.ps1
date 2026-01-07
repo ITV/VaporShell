@@ -29,7 +29,7 @@ function Add-VSApplicationSignalsServiceLevelObjectiveCalendarInterval {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.CalendarInterval')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

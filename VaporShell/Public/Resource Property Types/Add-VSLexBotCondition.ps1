@@ -19,7 +19,7 @@ function Add-VSLexBotCondition {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.Condition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSBudgetsBudgetNotification {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.Budget.Notification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

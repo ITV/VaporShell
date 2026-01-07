@@ -19,7 +19,7 @@ function Add-VSAppMeshGatewayRouteGrpcGatewayRouteRewrite {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.GrpcGatewayRouteRewrite')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSSageMakerInferenceExperimentShadowModeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.InferenceExperiment.ShadowModeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

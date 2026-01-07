@@ -19,6 +19,16 @@ function Add-VSQuickSightDashboardDateTimePickerControlDisplayOptions {
         UpdateType: Mutable
         Type: SheetControlInfoIconLabelOptions
 
+    .PARAMETER HelperTextVisibility
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimepickercontroldisplayoptions.html#cfn-quicksight-dashboard-datetimepickercontroldisplayoptions-helpertextvisibility
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER DateIconVisibility
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimepickercontroldisplayoptions.html#cfn-quicksight-dashboard-datetimepickercontroldisplayoptions-dateiconvisibility
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER DateTimeFormat
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimepickercontroldisplayoptions.html#cfn-quicksight-dashboard-datetimepickercontroldisplayoptions-datetimeformat
         UpdateType: Mutable
@@ -29,7 +39,7 @@ function Add-VSQuickSightDashboardDateTimePickerControlDisplayOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DateTimePickerControlDisplayOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -38,6 +48,30 @@ function Add-VSQuickSightDashboardDateTimePickerControlDisplayOptions {
 
         [Parameter(Mandatory = $false)]
         $InfoIconLabelOptions,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $HelperTextVisibility,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DateIconVisibility,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

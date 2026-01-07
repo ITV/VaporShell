@@ -24,7 +24,7 @@ function Add-VSAppFlowConnectorProfileConnectorOAuthRequest {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.ConnectorOAuthRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

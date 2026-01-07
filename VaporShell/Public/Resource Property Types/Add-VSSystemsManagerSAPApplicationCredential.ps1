@@ -29,7 +29,7 @@ function Add-VSSystemsManagerSAPApplicationCredential {
     #>
 
     [OutputType('Vaporshell.Resource.SystemsManagerSAP.Application.Credential')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","CredentialType")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","CredentialType")]
 

@@ -24,7 +24,7 @@ function Add-VSCassandraTableColumn {
     #>
 
     [OutputType('Vaporshell.Resource.Cassandra.Table.Column')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

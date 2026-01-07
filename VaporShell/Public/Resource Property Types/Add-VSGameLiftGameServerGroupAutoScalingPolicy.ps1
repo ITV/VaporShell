@@ -24,7 +24,7 @@ function Add-VSGameLiftGameServerGroupAutoScalingPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.GameServerGroup.AutoScalingPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

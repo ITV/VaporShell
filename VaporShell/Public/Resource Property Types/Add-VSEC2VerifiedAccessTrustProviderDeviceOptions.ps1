@@ -24,7 +24,7 @@ function Add-VSEC2VerifiedAccessTrustProviderDeviceOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessTrustProvider.DeviceOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

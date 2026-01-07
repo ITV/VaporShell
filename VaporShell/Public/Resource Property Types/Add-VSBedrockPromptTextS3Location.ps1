@@ -29,7 +29,7 @@ function Add-VSBedrockPromptTextS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Prompt.TextS3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

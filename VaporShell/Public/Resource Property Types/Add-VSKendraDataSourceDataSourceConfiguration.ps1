@@ -9,94 +9,22 @@ function Add-VSKendraDataSourceDataSourceConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html
 
-    .PARAMETER GoogleDriveConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-googledriveconfiguration
+    .PARAMETER TemplateConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-templateconfiguration
         UpdateType: Mutable
-        Type: GoogleDriveConfiguration
-
-    .PARAMETER WebCrawlerConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-webcrawlerconfiguration
-        UpdateType: Mutable
-        Type: WebCrawlerConfiguration
-
-    .PARAMETER S3Configuration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-s3configuration
-        UpdateType: Mutable
-        Type: S3DataSourceConfiguration
-
-    .PARAMETER SalesforceConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-salesforceconfiguration
-        UpdateType: Mutable
-        Type: SalesforceConfiguration
-
-    .PARAMETER DatabaseConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-databaseconfiguration
-        UpdateType: Mutable
-        Type: DatabaseConfiguration
-
-    .PARAMETER SharePointConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-sharepointconfiguration
-        UpdateType: Mutable
-        Type: SharePointConfiguration
-
-    .PARAMETER ConfluenceConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-confluenceconfiguration
-        UpdateType: Mutable
-        Type: ConfluenceConfiguration
-
-    .PARAMETER WorkDocsConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-workdocsconfiguration
-        UpdateType: Mutable
-        Type: WorkDocsConfiguration
-
-    .PARAMETER OneDriveConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
-        UpdateType: Mutable
-        Type: OneDriveConfiguration
-
-    .PARAMETER ServiceNowConfiguration
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-servicenowconfiguration
-        UpdateType: Mutable
-        Type: ServiceNowConfiguration
+        Type: TemplateConfiguration
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.DataSource.DataSourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
-        $GoogleDriveConfiguration,
-
-        [Parameter(Mandatory = $false)]
-        $WebCrawlerConfiguration,
-
-        [Parameter(Mandatory = $false)]
-        $S3Configuration,
-
-        [Parameter(Mandatory = $false)]
-        $SalesforceConfiguration,
-
-        [Parameter(Mandatory = $false)]
-        $DatabaseConfiguration,
-
-        [Parameter(Mandatory = $false)]
-        $SharePointConfiguration,
-
-        [Parameter(Mandatory = $false)]
-        $ConfluenceConfiguration,
-
-        [Parameter(Mandatory = $false)]
-        $WorkDocsConfiguration,
-
-        [Parameter(Mandatory = $false)]
-        $OneDriveConfiguration,
-
-        [Parameter(Mandatory = $false)]
-        $ServiceNowConfiguration
+        $TemplateConfiguration
 
     )
 

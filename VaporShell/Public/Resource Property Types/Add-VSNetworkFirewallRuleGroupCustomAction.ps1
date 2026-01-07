@@ -24,7 +24,7 @@ function Add-VSNetworkFirewallRuleGroupCustomAction {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.CustomAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

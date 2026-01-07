@@ -29,7 +29,7 @@ function Add-VSAppSyncGraphQLApiEnhancedMetricsConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.GraphQLApi.EnhancedMetricsConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

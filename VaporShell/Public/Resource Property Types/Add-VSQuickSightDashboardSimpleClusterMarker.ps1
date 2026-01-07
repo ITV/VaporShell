@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardSimpleClusterMarker {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SimpleClusterMarker')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

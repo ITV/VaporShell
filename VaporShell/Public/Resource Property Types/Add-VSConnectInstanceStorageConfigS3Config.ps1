@@ -29,7 +29,7 @@ function Add-VSConnectInstanceStorageConfigS3Config {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.InstanceStorageConfig.S3Config')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

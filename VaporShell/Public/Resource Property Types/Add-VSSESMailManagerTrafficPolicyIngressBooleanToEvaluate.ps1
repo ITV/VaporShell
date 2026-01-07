@@ -9,6 +9,11 @@ function Add-VSSESMailManagerTrafficPolicyIngressBooleanToEvaluate {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate.html
 
+    .PARAMETER IsInAddressList
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate.html#cfn-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate-isinaddresslist
+        UpdateType: Mutable
+        Type: IngressIsInAddressList
+
     .PARAMETER Analysis
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate.html#cfn-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate-analysis
         UpdateType: Mutable
@@ -19,11 +24,14 @@ function Add-VSSESMailManagerTrafficPolicyIngressBooleanToEvaluate {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerTrafficPolicy.IngressBooleanToEvaluate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $IsInAddressList,
+
+        [Parameter(Mandatory = $false)]
         $Analysis
 
     )

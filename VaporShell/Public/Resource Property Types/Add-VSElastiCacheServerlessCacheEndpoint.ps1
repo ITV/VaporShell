@@ -24,7 +24,7 @@ function Add-VSElastiCacheServerlessCacheEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.ServerlessCache.Endpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

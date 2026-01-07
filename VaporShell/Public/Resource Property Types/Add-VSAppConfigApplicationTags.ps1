@@ -24,7 +24,7 @@ function Add-VSAppConfigApplicationTags {
     #>
 
     [OutputType('Vaporshell.Resource.AppConfig.Application.Tags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

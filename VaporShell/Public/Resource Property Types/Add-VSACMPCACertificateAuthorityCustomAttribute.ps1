@@ -24,7 +24,7 @@ function Add-VSACMPCACertificateAuthorityCustomAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.CertificateAuthority.CustomAttribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

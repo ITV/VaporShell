@@ -24,7 +24,7 @@ function Add-VSKinesisFirehoseDeliveryStreamDynamicPartitioningConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.DynamicPartitioningConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

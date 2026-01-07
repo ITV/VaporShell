@@ -19,7 +19,7 @@ function Add-VSPipesPipePipeTargetStateMachineParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeTargetStateMachineParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

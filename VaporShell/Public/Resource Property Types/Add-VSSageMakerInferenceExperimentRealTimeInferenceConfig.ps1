@@ -24,7 +24,7 @@ function Add-VSSageMakerInferenceExperimentRealTimeInferenceConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.InferenceExperiment.RealTimeInferenceConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

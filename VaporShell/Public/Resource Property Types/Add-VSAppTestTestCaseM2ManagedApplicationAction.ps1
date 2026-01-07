@@ -29,7 +29,7 @@ function Add-VSAppTestTestCaseM2ManagedApplicationAction {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.M2ManagedApplicationAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

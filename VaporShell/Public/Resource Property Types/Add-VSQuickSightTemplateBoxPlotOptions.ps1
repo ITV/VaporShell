@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateBoxPlotOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.BoxPlotOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -70,7 +70,7 @@ function Add-VSQuickSightTemplateBoxPlotOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                OutlierVisibility {
+                'OutlierVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -84,7 +84,7 @@ function Add-VSQuickSightTemplateBoxPlotOptions {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                AllDataPointsVisibility {
+                'AllDataPointsVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

@@ -26,7 +26,7 @@ function Add-VSCustomerProfilesSegmentDefinitionDateDimension {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.SegmentDefinition.DateDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

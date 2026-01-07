@@ -24,7 +24,7 @@ function Add-VSAppStreamStackApplicationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.Stack.ApplicationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

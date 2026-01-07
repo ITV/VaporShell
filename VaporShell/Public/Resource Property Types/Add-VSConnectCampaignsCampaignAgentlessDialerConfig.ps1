@@ -19,7 +19,7 @@ function Add-VSConnectCampaignsCampaignAgentlessDialerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaigns.Campaign.AgentlessDialerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSACMPCACertificateAuthorityOcspConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.CertificateAuthority.OcspConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -64,7 +64,7 @@ function Add-VSQuickSightDashboardComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.Computation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

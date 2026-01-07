@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisRadarChartFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.RadarChartFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSPersonalizeSolutionCategoricalHyperParameterRange {
     #>
 
     [OutputType('Vaporshell.Resource.Personalize.Solution.CategoricalHyperParameterRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

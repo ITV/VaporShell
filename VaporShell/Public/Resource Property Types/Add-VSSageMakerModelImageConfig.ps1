@@ -24,7 +24,7 @@ function Add-VSSageMakerModelImageConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Model.ImageConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

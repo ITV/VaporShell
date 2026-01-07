@@ -54,7 +54,7 @@ function Add-VSIoTWirelessWirelessDeviceLoRaWANDevice {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.WirelessDevice.LoRaWANDevice')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

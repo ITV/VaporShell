@@ -64,7 +64,7 @@ function Add-VSSageMakerModelBiasJobDefinitionEndpointInput {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.EndpointInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSWAFv2WebACLHeaders {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.Headers')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

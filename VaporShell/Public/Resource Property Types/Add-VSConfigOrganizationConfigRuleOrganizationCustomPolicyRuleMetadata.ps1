@@ -72,7 +72,7 @@ function Add-VSConfigOrganizationConfigRuleOrganizationCustomPolicyRuleMetadata 
     #>
 
     [OutputType('Vaporshell.Resource.Config.OrganizationConfigRule.OrganizationCustomPolicyRuleMetadata')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

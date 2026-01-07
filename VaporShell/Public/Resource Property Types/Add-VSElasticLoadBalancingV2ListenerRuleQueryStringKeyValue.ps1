@@ -24,7 +24,7 @@ function Add-VSElasticLoadBalancingV2ListenerRuleQueryStringKeyValue {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.QueryStringKeyValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

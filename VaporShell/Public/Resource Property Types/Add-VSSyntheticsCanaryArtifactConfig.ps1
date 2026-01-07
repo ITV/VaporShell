@@ -19,7 +19,7 @@ function Add-VSSyntheticsCanaryArtifactConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Synthetics.Canary.ArtifactConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

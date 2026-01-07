@@ -24,7 +24,7 @@ function Add-VSLightsailContainerPortInfo {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Container.PortInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

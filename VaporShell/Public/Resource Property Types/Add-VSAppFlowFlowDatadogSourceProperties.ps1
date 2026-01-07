@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowDatadogSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.DatadogSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

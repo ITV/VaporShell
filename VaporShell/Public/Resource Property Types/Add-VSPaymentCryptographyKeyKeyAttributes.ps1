@@ -34,7 +34,7 @@ function Add-VSPaymentCryptographyKeyKeyAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.PaymentCryptography.Key.KeyAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

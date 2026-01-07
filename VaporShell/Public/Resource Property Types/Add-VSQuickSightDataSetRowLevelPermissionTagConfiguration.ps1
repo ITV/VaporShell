@@ -31,7 +31,7 @@ function Add-VSQuickSightDataSetRowLevelPermissionTagConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.RowLevelPermissionTagConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -81,7 +81,7 @@ function Add-VSQuickSightDataSetRowLevelPermissionTagConfiguration {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                TagRuleConfigurations {
+                'TagRuleConfigurations' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

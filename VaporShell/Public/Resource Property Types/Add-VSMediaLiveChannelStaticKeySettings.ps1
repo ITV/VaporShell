@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelStaticKeySettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.StaticKeySettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -73,7 +73,7 @@ function Add-VSAmplifyAppAutoBranchCreationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Amplify.App.AutoBranchCreationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

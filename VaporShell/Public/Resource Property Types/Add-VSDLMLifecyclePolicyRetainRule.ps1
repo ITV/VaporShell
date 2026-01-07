@@ -29,7 +29,7 @@ function Add-VSDLMLifecyclePolicyRetainRule {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.RetainRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

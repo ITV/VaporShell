@@ -38,7 +38,7 @@ function Add-VSQuickSightTemplateHeatMapSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.HeatMapSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

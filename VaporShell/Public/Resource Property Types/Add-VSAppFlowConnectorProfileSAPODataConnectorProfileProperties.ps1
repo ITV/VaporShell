@@ -54,7 +54,7 @@ function Add-VSAppFlowConnectorProfileSAPODataConnectorProfileProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.SAPODataConnectorProfileProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

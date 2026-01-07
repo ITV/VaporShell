@@ -9,6 +9,11 @@ function Add-VSCleanRoomsCollaborationPaymentConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html
 
+    .PARAMETER JobCompute
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html#cfn-cleanrooms-collaboration-paymentconfiguration-jobcompute
+        UpdateType: Immutable
+        Type: JobComputePaymentConfig
+
     .PARAMETER QueryCompute
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html#cfn-cleanrooms-collaboration-paymentconfiguration-querycompute
         UpdateType: Immutable
@@ -24,10 +29,13 @@ function Add-VSCleanRoomsCollaborationPaymentConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Collaboration.PaymentConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $JobCompute,
+
         [Parameter(Mandatory = $true)]
         $QueryCompute,
 

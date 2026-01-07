@@ -19,7 +19,7 @@ function Add-VSBatchJobDefinitionEphemeralStorage {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.EphemeralStorage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

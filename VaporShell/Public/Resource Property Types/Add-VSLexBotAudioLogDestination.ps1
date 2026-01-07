@@ -19,7 +19,7 @@ function Add-VSLexBotAudioLogDestination {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.AudioLogDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

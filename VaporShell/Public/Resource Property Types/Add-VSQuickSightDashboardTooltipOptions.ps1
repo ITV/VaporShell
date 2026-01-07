@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardTooltipOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TooltipOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

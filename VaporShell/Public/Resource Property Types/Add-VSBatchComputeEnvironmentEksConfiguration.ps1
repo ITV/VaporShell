@@ -24,7 +24,7 @@ function Add-VSBatchComputeEnvironmentEksConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.ComputeEnvironment.EksConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

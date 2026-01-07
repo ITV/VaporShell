@@ -21,7 +21,7 @@ function Add-VSQuickSightAnalysisGeospatialHeatmapColorScale {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialHeatmapColorScale')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

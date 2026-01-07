@@ -34,7 +34,7 @@ function Add-VSConnectCampaignsV2CampaignTelephonyChannelSubtypeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.TelephonyChannelSubtypeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

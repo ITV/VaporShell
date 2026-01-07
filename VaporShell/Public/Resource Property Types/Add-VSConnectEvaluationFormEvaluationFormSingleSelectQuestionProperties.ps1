@@ -31,7 +31,7 @@ function Add-VSConnectEvaluationFormEvaluationFormSingleSelectQuestionProperties
     #>
 
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

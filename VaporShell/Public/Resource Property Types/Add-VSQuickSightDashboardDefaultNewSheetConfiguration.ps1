@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardDefaultNewSheetConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DefaultNewSheetConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

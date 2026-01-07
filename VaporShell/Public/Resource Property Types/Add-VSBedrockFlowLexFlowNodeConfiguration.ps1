@@ -24,7 +24,7 @@ function Add-VSBedrockFlowLexFlowNodeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Flow.LexFlowNodeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

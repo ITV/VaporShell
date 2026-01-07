@@ -29,7 +29,7 @@ function Add-VSMediaConnectFlowOutputDestinationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.FlowOutput.DestinationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

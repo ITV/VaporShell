@@ -29,7 +29,7 @@ function Add-VSEC2SpotFleetFleetLaunchTemplateSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.FleetLaunchTemplateSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,11 +24,11 @@ function Add-VSRolesAnywhereTrustAnchorSource {
     #>
 
     [OutputType('Vaporshell.Resource.RolesAnywhere.TrustAnchor.Source')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -40,7 +40,7 @@ function Add-VSRolesAnywhereTrustAnchorSource {
             })]
         $SourceType,
 
-        [Parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $true)]
         $SourceData
 
     )

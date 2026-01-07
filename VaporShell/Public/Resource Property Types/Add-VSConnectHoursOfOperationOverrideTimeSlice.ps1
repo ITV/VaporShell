@@ -24,7 +24,7 @@ function Add-VSConnectHoursOfOperationOverrideTimeSlice {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.HoursOfOperation.OverrideTimeSlice')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

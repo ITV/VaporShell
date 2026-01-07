@@ -19,7 +19,7 @@ function Add-VSECSServiceServiceConnectTlsCertificateAuthority {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.ServiceConnectTlsCertificateAuthority')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

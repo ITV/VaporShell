@@ -19,7 +19,7 @@ function Add-VSGammaDilithiumJobDefinitionRepositoryCredentials {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.RepositoryCredentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","CredentialsParameter")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","CredentialsParameter")]
 

@@ -24,7 +24,7 @@ function Add-VSServiceCatalogCloudFormationProvisionedProductProvisioningParamet
     #>
 
     [OutputType('Vaporshell.Resource.ServiceCatalog.CloudFormationProvisionedProduct.ProvisioningParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

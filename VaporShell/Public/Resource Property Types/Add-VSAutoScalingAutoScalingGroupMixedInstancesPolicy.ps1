@@ -24,7 +24,7 @@ function Add-VSAutoScalingAutoScalingGroupMixedInstancesPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.MixedInstancesPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

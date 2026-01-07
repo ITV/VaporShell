@@ -24,7 +24,7 @@ function Add-VSAppStreamAppBlockS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.AppBlock.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

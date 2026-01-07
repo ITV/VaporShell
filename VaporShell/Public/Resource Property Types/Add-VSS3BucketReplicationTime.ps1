@@ -24,7 +24,7 @@ function Add-VSS3BucketReplicationTime {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.ReplicationTime')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

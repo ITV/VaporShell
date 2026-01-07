@@ -34,7 +34,7 @@ function Add-VSQuickSightAnalysisFieldTooltipItem {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FieldTooltipItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateScrollBarOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ScrollBarOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -53,7 +53,7 @@ function Add-VSQuickSightTemplateScrollBarOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Visibility {
+                'Visibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

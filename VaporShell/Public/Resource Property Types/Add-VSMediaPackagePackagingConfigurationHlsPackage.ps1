@@ -41,7 +41,7 @@ function Add-VSMediaPackagePackagingConfigurationHlsPackage {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.PackagingConfiguration.HlsPackage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

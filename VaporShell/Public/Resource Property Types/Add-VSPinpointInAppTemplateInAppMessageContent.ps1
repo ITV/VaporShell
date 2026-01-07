@@ -44,7 +44,7 @@ function Add-VSPinpointInAppTemplateInAppMessageContent {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.InAppTemplate.InAppMessageContent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

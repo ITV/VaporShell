@@ -26,7 +26,7 @@ function Add-VSConfigConfigurationRecorderRecordingMode {
     #>
 
     [OutputType('Vaporshell.Resource.Config.ConfigurationRecorder.RecordingMode')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

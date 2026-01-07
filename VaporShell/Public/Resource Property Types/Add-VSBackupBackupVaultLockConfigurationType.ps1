@@ -29,7 +29,7 @@ function Add-VSBackupBackupVaultLockConfigurationType {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.BackupVault.LockConfigurationType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

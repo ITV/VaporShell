@@ -19,7 +19,7 @@ function Add-VSSageMakerModelPackageDataSource {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.DataSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

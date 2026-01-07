@@ -26,7 +26,7 @@ function Add-VSEMRInstanceGroupConfigEbsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceGroupConfig.EbsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQBusinessDataAccessorActionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.DataAccessor.ActionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

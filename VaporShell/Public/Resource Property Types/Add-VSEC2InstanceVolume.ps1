@@ -24,7 +24,7 @@ function Add-VSEC2InstanceVolume {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.Volume')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

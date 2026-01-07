@@ -19,7 +19,7 @@ function Add-VSFMSPolicyNetworkFirewallPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.FMS.Policy.NetworkFirewallPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

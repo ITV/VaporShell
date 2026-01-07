@@ -45,12 +45,19 @@ function Add-VSImageBuilderDistributionConfigurationDistribution {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER SsmParameterConfigurations
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-ssmparameterconfigurations
+        UpdateType: Mutable
+        Type: List
+        ItemType: SsmParameterConfiguration
+        DuplicatesAllowed: True
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.DistributionConfiguration.Distribution')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -97,7 +104,19 @@ function Add-VSImageBuilderDistributionConfigurationDistribution {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Region
+        $Region,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.ImageBuilder.DistributionConfiguration.SsmParameterConfiguration"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SsmParameterConfigurations
 
     )
 

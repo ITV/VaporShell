@@ -79,6 +79,11 @@ function Add-VSMediaLiveChannelBurnInDestinationSettings {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER SubtitleRows
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-burnindestinationsettings.html#cfn-medialive-channel-burnindestinationsettings-subtitlerows
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER FontOpacity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-burnindestinationsettings.html#cfn-medialive-channel-burnindestinationsettings-fontopacity
         PrimitiveType: Integer
@@ -99,7 +104,7 @@ function Add-VSMediaLiveChannelBurnInDestinationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.BurnInDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -261,6 +266,18 @@ function Add-VSMediaLiveChannelBurnInDestinationSettings {
                 }
             })]
         $TeletextGridControl,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SubtitleRows,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

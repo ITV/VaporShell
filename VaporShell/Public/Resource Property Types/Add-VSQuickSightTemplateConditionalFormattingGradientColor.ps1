@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateConditionalFormattingGradientColor {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ConditionalFormattingGradientColor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

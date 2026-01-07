@@ -24,7 +24,7 @@ function Add-VSElasticBeanstalkApplicationVersionSourceBundle {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticBeanstalk.ApplicationVersion.SourceBundle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

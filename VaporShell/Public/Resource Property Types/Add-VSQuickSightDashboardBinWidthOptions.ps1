@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardBinWidthOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.BinWidthOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

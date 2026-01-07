@@ -39,7 +39,7 @@ function Add-VSSSMResourceDataSyncS3Destination {
     #>
 
     [OutputType('Vaporshell.Resource.SSM.ResourceDataSync.S3Destination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -31,7 +31,7 @@ function Add-VSBedrockDataSourceS3DataSourceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.S3DataSourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSMediaLiveInputSrtCallerDecryptionRequest {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Input.SrtCallerDecryptionRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

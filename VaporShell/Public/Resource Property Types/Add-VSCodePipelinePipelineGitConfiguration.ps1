@@ -33,7 +33,7 @@ function Add-VSCodePipelinePipelineGitConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.GitConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

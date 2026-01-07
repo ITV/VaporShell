@@ -24,7 +24,7 @@ function Add-VSCodeCommitRepositoryCode {
     #>
 
     [OutputType('Vaporshell.Resource.CodeCommit.Repository.Code')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

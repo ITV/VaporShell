@@ -24,7 +24,7 @@ function Add-VSEventsEventBusTagEntry {
     #>
 
     [OutputType('Vaporshell.Resource.Events.EventBus.TagEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

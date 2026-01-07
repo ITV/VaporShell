@@ -24,7 +24,7 @@ function Add-VSSageMakerUserProfileRStudioServerProAppSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.RStudioServerProAppSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

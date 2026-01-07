@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelAnywhereSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AnywhereSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

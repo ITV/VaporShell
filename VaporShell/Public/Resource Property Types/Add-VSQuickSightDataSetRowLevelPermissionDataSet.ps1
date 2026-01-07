@@ -39,7 +39,7 @@ function Add-VSQuickSightDataSetRowLevelPermissionDataSet {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.RowLevelPermissionDataSet')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

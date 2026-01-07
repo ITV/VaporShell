@@ -29,7 +29,7 @@ function Add-VSCustomerProfilesCalculatedAttributeDefinitionConditions {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.CalculatedAttributeDefinition.Conditions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

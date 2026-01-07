@@ -44,7 +44,7 @@ function Add-VSCognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationType
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPoolRiskConfigurationAttachment.NotifyConfigurationType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

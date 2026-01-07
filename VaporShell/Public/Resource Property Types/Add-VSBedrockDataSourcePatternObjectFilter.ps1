@@ -33,7 +33,7 @@ function Add-VSBedrockDataSourcePatternObjectFilter {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.PatternObjectFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

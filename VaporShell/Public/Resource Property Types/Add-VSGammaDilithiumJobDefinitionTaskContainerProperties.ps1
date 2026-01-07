@@ -101,7 +101,7 @@ function Add-VSGammaDilithiumJobDefinitionTaskContainerProperties {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.TaskContainerProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","RepositoryCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","RepositoryCredentials")]
 

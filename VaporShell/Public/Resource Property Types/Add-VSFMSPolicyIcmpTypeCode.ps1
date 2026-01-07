@@ -24,7 +24,7 @@ function Add-VSFMSPolicyIcmpTypeCode {
     #>
 
     [OutputType('Vaporshell.Resource.FMS.Policy.IcmpTypeCode')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

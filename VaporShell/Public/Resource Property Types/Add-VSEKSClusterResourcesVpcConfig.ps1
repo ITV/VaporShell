@@ -45,7 +45,7 @@ function Add-VSEKSClusterResourcesVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.ResourcesVpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

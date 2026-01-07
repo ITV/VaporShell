@@ -31,7 +31,7 @@ function Add-VSCloudFrontFunctionFunctionConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Function.FunctionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

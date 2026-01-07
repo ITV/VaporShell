@@ -62,7 +62,7 @@ function Add-VSQuickSightTopicDatasetMetadata {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.DatasetMetadata')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

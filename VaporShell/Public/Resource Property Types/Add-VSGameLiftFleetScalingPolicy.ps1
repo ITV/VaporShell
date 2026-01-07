@@ -74,7 +74,7 @@ function Add-VSGameLiftFleetScalingPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.Fleet.ScalingPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

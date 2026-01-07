@@ -19,7 +19,7 @@ function Add-VSGlueTableOpenTableFormatInput {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Table.OpenTableFormatInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

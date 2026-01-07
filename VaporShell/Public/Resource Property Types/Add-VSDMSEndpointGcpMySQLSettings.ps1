@@ -79,7 +79,7 @@ function Add-VSDMSEndpointGcpMySQLSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.GcpMySQLSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
 

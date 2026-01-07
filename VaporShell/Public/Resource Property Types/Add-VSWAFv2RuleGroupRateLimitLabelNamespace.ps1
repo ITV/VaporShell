@@ -19,7 +19,7 @@ function Add-VSWAFv2RuleGroupRateLimitLabelNamespace {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.RateLimitLabelNamespace')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

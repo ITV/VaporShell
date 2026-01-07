@@ -261,7 +261,7 @@ function Add-VSECSTaskDefinitionContainerDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.ContainerDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","CredentialSpecs")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","CredentialSpecs")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","RepositoryCredentials")]

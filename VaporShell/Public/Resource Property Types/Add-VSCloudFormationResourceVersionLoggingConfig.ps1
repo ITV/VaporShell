@@ -24,7 +24,7 @@ function Add-VSCloudFormationResourceVersionLoggingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.ResourceVersion.LoggingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

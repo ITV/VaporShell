@@ -39,7 +39,7 @@ function Add-VSCognitoUserPoolClientAnalyticsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPoolClient.AnalyticsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

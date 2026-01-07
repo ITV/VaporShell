@@ -29,7 +29,7 @@ function Add-VSAppSyncGraphQLApiLambdaAuthorizerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.GraphQLApi.LambdaAuthorizerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

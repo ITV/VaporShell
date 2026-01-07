@@ -89,7 +89,7 @@ function Add-VSKinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.ExtendedS3DestinationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

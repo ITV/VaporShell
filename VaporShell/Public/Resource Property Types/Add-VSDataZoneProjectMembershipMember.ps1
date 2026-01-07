@@ -24,7 +24,7 @@ function Add-VSDataZoneProjectMembershipMember {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.ProjectMembership.Member')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

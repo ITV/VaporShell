@@ -29,7 +29,7 @@ function Add-VSCloudFrontDistributionLambdaFunctionAssociation {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.LambdaFunctionAssociation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

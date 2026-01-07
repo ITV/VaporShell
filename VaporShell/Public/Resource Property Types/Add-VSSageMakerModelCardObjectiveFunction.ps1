@@ -24,7 +24,7 @@ function Add-VSSageMakerModelCardObjectiveFunction {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.ObjectiveFunction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

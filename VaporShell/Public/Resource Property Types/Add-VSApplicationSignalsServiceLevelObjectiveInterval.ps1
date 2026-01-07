@@ -24,7 +24,7 @@ function Add-VSApplicationSignalsServiceLevelObjectiveInterval {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.Interval')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

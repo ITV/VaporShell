@@ -24,7 +24,7 @@ function Add-VSAppMeshGatewayRouteGrpcGatewayRoute {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.GrpcGatewayRoute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

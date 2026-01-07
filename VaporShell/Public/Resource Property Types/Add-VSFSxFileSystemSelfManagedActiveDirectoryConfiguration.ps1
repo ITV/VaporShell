@@ -29,6 +29,11 @@ function Add-VSFSxFileSystemSelfManagedActiveDirectoryConfiguration {
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER DomainJoinServiceAccountSecret
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration-domainjoinserviceaccountsecret
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER DnsIps
         PrimitiveItemType: String
         Type: List
@@ -45,7 +50,7 @@ function Add-VSFSxFileSystemSelfManagedActiveDirectoryConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.FileSystem.SelfManagedActiveDirectoryConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
 
@@ -98,6 +103,18 @@ function Add-VSFSxFileSystemSelfManagedActiveDirectoryConfiguration {
                 }
             })]
         $OrganizationalUnitDistinguishedName,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DomainJoinServiceAccountSecret,
 
         [Parameter(Mandatory = $false)]
         $DnsIps,

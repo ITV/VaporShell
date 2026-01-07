@@ -35,7 +35,7 @@ function Add-VSAppMeshVirtualNodeClientPolicyTls {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.ClientPolicyTls')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

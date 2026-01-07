@@ -19,7 +19,7 @@ function Add-VSGameLiftContainerFleetTargetConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerFleet.TargetConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

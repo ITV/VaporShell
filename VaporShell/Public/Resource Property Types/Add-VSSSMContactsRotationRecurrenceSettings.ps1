@@ -52,7 +52,7 @@ function Add-VSSSMContactsRotationRecurrenceSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SSMContacts.Rotation.RecurrenceSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -14,6 +14,11 @@ function Add-VSConnectEvaluationFormEvaluationFormQuestion {
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER Enablement
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-enablement
+        UpdateType: Mutable
+        Type: EvaluationFormItemEnablementConfiguration
+
     .PARAMETER Title
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformquestion.html#cfn-connect-evaluationform-evaluationformquestion-title
         UpdateType: Mutable
@@ -49,7 +54,7 @@ function Add-VSConnectEvaluationFormEvaluationFormQuestion {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.EvaluationFormQuestion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -64,6 +69,9 @@ function Add-VSConnectEvaluationFormEvaluationFormQuestion {
                 }
             })]
         $NotApplicableEnabled,
+
+        [Parameter(Mandatory = $false)]
+        $Enablement,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

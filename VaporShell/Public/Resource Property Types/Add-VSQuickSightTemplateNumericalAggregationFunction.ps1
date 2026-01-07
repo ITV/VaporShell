@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateNumericalAggregationFunction {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.NumericalAggregationFunction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

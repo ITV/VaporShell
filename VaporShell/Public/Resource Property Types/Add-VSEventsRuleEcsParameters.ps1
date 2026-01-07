@@ -92,7 +92,7 @@ function Add-VSEventsRuleEcsParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.EcsParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

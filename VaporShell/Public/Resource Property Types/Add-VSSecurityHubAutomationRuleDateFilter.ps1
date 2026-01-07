@@ -29,7 +29,7 @@ function Add-VSSecurityHubAutomationRuleDateFilter {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.DateFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

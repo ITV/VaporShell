@@ -34,7 +34,7 @@ function Add-VSQuickSightAnalysisGeospatialCircleSymbolStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialCircleSymbolStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQBusinessIndexIndexCapacityConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Index.IndexCapacityConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

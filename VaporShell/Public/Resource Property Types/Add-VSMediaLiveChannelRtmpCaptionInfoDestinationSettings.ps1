@@ -14,7 +14,7 @@ function Add-VSMediaLiveChannelRtmpCaptionInfoDestinationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.RtmpCaptionInfoDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -11,42 +11,42 @@ function Add-VSKinesisFirehoseDeliveryStreamS3DestinationConfiguration {
 
     .PARAMETER ErrorOutputPrefix
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-erroroutputprefix
-        UpdateType: Conditional
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER BucketARN
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-bucketarn
-        UpdateType: Conditional
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER BufferingHints
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-bufferinghints
-        UpdateType: Conditional
+        UpdateType: Mutable
         Type: BufferingHints
 
     .PARAMETER CompressionFormat
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-compressionformat
-        UpdateType: Conditional
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER EncryptionConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-encryptionconfiguration
-        UpdateType: Conditional
+        UpdateType: Mutable
         Type: EncryptionConfiguration
 
     .PARAMETER Prefix
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-prefix
-        UpdateType: Conditional
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER CloudWatchLoggingOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-cloudwatchloggingoptions
-        UpdateType: Conditional
+        UpdateType: Mutable
         Type: CloudWatchLoggingOptions
 
     .PARAMETER RoleARN
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-rolearn
-        UpdateType: Conditional
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -54,7 +54,7 @@ function Add-VSKinesisFirehoseDeliveryStreamS3DestinationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.S3DestinationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSMediaPackageV2OriginEndpointFilterConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint.FilterConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

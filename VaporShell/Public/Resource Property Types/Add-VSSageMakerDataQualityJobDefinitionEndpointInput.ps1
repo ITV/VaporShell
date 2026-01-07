@@ -39,7 +39,7 @@ function Add-VSSageMakerDataQualityJobDefinitionEndpointInput {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.DataQualityJobDefinition.EndpointInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

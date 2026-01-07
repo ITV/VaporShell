@@ -26,7 +26,7 @@ function Add-VSCodeBuildFleetProxyConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Fleet.ProxyConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

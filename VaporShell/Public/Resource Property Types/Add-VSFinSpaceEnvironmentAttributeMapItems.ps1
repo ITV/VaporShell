@@ -24,7 +24,7 @@ function Add-VSFinSpaceEnvironmentAttributeMapItems {
     #>
 
     [OutputType('Vaporshell.Resource.FinSpace.Environment.AttributeMapItems')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisDateTimeFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DateTimeFormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

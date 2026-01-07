@@ -19,7 +19,7 @@ function Add-VSWAFv2WebACLJA3Fingerprint {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.JA3Fingerprint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

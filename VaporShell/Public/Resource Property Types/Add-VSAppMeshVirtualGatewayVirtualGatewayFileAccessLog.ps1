@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualGatewayVirtualGatewayFileAccessLog {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayFileAccessLog')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

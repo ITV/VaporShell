@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardFieldLabelType {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FieldLabelType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

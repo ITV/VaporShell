@@ -19,7 +19,7 @@ function Add-VSIoTDomainConfigurationClientCertificateConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.DomainConfiguration.ClientCertificateConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

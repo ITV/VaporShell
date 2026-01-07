@@ -24,7 +24,7 @@ function Add-VSConnectCampaignsCampaignPredictiveDialerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaigns.Campaign.PredictiveDialerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

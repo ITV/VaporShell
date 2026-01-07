@@ -19,7 +19,7 @@ function Add-VSCloudFrontResponseHeadersPolicyRemoveHeader {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.RemoveHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSGreengrassResourceDefinitionVersionSageMakerMachineLearningModelR
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.ResourceDefinitionVersion.SageMakerMachineLearningModelResourceData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

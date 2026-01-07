@@ -24,7 +24,7 @@ function Add-VSSageMakerModelPackageValidationProfile {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.ValidationProfile')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

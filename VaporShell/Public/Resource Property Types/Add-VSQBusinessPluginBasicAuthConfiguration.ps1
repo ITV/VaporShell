@@ -24,7 +24,7 @@ function Add-VSQBusinessPluginBasicAuthConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Plugin.BasicAuthConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

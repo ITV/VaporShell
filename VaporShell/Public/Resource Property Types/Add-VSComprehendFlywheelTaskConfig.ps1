@@ -29,7 +29,7 @@ function Add-VSComprehendFlywheelTaskConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Comprehend.Flywheel.TaskConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

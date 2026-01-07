@@ -34,7 +34,7 @@ function Add-VSGlueJobJobCommand {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Job.JobCommand')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

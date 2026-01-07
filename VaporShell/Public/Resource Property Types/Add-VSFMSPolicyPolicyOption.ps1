@@ -29,7 +29,7 @@ function Add-VSFMSPolicyPolicyOption {
     #>
 
     [OutputType('Vaporshell.Resource.FMS.Policy.PolicyOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

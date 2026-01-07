@@ -34,7 +34,7 @@ function Add-VSLakeFormationPermissionsResource {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.Permissions.Resource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

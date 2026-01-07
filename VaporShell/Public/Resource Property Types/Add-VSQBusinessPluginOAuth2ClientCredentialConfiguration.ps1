@@ -34,7 +34,7 @@ function Add-VSQBusinessPluginOAuth2ClientCredentialConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Plugin.OAuth2ClientCredentialConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

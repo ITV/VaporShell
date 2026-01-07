@@ -29,7 +29,7 @@ function Add-VSEMRInstanceFleetConfigOnDemandCapacityReservationOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceFleetConfig.OnDemandCapacityReservationOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

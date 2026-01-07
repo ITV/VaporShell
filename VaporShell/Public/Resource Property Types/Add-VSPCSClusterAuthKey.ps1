@@ -11,12 +11,12 @@ function Add-VSPCSClusterAuthKey {
 
     .PARAMETER SecretArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-authkey.html#cfn-pcs-cluster-authkey-secretarn
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER SecretVersion
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-authkey.html#cfn-pcs-cluster-authkey-secretversion
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -24,7 +24,7 @@ function Add-VSPCSClusterAuthKey {
     #>
 
     [OutputType('Vaporshell.Resource.PCS.Cluster.AuthKey')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

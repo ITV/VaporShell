@@ -19,7 +19,7 @@ function Add-VSIoTEventsDetectorModelClearTimer {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.DetectorModel.ClearTimer')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

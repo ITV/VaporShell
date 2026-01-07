@@ -29,7 +29,7 @@ function Add-VSSageMakerDomainCustomImage {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.CustomImage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

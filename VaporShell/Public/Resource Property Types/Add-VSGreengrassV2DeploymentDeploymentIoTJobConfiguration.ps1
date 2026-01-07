@@ -29,7 +29,7 @@ function Add-VSGreengrassV2DeploymentDeploymentIoTJobConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.Deployment.DeploymentIoTJobConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

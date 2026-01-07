@@ -24,7 +24,7 @@ function Add-VSLightsailDistributionCacheBehaviorPerPath {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Distribution.CacheBehaviorPerPath')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateNumericEqualityDrillDownFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.NumericEqualityDrillDownFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

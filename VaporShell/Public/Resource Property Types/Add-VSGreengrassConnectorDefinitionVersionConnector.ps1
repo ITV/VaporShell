@@ -29,7 +29,7 @@ function Add-VSGreengrassConnectorDefinitionVersionConnector {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.ConnectorDefinitionVersion.Connector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -79,7 +79,7 @@ function Add-VSGreengrassConnectorDefinitionVersionConnector {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Parameters {
+                'Parameters' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

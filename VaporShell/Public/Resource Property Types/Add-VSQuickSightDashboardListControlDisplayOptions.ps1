@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardListControlDisplayOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ListControlDisplayOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSWAFv2RuleGroupRateLimitQueryArgument {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.RateLimitQueryArgument')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

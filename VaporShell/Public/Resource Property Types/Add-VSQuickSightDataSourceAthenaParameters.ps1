@@ -14,6 +14,11 @@ function Add-VSQuickSightDataSourceAthenaParameters {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER IdentityCenterConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-identitycenterconfiguration
+        UpdateType: Mutable
+        Type: IdentityCenterConfiguration
+
     .PARAMETER RoleArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-rolearn
         UpdateType: Mutable
@@ -24,7 +29,7 @@ function Add-VSQuickSightDataSourceAthenaParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.AthenaParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -39,6 +44,9 @@ function Add-VSQuickSightDataSourceAthenaParameters {
                 }
             })]
         $WorkGroup,
+
+        [Parameter(Mandatory = $false)]
+        $IdentityCenterConfiguration,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

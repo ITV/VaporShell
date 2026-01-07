@@ -24,7 +24,7 @@ function Add-VSIoTSiteWiseAssetModelTumblingWindow {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.AssetModel.TumblingWindow')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

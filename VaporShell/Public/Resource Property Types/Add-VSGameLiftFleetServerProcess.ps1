@@ -29,7 +29,7 @@ function Add-VSGameLiftFleetServerProcess {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.Fleet.ServerProcess')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

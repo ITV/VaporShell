@@ -29,7 +29,7 @@ function Add-VSEC2SubnetPrivateDnsNameOptionsOnLaunch {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Subnet.PrivateDnsNameOptionsOnLaunch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

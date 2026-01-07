@@ -29,7 +29,7 @@ function Add-VSSchedulerScheduleCapacityProviderStrategyItem {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.CapacityProviderStrategyItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

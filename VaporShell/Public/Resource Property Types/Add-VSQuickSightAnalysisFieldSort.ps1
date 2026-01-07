@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisFieldSort {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FieldSort')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

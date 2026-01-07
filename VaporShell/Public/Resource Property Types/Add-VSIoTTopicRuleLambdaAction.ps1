@@ -19,7 +19,7 @@ function Add-VSIoTTopicRuleLambdaAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.LambdaAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

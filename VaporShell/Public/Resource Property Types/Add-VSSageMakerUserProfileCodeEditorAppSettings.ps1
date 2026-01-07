@@ -28,6 +28,11 @@ function Add-VSSageMakerUserProfileCodeEditorAppSettings {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER BuiltInLifecycleConfigArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html#cfn-sagemaker-userprofile-codeeditorappsettings-builtinlifecycleconfigarn
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER AppLifecycleManagement
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html#cfn-sagemaker-userprofile-codeeditorappsettings-applifecyclemanagement
         UpdateType: Mutable
@@ -38,7 +43,7 @@ function Add-VSSageMakerUserProfileCodeEditorAppSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.CodeEditorAppSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -59,6 +64,18 @@ function Add-VSSageMakerUserProfileCodeEditorAppSettings {
 
         [Parameter(Mandatory = $false)]
         $LifecycleConfigArns,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BuiltInLifecycleConfigArn,
 
         [Parameter(Mandatory = $false)]
         $AppLifecycleManagement

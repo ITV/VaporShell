@@ -24,7 +24,7 @@ function Add-VSGlobalAcceleratorListenerPortRange {
     #>
 
     [OutputType('Vaporshell.Resource.GlobalAccelerator.Listener.PortRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

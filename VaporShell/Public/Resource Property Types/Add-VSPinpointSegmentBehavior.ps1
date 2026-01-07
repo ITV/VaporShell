@@ -19,7 +19,7 @@ function Add-VSPinpointSegmentBehavior {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Segment.Behavior')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

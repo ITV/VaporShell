@@ -31,7 +31,7 @@ function Add-VSNetworkManagerCoreNetworkCoreNetworkNetworkFunctionGroup {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.CoreNetwork.CoreNetworkNetworkFunctionGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

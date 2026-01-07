@@ -47,7 +47,7 @@ function Add-VSBackupReportPlanReportSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.ReportPlan.ReportSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

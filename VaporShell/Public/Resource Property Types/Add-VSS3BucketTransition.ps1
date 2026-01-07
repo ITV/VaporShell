@@ -29,7 +29,7 @@ function Add-VSS3BucketTransition {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.Transition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

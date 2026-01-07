@@ -29,7 +29,7 @@ function Add-VSMediaPackageOriginEndpointStreamSelection {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.StreamSelection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

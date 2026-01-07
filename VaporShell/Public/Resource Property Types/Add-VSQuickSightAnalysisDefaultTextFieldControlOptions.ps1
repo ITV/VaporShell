@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisDefaultTextFieldControlOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DefaultTextFieldControlOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -11,15 +11,15 @@ function Add-VSAppSyncDataSourceLambdaConfig {
 
     .PARAMETER LambdaFunctionArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-lambdaconfig.html#cfn-appsync-datasource-lambdaconfig-lambdafunctionarn
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.DataSource.LambdaConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

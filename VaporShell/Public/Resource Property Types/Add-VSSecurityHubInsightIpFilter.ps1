@@ -19,7 +19,7 @@ function Add-VSSecurityHubInsightIpFilter {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.Insight.IpFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

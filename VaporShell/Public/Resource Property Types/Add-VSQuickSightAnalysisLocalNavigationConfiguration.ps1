@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisLocalNavigationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.LocalNavigationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

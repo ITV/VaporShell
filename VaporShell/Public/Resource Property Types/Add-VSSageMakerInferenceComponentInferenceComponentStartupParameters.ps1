@@ -24,7 +24,7 @@ function Add-VSSageMakerInferenceComponentInferenceComponentStartupParameters {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.InferenceComponent.InferenceComponentStartupParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

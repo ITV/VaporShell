@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisReferenceLineDynamicDataConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ReferenceLineDynamicDataConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

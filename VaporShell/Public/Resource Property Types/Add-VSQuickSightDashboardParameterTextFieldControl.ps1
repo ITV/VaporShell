@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardParameterTextFieldControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ParameterTextFieldControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

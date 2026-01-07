@@ -24,7 +24,7 @@ function Add-VSOSISPipelineLogPublishingOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OSIS.Pipeline.LogPublishingOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

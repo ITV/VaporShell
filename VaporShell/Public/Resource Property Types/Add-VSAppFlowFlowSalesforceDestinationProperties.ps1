@@ -41,7 +41,7 @@ function Add-VSAppFlowFlowSalesforceDestinationProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.SalesforceDestinationProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

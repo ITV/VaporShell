@@ -19,7 +19,7 @@ function Add-VSIoTSiteWiseAccessPolicyIamRole {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.AccessPolicy.IamRole')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

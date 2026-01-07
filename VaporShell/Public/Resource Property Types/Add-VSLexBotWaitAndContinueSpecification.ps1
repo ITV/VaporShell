@@ -34,7 +34,7 @@ function Add-VSLexBotWaitAndContinueSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.WaitAndContinueSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

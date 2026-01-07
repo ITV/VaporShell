@@ -19,7 +19,7 @@ function Add-VSFMSPolicyThirdPartyFirewallPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.FMS.Policy.ThirdPartyFirewallPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

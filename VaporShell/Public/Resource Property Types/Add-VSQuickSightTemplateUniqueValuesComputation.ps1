@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateUniqueValuesComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.UniqueValuesComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

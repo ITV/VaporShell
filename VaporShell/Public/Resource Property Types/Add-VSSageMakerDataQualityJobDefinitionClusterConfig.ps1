@@ -34,7 +34,7 @@ function Add-VSSageMakerDataQualityJobDefinitionClusterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.DataQualityJobDefinition.ClusterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

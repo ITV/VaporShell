@@ -26,7 +26,7 @@ function Add-VSLexBotMessageGroup {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.MessageGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

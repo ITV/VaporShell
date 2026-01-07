@@ -54,7 +54,7 @@ function Add-VSS3BucketReplicationRule {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.ReplicationRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

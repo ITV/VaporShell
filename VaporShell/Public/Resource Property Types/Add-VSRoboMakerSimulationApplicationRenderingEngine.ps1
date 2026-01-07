@@ -11,20 +11,20 @@ function Add-VSRoboMakerSimulationApplicationRenderingEngine {
 
     .PARAMETER Version
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-version
-        UpdateType: Mutable
         PrimitiveType: String
+        UpdateType: Mutable
 
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-renderingengine.html#cfn-robomaker-simulationapplication-renderingengine-name
-        UpdateType: Mutable
         PrimitiveType: String
+        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.RoboMaker.SimulationApplication.RenderingEngine')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

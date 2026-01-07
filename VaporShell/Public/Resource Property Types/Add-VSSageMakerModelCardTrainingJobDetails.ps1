@@ -59,7 +59,7 @@ function Add-VSSageMakerModelCardTrainingJobDetails {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.TrainingJobDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

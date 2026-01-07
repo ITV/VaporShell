@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateGaugeChartConditionalFormattingOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.GaugeChartConditionalFormattingOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

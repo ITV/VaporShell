@@ -44,7 +44,7 @@ function Add-VSCognitoUserPoolVerificationMessageTemplate {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.VerificationMessageTemplate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

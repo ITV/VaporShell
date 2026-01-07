@@ -24,7 +24,7 @@ function Add-VSAutoScalingScalingPolicyPredictiveScalingPredefinedScalingMetric 
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.ScalingPolicy.PredictiveScalingPredefinedScalingMetric')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -35,7 +35,7 @@ function Add-VSBackupFrameworkControlScope {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.Framework.ControlScope')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

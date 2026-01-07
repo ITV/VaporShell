@@ -19,7 +19,7 @@ function Add-VSQBusinessApplicationQuickSightConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Application.QuickSightConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEMRInstanceFleetConfigEbsBlockDeviceConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceFleetConfig.EbsBlockDeviceConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

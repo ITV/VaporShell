@@ -26,7 +26,7 @@ function Add-VSQuickSightDashboardDataPathSort {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DataPathSort')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

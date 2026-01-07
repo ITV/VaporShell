@@ -24,7 +24,7 @@ function Add-VSCloudFrontDistributionLegacyS3Origin {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.LegacyS3Origin')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSEKSAccessEntryAccessScope {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.AccessEntry.AccessScope')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

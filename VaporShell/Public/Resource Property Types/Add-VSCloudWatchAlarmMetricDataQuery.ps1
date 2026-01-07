@@ -49,7 +49,7 @@ function Add-VSCloudWatchAlarmMetricDataQuery {
     #>
 
     [OutputType('Vaporshell.Resource.CloudWatch.Alarm.MetricDataQuery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

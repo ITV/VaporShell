@@ -24,7 +24,7 @@ function Add-VSApplicationAutoScalingScalableTargetScalableTargetAction {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationAutoScaling.ScalableTarget.ScalableTargetAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

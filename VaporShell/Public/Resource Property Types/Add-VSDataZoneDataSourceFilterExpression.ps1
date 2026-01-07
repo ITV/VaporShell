@@ -24,7 +24,7 @@ function Add-VSDataZoneDataSourceFilterExpression {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.DataSource.FilterExpression')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

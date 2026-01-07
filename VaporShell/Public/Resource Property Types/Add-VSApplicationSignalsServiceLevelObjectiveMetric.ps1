@@ -31,7 +31,7 @@ function Add-VSApplicationSignalsServiceLevelObjectiveMetric {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.Metric')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

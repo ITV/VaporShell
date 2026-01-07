@@ -99,7 +99,7 @@ function Add-VSAppFlowFlowConnectorOperator {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.ConnectorOperator')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

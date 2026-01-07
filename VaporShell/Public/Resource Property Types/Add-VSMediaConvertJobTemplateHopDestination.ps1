@@ -29,7 +29,7 @@ function Add-VSMediaConvertJobTemplateHopDestination {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConvert.JobTemplate.HopDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

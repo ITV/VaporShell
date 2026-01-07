@@ -34,7 +34,7 @@ function Add-VSQuickSightTemplateNumericalDimensionField {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.NumericalDimensionField')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

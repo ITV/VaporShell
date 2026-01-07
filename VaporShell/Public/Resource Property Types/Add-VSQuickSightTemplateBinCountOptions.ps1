@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateBinCountOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.BinCountOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

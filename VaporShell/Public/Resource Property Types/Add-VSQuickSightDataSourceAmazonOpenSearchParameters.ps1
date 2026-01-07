@@ -19,7 +19,7 @@ function Add-VSQuickSightDataSourceAmazonOpenSearchParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.AmazonOpenSearchParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

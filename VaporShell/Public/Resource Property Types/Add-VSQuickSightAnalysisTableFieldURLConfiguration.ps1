@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisTableFieldURLConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TableFieldURLConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

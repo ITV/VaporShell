@@ -39,7 +39,7 @@ function Add-VSTransferServerIdentityProviderDetails {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.Server.IdentityProviderDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

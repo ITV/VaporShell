@@ -24,7 +24,7 @@ function Add-VSInspectorV2FilterNumberFilter {
     #>
 
     [OutputType('Vaporshell.Resource.InspectorV2.Filter.NumberFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,7 +44,7 @@ function Add-VSQuickSightDataSourceSnowflakeParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.SnowflakeParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

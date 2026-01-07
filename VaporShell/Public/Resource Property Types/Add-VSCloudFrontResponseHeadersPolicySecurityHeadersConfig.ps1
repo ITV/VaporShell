@@ -44,7 +44,7 @@ function Add-VSCloudFrontResponseHeadersPolicySecurityHeadersConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.SecurityHeadersConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

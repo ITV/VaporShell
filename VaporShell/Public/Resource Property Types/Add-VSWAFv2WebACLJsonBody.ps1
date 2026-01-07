@@ -34,7 +34,7 @@ function Add-VSWAFv2WebACLJsonBody {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.JsonBody')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

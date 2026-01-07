@@ -34,7 +34,7 @@ function Add-VSQuickSightTemplateCategoricalDimensionField {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.CategoricalDimensionField')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

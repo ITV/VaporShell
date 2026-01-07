@@ -24,7 +24,7 @@ function Add-VSWAFRegionalGeoMatchSetGeoMatchConstraint {
     #>
 
     [OutputType('Vaporshell.Resource.WAFRegional.GeoMatchSet.GeoMatchConstraint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

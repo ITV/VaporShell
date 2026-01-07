@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardGeospatialDataSourceItem {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GeospatialDataSourceItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

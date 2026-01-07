@@ -29,7 +29,7 @@ function Add-VSSecretsManagerRotationScheduleRotationRules {
     #>
 
     [OutputType('Vaporshell.Resource.SecretsManager.RotationSchedule.RotationRules')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

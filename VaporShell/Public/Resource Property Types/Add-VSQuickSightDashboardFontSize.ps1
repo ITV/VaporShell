@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardFontSize {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FontSize')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

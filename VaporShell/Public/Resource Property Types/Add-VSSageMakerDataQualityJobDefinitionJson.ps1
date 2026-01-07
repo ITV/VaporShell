@@ -19,7 +19,7 @@ function Add-VSSageMakerDataQualityJobDefinitionJson {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.DataQualityJobDefinition.Json')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

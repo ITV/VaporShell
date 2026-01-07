@@ -24,7 +24,7 @@ function Add-VSMediaLiveClusterTags {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Cluster.Tags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

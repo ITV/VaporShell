@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisAssetOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.AssetOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

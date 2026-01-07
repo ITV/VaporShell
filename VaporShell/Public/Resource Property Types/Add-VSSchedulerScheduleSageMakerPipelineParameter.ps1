@@ -24,7 +24,7 @@ function Add-VSSchedulerScheduleSageMakerPipelineParameter {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.SageMakerPipelineParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

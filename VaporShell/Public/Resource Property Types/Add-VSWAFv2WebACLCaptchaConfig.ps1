@@ -19,7 +19,7 @@ function Add-VSWAFv2WebACLCaptchaConfig {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.CaptchaConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -33,7 +33,7 @@ function Add-VSPipesPipePipeEnrichmentHttpParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeEnrichmentHttpParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

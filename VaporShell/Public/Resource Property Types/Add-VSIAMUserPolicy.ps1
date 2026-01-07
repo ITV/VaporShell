@@ -24,7 +24,7 @@ function Add-VSIAMUserPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.IAM.User.Policy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,7 +62,7 @@ function Add-VSIAMUserPolicy {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                PolicyDocument {
+                'PolicyDocument' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

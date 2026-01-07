@@ -34,7 +34,7 @@ function Add-VSPipesPipeSelfManagedKafkaAccessConfigurationCredentials {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.SelfManagedKafkaAccessConfigurationCredentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

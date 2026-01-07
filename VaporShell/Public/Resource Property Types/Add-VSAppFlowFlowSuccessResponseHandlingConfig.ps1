@@ -24,7 +24,7 @@ function Add-VSAppFlowFlowSuccessResponseHandlingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.SuccessResponseHandlingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

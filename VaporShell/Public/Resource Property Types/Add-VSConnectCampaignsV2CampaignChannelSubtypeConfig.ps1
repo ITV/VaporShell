@@ -24,12 +24,17 @@ function Add-VSConnectCampaignsV2CampaignChannelSubtypeConfig {
         UpdateType: Mutable
         Type: SmsChannelSubtypeConfig
 
+    .PARAMETER WhatsApp
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-channelsubtypeconfig.html#cfn-connectcampaignsv2-campaign-channelsubtypeconfig-whatsapp
+        UpdateType: Mutable
+        Type: WhatsAppChannelSubtypeConfig
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.ChannelSubtypeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -40,7 +45,10 @@ function Add-VSConnectCampaignsV2CampaignChannelSubtypeConfig {
         $Telephony,
 
         [Parameter(Mandatory = $false)]
-        $Sms
+        $Sms,
+
+        [Parameter(Mandatory = $false)]
+        $WhatsApp
 
     )
 

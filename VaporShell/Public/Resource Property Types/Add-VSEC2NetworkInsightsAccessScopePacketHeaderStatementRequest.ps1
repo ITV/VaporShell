@@ -63,7 +63,7 @@ function Add-VSEC2NetworkInsightsAccessScopePacketHeaderStatementRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAccessScope.PacketHeaderStatementRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

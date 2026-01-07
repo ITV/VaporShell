@@ -44,7 +44,7 @@ function Add-VSAutoScalingAutoScalingGroupInstancesDistribution {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.InstancesDistribution')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

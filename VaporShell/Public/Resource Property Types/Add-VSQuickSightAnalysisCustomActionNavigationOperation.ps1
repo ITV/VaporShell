@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisCustomActionNavigationOperation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.CustomActionNavigationOperation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

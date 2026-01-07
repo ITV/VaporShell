@@ -24,7 +24,7 @@ function Add-VSPCSQueueErrorInfo {
     #>
 
     [OutputType('Vaporshell.Resource.PCS.Queue.ErrorInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

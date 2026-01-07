@@ -83,7 +83,7 @@ function Add-VSRedshiftServerlessNamespaceNamespace {
     #>
 
     [OutputType('Vaporshell.Resource.RedshiftServerless.Namespace.Namespace')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","AdminPasswordSecretKmsKeyId")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","AdminPasswordSecretKmsKeyId")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","AdminPasswordSecretArn")]

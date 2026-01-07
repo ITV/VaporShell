@@ -24,7 +24,7 @@ function Add-VSS3StorageLensPrefixLevelStorageMetrics {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.PrefixLevelStorageMetrics')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

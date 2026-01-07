@@ -19,7 +19,7 @@ function Add-VSSageMakerUserProfileDefaultSpaceStorageSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.DefaultSpaceStorageSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,6 +24,11 @@ function Add-VSS3StorageLensBucketLevel {
         UpdateType: Mutable
         Type: ActivityMetrics
 
+    .PARAMETER AdvancedPerformanceMetrics
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-advancedperformancemetrics
+        UpdateType: Mutable
+        Type: AdvancedPerformanceMetrics
+
     .PARAMETER AdvancedCostOptimizationMetrics
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html#cfn-s3-storagelens-bucketlevel-advancedcostoptimizationmetrics
         UpdateType: Mutable
@@ -39,7 +44,7 @@ function Add-VSS3StorageLensBucketLevel {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.BucketLevel')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -51,6 +56,9 @@ function Add-VSS3StorageLensBucketLevel {
 
         [Parameter(Mandatory = $false)]
         $ActivityMetrics,
+
+        [Parameter(Mandatory = $false)]
+        $AdvancedPerformanceMetrics,
 
         [Parameter(Mandatory = $false)]
         $AdvancedCostOptimizationMetrics,

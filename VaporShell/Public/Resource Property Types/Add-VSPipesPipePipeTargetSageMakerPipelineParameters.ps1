@@ -21,7 +21,7 @@ function Add-VSPipesPipePipeTargetSageMakerPipelineParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeTargetSageMakerPipelineParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEC2LaunchTemplateMemoryMiB {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.MemoryMiB')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSRoute53RecoveryReadinessResourceSetTargetResource {
     #>
 
     [OutputType('Vaporshell.Resource.Route53RecoveryReadiness.ResourceSet.TargetResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSBackupRestoreTestingSelectionKeyValue {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.RestoreTestingSelection.KeyValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

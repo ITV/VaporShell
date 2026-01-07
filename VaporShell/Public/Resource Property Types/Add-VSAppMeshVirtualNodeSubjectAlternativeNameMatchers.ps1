@@ -20,7 +20,7 @@ function Add-VSAppMeshVirtualNodeSubjectAlternativeNameMatchers {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.SubjectAlternativeNameMatchers')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

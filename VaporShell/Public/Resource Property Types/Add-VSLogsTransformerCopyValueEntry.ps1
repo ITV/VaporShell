@@ -29,7 +29,7 @@ function Add-VSLogsTransformerCopyValueEntry {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.CopyValueEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

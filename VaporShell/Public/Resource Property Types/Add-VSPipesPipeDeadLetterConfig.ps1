@@ -19,7 +19,7 @@ function Add-VSPipesPipeDeadLetterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.DeadLetterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

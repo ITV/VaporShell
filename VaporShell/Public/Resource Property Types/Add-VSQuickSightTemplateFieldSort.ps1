@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateFieldSort {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FieldSort')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

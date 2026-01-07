@@ -64,7 +64,7 @@ function Add-VSVpcLatticeTargetGroupHealthCheckConfig {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.TargetGroup.HealthCheckConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

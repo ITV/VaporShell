@@ -29,7 +29,7 @@ function Add-VSShieldProactiveEngagementEmergencyContact {
     #>
 
     [OutputType('Vaporshell.Resource.Shield.ProactiveEngagement.EmergencyContact')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

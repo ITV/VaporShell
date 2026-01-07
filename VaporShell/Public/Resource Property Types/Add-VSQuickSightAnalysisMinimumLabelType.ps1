@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisMinimumLabelType {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.MinimumLabelType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

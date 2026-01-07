@@ -26,7 +26,7 @@ function Add-VSWAFv2WebACLRateLimitHeader {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RateLimitHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSSSMPatchBaselinePatchFilter {
     #>
 
     [OutputType('Vaporshell.Resource.SSM.PatchBaseline.PatchFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

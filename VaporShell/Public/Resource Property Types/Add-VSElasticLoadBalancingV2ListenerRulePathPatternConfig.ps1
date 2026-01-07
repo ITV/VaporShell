@@ -16,17 +16,27 @@ function Add-VSElasticLoadBalancingV2ListenerRulePathPatternConfig {
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
+    .PARAMETER RegexValues
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html#cfn-elasticloadbalancingv2-listenerrule-pathpatternconfig-regexvalues
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.PathPatternConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
-        $Values
+        $Values,
+
+        [Parameter(Mandatory = $false)]
+        $RegexValues
 
     )
 

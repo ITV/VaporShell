@@ -24,7 +24,7 @@ function Add-VSAppMeshMeshMeshSpec {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Mesh.MeshSpec')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

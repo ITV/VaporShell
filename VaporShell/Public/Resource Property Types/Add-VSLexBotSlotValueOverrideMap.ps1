@@ -24,7 +24,7 @@ function Add-VSLexBotSlotValueOverrideMap {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.SlotValueOverrideMap')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSWAFv2RuleGroupBody {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.Body')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

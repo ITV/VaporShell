@@ -34,7 +34,7 @@ function Add-VSQuickSightAnalysisDefaultFilterDropDownControlOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DefaultFilterDropDownControlOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSApiGatewayUsagePlanQuotaSettings {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.UsagePlan.QuotaSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

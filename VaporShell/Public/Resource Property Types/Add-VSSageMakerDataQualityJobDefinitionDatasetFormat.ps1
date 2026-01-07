@@ -29,7 +29,7 @@ function Add-VSSageMakerDataQualityJobDefinitionDatasetFormat {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.DataQualityJobDefinition.DatasetFormat')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

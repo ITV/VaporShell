@@ -24,7 +24,7 @@ function Add-VSConfigConformancePackTemplateSSMDocumentDetails {
     #>
 
     [OutputType('Vaporshell.Resource.Config.ConformancePack.TemplateSSMDocumentDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSSageMakerModelPackageDriftCheckBaselines {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.DriftCheckBaselines')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

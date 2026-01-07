@@ -26,7 +26,7 @@ function Add-VSAccessAnalyzerAnalyzerArchiveRule {
     #>
 
     [OutputType('Vaporshell.Resource.AccessAnalyzer.Analyzer.ArchiveRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSARCZonalShiftZonalAutoshiftConfigurationControlCondition {
     #>
 
     [OutputType('Vaporshell.Resource.ARCZonalShift.ZonalAutoshiftConfiguration.ControlCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

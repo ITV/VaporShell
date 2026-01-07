@@ -24,7 +24,7 @@ function Add-VSInspectorV2CisScanConfigurationTime {
     #>
 
     [OutputType('Vaporshell.Resource.InspectorV2.CisScanConfiguration.Time')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

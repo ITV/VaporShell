@@ -33,7 +33,7 @@ function Add-VSCloudFormationStackSetStackInstances {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.StackSet.StackInstances')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

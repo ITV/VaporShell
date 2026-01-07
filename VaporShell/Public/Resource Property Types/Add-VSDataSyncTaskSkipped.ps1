@@ -19,7 +19,7 @@ function Add-VSDataSyncTaskSkipped {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.Task.Skipped')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

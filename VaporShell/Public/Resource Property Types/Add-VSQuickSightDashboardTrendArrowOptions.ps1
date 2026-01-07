@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardTrendArrowOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TrendArrowOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

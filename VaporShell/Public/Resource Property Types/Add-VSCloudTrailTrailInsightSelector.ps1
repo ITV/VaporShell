@@ -14,12 +14,19 @@ function Add-VSCloudTrailTrailInsightSelector {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER EventCategories
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html#cfn-cloudtrail-trail-insightselector-eventcategories
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.CloudTrail.Trail.InsightSelector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -33,7 +40,10 @@ function Add-VSCloudTrailTrailInsightSelector {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $InsightType
+        $InsightType,
+
+        [Parameter(Mandatory = $false)]
+        $EventCategories
 
     )
 

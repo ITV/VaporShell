@@ -39,7 +39,7 @@ function Add-VSGlueTableOptimizerTableOptimizerConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.TableOptimizer.TableOptimizerConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

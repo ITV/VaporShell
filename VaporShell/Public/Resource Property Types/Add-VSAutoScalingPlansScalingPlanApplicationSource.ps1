@@ -25,7 +25,7 @@ function Add-VSAutoScalingPlansScalingPlanApplicationSource {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScalingPlans.ScalingPlan.ApplicationSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

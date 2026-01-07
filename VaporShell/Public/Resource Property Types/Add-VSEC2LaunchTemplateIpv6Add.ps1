@@ -19,7 +19,7 @@ function Add-VSEC2LaunchTemplateIpv6Add {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.Ipv6Add')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

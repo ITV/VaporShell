@@ -19,7 +19,7 @@ function Add-VSSageMakerSpaceCodeRepository {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.CodeRepository')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

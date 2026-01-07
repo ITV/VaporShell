@@ -19,7 +19,7 @@ function Add-VSCodeDeployDeploymentGroupGreenFleetProvisioningOption {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.GreenFleetProvisioningOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSWAFSizeConstraintSetSizeConstraint {
     #>
 
     [OutputType('Vaporshell.Resource.WAF.SizeConstraintSet.SizeConstraint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

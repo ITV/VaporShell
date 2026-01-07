@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelStandardHlsSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.StandardHlsSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

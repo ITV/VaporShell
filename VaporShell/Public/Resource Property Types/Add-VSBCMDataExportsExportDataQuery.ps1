@@ -24,7 +24,7 @@ function Add-VSBCMDataExportsExportDataQuery {
     #>
 
     [OutputType('Vaporshell.Resource.BCMDataExports.Export.DataQuery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,7 +62,7 @@ function Add-VSBCMDataExportsExportDataQuery {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                TableConfigurations {
+                'TableConfigurations' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

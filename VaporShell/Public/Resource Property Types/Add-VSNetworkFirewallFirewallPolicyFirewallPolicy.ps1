@@ -23,6 +23,11 @@ function Add-VSNetworkFirewallFirewallPolicyFirewallPolicy {
         ItemType: StatefulRuleGroupReference
         DuplicatesAllowed: True
 
+    .PARAMETER EnableTLSSessionHolding
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-enabletlssessionholding
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER StatelessDefaultActions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions
         UpdateType: Mutable
@@ -71,7 +76,7 @@ function Add-VSNetworkFirewallFirewallPolicyFirewallPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.FirewallPolicy.FirewallPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -98,6 +103,18 @@ function Add-VSNetworkFirewallFirewallPolicyFirewallPolicy {
                 }
             })]
         $StatefulRuleGroupReferences,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnableTLSSessionHolding,
 
         [Parameter(Mandatory = $true)]
         $StatelessDefaultActions,

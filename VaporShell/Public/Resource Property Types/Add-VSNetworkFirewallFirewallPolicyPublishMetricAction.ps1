@@ -21,7 +21,7 @@ function Add-VSNetworkFirewallFirewallPolicyPublishMetricAction {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.FirewallPolicy.PublishMetricAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

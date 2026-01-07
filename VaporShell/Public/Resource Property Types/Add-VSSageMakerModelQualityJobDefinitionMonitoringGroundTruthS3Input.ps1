@@ -19,7 +19,7 @@ function Add-VSSageMakerModelQualityJobDefinitionMonitoringGroundTruthS3Input {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelQualityJobDefinition.MonitoringGroundTruthS3Input')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

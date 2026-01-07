@@ -19,7 +19,7 @@ function Add-VSECSTaskSetNetworkConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskSet.NetworkConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

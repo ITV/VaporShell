@@ -14,6 +14,11 @@ function Add-VSCleanRoomsMembershipMembershipMLPaymentConfig {
         UpdateType: Mutable
         Type: MembershipModelInferencePaymentConfig
 
+    .PARAMETER SyntheticDataGeneration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmlpaymentconfig.html#cfn-cleanrooms-membership-membershipmlpaymentconfig-syntheticdatageneration
+        UpdateType: Mutable
+        Type: MembershipSyntheticDataGenerationPaymentConfig
+
     .PARAMETER ModelTraining
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmlpaymentconfig.html#cfn-cleanrooms-membership-membershipmlpaymentconfig-modeltraining
         UpdateType: Mutable
@@ -24,12 +29,15 @@ function Add-VSCleanRoomsMembershipMembershipMLPaymentConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Membership.MembershipMLPaymentConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
         $ModelInference,
+
+        [Parameter(Mandatory = $false)]
+        $SyntheticDataGeneration,
 
         [Parameter(Mandatory = $false)]
         $ModelTraining

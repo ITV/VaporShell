@@ -34,7 +34,7 @@ function Add-VSRedshiftServerlessWorkgroupNetworkInterface {
     #>
 
     [OutputType('Vaporshell.Resource.RedshiftServerless.Workgroup.NetworkInterface')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

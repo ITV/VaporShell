@@ -66,7 +66,7 @@ function Add-VSMediaPackageOriginEndpointHlsManifest {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.HlsManifest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

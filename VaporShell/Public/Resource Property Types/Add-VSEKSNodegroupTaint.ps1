@@ -29,7 +29,7 @@ function Add-VSEKSNodegroupTaint {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Nodegroup.Taint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

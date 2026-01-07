@@ -34,7 +34,7 @@ function Add-VSBedrockDataSourceChunkingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.ChunkingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

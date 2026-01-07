@@ -19,7 +19,7 @@ function Add-VSSageMakerSpaceSpaceAppLifecycleManagement {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.SpaceAppLifecycleManagement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

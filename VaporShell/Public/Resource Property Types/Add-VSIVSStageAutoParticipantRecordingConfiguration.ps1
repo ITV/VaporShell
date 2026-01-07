@@ -14,6 +14,11 @@ function Add-VSIVSStageAutoParticipantRecordingConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER RecordingReconnectWindowSeconds
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-autoparticipantrecordingconfiguration.html#cfn-ivs-stage-autoparticipantrecordingconfiguration-recordingreconnectwindowseconds
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
     .PARAMETER MediaTypes
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-autoparticipantrecordingconfiguration.html#cfn-ivs-stage-autoparticipantrecordingconfiguration-mediatypes
         UpdateType: Mutable
@@ -21,12 +26,22 @@ function Add-VSIVSStageAutoParticipantRecordingConfiguration {
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
+    .PARAMETER HlsConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-autoparticipantrecordingconfiguration.html#cfn-ivs-stage-autoparticipantrecordingconfiguration-hlsconfiguration
+        UpdateType: Mutable
+        Type: HlsConfiguration
+
+    .PARAMETER ThumbnailConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-autoparticipantrecordingconfiguration.html#cfn-ivs-stage-autoparticipantrecordingconfiguration-thumbnailconfiguration
+        UpdateType: Mutable
+        Type: ThumbnailConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.IVS.Stage.AutoParticipantRecordingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -43,7 +58,25 @@ function Add-VSIVSStageAutoParticipantRecordingConfiguration {
         $StorageConfigurationArn,
 
         [Parameter(Mandatory = $false)]
-        $MediaTypes
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RecordingReconnectWindowSeconds,
+
+        [Parameter(Mandatory = $false)]
+        $MediaTypes,
+
+        [Parameter(Mandatory = $false)]
+        $HlsConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $ThumbnailConfiguration
 
     )
 

@@ -59,7 +59,7 @@ function Add-VSCodeBuildProjectArtifacts {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.Artifacts')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

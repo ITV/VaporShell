@@ -36,7 +36,7 @@ function Add-VSIoTWirelessWirelessDeviceImportTaskSidewalk {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.WirelessDeviceImportTask.Sidewalk')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

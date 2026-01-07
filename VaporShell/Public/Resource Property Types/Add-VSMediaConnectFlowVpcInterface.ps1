@@ -48,7 +48,7 @@ function Add-VSMediaConnectFlowVpcInterface {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.VpcInterface')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSSageMakerMonitoringScheduleMonitoringScheduleConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.MonitoringScheduleConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSPCAConnectorADTemplateGroupAccessControlEntryAccessRights {
     #>
 
     [OutputType('Vaporshell.Resource.PCAConnectorAD.TemplateGroupAccessControlEntry.AccessRights')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

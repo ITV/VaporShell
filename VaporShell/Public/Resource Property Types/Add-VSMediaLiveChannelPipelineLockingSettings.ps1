@@ -14,7 +14,7 @@ function Add-VSMediaLiveChannelPipelineLockingSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.PipelineLockingSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -60,7 +60,7 @@ function Add-VSAmplifyUIBuilderComponentActionParameters {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Component.ActionParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

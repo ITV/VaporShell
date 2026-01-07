@@ -19,7 +19,7 @@ function Add-VSSSMIncidentsResponsePlanNotificationTargetItem {
     #>
 
     [OutputType('Vaporshell.Resource.SSMIncidents.ResponsePlan.NotificationTargetItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

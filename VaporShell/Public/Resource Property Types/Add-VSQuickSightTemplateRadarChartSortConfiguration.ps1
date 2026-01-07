@@ -38,7 +38,7 @@ function Add-VSQuickSightTemplateRadarChartSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.RadarChartSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

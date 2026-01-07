@@ -19,7 +19,7 @@ function Add-VSIoTTopicRulePutItemInput {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.PutItemInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSECSTaskDefinitionKeyValuePair {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.KeyValuePair')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

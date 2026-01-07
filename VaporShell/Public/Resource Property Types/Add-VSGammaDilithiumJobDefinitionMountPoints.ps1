@@ -29,7 +29,7 @@ function Add-VSGammaDilithiumJobDefinitionMountPoints {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.MountPoints')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

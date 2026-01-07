@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardNullValueFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.NullValueFormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

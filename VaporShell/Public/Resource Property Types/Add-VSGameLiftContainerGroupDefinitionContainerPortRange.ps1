@@ -29,7 +29,7 @@ function Add-VSGameLiftContainerGroupDefinitionContainerPortRange {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerGroupDefinition.ContainerPortRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

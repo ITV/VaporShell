@@ -24,7 +24,7 @@ function Add-VSECRReplicationConfigurationRepositoryFilter {
     #>
 
     [OutputType('Vaporshell.Resource.ECR.ReplicationConfiguration.RepositoryFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

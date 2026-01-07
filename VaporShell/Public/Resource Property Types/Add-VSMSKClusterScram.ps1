@@ -19,7 +19,7 @@ function Add-VSMSKClusterScram {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.Scram')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

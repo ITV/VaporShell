@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardAxisLogarithmicScale {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.AxisLogarithmicScale')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

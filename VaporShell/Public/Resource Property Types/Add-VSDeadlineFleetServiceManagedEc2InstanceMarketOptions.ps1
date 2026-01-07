@@ -19,7 +19,7 @@ function Add-VSDeadlineFleetServiceManagedEc2InstanceMarketOptions {
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Fleet.ServiceManagedEc2InstanceMarketOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

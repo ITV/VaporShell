@@ -24,7 +24,7 @@ function Add-VSRDSDBInstanceCertificateDetails {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBInstance.CertificateDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

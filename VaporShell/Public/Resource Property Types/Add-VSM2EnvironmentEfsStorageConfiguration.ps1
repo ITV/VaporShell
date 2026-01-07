@@ -24,7 +24,7 @@ function Add-VSM2EnvironmentEfsStorageConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.M2.Environment.EfsStorageConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

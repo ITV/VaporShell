@@ -19,7 +19,7 @@ function Add-VSBatchJobDefinitionEksProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.EksProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

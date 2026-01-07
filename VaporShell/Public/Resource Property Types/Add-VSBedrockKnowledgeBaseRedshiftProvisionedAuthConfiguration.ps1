@@ -29,7 +29,7 @@ function Add-VSBedrockKnowledgeBaseRedshiftProvisionedAuthConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.RedshiftProvisionedAuthConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","UsernamePasswordSecretArn")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","UsernamePasswordSecretArn")]
 

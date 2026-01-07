@@ -24,7 +24,7 @@ function Add-VSCloudFrontContinuousDeploymentPolicySingleWeightPolicyConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ContinuousDeploymentPolicy.SingleWeightPolicyConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

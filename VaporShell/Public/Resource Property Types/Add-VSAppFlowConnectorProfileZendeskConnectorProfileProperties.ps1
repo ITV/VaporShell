@@ -19,7 +19,7 @@ function Add-VSAppFlowConnectorProfileZendeskConnectorProfileProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.ZendeskConnectorProfileProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSSageMakerModelPackageDriftCheckExplainability {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.DriftCheckExplainability')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

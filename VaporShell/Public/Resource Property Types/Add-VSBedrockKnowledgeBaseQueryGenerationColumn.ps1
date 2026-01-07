@@ -29,7 +29,7 @@ function Add-VSBedrockKnowledgeBaseQueryGenerationColumn {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.QueryGenerationColumn')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

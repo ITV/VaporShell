@@ -24,7 +24,7 @@ function Add-VSAppTestTestCaseCloudFormationAction {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.CloudFormationAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSLexBotIntentClosingSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.IntentClosingSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

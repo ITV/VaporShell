@@ -34,7 +34,7 @@ function Add-VSDMSDataMigrationSourceDataSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.DataMigration.SourceDataSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

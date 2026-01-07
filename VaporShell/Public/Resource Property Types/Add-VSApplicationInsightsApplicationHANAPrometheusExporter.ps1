@@ -39,7 +39,7 @@ function Add-VSApplicationInsightsApplicationHANAPrometheusExporter {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.HANAPrometheusExporter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

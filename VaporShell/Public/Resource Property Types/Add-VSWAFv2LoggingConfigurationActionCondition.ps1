@@ -19,7 +19,7 @@ function Add-VSWAFv2LoggingConfigurationActionCondition {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.LoggingConfiguration.ActionCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

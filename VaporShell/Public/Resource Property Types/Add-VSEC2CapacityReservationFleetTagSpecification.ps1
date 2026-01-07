@@ -26,7 +26,7 @@ function Add-VSEC2CapacityReservationFleetTagSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.CapacityReservationFleet.TagSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

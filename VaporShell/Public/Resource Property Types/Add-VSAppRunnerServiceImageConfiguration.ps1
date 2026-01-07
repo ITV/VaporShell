@@ -38,7 +38,7 @@ function Add-VSAppRunnerServiceImageConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.ImageConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

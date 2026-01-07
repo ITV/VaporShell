@@ -19,7 +19,7 @@ function Add-VSDynamoDBGlobalTableResourcePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.ResourcePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -45,7 +45,7 @@ function Add-VSDynamoDBGlobalTableResourcePolicy {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                PolicyDocument {
+                'PolicyDocument' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

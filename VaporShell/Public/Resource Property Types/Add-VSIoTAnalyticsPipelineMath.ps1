@@ -34,7 +34,7 @@ function Add-VSIoTAnalyticsPipelineMath {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Pipeline.Math')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

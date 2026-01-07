@@ -49,7 +49,7 @@ function Add-VSMediaPackageV2OriginEndpointSegment {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint.Segment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

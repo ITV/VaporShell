@@ -24,7 +24,7 @@ function Add-VSQuickSightDataSourceSparkParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.SparkParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

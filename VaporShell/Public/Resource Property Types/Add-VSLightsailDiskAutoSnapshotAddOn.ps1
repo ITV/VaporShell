@@ -19,7 +19,7 @@ function Add-VSLightsailDiskAutoSnapshotAddOn {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Disk.AutoSnapshotAddOn')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSCloudFrontMonitoringSubscriptionMonitoringSubscription {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.MonitoringSubscription.MonitoringSubscription')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

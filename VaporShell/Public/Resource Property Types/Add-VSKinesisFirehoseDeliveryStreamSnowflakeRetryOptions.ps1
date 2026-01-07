@@ -19,7 +19,7 @@ function Add-VSKinesisFirehoseDeliveryStreamSnowflakeRetryOptions {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.SnowflakeRetryOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

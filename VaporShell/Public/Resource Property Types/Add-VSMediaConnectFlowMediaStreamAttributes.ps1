@@ -24,7 +24,7 @@ function Add-VSMediaConnectFlowMediaStreamAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.MediaStreamAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSLightsailDiskLocation {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Disk.Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSWAFIPSetIPSetDescriptor {
     #>
 
     [OutputType('Vaporshell.Resource.WAF.IPSet.IPSetDescriptor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

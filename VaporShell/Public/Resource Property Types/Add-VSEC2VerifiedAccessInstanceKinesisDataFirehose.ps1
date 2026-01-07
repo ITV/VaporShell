@@ -24,7 +24,7 @@ function Add-VSEC2VerifiedAccessInstanceKinesisDataFirehose {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessInstance.KinesisDataFirehose')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

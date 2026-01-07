@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisCustomNarrativeOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.CustomNarrativeOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

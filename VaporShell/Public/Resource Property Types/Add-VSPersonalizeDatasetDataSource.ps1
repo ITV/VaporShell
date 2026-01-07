@@ -19,7 +19,7 @@ function Add-VSPersonalizeDatasetDataSource {
     #>
 
     [OutputType('Vaporshell.Resource.Personalize.Dataset.DataSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

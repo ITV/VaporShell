@@ -26,7 +26,7 @@ function Add-VSLightsailDistributionHeaderObject {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Distribution.HeaderObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

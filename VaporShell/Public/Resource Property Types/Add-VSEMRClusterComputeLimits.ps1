@@ -39,7 +39,7 @@ function Add-VSEMRClusterComputeLimits {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.ComputeLimits')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

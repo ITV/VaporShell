@@ -24,7 +24,7 @@ function Add-VSPinpointCampaignQuietTime {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.QuietTime')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

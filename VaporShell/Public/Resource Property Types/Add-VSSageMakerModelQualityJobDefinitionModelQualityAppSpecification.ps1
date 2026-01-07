@@ -54,7 +54,7 @@ function Add-VSSageMakerModelQualityJobDefinitionModelQualityAppSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelQualityJobDefinition.ModelQualityAppSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

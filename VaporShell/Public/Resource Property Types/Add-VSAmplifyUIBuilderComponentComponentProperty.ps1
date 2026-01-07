@@ -92,7 +92,7 @@ function Add-VSAmplifyUIBuilderComponentComponentProperty {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

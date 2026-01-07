@@ -11,15 +11,15 @@ function Add-VSAppSyncDataSourceEventBridgeConfig {
 
     .PARAMETER EventBusArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-eventbridgeconfig.html#cfn-appsync-datasource-eventbridgeconfig-eventbusarn
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.DataSource.EventBridgeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

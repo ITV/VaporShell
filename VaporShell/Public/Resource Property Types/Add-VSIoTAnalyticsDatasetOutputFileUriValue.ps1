@@ -19,7 +19,7 @@ function Add-VSIoTAnalyticsDatasetOutputFileUriValue {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.OutputFileUriValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

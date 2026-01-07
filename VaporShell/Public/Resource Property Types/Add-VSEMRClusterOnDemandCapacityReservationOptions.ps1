@@ -29,7 +29,7 @@ function Add-VSEMRClusterOnDemandCapacityReservationOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.OnDemandCapacityReservationOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

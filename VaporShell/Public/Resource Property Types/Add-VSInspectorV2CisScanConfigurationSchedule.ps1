@@ -34,7 +34,7 @@ function Add-VSInspectorV2CisScanConfigurationSchedule {
     #>
 
     [OutputType('Vaporshell.Resource.InspectorV2.CisScanConfiguration.Schedule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -69,7 +69,7 @@ function Add-VSInspectorV2CisScanConfigurationSchedule {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                OneTime {
+                'OneTime' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

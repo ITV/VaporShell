@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateGeospatialPointStyleOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.GeospatialPointStyleOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

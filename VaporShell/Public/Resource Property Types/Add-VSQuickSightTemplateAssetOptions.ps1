@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateAssetOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.AssetOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSCodeDeployDeploymentGroupS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

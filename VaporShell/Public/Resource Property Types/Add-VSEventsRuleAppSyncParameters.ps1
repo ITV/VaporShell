@@ -19,7 +19,7 @@ function Add-VSEventsRuleAppSyncParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.AppSyncParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

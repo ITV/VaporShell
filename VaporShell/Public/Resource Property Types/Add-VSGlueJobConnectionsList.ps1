@@ -21,7 +21,7 @@ function Add-VSGlueJobConnectionsList {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Job.ConnectionsList')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

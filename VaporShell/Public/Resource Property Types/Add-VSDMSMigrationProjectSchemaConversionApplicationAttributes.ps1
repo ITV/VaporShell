@@ -24,7 +24,7 @@ function Add-VSDMSMigrationProjectSchemaConversionApplicationAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.MigrationProject.SchemaConversionApplicationAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

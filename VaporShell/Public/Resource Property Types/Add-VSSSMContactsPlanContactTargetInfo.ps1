@@ -24,7 +24,7 @@ function Add-VSSSMContactsPlanContactTargetInfo {
     #>
 
     [OutputType('Vaporshell.Resource.SSMContacts.Plan.ContactTargetInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

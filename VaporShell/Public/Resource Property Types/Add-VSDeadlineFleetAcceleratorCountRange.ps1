@@ -24,7 +24,7 @@ function Add-VSDeadlineFleetAcceleratorCountRange {
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Fleet.AcceleratorCountRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

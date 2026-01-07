@@ -28,7 +28,7 @@ function Add-VSDeadlineFleetFleetCapabilities {
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Fleet.FleetCapabilities')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

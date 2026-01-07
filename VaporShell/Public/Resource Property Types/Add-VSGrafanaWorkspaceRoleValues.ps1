@@ -28,7 +28,7 @@ function Add-VSGrafanaWorkspaceRoleValues {
     #>
 
     [OutputType('Vaporshell.Resource.Grafana.Workspace.RoleValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

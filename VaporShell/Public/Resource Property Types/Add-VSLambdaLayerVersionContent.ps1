@@ -29,7 +29,7 @@ function Add-VSLambdaLayerVersionContent {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.LayerVersion.Content')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

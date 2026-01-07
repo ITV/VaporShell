@@ -29,7 +29,7 @@ function Add-VSKinesisAnalyticsV2ApplicationCodeContent {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.CodeContent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

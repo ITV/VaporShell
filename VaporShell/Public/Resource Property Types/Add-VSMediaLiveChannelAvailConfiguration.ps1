@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelAvailConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AvailConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

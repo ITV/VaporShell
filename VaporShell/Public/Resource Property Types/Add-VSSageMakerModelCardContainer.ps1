@@ -29,7 +29,7 @@ function Add-VSSageMakerModelCardContainer {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.Container')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

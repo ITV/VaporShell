@@ -14,9 +14,21 @@ function Add-VSEC2VPCEndpointDnsOptionsSpecification {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER PrivateDnsSpecifiedDomains
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpoint-dnsoptionsspecification.html#cfn-ec2-vpcendpoint-dnsoptionsspecification-privatednsspecifieddomains
+        UpdateType: Immutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .PARAMETER DnsRecordIpType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpoint-dnsoptionsspecification.html#cfn-ec2-vpcendpoint-dnsoptionsspecification-dnsrecordiptype
         UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER PrivateDnsPreference
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpoint-dnsoptionsspecification.html#cfn-ec2-vpcendpoint-dnsoptionsspecification-privatednspreference
+        UpdateType: Immutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -24,7 +36,7 @@ function Add-VSEC2VPCEndpointDnsOptionsSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VPCEndpoint.DnsOptionsSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -41,6 +53,9 @@ function Add-VSEC2VPCEndpointDnsOptionsSpecification {
         $PrivateDnsOnlyForInboundResolverEndpoint,
 
         [Parameter(Mandatory = $false)]
+        $PrivateDnsSpecifiedDomains,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -50,7 +65,19 @@ function Add-VSEC2VPCEndpointDnsOptionsSpecification {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $DnsRecordIpType
+        $DnsRecordIpType,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PrivateDnsPreference
 
     )
 

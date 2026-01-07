@@ -14,7 +14,7 @@ function Add-VSLakeFormationDataLakeSettingsAdmins {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.DataLakeSettings.Admins')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

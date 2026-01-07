@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardDataPointMenuLabelOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DataPointMenuLabelOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

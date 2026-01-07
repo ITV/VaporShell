@@ -24,7 +24,7 @@ function Add-VSDeadlineFleetVCpuCountRange {
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Fleet.VCpuCountRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSOpenSearchServiceApplicationDataSource {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Application.DataSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

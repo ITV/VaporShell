@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardRadarChartAreaStyleSettings {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.RadarChartAreaStyleSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSPinpointCampaignEventDimensions {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.EventDimensions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -70,7 +70,7 @@ function Add-VSPinpointCampaignEventDimensions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Metrics {
+                'Metrics' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -84,7 +84,7 @@ function Add-VSPinpointCampaignEventDimensions {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                Attributes {
+                'Attributes' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

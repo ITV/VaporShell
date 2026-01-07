@@ -9,6 +9,11 @@ function Add-VSBedrockPromptTool {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-tool.html
 
+    .PARAMETER CachePoint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-tool.html#cfn-bedrock-prompt-tool-cachepoint
+        UpdateType: Mutable
+        Type: CachePointBlock
+
     .PARAMETER ToolSpec
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-tool.html#cfn-bedrock-prompt-tool-toolspec
         UpdateType: Mutable
@@ -19,11 +24,14 @@ function Add-VSBedrockPromptTool {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Prompt.Tool')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $CachePoint,
+
+        [Parameter(Mandatory = $false)]
         $ToolSpec
 
     )

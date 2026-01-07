@@ -44,7 +44,7 @@ function Add-VSFSxVolumeSnaplockConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.Volume.SnaplockConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSS3BucketReplicationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.ReplicationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

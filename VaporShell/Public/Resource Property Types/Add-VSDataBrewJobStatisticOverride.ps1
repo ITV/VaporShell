@@ -25,7 +25,7 @@ function Add-VSDataBrewJobStatisticOverride {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Job.StatisticOverride')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

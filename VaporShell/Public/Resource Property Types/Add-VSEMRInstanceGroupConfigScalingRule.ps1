@@ -34,7 +34,7 @@ function Add-VSEMRInstanceGroupConfigScalingRule {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceGroupConfig.ScalingRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

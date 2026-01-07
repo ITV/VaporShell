@@ -26,7 +26,7 @@ function Add-VSGlueUsageProfileProfileConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.UsageProfile.ProfileConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

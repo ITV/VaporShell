@@ -41,6 +41,11 @@ function Add-VSBatchJobDefinitionEcsTaskProperties {
         ItemType: Volume
         DuplicatesAllowed: True
 
+    .PARAMETER EnableExecuteCommand
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html#cfn-batch-jobdefinition-ecstaskproperties-enableexecutecommand
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER Containers
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html#cfn-batch-jobdefinition-ecstaskproperties-containers
         UpdateType: Mutable
@@ -68,7 +73,7 @@ function Add-VSBatchJobDefinitionEcsTaskProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.EcsTaskProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -134,6 +139,18 @@ function Add-VSBatchJobDefinitionEcsTaskProperties {
                 }
             })]
         $Volumes,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnableExecuteCommand,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

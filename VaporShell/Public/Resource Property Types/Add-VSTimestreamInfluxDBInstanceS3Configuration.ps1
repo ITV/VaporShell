@@ -24,7 +24,7 @@ function Add-VSTimestreamInfluxDBInstanceS3Configuration {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.InfluxDBInstance.S3Configuration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

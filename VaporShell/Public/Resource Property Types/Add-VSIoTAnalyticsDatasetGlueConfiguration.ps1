@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsDatasetGlueConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.GlueConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

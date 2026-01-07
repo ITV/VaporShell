@@ -24,7 +24,7 @@ function Add-VSMacieAllowListCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.Macie.AllowList.Criteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

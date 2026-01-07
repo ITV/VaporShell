@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateScatterPlotFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ScatterPlotFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

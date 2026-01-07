@@ -24,7 +24,7 @@ function Add-VSCloudFormationGuardHookS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.GuardHook.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQBusinessDataAccessorDocumentAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.DataAccessor.DocumentAttribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

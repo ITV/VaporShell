@@ -26,7 +26,7 @@ function Add-VSSageMakerEndpointConfigVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

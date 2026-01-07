@@ -29,7 +29,7 @@ function Add-VSCertificateManagerCertificateDomainValidationOption {
     #>
 
     [OutputType('Vaporshell.Resource.CertificateManager.Certificate.DomainValidationOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

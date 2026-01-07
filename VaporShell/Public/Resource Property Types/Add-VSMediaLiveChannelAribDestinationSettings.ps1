@@ -14,7 +14,7 @@ function Add-VSMediaLiveChannelAribDestinationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AribDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

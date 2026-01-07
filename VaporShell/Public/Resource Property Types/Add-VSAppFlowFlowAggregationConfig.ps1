@@ -24,7 +24,7 @@ function Add-VSAppFlowFlowAggregationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.AggregationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

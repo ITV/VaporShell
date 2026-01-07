@@ -17,14 +17,14 @@ function Add-VSKafkaConnectCustomPluginCustomPluginFileDescription {
     .PARAMETER FileSize
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginfiledescription.html#cfn-kafkaconnect-customplugin-custompluginfiledescription-filesize
         UpdateType: Mutable
-        PrimitiveType: Integer
+        PrimitiveType: Long
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.CustomPlugin.CustomPluginFileDescription')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -41,15 +41,6 @@ function Add-VSKafkaConnectCustomPluginCustomPluginFileDescription {
         $FileMd5,
 
         [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $FileSize
 
     )

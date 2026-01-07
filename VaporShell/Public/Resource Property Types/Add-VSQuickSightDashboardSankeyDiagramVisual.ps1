@@ -46,7 +46,7 @@ function Add-VSQuickSightDashboardSankeyDiagramVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SankeyDiagramVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

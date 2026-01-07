@@ -24,7 +24,7 @@ function Add-VSGammaDilithiumJobDefinitionAuthorizationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.AuthorizationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

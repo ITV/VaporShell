@@ -24,7 +24,7 @@ function Add-VSEC2NetworkInterfaceAttachmentEnaSrdSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInterfaceAttachment.EnaSrdSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

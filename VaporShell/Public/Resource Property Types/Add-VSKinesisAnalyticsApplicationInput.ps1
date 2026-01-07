@@ -44,7 +44,7 @@ function Add-VSKinesisAnalyticsApplicationInput {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalytics.Application.Input')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

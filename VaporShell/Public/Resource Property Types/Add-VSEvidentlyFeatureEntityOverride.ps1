@@ -24,7 +24,7 @@ function Add-VSEvidentlyFeatureEntityOverride {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Feature.EntityOverride')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

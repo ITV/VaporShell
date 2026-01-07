@@ -24,7 +24,7 @@ function Add-VSPinpointSegmentRecency {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Segment.Recency')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

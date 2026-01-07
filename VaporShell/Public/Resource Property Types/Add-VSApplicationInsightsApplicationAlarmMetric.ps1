@@ -19,7 +19,7 @@ function Add-VSApplicationInsightsApplicationAlarmMetric {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.AlarmMetric')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

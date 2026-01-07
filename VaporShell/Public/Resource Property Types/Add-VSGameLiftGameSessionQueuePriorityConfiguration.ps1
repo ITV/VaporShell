@@ -28,7 +28,7 @@ function Add-VSGameLiftGameSessionQueuePriorityConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.GameSessionQueue.PriorityConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

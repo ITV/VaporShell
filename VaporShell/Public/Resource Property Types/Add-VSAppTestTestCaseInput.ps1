@@ -19,7 +19,7 @@ function Add-VSAppTestTestCaseInput {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.Input')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

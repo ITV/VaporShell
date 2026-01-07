@@ -39,7 +39,7 @@ function Add-VSOpsWorksInstanceEbsBlockDevice {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.Instance.EbsBlockDevice')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

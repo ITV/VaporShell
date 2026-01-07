@@ -24,7 +24,7 @@ function Add-VSBudgetsBudgetTimePeriod {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.Budget.TimePeriod')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSNimbleStudioStudioStudioEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.NimbleStudio.Studio.StudioEncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

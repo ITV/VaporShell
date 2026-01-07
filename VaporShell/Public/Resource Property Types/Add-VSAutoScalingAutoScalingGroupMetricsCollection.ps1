@@ -26,7 +26,7 @@ function Add-VSAutoScalingAutoScalingGroupMetricsCollection {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.MetricsCollection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

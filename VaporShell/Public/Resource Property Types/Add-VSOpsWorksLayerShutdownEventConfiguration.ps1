@@ -24,7 +24,7 @@ function Add-VSOpsWorksLayerShutdownEventConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.Layer.ShutdownEventConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

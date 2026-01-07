@@ -25,7 +25,7 @@ function Add-VSPinpointCampaignCustomDeliveryConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.CustomDeliveryConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

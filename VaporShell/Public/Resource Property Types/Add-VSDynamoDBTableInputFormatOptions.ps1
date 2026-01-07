@@ -19,7 +19,7 @@ function Add-VSDynamoDBTableInputFormatOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.Table.InputFormatOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

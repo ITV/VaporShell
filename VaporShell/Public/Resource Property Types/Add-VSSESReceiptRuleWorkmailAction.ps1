@@ -24,7 +24,7 @@ function Add-VSSESReceiptRuleWorkmailAction {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ReceiptRule.WorkmailAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

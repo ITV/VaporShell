@@ -24,7 +24,7 @@ function Add-VSSecurityLakeSubscriberNotificationNotificationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityLake.SubscriberNotification.NotificationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -53,7 +53,7 @@ function Add-VSSecurityLakeSubscriberNotificationNotificationConfiguration {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                SqsNotificationConfiguration {
+                'SqsNotificationConfiguration' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

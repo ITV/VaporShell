@@ -19,7 +19,7 @@ function Add-VSSageMakerDataQualityJobDefinitionStatisticsResource {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.DataQualityJobDefinition.StatisticsResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

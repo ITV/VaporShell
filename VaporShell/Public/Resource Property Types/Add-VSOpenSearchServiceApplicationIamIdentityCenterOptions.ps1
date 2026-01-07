@@ -29,7 +29,7 @@ function Add-VSOpenSearchServiceApplicationIamIdentityCenterOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Application.IamIdentityCenterOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

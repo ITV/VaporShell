@@ -19,7 +19,7 @@ function Add-VSBedrockFlowVersionAgentFlowNodeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.AgentFlowNodeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

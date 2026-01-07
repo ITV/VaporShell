@@ -29,7 +29,7 @@ function Add-VSCleanRoomsConfiguredTableAggregationConstraint {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTable.AggregationConstraint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

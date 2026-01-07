@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelScte27SourceSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.Scte27SourceSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

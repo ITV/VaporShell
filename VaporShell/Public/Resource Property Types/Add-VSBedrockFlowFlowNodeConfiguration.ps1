@@ -19,10 +19,30 @@ function Add-VSBedrockFlowFlowNodeConfiguration {
         UpdateType: Mutable
         Type: RetrievalFlowNodeConfiguration
 
+    .PARAMETER Loop
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-loop
+        UpdateType: Mutable
+        Type: LoopFlowNodeConfiguration
+
     .PARAMETER Agent
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-agent
         UpdateType: Mutable
         Type: AgentFlowNodeConfiguration
+
+    .PARAMETER LambdaFunction
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-lambdafunction
+        UpdateType: Mutable
+        Type: LambdaFunctionFlowNodeConfiguration
+
+    .PARAMETER InlineCode
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-inlinecode
+        UpdateType: Mutable
+        Type: InlineCodeFlowNodeConfiguration
+
+    .PARAMETER LoopController
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-loopcontroller
+        UpdateType: Mutable
+        Type: LoopControllerFlowNodeConfiguration
 
     .PARAMETER Input
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-input
@@ -54,15 +74,15 @@ function Add-VSBedrockFlowFlowNodeConfiguration {
         UpdateType: Mutable
         PrimitiveType: Json
 
+    .PARAMETER LoopInput
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-loopinput
+        UpdateType: Mutable
+        PrimitiveType: Json
+
     .PARAMETER Prompt
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-prompt
         UpdateType: Mutable
         Type: PromptFlowNodeConfiguration
-
-    .PARAMETER LambdaFunction
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-lambdafunction
-        UpdateType: Mutable
-        Type: LambdaFunctionFlowNodeConfiguration
 
     .PARAMETER Lex
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeconfiguration.html#cfn-bedrock-flow-flownodeconfiguration-lex
@@ -74,7 +94,7 @@ function Add-VSBedrockFlowFlowNodeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Flow.FlowNodeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -85,7 +105,19 @@ function Add-VSBedrockFlowFlowNodeConfiguration {
         $Retrieval,
 
         [Parameter(Mandatory = $false)]
+        $Loop,
+
+        [Parameter(Mandatory = $false)]
         $Agent,
+
+        [Parameter(Mandatory = $false)]
+        $LambdaFunction,
+
+        [Parameter(Mandatory = $false)]
+        $InlineCode,
+
+        [Parameter(Mandatory = $false)]
+        $LoopController,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -142,10 +174,19 @@ function Add-VSBedrockFlowFlowNodeConfiguration {
         $Collector,
 
         [Parameter(Mandatory = $false)]
-        $Prompt,
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LoopInput,
 
         [Parameter(Mandatory = $false)]
-        $LambdaFunction,
+        $Prompt,
 
         [Parameter(Mandatory = $false)]
         $Lex
@@ -160,7 +201,7 @@ function Add-VSBedrockFlowFlowNodeConfiguration {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Input {
+                'Input' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -174,7 +215,7 @@ function Add-VSBedrockFlowFlowNodeConfiguration {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                Output {
+                'Output' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -188,7 +229,7 @@ function Add-VSBedrockFlowFlowNodeConfiguration {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                Iterator {
+                'Iterator' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -202,7 +243,21 @@ function Add-VSBedrockFlowFlowNodeConfiguration {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                Collector {
+                'Collector' {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
+                }
+                'LoopInput' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

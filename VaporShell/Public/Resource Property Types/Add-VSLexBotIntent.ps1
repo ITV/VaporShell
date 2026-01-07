@@ -9,6 +9,11 @@ function Add-VSLexBotIntent {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html
 
+    .PARAMETER QInConnectIntentConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-qinconnectintentconfiguration
+        UpdateType: Mutable
+        Type: QInConnectIntentConfiguration
+
     .PARAMETER Description
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-description
         UpdateType: Mutable
@@ -23,6 +28,11 @@ function Add-VSLexBotIntent {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-initialresponsesetting
         UpdateType: Mutable
         Type: InitialResponseSetting
+
+    .PARAMETER BedrockAgentIntentConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-bedrockagentintentconfiguration
+        UpdateType: Mutable
+        Type: BedrockAgentIntentConfiguration
 
     .PARAMETER FulfillmentCodeHook
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-fulfillmentcodehook
@@ -46,6 +56,11 @@ function Add-VSLexBotIntent {
         ItemType: Slot
         DuplicatesAllowed: False
 
+    .PARAMETER QnAIntentConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-qnaintentconfiguration
+        UpdateType: Mutable
+        Type: QnAIntentConfiguration
+
     .PARAMETER DialogCodeHook
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-dialogcodehook
         UpdateType: Mutable
@@ -67,6 +82,11 @@ function Add-VSLexBotIntent {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-intentclosingsetting
         UpdateType: Mutable
         Type: IntentClosingSetting
+
+    .PARAMETER DisplayName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-displayname
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER OutputContexts
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intent.html#cfn-lex-bot-intent-outputcontexts
@@ -94,10 +114,13 @@ function Add-VSLexBotIntent {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.Intent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $QInConnectIntentConfiguration,
+
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -124,6 +147,9 @@ function Add-VSLexBotIntent {
 
         [Parameter(Mandatory = $false)]
         $InitialResponseSetting,
+
+        [Parameter(Mandatory = $false)]
+        $BedrockAgentIntentConfiguration,
 
         [Parameter(Mandatory = $false)]
         $FulfillmentCodeHook,
@@ -156,6 +182,9 @@ function Add-VSLexBotIntent {
         $Slots,
 
         [Parameter(Mandatory = $false)]
+        $QnAIntentConfiguration,
+
+        [Parameter(Mandatory = $false)]
         $DialogCodeHook,
 
         [Parameter(Mandatory = $false)]
@@ -175,6 +204,18 @@ function Add-VSLexBotIntent {
 
         [Parameter(Mandatory = $false)]
         $IntentClosingSetting,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $DisplayName,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -29,7 +29,7 @@ function Add-VSCloudFormationGuardHookHookTarget {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.GuardHook.HookTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

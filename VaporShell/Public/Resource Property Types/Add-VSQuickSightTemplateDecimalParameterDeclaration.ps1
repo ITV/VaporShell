@@ -41,7 +41,7 @@ function Add-VSQuickSightTemplateDecimalParameterDeclaration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DecimalParameterDeclaration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

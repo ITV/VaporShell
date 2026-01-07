@@ -66,7 +66,7 @@ function Add-VSGammaDilithiumJobDefinitionEcsTaskProperties {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.EcsTaskProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

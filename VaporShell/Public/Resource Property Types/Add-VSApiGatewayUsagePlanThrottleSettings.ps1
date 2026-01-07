@@ -24,7 +24,7 @@ function Add-VSApiGatewayUsagePlanThrottleSettings {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.UsagePlan.ThrottleSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

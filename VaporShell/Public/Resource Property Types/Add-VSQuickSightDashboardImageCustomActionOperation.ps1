@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardImageCustomActionOperation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ImageCustomActionOperation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

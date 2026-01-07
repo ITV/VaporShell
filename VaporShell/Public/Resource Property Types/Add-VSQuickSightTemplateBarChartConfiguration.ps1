@@ -93,12 +93,17 @@ function Add-VSQuickSightTemplateBarChartConfiguration {
         UpdateType: Mutable
         Type: AxisDisplayOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-barchartconfiguration.html#cfn-quicksight-template-barchartconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.BarChartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -184,7 +189,10 @@ function Add-VSQuickSightTemplateBarChartConfiguration {
         $FieldWells,
 
         [Parameter(Mandatory = $false)]
-        $ValueAxis
+        $ValueAxis,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions
 
     )
 

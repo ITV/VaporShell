@@ -33,7 +33,7 @@ function Add-VSBackupBackupPlanBackupPlanResourceType {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.BackupPlan.BackupPlanResourceType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

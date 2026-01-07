@@ -20,7 +20,7 @@ function Add-VSLambdaFunctionEnvironment {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Function.Environment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

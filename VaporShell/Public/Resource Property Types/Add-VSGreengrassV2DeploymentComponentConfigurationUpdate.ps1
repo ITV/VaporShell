@@ -26,7 +26,7 @@ function Add-VSGreengrassV2DeploymentComponentConfigurationUpdate {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.Deployment.ComponentConfigurationUpdate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

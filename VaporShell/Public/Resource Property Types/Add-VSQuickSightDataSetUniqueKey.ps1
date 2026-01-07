@@ -21,7 +21,7 @@ function Add-VSQuickSightDataSetUniqueKey {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.UniqueKey')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

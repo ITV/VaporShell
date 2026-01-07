@@ -24,7 +24,7 @@ function Add-VSAutoScalingPlansScalingPlanPredefinedScalingMetricSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScalingPlans.ScalingPlan.PredefinedScalingMetricSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

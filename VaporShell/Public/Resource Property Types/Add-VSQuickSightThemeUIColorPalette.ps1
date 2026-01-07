@@ -94,7 +94,7 @@ function Add-VSQuickSightThemeUIColorPalette {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Theme.UIColorPalette')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

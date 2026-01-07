@@ -61,7 +61,7 @@ function Add-VSDMSReplicationConfigComputeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.ReplicationConfig.ComputeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

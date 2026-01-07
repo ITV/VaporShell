@@ -24,7 +24,7 @@ function Add-VSSageMakerDomainRStudioServerProAppSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.RStudioServerProAppSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

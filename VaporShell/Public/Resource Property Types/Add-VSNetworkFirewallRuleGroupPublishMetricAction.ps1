@@ -21,7 +21,7 @@ function Add-VSNetworkFirewallRuleGroupPublishMetricAction {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.PublishMetricAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

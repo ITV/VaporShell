@@ -24,7 +24,7 @@ function Add-VSEC2ClientVpnEndpointClientConnectOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.ClientVpnEndpoint.ClientConnectOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

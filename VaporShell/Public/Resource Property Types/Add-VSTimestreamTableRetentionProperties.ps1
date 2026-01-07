@@ -24,7 +24,7 @@ function Add-VSTimestreamTableRetentionProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.Table.RetentionProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

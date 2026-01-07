@@ -19,7 +19,7 @@ function Add-VSConnectTaskTemplateInvisibleFieldInfo {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.TaskTemplate.InvisibleFieldInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

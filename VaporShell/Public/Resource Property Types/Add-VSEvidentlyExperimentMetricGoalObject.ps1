@@ -44,7 +44,7 @@ function Add-VSEvidentlyExperimentMetricGoalObject {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Experiment.MetricGoalObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSGameLiftScriptS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.Script.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

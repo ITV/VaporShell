@@ -24,7 +24,7 @@ function Add-VSSESReceiptFilterFilter {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ReceiptFilter.Filter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

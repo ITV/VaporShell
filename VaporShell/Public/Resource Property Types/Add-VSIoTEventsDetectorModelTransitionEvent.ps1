@@ -36,7 +36,7 @@ function Add-VSIoTEventsDetectorModelTransitionEvent {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.DetectorModel.TransitionEvent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

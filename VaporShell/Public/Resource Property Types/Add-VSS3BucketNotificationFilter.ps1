@@ -19,7 +19,7 @@ function Add-VSS3BucketNotificationFilter {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.NotificationFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -30,7 +30,7 @@ function Add-VSDLMLifecyclePolicyShareRule {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.ShareRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

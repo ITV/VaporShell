@@ -24,7 +24,7 @@ function Add-VSRefactorSpacesServiceUrlEndpointInput {
     #>
 
     [OutputType('Vaporshell.Resource.RefactorSpaces.Service.UrlEndpointInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

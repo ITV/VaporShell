@@ -24,7 +24,7 @@ function Add-VSWAFv2WebACLRuleActionOverride {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RuleActionOverride')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

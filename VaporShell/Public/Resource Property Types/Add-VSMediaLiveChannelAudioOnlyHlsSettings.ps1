@@ -34,7 +34,7 @@ function Add-VSMediaLiveChannelAudioOnlyHlsSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioOnlyHlsSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

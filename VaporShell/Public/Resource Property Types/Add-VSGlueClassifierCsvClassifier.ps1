@@ -61,7 +61,7 @@ function Add-VSGlueClassifierCsvClassifier {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Classifier.CsvClassifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSKinesisAnalyticsV2ApplicationS3ContentBaseLocation {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.S3ContentBaseLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

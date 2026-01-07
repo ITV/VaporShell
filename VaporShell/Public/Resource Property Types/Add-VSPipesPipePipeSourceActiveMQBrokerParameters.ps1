@@ -34,7 +34,7 @@ function Add-VSPipesPipePipeSourceActiveMQBrokerParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeSourceActiveMQBrokerParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Credentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Credentials")]
 

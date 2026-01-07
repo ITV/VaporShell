@@ -29,7 +29,7 @@ function Add-VSAlexaASKSkillAuthenticationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Alexa.ASK.Skill.AuthenticationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

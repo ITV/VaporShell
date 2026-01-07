@@ -9,6 +9,11 @@ function Add-VSCleanRoomsMembershipMembershipPaymentConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html
 
+    .PARAMETER JobCompute
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html#cfn-cleanrooms-membership-membershippaymentconfiguration-jobcompute
+        UpdateType: Mutable
+        Type: MembershipJobComputePaymentConfig
+
     .PARAMETER QueryCompute
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html#cfn-cleanrooms-membership-membershippaymentconfiguration-querycompute
         UpdateType: Mutable
@@ -24,10 +29,13 @@ function Add-VSCleanRoomsMembershipMembershipPaymentConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Membership.MembershipPaymentConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $JobCompute,
+
         [Parameter(Mandatory = $true)]
         $QueryCompute,
 

@@ -24,7 +24,7 @@ function Add-VSCloudTrailDashboardFrequency {
     #>
 
     [OutputType('Vaporshell.Resource.CloudTrail.Dashboard.Frequency')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

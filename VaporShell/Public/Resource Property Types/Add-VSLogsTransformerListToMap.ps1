@@ -44,7 +44,7 @@ function Add-VSLogsTransformerListToMap {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.ListToMap')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

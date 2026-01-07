@@ -59,7 +59,7 @@ function Add-VSPaymentCryptographyKeyKeyModesOfUse {
     #>
 
     [OutputType('Vaporshell.Resource.PaymentCryptography.Key.KeyModesOfUse')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

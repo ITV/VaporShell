@@ -24,7 +24,7 @@ function Add-VSEventSchemasDiscovererTagsEntry {
     #>
 
     [OutputType('Vaporshell.Resource.EventSchemas.Discoverer.TagsEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

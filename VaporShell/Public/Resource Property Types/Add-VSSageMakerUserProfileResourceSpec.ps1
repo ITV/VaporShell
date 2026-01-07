@@ -34,7 +34,7 @@ function Add-VSSageMakerUserProfileResourceSpec {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.ResourceSpec')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

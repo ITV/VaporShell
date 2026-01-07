@@ -46,7 +46,7 @@ function Add-VSQuickSightTemplateHistogramVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.HistogramVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

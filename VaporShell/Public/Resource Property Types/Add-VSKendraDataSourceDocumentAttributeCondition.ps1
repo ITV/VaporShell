@@ -29,7 +29,7 @@ function Add-VSKendraDataSourceDocumentAttributeCondition {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.DataSource.DocumentAttributeCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

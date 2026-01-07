@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisSecondaryValueOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SecondaryValueOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

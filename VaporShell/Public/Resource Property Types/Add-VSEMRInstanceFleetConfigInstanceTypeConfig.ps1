@@ -29,7 +29,7 @@ function Add-VSEMRInstanceFleetConfigInstanceTypeConfig {
     .PARAMETER CustomAmiId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-customamiid
         PrimitiveType: String
-        UpdateType: Mutable
+        UpdateType: Immutable
 
     .PARAMETER EbsConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-ebsconfiguration
@@ -56,7 +56,7 @@ function Add-VSEMRInstanceFleetConfigInstanceTypeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceFleetConfig.InstanceTypeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

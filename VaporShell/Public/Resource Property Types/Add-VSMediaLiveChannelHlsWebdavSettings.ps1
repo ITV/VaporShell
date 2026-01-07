@@ -39,7 +39,7 @@ function Add-VSMediaLiveChannelHlsWebdavSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.HlsWebdavSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

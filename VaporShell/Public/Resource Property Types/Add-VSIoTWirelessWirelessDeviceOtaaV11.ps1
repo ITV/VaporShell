@@ -29,7 +29,7 @@ function Add-VSIoTWirelessWirelessDeviceOtaaV11 {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.WirelessDevice.OtaaV11')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

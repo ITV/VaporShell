@@ -24,7 +24,7 @@ function Add-VSNetworkManagerDeviceAWSLocation {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.Device.AWSLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

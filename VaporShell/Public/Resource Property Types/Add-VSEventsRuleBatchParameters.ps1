@@ -34,7 +34,7 @@ function Add-VSEventsRuleBatchParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.BatchParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

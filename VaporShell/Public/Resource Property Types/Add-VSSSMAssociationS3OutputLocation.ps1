@@ -29,7 +29,7 @@ function Add-VSSSMAssociationS3OutputLocation {
     #>
 
     [OutputType('Vaporshell.Resource.SSM.Association.S3OutputLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

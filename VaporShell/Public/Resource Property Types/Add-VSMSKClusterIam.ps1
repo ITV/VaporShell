@@ -19,7 +19,7 @@ function Add-VSMSKClusterIam {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.Iam')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

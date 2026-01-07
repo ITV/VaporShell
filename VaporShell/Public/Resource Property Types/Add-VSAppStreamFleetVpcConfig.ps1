@@ -26,7 +26,7 @@ function Add-VSAppStreamFleetVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.Fleet.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

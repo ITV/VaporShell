@@ -24,7 +24,7 @@ function Add-VSTransferWorkflowDeleteStepDetails {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.Workflow.DeleteStepDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSOpenSearchServiceDomainColdStorageOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.ColdStorageOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

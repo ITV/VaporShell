@@ -44,7 +44,7 @@ function Add-VSSageMakerDataQualityJobDefinitionBatchTransformInput {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.DataQualityJobDefinition.BatchTransformInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

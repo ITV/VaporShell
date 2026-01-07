@@ -34,7 +34,7 @@ function Add-VSAutoScalingLaunchConfigurationBlockDeviceMapping {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.LaunchConfiguration.BlockDeviceMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

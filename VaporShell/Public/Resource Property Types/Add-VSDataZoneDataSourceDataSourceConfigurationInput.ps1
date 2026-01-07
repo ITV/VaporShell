@@ -29,7 +29,7 @@ function Add-VSDataZoneDataSourceDataSourceConfigurationInput {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.DataSource.DataSourceConfigurationInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

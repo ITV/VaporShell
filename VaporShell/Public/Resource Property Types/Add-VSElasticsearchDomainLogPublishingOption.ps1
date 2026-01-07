@@ -24,7 +24,7 @@ function Add-VSElasticsearchDomainLogPublishingOption {
     #>
 
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.LogPublishingOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

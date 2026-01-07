@@ -26,7 +26,7 @@ function Add-VSSSMResourceDataSyncAwsOrganizationsSource {
     #>
 
     [OutputType('Vaporshell.Resource.SSM.ResourceDataSync.AwsOrganizationsSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

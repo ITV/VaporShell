@@ -29,7 +29,7 @@ function Add-VSElastiCacheServerlessCacheDataStorage {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.ServerlessCache.DataStorage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

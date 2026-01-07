@@ -34,7 +34,7 @@ function Add-VSMediaLiveChannelOutputDestinationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.OutputDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","PasswordParam")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","PasswordParam")]
 

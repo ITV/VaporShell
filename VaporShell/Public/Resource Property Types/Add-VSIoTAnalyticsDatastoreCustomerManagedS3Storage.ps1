@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsDatastoreCustomerManagedS3Storage {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Datastore.CustomerManagedS3Storage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

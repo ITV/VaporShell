@@ -19,7 +19,7 @@ function Add-VSCognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsA
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

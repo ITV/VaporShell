@@ -24,7 +24,7 @@ function Add-VSPipesPipeBatchEnvironmentVariable {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.BatchEnvironmentVariable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

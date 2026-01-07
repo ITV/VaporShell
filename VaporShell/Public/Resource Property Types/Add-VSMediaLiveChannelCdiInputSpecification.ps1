@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelCdiInputSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.CdiInputSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

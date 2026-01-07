@@ -19,7 +19,7 @@ function Add-VSAutoScalingAutoScalingGroupPerformanceFactorReferenceRequest {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.PerformanceFactorReferenceRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

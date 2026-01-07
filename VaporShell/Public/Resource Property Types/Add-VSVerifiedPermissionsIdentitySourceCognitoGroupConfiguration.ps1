@@ -19,7 +19,7 @@ function Add-VSVerifiedPermissionsIdentitySourceCognitoGroupConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.VerifiedPermissions.IdentitySource.CognitoGroupConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

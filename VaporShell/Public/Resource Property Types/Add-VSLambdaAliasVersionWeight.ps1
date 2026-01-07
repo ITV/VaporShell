@@ -24,7 +24,7 @@ function Add-VSLambdaAliasVersionWeight {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Alias.VersionWeight')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

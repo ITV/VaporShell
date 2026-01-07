@@ -26,7 +26,7 @@ function Add-VSQuickSightDashboardContributionAnalysisDefault {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ContributionAnalysisDefault')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

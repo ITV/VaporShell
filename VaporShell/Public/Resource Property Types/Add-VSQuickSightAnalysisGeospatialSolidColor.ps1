@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisGeospatialSolidColor {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialSolidColor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

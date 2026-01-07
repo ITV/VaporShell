@@ -34,7 +34,7 @@ function Add-VSElasticsearchDomainEBSOptions {
     #>
 
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.EBSOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

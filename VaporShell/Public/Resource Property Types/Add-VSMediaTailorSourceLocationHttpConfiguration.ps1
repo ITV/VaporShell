@@ -19,7 +19,7 @@ function Add-VSMediaTailorSourceLocationHttpConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.SourceLocation.HttpConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

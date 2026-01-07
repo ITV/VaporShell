@@ -29,7 +29,7 @@ function Add-VSVpcLatticeRuleHeaderMatch {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.Rule.HeaderMatch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -45,7 +45,7 @@ function Add-VSAccessAnalyzerAnalyzerFilter {
     #>
 
     [OutputType('Vaporshell.Resource.AccessAnalyzer.Analyzer.Filter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

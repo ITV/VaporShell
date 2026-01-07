@@ -19,7 +19,7 @@ function Add-VSConnectQueueOutboundEmailConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.Queue.OutboundEmailConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

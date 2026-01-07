@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsDatasetResourceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.ResourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

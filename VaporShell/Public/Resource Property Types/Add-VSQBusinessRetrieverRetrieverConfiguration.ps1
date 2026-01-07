@@ -24,7 +24,7 @@ function Add-VSQBusinessRetrieverRetrieverConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Retriever.RetrieverConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

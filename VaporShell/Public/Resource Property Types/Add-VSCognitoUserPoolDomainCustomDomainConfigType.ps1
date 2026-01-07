@@ -11,15 +11,15 @@ function Add-VSCognitoUserPoolDomainCustomDomainConfigType {
 
     .PARAMETER CertificateArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooldomain-customdomainconfigtype.html#cfn-cognito-userpooldomain-customdomainconfigtype-certificatearn
-        PrimitiveType: String
         UpdateType: Mutable
+        PrimitiveType: String
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPoolDomain.CustomDomainConfigType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

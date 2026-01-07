@@ -21,7 +21,7 @@ function Add-VSWAFv2RuleGroupOrStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.OrStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSKafkaConnectConnectorLogDelivery {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.LogDelivery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSGammaDilithiumJobDefinitionRuntimePlatform {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.RuntimePlatform')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -41,7 +41,7 @@ function Add-VSRefactorSpacesRouteUriPathRouteInput {
     #>
 
     [OutputType('Vaporshell.Resource.RefactorSpaces.Route.UriPathRouteInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

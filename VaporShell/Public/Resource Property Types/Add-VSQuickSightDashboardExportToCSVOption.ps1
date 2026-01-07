@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardExportToCSVOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ExportToCSVOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

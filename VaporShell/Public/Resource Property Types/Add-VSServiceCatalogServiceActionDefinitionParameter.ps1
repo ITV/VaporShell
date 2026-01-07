@@ -24,7 +24,7 @@ function Add-VSServiceCatalogServiceActionDefinitionParameter {
     #>
 
     [OutputType('Vaporshell.Resource.ServiceCatalog.ServiceAction.DefinitionParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

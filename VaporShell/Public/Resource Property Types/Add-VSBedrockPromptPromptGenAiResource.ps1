@@ -19,7 +19,7 @@ function Add-VSBedrockPromptPromptGenAiResource {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Prompt.PromptGenAiResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

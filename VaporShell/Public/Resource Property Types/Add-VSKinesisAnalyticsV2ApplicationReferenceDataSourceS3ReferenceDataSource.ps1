@@ -24,7 +24,7 @@ function Add-VSKinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSo
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.ApplicationReferenceDataSource.S3ReferenceDataSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

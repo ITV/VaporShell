@@ -24,7 +24,7 @@ function Add-VSEC2InstanceElasticInferenceAccelerator {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.ElasticInferenceAccelerator')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

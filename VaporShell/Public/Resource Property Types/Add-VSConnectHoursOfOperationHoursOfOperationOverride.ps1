@@ -9,6 +9,11 @@ function Add-VSConnectHoursOfOperationHoursOfOperationOverride {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html
 
+    .PARAMETER RecurrenceConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-recurrenceconfig
+        UpdateType: Mutable
+        Type: RecurrenceConfig
+
     .PARAMETER HoursOfOperationOverrideId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-hoursofoperationoverrideid
         UpdateType: Mutable
@@ -20,6 +25,11 @@ function Add-VSConnectHoursOfOperationHoursOfOperationOverride {
         Type: List
         ItemType: HoursOfOperationOverrideConfig
         DuplicatesAllowed: False
+
+    .PARAMETER OverrideType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-overridetype
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER EffectiveFrom
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html#cfn-connect-hoursofoperation-hoursofoperationoverride-effectivefrom
@@ -46,10 +56,13 @@ function Add-VSConnectHoursOfOperationHoursOfOperationOverride {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.HoursOfOperation.HoursOfOperationOverride')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $RecurrenceConfig,
+
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -73,6 +86,18 @@ function Add-VSConnectHoursOfOperationHoursOfOperationOverride {
                 }
             })]
         $OverrideConfig,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $OverrideType,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

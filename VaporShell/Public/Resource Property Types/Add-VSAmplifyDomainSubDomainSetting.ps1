@@ -24,7 +24,7 @@ function Add-VSAmplifyDomainSubDomainSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Amplify.Domain.SubDomainSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

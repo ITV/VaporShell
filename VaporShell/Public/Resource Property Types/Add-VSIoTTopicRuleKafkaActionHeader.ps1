@@ -24,7 +24,7 @@ function Add-VSIoTTopicRuleKafkaActionHeader {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.KafkaActionHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

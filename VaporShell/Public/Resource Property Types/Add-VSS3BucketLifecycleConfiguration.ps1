@@ -26,7 +26,7 @@ function Add-VSS3BucketLifecycleConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.LifecycleConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

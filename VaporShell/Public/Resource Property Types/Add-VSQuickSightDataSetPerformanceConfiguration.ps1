@@ -21,7 +21,7 @@ function Add-VSQuickSightDataSetPerformanceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.PerformanceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

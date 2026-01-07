@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisGeospatialMapState {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialMapState')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

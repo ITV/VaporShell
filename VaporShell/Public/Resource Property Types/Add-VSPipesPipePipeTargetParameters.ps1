@@ -79,7 +79,7 @@ function Add-VSPipesPipePipeTargetParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeTargetParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSIoTTopicRuleAssetPropertyTimestamp {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.AssetPropertyTimestamp')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSWisdomKnowledgeBaseCrawlerLimits {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.CrawlerLimits')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

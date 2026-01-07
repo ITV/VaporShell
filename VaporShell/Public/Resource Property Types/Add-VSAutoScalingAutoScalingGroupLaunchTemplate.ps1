@@ -26,7 +26,7 @@ function Add-VSAutoScalingAutoScalingGroupLaunchTemplate {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.LaunchTemplate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

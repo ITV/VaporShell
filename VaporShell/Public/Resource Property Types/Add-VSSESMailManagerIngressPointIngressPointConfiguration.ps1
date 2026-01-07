@@ -24,7 +24,7 @@ function Add-VSSESMailManagerIngressPointIngressPointConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerIngressPoint.IngressPointConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","SmtpPassword")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","SmtpPassword")]
 

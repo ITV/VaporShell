@@ -29,7 +29,7 @@ function Add-VSEMRServerlessApplicationMaximumAllowedResources {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.MaximumAllowedResources')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

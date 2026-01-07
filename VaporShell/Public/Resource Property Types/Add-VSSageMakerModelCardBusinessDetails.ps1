@@ -29,7 +29,7 @@ function Add-VSSageMakerModelCardBusinessDetails {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.BusinessDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

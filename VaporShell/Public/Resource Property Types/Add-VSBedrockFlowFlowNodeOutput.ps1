@@ -24,7 +24,7 @@ function Add-VSBedrockFlowFlowNodeOutput {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Flow.FlowNodeOutput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSDataBrewRecipeDataCatalogInputDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Recipe.DataCatalogInputDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

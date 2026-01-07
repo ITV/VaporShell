@@ -29,7 +29,7 @@ function Add-VSQuickSightDataSourceMariaDbParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.MariaDbParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

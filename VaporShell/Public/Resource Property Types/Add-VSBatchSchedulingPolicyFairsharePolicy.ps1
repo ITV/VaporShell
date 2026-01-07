@@ -31,7 +31,7 @@ function Add-VSBatchSchedulingPolicyFairsharePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.SchedulingPolicy.FairsharePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSRoute53ResolverResolverRuleTargetAddress {
     #>
 
     [OutputType('Vaporshell.Resource.Route53Resolver.ResolverRule.TargetAddress')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

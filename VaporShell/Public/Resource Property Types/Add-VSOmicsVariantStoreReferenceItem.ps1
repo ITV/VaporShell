@@ -19,7 +19,7 @@ function Add-VSOmicsVariantStoreReferenceItem {
     #>
 
     [OutputType('Vaporshell.Resource.Omics.VariantStore.ReferenceItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSHealthLakeFHIRDatastoreKmsEncryptionConfig {
     #>
 
     [OutputType('Vaporshell.Resource.HealthLake.FHIRDatastore.KmsEncryptionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

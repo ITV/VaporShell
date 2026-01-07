@@ -29,7 +29,7 @@ function Add-VSDLMLifecyclePolicyRetentionArchiveTier {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.RetentionArchiveTier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

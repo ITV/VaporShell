@@ -24,7 +24,7 @@ function Add-VSGammaDilithiumJobDefinitionTaskContainerDependency {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.TaskContainerDependency')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSLogsTransformerLowerCaseString {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.LowerCaseString')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

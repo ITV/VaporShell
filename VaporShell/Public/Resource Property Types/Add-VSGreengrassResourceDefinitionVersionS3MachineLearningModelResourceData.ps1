@@ -29,7 +29,7 @@ function Add-VSGreengrassResourceDefinitionVersionS3MachineLearningModelResource
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.ResourceDefinitionVersion.S3MachineLearningModelResourceData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

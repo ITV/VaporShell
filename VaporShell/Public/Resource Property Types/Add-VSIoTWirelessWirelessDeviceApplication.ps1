@@ -29,7 +29,7 @@ function Add-VSIoTWirelessWirelessDeviceApplication {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.WirelessDevice.Application')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

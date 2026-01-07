@@ -44,7 +44,7 @@ function Add-VSECSTaskDefinitionVolume {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.Volume')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

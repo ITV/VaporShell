@@ -24,7 +24,7 @@ function Add-VSAppRunnerServiceKeyValuePair {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.KeyValuePair')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisValidationStrategy {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ValidationStrategy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

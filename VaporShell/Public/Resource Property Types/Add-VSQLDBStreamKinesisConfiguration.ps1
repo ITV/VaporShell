@@ -24,7 +24,7 @@ function Add-VSQLDBStreamKinesisConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QLDB.Stream.KinesisConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

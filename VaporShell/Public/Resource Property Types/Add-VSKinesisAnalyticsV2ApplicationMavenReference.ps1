@@ -29,7 +29,7 @@ function Add-VSKinesisAnalyticsV2ApplicationMavenReference {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.MavenReference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

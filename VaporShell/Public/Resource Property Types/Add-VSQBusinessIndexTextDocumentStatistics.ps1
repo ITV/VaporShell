@@ -24,7 +24,7 @@ function Add-VSQBusinessIndexTextDocumentStatistics {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Index.TextDocumentStatistics')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

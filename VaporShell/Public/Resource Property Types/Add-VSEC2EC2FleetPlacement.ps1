@@ -54,7 +54,7 @@ function Add-VSEC2EC2FleetPlacement {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.Placement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

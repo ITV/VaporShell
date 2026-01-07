@@ -41,7 +41,7 @@ function Add-VSConfigConfigurationRecorderRecordingGroup {
     #>
 
     [OutputType('Vaporshell.Resource.Config.ConfigurationRecorder.RecordingGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

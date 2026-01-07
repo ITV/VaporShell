@@ -28,7 +28,7 @@ function Add-VSSageMakerModelBiasJobDefinitionVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

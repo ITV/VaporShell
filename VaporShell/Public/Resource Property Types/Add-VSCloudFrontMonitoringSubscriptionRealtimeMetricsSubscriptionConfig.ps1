@@ -19,7 +19,7 @@ function Add-VSCloudFrontMonitoringSubscriptionRealtimeMetricsSubscriptionConfig
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.MonitoringSubscription.RealtimeMetricsSubscriptionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

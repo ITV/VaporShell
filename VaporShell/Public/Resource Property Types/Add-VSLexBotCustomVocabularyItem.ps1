@@ -29,7 +29,7 @@ function Add-VSLexBotCustomVocabularyItem {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.CustomVocabularyItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

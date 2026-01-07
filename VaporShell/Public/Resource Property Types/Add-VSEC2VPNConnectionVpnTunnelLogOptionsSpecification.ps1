@@ -19,7 +19,7 @@ function Add-VSEC2VPNConnectionVpnTunnelLogOptionsSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VPNConnection.VpnTunnelLogOptionsSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

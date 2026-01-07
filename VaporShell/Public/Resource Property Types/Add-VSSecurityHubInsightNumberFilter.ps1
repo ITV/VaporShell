@@ -29,7 +29,7 @@ function Add-VSSecurityHubInsightNumberFilter {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.Insight.NumberFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

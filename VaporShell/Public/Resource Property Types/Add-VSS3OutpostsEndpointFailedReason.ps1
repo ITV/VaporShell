@@ -24,7 +24,7 @@ function Add-VSS3OutpostsEndpointFailedReason {
     #>
 
     [OutputType('Vaporshell.Resource.S3Outposts.Endpoint.FailedReason')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

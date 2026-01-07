@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateLayout {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.Layout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

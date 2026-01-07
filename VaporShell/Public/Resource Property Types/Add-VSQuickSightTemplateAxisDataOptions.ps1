@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateAxisDataOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.AxisDataOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

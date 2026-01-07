@@ -19,7 +19,7 @@ function Add-VSIoTWirelessPartnerAccountSidewalkUpdateAccount {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.PartnerAccount.SidewalkUpdateAccount')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSAmplifyBranchBasicAuthConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Amplify.Branch.BasicAuthConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
 

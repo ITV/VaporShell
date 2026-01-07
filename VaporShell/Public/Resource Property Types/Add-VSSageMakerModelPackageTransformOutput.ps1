@@ -34,7 +34,7 @@ function Add-VSSageMakerModelPackageTransformOutput {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.TransformOutput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

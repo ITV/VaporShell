@@ -35,7 +35,7 @@ function Add-VSMediaLiveChannelAutomaticInputFailoverSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AutomaticInputFailoverSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

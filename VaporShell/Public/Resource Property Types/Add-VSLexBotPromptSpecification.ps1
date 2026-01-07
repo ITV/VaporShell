@@ -42,7 +42,7 @@ function Add-VSLexBotPromptSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.PromptSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

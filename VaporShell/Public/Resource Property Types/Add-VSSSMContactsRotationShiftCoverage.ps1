@@ -26,7 +26,7 @@ function Add-VSSSMContactsRotationShiftCoverage {
     #>
 
     [OutputType('Vaporshell.Resource.SSMContacts.Rotation.ShiftCoverage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

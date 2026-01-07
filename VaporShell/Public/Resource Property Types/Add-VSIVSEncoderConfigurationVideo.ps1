@@ -34,7 +34,7 @@ function Add-VSIVSEncoderConfigurationVideo {
     #>
 
     [OutputType('Vaporshell.Resource.IVS.EncoderConfiguration.Video')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

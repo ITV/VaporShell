@@ -41,7 +41,7 @@ function Add-VSPipesPipePipeTargetEventBridgeEventBusParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeTargetEventBridgeEventBusParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

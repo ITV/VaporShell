@@ -19,7 +19,7 @@ function Add-VSCloudFrontDistributionGrpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.GrpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

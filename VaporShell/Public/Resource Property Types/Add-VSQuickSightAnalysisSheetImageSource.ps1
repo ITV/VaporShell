@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisSheetImageSource {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SheetImageSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

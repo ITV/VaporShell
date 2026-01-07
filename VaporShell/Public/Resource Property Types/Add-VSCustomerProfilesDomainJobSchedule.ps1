@@ -24,7 +24,7 @@ function Add-VSCustomerProfilesDomainJobSchedule {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Domain.JobSchedule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

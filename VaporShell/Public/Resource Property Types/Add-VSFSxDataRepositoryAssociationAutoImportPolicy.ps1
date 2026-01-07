@@ -21,7 +21,7 @@ function Add-VSFSxDataRepositoryAssociationAutoImportPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.DataRepositoryAssociation.AutoImportPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

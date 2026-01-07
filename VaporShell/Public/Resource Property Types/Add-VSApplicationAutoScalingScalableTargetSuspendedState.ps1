@@ -29,7 +29,7 @@ function Add-VSApplicationAutoScalingScalableTargetSuspendedState {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationAutoScaling.ScalableTarget.SuspendedState')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

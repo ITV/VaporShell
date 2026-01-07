@@ -24,7 +24,7 @@ function Add-VSForecastDatasetTagsItems {
     #>
 
     [OutputType('Vaporshell.Resource.Forecast.Dataset.TagsItems')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

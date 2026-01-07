@@ -24,7 +24,7 @@ function Add-VSMediaPackageV2ChannelIngestEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.Channel.IngestEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

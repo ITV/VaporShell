@@ -39,7 +39,7 @@ function Add-VSRedshiftScheduledActionResizeClusterMessage {
     #>
 
     [OutputType('Vaporshell.Resource.Redshift.ScheduledAction.ResizeClusterMessage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

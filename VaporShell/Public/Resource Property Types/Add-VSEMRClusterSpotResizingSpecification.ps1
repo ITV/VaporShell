@@ -24,7 +24,7 @@ function Add-VSEMRClusterSpotResizingSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.SpotResizingSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQBusinessApplicationAutoSubscriptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Application.AutoSubscriptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

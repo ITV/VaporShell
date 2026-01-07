@@ -24,7 +24,7 @@ function Add-VSKinesisFirehoseDeliveryStreamDeserializer {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.Deserializer')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

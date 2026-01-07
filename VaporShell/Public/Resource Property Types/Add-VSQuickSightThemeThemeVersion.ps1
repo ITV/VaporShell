@@ -56,7 +56,7 @@ function Add-VSQuickSightThemeThemeVersion {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Theme.ThemeVersion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

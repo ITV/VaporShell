@@ -29,7 +29,7 @@ function Add-VSBedrockDataSourceSemanticChunkingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.SemanticChunkingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

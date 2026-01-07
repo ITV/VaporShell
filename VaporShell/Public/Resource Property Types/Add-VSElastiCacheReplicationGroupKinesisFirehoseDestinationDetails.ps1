@@ -19,7 +19,7 @@ function Add-VSElastiCacheReplicationGroupKinesisFirehoseDestinationDetails {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.ReplicationGroup.KinesisFirehoseDestinationDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

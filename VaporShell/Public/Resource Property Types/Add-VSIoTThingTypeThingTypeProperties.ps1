@@ -31,7 +31,7 @@ function Add-VSIoTThingTypeThingTypeProperties {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.ThingType.ThingTypeProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

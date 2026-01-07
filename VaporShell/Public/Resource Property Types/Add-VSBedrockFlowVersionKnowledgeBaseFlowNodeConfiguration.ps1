@@ -9,15 +9,40 @@ function Add-VSBedrockFlowVersionKnowledgeBaseFlowNodeConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html
 
+    .PARAMETER OrchestrationConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flowversion-knowledgebaseflownodeconfiguration-orchestrationconfiguration
+        UpdateType: Mutable
+        Type: KnowledgeBaseOrchestrationConfiguration
+
     .PARAMETER GuardrailConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flowversion-knowledgebaseflownodeconfiguration-guardrailconfiguration
         UpdateType: Mutable
         Type: GuardrailConfiguration
 
+    .PARAMETER InferenceConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flowversion-knowledgebaseflownodeconfiguration-inferenceconfiguration
+        UpdateType: Mutable
+        Type: PromptInferenceConfiguration
+
     .PARAMETER KnowledgeBaseId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flowversion-knowledgebaseflownodeconfiguration-knowledgebaseid
         UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER PromptTemplate
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flowversion-knowledgebaseflownodeconfiguration-prompttemplate
+        UpdateType: Mutable
+        Type: KnowledgeBasePromptTemplate
+
+    .PARAMETER RerankingConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flowversion-knowledgebaseflownodeconfiguration-rerankingconfiguration
+        UpdateType: Mutable
+        Type: VectorSearchRerankingConfiguration
+
+    .PARAMETER NumberOfResults
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flowversion-knowledgebaseflownodeconfiguration-numberofresults
+        UpdateType: Mutable
+        PrimitiveType: Double
 
     .PARAMETER ModelId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-knowledgebaseflownodeconfiguration.html#cfn-bedrock-flowversion-knowledgebaseflownodeconfiguration-modelid
@@ -29,12 +54,18 @@ function Add-VSBedrockFlowVersionKnowledgeBaseFlowNodeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.KnowledgeBaseFlowNodeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
+        $OrchestrationConfiguration,
+
+        [Parameter(Mandatory = $false)]
         $GuardrailConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $InferenceConfiguration,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
@@ -47,6 +78,24 @@ function Add-VSBedrockFlowVersionKnowledgeBaseFlowNodeConfiguration {
                 }
             })]
         $KnowledgeBaseId,
+
+        [Parameter(Mandatory = $false)]
+        $PromptTemplate,
+
+        [Parameter(Mandatory = $false)]
+        $RerankingConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $NumberOfResults,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

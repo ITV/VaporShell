@@ -24,7 +24,7 @@ function Add-VSSSOApplicationSignInOptions {
     #>
 
     [OutputType('Vaporshell.Resource.SSO.Application.SignInOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

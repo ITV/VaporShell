@@ -21,7 +21,7 @@ function Add-VSBatchJobDefinitionEcsProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.EcsProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

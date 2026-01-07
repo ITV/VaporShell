@@ -29,7 +29,7 @@ function Add-VSS3BucketQueueConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.QueueConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

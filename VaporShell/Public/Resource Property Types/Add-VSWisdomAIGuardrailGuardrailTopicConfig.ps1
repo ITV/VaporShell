@@ -36,7 +36,7 @@ function Add-VSWisdomAIGuardrailGuardrailTopicConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIGuardrail.GuardrailTopicConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

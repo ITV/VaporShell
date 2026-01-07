@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisNegativeValueConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.NegativeValueConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

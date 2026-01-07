@@ -24,7 +24,7 @@ function Add-VSGreengrassV2ComponentVersionLambdaEventSource {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaEventSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

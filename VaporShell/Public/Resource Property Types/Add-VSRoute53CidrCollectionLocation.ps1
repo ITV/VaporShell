@@ -26,7 +26,7 @@ function Add-VSRoute53CidrCollectionLocation {
     #>
 
     [OutputType('Vaporshell.Resource.Route53.CidrCollection.Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

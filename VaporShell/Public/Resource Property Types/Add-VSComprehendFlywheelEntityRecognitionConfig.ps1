@@ -21,7 +21,7 @@ function Add-VSComprehendFlywheelEntityRecognitionConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Comprehend.Flywheel.EntityRecognitionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

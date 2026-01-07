@@ -29,7 +29,7 @@ function Add-VSEMRClusterStepConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.StepConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

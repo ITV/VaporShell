@@ -26,7 +26,7 @@ function Add-VSApiGatewayV2AuthorizerJWTConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGatewayV2.Authorizer.JWTConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

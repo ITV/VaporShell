@@ -29,7 +29,7 @@ function Add-VSAppMeshGatewayRouteHttpGatewayRouteHeader {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.HttpGatewayRouteHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

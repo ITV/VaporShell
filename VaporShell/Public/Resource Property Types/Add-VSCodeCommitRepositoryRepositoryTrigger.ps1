@@ -41,7 +41,7 @@ function Add-VSCodeCommitRepositoryRepositoryTrigger {
     #>
 
     [OutputType('Vaporshell.Resource.CodeCommit.Repository.RepositoryTrigger')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

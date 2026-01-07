@@ -21,7 +21,7 @@ function Add-VSWAFv2RuleGroupCustomRequestHandling {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.CustomRequestHandling')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSIoTWirelessMulticastGroupLoRaWAN {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.MulticastGroup.LoRaWAN')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

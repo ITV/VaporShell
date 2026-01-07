@@ -17,7 +17,7 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANUpdateGatewayTaskCreate {
     .PARAMETER SigKeyCrc
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-sigkeycrc
         UpdateType: Mutable
-        PrimitiveType: Integer
+        PrimitiveType: Long
 
     .PARAMETER UpdateVersion
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskcreate-updateversion
@@ -34,7 +34,7 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANUpdateGatewayTaskCreate {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.TaskDefinition.LoRaWANUpdateGatewayTaskCreate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -51,15 +51,6 @@ function Add-VSIoTWirelessTaskDefinitionLoRaWANUpdateGatewayTaskCreate {
         $UpdateSignature,
 
         [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $SigKeyCrc,
 
         [Parameter(Mandatory = $false)]

@@ -34,7 +34,7 @@ function Add-VSQuickSightDataSetStringDatasetParameter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.StringDatasetParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

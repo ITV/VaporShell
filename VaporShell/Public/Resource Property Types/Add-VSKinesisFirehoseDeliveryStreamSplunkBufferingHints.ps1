@@ -24,7 +24,7 @@ function Add-VSKinesisFirehoseDeliveryStreamSplunkBufferingHints {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.SplunkBufferingHints')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

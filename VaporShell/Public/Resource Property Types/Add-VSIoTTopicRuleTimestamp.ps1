@@ -24,7 +24,7 @@ function Add-VSIoTTopicRuleTimestamp {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.Timestamp')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

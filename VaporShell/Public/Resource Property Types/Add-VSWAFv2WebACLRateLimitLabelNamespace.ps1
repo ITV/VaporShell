@@ -19,7 +19,7 @@ function Add-VSWAFv2WebACLRateLimitLabelNamespace {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RateLimitLabelNamespace')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

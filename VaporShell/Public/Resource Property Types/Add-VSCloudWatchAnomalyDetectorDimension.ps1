@@ -24,7 +24,7 @@ function Add-VSCloudWatchAnomalyDetectorDimension {
     #>
 
     [OutputType('Vaporshell.Resource.CloudWatch.AnomalyDetector.Dimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

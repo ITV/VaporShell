@@ -29,7 +29,7 @@ function Add-VSEFSFileSystemLifecyclePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.EFS.FileSystem.LifecyclePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

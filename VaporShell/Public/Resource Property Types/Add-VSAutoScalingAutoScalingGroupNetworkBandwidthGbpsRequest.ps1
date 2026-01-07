@@ -24,7 +24,7 @@ function Add-VSAutoScalingAutoScalingGroupNetworkBandwidthGbpsRequest {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.NetworkBandwidthGbpsRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

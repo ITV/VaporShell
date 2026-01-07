@@ -53,7 +53,7 @@ function Add-VSQuickSightDashboardHeatMapVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.HeatMapVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

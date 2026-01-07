@@ -24,7 +24,7 @@ function Add-VSECSServicePlacementStrategy {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.PlacementStrategy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

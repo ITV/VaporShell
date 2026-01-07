@@ -19,7 +19,7 @@ function Add-VSSageMakerModelRepositoryAuthConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Model.RepositoryAuthConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","RepositoryCredentialsProviderArn")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","RepositoryCredentialsProviderArn")]
 

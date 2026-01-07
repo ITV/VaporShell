@@ -20,7 +20,7 @@ function Add-VSNetworkFirewallRuleGroupReferenceSets {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.ReferenceSets')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

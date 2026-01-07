@@ -24,7 +24,7 @@ function Add-VSCognitoUserPoolStringAttributeConstraints {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.StringAttributeConstraints')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

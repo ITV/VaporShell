@@ -24,7 +24,7 @@ function Add-VSBedrockDataSourceConfluenceDataSourceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.ConfluenceDataSourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

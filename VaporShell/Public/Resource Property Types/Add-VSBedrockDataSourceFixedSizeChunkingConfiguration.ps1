@@ -24,7 +24,7 @@ function Add-VSBedrockDataSourceFixedSizeChunkingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.FixedSizeChunkingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

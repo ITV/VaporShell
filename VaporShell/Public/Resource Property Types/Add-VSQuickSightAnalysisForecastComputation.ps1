@@ -69,7 +69,7 @@ function Add-VSQuickSightAnalysisForecastComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ForecastComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

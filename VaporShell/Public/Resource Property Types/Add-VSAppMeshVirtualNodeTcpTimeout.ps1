@@ -19,7 +19,7 @@ function Add-VSAppMeshVirtualNodeTcpTimeout {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.TcpTimeout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

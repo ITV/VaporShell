@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelOutputLocationRef {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.OutputLocationRef')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

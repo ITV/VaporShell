@@ -19,7 +19,7 @@ function Add-VSPinpointEmailConfigurationSetReputationOptions {
     #>
 
     [OutputType('Vaporshell.Resource.PinpointEmail.ConfigurationSet.ReputationOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

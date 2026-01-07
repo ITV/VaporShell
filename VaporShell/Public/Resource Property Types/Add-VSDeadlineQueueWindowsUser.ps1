@@ -24,7 +24,7 @@ function Add-VSDeadlineQueueWindowsUser {
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Queue.WindowsUser')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","PasswordArn")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","PasswordArn")]
 

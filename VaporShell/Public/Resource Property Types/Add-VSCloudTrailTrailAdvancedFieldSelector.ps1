@@ -61,7 +61,7 @@ function Add-VSCloudTrailTrailAdvancedFieldSelector {
     #>
 
     [OutputType('Vaporshell.Resource.CloudTrail.Trail.AdvancedFieldSelector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

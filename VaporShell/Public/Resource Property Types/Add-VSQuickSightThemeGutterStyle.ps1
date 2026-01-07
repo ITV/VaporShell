@@ -19,7 +19,7 @@ function Add-VSQuickSightThemeGutterStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Theme.GutterStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

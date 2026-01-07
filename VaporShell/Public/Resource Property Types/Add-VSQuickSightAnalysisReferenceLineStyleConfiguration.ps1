@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisReferenceLineStyleConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ReferenceLineStyleConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

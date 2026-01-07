@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelTimecodeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.TimecodeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

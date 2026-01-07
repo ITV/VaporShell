@@ -24,7 +24,7 @@ function Add-VSWAFv2WebACLIPSetReferenceStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.IPSetReferenceStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

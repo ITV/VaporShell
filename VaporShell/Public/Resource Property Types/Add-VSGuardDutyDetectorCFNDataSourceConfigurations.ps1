@@ -29,7 +29,7 @@ function Add-VSGuardDutyDetectorCFNDataSourceConfigurations {
     #>
 
     [OutputType('Vaporshell.Resource.GuardDuty.Detector.CFNDataSourceConfigurations')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

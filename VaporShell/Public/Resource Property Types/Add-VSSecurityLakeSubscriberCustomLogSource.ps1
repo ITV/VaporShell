@@ -24,7 +24,7 @@ function Add-VSSecurityLakeSubscriberCustomLogSource {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityLake.Subscriber.CustomLogSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,7 +44,7 @@ function Add-VSIoTTopicRuleLocationAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.LocationAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

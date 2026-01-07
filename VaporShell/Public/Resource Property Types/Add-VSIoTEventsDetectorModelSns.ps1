@@ -24,7 +24,7 @@ function Add-VSIoTEventsDetectorModelSns {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.DetectorModel.Sns')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

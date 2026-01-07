@@ -29,7 +29,7 @@ function Add-VSBatchJobDefinitionUlimit {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.Ulimit')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

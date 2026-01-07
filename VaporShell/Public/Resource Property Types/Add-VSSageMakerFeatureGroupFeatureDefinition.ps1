@@ -24,7 +24,7 @@ function Add-VSSageMakerFeatureGroupFeatureDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.FeatureGroup.FeatureDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

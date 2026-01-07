@@ -53,7 +53,7 @@ function Add-VSQuickSightDashboardPieChartVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PieChartVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

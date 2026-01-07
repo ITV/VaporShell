@@ -19,7 +19,7 @@ function Add-VSQuickSightThemeBorderStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Theme.BorderStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

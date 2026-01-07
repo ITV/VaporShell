@@ -61,7 +61,7 @@ function Add-VSCloudTrailEventDataStoreAdvancedFieldSelector {
     #>
 
     [OutputType('Vaporshell.Resource.CloudTrail.EventDataStore.AdvancedFieldSelector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEC2LaunchTemplatePrivateIpAdd {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.PrivateIpAdd')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

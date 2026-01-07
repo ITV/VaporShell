@@ -24,7 +24,7 @@ function Add-VSNetworkFirewallFirewallPolicyStatelessRuleGroupReference {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.FirewallPolicy.StatelessRuleGroupReference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

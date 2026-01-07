@@ -19,7 +19,7 @@ function Add-VSPinpointEmailConfigurationSetTrackingOptions {
     #>
 
     [OutputType('Vaporshell.Resource.PinpointEmail.ConfigurationSet.TrackingOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

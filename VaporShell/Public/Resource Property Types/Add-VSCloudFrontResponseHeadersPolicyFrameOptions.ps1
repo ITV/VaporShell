@@ -24,7 +24,7 @@ function Add-VSCloudFrontResponseHeadersPolicyFrameOptions {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.FrameOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

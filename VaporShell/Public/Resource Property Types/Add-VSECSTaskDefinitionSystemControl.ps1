@@ -24,7 +24,7 @@ function Add-VSECSTaskDefinitionSystemControl {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.SystemControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

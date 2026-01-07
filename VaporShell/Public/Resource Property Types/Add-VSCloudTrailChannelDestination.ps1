@@ -24,7 +24,7 @@ function Add-VSCloudTrailChannelDestination {
     #>
 
     [OutputType('Vaporshell.Resource.CloudTrail.Channel.Destination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

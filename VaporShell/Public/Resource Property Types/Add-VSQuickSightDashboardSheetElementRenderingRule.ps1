@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardSheetElementRenderingRule {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SheetElementRenderingRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -51,7 +51,7 @@ function Add-VSQuickSightTemplateSheetImage {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SheetImage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

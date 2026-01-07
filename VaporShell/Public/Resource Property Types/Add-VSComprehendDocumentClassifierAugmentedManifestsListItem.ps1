@@ -31,7 +31,7 @@ function Add-VSComprehendDocumentClassifierAugmentedManifestsListItem {
     #>
 
     [OutputType('Vaporshell.Resource.Comprehend.DocumentClassifier.AugmentedManifestsListItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

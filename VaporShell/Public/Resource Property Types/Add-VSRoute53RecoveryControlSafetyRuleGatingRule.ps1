@@ -33,7 +33,7 @@ function Add-VSRoute53RecoveryControlSafetyRuleGatingRule {
     #>
 
     [OutputType('Vaporshell.Resource.Route53RecoveryControl.SafetyRule.GatingRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

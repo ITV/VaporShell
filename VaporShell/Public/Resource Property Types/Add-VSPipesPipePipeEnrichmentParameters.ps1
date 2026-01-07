@@ -24,7 +24,7 @@ function Add-VSPipesPipePipeEnrichmentParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeEnrichmentParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

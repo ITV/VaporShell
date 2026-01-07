@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardGeospatialNullSymbolStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GeospatialNullSymbolStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

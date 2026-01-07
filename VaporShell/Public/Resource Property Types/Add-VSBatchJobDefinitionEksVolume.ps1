@@ -24,6 +24,11 @@ function Add-VSBatchJobDefinitionEksVolume {
         UpdateType: Mutable
         Type: EksHostPath
 
+    .PARAMETER PersistentVolumeClaim
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-persistentvolumeclaim
+        UpdateType: Mutable
+        Type: EksPersistentVolumeClaim
+
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html#cfn-batch-jobdefinition-eksvolume-name
         UpdateType: Mutable
@@ -34,7 +39,7 @@ function Add-VSBatchJobDefinitionEksVolume {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.EksVolume')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -46,6 +51,9 @@ function Add-VSBatchJobDefinitionEksVolume {
 
         [Parameter(Mandatory = $false)]
         $HostPath,
+
+        [Parameter(Mandatory = $false)]
+        $PersistentVolumeClaim,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

@@ -19,7 +19,7 @@ function Add-VSSageMakerModelMultiModelConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Model.MultiModelConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

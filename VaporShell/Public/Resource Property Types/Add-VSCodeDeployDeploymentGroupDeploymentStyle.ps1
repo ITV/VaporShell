@@ -24,7 +24,7 @@ function Add-VSCodeDeployDeploymentGroupDeploymentStyle {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.DeploymentStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSElasticLoadBalancingV2ListenerMutualAuthentication {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.Listener.MutualAuthentication')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

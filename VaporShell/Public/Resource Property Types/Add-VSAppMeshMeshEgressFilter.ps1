@@ -19,7 +19,7 @@ function Add-VSAppMeshMeshEgressFilter {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Mesh.EgressFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardReferenceLine {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ReferenceLine')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

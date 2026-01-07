@@ -19,7 +19,7 @@ function Add-VSPipesPipeCloudwatchLogsLogDestination {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.CloudwatchLogsLogDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

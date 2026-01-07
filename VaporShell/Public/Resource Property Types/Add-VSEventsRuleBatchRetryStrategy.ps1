@@ -19,7 +19,7 @@ function Add-VSEventsRuleBatchRetryStrategy {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.BatchRetryStrategy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

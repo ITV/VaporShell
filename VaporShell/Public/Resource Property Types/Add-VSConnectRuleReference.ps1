@@ -24,7 +24,7 @@ function Add-VSConnectRuleReference {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.Rule.Reference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

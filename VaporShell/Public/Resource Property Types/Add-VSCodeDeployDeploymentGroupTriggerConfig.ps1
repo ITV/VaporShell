@@ -31,7 +31,7 @@ function Add-VSCodeDeployDeploymentGroupTriggerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.TriggerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

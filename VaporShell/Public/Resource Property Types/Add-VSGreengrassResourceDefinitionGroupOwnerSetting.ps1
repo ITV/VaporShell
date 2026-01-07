@@ -24,7 +24,7 @@ function Add-VSGreengrassResourceDefinitionGroupOwnerSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.ResourceDefinition.GroupOwnerSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

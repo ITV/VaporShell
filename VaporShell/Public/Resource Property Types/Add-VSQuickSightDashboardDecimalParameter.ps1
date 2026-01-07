@@ -26,7 +26,7 @@ function Add-VSQuickSightDashboardDecimalParameter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DecimalParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

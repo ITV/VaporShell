@@ -19,7 +19,7 @@ function Add-VSWisdomAIPromptTextFullAIPromptEditTemplateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIPrompt.TextFullAIPromptEditTemplateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

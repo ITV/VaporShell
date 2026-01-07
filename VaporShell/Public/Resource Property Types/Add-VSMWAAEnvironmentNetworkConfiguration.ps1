@@ -28,7 +28,7 @@ function Add-VSMWAAEnvironmentNetworkConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MWAA.Environment.NetworkConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

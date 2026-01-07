@@ -31,7 +31,7 @@ function Add-VSQuickSightDashboardSheetVisualScopingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SheetVisualScopingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

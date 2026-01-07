@@ -24,7 +24,7 @@ function Add-VSNotificationsNotificationHubNotificationHubStatusSummary {
     #>
 
     [OutputType('Vaporshell.Resource.Notifications.NotificationHub.NotificationHubStatusSummary')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

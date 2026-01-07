@@ -24,7 +24,7 @@ function Add-VSLicenseManagerLicenseIssuerData {
     #>
 
     [OutputType('Vaporshell.Resource.LicenseManager.License.IssuerData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

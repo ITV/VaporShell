@@ -19,7 +19,7 @@ function Add-VSBedrockFlowFlowValidation {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Flow.FlowValidation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

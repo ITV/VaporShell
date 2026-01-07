@@ -24,7 +24,7 @@ function Add-VSSESMailManagerRuleSetAnalysis {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.Analysis')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

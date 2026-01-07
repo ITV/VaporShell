@@ -24,7 +24,7 @@ function Add-VSDataBrewDatasetCsvOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.CsvOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

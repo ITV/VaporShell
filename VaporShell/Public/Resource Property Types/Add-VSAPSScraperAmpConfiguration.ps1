@@ -19,7 +19,7 @@ function Add-VSAPSScraperAmpConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.APS.Scraper.AmpConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

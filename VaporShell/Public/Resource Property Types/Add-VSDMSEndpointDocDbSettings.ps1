@@ -39,7 +39,7 @@ function Add-VSDMSEndpointDocDbSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.DocDbSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSKinesisFirehoseDeliveryStreamAmazonOpenSearchServerlessRetryOptio
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.AmazonOpenSearchServerlessRetryOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

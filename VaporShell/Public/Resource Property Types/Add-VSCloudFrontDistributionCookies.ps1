@@ -26,7 +26,7 @@ function Add-VSCloudFrontDistributionCookies {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.Cookies')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

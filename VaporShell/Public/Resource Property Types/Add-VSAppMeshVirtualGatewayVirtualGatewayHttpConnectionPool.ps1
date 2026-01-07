@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualGatewayVirtualGatewayHttpConnectionPool {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayHttpConnectionPool')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

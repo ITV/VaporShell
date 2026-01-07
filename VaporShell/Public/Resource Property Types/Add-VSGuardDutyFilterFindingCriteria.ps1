@@ -20,7 +20,7 @@ function Add-VSGuardDutyFilterFindingCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.GuardDuty.Filter.FindingCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

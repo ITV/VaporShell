@@ -14,7 +14,7 @@ function Add-VSMediaLiveChannelRec601Settings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.Rec601Settings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

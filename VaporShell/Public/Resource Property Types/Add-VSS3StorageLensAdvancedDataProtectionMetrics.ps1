@@ -19,7 +19,7 @@ function Add-VSS3StorageLensAdvancedDataProtectionMetrics {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.AdvancedDataProtectionMetrics')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

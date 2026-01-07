@@ -34,7 +34,7 @@ function Add-VSQuickSightTemplateLineChartLineStyleSettings {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.LineChartLineStyleSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -96,7 +96,7 @@ function Add-VSQuickSightTemplateLineChartLineStyleSettings {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                LineVisibility {
+                'LineVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

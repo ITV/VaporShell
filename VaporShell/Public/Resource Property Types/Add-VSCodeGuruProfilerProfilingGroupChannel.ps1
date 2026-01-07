@@ -24,7 +24,7 @@ function Add-VSCodeGuruProfilerProfilingGroupChannel {
     #>
 
     [OutputType('Vaporshell.Resource.CodeGuruProfiler.ProfilingGroup.Channel')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

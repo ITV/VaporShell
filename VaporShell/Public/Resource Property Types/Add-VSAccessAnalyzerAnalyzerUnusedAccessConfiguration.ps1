@@ -24,7 +24,7 @@ function Add-VSAccessAnalyzerAnalyzerUnusedAccessConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AccessAnalyzer.Analyzer.UnusedAccessConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

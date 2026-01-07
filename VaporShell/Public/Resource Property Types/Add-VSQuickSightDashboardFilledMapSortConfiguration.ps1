@@ -21,7 +21,7 @@ function Add-VSQuickSightDashboardFilledMapSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FilledMapSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisGeospatialWindowOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialWindowOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

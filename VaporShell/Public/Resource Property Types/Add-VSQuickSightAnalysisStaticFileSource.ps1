@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisStaticFileSource {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.StaticFileSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

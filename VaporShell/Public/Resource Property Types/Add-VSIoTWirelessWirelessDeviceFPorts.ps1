@@ -21,7 +21,7 @@ function Add-VSIoTWirelessWirelessDeviceFPorts {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.WirelessDevice.FPorts')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

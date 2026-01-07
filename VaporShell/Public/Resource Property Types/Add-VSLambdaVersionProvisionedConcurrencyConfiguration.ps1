@@ -19,7 +19,7 @@ function Add-VSLambdaVersionProvisionedConcurrencyConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Version.ProvisionedConcurrencyConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

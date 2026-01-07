@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardPercentVisibleRange {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PercentVisibleRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

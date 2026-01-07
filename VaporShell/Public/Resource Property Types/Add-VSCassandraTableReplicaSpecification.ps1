@@ -29,7 +29,7 @@ function Add-VSCassandraTableReplicaSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Cassandra.Table.ReplicaSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

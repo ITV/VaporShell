@@ -19,7 +19,7 @@ function Add-VSOpenSearchServiceDomainOffPeakWindow {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.OffPeakWindow')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

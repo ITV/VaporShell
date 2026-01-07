@@ -19,7 +19,7 @@ function Add-VSSageMakerModelQualityJobDefinitionCsv {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelQualityJobDefinition.Csv')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

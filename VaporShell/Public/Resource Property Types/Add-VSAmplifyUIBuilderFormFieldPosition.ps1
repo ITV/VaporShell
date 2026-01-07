@@ -29,7 +29,7 @@ function Add-VSAmplifyUIBuilderFormFieldPosition {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Form.FieldPosition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

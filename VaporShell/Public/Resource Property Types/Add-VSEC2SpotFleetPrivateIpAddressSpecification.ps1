@@ -24,7 +24,7 @@ function Add-VSEC2SpotFleetPrivateIpAddressSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.PrivateIpAddressSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

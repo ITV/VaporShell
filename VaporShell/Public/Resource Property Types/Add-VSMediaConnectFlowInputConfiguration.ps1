@@ -24,7 +24,7 @@ function Add-VSMediaConnectFlowInputConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.InputConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -56,6 +56,11 @@ function Add-VSQuickSightTemplateBoxPlotChartConfiguration {
         UpdateType: Mutable
         Type: BoxPlotOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotchartconfiguration.html#cfn-quicksight-template-boxplotchartconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER PrimaryYAxisDisplayOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-boxplotchartconfiguration.html#cfn-quicksight-template-boxplotchartconfiguration-primaryyaxisdisplayoptions
         UpdateType: Mutable
@@ -71,7 +76,7 @@ function Add-VSQuickSightTemplateBoxPlotChartConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.BoxPlotChartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -110,6 +115,9 @@ function Add-VSQuickSightTemplateBoxPlotChartConfiguration {
 
         [Parameter(Mandatory = $false)]
         $BoxPlotOptions,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         $PrimaryYAxisDisplayOptions,

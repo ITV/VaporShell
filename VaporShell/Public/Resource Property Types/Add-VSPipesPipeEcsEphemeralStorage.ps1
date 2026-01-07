@@ -19,7 +19,7 @@ function Add-VSPipesPipeEcsEphemeralStorage {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.EcsEphemeralStorage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

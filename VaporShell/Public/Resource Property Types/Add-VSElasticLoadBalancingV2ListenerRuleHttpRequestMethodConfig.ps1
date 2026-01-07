@@ -21,7 +21,7 @@ function Add-VSElasticLoadBalancingV2ListenerRuleHttpRequestMethodConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.HttpRequestMethodConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

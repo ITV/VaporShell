@@ -29,7 +29,7 @@ function Add-VSAppSyncApiCognitoConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.Api.CognitoConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

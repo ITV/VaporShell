@@ -24,7 +24,7 @@ function Add-VSAppStreamDirectoryConfigCertificateBasedAuthProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.DirectoryConfig.CertificateBasedAuthProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSAutoScalingPlansScalingPlanMetricDimension {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScalingPlans.ScalingPlan.MetricDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

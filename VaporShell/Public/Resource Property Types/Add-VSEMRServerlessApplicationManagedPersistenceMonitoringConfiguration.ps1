@@ -24,7 +24,7 @@ function Add-VSEMRServerlessApplicationManagedPersistenceMonitoringConfiguration
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.ManagedPersistenceMonitoringConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

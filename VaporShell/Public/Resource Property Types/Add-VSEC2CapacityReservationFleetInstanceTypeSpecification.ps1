@@ -49,7 +49,7 @@ function Add-VSEC2CapacityReservationFleetInstanceTypeSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.CapacityReservationFleet.InstanceTypeSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

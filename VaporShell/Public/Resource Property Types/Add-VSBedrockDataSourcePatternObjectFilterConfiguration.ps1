@@ -21,7 +21,7 @@ function Add-VSBedrockDataSourcePatternObjectFilterConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.PatternObjectFilterConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

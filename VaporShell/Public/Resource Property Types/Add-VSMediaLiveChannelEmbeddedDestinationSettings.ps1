@@ -14,7 +14,7 @@ function Add-VSMediaLiveChannelEmbeddedDestinationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.EmbeddedDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

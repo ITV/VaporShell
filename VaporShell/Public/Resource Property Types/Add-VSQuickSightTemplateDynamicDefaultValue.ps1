@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateDynamicDefaultValue {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DynamicDefaultValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

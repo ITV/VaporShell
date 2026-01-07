@@ -29,7 +29,7 @@ function Add-VSSESConfigurationSetDeliveryOptions {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSet.DeliveryOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

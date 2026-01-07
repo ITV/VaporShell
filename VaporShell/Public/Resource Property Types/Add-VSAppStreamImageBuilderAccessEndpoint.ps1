@@ -24,7 +24,7 @@ function Add-VSAppStreamImageBuilderAccessEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.ImageBuilder.AccessEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

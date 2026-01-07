@@ -31,7 +31,7 @@ function Add-VSWAFv2RuleGroupRegexMatchStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.RegexMatchStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -17,14 +17,14 @@ function Add-VSEMRServerlessApplicationInitialCapacityConfig {
     .PARAMETER WorkerCount
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-initialcapacityconfig.html#cfn-emrserverless-application-initialcapacityconfig-workercount
         UpdateType: Conditional
-        PrimitiveType: Integer
+        PrimitiveType: Long
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.InitialCapacityConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -32,15 +32,6 @@ function Add-VSEMRServerlessApplicationInitialCapacityConfig {
         $WorkerConfiguration,
 
         [Parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $WorkerCount
 
     )

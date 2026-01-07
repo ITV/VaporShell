@@ -24,7 +24,7 @@ function Add-VSGroundStationMissionProfileDataflowEdge {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.MissionProfile.DataflowEdge')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

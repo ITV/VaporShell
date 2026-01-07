@@ -19,7 +19,7 @@ function Add-VSLexBotExternalSourceSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.ExternalSourceSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

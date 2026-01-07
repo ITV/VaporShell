@@ -44,7 +44,7 @@ function Add-VSQuickSightTemplateTimeBasedForecastProperties {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TimeBasedForecastProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

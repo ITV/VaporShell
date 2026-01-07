@@ -24,7 +24,7 @@ function Add-VSRDSDBClusterMasterUserSecret {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBCluster.MasterUserSecret')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

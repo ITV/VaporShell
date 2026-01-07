@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisUniqueValuesComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.UniqueValuesComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

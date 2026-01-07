@@ -24,7 +24,7 @@ function Add-VSCodePipelineCustomActionTypeArtifactDetails {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.CustomActionType.ArtifactDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

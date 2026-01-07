@@ -44,7 +44,7 @@ function Add-VSLightsailContainerHealthCheckConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Container.HealthCheckConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

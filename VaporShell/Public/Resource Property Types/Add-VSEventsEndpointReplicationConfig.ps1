@@ -19,7 +19,7 @@ function Add-VSEventsEndpointReplicationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Endpoint.ReplicationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

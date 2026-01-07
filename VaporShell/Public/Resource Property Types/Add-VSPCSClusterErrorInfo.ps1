@@ -24,7 +24,7 @@ function Add-VSPCSClusterErrorInfo {
     #>
 
     [OutputType('Vaporshell.Resource.PCS.Cluster.ErrorInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

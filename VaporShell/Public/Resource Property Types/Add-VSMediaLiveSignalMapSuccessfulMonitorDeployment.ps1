@@ -24,7 +24,7 @@ function Add-VSMediaLiveSignalMapSuccessfulMonitorDeployment {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.SignalMap.SuccessfulMonitorDeployment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

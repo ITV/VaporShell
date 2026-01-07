@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardTextAreaControlDisplayOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TextAreaControlDisplayOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

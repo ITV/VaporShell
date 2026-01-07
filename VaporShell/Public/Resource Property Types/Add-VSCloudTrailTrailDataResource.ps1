@@ -26,7 +26,7 @@ function Add-VSCloudTrailTrailDataResource {
     #>
 
     [OutputType('Vaporshell.Resource.CloudTrail.Trail.DataResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

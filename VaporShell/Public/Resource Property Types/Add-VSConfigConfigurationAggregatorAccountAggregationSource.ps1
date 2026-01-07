@@ -33,7 +33,7 @@ function Add-VSConfigConfigurationAggregatorAccountAggregationSource {
     #>
 
     [OutputType('Vaporshell.Resource.Config.ConfigurationAggregator.AccountAggregationSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

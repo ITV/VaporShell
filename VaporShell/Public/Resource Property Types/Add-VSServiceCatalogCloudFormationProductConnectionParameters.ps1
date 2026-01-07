@@ -19,7 +19,7 @@ function Add-VSServiceCatalogCloudFormationProductConnectionParameters {
     #>
 
     [OutputType('Vaporshell.Resource.ServiceCatalog.CloudFormationProduct.ConnectionParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

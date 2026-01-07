@@ -24,7 +24,7 @@ function Add-VSRbinRuleUnlockDelay {
     #>
 
     [OutputType('Vaporshell.Resource.Rbin.Rule.UnlockDelay')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

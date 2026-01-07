@@ -24,7 +24,7 @@ function Add-VSWAFv2WebACLAWSManagedRulesBotControlRuleSet {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.AWSManagedRulesBotControlRuleSet')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSPipesPipePipeTargetLambdaFunctionParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeTargetLambdaFunctionParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

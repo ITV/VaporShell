@@ -19,7 +19,7 @@ function Add-VSGammaDilithiumJobDefinitionNetworkConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.NetworkConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

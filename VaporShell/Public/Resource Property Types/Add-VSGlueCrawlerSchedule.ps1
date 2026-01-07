@@ -19,7 +19,7 @@ function Add-VSGlueCrawlerSchedule {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Crawler.Schedule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

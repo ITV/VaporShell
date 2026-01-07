@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardLoadingAnimation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.LoadingAnimation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

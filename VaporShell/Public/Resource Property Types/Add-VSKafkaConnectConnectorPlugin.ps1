@@ -19,7 +19,7 @@ function Add-VSKafkaConnectConnectorPlugin {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.Plugin')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

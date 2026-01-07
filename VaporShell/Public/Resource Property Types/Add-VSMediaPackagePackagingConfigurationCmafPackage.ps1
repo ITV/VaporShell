@@ -36,7 +36,7 @@ function Add-VSMediaPackagePackagingConfigurationCmafPackage {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.PackagingConfiguration.CmafPackage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

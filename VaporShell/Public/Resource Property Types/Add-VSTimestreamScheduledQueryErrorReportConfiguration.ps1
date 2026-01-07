@@ -19,7 +19,7 @@ function Add-VSTimestreamScheduledQueryErrorReportConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.ScheduledQuery.ErrorReportConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

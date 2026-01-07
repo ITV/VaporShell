@@ -19,7 +19,7 @@ function Add-VSDataSyncLocationSMBMountOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationSMB.MountOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisFreeFormLayoutElementBorderStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FreeFormLayoutElementBorderStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

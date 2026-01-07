@@ -19,7 +19,7 @@ function Add-VSBedrockApplicationInferenceProfileInferenceProfileModel {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.ApplicationInferenceProfile.InferenceProfileModel')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

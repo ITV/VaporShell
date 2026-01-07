@@ -19,7 +19,7 @@ function Add-VSConnectEvaluationFormEvaluationFormSingleSelectQuestionAutomation
     #>
 
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionAutomationOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

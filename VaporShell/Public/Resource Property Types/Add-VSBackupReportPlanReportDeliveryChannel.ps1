@@ -31,7 +31,7 @@ function Add-VSBackupReportPlanReportDeliveryChannel {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.ReportPlan.ReportDeliveryChannel')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

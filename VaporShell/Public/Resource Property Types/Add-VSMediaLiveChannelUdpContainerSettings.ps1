@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelUdpContainerSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.UdpContainerSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

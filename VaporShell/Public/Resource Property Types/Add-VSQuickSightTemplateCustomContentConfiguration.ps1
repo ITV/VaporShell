@@ -24,12 +24,17 @@ function Add-VSQuickSightTemplateCustomContentConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customcontentconfiguration.html#cfn-quicksight-template-customcontentconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.CustomContentConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -67,7 +72,10 @@ function Add-VSQuickSightTemplateCustomContentConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ImageScaling
+        $ImageScaling,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions
 
     )
 

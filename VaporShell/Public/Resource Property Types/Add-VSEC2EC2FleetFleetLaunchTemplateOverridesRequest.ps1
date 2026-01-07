@@ -24,6 +24,18 @@ function Add-VSEC2EC2FleetFleetLaunchTemplateOverridesRequest {
         UpdateType: Immutable
         PrimitiveType: Double
 
+    .PARAMETER AvailabilityZoneId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-availabilityzoneid
+        UpdateType: Immutable
+        PrimitiveType: String
+
+    .PARAMETER BlockDeviceMappings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-blockdevicemappings
+        UpdateType: Immutable
+        Type: List
+        ItemType: BlockDeviceMapping
+        DuplicatesAllowed: False
+
     .PARAMETER AvailabilityZone
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-availabilityzone
         UpdateType: Immutable
@@ -54,7 +66,7 @@ function Add-VSEC2EC2FleetFleetLaunchTemplateOverridesRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.FleetLaunchTemplateOverridesRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -84,6 +96,30 @@ function Add-VSEC2EC2FleetFleetLaunchTemplateOverridesRequest {
                 }
             })]
         $Priority,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AvailabilityZoneId,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.EC2.EC2Fleet.BlockDeviceMapping"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BlockDeviceMappings,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

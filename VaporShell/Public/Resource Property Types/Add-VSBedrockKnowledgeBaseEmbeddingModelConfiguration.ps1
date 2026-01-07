@@ -19,7 +19,7 @@ function Add-VSBedrockKnowledgeBaseEmbeddingModelConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.EmbeddingModelConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

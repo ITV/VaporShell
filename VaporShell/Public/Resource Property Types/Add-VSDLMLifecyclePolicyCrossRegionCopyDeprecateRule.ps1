@@ -24,7 +24,7 @@ function Add-VSDLMLifecyclePolicyCrossRegionCopyDeprecateRule {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.CrossRegionCopyDeprecateRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

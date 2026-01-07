@@ -39,7 +39,7 @@ function Add-VSIoTTopicRuleOpenSearchAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.OpenSearchAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

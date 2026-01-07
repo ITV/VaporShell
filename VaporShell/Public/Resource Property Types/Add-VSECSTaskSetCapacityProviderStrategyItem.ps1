@@ -29,7 +29,7 @@ function Add-VSECSTaskSetCapacityProviderStrategyItem {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskSet.CapacityProviderStrategyItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

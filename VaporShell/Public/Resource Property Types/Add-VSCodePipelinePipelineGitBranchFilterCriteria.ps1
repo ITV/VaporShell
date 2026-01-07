@@ -28,7 +28,7 @@ function Add-VSCodePipelinePipelineGitBranchFilterCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.GitBranchFilterCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

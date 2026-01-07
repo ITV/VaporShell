@@ -28,7 +28,7 @@ function Add-VSOpenSearchServiceDomainVPCOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.VPCOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

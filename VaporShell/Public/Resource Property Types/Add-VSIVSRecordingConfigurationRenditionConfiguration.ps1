@@ -26,7 +26,7 @@ function Add-VSIVSRecordingConfigurationRenditionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IVS.RecordingConfiguration.RenditionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

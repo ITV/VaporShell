@@ -19,7 +19,7 @@ function Add-VSAppFlowConnectorLambdaConnectorProvisioningConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Connector.LambdaConnectorProvisioningConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

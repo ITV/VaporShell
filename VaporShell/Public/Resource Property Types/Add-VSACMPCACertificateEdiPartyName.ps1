@@ -24,7 +24,7 @@ function Add-VSACMPCACertificateEdiPartyName {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.Certificate.EdiPartyName')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

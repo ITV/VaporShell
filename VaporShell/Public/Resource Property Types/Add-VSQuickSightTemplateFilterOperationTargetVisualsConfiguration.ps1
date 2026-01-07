@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateFilterOperationTargetVisualsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FilterOperationTargetVisualsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

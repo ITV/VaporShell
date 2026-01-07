@@ -24,7 +24,7 @@ function Add-VSAppStreamStackAccessEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.Stack.AccessEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

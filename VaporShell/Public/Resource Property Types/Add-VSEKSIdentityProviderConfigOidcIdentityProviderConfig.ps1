@@ -51,7 +51,7 @@ function Add-VSEKSIdentityProviderConfigOidcIdentityProviderConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.IdentityProviderConfig.OidcIdentityProviderConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

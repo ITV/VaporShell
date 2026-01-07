@@ -19,7 +19,7 @@ function Add-VSBedrockDataSourceBedrockDataAutomationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.BedrockDataAutomationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

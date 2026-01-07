@@ -24,7 +24,7 @@ function Add-VSEC2LaunchTemplateInstanceMarketOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.InstanceMarketOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSLogsTransformerMoveKeyEntry {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.MoveKeyEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

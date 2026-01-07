@@ -14,7 +14,7 @@ function Add-VSDLMLifecyclePolicyExcludeTags {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.ExcludeTags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

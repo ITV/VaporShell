@@ -19,7 +19,7 @@ function Add-VSEFSFileSystemFileSystemProtection {
     #>
 
     [OutputType('Vaporshell.Resource.EFS.FileSystem.FileSystemProtection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,7 +44,7 @@ function Add-VSCloudFrontCachePolicyCachePolicyConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.CachePolicy.CachePolicyConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

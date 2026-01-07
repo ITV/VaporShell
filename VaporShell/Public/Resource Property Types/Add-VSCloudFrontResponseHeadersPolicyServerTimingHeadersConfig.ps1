@@ -24,7 +24,7 @@ function Add-VSCloudFrontResponseHeadersPolicyServerTimingHeadersConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.ServerTimingHeadersConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSLexBotDTMFSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.DTMFSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

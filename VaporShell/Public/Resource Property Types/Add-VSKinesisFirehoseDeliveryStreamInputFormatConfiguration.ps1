@@ -19,7 +19,7 @@ function Add-VSKinesisFirehoseDeliveryStreamInputFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.InputFormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

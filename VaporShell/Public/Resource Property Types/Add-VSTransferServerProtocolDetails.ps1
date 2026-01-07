@@ -36,7 +36,7 @@ function Add-VSTransferServerProtocolDetails {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.Server.ProtocolDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

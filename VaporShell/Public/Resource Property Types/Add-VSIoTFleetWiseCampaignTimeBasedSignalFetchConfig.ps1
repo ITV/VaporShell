@@ -11,7 +11,7 @@ function Add-VSIoTFleetWiseCampaignTimeBasedSignalFetchConfig {
 
     .PARAMETER ExecutionFrequencyMs
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timebasedsignalfetchconfig.html#cfn-iotfleetwise-campaign-timebasedsignalfetchconfig-executionfrequencyms
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Double
 
     .FUNCTIONALITY
@@ -19,7 +19,7 @@ function Add-VSIoTFleetWiseCampaignTimeBasedSignalFetchConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.TimeBasedSignalFetchConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

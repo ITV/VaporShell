@@ -19,7 +19,7 @@ function Add-VSLambdaEventInvokeConfigOnSuccess {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.EventInvokeConfig.OnSuccess')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

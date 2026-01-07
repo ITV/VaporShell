@@ -31,7 +31,7 @@ function Add-VSLightsailInstanceHardware {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Instance.Hardware')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

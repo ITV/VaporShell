@@ -19,7 +19,7 @@ function Add-VSRekognitionStreamProcessorDataSharingPreference {
     #>
 
     [OutputType('Vaporshell.Resource.Rekognition.StreamProcessor.DataSharingPreference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

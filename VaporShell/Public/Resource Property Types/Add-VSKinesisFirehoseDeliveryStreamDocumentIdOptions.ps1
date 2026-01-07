@@ -19,7 +19,7 @@ function Add-VSKinesisFirehoseDeliveryStreamDocumentIdOptions {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.DocumentIdOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

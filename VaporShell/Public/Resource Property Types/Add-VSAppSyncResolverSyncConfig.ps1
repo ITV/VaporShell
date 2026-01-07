@@ -29,7 +29,7 @@ function Add-VSAppSyncResolverSyncConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.Resolver.SyncConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

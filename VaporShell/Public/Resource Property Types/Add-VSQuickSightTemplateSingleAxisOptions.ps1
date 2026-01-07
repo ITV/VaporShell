@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateSingleAxisOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SingleAxisOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

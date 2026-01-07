@@ -19,7 +19,7 @@ function Add-VSAppTestTestCaseOutput {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.Output')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

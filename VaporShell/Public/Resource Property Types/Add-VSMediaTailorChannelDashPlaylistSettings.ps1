@@ -34,7 +34,7 @@ function Add-VSMediaTailorChannelDashPlaylistSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.Channel.DashPlaylistSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

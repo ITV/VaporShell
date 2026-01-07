@@ -24,7 +24,7 @@ function Add-VSSageMakerSpaceSpaceCodeEditorAppSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.SpaceCodeEditorAppSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

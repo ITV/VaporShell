@@ -31,7 +31,7 @@ function Add-VSQuickSightAnalysisEmptyVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.EmptyVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

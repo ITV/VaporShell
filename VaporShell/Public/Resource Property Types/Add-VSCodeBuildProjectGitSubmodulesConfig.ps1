@@ -19,7 +19,7 @@ function Add-VSCodeBuildProjectGitSubmodulesConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.GitSubmodulesConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

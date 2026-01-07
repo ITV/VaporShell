@@ -30,7 +30,7 @@ function Add-VSSageMakerEndpointConfigAsyncInferenceNotificationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.AsyncInferenceNotificationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

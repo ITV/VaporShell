@@ -19,7 +19,7 @@ function Add-VSIoTEventsAlarmModelAcknowledgeFlow {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.AlarmModel.AcknowledgeFlow')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

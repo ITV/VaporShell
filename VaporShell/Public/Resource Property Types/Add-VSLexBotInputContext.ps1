@@ -19,7 +19,7 @@ function Add-VSLexBotInputContext {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.InputContext')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

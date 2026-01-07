@@ -24,7 +24,7 @@ function Add-VSRbinRuleResourceTag {
     #>
 
     [OutputType('Vaporshell.Resource.Rbin.Rule.ResourceTag')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

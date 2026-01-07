@@ -24,7 +24,7 @@ function Add-VSSecurityHubAutomationRuleAutomationRulesAction {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.AutomationRulesAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

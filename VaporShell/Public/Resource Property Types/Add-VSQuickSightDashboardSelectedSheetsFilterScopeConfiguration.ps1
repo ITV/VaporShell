@@ -21,7 +21,7 @@ function Add-VSQuickSightDashboardSelectedSheetsFilterScopeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SelectedSheetsFilterScopeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

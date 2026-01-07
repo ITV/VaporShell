@@ -26,7 +26,7 @@ function Add-VSWAFv2RuleGroupRateLimitHeader {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.RateLimitHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

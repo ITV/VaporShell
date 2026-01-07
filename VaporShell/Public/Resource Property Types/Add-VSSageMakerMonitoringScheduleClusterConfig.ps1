@@ -34,7 +34,7 @@ function Add-VSSageMakerMonitoringScheduleClusterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.ClusterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

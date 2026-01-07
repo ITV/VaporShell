@@ -24,7 +24,7 @@ function Add-VSAppTestTestCaseCompareAction {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.CompareAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

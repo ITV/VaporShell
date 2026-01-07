@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateDefaultTextFieldControlOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DefaultTextFieldControlOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

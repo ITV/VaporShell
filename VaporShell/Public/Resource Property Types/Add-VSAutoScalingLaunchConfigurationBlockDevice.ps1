@@ -49,7 +49,7 @@ function Add-VSAutoScalingLaunchConfigurationBlockDevice {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.LaunchConfiguration.BlockDevice')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

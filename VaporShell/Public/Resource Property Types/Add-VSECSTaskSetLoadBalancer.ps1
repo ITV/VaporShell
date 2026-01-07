@@ -29,7 +29,7 @@ function Add-VSECSTaskSetLoadBalancer {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskSet.LoadBalancer')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

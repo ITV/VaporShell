@@ -14,16 +14,21 @@ function Add-VSSESMailManagerTrafficPolicyIngressStringToEvaluate {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER Analysis
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringtoevaluate.html#cfn-ses-mailmanagertrafficpolicy-ingressstringtoevaluate-analysis
+        UpdateType: Mutable
+        Type: IngressAnalysis
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerTrafficPolicy.IngressStringToEvaluate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -33,7 +38,10 @@ function Add-VSSESMailManagerTrafficPolicyIngressStringToEvaluate {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Attribute
+        $Attribute,
+
+        [Parameter(Mandatory = $false)]
+        $Analysis
 
     )
 

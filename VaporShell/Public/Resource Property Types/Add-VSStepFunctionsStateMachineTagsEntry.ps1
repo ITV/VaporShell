@@ -24,7 +24,7 @@ function Add-VSStepFunctionsStateMachineTagsEntry {
     #>
 
     [OutputType('Vaporshell.Resource.StepFunctions.StateMachine.TagsEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

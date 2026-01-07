@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelDvbSubSourceSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.DvbSubSourceSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

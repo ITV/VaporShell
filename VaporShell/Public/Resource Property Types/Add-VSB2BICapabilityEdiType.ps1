@@ -19,7 +19,7 @@ function Add-VSB2BICapabilityEdiType {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Capability.EdiType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSQuickSightAnalysisStringDefaultValues {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.StringDefaultValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

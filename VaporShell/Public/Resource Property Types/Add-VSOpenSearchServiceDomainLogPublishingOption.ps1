@@ -24,7 +24,7 @@ function Add-VSOpenSearchServiceDomainLogPublishingOption {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.LogPublishingOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

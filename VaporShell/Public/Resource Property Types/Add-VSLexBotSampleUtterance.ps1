@@ -19,7 +19,7 @@ function Add-VSLexBotSampleUtterance {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.SampleUtterance')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

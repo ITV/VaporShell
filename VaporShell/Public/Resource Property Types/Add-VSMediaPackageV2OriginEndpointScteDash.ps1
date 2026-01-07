@@ -19,7 +19,7 @@ function Add-VSMediaPackageV2OriginEndpointScteDash {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint.ScteDash')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSAppRunnerServiceSourceCodeVersion {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.SourceCodeVersion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

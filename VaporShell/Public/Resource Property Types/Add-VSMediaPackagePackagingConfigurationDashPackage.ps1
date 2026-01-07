@@ -53,7 +53,7 @@ function Add-VSMediaPackagePackagingConfigurationDashPackage {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.PackagingConfiguration.DashPackage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

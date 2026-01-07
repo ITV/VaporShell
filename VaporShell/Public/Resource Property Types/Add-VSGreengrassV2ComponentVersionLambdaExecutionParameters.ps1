@@ -74,7 +74,7 @@ function Add-VSGreengrassV2ComponentVersionLambdaExecutionParameters {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaExecutionParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

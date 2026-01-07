@@ -24,7 +24,7 @@ function Add-VSMediaTailorPlaybackConfigurationBumper {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.PlaybackConfiguration.Bumper')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

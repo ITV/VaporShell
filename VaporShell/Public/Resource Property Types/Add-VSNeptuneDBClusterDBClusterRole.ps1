@@ -24,7 +24,7 @@ function Add-VSNeptuneDBClusterDBClusterRole {
     #>
 
     [OutputType('Vaporshell.Resource.Neptune.DBCluster.DBClusterRole')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

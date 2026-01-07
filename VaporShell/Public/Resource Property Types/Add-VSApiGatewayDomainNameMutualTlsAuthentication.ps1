@@ -24,7 +24,7 @@ function Add-VSApiGatewayDomainNameMutualTlsAuthentication {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.DomainName.MutualTlsAuthentication')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

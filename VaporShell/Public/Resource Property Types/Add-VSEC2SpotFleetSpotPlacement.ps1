@@ -19,6 +19,11 @@ function Add-VSEC2SpotFleetSpotPlacement {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER AvailabilityZoneId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-availabilityzoneid
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER AvailabilityZone
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotplacement.html#cfn-ec2-spotfleet-spotplacement-availabilityzone
         UpdateType: Immutable
@@ -29,7 +34,7 @@ function Add-VSEC2SpotFleetSpotPlacement {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.SpotPlacement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -56,6 +61,18 @@ function Add-VSEC2SpotFleetSpotPlacement {
                 }
             })]
         $Tenancy,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AvailabilityZoneId,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -29,7 +29,7 @@ function Add-VSMediaLiveMultiplexprogramMultiplexStatmuxVideoSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Multiplexprogram.MultiplexStatmuxVideoSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

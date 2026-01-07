@@ -31,7 +31,7 @@ function Add-VSImageBuilderDistributionConfigurationContainerDistributionConfigu
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.DistributionConfiguration.ContainerDistributionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSIoTTwinMakerComponentTypeError {
     #>
 
     [OutputType('Vaporshell.Resource.IoTTwinMaker.ComponentType.Error')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -64,7 +64,7 @@ function Add-VSDMSEndpointKinesisSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.KinesisSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

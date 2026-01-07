@@ -29,7 +29,7 @@ function Add-VSCognitoUserPoolSmsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.SmsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

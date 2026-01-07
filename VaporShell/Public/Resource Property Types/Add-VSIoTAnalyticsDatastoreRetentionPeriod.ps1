@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsDatastoreRetentionPeriod {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Datastore.RetentionPeriod')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

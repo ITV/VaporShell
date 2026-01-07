@@ -34,7 +34,7 @@ function Add-VSApiGatewayV2ApiGatewayManagedOverridesIntegrationOverrides {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGatewayV2.ApiGatewayManagedOverrides.IntegrationOverrides')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

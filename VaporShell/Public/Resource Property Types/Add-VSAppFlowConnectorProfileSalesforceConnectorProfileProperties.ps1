@@ -29,7 +29,7 @@ function Add-VSAppFlowConnectorProfileSalesforceConnectorProfileProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.SalesforceConnectorProfileProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

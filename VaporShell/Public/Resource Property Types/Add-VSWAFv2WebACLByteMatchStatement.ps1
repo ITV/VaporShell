@@ -41,7 +41,7 @@ function Add-VSWAFv2WebACLByteMatchStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ByteMatchStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

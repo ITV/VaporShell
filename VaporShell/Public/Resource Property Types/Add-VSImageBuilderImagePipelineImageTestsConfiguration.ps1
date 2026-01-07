@@ -24,7 +24,7 @@ function Add-VSImageBuilderImagePipelineImageTestsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.ImagePipeline.ImageTestsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

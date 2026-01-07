@@ -21,7 +21,7 @@ function Add-VSCodeDeployDeploymentGroupTrafficRoute {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.TrafficRoute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -59,7 +59,7 @@ function Add-VSEC2LaunchTemplatePlacement {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.Placement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

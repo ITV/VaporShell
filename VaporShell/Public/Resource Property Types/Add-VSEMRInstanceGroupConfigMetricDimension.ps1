@@ -24,7 +24,7 @@ function Add-VSEMRInstanceGroupConfigMetricDimension {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceGroupConfig.MetricDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

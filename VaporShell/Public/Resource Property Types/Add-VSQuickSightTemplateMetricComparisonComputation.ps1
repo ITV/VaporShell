@@ -39,7 +39,7 @@ function Add-VSQuickSightTemplateMetricComparisonComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.MetricComparisonComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -20,6 +20,11 @@ function Add-VSCodeBuildProjectProjectCache {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER CacheNamespace
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-cachenamespace
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER Location
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-location
         PrimitiveType: String
@@ -30,7 +35,7 @@ function Add-VSCodeBuildProjectProjectCache {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.ProjectCache')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -48,6 +53,18 @@ function Add-VSCodeBuildProjectProjectCache {
                 }
             })]
         $Type,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CacheNamespace,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

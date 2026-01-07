@@ -24,7 +24,7 @@ function Add-VSECSServicePlacementConstraint {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.PlacementConstraint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

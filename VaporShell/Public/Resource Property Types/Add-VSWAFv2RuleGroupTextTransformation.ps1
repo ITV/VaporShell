@@ -24,7 +24,7 @@ function Add-VSWAFv2RuleGroupTextTransformation {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.TextTransformation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

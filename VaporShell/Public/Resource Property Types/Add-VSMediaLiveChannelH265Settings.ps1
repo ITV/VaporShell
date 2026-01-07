@@ -59,6 +59,11 @@ function Add-VSMediaLiveChannelH265Settings {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER MinBitrate
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-minbitrate
+        PrimitiveType: Integer
+        UpdateType: Mutable
+
     .PARAMETER MinIInterval
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-miniinterval
         PrimitiveType: Integer
@@ -169,6 +174,11 @@ function Add-VSMediaLiveChannelH265Settings {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER Deblocking
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-deblocking
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER ColorMetadata
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-colormetadata
         PrimitiveType: String
@@ -176,6 +186,11 @@ function Add-VSMediaLiveChannelH265Settings {
 
     .PARAMETER LookAheadRateControl
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-lookaheadratecontrol
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER GopBReference
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-gopbreference
         PrimitiveType: String
         UpdateType: Mutable
 
@@ -194,12 +209,22 @@ function Add-VSMediaLiveChannelH265Settings {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER SubgopLength
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-subgoplength
+        PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER GopNumBFrames
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-h265settings.html#cfn-medialive-channel-h265settings-gopnumbframes
+        PrimitiveType: Integer
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.H265Settings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -313,6 +338,18 @@ function Add-VSMediaLiveChannelH265Settings {
                 }
             })]
         $MvTemporalPredictor,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $MinBitrate,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -570,6 +607,18 @@ function Add-VSMediaLiveChannelH265Settings {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $Deblocking,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $ColorMetadata,
 
         [Parameter(Mandatory = $false)]
@@ -583,6 +632,18 @@ function Add-VSMediaLiveChannelH265Settings {
                 }
             })]
         $LookAheadRateControl,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $GopBReference,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -618,7 +679,31 @@ function Add-VSMediaLiveChannelH265Settings {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $TreeblockSize
+        $TreeblockSize,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SubgopLength,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $GopNumBFrames
 
     )
 

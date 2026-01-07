@@ -34,7 +34,7 @@ function Add-VSDynamoDBTableImportSourceSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.Table.ImportSourceSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

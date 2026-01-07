@@ -19,12 +19,17 @@ function Add-VSSageMakerSpaceCustomFileSystem {
         UpdateType: Mutable
         Type: EFSFileSystem
 
+    .PARAMETER S3FileSystem
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html#cfn-sagemaker-space-customfilesystem-s3filesystem
+        UpdateType: Mutable
+        Type: S3FileSystem
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.CustomFileSystem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -32,7 +37,10 @@ function Add-VSSageMakerSpaceCustomFileSystem {
         $FSxLustreFileSystem,
 
         [Parameter(Mandatory = $false)]
-        $EFSFileSystem
+        $EFSFileSystem,
+
+        [Parameter(Mandatory = $false)]
+        $S3FileSystem
 
     )
 

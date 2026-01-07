@@ -29,7 +29,7 @@ function Add-VSPersonalizeSolutionHpoConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Personalize.Solution.HpoConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

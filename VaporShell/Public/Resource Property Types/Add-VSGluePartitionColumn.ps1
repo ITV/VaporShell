@@ -29,7 +29,7 @@ function Add-VSGluePartitionColumn {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Partition.Column')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSAccessAnalyzerAnalyzerAnalysisRule {
     #>
 
     [OutputType('Vaporshell.Resource.AccessAnalyzer.Analyzer.AnalysisRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

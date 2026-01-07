@@ -34,7 +34,7 @@ function Add-VSEvidentlyExperimentTreatmentObject {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Experiment.TreatmentObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisPivotTableRowsLabelOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PivotTableRowsLabelOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -117,12 +117,17 @@ function Add-VSQuickSightDashboardLineChartConfiguration {
         UpdateType: Mutable
         Type: ChartAxisLabelOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-linechartconfiguration.html#cfn-quicksight-dashboard-linechartconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.LineChartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -229,7 +234,10 @@ function Add-VSQuickSightDashboardLineChartConfiguration {
         $SecondaryYAxisDisplayOptions,
 
         [Parameter(Mandatory = $false)]
-        $XAxisLabelOptions
+        $XAxisLabelOptions,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions
 
     )
 

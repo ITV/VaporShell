@@ -24,7 +24,7 @@ function Add-VSEC2ClientVpnEndpointFederatedAuthenticationRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.ClientVpnEndpoint.FederatedAuthenticationRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,7 +44,7 @@ function Add-VSSageMakerMonitoringScheduleBatchTransformInput {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.BatchTransformInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

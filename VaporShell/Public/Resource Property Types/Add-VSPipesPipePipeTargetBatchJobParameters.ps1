@@ -52,7 +52,7 @@ function Add-VSPipesPipePipeTargetBatchJobParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeTargetBatchJobParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

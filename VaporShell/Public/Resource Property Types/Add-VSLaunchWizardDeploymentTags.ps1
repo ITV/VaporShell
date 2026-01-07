@@ -24,7 +24,7 @@ function Add-VSLaunchWizardDeploymentTags {
     #>
 
     [OutputType('Vaporshell.Resource.LaunchWizard.Deployment.Tags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

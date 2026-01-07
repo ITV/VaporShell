@@ -24,7 +24,7 @@ function Add-VSMediaStoreContainerMetricPolicyRule {
     #>
 
     [OutputType('Vaporshell.Resource.MediaStore.Container.MetricPolicyRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

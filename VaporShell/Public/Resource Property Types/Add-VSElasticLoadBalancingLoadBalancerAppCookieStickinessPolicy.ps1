@@ -24,7 +24,7 @@ function Add-VSElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.AppCookieStickinessPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

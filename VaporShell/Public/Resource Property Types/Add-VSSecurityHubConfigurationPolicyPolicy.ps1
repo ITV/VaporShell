@@ -19,7 +19,7 @@ function Add-VSSecurityHubConfigurationPolicyPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.ConfigurationPolicy.Policy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

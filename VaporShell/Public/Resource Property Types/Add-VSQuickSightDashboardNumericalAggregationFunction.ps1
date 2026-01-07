@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardNumericalAggregationFunction {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.NumericalAggregationFunction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

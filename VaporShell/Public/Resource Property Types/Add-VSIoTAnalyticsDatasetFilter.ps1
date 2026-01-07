@@ -19,7 +19,7 @@ function Add-VSIoTAnalyticsDatasetFilter {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.Filter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

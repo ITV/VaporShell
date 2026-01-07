@@ -21,7 +21,7 @@ function Add-VSSSMIncidentsResponsePlanChatChannel {
     #>
 
     [OutputType('Vaporshell.Resource.SSMIncidents.ResponsePlan.ChatChannel')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -28,7 +28,7 @@ function Add-VSQuickSightAnalysisGaugeChartFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GaugeChartFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

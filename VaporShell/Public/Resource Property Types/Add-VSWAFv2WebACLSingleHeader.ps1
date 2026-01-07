@@ -19,7 +19,7 @@ function Add-VSWAFv2WebACLSingleHeader {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.SingleHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

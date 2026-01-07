@@ -29,7 +29,7 @@ function Add-VSDataBrewDatasetFilesLimit {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.FilesLimit')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

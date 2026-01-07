@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelEpochLockingSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.EpochLockingSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

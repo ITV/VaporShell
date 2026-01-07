@@ -155,7 +155,7 @@ function Add-VSAutoScalingAutoScalingGroupInstanceRequirements {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.InstanceRequirements')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

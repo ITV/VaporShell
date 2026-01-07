@@ -28,7 +28,7 @@ function Add-VSApplicationSignalsServiceLevelObjectiveMonitoredRequestCountMetri
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.MonitoredRequestCountMetric')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

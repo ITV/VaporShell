@@ -24,7 +24,7 @@ function Add-VSTimestreamScheduledQueryDimensionMapping {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.ScheduledQuery.DimensionMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

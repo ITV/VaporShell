@@ -24,7 +24,7 @@ function Add-VSWorkSpacesWebDataProtectionSettingsRedactionPlaceHolder {
     #>
 
     [OutputType('Vaporshell.Resource.WorkSpacesWeb.DataProtectionSettings.RedactionPlaceHolder')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

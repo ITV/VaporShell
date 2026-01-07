@@ -31,7 +31,7 @@ function Add-VSMediaPackagePackagingConfigurationMssPackage {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.PackagingConfiguration.MssPackage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

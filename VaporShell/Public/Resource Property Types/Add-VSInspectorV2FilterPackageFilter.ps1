@@ -9,6 +9,11 @@ function Add-VSInspectorV2FilterPackageFilter {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html
 
+    .PARAMETER FilePath
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-filepath
+        UpdateType: Mutable
+        Type: StringFilter
+
     .PARAMETER Architecture
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-architecture
         UpdateType: Mutable
@@ -29,6 +34,11 @@ function Add-VSInspectorV2FilterPackageFilter {
         UpdateType: Mutable
         Type: StringFilter
 
+    .PARAMETER SourceLambdaLayerArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-sourcelambdalayerarn
+        UpdateType: Mutable
+        Type: StringFilter
+
     .PARAMETER Release
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-packagefilter.html#cfn-inspectorv2-filter-packagefilter-release
         UpdateType: Mutable
@@ -44,10 +54,13 @@ function Add-VSInspectorV2FilterPackageFilter {
     #>
 
     [OutputType('Vaporshell.Resource.InspectorV2.Filter.PackageFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $FilePath,
+
         [Parameter(Mandatory = $false)]
         $Architecture,
 
@@ -59,6 +72,9 @@ function Add-VSInspectorV2FilterPackageFilter {
 
         [Parameter(Mandatory = $false)]
         $SourceLayerHash,
+
+        [Parameter(Mandatory = $false)]
+        $SourceLambdaLayerArn,
 
         [Parameter(Mandatory = $false)]
         $Release,

@@ -24,7 +24,7 @@ function Add-VSECSTaskSetScale {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskSet.Scale')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

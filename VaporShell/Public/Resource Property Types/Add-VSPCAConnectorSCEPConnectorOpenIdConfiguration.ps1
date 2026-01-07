@@ -29,7 +29,7 @@ function Add-VSPCAConnectorSCEPConnectorOpenIdConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.PCAConnectorSCEP.Connector.OpenIdConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

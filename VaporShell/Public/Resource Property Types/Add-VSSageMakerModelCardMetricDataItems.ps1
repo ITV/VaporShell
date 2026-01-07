@@ -48,7 +48,7 @@ function Add-VSSageMakerModelCardMetricDataItems {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.MetricDataItems')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -116,7 +116,7 @@ function Add-VSSageMakerModelCardMetricDataItems {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Value {
+                'Value' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

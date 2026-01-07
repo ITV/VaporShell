@@ -24,7 +24,7 @@ function Add-VSKinesisAnalyticsApplicationOutputKinesisFirehoseOutput {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalytics.ApplicationOutput.KinesisFirehoseOutput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

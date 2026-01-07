@@ -11,20 +11,20 @@ function Add-VSAmazonMQBrokerEncryptionOptions {
 
     .PARAMETER KmsKeyId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-encryptionoptions.html#cfn-amazonmq-broker-encryptionoptions-kmskeyid
+        UpdateType: Immutable
         PrimitiveType: String
-        UpdateType: Mutable
 
     .PARAMETER UseAwsOwnedKey
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-encryptionoptions.html#cfn-amazonmq-broker-encryptionoptions-useawsownedkey
+        UpdateType: Immutable
         PrimitiveType: Boolean
-        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.AmazonMQ.Broker.EncryptionOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

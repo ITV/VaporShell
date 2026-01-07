@@ -36,6 +36,11 @@ function Add-VSBatchJobDefinitionContainerProperties {
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER EnableExecuteCommand
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-enableexecutecommand
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER LinuxParameters
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-linuxparameters
         UpdateType: Mutable
@@ -138,7 +143,7 @@ function Add-VSBatchJobDefinitionContainerProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.ContainerProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","RepositoryCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","RepositoryCredentials")]
 
@@ -194,6 +199,18 @@ function Add-VSBatchJobDefinitionContainerProperties {
                 }
             })]
         $Privileged,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EnableExecuteCommand,
 
         [Parameter(Mandatory = $false)]
         $LinuxParameters,

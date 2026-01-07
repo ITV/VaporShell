@@ -11,27 +11,27 @@ function Add-VSGroundStationDataflowEndpointGroupAwsGroundStationAgentEndpoint {
 
     .PARAMETER AgentStatus
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-agentstatus
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER IngressAddress
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-ingressaddress
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: RangedConnectionDetails
 
     .PARAMETER AuditResults
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-auditresults
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-name
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER EgressAddress
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html#cfn-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint-egressaddress
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: ConnectionDetails
 
     .FUNCTIONALITY
@@ -39,7 +39,7 @@ function Add-VSGroundStationDataflowEndpointGroupAwsGroundStationAgentEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.DataflowEndpointGroup.AwsGroundStationAgentEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSConnectCampaignsV2CampaignSmsChannelSubtypeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.SmsChannelSubtypeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSAppMeshVirtualNodeListenerTimeout {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.ListenerTimeout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

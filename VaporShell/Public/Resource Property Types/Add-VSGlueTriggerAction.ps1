@@ -44,7 +44,7 @@ function Add-VSGlueTriggerAction {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Trigger.Action')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -121,7 +121,7 @@ function Add-VSGlueTriggerAction {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Arguments {
+                'Arguments' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

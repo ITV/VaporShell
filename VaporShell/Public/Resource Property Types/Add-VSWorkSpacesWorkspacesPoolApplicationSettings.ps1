@@ -24,7 +24,7 @@ function Add-VSWorkSpacesWorkspacesPoolApplicationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.WorkSpaces.WorkspacesPool.ApplicationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

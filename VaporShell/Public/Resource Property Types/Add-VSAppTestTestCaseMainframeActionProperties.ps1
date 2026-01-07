@@ -19,7 +19,7 @@ function Add-VSAppTestTestCaseMainframeActionProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.MainframeActionProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

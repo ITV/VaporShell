@@ -24,7 +24,7 @@ function Add-VSCassandraTableEncryptionSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Cassandra.Table.EncryptionSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

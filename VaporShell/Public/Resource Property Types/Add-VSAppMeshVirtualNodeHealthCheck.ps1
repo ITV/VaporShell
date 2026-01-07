@@ -49,7 +49,7 @@ function Add-VSAppMeshVirtualNodeHealthCheck {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.HealthCheck')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

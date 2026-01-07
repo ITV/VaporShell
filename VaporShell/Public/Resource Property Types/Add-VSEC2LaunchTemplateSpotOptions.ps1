@@ -39,7 +39,7 @@ function Add-VSEC2LaunchTemplateSpotOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.SpotOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSImageBuilderImagePipelineEcrConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.ImagePipeline.EcrConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

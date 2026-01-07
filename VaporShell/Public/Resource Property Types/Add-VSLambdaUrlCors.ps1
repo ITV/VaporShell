@@ -52,7 +52,7 @@ function Add-VSLambdaUrlCors {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Url.Cors')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","AllowCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","AllowCredentials")]
 

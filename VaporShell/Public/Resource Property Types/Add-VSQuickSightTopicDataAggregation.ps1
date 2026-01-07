@@ -24,7 +24,7 @@ function Add-VSQuickSightTopicDataAggregation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.DataAggregation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

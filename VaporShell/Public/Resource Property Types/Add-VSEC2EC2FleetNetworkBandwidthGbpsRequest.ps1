@@ -24,7 +24,7 @@ function Add-VSEC2EC2FleetNetworkBandwidthGbpsRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.NetworkBandwidthGbpsRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSSageMakerAppImageConfigJupyterLabAppImageConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.AppImageConfig.JupyterLabAppImageConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

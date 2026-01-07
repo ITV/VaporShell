@@ -19,7 +19,7 @@ function Add-VSECSTaskDefinitionHostVolumeProperties {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.HostVolumeProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -63,6 +63,11 @@ function Add-VSSageMakerUserProfileUserSettings {
         UpdateType: Mutable
         Type: JupyterServerAppSettings
 
+    .PARAMETER AutoMountHomeEFS
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-automounthomeefs
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER DefaultLandingUri
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-defaultlandinguri
         UpdateType: Mutable
@@ -88,7 +93,7 @@ function Add-VSSageMakerUserProfileUserSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.UserSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -139,6 +144,18 @@ function Add-VSSageMakerUserProfileUserSettings {
 
         [Parameter(Mandatory = $false)]
         $JupyterServerAppSettings,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $AutoMountHomeEFS,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

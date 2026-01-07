@@ -24,7 +24,7 @@ function Add-VSWisdomKnowledgeBaseParsingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.ParsingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

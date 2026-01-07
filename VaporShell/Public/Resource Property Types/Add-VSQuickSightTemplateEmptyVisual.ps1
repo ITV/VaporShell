@@ -31,7 +31,7 @@ function Add-VSQuickSightTemplateEmptyVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.EmptyVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

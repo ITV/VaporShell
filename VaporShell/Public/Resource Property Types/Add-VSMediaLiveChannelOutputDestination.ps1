@@ -15,6 +15,12 @@ function Add-VSMediaLiveChannelOutputDestination {
         ItemType: SrtOutputDestinationSettings
         UpdateType: Mutable
 
+    .PARAMETER LogicalInterfaceNames
+        PrimitiveItemType: String
+        Type: List
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-logicalinterfacenames
+        UpdateType: Mutable
+
     .PARAMETER MultiplexSettings
         Type: MultiplexProgramChannelDestinationSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-multiplexsettings
@@ -42,7 +48,7 @@ function Add-VSMediaLiveChannelOutputDestination {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.OutputDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -57,6 +63,9 @@ function Add-VSMediaLiveChannelOutputDestination {
                 }
             })]
         $SrtSettings,
+
+        [Parameter(Mandatory = $false)]
+        $LogicalInterfaceNames,
 
         [Parameter(Mandatory = $false)]
         $MultiplexSettings,

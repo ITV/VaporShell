@@ -21,7 +21,7 @@ function Add-VSQuickSightTemplateFilterSelectableValues {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FilterSelectableValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSAppConfigDeploymentDynamicExtensionParameters {
     #>
 
     [OutputType('Vaporshell.Resource.AppConfig.Deployment.DynamicExtensionParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

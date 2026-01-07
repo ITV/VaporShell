@@ -24,7 +24,7 @@ function Add-VSAmplifyUIBuilderComponentSortProperty {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Component.SortProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

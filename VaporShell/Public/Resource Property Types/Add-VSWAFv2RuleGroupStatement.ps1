@@ -69,6 +69,11 @@ function Add-VSWAFv2RuleGroupStatement {
         UpdateType: Mutable
         Type: OrStatement
 
+    .PARAMETER AsnMatchStatement
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-asnmatchstatement
+        UpdateType: Mutable
+        Type: AsnMatchStatement
+
     .PARAMETER IPSetReferenceStatement
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ipsetreferencestatement
         UpdateType: Mutable
@@ -79,7 +84,7 @@ function Add-VSWAFv2RuleGroupStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.Statement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -118,6 +123,9 @@ function Add-VSWAFv2RuleGroupStatement {
 
         [Parameter(Mandatory = $false)]
         $OrStatement,
+
+        [Parameter(Mandatory = $false)]
+        $AsnMatchStatement,
 
         [Parameter(Mandatory = $false)]
         $IPSetReferenceStatement

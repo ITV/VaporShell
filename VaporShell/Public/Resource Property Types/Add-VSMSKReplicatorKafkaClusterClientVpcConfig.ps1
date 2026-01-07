@@ -28,7 +28,7 @@ function Add-VSMSKReplicatorKafkaClusterClientVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Replicator.KafkaClusterClientVpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

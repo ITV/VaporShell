@@ -16,6 +16,11 @@ function Add-VSBedrockPromptVersionTextPromptTemplateConfiguration {
         ItemType: PromptInputVariable
         DuplicatesAllowed: True
 
+    .PARAMETER CachePoint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html#cfn-bedrock-promptversion-textprompttemplateconfiguration-cachepoint
+        UpdateType: Mutable
+        Type: CachePointBlock
+
     .PARAMETER Text
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-textprompttemplateconfiguration.html#cfn-bedrock-promptversion-textprompttemplateconfiguration-text
         UpdateType: Mutable
@@ -26,7 +31,7 @@ function Add-VSBedrockPromptVersionTextPromptTemplateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.PromptVersion.TextPromptTemplateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -41,6 +46,9 @@ function Add-VSBedrockPromptVersionTextPromptTemplateConfiguration {
                 }
             })]
         $InputVariables,
+
+        [Parameter(Mandatory = $false)]
+        $CachePoint,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

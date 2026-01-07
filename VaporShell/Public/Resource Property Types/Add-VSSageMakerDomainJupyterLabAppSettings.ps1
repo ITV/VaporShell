@@ -28,6 +28,11 @@ function Add-VSSageMakerDomainJupyterLabAppSettings {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER BuiltInLifecycleConfigArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterlabappsettings.html#cfn-sagemaker-domain-jupyterlabappsettings-builtinlifecycleconfigarn
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER CodeRepositories
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-jupyterlabappsettings.html#cfn-sagemaker-domain-jupyterlabappsettings-coderepositories
         UpdateType: Mutable
@@ -45,7 +50,7 @@ function Add-VSSageMakerDomainJupyterLabAppSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.JupyterLabAppSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -66,6 +71,18 @@ function Add-VSSageMakerDomainJupyterLabAppSettings {
 
         [Parameter(Mandatory = $false)]
         $LifecycleConfigArns,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BuiltInLifecycleConfigArn,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -11,7 +11,7 @@ function Add-VSECSServiceDeploymentController {
 
     .PARAMETER Type
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html#cfn-ecs-service-deploymentcontroller-type
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -19,7 +19,7 @@ function Add-VSECSServiceDeploymentController {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.DeploymentController')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

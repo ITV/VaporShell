@@ -29,7 +29,7 @@ function Add-VSWorkSpacesWebUserSettingsCookieSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.WorkSpacesWeb.UserSettings.CookieSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

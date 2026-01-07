@@ -19,7 +19,7 @@ function Add-VSGlueCrawlerRecrawlPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Crawler.RecrawlPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

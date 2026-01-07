@@ -29,7 +29,7 @@ function Add-VSBedrockKnowledgeBaseOpenSearchServerlessFieldMapping {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.OpenSearchServerlessFieldMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

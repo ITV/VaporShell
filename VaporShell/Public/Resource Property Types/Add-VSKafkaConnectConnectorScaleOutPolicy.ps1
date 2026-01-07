@@ -19,7 +19,7 @@ function Add-VSKafkaConnectConnectorScaleOutPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.ScaleOutPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

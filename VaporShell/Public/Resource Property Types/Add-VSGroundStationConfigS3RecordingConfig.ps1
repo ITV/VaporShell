@@ -29,7 +29,7 @@ function Add-VSGroundStationConfigS3RecordingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.Config.S3RecordingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

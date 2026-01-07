@@ -24,7 +24,7 @@ function Add-VSSageMakerAppImageConfigKernelSpec {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.AppImageConfig.KernelSpec')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

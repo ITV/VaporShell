@@ -19,7 +19,7 @@ function Add-VSCustomerProfilesIntegrationMarketoSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.MarketoSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

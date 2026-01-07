@@ -30,7 +30,7 @@ function Add-VSMediaLiveChannelRemixSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.RemixSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -9,6 +9,11 @@ function Add-VSWAFv2WebACLManagedRuleGroupConfig {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html
 
+    .PARAMETER AWSManagedRulesAntiDDoSRuleSet
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-awsmanagedrulesantiddosruleset
+        UpdateType: Mutable
+        Type: AWSManagedRulesAntiDDoSRuleSet
+
     .PARAMETER UsernameField
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html#cfn-wafv2-webacl-managedrulegroupconfig-usernamefield
         UpdateType: Mutable
@@ -49,12 +54,15 @@ function Add-VSWAFv2WebACLManagedRuleGroupConfig {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ManagedRuleGroupConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","PasswordField")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","PasswordField")]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $AWSManagedRulesAntiDDoSRuleSet,
+
         [Parameter(Mandatory = $false)]
         $UsernameField,
 

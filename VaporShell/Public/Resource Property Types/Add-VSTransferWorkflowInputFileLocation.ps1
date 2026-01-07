@@ -24,7 +24,7 @@ function Add-VSTransferWorkflowInputFileLocation {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.Workflow.InputFileLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

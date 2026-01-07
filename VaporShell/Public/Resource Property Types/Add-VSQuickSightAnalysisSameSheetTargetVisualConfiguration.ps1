@@ -26,7 +26,7 @@ function Add-VSQuickSightAnalysisSameSheetTargetVisualConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SameSheetTargetVisualConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

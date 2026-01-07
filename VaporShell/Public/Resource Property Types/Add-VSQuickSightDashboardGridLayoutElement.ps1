@@ -29,22 +29,52 @@ function Add-VSQuickSightDashboardGridLayoutElement {
         UpdateType: Mutable
         PrimitiveType: Double
 
+    .PARAMETER BorderStyle
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-borderstyle
+        UpdateType: Mutable
+        Type: GridLayoutElementBorderStyle
+
+    .PARAMETER BorderRadius
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-borderradius
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER RowSpan
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-rowspan
         UpdateType: Mutable
         PrimitiveType: Double
+
+    .PARAMETER Padding
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-padding
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER LoadingAnimation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-loadinganimation
+        UpdateType: Mutable
+        Type: LoadingAnimation
+
+    .PARAMETER BackgroundStyle
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-backgroundstyle
+        UpdateType: Mutable
+        Type: GridLayoutElementBackgroundStyle
 
     .PARAMETER ElementId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-elementid
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER SelectedBorderStyle
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gridlayoutelement.html#cfn-quicksight-dashboard-gridlayoutelement-selectedborderstyle
+        UpdateType: Mutable
+        Type: GridLayoutElementBorderStyle
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GridLayoutElement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -96,6 +126,21 @@ function Add-VSQuickSightDashboardGridLayoutElement {
             })]
         $RowIndex,
 
+        [Parameter(Mandatory = $false)]
+        $BorderStyle,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $BorderRadius,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.Double","Vaporshell.Function","Vaporshell.Condition"
@@ -108,6 +153,24 @@ function Add-VSQuickSightDashboardGridLayoutElement {
             })]
         $RowSpan,
 
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Padding,
+
+        [Parameter(Mandatory = $false)]
+        $LoadingAnimation,
+
+        [Parameter(Mandatory = $false)]
+        $BackgroundStyle,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -118,7 +181,10 @@ function Add-VSQuickSightDashboardGridLayoutElement {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ElementId
+        $ElementId,
+
+        [Parameter(Mandatory = $false)]
+        $SelectedBorderStyle
 
     )
 

@@ -24,7 +24,7 @@ function Add-VSLightsailContainerEnvironmentVariable {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Container.EnvironmentVariable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

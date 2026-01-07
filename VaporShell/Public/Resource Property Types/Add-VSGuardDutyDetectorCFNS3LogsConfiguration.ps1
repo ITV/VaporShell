@@ -19,7 +19,7 @@ function Add-VSGuardDutyDetectorCFNS3LogsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GuardDuty.Detector.CFNS3LogsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

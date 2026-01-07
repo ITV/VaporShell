@@ -19,7 +19,7 @@ function Add-VSLambdaFunctionDeadLetterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Function.DeadLetterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

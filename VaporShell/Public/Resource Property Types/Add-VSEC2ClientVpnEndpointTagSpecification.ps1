@@ -25,7 +25,7 @@ function Add-VSEC2ClientVpnEndpointTagSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.ClientVpnEndpoint.TagSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

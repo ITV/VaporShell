@@ -19,7 +19,7 @@ function Add-VSWAFv2LoggingConfigurationSingleHeader {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.LoggingConfiguration.SingleHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

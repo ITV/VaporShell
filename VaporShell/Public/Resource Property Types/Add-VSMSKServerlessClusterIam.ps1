@@ -19,7 +19,7 @@ function Add-VSMSKServerlessClusterIam {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.ServerlessCluster.Iam')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

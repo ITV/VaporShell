@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisConditionalFormattingColor {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ConditionalFormattingColor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

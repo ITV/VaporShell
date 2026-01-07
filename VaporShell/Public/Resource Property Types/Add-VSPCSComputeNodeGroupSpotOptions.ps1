@@ -19,7 +19,7 @@ function Add-VSPCSComputeNodeGroupSpotOptions {
     #>
 
     [OutputType('Vaporshell.Resource.PCS.ComputeNodeGroup.SpotOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

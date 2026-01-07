@@ -34,7 +34,7 @@ function Add-VSAmplifyUIBuilderFormFormCTA {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Form.FormCTA')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

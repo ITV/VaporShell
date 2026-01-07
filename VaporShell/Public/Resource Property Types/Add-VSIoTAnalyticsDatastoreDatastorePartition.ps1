@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsDatastoreDatastorePartition {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Datastore.DatastorePartition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,6 +44,20 @@ function Add-VSInspectorV2FilterFilterCriteria {
         ItemType: StringFilter
         DuplicatesAllowed: True
 
+    .PARAMETER LambdaFunctionName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-lambdafunctionname
+        UpdateType: Mutable
+        Type: List
+        ItemType: StringFilter
+        DuplicatesAllowed: True
+
+    .PARAMETER LambdaFunctionRuntime
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-lambdafunctionruntime
+        UpdateType: Mutable
+        Type: List
+        ItemType: StringFilter
+        DuplicatesAllowed: True
+
     .PARAMETER LastObservedAt
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-lastobservedat
         UpdateType: Mutable
@@ -56,6 +70,27 @@ function Add-VSInspectorV2FilterFilterCriteria {
         UpdateType: Mutable
         Type: List
         ItemType: DateFilter
+        DuplicatesAllowed: True
+
+    .PARAMETER LambdaFunctionLayers
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-lambdafunctionlayers
+        UpdateType: Mutable
+        Type: List
+        ItemType: StringFilter
+        DuplicatesAllowed: True
+
+    .PARAMETER FixAvailable
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-fixavailable
+        UpdateType: Mutable
+        Type: List
+        ItemType: StringFilter
+        DuplicatesAllowed: True
+
+    .PARAMETER ExploitAvailable
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-exploitavailable
+        UpdateType: Mutable
+        Type: List
+        ItemType: StringFilter
         DuplicatesAllowed: True
 
     .PARAMETER EcrImageArchitecture
@@ -93,8 +128,29 @@ function Add-VSInspectorV2FilterFilterCriteria {
         ItemType: StringFilter
         DuplicatesAllowed: True
 
+    .PARAMETER LambdaFunctionExecutionRoleArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-lambdafunctionexecutionrolearn
+        UpdateType: Mutable
+        Type: List
+        ItemType: StringFilter
+        DuplicatesAllowed: True
+
     .PARAMETER VendorSeverity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-vendorseverity
+        UpdateType: Mutable
+        Type: List
+        ItemType: StringFilter
+        DuplicatesAllowed: True
+
+    .PARAMETER CodeVulnerabilityDetectorTags
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-codevulnerabilitydetectortags
+        UpdateType: Mutable
+        Type: List
+        ItemType: StringFilter
+        DuplicatesAllowed: True
+
+    .PARAMETER CodeVulnerabilityDetectorName
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-codevulnerabilitydetectorname
         UpdateType: Mutable
         Type: List
         ItemType: StringFilter
@@ -142,11 +198,25 @@ function Add-VSInspectorV2FilterFilterCriteria {
         ItemType: DateFilter
         DuplicatesAllowed: True
 
+    .PARAMETER CodeVulnerabilityFilePath
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-codevulnerabilityfilepath
+        UpdateType: Mutable
+        Type: List
+        ItemType: StringFilter
+        DuplicatesAllowed: True
+
     .PARAMETER EcrImageHash
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-ecrimagehash
         UpdateType: Mutable
         Type: List
         ItemType: StringFilter
+        DuplicatesAllowed: True
+
+    .PARAMETER LambdaFunctionLastModifiedAt
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-lambdafunctionlastmodifiedat
+        UpdateType: Mutable
+        Type: List
+        ItemType: DateFilter
         DuplicatesAllowed: True
 
     .PARAMETER PortRange
@@ -205,6 +275,13 @@ function Add-VSInspectorV2FilterFilterCriteria {
         ItemType: StringFilter
         DuplicatesAllowed: True
 
+    .PARAMETER EpssScore
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-epssscore
+        UpdateType: Mutable
+        Type: List
+        ItemType: NumberFilter
+        DuplicatesAllowed: True
+
     .PARAMETER ComponentId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-inspectorv2-filter-filtercriteria.html#cfn-inspectorv2-filter-filtercriteria-componentid
         UpdateType: Mutable
@@ -231,7 +308,7 @@ function Add-VSInspectorV2FilterFilterCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.InspectorV2.Filter.FilterCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -297,6 +374,30 @@ function Add-VSInspectorV2FilterFilterCriteria {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LambdaFunctionName,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LambdaFunctionRuntime,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.DateFilter"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -318,6 +419,42 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $EcrImagePushedAt,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LambdaFunctionLayers,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $FixAvailable,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ExploitAvailable,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -389,7 +526,43 @@ function Add-VSInspectorV2FilterFilterCriteria {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $LambdaFunctionExecutionRoleArn,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $VendorSeverity,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CodeVulnerabilityDetectorTags,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CodeVulnerabilityDetectorName,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -473,7 +646,31 @@ function Add-VSInspectorV2FilterFilterCriteria {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
+        $CodeVulnerabilityFilePath,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.StringFilter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
         $EcrImageHash,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.DateFilter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $LambdaFunctionLastModifiedAt,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -570,6 +767,18 @@ function Add-VSInspectorV2FilterFilterCriteria {
                 }
             })]
         $AwsAccountId,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.InspectorV2.Filter.NumberFilter"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EpssScore,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -19,7 +19,7 @@ function Add-VSBedrockPromptVersionToolInputSchema {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.PromptVersion.ToolInputSchema')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -45,7 +45,7 @@ function Add-VSBedrockPromptVersionToolInputSchema {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Json {
+                'Json' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

@@ -54,7 +54,7 @@ function Add-VSQuickSightTemplateTableCellStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TableCellStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -146,7 +146,7 @@ function Add-VSQuickSightTemplateTableCellStyle {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Visibility {
+                'Visibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

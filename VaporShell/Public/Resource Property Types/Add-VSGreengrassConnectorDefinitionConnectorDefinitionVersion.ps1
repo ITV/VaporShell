@@ -20,7 +20,7 @@ function Add-VSGreengrassConnectorDefinitionConnectorDefinitionVersion {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.ConnectorDefinition.ConnectorDefinitionVersion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

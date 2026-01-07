@@ -21,7 +21,7 @@ function Add-VSBedrockKnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfi
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.RedshiftQueryEngineAwsDataCatalogStorageConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

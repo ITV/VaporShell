@@ -53,7 +53,7 @@ function Add-VSCodePipelinePipelineRuleDeclaration {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.RuleDeclaration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -133,7 +133,7 @@ function Add-VSCodePipelinePipelineRuleDeclaration {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Configuration {
+                'Configuration' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

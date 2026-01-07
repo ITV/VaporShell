@@ -59,7 +59,7 @@ function Add-VSAppFlowConnectorProfileRedshiftConnectorProfileProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.RedshiftConnectorProfileProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

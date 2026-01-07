@@ -46,7 +46,7 @@ function Add-VSCloudFrontVpcOriginVpcOriginEndpointConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.VpcOrigin.VpcOriginEndpointConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

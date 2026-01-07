@@ -24,7 +24,7 @@ function Add-VSQuickSightTopicNegativeFormat {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.NegativeFormat')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

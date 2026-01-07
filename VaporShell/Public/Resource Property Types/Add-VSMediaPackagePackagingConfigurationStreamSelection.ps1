@@ -29,7 +29,7 @@ function Add-VSMediaPackagePackagingConfigurationStreamSelection {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.PackagingConfiguration.StreamSelection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

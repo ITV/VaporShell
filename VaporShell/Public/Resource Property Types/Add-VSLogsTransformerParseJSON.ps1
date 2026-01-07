@@ -24,7 +24,7 @@ function Add-VSLogsTransformerParseJSON {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.ParseJSON')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

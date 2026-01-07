@@ -24,7 +24,7 @@ function Add-VSEC2VerifiedAccessInstanceCloudWatchLogs {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessInstance.CloudWatchLogs')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

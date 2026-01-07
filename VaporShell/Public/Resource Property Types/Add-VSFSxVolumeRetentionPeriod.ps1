@@ -24,7 +24,7 @@ function Add-VSFSxVolumeRetentionPeriod {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.Volume.RetentionPeriod')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

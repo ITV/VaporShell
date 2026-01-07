@@ -19,7 +19,7 @@ function Add-VSSageMakerNotebookInstanceInstanceMetadataServiceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.NotebookInstance.InstanceMetadataServiceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

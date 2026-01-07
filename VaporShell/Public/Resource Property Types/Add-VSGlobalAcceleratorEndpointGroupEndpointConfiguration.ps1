@@ -34,7 +34,7 @@ function Add-VSGlobalAcceleratorEndpointGroupEndpointConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GlobalAccelerator.EndpointGroup.EndpointConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

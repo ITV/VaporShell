@@ -19,7 +19,7 @@ function Add-VSCloudTrailEventDataStoreInsightSelector {
     #>
 
     [OutputType('Vaporshell.Resource.CloudTrail.EventDataStore.InsightSelector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

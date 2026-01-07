@@ -24,7 +24,7 @@ function Add-VSCloudWatchAnomalyDetectorRange {
     #>
 
     [OutputType('Vaporshell.Resource.CloudWatch.AnomalyDetector.Range')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

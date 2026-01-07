@@ -31,7 +31,7 @@ function Add-VSQuickSightTemplateChartAxisLabelOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ChartAxisLabelOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -81,7 +81,7 @@ function Add-VSQuickSightTemplateChartAxisLabelOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Visibility {
+                'Visibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -95,7 +95,7 @@ function Add-VSQuickSightTemplateChartAxisLabelOptions {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                SortIconVisibility {
+                'SortIconVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

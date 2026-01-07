@@ -26,7 +26,7 @@ function Add-VSBedrockAgentPromptOverrideConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Agent.PromptOverrideConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

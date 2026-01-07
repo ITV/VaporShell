@@ -28,7 +28,7 @@ function Add-VSMSKServerlessClusterVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.ServerlessCluster.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

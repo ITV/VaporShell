@@ -19,7 +19,7 @@ function Add-VSLexBotSlotValueRegexFilter {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.SlotValueRegexFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

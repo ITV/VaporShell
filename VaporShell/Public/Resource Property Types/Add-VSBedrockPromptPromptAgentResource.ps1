@@ -19,7 +19,7 @@ function Add-VSBedrockPromptPromptAgentResource {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Prompt.PromptAgentResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

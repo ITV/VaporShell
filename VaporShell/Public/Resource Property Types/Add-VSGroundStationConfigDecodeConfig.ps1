@@ -19,7 +19,7 @@ function Add-VSGroundStationConfigDecodeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.Config.DecodeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

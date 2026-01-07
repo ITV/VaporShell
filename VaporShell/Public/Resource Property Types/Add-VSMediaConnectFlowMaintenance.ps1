@@ -24,7 +24,7 @@ function Add-VSMediaConnectFlowMaintenance {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.Maintenance')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

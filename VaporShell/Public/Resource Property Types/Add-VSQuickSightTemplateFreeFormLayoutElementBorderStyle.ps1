@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateFreeFormLayoutElementBorderStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FreeFormLayoutElementBorderStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,7 +62,7 @@ function Add-VSQuickSightTemplateFreeFormLayoutElementBorderStyle {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Visibility {
+                'Visibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

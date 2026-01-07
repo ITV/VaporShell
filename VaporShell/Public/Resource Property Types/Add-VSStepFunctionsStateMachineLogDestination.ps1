@@ -19,7 +19,7 @@ function Add-VSStepFunctionsStateMachineLogDestination {
     #>
 
     [OutputType('Vaporshell.Resource.StepFunctions.StateMachine.LogDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

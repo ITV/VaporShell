@@ -28,7 +28,7 @@ function Add-VSQuickSightDataSetColumnLevelPermissionRule {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.ColumnLevelPermissionRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSEvidentlyExperimentRunningStatusObject {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Experiment.RunningStatusObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

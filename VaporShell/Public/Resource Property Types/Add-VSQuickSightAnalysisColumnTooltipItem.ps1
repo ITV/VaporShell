@@ -39,7 +39,7 @@ function Add-VSQuickSightAnalysisColumnTooltipItem {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ColumnTooltipItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

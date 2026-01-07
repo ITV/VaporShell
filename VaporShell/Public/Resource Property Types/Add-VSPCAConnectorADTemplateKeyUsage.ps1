@@ -24,7 +24,7 @@ function Add-VSPCAConnectorADTemplateKeyUsage {
     #>
 
     [OutputType('Vaporshell.Resource.PCAConnectorAD.Template.KeyUsage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

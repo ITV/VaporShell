@@ -38,7 +38,7 @@ function Add-VSEC2VerifiedAccessEndpointCidrOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessEndpoint.CidrOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

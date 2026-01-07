@@ -19,7 +19,7 @@ function Add-VSLexBotAliasTextLogDestination {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.BotAlias.TextLogDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

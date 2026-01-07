@@ -48,7 +48,7 @@ function Add-VSMSKClusterBrokerNodeGroupInfo {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.BrokerNodeGroupInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -13,7 +13,7 @@ function Add-VSQuickSightDataSetIntegerDatasetParameterDefaultValues {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameterdefaultvalues.html#cfn-quicksight-dataset-integerdatasetparameterdefaultvalues-staticvalues
         UpdateType: Mutable
         Type: List
-        PrimitiveItemType: Double
+        PrimitiveItemType: Long
         DuplicatesAllowed: True
 
     .FUNCTIONALITY
@@ -21,7 +21,7 @@ function Add-VSQuickSightDataSetIntegerDatasetParameterDefaultValues {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.IntegerDatasetParameterDefaultValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

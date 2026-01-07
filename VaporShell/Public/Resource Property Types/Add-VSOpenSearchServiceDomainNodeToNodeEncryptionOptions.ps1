@@ -19,7 +19,7 @@ function Add-VSOpenSearchServiceDomainNodeToNodeEncryptionOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.NodeToNodeEncryptionOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

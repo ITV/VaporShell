@@ -31,7 +31,7 @@ function Add-VSQuickSightAnalysisRowAlternateColorOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.RowAlternateColorOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

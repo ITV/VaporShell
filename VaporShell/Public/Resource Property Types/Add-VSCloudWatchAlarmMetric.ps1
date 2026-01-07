@@ -31,7 +31,7 @@ function Add-VSCloudWatchAlarmMetric {
     #>
 
     [OutputType('Vaporshell.Resource.CloudWatch.Alarm.Metric')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

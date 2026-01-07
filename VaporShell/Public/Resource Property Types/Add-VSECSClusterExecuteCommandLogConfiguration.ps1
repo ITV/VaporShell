@@ -39,7 +39,7 @@ function Add-VSECSClusterExecuteCommandLogConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Cluster.ExecuteCommandLogConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

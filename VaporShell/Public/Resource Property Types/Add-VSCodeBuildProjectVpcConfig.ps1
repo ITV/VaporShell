@@ -31,7 +31,7 @@ function Add-VSCodeBuildProjectVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

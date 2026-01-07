@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateDefaultNewSheetConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DefaultNewSheetConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

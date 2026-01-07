@@ -29,7 +29,7 @@ function Add-VSKinesisAnalyticsV2ApplicationCustomArtifactConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.CustomArtifactConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

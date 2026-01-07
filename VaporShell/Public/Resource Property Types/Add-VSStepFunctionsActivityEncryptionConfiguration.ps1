@@ -29,7 +29,7 @@ function Add-VSStepFunctionsActivityEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.StepFunctions.Activity.EncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

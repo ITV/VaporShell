@@ -38,7 +38,7 @@ function Add-VSGreengrassV2ComponentVersionLambdaContainerParams {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaContainerParams')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

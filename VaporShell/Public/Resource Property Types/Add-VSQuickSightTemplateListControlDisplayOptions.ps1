@@ -34,7 +34,7 @@ function Add-VSQuickSightTemplateListControlDisplayOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ListControlDisplayOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

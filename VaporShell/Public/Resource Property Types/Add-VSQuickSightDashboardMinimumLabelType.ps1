@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardMinimumLabelType {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.MinimumLabelType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

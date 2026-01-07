@@ -24,7 +24,7 @@ function Add-VSGameLiftContainerGroupDefinitionContainerDependency {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerGroupDefinition.ContainerDependency')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

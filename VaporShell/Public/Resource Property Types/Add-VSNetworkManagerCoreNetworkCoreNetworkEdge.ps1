@@ -31,7 +31,7 @@ function Add-VSNetworkManagerCoreNetworkCoreNetworkEdge {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.CoreNetwork.CoreNetworkEdge')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

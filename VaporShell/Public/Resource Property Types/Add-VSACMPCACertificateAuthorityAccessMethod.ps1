@@ -24,7 +24,7 @@ function Add-VSACMPCACertificateAuthorityAccessMethod {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.CertificateAuthority.AccessMethod')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

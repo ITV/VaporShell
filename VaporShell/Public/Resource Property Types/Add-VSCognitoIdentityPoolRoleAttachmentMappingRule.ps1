@@ -34,7 +34,7 @@ function Add-VSCognitoIdentityPoolRoleAttachmentMappingRule {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.IdentityPoolRoleAttachment.MappingRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

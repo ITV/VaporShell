@@ -24,7 +24,7 @@ function Add-VSVpcLatticeListenerDefaultAction {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.Listener.DefaultAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

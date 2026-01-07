@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisCascadingControlSource {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.CascadingControlSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

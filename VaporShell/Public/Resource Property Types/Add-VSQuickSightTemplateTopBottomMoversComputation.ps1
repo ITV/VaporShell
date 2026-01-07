@@ -54,7 +54,7 @@ function Add-VSQuickSightTemplateTopBottomMoversComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TopBottomMoversComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

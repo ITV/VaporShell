@@ -29,7 +29,7 @@ function Add-VSSageMakerEndpointDeploymentConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Endpoint.DeploymentConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

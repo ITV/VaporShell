@@ -26,7 +26,7 @@ function Add-VSCloudFrontDistributionStatusCodes {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.StatusCodes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

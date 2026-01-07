@@ -29,7 +29,7 @@ function Add-VSQuickSightDataSourcePostgreSqlParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.PostgreSqlParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

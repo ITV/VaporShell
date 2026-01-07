@@ -29,7 +29,7 @@ function Add-VSSageMakerWorkteamCognitoMemberDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Workteam.CognitoMemberDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

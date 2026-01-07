@@ -34,7 +34,7 @@ function Add-VSDynamoDBGlobalTableTargetTrackingScalingPolicyConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.TargetTrackingScalingPolicyConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

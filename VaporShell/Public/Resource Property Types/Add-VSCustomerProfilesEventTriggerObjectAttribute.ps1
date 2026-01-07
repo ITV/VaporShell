@@ -36,7 +36,7 @@ function Add-VSCustomerProfilesEventTriggerObjectAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.EventTrigger.ObjectAttribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSIoTSiteWiseAssetModelExpressionVariable {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.AssetModel.ExpressionVariable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

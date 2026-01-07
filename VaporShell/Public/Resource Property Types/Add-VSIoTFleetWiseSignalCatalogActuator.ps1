@@ -56,7 +56,7 @@ function Add-VSIoTFleetWiseSignalCatalogActuator {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.SignalCatalog.Actuator')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,7 +44,7 @@ function Add-VSIoTMitigationActionActionParams {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.MitigationAction.ActionParams')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -64,7 +64,7 @@ function Add-VSCodeBuildProjectSource {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.Source')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

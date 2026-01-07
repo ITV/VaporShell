@@ -24,7 +24,7 @@ function Add-VSIoTTopicRuleHttpActionHeader {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.HttpActionHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

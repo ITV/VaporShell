@@ -26,7 +26,7 @@ function Add-VSTimestreamScheduledQueryMultiMeasureMappings {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.ScheduledQuery.MultiMeasureMappings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

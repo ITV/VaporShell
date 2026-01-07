@@ -10,7 +10,7 @@ function Add-VSGlueTableOptimizerRetentionConfiguration {
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-retentionconfiguration.html
 
     .PARAMETER IcebergConfiguration
-        Type: IcebergConfiguration
+        Type: IcebergRetentionConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-retentionconfiguration.html#cfn-glue-tableoptimizer-tableoptimizerconfiguration-retentionconfiguration-icebergconfiguration
         UpdateType: Mutable
 
@@ -19,7 +19,7 @@ function Add-VSGlueTableOptimizerRetentionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.TableOptimizer.RetentionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

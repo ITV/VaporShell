@@ -24,7 +24,7 @@ function Add-VSRoute53HealthCheckAlarmIdentifier {
     #>
 
     [OutputType('Vaporshell.Resource.Route53.HealthCheck.AlarmIdentifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

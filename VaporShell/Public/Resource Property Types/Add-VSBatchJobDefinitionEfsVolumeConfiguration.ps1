@@ -39,7 +39,7 @@ function Add-VSBatchJobDefinitionEFSVolumeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.EFSVolumeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateForecastScenario {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ForecastScenario')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

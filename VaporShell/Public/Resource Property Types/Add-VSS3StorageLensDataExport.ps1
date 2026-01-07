@@ -9,6 +9,11 @@ function Add-VSS3StorageLensDataExport {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html
 
+    .PARAMETER StorageLensTableDestination
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-storagelenstabledestination
+        UpdateType: Mutable
+        Type: StorageLensTableDestination
+
     .PARAMETER S3BucketDestination
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html#cfn-s3-storagelens-dataexport-s3bucketdestination
         UpdateType: Mutable
@@ -24,10 +29,13 @@ function Add-VSS3StorageLensDataExport {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.DataExport')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $StorageLensTableDestination,
+
         [Parameter(Mandatory = $false)]
         $S3BucketDestination,
 

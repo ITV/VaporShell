@@ -39,7 +39,7 @@ function Add-VSDataSyncTaskTaskReportConfig {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.Task.TaskReportConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

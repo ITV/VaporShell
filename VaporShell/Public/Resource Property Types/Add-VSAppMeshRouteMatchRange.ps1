@@ -24,7 +24,7 @@ function Add-VSAppMeshRouteMatchRange {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.MatchRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

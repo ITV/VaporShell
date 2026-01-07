@@ -28,7 +28,7 @@ function Add-VSLexBotConversationLogSettings {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.ConversationLogSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

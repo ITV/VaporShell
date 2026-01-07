@@ -34,7 +34,7 @@ function Add-VSGammaDilithiumJobDefinitionEvaluateOnExit {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.EvaluateOnExit')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSAutoScalingAutoScalingGroupAvailabilityZoneDistribution {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.AvailabilityZoneDistribution')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

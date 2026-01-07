@@ -24,7 +24,7 @@ function Add-VSWisdomAIGuardrailGuardrailPiiEntityConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIGuardrail.GuardrailPiiEntityConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

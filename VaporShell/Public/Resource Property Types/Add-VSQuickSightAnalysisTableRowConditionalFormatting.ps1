@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisTableRowConditionalFormatting {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TableRowConditionalFormatting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

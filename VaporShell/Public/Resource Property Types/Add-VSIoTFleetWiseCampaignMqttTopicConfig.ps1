@@ -11,12 +11,12 @@ function Add-VSIoTFleetWiseCampaignMqttTopicConfig {
 
     .PARAMETER ExecutionRoleArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-mqtttopicconfig.html#cfn-iotfleetwise-campaign-mqtttopicconfig-executionrolearn
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER MqttTopicArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-mqtttopicconfig.html#cfn-iotfleetwise-campaign-mqtttopicconfig-mqtttopicarn
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -24,7 +24,7 @@ function Add-VSIoTFleetWiseCampaignMqttTopicConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.MqttTopicConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

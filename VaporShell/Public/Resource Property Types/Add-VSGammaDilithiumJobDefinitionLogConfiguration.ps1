@@ -30,7 +30,7 @@ function Add-VSGammaDilithiumJobDefinitionLogConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.LogConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -80,7 +80,7 @@ function Add-VSGammaDilithiumJobDefinitionLogConfiguration {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Options {
+                'Options' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

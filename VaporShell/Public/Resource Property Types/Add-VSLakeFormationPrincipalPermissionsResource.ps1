@@ -54,7 +54,7 @@ function Add-VSLakeFormationPrincipalPermissionsResource {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.PrincipalPermissions.Resource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -101,7 +101,7 @@ function Add-VSLakeFormationPrincipalPermissionsResource {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Catalog {
+                'Catalog' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

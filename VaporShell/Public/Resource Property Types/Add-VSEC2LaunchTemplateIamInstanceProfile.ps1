@@ -24,7 +24,7 @@ function Add-VSEC2LaunchTemplateIamInstanceProfile {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.IamInstanceProfile')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

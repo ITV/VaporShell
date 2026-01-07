@@ -24,7 +24,7 @@ function Add-VSAppFlowFlowTaskPropertiesObject {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.TaskPropertiesObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

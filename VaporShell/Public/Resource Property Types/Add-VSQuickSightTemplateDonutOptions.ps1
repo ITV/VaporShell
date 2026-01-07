@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateDonutOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DonutOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

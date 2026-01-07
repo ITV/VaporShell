@@ -24,7 +24,7 @@ function Add-VSLightsailInstanceLocation {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Instance.Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

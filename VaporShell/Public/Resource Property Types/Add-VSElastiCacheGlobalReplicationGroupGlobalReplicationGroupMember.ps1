@@ -29,7 +29,7 @@ function Add-VSElastiCacheGlobalReplicationGroupGlobalReplicationGroupMember {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.GlobalReplicationGroup.GlobalReplicationGroupMember')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

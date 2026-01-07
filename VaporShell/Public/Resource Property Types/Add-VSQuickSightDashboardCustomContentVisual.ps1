@@ -51,7 +51,7 @@ function Add-VSQuickSightDashboardCustomContentVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.CustomContentVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

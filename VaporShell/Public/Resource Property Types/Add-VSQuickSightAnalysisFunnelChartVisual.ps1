@@ -53,7 +53,7 @@ function Add-VSQuickSightAnalysisFunnelChartVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FunnelChartVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

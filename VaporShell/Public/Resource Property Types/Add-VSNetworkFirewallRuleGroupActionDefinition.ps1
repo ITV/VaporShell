@@ -19,7 +19,7 @@ function Add-VSNetworkFirewallRuleGroupActionDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.ActionDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

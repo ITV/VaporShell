@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardDataPointTooltipOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DataPointTooltipOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

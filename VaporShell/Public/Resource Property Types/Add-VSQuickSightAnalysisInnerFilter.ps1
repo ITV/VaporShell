@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisInnerFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.InnerFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

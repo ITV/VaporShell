@@ -24,7 +24,7 @@ function Add-VSSecurityHubAutomationRuleRelatedFinding {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.RelatedFinding')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,7 +62,7 @@ function Add-VSSecurityHubAutomationRuleRelatedFinding {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Id {
+                'Id' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

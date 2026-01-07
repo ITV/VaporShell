@@ -24,7 +24,7 @@ function Add-VSSchedulerSchedulePlacementStrategy {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.PlacementStrategy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

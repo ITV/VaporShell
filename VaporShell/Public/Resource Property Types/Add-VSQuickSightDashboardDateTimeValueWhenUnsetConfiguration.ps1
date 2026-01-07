@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardDateTimeValueWhenUnsetConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DateTimeValueWhenUnsetConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

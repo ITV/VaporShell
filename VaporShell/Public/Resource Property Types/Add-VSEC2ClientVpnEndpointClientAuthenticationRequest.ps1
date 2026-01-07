@@ -34,7 +34,7 @@ function Add-VSEC2ClientVpnEndpointClientAuthenticationRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.ClientVpnEndpoint.ClientAuthenticationRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

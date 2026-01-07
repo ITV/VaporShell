@@ -21,7 +21,7 @@ function Add-VSSESConfigurationSetEventDestinationCloudWatchDestination {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSetEventDestination.CloudWatchDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardBoxPlotStyleOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.BoxPlotStyleOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

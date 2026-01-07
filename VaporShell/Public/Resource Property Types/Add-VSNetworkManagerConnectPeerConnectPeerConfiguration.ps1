@@ -43,7 +43,7 @@ function Add-VSNetworkManagerConnectPeerConnectPeerConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.ConnectPeer.ConnectPeerConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

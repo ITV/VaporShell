@@ -24,7 +24,7 @@ function Add-VSApplicationSignalsServiceLevelObjectiveDimension {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.Dimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

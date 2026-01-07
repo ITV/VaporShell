@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardUniqueValuesComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.UniqueValuesComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSGlueCrawlerMongoDBTarget {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Crawler.MongoDBTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

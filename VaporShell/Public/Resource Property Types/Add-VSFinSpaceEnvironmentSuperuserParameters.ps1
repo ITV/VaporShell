@@ -29,7 +29,7 @@ function Add-VSFinSpaceEnvironmentSuperuserParameters {
     #>
 
     [OutputType('Vaporshell.Resource.FinSpace.Environment.SuperuserParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSMediaTailorPlaybackConfigurationHlsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.PlaybackConfiguration.HlsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSSESMailManagerRuleSetReplaceRecipientAction {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.ReplaceRecipientAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

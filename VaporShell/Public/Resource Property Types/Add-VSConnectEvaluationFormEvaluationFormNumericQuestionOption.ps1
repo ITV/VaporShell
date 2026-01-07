@@ -14,6 +14,11 @@ function Add-VSConnectEvaluationFormEvaluationFormNumericQuestionOption {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER AutomaticFailConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-automaticfailconfiguration
+        UpdateType: Mutable
+        Type: AutomaticFailConfiguration
+
     .PARAMETER MinValue
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformnumericquestionoption.html#cfn-connect-evaluationform-evaluationformnumericquestionoption-minvalue
         UpdateType: Mutable
@@ -34,7 +39,7 @@ function Add-VSConnectEvaluationFormEvaluationFormNumericQuestionOption {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.EvaluationFormNumericQuestionOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -49,6 +54,9 @@ function Add-VSConnectEvaluationFormEvaluationFormNumericQuestionOption {
                 }
             })]
         $Score,
+
+        [Parameter(Mandatory = $false)]
+        $AutomaticFailConfiguration,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

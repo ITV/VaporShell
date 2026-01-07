@@ -24,7 +24,7 @@ function Add-VSLexBotDefaultConditionalBranch {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.DefaultConditionalBranch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

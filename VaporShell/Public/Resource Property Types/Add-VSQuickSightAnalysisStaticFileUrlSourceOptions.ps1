@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisStaticFileUrlSourceOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.StaticFileUrlSourceOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

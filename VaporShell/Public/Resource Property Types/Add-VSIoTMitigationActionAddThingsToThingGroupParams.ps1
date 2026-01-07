@@ -26,7 +26,7 @@ function Add-VSIoTMitigationActionAddThingsToThingGroupParams {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.MitigationAction.AddThingsToThingGroupParams')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

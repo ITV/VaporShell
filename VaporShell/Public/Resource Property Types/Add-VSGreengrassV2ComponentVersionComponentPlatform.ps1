@@ -25,7 +25,7 @@ function Add-VSGreengrassV2ComponentVersionComponentPlatform {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.ComponentVersion.ComponentPlatform')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

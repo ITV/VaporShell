@@ -24,7 +24,7 @@ function Add-VSWAFv2RuleGroupLabelMatchStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.LabelMatchStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

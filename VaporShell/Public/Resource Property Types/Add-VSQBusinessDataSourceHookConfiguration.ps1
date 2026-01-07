@@ -34,7 +34,7 @@ function Add-VSQBusinessDataSourceHookConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.DataSource.HookConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

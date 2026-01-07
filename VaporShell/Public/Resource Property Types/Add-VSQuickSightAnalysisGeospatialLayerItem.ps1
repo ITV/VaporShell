@@ -61,7 +61,7 @@ function Add-VSQuickSightAnalysisGeospatialLayerItem {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialLayerItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

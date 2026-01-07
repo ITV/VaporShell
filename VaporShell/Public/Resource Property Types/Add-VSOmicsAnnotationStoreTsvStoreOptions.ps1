@@ -30,7 +30,7 @@ function Add-VSOmicsAnnotationStoreTsvStoreOptions {
     #>
 
     [OutputType('Vaporshell.Resource.Omics.AnnotationStore.TsvStoreOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -72,7 +72,7 @@ function Add-VSOmicsAnnotationStoreTsvStoreOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Schema {
+                'Schema' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

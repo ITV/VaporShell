@@ -9,6 +9,11 @@ function Add-VSQuickSightDataSetProjectOperation {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html
 
+    .PARAMETER Alias
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-alias
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER ProjectedColumns
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-projectedcolumns
         UpdateType: Mutable
@@ -16,17 +21,37 @@ function Add-VSQuickSightDataSetProjectOperation {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER Source
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html#cfn-quicksight-dataset-projectoperation-source
+        UpdateType: Mutable
+        Type: TransformOperationSource
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.ProjectOperation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true)]
-        $ProjectedColumns
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Alias,
+
+        [Parameter(Mandatory = $false)]
+        $ProjectedColumns,
+
+        [Parameter(Mandatory = $false)]
+        $Source
 
     )
 

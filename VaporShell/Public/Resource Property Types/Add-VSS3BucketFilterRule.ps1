@@ -24,7 +24,7 @@ function Add-VSS3BucketFilterRule {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.FilterRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSConnectCampaignsV2CampaignEmailOutboundConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.EmailOutboundConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

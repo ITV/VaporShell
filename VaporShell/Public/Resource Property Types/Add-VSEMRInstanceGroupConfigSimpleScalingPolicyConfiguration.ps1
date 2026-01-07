@@ -29,7 +29,7 @@ function Add-VSEMRInstanceGroupConfigSimpleScalingPolicyConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceGroupConfig.SimpleScalingPolicyConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

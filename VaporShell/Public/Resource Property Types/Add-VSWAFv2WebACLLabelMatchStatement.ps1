@@ -24,7 +24,7 @@ function Add-VSWAFv2WebACLLabelMatchStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.LabelMatchStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

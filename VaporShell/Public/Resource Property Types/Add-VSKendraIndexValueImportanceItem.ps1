@@ -24,7 +24,7 @@ function Add-VSKendraIndexValueImportanceItem {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.Index.ValueImportanceItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSLicenseManagerLicenseMetadata {
     #>
 
     [OutputType('Vaporshell.Resource.LicenseManager.License.Metadata')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -67,7 +67,7 @@ function Add-VSBatchJobDefinitionEksContainer {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.EksContainer')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

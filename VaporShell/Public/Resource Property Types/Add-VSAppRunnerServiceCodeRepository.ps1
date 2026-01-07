@@ -34,7 +34,7 @@ function Add-VSAppRunnerServiceCodeRepository {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.CodeRepository')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

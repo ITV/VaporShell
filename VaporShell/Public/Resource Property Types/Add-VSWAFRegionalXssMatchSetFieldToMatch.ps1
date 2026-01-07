@@ -24,7 +24,7 @@ function Add-VSWAFRegionalXssMatchSetFieldToMatch {
     #>
 
     [OutputType('Vaporshell.Resource.WAFRegional.XssMatchSet.FieldToMatch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

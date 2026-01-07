@@ -31,7 +31,7 @@ function Add-VSCodePipelinePipelineGitPullRequestFilter {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.GitPullRequestFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

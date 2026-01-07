@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateSectionLayoutConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SectionLayoutConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

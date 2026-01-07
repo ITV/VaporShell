@@ -19,7 +19,7 @@ function Add-VSElasticsearchDomainZoneAwarenessConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.ZoneAwarenessConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -31,7 +31,7 @@ function Add-VSApiGatewayMethodMethodResponse {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.Method.MethodResponse')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

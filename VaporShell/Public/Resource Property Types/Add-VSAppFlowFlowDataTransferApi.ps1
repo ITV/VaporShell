@@ -24,7 +24,7 @@ function Add-VSAppFlowFlowDataTransferApi {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.DataTransferApi')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEFSAccessPointRootDirectory {
     #>
 
     [OutputType('Vaporshell.Resource.EFS.AccessPoint.RootDirectory')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

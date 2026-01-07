@@ -19,7 +19,7 @@ function Add-VSPinpointEmailConfigurationSetDeliveryOptions {
     #>
 
     [OutputType('Vaporshell.Resource.PinpointEmail.ConfigurationSet.DeliveryOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

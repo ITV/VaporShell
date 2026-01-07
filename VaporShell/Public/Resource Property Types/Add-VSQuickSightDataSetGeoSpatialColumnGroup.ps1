@@ -31,7 +31,7 @@ function Add-VSQuickSightDataSetGeoSpatialColumnGroup {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.GeoSpatialColumnGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

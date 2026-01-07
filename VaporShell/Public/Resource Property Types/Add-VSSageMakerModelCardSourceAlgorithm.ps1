@@ -24,7 +24,7 @@ function Add-VSSageMakerModelCardSourceAlgorithm {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.SourceAlgorithm')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

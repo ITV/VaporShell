@@ -90,7 +90,7 @@ function Add-VSSchedulerScheduleEcsParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.EcsParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -263,7 +263,7 @@ function Add-VSSchedulerScheduleEcsParameters {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Tags {
+                'Tags' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

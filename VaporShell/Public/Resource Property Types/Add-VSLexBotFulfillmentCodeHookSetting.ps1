@@ -34,7 +34,7 @@ function Add-VSLexBotFulfillmentCodeHookSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.FulfillmentCodeHookSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

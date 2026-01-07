@@ -19,7 +19,7 @@ function Add-VSIVSRecordingConfigurationS3DestinationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IVS.RecordingConfiguration.S3DestinationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

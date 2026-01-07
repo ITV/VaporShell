@@ -29,7 +29,7 @@ function Add-VSQuickSightDataSourceAuroraParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.AuroraParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

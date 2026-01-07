@@ -19,6 +19,11 @@ function Add-VSBatchJobDefinitionEksContainerVolumeMount {
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER SubPath
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainervolumemount.html#cfn-batch-jobdefinition-ekscontainervolumemount-subpath
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainervolumemount.html#cfn-batch-jobdefinition-ekscontainervolumemount-name
         UpdateType: Mutable
@@ -29,7 +34,7 @@ function Add-VSBatchJobDefinitionEksContainerVolumeMount {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.EksContainerVolumeMount')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -56,6 +61,18 @@ function Add-VSBatchJobDefinitionEksContainerVolumeMount {
                 }
             })]
         $ReadOnly,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SubPath,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

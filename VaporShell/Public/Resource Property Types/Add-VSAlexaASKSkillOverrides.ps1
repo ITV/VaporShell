@@ -19,7 +19,7 @@ function Add-VSAlexaASKSkillOverrides {
     #>
 
     [OutputType('Vaporshell.Resource.Alexa.ASK.Skill.Overrides')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -45,7 +45,7 @@ function Add-VSAlexaASKSkillOverrides {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Manifest {
+                'Manifest' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

@@ -24,7 +24,7 @@ function Add-VSSchedulerSchedulePlacementConstraint {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.PlacementConstraint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

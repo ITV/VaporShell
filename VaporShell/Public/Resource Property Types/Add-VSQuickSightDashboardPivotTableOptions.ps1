@@ -79,7 +79,7 @@ function Add-VSQuickSightDashboardPivotTableOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PivotTableOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

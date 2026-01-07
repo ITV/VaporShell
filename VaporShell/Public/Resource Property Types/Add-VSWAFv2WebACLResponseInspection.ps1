@@ -34,7 +34,7 @@ function Add-VSWAFv2WebACLResponseInspection {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ResponseInspection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

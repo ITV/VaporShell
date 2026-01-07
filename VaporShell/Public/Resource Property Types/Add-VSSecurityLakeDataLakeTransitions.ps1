@@ -24,7 +24,7 @@ function Add-VSSecurityLakeDataLakeTransitions {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityLake.DataLake.Transitions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

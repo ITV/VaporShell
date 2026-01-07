@@ -19,7 +19,7 @@ function Add-VSCustomerProfilesIntegrationTriggerProperties {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.TriggerProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

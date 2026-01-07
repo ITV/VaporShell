@@ -34,7 +34,7 @@ function Add-VSGreengrassDeviceDefinitionVersionDevice {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.DeviceDefinitionVersion.Device')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

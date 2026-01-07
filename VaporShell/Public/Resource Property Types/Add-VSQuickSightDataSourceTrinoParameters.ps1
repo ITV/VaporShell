@@ -29,7 +29,7 @@ function Add-VSQuickSightDataSourceTrinoParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.TrinoParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

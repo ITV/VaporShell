@@ -19,7 +19,7 @@ function Add-VSACMPCACertificateQualifier {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.Certificate.Qualifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

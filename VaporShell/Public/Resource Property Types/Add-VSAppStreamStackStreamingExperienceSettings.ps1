@@ -19,7 +19,7 @@ function Add-VSAppStreamStackStreamingExperienceSettings {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.Stack.StreamingExperienceSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

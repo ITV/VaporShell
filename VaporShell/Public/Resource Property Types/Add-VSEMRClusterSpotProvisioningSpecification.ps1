@@ -34,7 +34,7 @@ function Add-VSEMRClusterSpotProvisioningSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.SpotProvisioningSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

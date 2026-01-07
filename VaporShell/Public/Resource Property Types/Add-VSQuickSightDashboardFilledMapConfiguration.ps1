@@ -34,6 +34,11 @@ function Add-VSQuickSightDashboardFilledMapConfiguration {
         UpdateType: Mutable
         Type: TooltipOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filledmapconfiguration.html#cfn-quicksight-dashboard-filledmapconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER WindowOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-filledmapconfiguration.html#cfn-quicksight-dashboard-filledmapconfiguration-windowoptions
         UpdateType: Mutable
@@ -44,7 +49,7 @@ function Add-VSQuickSightDashboardFilledMapConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FilledMapConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,6 +67,9 @@ function Add-VSQuickSightDashboardFilledMapConfiguration {
 
         [Parameter(Mandatory = $false)]
         $Tooltip,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         $WindowOptions

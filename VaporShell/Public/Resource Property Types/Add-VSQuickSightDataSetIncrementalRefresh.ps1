@@ -19,7 +19,7 @@ function Add-VSQuickSightDataSetIncrementalRefresh {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.IncrementalRefresh')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

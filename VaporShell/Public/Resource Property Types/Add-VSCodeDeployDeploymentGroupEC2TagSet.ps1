@@ -21,7 +21,7 @@ function Add-VSCodeDeployDeploymentGroupEC2TagSet {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.EC2TagSet')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

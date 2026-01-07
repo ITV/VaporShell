@@ -19,7 +19,7 @@ function Add-VSEC2VPNConnectionPhase1EncryptionAlgorithmsRequestListValue {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VPNConnection.Phase1EncryptionAlgorithmsRequestListValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

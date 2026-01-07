@@ -24,7 +24,7 @@ function Add-VSPinpointSegmentCoordinates {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Segment.Coordinates')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

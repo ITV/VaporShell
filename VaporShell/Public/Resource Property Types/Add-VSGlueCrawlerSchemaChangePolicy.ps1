@@ -24,7 +24,7 @@ function Add-VSGlueCrawlerSchemaChangePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Crawler.SchemaChangePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

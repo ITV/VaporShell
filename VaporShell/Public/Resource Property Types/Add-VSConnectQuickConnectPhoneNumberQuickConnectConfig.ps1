@@ -19,7 +19,7 @@ function Add-VSConnectQuickConnectPhoneNumberQuickConnectConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.QuickConnect.PhoneNumberQuickConnectConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

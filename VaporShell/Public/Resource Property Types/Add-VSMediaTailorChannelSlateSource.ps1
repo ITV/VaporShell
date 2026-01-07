@@ -24,7 +24,7 @@ function Add-VSMediaTailorChannelSlateSource {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.Channel.SlateSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

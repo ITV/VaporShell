@@ -29,7 +29,7 @@ function Add-VSQBusinessPluginPluginAuthConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Plugin.PluginAuthConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","OAuth2ClientCredentialConfiguration")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","OAuth2ClientCredentialConfiguration")]
 
@@ -63,7 +63,7 @@ function Add-VSQBusinessPluginPluginAuthConfiguration {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                NoAuthConfiguration {
+                'NoAuthConfiguration' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

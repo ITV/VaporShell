@@ -74,6 +74,11 @@ function Add-VSWAFv2WebACLStatement {
         UpdateType: Mutable
         Type: OrStatement
 
+    .PARAMETER AsnMatchStatement
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-asnmatchstatement
+        UpdateType: Mutable
+        Type: AsnMatchStatement
+
     .PARAMETER ManagedRuleGroupStatement
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-managedrulegroupstatement
         UpdateType: Mutable
@@ -89,7 +94,7 @@ function Add-VSWAFv2WebACLStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.Statement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -131,6 +136,9 @@ function Add-VSWAFv2WebACLStatement {
 
         [Parameter(Mandatory = $false)]
         $OrStatement,
+
+        [Parameter(Mandatory = $false)]
+        $AsnMatchStatement,
 
         [Parameter(Mandatory = $false)]
         $ManagedRuleGroupStatement,

@@ -19,7 +19,7 @@ function Add-VSEKSClusterStorageConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.StorageConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

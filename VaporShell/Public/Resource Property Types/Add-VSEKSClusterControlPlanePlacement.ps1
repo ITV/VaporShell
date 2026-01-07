@@ -19,7 +19,7 @@ function Add-VSEKSClusterControlPlanePlacement {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.ControlPlanePlacement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

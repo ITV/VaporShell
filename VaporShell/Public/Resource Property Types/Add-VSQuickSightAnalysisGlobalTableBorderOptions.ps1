@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisGlobalTableBorderOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GlobalTableBorderOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

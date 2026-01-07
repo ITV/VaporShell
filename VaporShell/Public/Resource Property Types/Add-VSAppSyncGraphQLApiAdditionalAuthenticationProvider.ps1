@@ -34,7 +34,7 @@ function Add-VSAppSyncGraphQLApiAdditionalAuthenticationProvider {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.GraphQLApi.AdditionalAuthenticationProvider')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

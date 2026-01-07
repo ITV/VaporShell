@@ -19,7 +19,7 @@ function Add-VSKafkaConnectCustomPluginCustomPluginLocation {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.CustomPlugin.CustomPluginLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

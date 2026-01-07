@@ -24,7 +24,7 @@ function Add-VSMediaLiveClusterInterfaceMapping {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Cluster.InterfaceMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -52,7 +52,7 @@ function Add-VSIoTSecurityProfileMetricValue {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.SecurityProfile.MetricValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

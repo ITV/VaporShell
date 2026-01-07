@@ -29,7 +29,7 @@ function Add-VSMSKClusterClientAuthentication {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.ClientAuthentication')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

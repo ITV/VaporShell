@@ -29,7 +29,7 @@ function Add-VSApplicationInsightsApplicationJMXPrometheusExporter {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.JMXPrometheusExporter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

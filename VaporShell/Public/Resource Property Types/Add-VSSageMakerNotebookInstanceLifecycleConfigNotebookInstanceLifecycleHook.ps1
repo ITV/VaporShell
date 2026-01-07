@@ -19,7 +19,7 @@ function Add-VSSageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycle
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHook')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

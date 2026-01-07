@@ -19,7 +19,7 @@ function Add-VSEC2InstanceElasticGpuSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.ElasticGpuSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

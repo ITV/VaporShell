@@ -19,7 +19,7 @@ function Add-VSSageMakerMonitoringScheduleJson {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.MonitoringSchedule.Json')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

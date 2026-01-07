@@ -26,7 +26,7 @@ function Add-VSSageMakerSpaceJupyterServerAppSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.JupyterServerAppSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

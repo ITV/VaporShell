@@ -19,7 +19,7 @@ function Add-VSMSKClusterPublicAccess {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.PublicAccess')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSResourceGroupsGroupTagFilter {
     #>
 
     [OutputType('Vaporshell.Resource.ResourceGroups.Group.TagFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

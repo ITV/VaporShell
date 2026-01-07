@@ -19,7 +19,7 @@ function Add-VSServiceDiscoveryServiceHealthCheckCustomConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ServiceDiscovery.Service.HealthCheckCustomConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

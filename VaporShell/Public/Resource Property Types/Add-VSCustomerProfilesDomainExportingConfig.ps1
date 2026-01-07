@@ -19,7 +19,7 @@ function Add-VSCustomerProfilesDomainExportingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Domain.ExportingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

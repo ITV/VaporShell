@@ -40,7 +40,7 @@ function Add-VSPipesPipeBatchContainerOverrides {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.BatchContainerOverrides')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

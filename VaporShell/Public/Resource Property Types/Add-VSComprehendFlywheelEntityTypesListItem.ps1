@@ -19,7 +19,7 @@ function Add-VSComprehendFlywheelEntityTypesListItem {
     #>
 
     [OutputType('Vaporshell.Resource.Comprehend.Flywheel.EntityTypesListItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

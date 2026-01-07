@@ -44,7 +44,7 @@ function Add-VSQuickSightAnalysisLayerMapVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.LayerMapVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

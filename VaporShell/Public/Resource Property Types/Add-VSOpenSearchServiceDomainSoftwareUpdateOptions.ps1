@@ -19,7 +19,7 @@ function Add-VSOpenSearchServiceDomainSoftwareUpdateOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.SoftwareUpdateOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

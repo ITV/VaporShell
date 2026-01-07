@@ -81,7 +81,7 @@ function Add-VSOpenSearchServiceDomainClusterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.ClusterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

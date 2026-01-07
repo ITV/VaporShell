@@ -39,7 +39,7 @@ function Add-VSSESReceiptRuleS3Action {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ReceiptRule.S3Action')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

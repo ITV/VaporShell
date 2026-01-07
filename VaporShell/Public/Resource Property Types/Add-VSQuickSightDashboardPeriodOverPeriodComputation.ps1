@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardPeriodOverPeriodComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PeriodOverPeriodComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

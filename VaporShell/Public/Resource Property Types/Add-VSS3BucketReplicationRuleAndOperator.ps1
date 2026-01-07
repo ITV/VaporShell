@@ -26,7 +26,7 @@ function Add-VSS3BucketReplicationRuleAndOperator {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.ReplicationRuleAndOperator')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

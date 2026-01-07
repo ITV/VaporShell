@@ -34,7 +34,7 @@ function Add-VSHealthLakeFHIRDatastoreIdentityProviderConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.HealthLake.FHIRDatastore.IdentityProviderConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

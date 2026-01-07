@@ -136,7 +136,7 @@ function Add-VSGammaDilithiumJobDefinitionContainerProperties {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.ContainerProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","RepositoryCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","RepositoryCredentials")]
 

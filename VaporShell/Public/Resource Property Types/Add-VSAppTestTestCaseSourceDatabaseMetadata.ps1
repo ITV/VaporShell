@@ -24,7 +24,7 @@ function Add-VSAppTestTestCaseSourceDatabaseMetadata {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.SourceDatabaseMetadata')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSPinpointCampaignCampaignEventFilter {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.CampaignEventFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

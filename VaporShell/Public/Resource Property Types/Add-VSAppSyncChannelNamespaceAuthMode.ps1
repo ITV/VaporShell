@@ -19,7 +19,7 @@ function Add-VSAppSyncChannelNamespaceAuthMode {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.ChannelNamespace.AuthMode')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

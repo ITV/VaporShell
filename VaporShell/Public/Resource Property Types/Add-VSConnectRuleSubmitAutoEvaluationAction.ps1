@@ -19,7 +19,7 @@ function Add-VSConnectRuleSubmitAutoEvaluationAction {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.Rule.SubmitAutoEvaluationAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

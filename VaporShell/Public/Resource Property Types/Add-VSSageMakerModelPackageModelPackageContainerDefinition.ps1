@@ -65,7 +65,7 @@ function Add-VSSageMakerModelPackageModelPackageContainerDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.ModelPackageContainerDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

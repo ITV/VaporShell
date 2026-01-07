@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisLongFormatText {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.LongFormatText')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

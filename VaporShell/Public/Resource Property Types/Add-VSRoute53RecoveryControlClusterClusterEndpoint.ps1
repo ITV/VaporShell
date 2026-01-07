@@ -24,7 +24,7 @@ function Add-VSRoute53RecoveryControlClusterClusterEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.Route53RecoveryControl.Cluster.ClusterEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

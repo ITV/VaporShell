@@ -24,7 +24,7 @@ function Add-VSLexBotAliasLambdaCodeHook {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.BotAlias.LambdaCodeHook')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

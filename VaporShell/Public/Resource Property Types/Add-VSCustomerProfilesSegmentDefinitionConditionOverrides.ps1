@@ -19,7 +19,7 @@ function Add-VSCustomerProfilesSegmentDefinitionConditionOverrides {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.SegmentDefinition.ConditionOverrides')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

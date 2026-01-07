@@ -26,7 +26,7 @@ function Add-VSCleanRoomsMLTrainingDatasetDatasetInputConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRoomsML.TrainingDataset.DatasetInputConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

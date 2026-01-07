@@ -19,7 +19,7 @@ function Add-VSConfigConfigRuleCompliance {
     #>
 
     [OutputType('Vaporshell.Resource.Config.ConfigRule.Compliance')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

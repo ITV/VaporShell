@@ -19,7 +19,7 @@ function Add-VSLightsailInstanceAutoSnapshotAddOn {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Instance.AutoSnapshotAddOn')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

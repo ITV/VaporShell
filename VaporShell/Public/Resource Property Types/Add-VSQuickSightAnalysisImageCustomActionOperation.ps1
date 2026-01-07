@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisImageCustomActionOperation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ImageCustomActionOperation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -45,7 +45,7 @@ function Add-VSS3StorageLensGroupOr {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLensGroup.Or')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

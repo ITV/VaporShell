@@ -29,7 +29,7 @@ function Add-VSCognitoUserPoolClientTokenValidityUnits {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPoolClient.TokenValidityUnits')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSIoTAnalyticsPipelineDeviceShadowEnrich {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Pipeline.DeviceShadowEnrich')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

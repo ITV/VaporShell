@@ -53,7 +53,7 @@ function Add-VSECSTaskDefinitionLinuxParameters {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.LinuxParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

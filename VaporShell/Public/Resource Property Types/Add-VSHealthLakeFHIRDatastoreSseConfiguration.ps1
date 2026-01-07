@@ -19,7 +19,7 @@ function Add-VSHealthLakeFHIRDatastoreSseConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.HealthLake.FHIRDatastore.SseConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

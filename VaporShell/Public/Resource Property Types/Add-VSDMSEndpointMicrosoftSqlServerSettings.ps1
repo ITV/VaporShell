@@ -99,7 +99,7 @@ function Add-VSDMSEndpointMicrosoftSqlServerSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.MicrosoftSqlServerSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
 

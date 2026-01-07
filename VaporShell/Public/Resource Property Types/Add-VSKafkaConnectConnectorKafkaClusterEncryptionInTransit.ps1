@@ -19,7 +19,7 @@ function Add-VSKafkaConnectConnectorKafkaClusterEncryptionInTransit {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.KafkaClusterEncryptionInTransit')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

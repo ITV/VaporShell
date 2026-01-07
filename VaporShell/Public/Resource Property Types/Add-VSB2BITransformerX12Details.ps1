@@ -24,7 +24,7 @@ function Add-VSB2BITransformerX12Details {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Transformer.X12Details')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

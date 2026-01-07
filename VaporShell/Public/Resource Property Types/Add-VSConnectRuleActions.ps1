@@ -70,7 +70,7 @@ function Add-VSConnectRuleActions {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.Rule.Actions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

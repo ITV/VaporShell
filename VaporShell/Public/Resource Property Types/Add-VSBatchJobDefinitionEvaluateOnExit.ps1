@@ -34,7 +34,7 @@ function Add-VSBatchJobDefinitionEvaluateOnExit {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.EvaluateOnExit')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

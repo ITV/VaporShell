@@ -32,7 +32,7 @@ function Add-VSECSServiceLogConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.LogConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

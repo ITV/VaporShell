@@ -31,7 +31,7 @@ function Add-VSQuickSightTemplateFieldBasedTooltip {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FieldBasedTooltip')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -81,7 +81,7 @@ function Add-VSQuickSightTemplateFieldBasedTooltip {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                AggregationVisibility {
+                'AggregationVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

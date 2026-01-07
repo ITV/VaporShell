@@ -34,7 +34,7 @@ function Add-VSEMRServerlessApplicationWorkerConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.WorkerConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSAutoScalingScalingPolicyMetricDimension {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.ScalingPolicy.MetricDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

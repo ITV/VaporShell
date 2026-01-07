@@ -39,7 +39,7 @@ function Add-VSCloudFrontDistributionViewerCertificate {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.ViewerCertificate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

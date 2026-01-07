@@ -19,7 +19,7 @@ function Add-VSBedrockDataSourceServerSideEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.ServerSideEncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

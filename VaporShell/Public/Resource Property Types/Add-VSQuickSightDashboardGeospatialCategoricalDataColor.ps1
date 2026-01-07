@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardGeospatialCategoricalDataColor {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GeospatialCategoricalDataColor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

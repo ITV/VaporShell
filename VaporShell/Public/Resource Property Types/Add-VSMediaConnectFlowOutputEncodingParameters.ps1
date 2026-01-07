@@ -24,7 +24,7 @@ function Add-VSMediaConnectFlowOutputEncodingParameters {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.FlowOutput.EncodingParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

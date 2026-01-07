@@ -19,7 +19,7 @@ function Add-VSSageMakerModelCardModelPackageCreator {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.ModelPackageCreator')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

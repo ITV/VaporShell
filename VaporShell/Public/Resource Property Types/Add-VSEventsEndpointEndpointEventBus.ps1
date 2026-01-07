@@ -19,7 +19,7 @@ function Add-VSEventsEndpointEndpointEventBus {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Endpoint.EndpointEventBus')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

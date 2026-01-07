@@ -24,7 +24,7 @@ function Add-VSRDSDBInstanceProcessorFeature {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBInstance.ProcessorFeature')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,6 +24,11 @@ function Add-VSBedrockKnowledgeBaseRdsFieldMapping {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER CustomMetadataField
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsfieldmapping.html#cfn-bedrock-knowledgebase-rdsfieldmapping-custommetadatafield
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .PARAMETER MetadataField
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-rdsfieldmapping.html#cfn-bedrock-knowledgebase-rdsfieldmapping-metadatafield
         UpdateType: Immutable
@@ -34,7 +39,7 @@ function Add-VSBedrockKnowledgeBaseRdsFieldMapping {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.RdsFieldMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -73,6 +78,18 @@ function Add-VSBedrockKnowledgeBaseRdsFieldMapping {
                 }
             })]
         $TextField,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CustomMetadataField,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

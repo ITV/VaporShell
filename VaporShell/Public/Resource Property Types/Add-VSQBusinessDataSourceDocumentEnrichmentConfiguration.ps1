@@ -31,7 +31,7 @@ function Add-VSQBusinessDataSourceDocumentEnrichmentConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.DataSource.DocumentEnrichmentConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

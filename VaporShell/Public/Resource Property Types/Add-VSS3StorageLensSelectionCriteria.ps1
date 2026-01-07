@@ -29,7 +29,7 @@ function Add-VSS3StorageLensSelectionCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.SelectionCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

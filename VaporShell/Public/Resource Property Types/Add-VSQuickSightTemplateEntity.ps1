@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateEntity {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.Entity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

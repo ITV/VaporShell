@@ -26,7 +26,7 @@ function Add-VSDynamoDBTableCsv {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.Table.Csv')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

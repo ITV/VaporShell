@@ -9,6 +9,16 @@ function Add-VSQBusinessDataSourceMediaExtractionConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-mediaextractionconfiguration.html
 
+    .PARAMETER VideoExtractionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-mediaextractionconfiguration.html#cfn-qbusiness-datasource-mediaextractionconfiguration-videoextractionconfiguration
+        UpdateType: Mutable
+        Type: VideoExtractionConfiguration
+
+    .PARAMETER AudioExtractionConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-mediaextractionconfiguration.html#cfn-qbusiness-datasource-mediaextractionconfiguration-audioextractionconfiguration
+        UpdateType: Mutable
+        Type: AudioExtractionConfiguration
+
     .PARAMETER ImageExtractionConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-mediaextractionconfiguration.html#cfn-qbusiness-datasource-mediaextractionconfiguration-imageextractionconfiguration
         UpdateType: Mutable
@@ -19,10 +29,16 @@ function Add-VSQBusinessDataSourceMediaExtractionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.DataSource.MediaExtractionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $VideoExtractionConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $AudioExtractionConfiguration,
+
         [Parameter(Mandatory = $false)]
         $ImageExtractionConfiguration
 

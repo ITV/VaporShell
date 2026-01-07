@@ -24,7 +24,7 @@ function Add-VSAppRunnerServiceServiceObservabilityConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.ServiceObservabilityConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

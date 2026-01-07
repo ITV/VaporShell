@@ -25,7 +25,7 @@ function Add-VSGreengrassResourceDefinitionVersionSecretsManagerSecretResourceDa
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.ResourceDefinitionVersion.SecretsManagerSecretResourceData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

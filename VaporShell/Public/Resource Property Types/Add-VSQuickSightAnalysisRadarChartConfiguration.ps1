@@ -79,6 +79,11 @@ function Add-VSQuickSightAnalysisRadarChartConfiguration {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-radarchartconfiguration.html#cfn-quicksight-analysis-radarchartconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER AlternateBandEvenColor
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-radarchartconfiguration.html#cfn-quicksight-analysis-radarchartconfiguration-alternatebandevencolor
         UpdateType: Mutable
@@ -89,7 +94,7 @@ function Add-VSQuickSightAnalysisRadarChartConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.RadarChartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -179,6 +184,9 @@ function Add-VSQuickSightAnalysisRadarChartConfiguration {
                 }
             })]
         $AlternateBandOddColor,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

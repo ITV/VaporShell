@@ -40,7 +40,7 @@ function Add-VSS3BucketNotificationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.NotificationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

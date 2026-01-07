@@ -55,7 +55,7 @@ function Add-VSMediaLiveChannelRtmpGroupSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.RtmpGroupSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

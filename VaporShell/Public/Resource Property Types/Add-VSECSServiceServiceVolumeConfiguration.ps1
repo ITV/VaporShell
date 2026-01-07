@@ -24,7 +24,7 @@ function Add-VSECSServiceServiceVolumeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.ServiceVolumeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

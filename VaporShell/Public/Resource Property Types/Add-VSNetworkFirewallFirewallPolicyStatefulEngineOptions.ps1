@@ -29,7 +29,7 @@ function Add-VSNetworkFirewallFirewallPolicyStatefulEngineOptions {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.FirewallPolicy.StatefulEngineOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

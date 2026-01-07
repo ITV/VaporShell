@@ -34,7 +34,7 @@ function Add-VSEMRClusterVolumeSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.VolumeSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

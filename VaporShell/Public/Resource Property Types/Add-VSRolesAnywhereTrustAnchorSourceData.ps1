@@ -24,7 +24,7 @@ function Add-VSRolesAnywhereTrustAnchorSourceData {
     #>
 
     [OutputType('Vaporshell.Resource.RolesAnywhere.TrustAnchor.SourceData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

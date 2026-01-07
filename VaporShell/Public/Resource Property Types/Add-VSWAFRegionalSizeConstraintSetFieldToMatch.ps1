@@ -24,7 +24,7 @@ function Add-VSWAFRegionalSizeConstraintSetFieldToMatch {
     #>
 
     [OutputType('Vaporshell.Resource.WAFRegional.SizeConstraintSet.FieldToMatch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSAppMeshGatewayRouteGatewayRouteSpec {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.GatewayRouteSpec')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

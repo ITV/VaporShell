@@ -33,7 +33,7 @@ function Add-VSMediaLiveSignalMapMediaResource {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.SignalMap.MediaResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

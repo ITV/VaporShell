@@ -19,7 +19,7 @@ function Add-VSSageMakerSpaceOwnershipSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.OwnershipSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -41,7 +41,7 @@ function Add-VSElastiCacheReplicationGroupNodeGroupConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.ReplicationGroup.NodeGroupConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSConnectCampaignsCampaignOutboundCallConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaigns.Campaign.OutboundCallConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

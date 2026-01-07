@@ -44,7 +44,7 @@ function Add-VSOpenSearchServiceDomainIdentityCenterOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.IdentityCenterOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSAutoScalingAutoScalingGroupTotalLocalStorageGBRequest {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.TotalLocalStorageGBRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

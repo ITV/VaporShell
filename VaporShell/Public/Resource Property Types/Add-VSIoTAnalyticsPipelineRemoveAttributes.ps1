@@ -31,7 +31,7 @@ function Add-VSIoTAnalyticsPipelineRemoveAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Pipeline.RemoveAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

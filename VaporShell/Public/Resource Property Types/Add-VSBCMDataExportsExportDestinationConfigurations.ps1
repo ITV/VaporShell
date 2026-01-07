@@ -19,7 +19,7 @@ function Add-VSBCMDataExportsExportDestinationConfigurations {
     #>
 
     [OutputType('Vaporshell.Resource.BCMDataExports.Export.DestinationConfigurations')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

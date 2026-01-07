@@ -9,6 +9,11 @@ function Add-VSBedrockGuardrailContentPolicyConfig {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html
 
+    .PARAMETER ContentFiltersTierConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html#cfn-bedrock-guardrail-contentpolicyconfig-contentfilterstierconfig
+        UpdateType: Mutable
+        Type: ContentFiltersTierConfig
+
     .PARAMETER FiltersConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contentpolicyconfig.html#cfn-bedrock-guardrail-contentpolicyconfig-filtersconfig
         UpdateType: Mutable
@@ -21,10 +26,13 @@ function Add-VSBedrockGuardrailContentPolicyConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Guardrail.ContentPolicyConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $ContentFiltersTierConfig,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Bedrock.Guardrail.ContentFilterConfig"

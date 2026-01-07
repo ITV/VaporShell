@@ -28,7 +28,7 @@ function Add-VSCodePipelinePipelineGitFilePathFilterCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.GitFilePathFilterCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

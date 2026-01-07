@@ -19,7 +19,7 @@ function Add-VSOamLinkLinkFilter {
     #>
 
     [OutputType('Vaporshell.Resource.Oam.Link.LinkFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

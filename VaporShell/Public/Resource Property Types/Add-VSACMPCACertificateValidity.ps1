@@ -24,7 +24,7 @@ function Add-VSACMPCACertificateValidity {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.Certificate.Validity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

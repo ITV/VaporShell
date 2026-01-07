@@ -24,7 +24,7 @@ function Add-VSAppTestTestCaseTestCaseLatestVersion {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.TestCaseLatestVersion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

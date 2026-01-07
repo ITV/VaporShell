@@ -19,7 +19,7 @@ function Add-VSAppMeshMeshMeshServiceDiscovery {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Mesh.MeshServiceDiscovery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSS3StorageLensGroupMatchObjectAge {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLensGroup.MatchObjectAge')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

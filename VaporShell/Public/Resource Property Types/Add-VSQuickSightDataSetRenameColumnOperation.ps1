@@ -24,7 +24,7 @@ function Add-VSQuickSightDataSetRenameColumnOperation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.RenameColumnOperation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

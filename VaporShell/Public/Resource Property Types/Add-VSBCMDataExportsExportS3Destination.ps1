@@ -34,7 +34,7 @@ function Add-VSBCMDataExportsExportS3Destination {
     #>
 
     [OutputType('Vaporshell.Resource.BCMDataExports.Export.S3Destination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

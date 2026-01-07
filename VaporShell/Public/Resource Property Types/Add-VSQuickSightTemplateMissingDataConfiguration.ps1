@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateMissingDataConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.MissingDataConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

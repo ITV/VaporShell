@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowMarketoSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.MarketoSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

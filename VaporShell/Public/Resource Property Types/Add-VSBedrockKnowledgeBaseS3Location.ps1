@@ -19,7 +19,7 @@ function Add-VSBedrockKnowledgeBaseS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

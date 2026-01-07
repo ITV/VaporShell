@@ -19,7 +19,7 @@ function Add-VSEC2InstanceEnclaveOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.EnclaveOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateNullValueFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.NullValueFormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

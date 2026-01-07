@@ -34,7 +34,7 @@ function Add-VSQuickSightAnalysisGeospatialCoordinateBounds {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialCoordinateBounds')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

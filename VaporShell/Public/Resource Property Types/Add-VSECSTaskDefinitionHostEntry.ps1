@@ -24,7 +24,7 @@ function Add-VSECSTaskDefinitionHostEntry {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.HostEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

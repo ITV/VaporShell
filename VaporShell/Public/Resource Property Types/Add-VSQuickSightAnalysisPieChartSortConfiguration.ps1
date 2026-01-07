@@ -38,7 +38,7 @@ function Add-VSQuickSightAnalysisPieChartSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PieChartSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -80,7 +80,7 @@ function Add-VSXRaySamplingRuleSamplingRule {
     #>
 
     [OutputType('Vaporshell.Resource.XRay.SamplingRule.SamplingRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

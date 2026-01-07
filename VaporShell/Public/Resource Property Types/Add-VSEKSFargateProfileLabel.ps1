@@ -24,7 +24,7 @@ function Add-VSEKSFargateProfileLabel {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.FargateProfile.Label')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

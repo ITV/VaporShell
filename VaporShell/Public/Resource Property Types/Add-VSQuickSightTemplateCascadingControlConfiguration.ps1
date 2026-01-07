@@ -21,7 +21,7 @@ function Add-VSQuickSightTemplateCascadingControlConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.CascadingControlConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

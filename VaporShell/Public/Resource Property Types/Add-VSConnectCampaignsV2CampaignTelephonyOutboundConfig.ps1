@@ -14,6 +14,11 @@ function Add-VSConnectCampaignsV2CampaignTelephonyOutboundConfig {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER RingTimeout
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html#cfn-connectcampaignsv2-campaign-telephonyoutboundconfig-ringtimeout
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
     .PARAMETER AnswerMachineDetectionConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundconfig.html#cfn-connectcampaignsv2-campaign-telephonyoutboundconfig-answermachinedetectionconfig
         UpdateType: Mutable
@@ -29,7 +34,7 @@ function Add-VSConnectCampaignsV2CampaignTelephonyOutboundConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.TelephonyOutboundConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -44,6 +49,18 @@ function Add-VSConnectCampaignsV2CampaignTelephonyOutboundConfig {
                 }
             })]
         $ConnectContactFlowId,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RingTimeout,
 
         [Parameter(Mandatory = $false)]
         $AnswerMachineDetectionConfig,

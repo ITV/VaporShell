@@ -45,7 +45,7 @@ function Add-VSTransferServerEndpointDetails {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.Server.EndpointDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

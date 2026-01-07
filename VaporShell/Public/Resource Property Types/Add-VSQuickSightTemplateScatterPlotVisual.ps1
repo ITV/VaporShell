@@ -53,7 +53,7 @@ function Add-VSQuickSightTemplateScatterPlotVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ScatterPlotVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

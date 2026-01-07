@@ -24,7 +24,7 @@ function Add-VSGameLiftContainerGroupDefinitionContainerEnvironment {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerGroupDefinition.ContainerEnvironment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

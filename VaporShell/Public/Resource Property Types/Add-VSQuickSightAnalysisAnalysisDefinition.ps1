@@ -78,7 +78,7 @@ function Add-VSQuickSightAnalysisAnalysisDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.AnalysisDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisSheetImageTooltipConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SheetImageTooltipConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

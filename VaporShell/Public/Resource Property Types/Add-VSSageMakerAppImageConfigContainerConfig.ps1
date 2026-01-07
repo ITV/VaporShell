@@ -35,7 +35,7 @@ function Add-VSSageMakerAppImageConfigContainerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.AppImageConfig.ContainerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

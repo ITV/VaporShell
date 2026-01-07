@@ -44,7 +44,7 @@ function Add-VSAppRunnerServiceHealthCheckConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.HealthCheckConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

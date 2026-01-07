@@ -14,12 +14,17 @@ function Add-VSIoTSiteWiseGatewayGreengrassV2 {
         UpdateType: Immutable
         PrimitiveType: String
 
+    .PARAMETER CoreDeviceOperatingSystem
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html#cfn-iotsitewise-gateway-greengrassv2-coredeviceoperatingsystem
+        UpdateType: Immutable
+        PrimitiveType: String
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.Gateway.GreengrassV2')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -33,7 +38,19 @@ function Add-VSIoTSiteWiseGatewayGreengrassV2 {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $CoreDeviceThingName
+        $CoreDeviceThingName,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CoreDeviceOperatingSystem
 
     )
 

@@ -24,7 +24,7 @@ function Add-VSMediaLiveMultiplexTags {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Multiplex.Tags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

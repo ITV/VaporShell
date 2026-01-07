@@ -24,7 +24,7 @@ function Add-VSLogsTransformerTypeConverterEntry {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.TypeConverterEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

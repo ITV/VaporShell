@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardNumericalMeasureField {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.NumericalMeasureField')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

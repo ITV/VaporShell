@@ -24,7 +24,7 @@ function Add-VSPinpointCampaignOverrideButtonConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.OverrideButtonConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisSpatialStaticFile {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SpatialStaticFile')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

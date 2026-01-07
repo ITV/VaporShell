@@ -19,7 +19,7 @@ function Add-VSSageMakerEndpointConfigAsyncInferenceClientConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.AsyncInferenceClientConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

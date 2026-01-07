@@ -31,7 +31,7 @@ function Add-VSTransferUserPosixProfile {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.User.PosixProfile')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

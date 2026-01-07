@@ -19,7 +19,7 @@ function Add-VSQuickSightThemeFont {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Theme.Font')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

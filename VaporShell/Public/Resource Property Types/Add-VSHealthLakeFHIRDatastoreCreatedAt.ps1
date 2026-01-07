@@ -24,7 +24,7 @@ function Add-VSHealthLakeFHIRDatastoreCreatedAt {
     #>
 
     [OutputType('Vaporshell.Resource.HealthLake.FHIRDatastore.CreatedAt')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSCustomerProfilesObjectTypeKeyMap {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.ObjectType.KeyMap')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

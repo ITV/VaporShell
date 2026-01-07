@@ -44,7 +44,7 @@ function Add-VSQuickSightTemplateWordCloudOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.WordCloudOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

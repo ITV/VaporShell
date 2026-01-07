@@ -24,7 +24,7 @@ function Add-VSControlTowerEnabledBaselineParameter {
     #>
 
     [OutputType('Vaporshell.Resource.ControlTower.EnabledBaseline.Parameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,7 +62,7 @@ function Add-VSControlTowerEnabledBaselineParameter {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Value {
+                'Value' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

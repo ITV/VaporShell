@@ -19,7 +19,7 @@ function Add-VSAPSWorkspaceLoggingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.APS.Workspace.LoggingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

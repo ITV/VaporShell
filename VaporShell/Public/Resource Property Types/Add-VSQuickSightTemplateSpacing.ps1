@@ -34,7 +34,7 @@ function Add-VSQuickSightTemplateSpacing {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.Spacing')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

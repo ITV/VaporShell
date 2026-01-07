@@ -24,7 +24,7 @@ function Add-VSInspectorV2FilterPortRangeFilter {
     #>
 
     [OutputType('Vaporshell.Resource.InspectorV2.Filter.PortRangeFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

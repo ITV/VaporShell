@@ -29,7 +29,7 @@ function Add-VSPersonalizeSolutionHpoObjective {
     #>
 
     [OutputType('Vaporshell.Resource.Personalize.Solution.HpoObjective')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

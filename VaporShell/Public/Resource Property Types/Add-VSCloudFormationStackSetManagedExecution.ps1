@@ -19,7 +19,7 @@ function Add-VSCloudFormationStackSetManagedExecution {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.StackSet.ManagedExecution')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

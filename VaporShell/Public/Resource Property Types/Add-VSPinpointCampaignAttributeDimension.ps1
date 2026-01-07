@@ -25,7 +25,7 @@ function Add-VSPinpointCampaignAttributeDimension {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.AttributeDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

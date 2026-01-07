@@ -29,7 +29,7 @@ function Add-VSKinesisFirehoseDeliveryStreamSecretsManagerConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.SecretsManagerConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

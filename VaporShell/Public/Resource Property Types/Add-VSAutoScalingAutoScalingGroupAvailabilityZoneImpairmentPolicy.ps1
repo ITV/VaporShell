@@ -24,7 +24,7 @@ function Add-VSAutoScalingAutoScalingGroupAvailabilityZoneImpairmentPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.AvailabilityZoneImpairmentPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

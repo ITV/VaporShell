@@ -26,7 +26,7 @@ function Add-VSEC2EC2FleetFleetLaunchTemplateConfigRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.FleetLaunchTemplateConfigRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

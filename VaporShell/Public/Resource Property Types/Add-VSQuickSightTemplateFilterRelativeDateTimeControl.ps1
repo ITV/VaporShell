@@ -39,7 +39,7 @@ function Add-VSQuickSightTemplateFilterRelativeDateTimeControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FilterRelativeDateTimeControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

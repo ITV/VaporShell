@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsDatasetLateDataRule {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.LateDataRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

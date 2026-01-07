@@ -11,17 +11,17 @@ function Add-VSGroundStationDataflowEndpointGroupEndpointDetails {
 
     .PARAMETER Endpoint
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-endpoint
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: DataflowEndpoint
 
     .PARAMETER AwsGroundStationAgentEndpoint
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-awsgroundstationagentendpoint
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: AwsGroundStationAgentEndpoint
 
     .PARAMETER SecurityDetails
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-endpointdetails.html#cfn-groundstation-dataflowendpointgroup-endpointdetails-securitydetails
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: SecurityDetails
 
     .FUNCTIONALITY
@@ -29,7 +29,7 @@ function Add-VSGroundStationDataflowEndpointGroupEndpointDetails {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.DataflowEndpointGroup.EndpointDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

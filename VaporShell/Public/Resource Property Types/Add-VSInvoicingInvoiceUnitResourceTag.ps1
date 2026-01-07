@@ -24,7 +24,7 @@ function Add-VSInvoicingInvoiceUnitResourceTag {
     #>
 
     [OutputType('Vaporshell.Resource.Invoicing.InvoiceUnit.ResourceTag')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

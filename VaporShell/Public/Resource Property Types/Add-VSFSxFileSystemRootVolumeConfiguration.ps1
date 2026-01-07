@@ -46,7 +46,7 @@ function Add-VSFSxFileSystemRootVolumeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.FileSystem.RootVolumeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

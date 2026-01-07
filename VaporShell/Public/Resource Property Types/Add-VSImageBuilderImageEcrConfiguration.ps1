@@ -26,7 +26,7 @@ function Add-VSImageBuilderImageEcrConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.Image.EcrConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

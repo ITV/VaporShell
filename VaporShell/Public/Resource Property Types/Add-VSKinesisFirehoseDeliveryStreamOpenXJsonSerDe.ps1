@@ -30,7 +30,7 @@ function Add-VSKinesisFirehoseDeliveryStreamOpenXJsonSerDe {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.OpenXJsonSerDe')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

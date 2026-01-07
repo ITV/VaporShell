@@ -24,7 +24,7 @@ function Add-VSS3BucketDataExport {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.DataExport')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

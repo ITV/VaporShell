@@ -34,7 +34,7 @@ function Add-VSGreengrassSubscriptionDefinitionVersionSubscription {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.SubscriptionDefinitionVersion.Subscription')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

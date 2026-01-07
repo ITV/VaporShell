@@ -46,7 +46,7 @@ function Add-VSPipesPipePipeTargetRedshiftDataParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeTargetRedshiftDataParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

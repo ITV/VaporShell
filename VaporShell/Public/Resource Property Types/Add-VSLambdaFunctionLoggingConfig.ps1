@@ -34,7 +34,7 @@ function Add-VSLambdaFunctionLoggingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Function.LoggingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

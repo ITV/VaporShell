@@ -72,7 +72,7 @@ function Add-VSFSxVolumeOpenZFSConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.Volume.OpenZFSConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

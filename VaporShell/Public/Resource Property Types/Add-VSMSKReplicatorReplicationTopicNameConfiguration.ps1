@@ -19,7 +19,7 @@ function Add-VSMSKReplicatorReplicationTopicNameConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Replicator.ReplicationTopicNameConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSEC2InstanceBlockDeviceMapping {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.BlockDeviceMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -87,7 +87,7 @@ function Add-VSEC2InstanceBlockDeviceMapping {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                NoDevice {
+                'NoDevice' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

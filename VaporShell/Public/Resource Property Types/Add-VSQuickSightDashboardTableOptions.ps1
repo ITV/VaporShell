@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardTableOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TableOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

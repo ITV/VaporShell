@@ -70,7 +70,7 @@ function Add-VSLightsailInstancePort {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Instance.Port')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

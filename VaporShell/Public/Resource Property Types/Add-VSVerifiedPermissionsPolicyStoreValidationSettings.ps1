@@ -19,7 +19,7 @@ function Add-VSVerifiedPermissionsPolicyStoreValidationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.VerifiedPermissions.PolicyStore.ValidationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

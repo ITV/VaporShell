@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisColumnHierarchy {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ColumnHierarchy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

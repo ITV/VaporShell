@@ -47,7 +47,7 @@ function Add-VSGreengrassV2ComponentVersionLambdaFunctionRecipeSource {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaFunctionRecipeSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

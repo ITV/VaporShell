@@ -19,7 +19,7 @@ function Add-VSSageMakerSpaceEbsStorageSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.EbsStorageSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

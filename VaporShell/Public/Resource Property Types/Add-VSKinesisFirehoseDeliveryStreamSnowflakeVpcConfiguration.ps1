@@ -19,7 +19,7 @@ function Add-VSKinesisFirehoseDeliveryStreamSnowflakeVpcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.SnowflakeVpcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

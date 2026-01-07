@@ -24,7 +24,7 @@ function Add-VSBedrockKnowledgeBasePineconeFieldMapping {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.PineconeFieldMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

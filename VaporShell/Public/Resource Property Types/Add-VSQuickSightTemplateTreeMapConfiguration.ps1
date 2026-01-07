@@ -49,6 +49,11 @@ function Add-VSQuickSightTemplateTreeMapConfiguration {
         UpdateType: Mutable
         Type: ColorScale
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-treemapconfiguration.html#cfn-quicksight-template-treemapconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER GroupLabelOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-treemapconfiguration.html#cfn-quicksight-template-treemapconfiguration-grouplabeloptions
         UpdateType: Mutable
@@ -59,7 +64,7 @@ function Add-VSQuickSightTemplateTreeMapConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TreeMapConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -86,6 +91,9 @@ function Add-VSQuickSightTemplateTreeMapConfiguration {
 
         [Parameter(Mandatory = $false)]
         $ColorScale,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         $GroupLabelOptions

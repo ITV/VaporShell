@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisTooltipOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TooltipOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSOpsWorksStackChefConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.Stack.ChefConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

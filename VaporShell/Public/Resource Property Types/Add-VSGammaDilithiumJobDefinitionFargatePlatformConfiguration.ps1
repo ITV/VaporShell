@@ -19,7 +19,7 @@ function Add-VSGammaDilithiumJobDefinitionFargatePlatformConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.FargatePlatformConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

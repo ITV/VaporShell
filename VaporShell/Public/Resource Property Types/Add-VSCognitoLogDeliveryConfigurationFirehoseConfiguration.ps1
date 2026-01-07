@@ -19,7 +19,7 @@ function Add-VSCognitoLogDeliveryConfigurationFirehoseConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.LogDeliveryConfiguration.FirehoseConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

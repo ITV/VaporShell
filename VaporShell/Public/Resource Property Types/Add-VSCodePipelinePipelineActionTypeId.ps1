@@ -34,7 +34,7 @@ function Add-VSCodePipelinePipelineActionTypeId {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.ActionTypeId')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

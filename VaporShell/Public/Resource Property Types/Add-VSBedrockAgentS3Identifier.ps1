@@ -24,7 +24,7 @@ function Add-VSBedrockAgentS3Identifier {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Agent.S3Identifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

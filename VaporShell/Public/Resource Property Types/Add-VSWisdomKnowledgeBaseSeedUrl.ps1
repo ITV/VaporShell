@@ -19,7 +19,7 @@ function Add-VSWisdomKnowledgeBaseSeedUrl {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.SeedUrl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

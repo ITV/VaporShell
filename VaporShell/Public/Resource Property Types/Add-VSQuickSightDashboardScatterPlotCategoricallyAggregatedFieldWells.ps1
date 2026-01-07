@@ -49,7 +49,7 @@ function Add-VSQuickSightDashboardScatterPlotCategoricallyAggregatedFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ScatterPlotCategoricallyAggregatedFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSEKSFargateProfileSelector {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.FargateProfile.Selector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

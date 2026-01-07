@@ -31,7 +31,7 @@ function Add-VSQuickSightTemplatePluginVisualConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PluginVisualConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

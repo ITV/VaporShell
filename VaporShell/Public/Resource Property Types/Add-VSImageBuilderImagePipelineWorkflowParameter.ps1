@@ -26,7 +26,7 @@ function Add-VSImageBuilderImagePipelineWorkflowParameter {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.ImagePipeline.WorkflowParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

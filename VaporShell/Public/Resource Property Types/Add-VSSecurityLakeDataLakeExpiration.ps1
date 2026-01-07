@@ -19,7 +19,7 @@ function Add-VSSecurityLakeDataLakeExpiration {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityLake.DataLake.Expiration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

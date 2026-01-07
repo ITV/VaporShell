@@ -24,7 +24,7 @@ function Add-VSBedrockKnowledgeBaseSqlKnowledgeBaseConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.SqlKnowledgeBaseConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

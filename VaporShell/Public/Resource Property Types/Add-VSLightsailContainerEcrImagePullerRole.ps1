@@ -24,7 +24,7 @@ function Add-VSLightsailContainerEcrImagePullerRole {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Container.EcrImagePullerRole')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

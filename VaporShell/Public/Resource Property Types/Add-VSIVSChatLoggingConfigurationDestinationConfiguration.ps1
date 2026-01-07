@@ -29,7 +29,7 @@ function Add-VSIVSChatLoggingConfigurationDestinationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IVSChat.LoggingConfiguration.DestinationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -87,7 +87,7 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramPacketIdentifiersMap {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Multiplexprogram.MultiplexProgramPacketIdentifiersMap')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

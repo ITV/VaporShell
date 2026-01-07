@@ -26,7 +26,7 @@ function Add-VSSESMailManagerTrafficPolicyPolicyStatement {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerTrafficPolicy.PolicyStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

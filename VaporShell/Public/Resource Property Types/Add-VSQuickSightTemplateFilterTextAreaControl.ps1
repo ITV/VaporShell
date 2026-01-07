@@ -39,7 +39,7 @@ function Add-VSQuickSightTemplateFilterTextAreaControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FilterTextAreaControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

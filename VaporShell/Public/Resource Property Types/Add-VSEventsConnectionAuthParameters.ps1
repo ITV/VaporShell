@@ -39,7 +39,7 @@ function Add-VSEventsConnectionAuthParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Connection.AuthParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

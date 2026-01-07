@@ -24,7 +24,7 @@ function Add-VSSageMakerDomainCustomPosixUserConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.CustomPosixUserConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

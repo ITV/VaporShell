@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelH264ColorSpaceSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.H264ColorSpaceSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSPipesPipeMultiMeasureMapping {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.MultiMeasureMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSSageMakerModelInferenceExecutionConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Model.InferenceExecutionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

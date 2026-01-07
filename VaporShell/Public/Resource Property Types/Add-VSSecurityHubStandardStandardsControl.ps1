@@ -24,7 +24,7 @@ function Add-VSSecurityHubStandardStandardsControl {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.Standard.StandardsControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

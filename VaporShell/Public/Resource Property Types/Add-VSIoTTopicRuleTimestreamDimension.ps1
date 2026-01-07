@@ -24,7 +24,7 @@ function Add-VSIoTTopicRuleTimestreamDimension {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.TimestreamDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSEFSFileSystemReplicationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EFS.FileSystem.ReplicationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

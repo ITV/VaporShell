@@ -29,7 +29,7 @@ function Add-VSLexBotGrammarSlotTypeSource {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.GrammarSlotTypeSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

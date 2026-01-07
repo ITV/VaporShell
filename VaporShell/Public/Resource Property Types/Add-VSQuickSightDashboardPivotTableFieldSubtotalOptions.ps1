@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardPivotTableFieldSubtotalOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PivotTableFieldSubtotalOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

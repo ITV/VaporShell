@@ -30,12 +30,17 @@ function Add-VSCodeBuildProjectProjectTriggers {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-scopeconfiguration
         UpdateType: Mutable
 
+    .PARAMETER PullRequestBuildPolicy
+        Type: PullRequestBuildPolicy
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-pullrequestbuildpolicy
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.ProjectTriggers')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -76,7 +81,10 @@ function Add-VSCodeBuildProjectProjectTriggers {
         $Webhook,
 
         [Parameter(Mandatory = $false)]
-        $ScopeConfiguration
+        $ScopeConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $PullRequestBuildPolicy
 
     )
 

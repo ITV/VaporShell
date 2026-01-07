@@ -24,7 +24,7 @@ function Add-VSMediaPackageOriginEndpointAuthorization {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.Authorization')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

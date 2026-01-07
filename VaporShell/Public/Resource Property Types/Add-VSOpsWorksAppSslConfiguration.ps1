@@ -29,7 +29,7 @@ function Add-VSOpsWorksAppSslConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.App.SslConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

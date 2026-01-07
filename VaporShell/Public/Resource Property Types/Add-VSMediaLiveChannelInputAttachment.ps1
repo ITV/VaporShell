@@ -40,7 +40,7 @@ function Add-VSMediaLiveChannelInputAttachment {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.InputAttachment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

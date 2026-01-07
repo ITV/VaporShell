@@ -24,7 +24,7 @@ function Add-VSSimSpaceWeaverSimulationS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.SimSpaceWeaver.Simulation.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

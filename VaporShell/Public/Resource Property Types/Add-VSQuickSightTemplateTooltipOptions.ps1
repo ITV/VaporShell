@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateTooltipOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TooltipOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -70,7 +70,7 @@ function Add-VSQuickSightTemplateTooltipOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                TooltipVisibility {
+                'TooltipVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

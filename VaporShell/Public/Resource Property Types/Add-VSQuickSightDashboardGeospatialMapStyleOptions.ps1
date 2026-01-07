@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardGeospatialMapStyleOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GeospatialMapStyleOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

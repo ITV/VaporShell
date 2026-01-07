@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelMotionGraphicsSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.MotionGraphicsSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

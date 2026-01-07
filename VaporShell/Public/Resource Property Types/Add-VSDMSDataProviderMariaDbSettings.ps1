@@ -34,7 +34,7 @@ function Add-VSDMSDataProviderMariaDbSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.DataProvider.MariaDbSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

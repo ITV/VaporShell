@@ -19,7 +19,7 @@ function Add-VSEMRClusterPlacementType {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.PlacementType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

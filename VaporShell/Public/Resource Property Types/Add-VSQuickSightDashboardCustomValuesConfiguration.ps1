@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardCustomValuesConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.CustomValuesConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSAppConfigEnvironmentMonitor {
     #>
 
     [OutputType('Vaporshell.Resource.AppConfig.Environment.Monitor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

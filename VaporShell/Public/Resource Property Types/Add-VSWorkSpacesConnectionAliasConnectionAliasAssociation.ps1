@@ -34,7 +34,7 @@ function Add-VSWorkSpacesConnectionAliasConnectionAliasAssociation {
     #>
 
     [OutputType('Vaporshell.Resource.WorkSpaces.ConnectionAlias.ConnectionAliasAssociation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

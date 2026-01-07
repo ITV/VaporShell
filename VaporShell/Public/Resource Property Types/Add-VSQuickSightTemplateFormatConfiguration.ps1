@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

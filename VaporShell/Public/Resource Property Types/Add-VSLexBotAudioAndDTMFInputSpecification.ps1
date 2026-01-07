@@ -29,7 +29,7 @@ function Add-VSLexBotAudioAndDTMFInputSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.AudioAndDTMFInputSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

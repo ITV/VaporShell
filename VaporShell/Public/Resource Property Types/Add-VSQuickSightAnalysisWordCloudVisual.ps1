@@ -53,7 +53,7 @@ function Add-VSQuickSightAnalysisWordCloudVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.WordCloudVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

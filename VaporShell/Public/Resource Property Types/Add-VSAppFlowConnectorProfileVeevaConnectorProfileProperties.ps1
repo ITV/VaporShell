@@ -19,7 +19,7 @@ function Add-VSAppFlowConnectorProfileVeevaConnectorProfileProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.VeevaConnectorProfileProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

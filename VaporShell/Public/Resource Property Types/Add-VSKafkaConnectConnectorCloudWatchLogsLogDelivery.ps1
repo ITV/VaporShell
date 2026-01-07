@@ -24,7 +24,7 @@ function Add-VSKafkaConnectConnectorCloudWatchLogsLogDelivery {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.CloudWatchLogsLogDelivery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

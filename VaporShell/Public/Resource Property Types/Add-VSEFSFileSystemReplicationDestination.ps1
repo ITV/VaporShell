@@ -49,7 +49,7 @@ function Add-VSEFSFileSystemReplicationDestination {
     #>
 
     [OutputType('Vaporshell.Resource.EFS.FileSystem.ReplicationDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

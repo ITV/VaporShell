@@ -26,7 +26,7 @@ function Add-VSQuickSightTemplateTreeMapSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TreeMapSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

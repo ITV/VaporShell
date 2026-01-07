@@ -41,7 +41,7 @@ function Add-VSAmplifyUIBuilderFormFieldConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Form.FieldConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

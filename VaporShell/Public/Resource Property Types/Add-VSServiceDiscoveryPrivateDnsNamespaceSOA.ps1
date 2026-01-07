@@ -19,7 +19,7 @@ function Add-VSServiceDiscoveryPrivateDnsNamespaceSOA {
     #>
 
     [OutputType('Vaporshell.Resource.ServiceDiscovery.PrivateDnsNamespace.SOA')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

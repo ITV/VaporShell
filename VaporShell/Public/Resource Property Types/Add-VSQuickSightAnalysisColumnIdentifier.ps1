@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisColumnIdentifier {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ColumnIdentifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

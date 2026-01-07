@@ -24,7 +24,7 @@ function Add-VSS3BucketTargetObjectKeyFormat {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.TargetObjectKeyFormat')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -53,7 +53,7 @@ function Add-VSS3BucketTargetObjectKeyFormat {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                SimplePrefix {
+                'SimplePrefix' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

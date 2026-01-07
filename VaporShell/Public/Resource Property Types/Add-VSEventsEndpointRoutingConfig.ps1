@@ -19,7 +19,7 @@ function Add-VSEventsEndpointRoutingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Endpoint.RoutingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -9,6 +9,11 @@ function Add-VSBillingConductorBillingGroupAccountGrouping {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html
 
+    .PARAMETER ResponsibilityTransferArn
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html#cfn-billingconductor-billinggroup-accountgrouping-responsibilitytransferarn
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER LinkedAccountIds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-billinggroup-accountgrouping.html#cfn-billingconductor-billinggroup-accountgrouping-linkedaccountids
         UpdateType: Mutable
@@ -26,11 +31,23 @@ function Add-VSBillingConductorBillingGroupAccountGrouping {
     #>
 
     [OutputType('Vaporshell.Resource.BillingConductor.BillingGroup.AccountGrouping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ResponsibilityTransferArn,
+
+        [Parameter(Mandatory = $false)]
         $LinkedAccountIds,
 
         [Parameter(Mandatory = $false)]

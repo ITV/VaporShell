@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelMultiplexContainerSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.MultiplexContainerSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

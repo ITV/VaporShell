@@ -32,7 +32,7 @@ function Add-VSCloudTrailDashboardWidget {
     #>
 
     [OutputType('Vaporshell.Resource.CloudTrail.Dashboard.Widget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,7 +44,7 @@ function Add-VSApiGatewayV2ApiGatewayManagedOverridesStageOverrides {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGatewayV2.ApiGatewayManagedOverrides.StageOverrides')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -112,7 +112,7 @@ function Add-VSApiGatewayV2ApiGatewayManagedOverridesStageOverrides {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                RouteSettings {
+                'RouteSettings' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -126,7 +126,7 @@ function Add-VSApiGatewayV2ApiGatewayManagedOverridesStageOverrides {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                StageVariables {
+                'StageVariables' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

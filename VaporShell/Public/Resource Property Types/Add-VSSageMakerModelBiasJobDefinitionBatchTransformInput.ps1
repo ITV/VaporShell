@@ -69,7 +69,7 @@ function Add-VSSageMakerModelBiasJobDefinitionBatchTransformInput {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.BatchTransformInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

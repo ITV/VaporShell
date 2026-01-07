@@ -34,7 +34,7 @@ function Add-VSMediaPackageOriginEndpointCmafEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.CmafEncryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

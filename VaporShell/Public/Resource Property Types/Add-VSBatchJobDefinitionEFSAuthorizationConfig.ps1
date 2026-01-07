@@ -24,7 +24,7 @@ function Add-VSBatchJobDefinitionEFSAuthorizationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.EFSAuthorizationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

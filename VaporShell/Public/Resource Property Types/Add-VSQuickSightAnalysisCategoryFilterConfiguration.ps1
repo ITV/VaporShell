@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisCategoryFilterConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.CategoryFilterConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

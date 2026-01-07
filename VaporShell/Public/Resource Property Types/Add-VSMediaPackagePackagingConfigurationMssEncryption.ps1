@@ -19,7 +19,7 @@ function Add-VSMediaPackagePackagingConfigurationMssEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.PackagingConfiguration.MssEncryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

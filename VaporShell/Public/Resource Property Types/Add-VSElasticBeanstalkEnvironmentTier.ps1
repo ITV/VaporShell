@@ -29,7 +29,7 @@ function Add-VSElasticBeanstalkEnvironmentTier {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticBeanstalk.Environment.Tier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

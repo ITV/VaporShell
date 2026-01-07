@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardMissingDataConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.MissingDataConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSBudgetsBudgetHistoricalOptions {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.Budget.HistoricalOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

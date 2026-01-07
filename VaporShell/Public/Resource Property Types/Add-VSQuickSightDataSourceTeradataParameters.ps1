@@ -29,7 +29,7 @@ function Add-VSQuickSightDataSourceTeradataParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.TeradataParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

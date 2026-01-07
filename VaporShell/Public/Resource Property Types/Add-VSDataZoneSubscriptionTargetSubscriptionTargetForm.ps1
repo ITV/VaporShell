@@ -24,7 +24,7 @@ function Add-VSDataZoneSubscriptionTargetSubscriptionTargetForm {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.SubscriptionTarget.SubscriptionTargetForm')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

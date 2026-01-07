@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelSrtGroupSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.SrtGroupSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

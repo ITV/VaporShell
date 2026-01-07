@@ -34,7 +34,7 @@ function Add-VSGreengrassV2ComponentVersionLambdaVolumeMount {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaVolumeMount')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEMRClusterScalingConstraints {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.ScalingConstraints')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

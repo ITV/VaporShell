@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelNielsenNaesIiNw {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.NielsenNaesIiNw')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

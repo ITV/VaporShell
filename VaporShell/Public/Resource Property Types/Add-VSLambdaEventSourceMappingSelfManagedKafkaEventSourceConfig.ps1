@@ -11,15 +11,20 @@ function Add-VSLambdaEventSourceMappingSelfManagedKafkaEventSourceConfig {
 
     .PARAMETER ConsumerGroupId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html#cfn-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig-consumergroupid
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
+
+    .PARAMETER SchemaRegistryConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html#cfn-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig-schemaregistryconfig
+        UpdateType: Mutable
+        Type: SchemaRegistryConfig
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.EventSourceMapping.SelfManagedKafkaEventSourceConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -33,7 +38,10 @@ function Add-VSLambdaEventSourceMappingSelfManagedKafkaEventSourceConfig {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ConsumerGroupId
+        $ConsumerGroupId,
+
+        [Parameter(Mandatory = $false)]
+        $SchemaRegistryConfig
 
     )
 

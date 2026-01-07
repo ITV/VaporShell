@@ -31,7 +31,7 @@ function Add-VSSSMPatchBaselinePatchSource {
     #>
 
     [OutputType('Vaporshell.Resource.SSM.PatchBaseline.PatchSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSGlueDataCatalogEncryptionSettingsEncryptionAtRest {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.DataCatalogEncryptionSettings.EncryptionAtRest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

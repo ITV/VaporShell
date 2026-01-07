@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateFilterCrossSheetControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FilterCrossSheetControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

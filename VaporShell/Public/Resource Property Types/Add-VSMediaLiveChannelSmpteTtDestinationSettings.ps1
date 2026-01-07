@@ -14,7 +14,7 @@ function Add-VSMediaLiveChannelSmpteTtDestinationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.SmpteTtDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

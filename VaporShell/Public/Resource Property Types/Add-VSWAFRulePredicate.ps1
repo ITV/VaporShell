@@ -29,7 +29,7 @@ function Add-VSWAFRulePredicate {
     #>
 
     [OutputType('Vaporshell.Resource.WAF.Rule.Predicate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

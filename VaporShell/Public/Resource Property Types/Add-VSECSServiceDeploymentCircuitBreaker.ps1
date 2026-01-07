@@ -24,7 +24,7 @@ function Add-VSECSServiceDeploymentCircuitBreaker {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.DeploymentCircuitBreaker')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

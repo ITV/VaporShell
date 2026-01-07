@@ -24,7 +24,7 @@ function Add-VSQBusinessWebExperienceIdentityProviderConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.WebExperience.IdentityProviderConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

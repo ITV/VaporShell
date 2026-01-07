@@ -49,7 +49,7 @@ function Add-VSQuickSightAnalysisParameterListControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ParameterListControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

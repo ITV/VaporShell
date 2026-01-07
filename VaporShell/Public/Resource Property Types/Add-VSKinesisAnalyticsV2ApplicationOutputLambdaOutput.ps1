@@ -19,7 +19,7 @@ function Add-VSKinesisAnalyticsV2ApplicationOutputLambdaOutput {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.ApplicationOutput.LambdaOutput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

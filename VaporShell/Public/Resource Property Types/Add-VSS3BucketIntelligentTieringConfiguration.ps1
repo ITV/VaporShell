@@ -43,7 +43,7 @@ function Add-VSS3BucketIntelligentTieringConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.IntelligentTieringConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

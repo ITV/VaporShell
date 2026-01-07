@@ -34,6 +34,11 @@ function Add-VSQuickSightDashboardFunnelChartConfiguration {
         UpdateType: Mutable
         Type: TooltipOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-funnelchartconfiguration.html#cfn-quicksight-dashboard-funnelchartconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER ValueLabelOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-funnelchartconfiguration.html#cfn-quicksight-dashboard-funnelchartconfiguration-valuelabeloptions
         UpdateType: Mutable
@@ -49,7 +54,7 @@ function Add-VSQuickSightDashboardFunnelChartConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FunnelChartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -67,6 +72,9 @@ function Add-VSQuickSightDashboardFunnelChartConfiguration {
 
         [Parameter(Mandatory = $false)]
         $Tooltip,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         $ValueLabelOptions,

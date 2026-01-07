@@ -24,7 +24,7 @@ function Add-VSApplicationAutoScalingScalingPolicyPredictiveScalingPredefinedLoa
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationAutoScaling.ScalingPolicy.PredictiveScalingPredefinedLoadMetric')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

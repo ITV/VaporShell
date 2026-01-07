@@ -39,7 +39,7 @@ function Add-VSMediaLiveChannelHlsMediaStoreSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.HlsMediaStoreSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

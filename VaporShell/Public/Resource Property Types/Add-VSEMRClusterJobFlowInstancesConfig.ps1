@@ -119,7 +119,7 @@ function Add-VSEMRClusterJobFlowInstancesConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.JobFlowInstancesConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

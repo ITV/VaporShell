@@ -21,7 +21,7 @@ function Add-VSLakeFormationDataCellsFilterColumnWildcard {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.DataCellsFilter.ColumnWildcard')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

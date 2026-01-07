@@ -47,7 +47,7 @@ function Add-VSImageBuilderDistributionConfigurationAmiDistributionConfiguration
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.DistributionConfiguration.AmiDistributionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

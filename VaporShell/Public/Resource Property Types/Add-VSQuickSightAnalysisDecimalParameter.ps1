@@ -26,7 +26,7 @@ function Add-VSQuickSightAnalysisDecimalParameter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DecimalParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

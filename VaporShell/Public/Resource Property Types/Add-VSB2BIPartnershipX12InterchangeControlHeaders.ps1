@@ -49,7 +49,7 @@ function Add-VSB2BIPartnershipX12InterchangeControlHeaders {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Partnership.X12InterchangeControlHeaders')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

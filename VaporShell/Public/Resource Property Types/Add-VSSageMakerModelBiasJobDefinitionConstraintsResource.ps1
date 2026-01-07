@@ -19,7 +19,7 @@ function Add-VSSageMakerModelBiasJobDefinitionConstraintsResource {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.ConstraintsResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

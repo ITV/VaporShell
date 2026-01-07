@@ -49,7 +49,7 @@ function Add-VSGroundStationConfigConfigData {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.Config.ConfigData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

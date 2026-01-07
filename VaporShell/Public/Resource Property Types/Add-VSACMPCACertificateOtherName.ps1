@@ -24,7 +24,7 @@ function Add-VSACMPCACertificateOtherName {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.Certificate.OtherName')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

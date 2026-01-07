@@ -26,7 +26,7 @@ function Add-VSWAFv2WebACLGeoMatchStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.GeoMatchStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

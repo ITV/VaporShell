@@ -21,7 +21,7 @@ function Add-VSSSMPatchBaselineRuleGroup {
     #>
 
     [OutputType('Vaporshell.Resource.SSM.PatchBaseline.RuleGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

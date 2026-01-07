@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelFmp4HlsSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.Fmp4HlsSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

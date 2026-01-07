@@ -19,7 +19,7 @@ function Add-VSQBusinessRetrieverNativeIndexConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Retriever.NativeIndexConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

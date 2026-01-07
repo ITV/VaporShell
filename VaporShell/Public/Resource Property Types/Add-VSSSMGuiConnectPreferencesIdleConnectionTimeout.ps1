@@ -24,7 +24,7 @@ function Add-VSSSMGuiConnectPreferencesIdleConnectionTimeout {
     #>
 
     [OutputType('Vaporshell.Resource.SSMGuiConnect.Preferences.IdleConnectionTimeout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSAppMeshVirtualGatewayVirtualGatewayBackendDefaults {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayBackendDefaults')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

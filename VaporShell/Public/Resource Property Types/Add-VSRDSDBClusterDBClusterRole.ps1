@@ -24,7 +24,7 @@ function Add-VSRDSDBClusterDBClusterRole {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBCluster.DBClusterRole')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

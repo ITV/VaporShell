@@ -19,7 +19,7 @@ function Add-VSBedrockDataSourceParsingPrompt {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.ParsingPrompt')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

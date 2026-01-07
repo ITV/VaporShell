@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateSankeyDiagramFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SankeyDiagramFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

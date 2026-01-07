@@ -19,7 +19,7 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationAddress {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.TLSInspectionConfiguration.Address')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

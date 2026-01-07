@@ -20,7 +20,7 @@ function Add-VSPinpointEmailConfigurationSetEventDestinationCloudWatchDestinatio
     #>
 
     [OutputType('Vaporshell.Resource.PinpointEmail.ConfigurationSetEventDestination.CloudWatchDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

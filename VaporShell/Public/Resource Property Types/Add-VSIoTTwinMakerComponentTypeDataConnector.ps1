@@ -24,7 +24,7 @@ function Add-VSIoTTwinMakerComponentTypeDataConnector {
     #>
 
     [OutputType('Vaporshell.Resource.IoTTwinMaker.ComponentType.DataConnector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

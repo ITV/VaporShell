@@ -24,7 +24,7 @@ function Add-VSECSServiceTimeoutConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.TimeoutConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSEC2VerifiedAccessInstanceVerifiedAccessLogs {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessInstance.VerifiedAccessLogs')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSBedrockKnowledgeBaseVectorKnowledgeBaseConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.VectorKnowledgeBaseConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

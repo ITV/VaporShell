@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateTextAreaControlDisplayOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TextAreaControlDisplayOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSRbinRuleRetentionPeriod {
     #>
 
     [OutputType('Vaporshell.Resource.Rbin.Rule.RetentionPeriod')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

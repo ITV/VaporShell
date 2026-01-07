@@ -29,7 +29,7 @@ function Add-VSFSxVolumeSnaplockRetentionPeriod {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.Volume.SnaplockRetentionPeriod')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

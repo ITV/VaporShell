@@ -39,7 +39,7 @@ function Add-VSAppFlowFlowVeevaSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.VeevaSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -32,7 +32,7 @@ function Add-VSEMRServerlessApplicationConfigurationObject {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.ConfigurationObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

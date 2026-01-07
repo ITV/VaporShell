@@ -19,7 +19,7 @@ function Add-VSBCMDataExportsExportRefreshCadence {
     #>
 
     [OutputType('Vaporshell.Resource.BCMDataExports.Export.RefreshCadence')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

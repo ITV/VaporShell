@@ -29,7 +29,7 @@ function Add-VSAmplifyUIBuilderComponentMutationActionSetStateParameter {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Component.MutationActionSetStateParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

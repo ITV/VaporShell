@@ -19,7 +19,7 @@ function Add-VSLogsTransformerParseCloudfront {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.ParseCloudfront')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

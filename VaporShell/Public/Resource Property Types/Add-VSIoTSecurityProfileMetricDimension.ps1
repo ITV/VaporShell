@@ -24,7 +24,7 @@ function Add-VSIoTSecurityProfileMetricDimension {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.SecurityProfile.MetricDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

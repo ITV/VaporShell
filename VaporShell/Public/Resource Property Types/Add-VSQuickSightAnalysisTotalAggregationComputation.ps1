@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisTotalAggregationComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TotalAggregationComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSPinpointInAppTemplateHeaderConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.InAppTemplate.HeaderConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisGeospatialHeatmapConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialHeatmapConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

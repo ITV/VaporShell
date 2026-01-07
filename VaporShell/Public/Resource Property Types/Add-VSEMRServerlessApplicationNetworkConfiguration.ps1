@@ -28,7 +28,7 @@ function Add-VSEMRServerlessApplicationNetworkConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.NetworkConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

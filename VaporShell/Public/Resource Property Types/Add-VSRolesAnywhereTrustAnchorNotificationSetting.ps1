@@ -34,7 +34,7 @@ function Add-VSRolesAnywhereTrustAnchorNotificationSetting {
     #>
 
     [OutputType('Vaporshell.Resource.RolesAnywhere.TrustAnchor.NotificationSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

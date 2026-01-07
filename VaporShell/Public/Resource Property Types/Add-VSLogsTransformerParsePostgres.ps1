@@ -19,7 +19,7 @@ function Add-VSLogsTransformerParsePostgres {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.ParsePostgres')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

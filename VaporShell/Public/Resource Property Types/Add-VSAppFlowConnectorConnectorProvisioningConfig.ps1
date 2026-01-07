@@ -19,7 +19,7 @@ function Add-VSAppFlowConnectorConnectorProvisioningConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Connector.ConnectorProvisioningConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

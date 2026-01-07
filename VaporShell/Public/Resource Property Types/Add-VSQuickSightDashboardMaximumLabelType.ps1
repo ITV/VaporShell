@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardMaximumLabelType {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.MaximumLabelType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

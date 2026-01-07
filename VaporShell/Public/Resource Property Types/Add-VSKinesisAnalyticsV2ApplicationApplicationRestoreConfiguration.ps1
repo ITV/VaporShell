@@ -24,7 +24,7 @@ function Add-VSKinesisAnalyticsV2ApplicationApplicationRestoreConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.ApplicationRestoreConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

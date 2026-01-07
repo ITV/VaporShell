@@ -36,7 +36,7 @@ function Add-VSLakeFormationTagAssociationTableWithColumnsResource {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.TagAssociation.TableWithColumnsResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

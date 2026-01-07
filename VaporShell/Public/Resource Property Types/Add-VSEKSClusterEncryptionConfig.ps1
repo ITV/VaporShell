@@ -26,7 +26,7 @@ function Add-VSEKSClusterEncryptionConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.EncryptionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

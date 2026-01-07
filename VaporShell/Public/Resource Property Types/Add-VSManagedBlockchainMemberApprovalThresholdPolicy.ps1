@@ -29,7 +29,7 @@ function Add-VSManagedBlockchainMemberApprovalThresholdPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.ManagedBlockchain.Member.ApprovalThresholdPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

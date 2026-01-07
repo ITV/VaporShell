@@ -19,7 +19,7 @@ function Add-VSWAFv2WebACLImmunityTimeProperty {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ImmunityTimeProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

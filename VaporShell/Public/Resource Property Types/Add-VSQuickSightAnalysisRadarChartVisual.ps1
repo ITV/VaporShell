@@ -53,7 +53,7 @@ function Add-VSQuickSightAnalysisRadarChartVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.RadarChartVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

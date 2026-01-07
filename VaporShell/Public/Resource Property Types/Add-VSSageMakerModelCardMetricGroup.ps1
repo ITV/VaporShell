@@ -26,7 +26,7 @@ function Add-VSSageMakerModelCardMetricGroup {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.MetricGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

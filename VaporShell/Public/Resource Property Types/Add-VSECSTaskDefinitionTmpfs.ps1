@@ -31,7 +31,7 @@ function Add-VSECSTaskDefinitionTmpfs {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.Tmpfs')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -31,7 +31,7 @@ function Add-VSEFSAccessPointPosixUser {
     #>
 
     [OutputType('Vaporshell.Resource.EFS.AccessPoint.PosixUser')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

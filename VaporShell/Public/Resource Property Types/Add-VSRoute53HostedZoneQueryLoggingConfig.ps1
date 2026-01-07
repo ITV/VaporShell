@@ -19,7 +19,7 @@ function Add-VSRoute53HostedZoneQueryLoggingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Route53.HostedZone.QueryLoggingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

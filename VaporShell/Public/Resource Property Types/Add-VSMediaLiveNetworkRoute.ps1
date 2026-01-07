@@ -24,7 +24,7 @@ function Add-VSMediaLiveNetworkRoute {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Network.Route')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

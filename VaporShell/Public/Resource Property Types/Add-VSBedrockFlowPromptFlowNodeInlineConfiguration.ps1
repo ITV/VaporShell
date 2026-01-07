@@ -34,7 +34,7 @@ function Add-VSBedrockFlowPromptFlowNodeInlineConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Flow.PromptFlowNodeInlineConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

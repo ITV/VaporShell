@@ -19,7 +19,7 @@ function Add-VSQBusinessApplicationQAppsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Application.QAppsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

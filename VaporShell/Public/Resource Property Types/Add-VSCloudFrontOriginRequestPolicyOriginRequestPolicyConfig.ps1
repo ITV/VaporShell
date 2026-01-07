@@ -39,7 +39,7 @@ function Add-VSCloudFrontOriginRequestPolicyOriginRequestPolicyConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.OriginRequestPolicy.OriginRequestPolicyConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

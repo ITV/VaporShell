@@ -24,7 +24,7 @@ function Add-VSPipesPipePlacementStrategy {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PlacementStrategy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

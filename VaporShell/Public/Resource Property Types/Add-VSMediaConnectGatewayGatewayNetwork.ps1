@@ -24,7 +24,7 @@ function Add-VSMediaConnectGatewayGatewayNetwork {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Gateway.GatewayNetwork')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

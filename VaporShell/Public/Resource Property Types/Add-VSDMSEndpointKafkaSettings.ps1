@@ -104,7 +104,7 @@ function Add-VSDMSEndpointKafkaSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.KafkaSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","SaslPassword")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","SaslPassword")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","SslClientKeyPassword")]

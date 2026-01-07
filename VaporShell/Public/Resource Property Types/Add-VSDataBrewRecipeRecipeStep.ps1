@@ -26,7 +26,7 @@ function Add-VSDataBrewRecipeRecipeStep {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Recipe.RecipeStep')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

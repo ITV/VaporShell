@@ -26,7 +26,7 @@ function Add-VSBedrockPromptToolConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Prompt.ToolConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

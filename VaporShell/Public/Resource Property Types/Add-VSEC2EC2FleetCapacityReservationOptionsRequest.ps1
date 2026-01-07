@@ -19,7 +19,7 @@ function Add-VSEC2EC2FleetCapacityReservationOptionsRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.CapacityReservationOptionsRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

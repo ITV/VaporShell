@@ -24,7 +24,7 @@ function Add-VSWorkSpacesWebIpAccessSettingsIpRule {
     #>
 
     [OutputType('Vaporshell.Resource.WorkSpacesWeb.IpAccessSettings.IpRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

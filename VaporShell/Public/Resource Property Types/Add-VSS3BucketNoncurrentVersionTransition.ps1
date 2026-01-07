@@ -29,7 +29,7 @@ function Add-VSS3BucketNoncurrentVersionTransition {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.NoncurrentVersionTransition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

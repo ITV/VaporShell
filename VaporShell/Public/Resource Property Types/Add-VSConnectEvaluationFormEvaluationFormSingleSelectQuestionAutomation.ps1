@@ -16,6 +16,11 @@ function Add-VSConnectEvaluationFormEvaluationFormSingleSelectQuestionAutomation
         ItemType: EvaluationFormSingleSelectQuestionAutomationOption
         DuplicatesAllowed: True
 
+    .PARAMETER AnswerSource
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-answersource
+        UpdateType: Mutable
+        Type: EvaluationFormQuestionAutomationAnswerSource
+
     .PARAMETER DefaultOptionRefId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-evaluationform-evaluationformsingleselectquestionautomation.html#cfn-connect-evaluationform-evaluationformsingleselectquestionautomation-defaultoptionrefid
         UpdateType: Mutable
@@ -26,7 +31,7 @@ function Add-VSConnectEvaluationFormEvaluationFormSingleSelectQuestionAutomation
     #>
 
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.EvaluationFormSingleSelectQuestionAutomation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -41,6 +46,9 @@ function Add-VSConnectEvaluationFormEvaluationFormSingleSelectQuestionAutomation
                 }
             })]
         $Options,
+
+        [Parameter(Mandatory = $false)]
+        $AnswerSource,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

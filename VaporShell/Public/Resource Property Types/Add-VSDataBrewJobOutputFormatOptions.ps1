@@ -19,7 +19,7 @@ function Add-VSDataBrewJobOutputFormatOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Job.OutputFormatOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

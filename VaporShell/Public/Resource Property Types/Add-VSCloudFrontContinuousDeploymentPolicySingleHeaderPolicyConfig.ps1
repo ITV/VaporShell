@@ -24,7 +24,7 @@ function Add-VSCloudFrontContinuousDeploymentPolicySingleHeaderPolicyConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ContinuousDeploymentPolicy.SingleHeaderPolicyConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

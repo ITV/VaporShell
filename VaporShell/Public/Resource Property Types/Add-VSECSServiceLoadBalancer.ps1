@@ -29,12 +29,17 @@ function Add-VSECSServiceLoadBalancer {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER AdvancedConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html#cfn-ecs-service-loadbalancer-advancedconfiguration
+        UpdateType: Mutable
+        Type: AdvancedConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.LoadBalancer')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -84,7 +89,10 @@ function Add-VSECSServiceLoadBalancer {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ContainerPort
+        $ContainerPort,
+
+        [Parameter(Mandatory = $false)]
+        $AdvancedConfiguration
 
     )
 

@@ -26,7 +26,7 @@ function Add-VSQuickSightTemplateDecimalDefaultValues {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DecimalDefaultValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

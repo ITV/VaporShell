@@ -24,7 +24,7 @@ function Add-VSIoTWirelessWirelessDeviceSessionKeysAbpV10x {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.WirelessDevice.SessionKeysAbpV10x')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

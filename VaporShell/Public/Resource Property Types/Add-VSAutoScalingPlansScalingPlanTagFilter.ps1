@@ -25,7 +25,7 @@ function Add-VSAutoScalingPlansScalingPlanTagFilter {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScalingPlans.ScalingPlan.TagFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

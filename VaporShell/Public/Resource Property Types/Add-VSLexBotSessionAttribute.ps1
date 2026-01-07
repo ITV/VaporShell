@@ -24,7 +24,7 @@ function Add-VSLexBotSessionAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.SessionAttribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

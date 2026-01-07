@@ -54,7 +54,7 @@ function Add-VSEC2SecurityGroupEgress {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SecurityGroup.Egress')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSLogsIntegrationResourceConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Integration.ResourceConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

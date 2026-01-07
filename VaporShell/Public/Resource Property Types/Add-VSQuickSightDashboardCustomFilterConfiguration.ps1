@@ -39,7 +39,7 @@ function Add-VSQuickSightDashboardCustomFilterConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.CustomFilterConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

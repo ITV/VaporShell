@@ -14,7 +14,7 @@ function Add-VSMediaLiveChannelRawSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.RawSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

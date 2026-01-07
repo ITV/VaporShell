@@ -19,7 +19,7 @@ function Add-VSLicenseManagerLicenseProvisionalConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.LicenseManager.License.ProvisionalConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

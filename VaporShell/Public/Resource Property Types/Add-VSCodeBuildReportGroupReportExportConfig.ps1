@@ -24,7 +24,7 @@ function Add-VSCodeBuildReportGroupReportExportConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.ReportGroup.ReportExportConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

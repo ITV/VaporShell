@@ -41,7 +41,7 @@ function Add-VSGrafanaWorkspaceSamlConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Grafana.Workspace.SamlConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

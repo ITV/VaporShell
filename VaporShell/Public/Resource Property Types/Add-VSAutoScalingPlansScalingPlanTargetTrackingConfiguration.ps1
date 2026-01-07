@@ -49,7 +49,7 @@ function Add-VSAutoScalingPlansScalingPlanTargetTrackingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScalingPlans.ScalingPlan.TargetTrackingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

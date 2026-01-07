@@ -24,7 +24,7 @@ function Add-VSSSMIncidentsReplicationSetReplicationRegion {
     #>
 
     [OutputType('Vaporshell.Resource.SSMIncidents.ReplicationSet.ReplicationRegion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

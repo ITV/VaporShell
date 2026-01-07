@@ -54,7 +54,7 @@ function Add-VSQuickSightDashboardTableCellStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TableCellStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

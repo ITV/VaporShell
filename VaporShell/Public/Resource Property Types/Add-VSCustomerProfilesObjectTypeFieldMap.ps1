@@ -24,7 +24,7 @@ function Add-VSCustomerProfilesObjectTypeFieldMap {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.ObjectType.FieldMap')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

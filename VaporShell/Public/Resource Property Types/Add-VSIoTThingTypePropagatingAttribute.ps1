@@ -29,7 +29,7 @@ function Add-VSIoTThingTypePropagatingAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.ThingType.PropagatingAttribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

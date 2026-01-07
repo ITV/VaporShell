@@ -29,7 +29,7 @@ function Add-VSWisdomMessageTemplateSystemAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.MessageTemplate.SystemAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

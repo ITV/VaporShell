@@ -39,7 +39,7 @@ function Add-VSIoTEventsAlarmModelIotSiteWise {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.AlarmModel.IotSiteWise')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

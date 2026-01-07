@@ -24,7 +24,7 @@ function Add-VSKendraIndexCapacityUnitsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.Index.CapacityUnitsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

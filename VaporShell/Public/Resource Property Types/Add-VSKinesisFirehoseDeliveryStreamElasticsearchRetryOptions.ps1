@@ -19,7 +19,7 @@ function Add-VSKinesisFirehoseDeliveryStreamElasticsearchRetryOptions {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.ElasticsearchRetryOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

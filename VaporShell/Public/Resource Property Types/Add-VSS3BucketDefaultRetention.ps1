@@ -29,7 +29,7 @@ function Add-VSS3BucketDefaultRetention {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.DefaultRetention')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

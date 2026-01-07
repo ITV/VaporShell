@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateFilledMapFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FilledMapFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

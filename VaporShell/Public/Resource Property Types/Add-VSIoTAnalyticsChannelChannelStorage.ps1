@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsChannelChannelStorage {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Channel.ChannelStorage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -53,7 +53,7 @@ function Add-VSIoTAnalyticsChannelChannelStorage {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                ServiceManagedS3 {
+                'ServiceManagedS3' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

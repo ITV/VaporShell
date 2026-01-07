@@ -24,7 +24,7 @@ function Add-VSCustomerProfilesIntegrationS3SourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.S3SourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

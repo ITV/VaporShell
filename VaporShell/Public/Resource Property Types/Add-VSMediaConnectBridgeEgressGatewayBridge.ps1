@@ -19,7 +19,7 @@ function Add-VSMediaConnectBridgeEgressGatewayBridge {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Bridge.EgressGatewayBridge')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

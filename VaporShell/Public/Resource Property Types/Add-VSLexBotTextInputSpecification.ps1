@@ -19,7 +19,7 @@ function Add-VSLexBotTextInputSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.TextInputSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

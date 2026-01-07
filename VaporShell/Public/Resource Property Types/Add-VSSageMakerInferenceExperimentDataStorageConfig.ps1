@@ -29,7 +29,7 @@ function Add-VSSageMakerInferenceExperimentDataStorageConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.InferenceExperiment.DataStorageConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

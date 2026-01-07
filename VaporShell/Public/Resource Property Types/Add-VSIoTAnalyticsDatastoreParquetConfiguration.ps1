@@ -19,7 +19,7 @@ function Add-VSIoTAnalyticsDatastoreParquetConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Datastore.ParquetConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

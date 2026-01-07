@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisFunnelChartFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FunnelChartFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

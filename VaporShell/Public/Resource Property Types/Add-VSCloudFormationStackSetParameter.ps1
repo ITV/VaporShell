@@ -24,7 +24,7 @@ function Add-VSCloudFormationStackSetParameter {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.StackSet.Parameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

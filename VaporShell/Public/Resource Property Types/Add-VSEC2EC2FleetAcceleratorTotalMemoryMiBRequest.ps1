@@ -24,7 +24,7 @@ function Add-VSEC2EC2FleetAcceleratorTotalMemoryMiBRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.AcceleratorTotalMemoryMiBRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

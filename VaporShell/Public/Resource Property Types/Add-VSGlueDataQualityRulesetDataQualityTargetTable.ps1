@@ -24,7 +24,7 @@ function Add-VSGlueDataQualityRulesetDataQualityTargetTable {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.DataQualityRuleset.DataQualityTargetTable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

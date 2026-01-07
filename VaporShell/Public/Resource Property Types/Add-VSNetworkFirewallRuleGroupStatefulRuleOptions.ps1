@@ -19,7 +19,7 @@ function Add-VSNetworkFirewallRuleGroupStatefulRuleOptions {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.StatefulRuleOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

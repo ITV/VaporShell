@@ -49,7 +49,7 @@ function Add-VSQuickSightDashboardFunnelChartDataLabelOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FunnelChartDataLabelOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

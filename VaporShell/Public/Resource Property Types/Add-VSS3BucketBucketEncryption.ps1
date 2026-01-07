@@ -21,7 +21,7 @@ function Add-VSS3BucketBucketEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.BucketEncryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

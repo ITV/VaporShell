@@ -59,7 +59,7 @@ function Add-VSQuickSightAnalysisPanelConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PanelConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

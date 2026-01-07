@@ -41,7 +41,7 @@ function Add-VSRDSDBProxyTargetGroupConnectionPoolConfigurationInfoFormat {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBProxyTargetGroup.ConnectionPoolConfigurationInfoFormat')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -28,7 +28,7 @@ function Add-VSECSTaskDefinitionKernelCapabilities {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.KernelCapabilities')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

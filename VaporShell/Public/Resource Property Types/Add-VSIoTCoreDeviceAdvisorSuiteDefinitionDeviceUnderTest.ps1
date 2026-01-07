@@ -24,7 +24,7 @@ function Add-VSIoTCoreDeviceAdvisorSuiteDefinitionDeviceUnderTest {
     #>
 
     [OutputType('Vaporshell.Resource.IoTCoreDeviceAdvisor.SuiteDefinition.DeviceUnderTest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

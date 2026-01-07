@@ -29,7 +29,7 @@ function Add-VSQuickSightDataSourceSqlServerParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.SqlServerParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

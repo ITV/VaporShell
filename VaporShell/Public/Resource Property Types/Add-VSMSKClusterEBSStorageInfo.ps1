@@ -24,7 +24,7 @@ function Add-VSMSKClusterEBSStorageInfo {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.EBSStorageInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

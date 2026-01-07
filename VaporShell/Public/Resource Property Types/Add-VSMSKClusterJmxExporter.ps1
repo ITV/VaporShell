@@ -19,7 +19,7 @@ function Add-VSMSKClusterJmxExporter {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.JmxExporter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQBusinessPluginAPISchema {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Plugin.APISchema')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

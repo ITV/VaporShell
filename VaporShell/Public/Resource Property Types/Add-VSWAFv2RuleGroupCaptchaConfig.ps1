@@ -19,7 +19,7 @@ function Add-VSWAFv2RuleGroupCaptchaConfig {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.CaptchaConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

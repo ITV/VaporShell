@@ -39,7 +39,7 @@ function Add-VSQuickSightDataSetUploadSettings {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.UploadSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -9,6 +9,11 @@ function Add-VSWisdomAssistantAssociationAssociationData {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-associationdata.html
 
+    .PARAMETER ExternalBedrockKnowledgeBaseConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-associationdata.html#cfn-wisdom-assistantassociation-associationdata-externalbedrockknowledgebaseconfig
+        UpdateType: Immutable
+        Type: ExternalBedrockKnowledgeBaseConfig
+
     .PARAMETER KnowledgeBaseId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-assistantassociation-associationdata.html#cfn-wisdom-assistantassociation-associationdata-knowledgebaseid
         UpdateType: Immutable
@@ -19,11 +24,14 @@ function Add-VSWisdomAssistantAssociationAssociationData {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AssistantAssociation.AssociationData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $ExternalBedrockKnowledgeBaseConfig,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

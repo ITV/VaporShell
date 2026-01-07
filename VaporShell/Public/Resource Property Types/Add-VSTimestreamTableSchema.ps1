@@ -21,7 +21,7 @@ function Add-VSTimestreamTableSchema {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.Table.Schema')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

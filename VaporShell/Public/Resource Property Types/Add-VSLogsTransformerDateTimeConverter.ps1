@@ -51,7 +51,7 @@ function Add-VSLogsTransformerDateTimeConverter {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.DateTimeConverter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

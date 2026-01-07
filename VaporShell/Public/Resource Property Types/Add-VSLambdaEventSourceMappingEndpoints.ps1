@@ -21,7 +21,7 @@ function Add-VSLambdaEventSourceMappingEndpoints {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.EventSourceMapping.Endpoints')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

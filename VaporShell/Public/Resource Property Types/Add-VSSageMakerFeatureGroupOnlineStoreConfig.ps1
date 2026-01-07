@@ -34,7 +34,7 @@ function Add-VSSageMakerFeatureGroupOnlineStoreConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.FeatureGroup.OnlineStoreConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

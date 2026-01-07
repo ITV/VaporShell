@@ -19,7 +19,7 @@ function Add-VSAppRunnerServiceEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.EncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

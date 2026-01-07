@@ -19,7 +19,7 @@ function Add-VSEntityResolutionMatchingWorkflowIncrementalRunConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EntityResolution.MatchingWorkflow.IncrementalRunConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

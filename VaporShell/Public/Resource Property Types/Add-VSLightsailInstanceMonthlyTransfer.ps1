@@ -19,7 +19,7 @@ function Add-VSLightsailInstanceMonthlyTransfer {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Instance.MonthlyTransfer')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSQuickSightAnalysisPivotTableSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PivotTableSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

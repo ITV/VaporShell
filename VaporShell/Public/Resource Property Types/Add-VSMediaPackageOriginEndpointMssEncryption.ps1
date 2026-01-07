@@ -19,7 +19,7 @@ function Add-VSMediaPackageOriginEndpointMssEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.MssEncryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

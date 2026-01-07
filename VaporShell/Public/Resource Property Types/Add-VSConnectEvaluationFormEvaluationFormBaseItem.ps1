@@ -19,7 +19,7 @@ function Add-VSConnectEvaluationFormEvaluationFormBaseItem {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.EvaluationFormBaseItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

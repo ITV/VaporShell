@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelWavSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.WavSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

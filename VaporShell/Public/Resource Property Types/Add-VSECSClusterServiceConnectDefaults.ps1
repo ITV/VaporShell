@@ -19,7 +19,7 @@ function Add-VSECSClusterServiceConnectDefaults {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Cluster.ServiceConnectDefaults')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

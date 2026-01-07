@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplatePivotTableFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PivotTableFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

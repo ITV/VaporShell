@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelAvailBlanking {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AvailBlanking')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

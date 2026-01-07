@@ -29,7 +29,7 @@ function Add-VSAutoScalingAutoScalingGroupTagProperty {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.TagProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

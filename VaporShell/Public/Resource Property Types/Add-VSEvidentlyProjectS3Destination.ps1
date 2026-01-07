@@ -24,7 +24,7 @@ function Add-VSEvidentlyProjectS3Destination {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Project.S3Destination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

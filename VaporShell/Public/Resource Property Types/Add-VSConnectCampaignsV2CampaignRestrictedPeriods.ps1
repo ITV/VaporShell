@@ -21,7 +21,7 @@ function Add-VSConnectCampaignsV2CampaignRestrictedPeriods {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.RestrictedPeriods')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -38,7 +38,7 @@ function Add-VSDataBrewJobProfileConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Job.ProfileConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

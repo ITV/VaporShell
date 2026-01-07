@@ -24,7 +24,7 @@ function Add-VSVpcLatticeRuleWeightedTargetGroup {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.Rule.WeightedTargetGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

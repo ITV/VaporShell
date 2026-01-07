@@ -34,7 +34,7 @@ function Add-VSS3MultiRegionAccessPointPublicAccessBlockConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.MultiRegionAccessPoint.PublicAccessBlockConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -11,17 +11,17 @@ function Add-VSCleanRoomsConfiguredTableTableReference {
 
     .PARAMETER Glue
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html#cfn-cleanrooms-configuredtable-tablereference-glue
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: GlueTableReference
 
     .PARAMETER Snowflake
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html#cfn-cleanrooms-configuredtable-tablereference-snowflake
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: SnowflakeTableReference
 
     .PARAMETER Athena
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html#cfn-cleanrooms-configuredtable-tablereference-athena
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: AthenaTableReference
 
     .FUNCTIONALITY
@@ -29,7 +29,7 @@ function Add-VSCleanRoomsConfiguredTableTableReference {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTable.TableReference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSWisdomAIAgentKnowledgeBaseAssociationConfigurationData {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIAgent.KnowledgeBaseAssociationConfigurationData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSCloudFrontDistributionOriginShield {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.OriginShield')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

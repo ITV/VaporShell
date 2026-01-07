@@ -44,7 +44,7 @@ function Add-VSIoTSecurityProfileBehavior {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.SecurityProfile.Behavior')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisTableCellImageSizingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TableCellImageSizingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

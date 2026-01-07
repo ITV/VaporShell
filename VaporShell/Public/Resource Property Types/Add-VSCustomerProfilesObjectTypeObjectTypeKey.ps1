@@ -28,7 +28,7 @@ function Add-VSCustomerProfilesObjectTypeObjectTypeKey {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.ObjectType.ObjectTypeKey')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

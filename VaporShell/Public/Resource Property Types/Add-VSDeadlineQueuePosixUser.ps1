@@ -24,7 +24,7 @@ function Add-VSDeadlineQueuePosixUser {
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Queue.PosixUser')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

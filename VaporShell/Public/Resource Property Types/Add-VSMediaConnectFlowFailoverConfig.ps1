@@ -34,7 +34,7 @@ function Add-VSMediaConnectFlowFailoverConfig {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.FailoverConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

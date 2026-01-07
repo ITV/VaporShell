@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelKeyProviderSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.KeyProviderSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSWorkSpacesWorkspaceWorkspaceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.WorkSpaces.Workspace.WorkspaceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

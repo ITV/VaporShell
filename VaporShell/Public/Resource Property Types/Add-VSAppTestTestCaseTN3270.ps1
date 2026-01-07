@@ -26,7 +26,7 @@ function Add-VSAppTestTestCaseTN3270 {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.TN3270')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

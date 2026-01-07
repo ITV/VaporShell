@@ -44,7 +44,7 @@ function Add-VSPinpointPushTemplateAPNSPushNotificationTemplate {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.PushTemplate.APNSPushNotificationTemplate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSQuickSightDashboardCascadingControlConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.CascadingControlConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

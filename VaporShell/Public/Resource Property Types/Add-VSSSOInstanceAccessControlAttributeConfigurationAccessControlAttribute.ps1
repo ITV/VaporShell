@@ -24,7 +24,7 @@ function Add-VSSSOInstanceAccessControlAttributeConfigurationAccessControlAttrib
     #>
 
     [OutputType('Vaporshell.Resource.SSO.InstanceAccessControlAttributeConfiguration.AccessControlAttribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSRedshiftServerlessNamespaceSnapshotCopyConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.RedshiftServerless.Namespace.SnapshotCopyConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

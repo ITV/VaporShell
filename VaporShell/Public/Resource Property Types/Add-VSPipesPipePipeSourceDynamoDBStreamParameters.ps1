@@ -54,7 +54,7 @@ function Add-VSPipesPipePipeSourceDynamoDBStreamParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeSourceDynamoDBStreamParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

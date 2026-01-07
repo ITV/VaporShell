@@ -24,7 +24,7 @@ function Add-VSQuickSightDataSourceManifestFileLocation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.ManifestFileLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

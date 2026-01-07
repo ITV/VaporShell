@@ -38,7 +38,7 @@ function Add-VSAmplifyUIBuilderComponentComponentDataConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentDataConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

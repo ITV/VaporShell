@@ -29,7 +29,7 @@ function Add-VSLambdaEventSourceMappingDocumentDBEventSourceConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.EventSourceMapping.DocumentDBEventSourceConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEC2SpotFleetSpotCapacityRebalance {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.SpotCapacityRebalance')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

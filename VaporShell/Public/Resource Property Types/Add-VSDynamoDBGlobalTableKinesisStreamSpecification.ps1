@@ -24,7 +24,7 @@ function Add-VSDynamoDBGlobalTableKinesisStreamSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.KinesisStreamSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

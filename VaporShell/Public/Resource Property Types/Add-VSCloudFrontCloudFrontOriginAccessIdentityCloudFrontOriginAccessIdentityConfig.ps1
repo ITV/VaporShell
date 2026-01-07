@@ -19,7 +19,7 @@ function Add-VSCloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIde
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.CloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

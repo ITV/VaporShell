@@ -24,7 +24,7 @@ function Add-VSLicenseManagerLicenseValidityDateFormat {
     #>
 
     [OutputType('Vaporshell.Resource.LicenseManager.License.ValidityDateFormat')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

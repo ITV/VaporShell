@@ -24,7 +24,7 @@ function Add-VSSageMakerAppImageConfigCustomImageContainerEnvironmentVariable {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.AppImageConfig.CustomImageContainerEnvironmentVariable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

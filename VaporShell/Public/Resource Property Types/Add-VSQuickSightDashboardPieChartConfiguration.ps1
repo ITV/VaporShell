@@ -56,6 +56,11 @@ function Add-VSQuickSightDashboardPieChartConfiguration {
         UpdateType: Mutable
         Type: SmallMultiplesOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-piechartconfiguration.html#cfn-quicksight-dashboard-piechartconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER ValueLabelOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-piechartconfiguration.html#cfn-quicksight-dashboard-piechartconfiguration-valuelabeloptions
         UpdateType: Mutable
@@ -71,7 +76,7 @@ function Add-VSQuickSightDashboardPieChartConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PieChartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -110,6 +115,9 @@ function Add-VSQuickSightDashboardPieChartConfiguration {
 
         [Parameter(Mandatory = $false)]
         $SmallMultiplesOptions,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         $ValueLabelOptions,

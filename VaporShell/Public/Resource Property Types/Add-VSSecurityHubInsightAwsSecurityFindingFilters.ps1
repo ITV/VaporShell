@@ -714,7 +714,7 @@ function Add-VSSecurityHubInsightAwsSecurityFindingFilters {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.Insight.AwsSecurityFindingFilters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSTimestreamTablePartitionKey {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.Table.PartitionKey')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

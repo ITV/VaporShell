@@ -24,7 +24,7 @@ function Add-VSWAFv2WebACLDefaultAction {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.DefaultAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

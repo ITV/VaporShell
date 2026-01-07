@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelMultiplexProgramChannelDestinationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.MultiplexProgramChannelDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

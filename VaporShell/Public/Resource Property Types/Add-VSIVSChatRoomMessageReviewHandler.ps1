@@ -24,7 +24,7 @@ function Add-VSIVSChatRoomMessageReviewHandler {
     #>
 
     [OutputType('Vaporshell.Resource.IVSChat.Room.MessageReviewHandler')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

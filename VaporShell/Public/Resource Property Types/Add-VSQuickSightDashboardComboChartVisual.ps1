@@ -53,7 +53,7 @@ function Add-VSQuickSightDashboardComboChartVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ComboChartVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

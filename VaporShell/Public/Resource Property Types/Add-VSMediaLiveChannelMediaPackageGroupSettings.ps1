@@ -14,17 +14,25 @@ function Add-VSMediaLiveChannelMediaPackageGroupSettings {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html#cfn-medialive-channel-mediapackagegroupsettings-destination
         UpdateType: Mutable
 
+    .PARAMETER MediapackageV2GroupSettings
+        Type: MediaPackageV2GroupSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackagegroupsettings.html#cfn-medialive-channel-mediapackagegroupsettings-mediapackagev2groupsettings
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.MediaPackageGroupSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
-        $Destination
+        $Destination,
+
+        [Parameter(Mandatory = $false)]
+        $MediapackageV2GroupSettings
 
     )
 

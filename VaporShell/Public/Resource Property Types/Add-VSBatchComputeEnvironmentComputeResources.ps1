@@ -113,7 +113,7 @@ function Add-VSBatchComputeEnvironmentComputeResources {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.ComputeEnvironment.ComputeResources')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

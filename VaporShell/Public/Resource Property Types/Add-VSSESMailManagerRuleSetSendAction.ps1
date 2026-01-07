@@ -24,7 +24,7 @@ function Add-VSSESMailManagerRuleSetSendAction {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.SendAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSTimestreamScheduledQueryNotificationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.ScheduledQuery.NotificationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

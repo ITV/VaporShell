@@ -26,7 +26,7 @@ function Add-VSEC2SpotFleetLaunchTemplateConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.LaunchTemplateConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

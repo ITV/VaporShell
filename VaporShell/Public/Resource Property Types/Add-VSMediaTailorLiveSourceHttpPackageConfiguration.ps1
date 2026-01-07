@@ -29,7 +29,7 @@ function Add-VSMediaTailorLiveSourceHttpPackageConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.LiveSource.HttpPackageConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

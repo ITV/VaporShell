@@ -24,7 +24,7 @@ function Add-VSECSTaskDefinitionAuthorizationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.AuthorizationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

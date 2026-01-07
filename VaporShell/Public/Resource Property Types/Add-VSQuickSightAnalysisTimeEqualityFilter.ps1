@@ -49,7 +49,7 @@ function Add-VSQuickSightAnalysisTimeEqualityFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TimeEqualityFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

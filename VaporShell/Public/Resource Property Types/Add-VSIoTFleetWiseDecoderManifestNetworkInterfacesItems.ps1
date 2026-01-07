@@ -39,7 +39,7 @@ function Add-VSIoTFleetWiseDecoderManifestNetworkInterfacesItems {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.DecoderManifest.NetworkInterfacesItems')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSLexBotResponseSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.ResponseSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

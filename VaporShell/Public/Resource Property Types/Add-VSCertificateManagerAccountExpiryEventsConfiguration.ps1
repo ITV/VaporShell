@@ -19,7 +19,7 @@ function Add-VSCertificateManagerAccountExpiryEventsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CertificateManager.Account.ExpiryEventsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

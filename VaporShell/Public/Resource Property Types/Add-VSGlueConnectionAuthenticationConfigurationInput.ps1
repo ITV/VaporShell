@@ -44,7 +44,7 @@ function Add-VSGlueConnectionAuthenticationConfigurationInput {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Connection.AuthenticationConfigurationInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","CustomAuthenticationCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","CustomAuthenticationCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","BasicAuthenticationCredentials")]
@@ -116,7 +116,7 @@ function Add-VSGlueConnectionAuthenticationConfigurationInput {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                CustomAuthenticationCredentials {
+                'CustomAuthenticationCredentials' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

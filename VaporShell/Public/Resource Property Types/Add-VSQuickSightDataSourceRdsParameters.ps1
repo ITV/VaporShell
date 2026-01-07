@@ -24,7 +24,7 @@ function Add-VSQuickSightDataSourceRdsParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.RdsParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

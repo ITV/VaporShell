@@ -24,7 +24,7 @@ function Add-VSLogsMetricFilterDimension {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.MetricFilter.Dimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

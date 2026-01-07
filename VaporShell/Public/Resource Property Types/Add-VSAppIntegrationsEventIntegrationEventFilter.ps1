@@ -19,7 +19,7 @@ function Add-VSAppIntegrationsEventIntegrationEventFilter {
     #>
 
     [OutputType('Vaporshell.Resource.AppIntegrations.EventIntegration.EventFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

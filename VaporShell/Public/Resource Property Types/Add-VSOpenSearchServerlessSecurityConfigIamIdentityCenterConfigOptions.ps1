@@ -44,7 +44,7 @@ function Add-VSOpenSearchServerlessSecurityConfigIamIdentityCenterConfigOptions 
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchServerless.SecurityConfig.IamIdentityCenterConfigOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

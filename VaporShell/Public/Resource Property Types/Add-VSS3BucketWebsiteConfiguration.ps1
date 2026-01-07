@@ -36,7 +36,7 @@ function Add-VSS3BucketWebsiteConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.WebsiteConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

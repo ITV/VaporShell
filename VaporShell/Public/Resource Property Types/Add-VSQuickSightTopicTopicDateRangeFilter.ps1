@@ -24,7 +24,7 @@ function Add-VSQuickSightTopicTopicDateRangeFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.TopicDateRangeFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

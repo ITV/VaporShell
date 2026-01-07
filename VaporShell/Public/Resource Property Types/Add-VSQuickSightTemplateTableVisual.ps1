@@ -51,7 +51,7 @@ function Add-VSQuickSightTemplateTableVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TableVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

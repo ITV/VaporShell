@@ -34,7 +34,7 @@ function Add-VSMediaLiveChannelDvbSdtSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.DvbSdtSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

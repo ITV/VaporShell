@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelFecOutputSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.FecOutputSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

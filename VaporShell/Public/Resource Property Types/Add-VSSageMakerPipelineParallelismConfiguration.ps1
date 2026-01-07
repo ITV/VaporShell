@@ -19,7 +19,7 @@ function Add-VSSageMakerPipelineParallelismConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Pipeline.ParallelismConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

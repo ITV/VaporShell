@@ -24,7 +24,7 @@ function Add-VSS3BucketObjectLockConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.ObjectLockConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

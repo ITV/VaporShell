@@ -24,7 +24,7 @@ function Add-VSOamLinkLinkConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Oam.Link.LinkConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

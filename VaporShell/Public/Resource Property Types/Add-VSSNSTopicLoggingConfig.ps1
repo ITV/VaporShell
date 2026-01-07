@@ -34,7 +34,7 @@ function Add-VSSNSTopicLoggingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SNS.Topic.LoggingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

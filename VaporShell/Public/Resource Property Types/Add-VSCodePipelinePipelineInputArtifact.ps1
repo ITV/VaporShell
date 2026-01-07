@@ -19,7 +19,7 @@ function Add-VSCodePipelinePipelineInputArtifact {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.InputArtifact')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

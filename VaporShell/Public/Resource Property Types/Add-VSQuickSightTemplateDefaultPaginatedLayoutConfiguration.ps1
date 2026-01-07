@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateDefaultPaginatedLayoutConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DefaultPaginatedLayoutConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

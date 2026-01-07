@@ -31,7 +31,7 @@ function Add-VSWAFv2WebACLRegexPatternSetReferenceStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RegexPatternSetReferenceStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSGuardDutyPublishingDestinationTagItem {
     #>
 
     [OutputType('Vaporshell.Resource.GuardDuty.PublishingDestination.TagItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

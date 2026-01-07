@@ -19,7 +19,7 @@ function Add-VSRefactorSpacesServiceLambdaEndpointInput {
     #>
 
     [OutputType('Vaporshell.Resource.RefactorSpaces.Service.LambdaEndpointInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

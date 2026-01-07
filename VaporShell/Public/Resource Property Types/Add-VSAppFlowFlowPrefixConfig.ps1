@@ -31,7 +31,7 @@ function Add-VSAppFlowFlowPrefixConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.PrefixConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

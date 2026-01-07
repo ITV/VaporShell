@@ -525,7 +525,7 @@ function Add-VSDataBrewRecipeRecipeParameters {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Recipe.RecipeParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,7 +44,7 @@ function Add-VSPinpointSegmentDemographic {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Segment.Demographic')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

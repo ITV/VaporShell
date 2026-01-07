@@ -305,7 +305,7 @@ function Add-VSWisdomMessageTemplateCustomerProfileAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.MessageTemplate.CustomerProfileAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

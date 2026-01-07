@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelWebvttDestinationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.WebvttDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

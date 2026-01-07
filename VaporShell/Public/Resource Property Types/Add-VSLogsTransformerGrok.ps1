@@ -24,7 +24,7 @@ function Add-VSLogsTransformerGrok {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.Grok')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -45,7 +45,7 @@ function Add-VSBackupRestoreTestingPlanRestoreTestingRecoveryPointSelection {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.RestoreTestingPlan.RestoreTestingRecoveryPointSelection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

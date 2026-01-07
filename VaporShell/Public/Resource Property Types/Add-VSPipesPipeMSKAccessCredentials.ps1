@@ -24,7 +24,7 @@ function Add-VSPipesPipeMSKAccessCredentials {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.MSKAccessCredentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

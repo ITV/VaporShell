@@ -24,7 +24,7 @@ function Add-VSBedrockKnowledgeBaseRedshiftServerlessConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.RedshiftServerlessConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

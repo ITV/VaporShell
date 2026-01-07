@@ -24,7 +24,7 @@ function Add-VSPipesPipePlacementConstraint {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PlacementConstraint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

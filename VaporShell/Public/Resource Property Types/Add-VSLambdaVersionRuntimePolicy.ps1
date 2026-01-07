@@ -24,7 +24,7 @@ function Add-VSLambdaVersionRuntimePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Version.RuntimePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

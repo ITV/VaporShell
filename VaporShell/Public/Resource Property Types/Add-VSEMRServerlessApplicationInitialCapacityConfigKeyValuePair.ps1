@@ -24,7 +24,7 @@ function Add-VSEMRServerlessApplicationInitialCapacityConfigKeyValuePair {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.InitialCapacityConfigKeyValuePair')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

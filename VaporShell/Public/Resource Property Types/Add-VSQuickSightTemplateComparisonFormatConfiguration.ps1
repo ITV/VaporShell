@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateComparisonFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ComparisonFormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

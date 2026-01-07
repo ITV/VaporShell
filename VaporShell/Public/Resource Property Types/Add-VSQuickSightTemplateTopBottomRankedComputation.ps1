@@ -44,7 +44,7 @@ function Add-VSQuickSightTemplateTopBottomRankedComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TopBottomRankedComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

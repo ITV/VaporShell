@@ -24,7 +24,7 @@ function Add-VSSageMakerWorkteamMemberDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Workteam.MemberDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

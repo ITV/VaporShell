@@ -29,7 +29,7 @@ function Add-VSAppMeshVirtualNodeListenerTls {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.ListenerTls')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

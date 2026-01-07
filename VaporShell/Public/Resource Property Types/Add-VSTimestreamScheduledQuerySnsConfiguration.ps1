@@ -19,7 +19,7 @@ function Add-VSTimestreamScheduledQuerySnsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.ScheduledQuery.SnsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

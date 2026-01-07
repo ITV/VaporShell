@@ -34,7 +34,7 @@ function Add-VSKendraIndexSearch {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.Index.Search')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

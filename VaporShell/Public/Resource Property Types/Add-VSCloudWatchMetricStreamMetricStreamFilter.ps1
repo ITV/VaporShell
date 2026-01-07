@@ -26,7 +26,7 @@ function Add-VSCloudWatchMetricStreamMetricStreamFilter {
     #>
 
     [OutputType('Vaporshell.Resource.CloudWatch.MetricStream.MetricStreamFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

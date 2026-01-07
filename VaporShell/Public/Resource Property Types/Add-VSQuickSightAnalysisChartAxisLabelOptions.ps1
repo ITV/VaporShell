@@ -31,7 +31,7 @@ function Add-VSQuickSightAnalysisChartAxisLabelOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ChartAxisLabelOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

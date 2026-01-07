@@ -54,7 +54,7 @@ function Add-VSPinpointPushTemplateAndroidPushNotificationTemplate {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.PushTemplate.AndroidPushNotificationTemplate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

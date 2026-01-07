@@ -21,7 +21,7 @@ function Add-VSLambdaAliasAliasRoutingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Alias.AliasRoutingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

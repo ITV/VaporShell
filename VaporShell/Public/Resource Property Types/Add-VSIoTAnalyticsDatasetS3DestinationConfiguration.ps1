@@ -34,7 +34,7 @@ function Add-VSIoTAnalyticsDatasetS3DestinationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.S3DestinationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSAppFlowFlowDestinationFlowConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.DestinationFlowConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

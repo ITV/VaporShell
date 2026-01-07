@@ -48,7 +48,7 @@ function Add-VSAppRunnerServiceCodeConfigurationValues {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.CodeConfigurationValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

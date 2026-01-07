@@ -34,7 +34,7 @@ function Add-VSQuickSightTemplateKPISparklineOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.KPISparklineOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -96,7 +96,7 @@ function Add-VSQuickSightTemplateKPISparklineOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                TooltipVisibility {
+                'TooltipVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -110,7 +110,7 @@ function Add-VSQuickSightTemplateKPISparklineOptions {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                Visibility {
+                'Visibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

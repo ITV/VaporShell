@@ -24,7 +24,7 @@ function Add-VSElastiCacheServerlessCacheCacheUsageLimits {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.ServerlessCache.CacheUsageLimits')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

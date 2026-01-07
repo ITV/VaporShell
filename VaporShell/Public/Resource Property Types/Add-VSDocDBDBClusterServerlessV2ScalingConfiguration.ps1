@@ -24,7 +24,7 @@ function Add-VSDocDBDBClusterServerlessV2ScalingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.DocDB.DBCluster.ServerlessV2ScalingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

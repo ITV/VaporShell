@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardGeospatialPolygonSymbolStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GeospatialPolygonSymbolStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

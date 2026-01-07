@@ -14,11 +14,6 @@ function Add-VSIoTSiteWiseGatewayGatewayPlatform {
         UpdateType: Immutable
         Type: GreengrassV2
 
-    .PARAMETER Greengrass
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
-        UpdateType: Immutable
-        Type: Greengrass
-
     .PARAMETER SiemensIE
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-siemensie
         UpdateType: Immutable
@@ -29,15 +24,12 @@ function Add-VSIoTSiteWiseGatewayGatewayPlatform {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.Gateway.GatewayPlatform')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
         $GreengrassV2,
-
-        [Parameter(Mandatory = $false)]
-        $Greengrass,
 
         [Parameter(Mandatory = $false)]
         $SiemensIE

@@ -29,7 +29,7 @@ function Add-VSQuickSightDataSourceMySqlParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.MySqlParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

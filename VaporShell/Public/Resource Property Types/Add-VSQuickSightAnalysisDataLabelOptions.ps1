@@ -66,7 +66,7 @@ function Add-VSQuickSightAnalysisDataLabelOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DataLabelOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

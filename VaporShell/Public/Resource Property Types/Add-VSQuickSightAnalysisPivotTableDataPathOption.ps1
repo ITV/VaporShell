@@ -26,7 +26,7 @@ function Add-VSQuickSightAnalysisPivotTableDataPathOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PivotTableDataPathOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

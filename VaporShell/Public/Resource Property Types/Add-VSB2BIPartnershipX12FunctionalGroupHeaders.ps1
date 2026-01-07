@@ -29,7 +29,7 @@ function Add-VSB2BIPartnershipX12FunctionalGroupHeaders {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Partnership.X12FunctionalGroupHeaders')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSSESMailManagerRuleSetDeliverToQBusinessAction {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.DeliverToQBusinessAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

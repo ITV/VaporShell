@@ -29,7 +29,7 @@ function Add-VSNetworkManagerSiteLocation {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.Site.Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

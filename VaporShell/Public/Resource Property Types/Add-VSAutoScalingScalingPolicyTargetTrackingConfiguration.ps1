@@ -34,7 +34,7 @@ function Add-VSAutoScalingScalingPolicyTargetTrackingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.ScalingPolicy.TargetTrackingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

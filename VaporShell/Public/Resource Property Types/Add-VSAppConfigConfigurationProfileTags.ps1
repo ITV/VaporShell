@@ -24,7 +24,7 @@ function Add-VSAppConfigConfigurationProfileTags {
     #>
 
     [OutputType('Vaporshell.Resource.AppConfig.ConfigurationProfile.Tags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

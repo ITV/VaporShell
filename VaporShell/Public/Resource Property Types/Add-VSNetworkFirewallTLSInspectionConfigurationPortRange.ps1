@@ -24,7 +24,7 @@ function Add-VSNetworkFirewallTLSInspectionConfigurationPortRange {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.TLSInspectionConfiguration.PortRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

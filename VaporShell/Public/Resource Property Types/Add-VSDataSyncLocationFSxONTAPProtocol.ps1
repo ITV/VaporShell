@@ -24,7 +24,7 @@ function Add-VSDataSyncLocationFSxONTAPProtocol {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationFSxONTAP.Protocol')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

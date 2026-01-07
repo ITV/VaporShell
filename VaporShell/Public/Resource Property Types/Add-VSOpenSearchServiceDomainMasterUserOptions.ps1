@@ -29,7 +29,7 @@ function Add-VSOpenSearchServiceDomainMasterUserOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.MasterUserOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","MasterUserPassword")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","MasterUserPassword")]
 

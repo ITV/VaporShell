@@ -29,7 +29,7 @@ function Add-VSDMSDataProviderRedshiftSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.DataProvider.RedshiftSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

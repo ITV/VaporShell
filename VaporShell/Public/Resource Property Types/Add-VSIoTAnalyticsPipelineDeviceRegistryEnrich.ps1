@@ -39,7 +39,7 @@ function Add-VSIoTAnalyticsPipelineDeviceRegistryEnrich {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Pipeline.DeviceRegistryEnrich')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

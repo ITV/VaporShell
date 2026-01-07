@@ -51,7 +51,7 @@ function Add-VSCloudFormationStackSetOperationPreferences {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.StackSet.OperationPreferences')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

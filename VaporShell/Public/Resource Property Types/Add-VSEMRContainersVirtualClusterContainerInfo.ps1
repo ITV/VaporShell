@@ -19,7 +19,7 @@ function Add-VSEMRContainersVirtualClusterContainerInfo {
     #>
 
     [OutputType('Vaporshell.Resource.EMRContainers.VirtualCluster.ContainerInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

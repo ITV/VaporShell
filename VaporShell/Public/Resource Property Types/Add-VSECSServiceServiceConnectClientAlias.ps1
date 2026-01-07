@@ -14,6 +14,11 @@ function Add-VSECSServiceServiceConnectClientAlias {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER TestTrafficRules
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectclientalias.html#cfn-ecs-service-serviceconnectclientalias-testtrafficrules
+        UpdateType: Mutable
+        Type: ServiceConnectTestTrafficRules
+
     .PARAMETER Port
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectclientalias.html#cfn-ecs-service-serviceconnectclientalias-port
         UpdateType: Mutable
@@ -24,7 +29,7 @@ function Add-VSECSServiceServiceConnectClientAlias {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.ServiceConnectClientAlias')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -39,6 +44,9 @@ function Add-VSECSServiceServiceConnectClientAlias {
                 }
             })]
         $DnsName,
+
+        [Parameter(Mandatory = $false)]
+        $TestTrafficRules,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

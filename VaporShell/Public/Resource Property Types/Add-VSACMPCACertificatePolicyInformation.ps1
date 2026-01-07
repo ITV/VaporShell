@@ -26,7 +26,7 @@ function Add-VSACMPCACertificatePolicyInformation {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.Certificate.PolicyInformation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

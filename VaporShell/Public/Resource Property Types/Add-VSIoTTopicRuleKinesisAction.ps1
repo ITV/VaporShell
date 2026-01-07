@@ -29,7 +29,7 @@ function Add-VSIoTTopicRuleKinesisAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.KinesisAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

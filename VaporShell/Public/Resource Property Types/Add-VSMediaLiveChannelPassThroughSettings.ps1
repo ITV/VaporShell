@@ -14,7 +14,7 @@ function Add-VSMediaLiveChannelPassThroughSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.PassThroughSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

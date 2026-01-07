@@ -29,7 +29,7 @@ function Add-VSAmplifyDomainCertificate {
     #>
 
     [OutputType('Vaporshell.Resource.Amplify.Domain.Certificate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

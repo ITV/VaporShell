@@ -24,7 +24,7 @@ function Add-VSSageMakerDomainEFSFileSystemConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.EFSFileSystemConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

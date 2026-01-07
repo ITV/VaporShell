@@ -33,7 +33,7 @@ function Add-VSEventsRuleAwsVpcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.AwsVpcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -51,7 +51,7 @@ function Add-VSWorkSpacesThinClientEnvironmentMaintenanceWindow {
     #>
 
     [OutputType('Vaporshell.Resource.WorkSpacesThinClient.Environment.MaintenanceWindow')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

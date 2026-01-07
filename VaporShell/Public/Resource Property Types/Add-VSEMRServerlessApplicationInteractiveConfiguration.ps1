@@ -24,7 +24,7 @@ function Add-VSEMRServerlessApplicationInteractiveConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.InteractiveConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

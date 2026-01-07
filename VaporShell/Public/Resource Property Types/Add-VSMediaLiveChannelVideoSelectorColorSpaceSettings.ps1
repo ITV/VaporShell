@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelVideoSelectorColorSpaceSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.VideoSelectorColorSpaceSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

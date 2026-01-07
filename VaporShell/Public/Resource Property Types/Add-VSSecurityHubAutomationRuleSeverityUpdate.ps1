@@ -29,7 +29,7 @@ function Add-VSSecurityHubAutomationRuleSeverityUpdate {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityHub.AutomationRule.SeverityUpdate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

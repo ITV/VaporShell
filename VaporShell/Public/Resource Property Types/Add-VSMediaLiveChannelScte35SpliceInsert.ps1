@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelScte35SpliceInsert {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.Scte35SpliceInsert')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

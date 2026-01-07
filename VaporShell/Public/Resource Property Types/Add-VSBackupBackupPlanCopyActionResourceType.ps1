@@ -24,7 +24,7 @@ function Add-VSBackupBackupPlanCopyActionResourceType {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.BackupPlan.CopyActionResourceType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

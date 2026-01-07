@@ -29,7 +29,7 @@ function Add-VSConfigConfigRuleCustomPolicyDetails {
     #>
 
     [OutputType('Vaporshell.Resource.Config.ConfigRule.CustomPolicyDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

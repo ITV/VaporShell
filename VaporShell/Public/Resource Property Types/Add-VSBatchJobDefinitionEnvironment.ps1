@@ -24,7 +24,7 @@ function Add-VSBatchJobDefinitionEnvironment {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.Environment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -49,7 +49,7 @@ function Add-VSPinpointCampaignSchedule {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.Schedule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

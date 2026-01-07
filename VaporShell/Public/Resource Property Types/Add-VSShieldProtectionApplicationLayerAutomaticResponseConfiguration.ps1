@@ -24,7 +24,7 @@ function Add-VSShieldProtectionApplicationLayerAutomaticResponseConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Shield.Protection.ApplicationLayerAutomaticResponseConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

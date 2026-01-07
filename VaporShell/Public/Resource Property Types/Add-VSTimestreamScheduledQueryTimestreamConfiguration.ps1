@@ -53,7 +53,7 @@ function Add-VSTimestreamScheduledQueryTimestreamConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Timestream.ScheduledQuery.TimestreamConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

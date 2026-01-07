@@ -25,7 +25,7 @@ function Add-VSCloudFrontStreamingDistributionTrustedSigners {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.StreamingDistribution.TrustedSigners')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

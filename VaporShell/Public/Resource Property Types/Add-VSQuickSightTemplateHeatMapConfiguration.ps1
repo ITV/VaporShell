@@ -44,6 +44,11 @@ function Add-VSQuickSightTemplateHeatMapConfiguration {
         UpdateType: Mutable
         Type: ColorScale
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-heatmapconfiguration.html#cfn-quicksight-template-heatmapconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER RowLabelOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-heatmapconfiguration.html#cfn-quicksight-template-heatmapconfiguration-rowlabeloptions
         UpdateType: Mutable
@@ -54,7 +59,7 @@ function Add-VSQuickSightTemplateHeatMapConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.HeatMapConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -78,6 +83,9 @@ function Add-VSQuickSightTemplateHeatMapConfiguration {
 
         [Parameter(Mandatory = $false)]
         $ColorScale,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         $RowLabelOptions

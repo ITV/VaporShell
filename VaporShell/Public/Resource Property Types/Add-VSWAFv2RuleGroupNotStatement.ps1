@@ -19,7 +19,7 @@ function Add-VSWAFv2RuleGroupNotStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.NotStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

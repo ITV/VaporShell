@@ -19,7 +19,7 @@ function Add-VSWisdomAIGuardrailGuardrailManagedWordsConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIGuardrail.GuardrailManagedWordsConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

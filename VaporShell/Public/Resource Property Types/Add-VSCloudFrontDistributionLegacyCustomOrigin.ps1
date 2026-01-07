@@ -41,7 +41,7 @@ function Add-VSCloudFrontDistributionLegacyCustomOrigin {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.LegacyCustomOrigin')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

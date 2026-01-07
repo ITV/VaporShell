@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateWaterfallChartOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.WaterfallChartOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

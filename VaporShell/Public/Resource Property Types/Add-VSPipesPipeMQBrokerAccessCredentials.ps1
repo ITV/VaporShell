@@ -19,7 +19,7 @@ function Add-VSPipesPipeMQBrokerAccessCredentials {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.MQBrokerAccessCredentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSCognitoUserPoolAdminCreateUserConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.AdminCreateUserConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

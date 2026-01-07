@@ -33,7 +33,7 @@ function Add-VSWAFv2WebACLCookieMatchPattern {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.CookieMatchPattern')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -65,7 +65,7 @@ function Add-VSWAFv2WebACLCookieMatchPattern {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                All {
+                'All' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

@@ -24,7 +24,7 @@ function Add-VSEC2SpotFleetVCpuCountRangeRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.VCpuCountRangeRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

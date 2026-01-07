@@ -26,7 +26,7 @@ function Add-VSAmplifyUIBuilderThemeThemeValue {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Theme.ThemeValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

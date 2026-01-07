@@ -24,7 +24,7 @@ function Add-VSAutoScalingAutoScalingGroupTrafficSourceIdentifier {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.TrafficSourceIdentifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

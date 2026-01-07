@@ -64,7 +64,7 @@ function Add-VSQuickSightDashboardTimeRangeFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TimeRangeFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

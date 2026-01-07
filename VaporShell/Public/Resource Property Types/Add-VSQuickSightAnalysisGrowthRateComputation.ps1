@@ -39,7 +39,7 @@ function Add-VSQuickSightAnalysisGrowthRateComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GrowthRateComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

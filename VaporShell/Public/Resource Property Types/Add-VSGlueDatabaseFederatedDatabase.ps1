@@ -24,7 +24,7 @@ function Add-VSGlueDatabaseFederatedDatabase {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Database.FederatedDatabase')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

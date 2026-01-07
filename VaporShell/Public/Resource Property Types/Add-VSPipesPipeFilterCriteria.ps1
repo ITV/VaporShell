@@ -21,7 +21,7 @@ function Add-VSPipesPipeFilterCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.FilterCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

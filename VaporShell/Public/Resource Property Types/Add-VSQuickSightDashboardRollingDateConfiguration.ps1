@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardRollingDateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.RollingDateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -28,7 +28,7 @@ function Add-VSAppStreamAppBlockBuilderVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.AppBlockBuilder.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

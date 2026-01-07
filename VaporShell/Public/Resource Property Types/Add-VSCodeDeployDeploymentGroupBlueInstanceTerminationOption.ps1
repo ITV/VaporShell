@@ -24,7 +24,7 @@ function Add-VSCodeDeployDeploymentGroupBlueInstanceTerminationOption {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.BlueInstanceTerminationOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

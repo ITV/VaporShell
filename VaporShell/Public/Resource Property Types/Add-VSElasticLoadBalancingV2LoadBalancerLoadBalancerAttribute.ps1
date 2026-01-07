@@ -24,7 +24,7 @@ function Add-VSElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.LoadBalancer.LoadBalancerAttribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

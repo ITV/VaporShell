@@ -24,7 +24,7 @@ function Add-VSSignerSigningProfileSignatureValidityPeriod {
     #>
 
     [OutputType('Vaporshell.Resource.Signer.SigningProfile.SignatureValidityPeriod')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

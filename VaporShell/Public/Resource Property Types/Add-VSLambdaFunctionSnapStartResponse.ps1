@@ -24,7 +24,7 @@ function Add-VSLambdaFunctionSnapStartResponse {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Function.SnapStartResponse')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

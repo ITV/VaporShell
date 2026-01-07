@@ -24,7 +24,7 @@ function Add-VSVerifiedPermissionsPolicyPolicyDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.VerifiedPermissions.Policy.PolicyDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

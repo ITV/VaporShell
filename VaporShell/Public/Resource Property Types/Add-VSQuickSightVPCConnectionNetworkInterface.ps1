@@ -39,7 +39,7 @@ function Add-VSQuickSightVPCConnectionNetworkInterface {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.VPCConnection.NetworkInterface')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

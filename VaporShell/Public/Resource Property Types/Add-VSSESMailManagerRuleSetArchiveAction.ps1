@@ -24,7 +24,7 @@ function Add-VSSESMailManagerRuleSetArchiveAction {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.ArchiveAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

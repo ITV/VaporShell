@@ -24,7 +24,7 @@ function Add-VSIoTJobTemplateMaintenanceWindow {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.JobTemplate.MaintenanceWindow')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSS3StorageLensEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.Encryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -53,7 +53,7 @@ function Add-VSS3StorageLensEncryption {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                SSES3 {
+                'SSES3' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

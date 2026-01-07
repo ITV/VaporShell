@@ -24,7 +24,7 @@ function Add-VSWAFRegionalByteMatchSetFieldToMatch {
     #>
 
     [OutputType('Vaporshell.Resource.WAFRegional.ByteMatchSet.FieldToMatch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

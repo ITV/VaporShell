@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelAudioHlsRenditionSelection {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioHlsRenditionSelection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

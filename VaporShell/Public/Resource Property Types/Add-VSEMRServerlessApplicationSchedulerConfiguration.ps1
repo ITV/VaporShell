@@ -24,7 +24,7 @@ function Add-VSEMRServerlessApplicationSchedulerConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.SchedulerConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisNumberFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.NumberFormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

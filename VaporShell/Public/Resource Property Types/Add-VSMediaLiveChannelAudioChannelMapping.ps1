@@ -25,7 +25,7 @@ function Add-VSMediaLiveChannelAudioChannelMapping {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioChannelMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

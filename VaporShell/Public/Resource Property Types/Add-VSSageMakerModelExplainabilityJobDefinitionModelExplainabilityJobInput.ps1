@@ -24,7 +24,7 @@ function Add-VSSageMakerModelExplainabilityJobDefinitionModelExplainabilityJobIn
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.ModelExplainabilityJobInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

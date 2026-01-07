@@ -29,7 +29,7 @@ function Add-VSWAFWebACLActivatedRule {
     #>
 
     [OutputType('Vaporshell.Resource.WAF.WebACL.ActivatedRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

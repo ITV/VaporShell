@@ -25,7 +25,7 @@ function Add-VSAmplifyUIBuilderComponentComponentVariant {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentVariant')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -55,7 +55,7 @@ function Add-VSAmplifyUIBuilderComponentComponentVariant {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Overrides {
+                'Overrides' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

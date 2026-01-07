@@ -38,7 +38,7 @@ function Add-VSCloudFrontDistributionForwardedValues {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.ForwardedValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSBudgetsBudgetsActionActionThreshold {
     #>
 
     [OutputType('Vaporshell.Resource.Budgets.BudgetsAction.ActionThreshold')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

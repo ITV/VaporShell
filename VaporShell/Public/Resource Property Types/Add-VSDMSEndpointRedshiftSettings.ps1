@@ -144,7 +144,7 @@ function Add-VSDMSEndpointRedshiftSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.RedshiftSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

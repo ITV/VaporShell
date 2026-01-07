@@ -29,7 +29,7 @@ function Add-VSWAFv2RuleGroupIPSetForwardedIPConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.IPSetForwardedIPConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

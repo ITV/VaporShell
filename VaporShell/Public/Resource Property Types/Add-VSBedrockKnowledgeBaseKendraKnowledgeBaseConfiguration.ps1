@@ -19,7 +19,7 @@ function Add-VSBedrockKnowledgeBaseKendraKnowledgeBaseConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.KendraKnowledgeBaseConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

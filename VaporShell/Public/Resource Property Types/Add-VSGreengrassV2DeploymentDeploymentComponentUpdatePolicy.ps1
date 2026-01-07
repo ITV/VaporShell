@@ -24,7 +24,7 @@ function Add-VSGreengrassV2DeploymentDeploymentComponentUpdatePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.Deployment.DeploymentComponentUpdatePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

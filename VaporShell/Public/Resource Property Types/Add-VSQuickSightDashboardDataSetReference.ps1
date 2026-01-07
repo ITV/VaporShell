@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardDataSetReference {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DataSetReference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

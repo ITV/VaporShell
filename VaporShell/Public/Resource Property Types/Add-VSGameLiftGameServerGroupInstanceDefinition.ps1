@@ -24,7 +24,7 @@ function Add-VSGameLiftGameServerGroupInstanceDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.GameServerGroup.InstanceDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

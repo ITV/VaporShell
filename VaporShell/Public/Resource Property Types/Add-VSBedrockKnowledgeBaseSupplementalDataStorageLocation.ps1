@@ -24,7 +24,7 @@ function Add-VSBedrockKnowledgeBaseSupplementalDataStorageLocation {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.SupplementalDataStorageLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

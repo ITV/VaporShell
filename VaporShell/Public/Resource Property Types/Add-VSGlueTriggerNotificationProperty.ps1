@@ -19,7 +19,7 @@ function Add-VSGlueTriggerNotificationProperty {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Trigger.NotificationProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

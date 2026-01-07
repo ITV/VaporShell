@@ -24,7 +24,7 @@ function Add-VSPCAConnectorADTemplateCertificateValidity {
     #>
 
     [OutputType('Vaporshell.Resource.PCAConnectorAD.Template.CertificateValidity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

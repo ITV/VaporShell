@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisVisibleRangeOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.VisibleRangeOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

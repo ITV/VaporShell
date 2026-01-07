@@ -24,7 +24,7 @@ function Add-VSCognitoUserPoolUserAttributeType {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPoolUser.AttributeType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -38,7 +38,7 @@ function Add-VSEMRClusterApplication {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.Application')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

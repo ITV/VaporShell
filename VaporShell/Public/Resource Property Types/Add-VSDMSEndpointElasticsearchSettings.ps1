@@ -34,7 +34,7 @@ function Add-VSDMSEndpointElasticsearchSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.ElasticsearchSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSIoTEventsInputAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.Input.Attribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

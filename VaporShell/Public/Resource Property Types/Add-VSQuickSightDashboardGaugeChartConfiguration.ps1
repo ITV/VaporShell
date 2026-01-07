@@ -29,6 +29,16 @@ function Add-VSQuickSightDashboardGaugeChartConfiguration {
         UpdateType: Mutable
         Type: GaugeChartOptions
 
+    .PARAMETER ColorConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gaugechartconfiguration.html#cfn-quicksight-dashboard-gaugechartconfiguration-colorconfiguration
+        UpdateType: Mutable
+        Type: GaugeChartColorConfiguration
+
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gaugechartconfiguration.html#cfn-quicksight-dashboard-gaugechartconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER VisualPalette
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-gaugechartconfiguration.html#cfn-quicksight-dashboard-gaugechartconfiguration-visualpalette
         UpdateType: Mutable
@@ -39,7 +49,7 @@ function Add-VSQuickSightDashboardGaugeChartConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GaugeChartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -54,6 +64,12 @@ function Add-VSQuickSightDashboardGaugeChartConfiguration {
 
         [Parameter(Mandatory = $false)]
         $GaugeChartOptions,
+
+        [Parameter(Mandatory = $false)]
+        $ColorConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         $VisualPalette

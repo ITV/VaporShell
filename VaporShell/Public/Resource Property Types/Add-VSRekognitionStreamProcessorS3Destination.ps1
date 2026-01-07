@@ -24,7 +24,7 @@ function Add-VSRekognitionStreamProcessorS3Destination {
     #>
 
     [OutputType('Vaporshell.Resource.Rekognition.StreamProcessor.S3Destination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

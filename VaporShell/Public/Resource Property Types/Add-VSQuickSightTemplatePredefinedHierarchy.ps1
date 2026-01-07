@@ -33,7 +33,7 @@ function Add-VSQuickSightTemplatePredefinedHierarchy {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PredefinedHierarchy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

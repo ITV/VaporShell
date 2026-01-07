@@ -24,7 +24,7 @@ function Add-VSAuditManagerAssessmentAssessmentReportsDestination {
     #>
 
     [OutputType('Vaporshell.Resource.AuditManager.Assessment.AssessmentReportsDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

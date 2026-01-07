@@ -34,7 +34,7 @@ function Add-VSComprehendFlywheelDataSecurityConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Comprehend.Flywheel.DataSecurityConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

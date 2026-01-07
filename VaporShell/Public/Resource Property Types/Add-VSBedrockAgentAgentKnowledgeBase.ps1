@@ -29,7 +29,7 @@ function Add-VSBedrockAgentAgentKnowledgeBase {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Agent.AgentKnowledgeBase')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

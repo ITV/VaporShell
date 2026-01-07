@@ -29,7 +29,7 @@ function Add-VSAmplifyUIBuilderComponentComponentEvent {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentEvent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

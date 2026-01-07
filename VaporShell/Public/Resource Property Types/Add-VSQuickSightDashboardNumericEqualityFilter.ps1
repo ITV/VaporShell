@@ -59,7 +59,7 @@ function Add-VSQuickSightDashboardNumericEqualityFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.NumericEqualityFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

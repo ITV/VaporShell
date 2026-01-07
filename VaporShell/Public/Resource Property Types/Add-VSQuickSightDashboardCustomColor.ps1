@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardCustomColor {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.CustomColor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

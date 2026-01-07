@@ -44,7 +44,7 @@ function Add-VSQuickSightDashboardTopBottomRankedComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TopBottomRankedComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

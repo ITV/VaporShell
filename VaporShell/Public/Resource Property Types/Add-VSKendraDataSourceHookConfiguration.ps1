@@ -29,7 +29,7 @@ function Add-VSKendraDataSourceHookConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.DataSource.HookConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

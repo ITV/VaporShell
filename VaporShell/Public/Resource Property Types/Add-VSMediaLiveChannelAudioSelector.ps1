@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelAudioSelector {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioSelector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSKinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.ApplicationSnapshotConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

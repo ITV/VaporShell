@@ -26,7 +26,7 @@ function Add-VSCustomerProfilesSegmentDefinitionSegmentGroup {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.SegmentDefinition.SegmentGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

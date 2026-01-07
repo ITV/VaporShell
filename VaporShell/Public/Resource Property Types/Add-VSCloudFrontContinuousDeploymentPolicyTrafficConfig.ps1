@@ -29,7 +29,7 @@ function Add-VSCloudFrontContinuousDeploymentPolicyTrafficConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ContinuousDeploymentPolicy.TrafficConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

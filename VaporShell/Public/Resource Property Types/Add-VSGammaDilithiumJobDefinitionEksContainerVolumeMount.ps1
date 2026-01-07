@@ -29,7 +29,7 @@ function Add-VSGammaDilithiumJobDefinitionEksContainerVolumeMount {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.EksContainerVolumeMount')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

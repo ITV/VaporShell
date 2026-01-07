@@ -25,7 +25,7 @@ function Add-VSKinesisAnalyticsV2ApplicationPropertyGroup {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.PropertyGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

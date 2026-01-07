@@ -19,7 +19,7 @@ function Add-VSEventsEndpointSecondary {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Endpoint.Secondary')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

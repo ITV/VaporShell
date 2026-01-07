@@ -29,7 +29,7 @@ function Add-VSGameLiftGameServerGroupLaunchTemplate {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.GameServerGroup.LaunchTemplate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

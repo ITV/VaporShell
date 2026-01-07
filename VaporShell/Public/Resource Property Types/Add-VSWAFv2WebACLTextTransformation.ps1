@@ -24,7 +24,7 @@ function Add-VSWAFv2WebACLTextTransformation {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.TextTransformation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

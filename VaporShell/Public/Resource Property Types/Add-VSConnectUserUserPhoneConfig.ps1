@@ -19,6 +19,11 @@ function Add-VSConnectUserUserPhoneConfig {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER PersistentConnection
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-persistentconnection
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER DeskPhoneNumber
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html#cfn-connect-user-userphoneconfig-deskphonenumber
         UpdateType: Mutable
@@ -34,7 +39,7 @@ function Add-VSConnectUserUserPhoneConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.User.UserPhoneConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -61,6 +66,18 @@ function Add-VSConnectUserUserPhoneConfig {
                 }
             })]
         $PhoneType,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $PersistentConnection,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

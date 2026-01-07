@@ -34,7 +34,7 @@ function Add-VSSESContactListTopic {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ContactList.Topic')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

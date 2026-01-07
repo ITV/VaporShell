@@ -16,6 +16,13 @@ function Add-VSElasticLoadBalancingV2ListenerRuleHttpHeaderConfig {
         PrimitiveItemType: String
         DuplicatesAllowed: False
 
+    .PARAMETER RegexValues
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html#cfn-elasticloadbalancingv2-listenerrule-httpheaderconfig-regexvalues
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
     .PARAMETER HttpHeaderName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httpheaderconfig.html#cfn-elasticloadbalancingv2-listenerrule-httpheaderconfig-httpheadername
         UpdateType: Mutable
@@ -26,12 +33,15 @@ function Add-VSElasticLoadBalancingV2ListenerRuleHttpHeaderConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.HttpHeaderConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
         $Values,
+
+        [Parameter(Mandatory = $false)]
+        $RegexValues,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

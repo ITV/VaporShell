@@ -34,7 +34,7 @@ function Add-VSPinpointCampaignCampaignEmailMessage {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Campaign.CampaignEmailMessage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

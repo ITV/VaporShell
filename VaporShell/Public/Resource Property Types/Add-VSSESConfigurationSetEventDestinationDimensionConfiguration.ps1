@@ -29,7 +29,7 @@ function Add-VSSESConfigurationSetEventDestinationDimensionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSetEventDestination.DimensionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

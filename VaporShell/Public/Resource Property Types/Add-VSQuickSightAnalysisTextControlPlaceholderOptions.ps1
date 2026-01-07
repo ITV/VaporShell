@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisTextControlPlaceholderOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TextControlPlaceholderOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEventsEndpointFailoverConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Endpoint.FailoverConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

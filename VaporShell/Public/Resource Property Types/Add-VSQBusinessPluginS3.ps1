@@ -24,7 +24,7 @@ function Add-VSQBusinessPluginS3 {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Plugin.S3')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

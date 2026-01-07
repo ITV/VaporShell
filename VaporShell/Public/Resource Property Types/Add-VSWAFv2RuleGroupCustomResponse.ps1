@@ -31,7 +31,7 @@ function Add-VSWAFv2RuleGroupCustomResponse {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.CustomResponse')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -14,6 +14,11 @@ function Add-VSBedrockFlowFlowNodeInput {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER Category
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeinput.html#cfn-bedrock-flow-flownodeinput-category
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER Expression
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flownodeinput.html#cfn-bedrock-flow-flownodeinput-expression
         UpdateType: Mutable
@@ -29,7 +34,7 @@ function Add-VSBedrockFlowFlowNodeInput {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Flow.FlowNodeInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -44,6 +49,18 @@ function Add-VSBedrockFlowFlowNodeInput {
                 }
             })]
         $Type,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Category,
 
         [Parameter(Mandatory = $true)]
         [ValidateScript( {

@@ -24,7 +24,7 @@ function Add-VSConnectEvaluationFormScoringStrategy {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.ScoringStrategy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

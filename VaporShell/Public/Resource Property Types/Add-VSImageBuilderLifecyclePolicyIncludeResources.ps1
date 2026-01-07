@@ -29,7 +29,7 @@ function Add-VSImageBuilderLifecyclePolicyIncludeResources {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.LifecyclePolicy.IncludeResources')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

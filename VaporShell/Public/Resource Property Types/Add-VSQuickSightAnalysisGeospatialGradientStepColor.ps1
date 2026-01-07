@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisGeospatialGradientStepColor {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialGradientStepColor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

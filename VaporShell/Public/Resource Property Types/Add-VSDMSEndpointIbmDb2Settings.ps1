@@ -59,7 +59,7 @@ function Add-VSDMSEndpointIbmDb2Settings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.IbmDb2Settings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

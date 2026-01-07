@@ -29,7 +29,7 @@ function Add-VSRDSDBInstanceEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBInstance.Endpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

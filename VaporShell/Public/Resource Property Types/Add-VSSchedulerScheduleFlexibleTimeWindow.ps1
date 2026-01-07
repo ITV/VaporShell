@@ -24,7 +24,7 @@ function Add-VSSchedulerScheduleFlexibleTimeWindow {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.FlexibleTimeWindow')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSIoTSiteWiseAssetAssetHierarchy {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.Asset.AssetHierarchy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

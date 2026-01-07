@@ -29,7 +29,7 @@ function Add-VSConnectInstanceStorageConfigKinesisVideoStreamConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.InstanceStorageConfig.KinesisVideoStreamConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

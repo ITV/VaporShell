@@ -33,7 +33,7 @@ function Add-VSEMRClusterConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.Configuration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -31,7 +31,7 @@ function Add-VSTransferWorkflowTagStepDetails {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.Workflow.TagStepDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

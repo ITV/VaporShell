@@ -19,7 +19,7 @@ function Add-VSECRRepositoryImageScanningConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECR.Repository.ImageScanningConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

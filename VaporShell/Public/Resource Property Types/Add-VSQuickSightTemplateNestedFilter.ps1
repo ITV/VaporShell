@@ -34,7 +34,7 @@ function Add-VSQuickSightTemplateNestedFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.NestedFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

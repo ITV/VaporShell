@@ -29,7 +29,7 @@ function Add-VSKinesisAnalyticsApplicationReferenceDataSourceRecordColumn {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalytics.ApplicationReferenceDataSource.RecordColumn')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

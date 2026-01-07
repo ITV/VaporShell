@@ -29,7 +29,7 @@ function Add-VSIoTAnalyticsChannelCustomerManagedS3 {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Channel.CustomerManagedS3')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

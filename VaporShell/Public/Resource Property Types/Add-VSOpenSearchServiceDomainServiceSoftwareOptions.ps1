@@ -54,7 +54,7 @@ function Add-VSOpenSearchServiceDomainServiceSoftwareOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.ServiceSoftwareOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

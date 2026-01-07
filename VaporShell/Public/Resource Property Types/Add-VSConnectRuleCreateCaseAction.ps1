@@ -26,7 +26,7 @@ function Add-VSConnectRuleCreateCaseAction {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.Rule.CreateCaseAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSDataZoneDataSourceFormInput {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.DataSource.FormInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSVpcLatticeRuleForward {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.Rule.Forward')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

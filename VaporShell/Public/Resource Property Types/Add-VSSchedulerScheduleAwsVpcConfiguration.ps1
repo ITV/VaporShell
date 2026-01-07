@@ -33,7 +33,7 @@ function Add-VSSchedulerScheduleAwsVpcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.AwsVpcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

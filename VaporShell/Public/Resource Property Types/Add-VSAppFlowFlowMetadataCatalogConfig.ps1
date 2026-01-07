@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowMetadataCatalogConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.MetadataCatalogConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

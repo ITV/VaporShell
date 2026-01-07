@@ -44,7 +44,7 @@ function Add-VSOpsWorksStackSource {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.Stack.Source')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
 

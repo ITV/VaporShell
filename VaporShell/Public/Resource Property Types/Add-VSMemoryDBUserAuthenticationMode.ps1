@@ -26,7 +26,7 @@ function Add-VSMemoryDBUserAuthenticationMode {
     #>
 
     [OutputType('Vaporshell.Resource.MemoryDB.User.AuthenticationMode')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Passwords")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Passwords")]
 

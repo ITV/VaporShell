@@ -26,7 +26,7 @@ function Add-VSConnectCampaignsV2CampaignLocalTimeZoneConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.LocalTimeZoneConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

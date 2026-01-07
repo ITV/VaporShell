@@ -155,7 +155,7 @@ function Add-VSEC2LaunchTemplateInstanceRequirements {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.InstanceRequirements')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

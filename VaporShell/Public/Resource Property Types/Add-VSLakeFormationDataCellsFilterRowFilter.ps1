@@ -24,7 +24,7 @@ function Add-VSLakeFormationDataCellsFilterRowFilter {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.DataCellsFilter.RowFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -62,7 +62,7 @@ function Add-VSLakeFormationDataCellsFilterRowFilter {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                AllRowsWildcard {
+                'AllRowsWildcard' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

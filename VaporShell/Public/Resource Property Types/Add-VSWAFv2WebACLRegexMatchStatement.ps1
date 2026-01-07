@@ -31,7 +31,7 @@ function Add-VSWAFv2WebACLRegexMatchStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RegexMatchStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

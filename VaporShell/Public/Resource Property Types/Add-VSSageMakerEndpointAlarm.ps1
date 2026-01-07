@@ -19,7 +19,7 @@ function Add-VSSageMakerEndpointAlarm {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Endpoint.Alarm')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -49,7 +49,7 @@ function Add-VSCustomerProfilesIntegrationScheduledTriggerProperties {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.ScheduledTriggerProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

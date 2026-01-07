@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplatePluginVisualProperty {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PluginVisualProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -17,7 +17,7 @@ function Add-VSKendraDataSourceDocumentAttributeValue {
     .PARAMETER LongValue
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributevalue.html#cfn-kendra-datasource-documentattributevalue-longvalue
         UpdateType: Mutable
-        PrimitiveType: Integer
+        PrimitiveType: Long
 
     .PARAMETER StringValue
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributevalue.html#cfn-kendra-datasource-documentattributevalue-stringvalue
@@ -36,7 +36,7 @@ function Add-VSKendraDataSourceDocumentAttributeValue {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.DataSource.DocumentAttributeValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -53,15 +53,6 @@ function Add-VSKendraDataSourceDocumentAttributeValue {
         $DateValue,
 
         [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.Int32","Vaporshell.Function"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $LongValue,
 
         [Parameter(Mandatory = $false)]

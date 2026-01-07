@@ -29,7 +29,7 @@ function Add-VSCloudFormationGuardHookStackFilters {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.GuardHook.StackFilters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

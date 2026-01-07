@@ -20,7 +20,7 @@ function Add-VSConfigRemediationConfigurationStaticValue {
     #>
 
     [OutputType('Vaporshell.Resource.Config.RemediationConfiguration.StaticValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

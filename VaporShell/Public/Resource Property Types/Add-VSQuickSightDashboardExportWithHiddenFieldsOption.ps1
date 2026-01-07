@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardExportWithHiddenFieldsOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ExportWithHiddenFieldsOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

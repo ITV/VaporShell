@@ -42,7 +42,7 @@ function Add-VSImageBuilderDistributionConfigurationLaunchPermissionConfiguratio
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.DistributionConfiguration.LaunchPermissionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

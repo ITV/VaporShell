@@ -88,7 +88,7 @@ function Add-VSMediaLiveChannelEncoderSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.EncoderSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

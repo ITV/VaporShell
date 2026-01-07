@@ -39,7 +39,7 @@ function Add-VSEMRClusterKerberosAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.KerberosAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","ADDomainJoinPassword")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","ADDomainJoinPassword")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","CrossRealmTrustPrincipalPassword")]

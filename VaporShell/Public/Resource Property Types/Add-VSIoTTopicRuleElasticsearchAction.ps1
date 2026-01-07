@@ -39,7 +39,7 @@ function Add-VSIoTTopicRuleElasticsearchAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.ElasticsearchAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

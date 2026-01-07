@@ -39,7 +39,7 @@ function Add-VSQuickSightAnalysisMaximumMinimumComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.MaximumMinimumComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

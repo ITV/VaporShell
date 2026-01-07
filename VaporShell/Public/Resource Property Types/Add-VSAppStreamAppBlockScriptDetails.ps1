@@ -34,7 +34,7 @@ function Add-VSAppStreamAppBlockScriptDetails {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.AppBlock.ScriptDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

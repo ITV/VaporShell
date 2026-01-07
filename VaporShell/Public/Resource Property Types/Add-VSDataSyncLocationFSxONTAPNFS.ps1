@@ -19,7 +19,7 @@ function Add-VSDataSyncLocationFSxONTAPNFS {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationFSxONTAP.NFS')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

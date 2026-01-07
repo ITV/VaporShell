@@ -19,7 +19,7 @@ function Add-VSDataSyncLocationFSxONTAPSmbMountOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationFSxONTAP.SmbMountOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

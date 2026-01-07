@@ -19,7 +19,7 @@ function Add-VSQuickSightThemeTileStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Theme.TileStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -33,7 +33,7 @@ function Add-VSEventsRuleHttpParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.HttpParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

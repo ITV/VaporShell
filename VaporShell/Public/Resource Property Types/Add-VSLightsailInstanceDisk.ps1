@@ -49,7 +49,7 @@ function Add-VSLightsailInstanceDisk {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Instance.Disk')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

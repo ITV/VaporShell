@@ -24,7 +24,7 @@ function Add-VSIoTJobTemplatePresignedUrlConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.JobTemplate.PresignedUrlConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSPinpointEmailConfigurationSetEventDestinationKinesisFirehoseDesti
     #>
 
     [OutputType('Vaporshell.Resource.PinpointEmail.ConfigurationSetEventDestination.KinesisFirehoseDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

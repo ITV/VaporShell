@@ -29,7 +29,7 @@ function Add-VSGlobalAcceleratorCrossAccountAttachmentResource {
     #>
 
     [OutputType('Vaporshell.Resource.GlobalAccelerator.CrossAccountAttachment.Resource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSMediaConnectFlowVideoMonitoringSetting {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.VideoMonitoringSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

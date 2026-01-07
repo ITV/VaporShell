@@ -28,7 +28,7 @@ function Add-VSTransferServerWorkflowDetails {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.Server.WorkflowDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

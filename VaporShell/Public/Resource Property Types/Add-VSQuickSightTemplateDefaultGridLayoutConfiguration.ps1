@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateDefaultGridLayoutConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DefaultGridLayoutConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

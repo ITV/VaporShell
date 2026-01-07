@@ -21,7 +21,7 @@ function Add-VSCodePipelinePipelineSuccessConditions {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.SuccessConditions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

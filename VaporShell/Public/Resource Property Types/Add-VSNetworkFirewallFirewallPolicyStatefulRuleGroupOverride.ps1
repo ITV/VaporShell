@@ -19,7 +19,7 @@ function Add-VSNetworkFirewallFirewallPolicyStatefulRuleGroupOverride {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.FirewallPolicy.StatefulRuleGroupOverride')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

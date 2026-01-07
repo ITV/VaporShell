@@ -26,7 +26,7 @@ function Add-VSRekognitionStreamProcessorConnectedHomeSettings {
     #>
 
     [OutputType('Vaporshell.Resource.Rekognition.StreamProcessor.ConnectedHomeSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

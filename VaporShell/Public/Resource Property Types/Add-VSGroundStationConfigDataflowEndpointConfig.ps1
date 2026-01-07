@@ -24,7 +24,7 @@ function Add-VSGroundStationConfigDataflowEndpointConfig {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.Config.DataflowEndpointConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

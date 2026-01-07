@@ -11,12 +11,12 @@ function Add-VSGroundStationDataflowEndpointGroupRangedConnectionDetails {
 
     .PARAMETER SocketAddress
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedconnectiondetails.html#cfn-groundstation-dataflowendpointgroup-rangedconnectiondetails-socketaddress
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: RangedSocketAddress
 
     .PARAMETER Mtu
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedconnectiondetails.html#cfn-groundstation-dataflowendpointgroup-rangedconnectiondetails-mtu
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .FUNCTIONALITY
@@ -24,7 +24,7 @@ function Add-VSGroundStationDataflowEndpointGroupRangedConnectionDetails {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.DataflowEndpointGroup.RangedConnectionDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

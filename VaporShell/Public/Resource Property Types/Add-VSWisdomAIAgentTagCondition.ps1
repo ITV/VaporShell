@@ -24,7 +24,7 @@ function Add-VSWisdomAIAgentTagCondition {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIAgent.TagCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

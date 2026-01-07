@@ -29,7 +29,7 @@ function Add-VSLexBotDialogAction {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.DialogAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

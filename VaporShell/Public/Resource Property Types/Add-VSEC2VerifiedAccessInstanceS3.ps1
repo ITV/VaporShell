@@ -34,7 +34,7 @@ function Add-VSEC2VerifiedAccessInstanceS3 {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessInstance.S3')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

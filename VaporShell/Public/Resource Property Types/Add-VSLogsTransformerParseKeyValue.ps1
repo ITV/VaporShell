@@ -49,7 +49,7 @@ function Add-VSLogsTransformerParseKeyValue {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.ParseKeyValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSSageMakerModelExplainabilityJobDefinitionS3Output {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.S3Output')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

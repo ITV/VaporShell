@@ -24,7 +24,7 @@ function Add-VSWAFXssMatchSetXssMatchTuple {
     #>
 
     [OutputType('Vaporshell.Resource.WAF.XssMatchSet.XssMatchTuple')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,7 +44,7 @@ function Add-VSQuickSightTemplateAxisDisplayOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.AxisDisplayOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -103,7 +103,7 @@ function Add-VSQuickSightTemplateAxisDisplayOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                AxisLineVisibility {
+                'AxisLineVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -117,7 +117,7 @@ function Add-VSQuickSightTemplateAxisDisplayOptions {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                GridLineVisibility {
+                'GridLineVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

@@ -21,7 +21,7 @@ function Add-VSCloudFrontResponseHeadersPolicyAccessControlAllowMethods {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.AccessControlAllowMethods')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

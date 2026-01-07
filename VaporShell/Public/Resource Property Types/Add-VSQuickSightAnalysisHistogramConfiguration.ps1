@@ -39,6 +39,11 @@ function Add-VSQuickSightAnalysisHistogramConfiguration {
         UpdateType: Mutable
         Type: ChartAxisLabelOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-histogramconfiguration.html#cfn-quicksight-analysis-histogramconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER VisualPalette
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-histogramconfiguration.html#cfn-quicksight-analysis-histogramconfiguration-visualpalette
         UpdateType: Mutable
@@ -54,7 +59,7 @@ function Add-VSQuickSightAnalysisHistogramConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.HistogramConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -75,6 +80,9 @@ function Add-VSQuickSightAnalysisHistogramConfiguration {
 
         [Parameter(Mandatory = $false)]
         $XAxisLabelOptions,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         $VisualPalette,

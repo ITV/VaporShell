@@ -30,7 +30,7 @@ function Add-VSNetworkFirewallLoggingConfigurationLogDestinationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.LoggingConfiguration.LogDestinationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

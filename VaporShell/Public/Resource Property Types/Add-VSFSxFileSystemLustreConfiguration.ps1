@@ -34,9 +34,19 @@ function Add-VSFSxFileSystemLustreConfiguration {
         PrimitiveType: String
         UpdateType: Immutable
 
+    .PARAMETER ThroughputCapacity
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-throughputcapacity
+        PrimitiveType: Integer
+        UpdateType: Mutable
+
     .PARAMETER DataCompressionType
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-datacompressiontype
         PrimitiveType: String
+        UpdateType: Mutable
+
+    .PARAMETER DataReadCacheConfiguration
+        Type: DataReadCacheConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-datareadcacheconfiguration
         UpdateType: Mutable
 
     .PARAMETER ImportPath
@@ -84,7 +94,7 @@ function Add-VSFSxFileSystemLustreConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.FileSystem.LustreConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -150,6 +160,18 @@ function Add-VSFSxFileSystemLustreConfiguration {
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ThroughputCapacity,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     $true
@@ -159,6 +181,9 @@ function Add-VSFSxFileSystemLustreConfiguration {
                 }
             })]
         $DataCompressionType,
+
+        [Parameter(Mandatory = $false)]
+        $DataReadCacheConfiguration,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

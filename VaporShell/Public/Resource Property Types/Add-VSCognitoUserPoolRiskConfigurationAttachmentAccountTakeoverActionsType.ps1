@@ -29,7 +29,7 @@ function Add-VSCognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsT
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPoolRiskConfigurationAttachment.AccountTakeoverActionsType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

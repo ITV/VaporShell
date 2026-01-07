@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelVideoBlackFailoverSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.VideoBlackFailoverSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSSageMakerModelBiasJobDefinitionMonitoringOutput {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.MonitoringOutput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

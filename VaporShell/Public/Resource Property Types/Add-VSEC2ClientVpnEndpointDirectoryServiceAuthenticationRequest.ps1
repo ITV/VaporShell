@@ -19,7 +19,7 @@ function Add-VSEC2ClientVpnEndpointDirectoryServiceAuthenticationRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.ClientVpnEndpoint.DirectoryServiceAuthenticationRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

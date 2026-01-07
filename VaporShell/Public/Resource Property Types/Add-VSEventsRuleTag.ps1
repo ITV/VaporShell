@@ -24,7 +24,7 @@ function Add-VSEventsRuleTag {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.Tag')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSCassandraTypeField {
     #>
 
     [OutputType('Vaporshell.Resource.Cassandra.Type.Field')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

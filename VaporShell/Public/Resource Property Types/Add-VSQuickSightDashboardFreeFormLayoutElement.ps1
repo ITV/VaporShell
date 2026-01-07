@@ -19,13 +19,8 @@ function Add-VSQuickSightDashboardFreeFormLayoutElement {
         UpdateType: Mutable
         Type: FreeFormLayoutElementBorderStyle
 
-    .PARAMETER Height
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-height
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER Visibility
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-visibility
+    .PARAMETER BorderRadius
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-borderradius
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -41,6 +36,31 @@ function Add-VSQuickSightDashboardFreeFormLayoutElement {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER BackgroundStyle
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-backgroundstyle
+        UpdateType: Mutable
+        Type: FreeFormLayoutElementBackgroundStyle
+
+    .PARAMETER XAxisLocation
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-xaxislocation
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Padding
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-padding
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Height
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-height
+        UpdateType: Mutable
+        PrimitiveType: String
+
+    .PARAMETER Visibility
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-visibility
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER LoadingAnimation
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-loadinganimation
         UpdateType: Mutable
@@ -51,18 +71,8 @@ function Add-VSQuickSightDashboardFreeFormLayoutElement {
         UpdateType: Mutable
         PrimitiveType: String
 
-    .PARAMETER BackgroundStyle
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-backgroundstyle
-        UpdateType: Mutable
-        Type: FreeFormLayoutElementBackgroundStyle
-
     .PARAMETER ElementId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-elementid
-        UpdateType: Mutable
-        PrimitiveType: String
-
-    .PARAMETER XAxisLocation
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-freeformlayoutelement.html#cfn-quicksight-dashboard-freeformlayoutelement-xaxislocation
         UpdateType: Mutable
         PrimitiveType: String
 
@@ -76,7 +86,7 @@ function Add-VSQuickSightDashboardFreeFormLayoutElement {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FreeFormLayoutElement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -95,18 +105,6 @@ function Add-VSQuickSightDashboardFreeFormLayoutElement {
         [Parameter(Mandatory = $false)]
         $BorderStyle,
 
-        [Parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $Height,
-
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -117,7 +115,7 @@ function Add-VSQuickSightDashboardFreeFormLayoutElement {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Visibility,
+        $BorderRadius,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -144,6 +142,57 @@ function Add-VSQuickSightDashboardFreeFormLayoutElement {
         $YAxisLocation,
 
         [Parameter(Mandatory = $false)]
+        $BackgroundStyle,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $XAxisLocation,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Padding,
+
+        [Parameter(Mandatory = $true)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Height,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Visibility,
+
+        [Parameter(Mandatory = $false)]
         $LoadingAnimation,
 
         [Parameter(Mandatory = $true)]
@@ -158,9 +207,6 @@ function Add-VSQuickSightDashboardFreeFormLayoutElement {
             })]
         $Width,
 
-        [Parameter(Mandatory = $false)]
-        $BackgroundStyle,
-
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
@@ -172,18 +218,6 @@ function Add-VSQuickSightDashboardFreeFormLayoutElement {
                 }
             })]
         $ElementId,
-
-        [Parameter(Mandatory = $true)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
-        $XAxisLocation,
 
         [Parameter(Mandatory = $false)]
         $SelectedBorderStyle

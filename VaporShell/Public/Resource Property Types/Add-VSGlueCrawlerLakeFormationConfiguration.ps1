@@ -24,7 +24,7 @@ function Add-VSGlueCrawlerLakeFormationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Crawler.LakeFormationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","UseLakeFormationCredentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","UseLakeFormationCredentials")]
 

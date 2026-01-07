@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateAxisDisplayRange {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.AxisDisplayRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -53,7 +53,7 @@ function Add-VSQuickSightTemplateAxisDisplayRange {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                DataDriven {
+                'DataDriven' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

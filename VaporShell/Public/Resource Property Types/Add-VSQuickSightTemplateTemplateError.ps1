@@ -31,7 +31,7 @@ function Add-VSQuickSightTemplateTemplateError {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TemplateError')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSCodePipelinePipelineArtifactStoreMap {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.ArtifactStoreMap')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

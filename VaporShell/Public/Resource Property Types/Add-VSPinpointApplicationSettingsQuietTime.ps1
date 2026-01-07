@@ -24,7 +24,7 @@ function Add-VSPinpointApplicationSettingsQuietTime {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.ApplicationSettings.QuietTime')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

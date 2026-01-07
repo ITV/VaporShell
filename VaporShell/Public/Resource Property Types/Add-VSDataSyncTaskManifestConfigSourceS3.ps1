@@ -34,7 +34,7 @@ function Add-VSDataSyncTaskManifestConfigSourceS3 {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.Task.ManifestConfigSourceS3')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSBatchJobDefinitionImagePullSecret {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.ImagePullSecret')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

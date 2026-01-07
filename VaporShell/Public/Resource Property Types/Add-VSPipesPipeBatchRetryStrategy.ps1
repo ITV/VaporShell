@@ -19,7 +19,7 @@ function Add-VSPipesPipeBatchRetryStrategy {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.BatchRetryStrategy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

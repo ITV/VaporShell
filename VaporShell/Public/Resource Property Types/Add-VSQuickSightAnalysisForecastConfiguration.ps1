@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisForecastConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ForecastConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

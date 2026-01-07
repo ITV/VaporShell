@@ -34,7 +34,7 @@ function Add-VSCustomerProfilesDomainAutoMerging {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Domain.AutoMerging')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

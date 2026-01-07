@@ -46,7 +46,7 @@ function Add-VSLexBotSlotValueElicitationSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.SlotValueElicitationSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSDeadlineFleetAcceleratorTotalMemoryMiBRange {
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Fleet.AcceleratorTotalMemoryMiBRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

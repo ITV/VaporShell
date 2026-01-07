@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualNodeJsonFormatRef {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.JsonFormatRef')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

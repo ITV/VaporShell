@@ -24,7 +24,7 @@ function Add-VSGreengrassV2ComponentVersionLambdaLinuxProcessParams {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.ComponentVersion.LambdaLinuxProcessParams')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

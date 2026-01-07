@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowZendeskSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.ZendeskSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

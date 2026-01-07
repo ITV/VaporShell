@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardTableCellConditionalFormatting {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.TableCellConditionalFormatting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

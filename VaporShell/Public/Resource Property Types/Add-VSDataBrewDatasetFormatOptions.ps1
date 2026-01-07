@@ -29,7 +29,7 @@ function Add-VSDataBrewDatasetFormatOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.FormatOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

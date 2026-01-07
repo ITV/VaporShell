@@ -29,7 +29,7 @@ function Add-VSDynamoDBTableSSESpecification {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.Table.SSESpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

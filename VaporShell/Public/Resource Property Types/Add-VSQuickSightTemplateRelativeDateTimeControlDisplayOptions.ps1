@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateRelativeDateTimeControlDisplayOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.RelativeDateTimeControlDisplayOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

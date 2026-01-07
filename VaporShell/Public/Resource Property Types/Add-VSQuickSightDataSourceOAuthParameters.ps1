@@ -34,7 +34,7 @@ function Add-VSQuickSightDataSourceOAuthParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.OAuthParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSBatchJobDefinitionEksHostPath {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.EksHostPath')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

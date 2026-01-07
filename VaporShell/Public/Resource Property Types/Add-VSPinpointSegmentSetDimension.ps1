@@ -25,7 +25,7 @@ function Add-VSPinpointSegmentSetDimension {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Segment.SetDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

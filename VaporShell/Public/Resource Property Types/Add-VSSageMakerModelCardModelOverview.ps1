@@ -66,7 +66,7 @@ function Add-VSSageMakerModelCardModelOverview {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.ModelOverview')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

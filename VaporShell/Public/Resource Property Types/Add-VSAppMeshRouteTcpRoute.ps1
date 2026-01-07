@@ -29,7 +29,7 @@ function Add-VSAppMeshRouteTcpRoute {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.TcpRoute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

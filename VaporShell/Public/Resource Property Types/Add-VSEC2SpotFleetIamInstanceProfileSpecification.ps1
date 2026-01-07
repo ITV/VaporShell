@@ -19,7 +19,7 @@ function Add-VSEC2SpotFleetIamInstanceProfileSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.IamInstanceProfileSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

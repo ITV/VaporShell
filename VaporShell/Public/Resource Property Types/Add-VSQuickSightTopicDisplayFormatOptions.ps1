@@ -74,7 +74,7 @@ function Add-VSQuickSightTopicDisplayFormatOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.DisplayFormatOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

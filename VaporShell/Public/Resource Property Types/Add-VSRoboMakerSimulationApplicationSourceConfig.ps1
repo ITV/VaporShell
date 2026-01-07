@@ -11,25 +11,25 @@ function Add-VSRoboMakerSimulationApplicationSourceConfig {
 
     .PARAMETER S3Bucket
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3bucket
-        UpdateType: Mutable
         PrimitiveType: String
+        UpdateType: Mutable
 
     .PARAMETER Architecture
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-architecture
-        UpdateType: Mutable
         PrimitiveType: String
+        UpdateType: Mutable
 
     .PARAMETER S3Key
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3key
-        UpdateType: Mutable
         PrimitiveType: String
+        UpdateType: Mutable
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.RoboMaker.SimulationApplication.SourceConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

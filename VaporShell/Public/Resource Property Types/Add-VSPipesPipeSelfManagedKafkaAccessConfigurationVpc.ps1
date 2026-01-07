@@ -28,7 +28,7 @@ function Add-VSPipesPipeSelfManagedKafkaAccessConfigurationVpc {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.SelfManagedKafkaAccessConfigurationVpc')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

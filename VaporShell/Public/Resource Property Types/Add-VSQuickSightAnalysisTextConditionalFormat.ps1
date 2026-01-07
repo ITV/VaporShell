@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisTextConditionalFormat {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TextConditionalFormat')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

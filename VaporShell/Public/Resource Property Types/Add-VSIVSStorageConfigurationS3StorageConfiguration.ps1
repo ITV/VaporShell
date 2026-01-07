@@ -19,7 +19,7 @@ function Add-VSIVSStorageConfigurationS3StorageConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IVS.StorageConfiguration.S3StorageConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

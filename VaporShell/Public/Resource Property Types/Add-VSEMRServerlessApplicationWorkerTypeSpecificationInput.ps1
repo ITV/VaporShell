@@ -19,7 +19,7 @@ function Add-VSEMRServerlessApplicationWorkerTypeSpecificationInput {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.WorkerTypeSpecificationInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

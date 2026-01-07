@@ -29,7 +29,7 @@ function Add-VSLogsTransformerRenameKeyEntry {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.RenameKeyEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

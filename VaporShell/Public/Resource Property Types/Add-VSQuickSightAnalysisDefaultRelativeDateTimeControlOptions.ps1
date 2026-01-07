@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisDefaultRelativeDateTimeControlOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DefaultRelativeDateTimeControlOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

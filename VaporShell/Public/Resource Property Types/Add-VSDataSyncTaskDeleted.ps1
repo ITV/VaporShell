@@ -19,7 +19,7 @@ function Add-VSDataSyncTaskDeleted {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.Task.Deleted')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

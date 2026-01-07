@@ -24,7 +24,7 @@ function Add-VSEC2SpotFleetAcceleratorCountRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.AcceleratorCountRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

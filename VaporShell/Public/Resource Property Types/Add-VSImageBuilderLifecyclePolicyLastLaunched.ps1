@@ -24,7 +24,7 @@ function Add-VSImageBuilderLifecyclePolicyLastLaunched {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.LifecyclePolicy.LastLaunched')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

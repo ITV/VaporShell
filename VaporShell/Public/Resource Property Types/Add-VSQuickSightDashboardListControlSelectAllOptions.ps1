@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardListControlSelectAllOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ListControlSelectAllOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

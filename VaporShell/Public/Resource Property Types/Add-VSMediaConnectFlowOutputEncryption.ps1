@@ -34,7 +34,7 @@ function Add-VSMediaConnectFlowOutputEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.FlowOutput.Encryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -114,7 +114,7 @@ function Add-VSMediaLiveChannelEac3Settings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.Eac3Settings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

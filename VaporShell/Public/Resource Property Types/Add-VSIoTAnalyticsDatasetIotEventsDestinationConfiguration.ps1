@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsDatasetIotEventsDestinationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.IotEventsDestinationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

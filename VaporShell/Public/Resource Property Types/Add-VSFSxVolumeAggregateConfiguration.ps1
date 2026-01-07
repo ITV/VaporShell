@@ -25,7 +25,7 @@ function Add-VSFSxVolumeAggregateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.Volume.AggregateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSDataBrewRulesetThreshold {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Ruleset.Threshold')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

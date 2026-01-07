@@ -9,6 +9,11 @@ function Add-VSBedrockGuardrailTopicPolicyConfig {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicpolicyconfig.html
 
+    .PARAMETER TopicsTierConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicpolicyconfig.html#cfn-bedrock-guardrail-topicpolicyconfig-topicstierconfig
+        UpdateType: Mutable
+        Type: TopicsTierConfig
+
     .PARAMETER TopicsConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-topicpolicyconfig.html#cfn-bedrock-guardrail-topicpolicyconfig-topicsconfig
         UpdateType: Mutable
@@ -21,10 +26,13 @@ function Add-VSBedrockGuardrailTopicPolicyConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Guardrail.TopicPolicyConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $TopicsTierConfig,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.Bedrock.Guardrail.TopicConfig"

@@ -29,7 +29,7 @@ function Add-VSWAFv2RuleGroupCookies {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.Cookies')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSRDSDBClusterServerlessV2ScalingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBCluster.ServerlessV2ScalingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

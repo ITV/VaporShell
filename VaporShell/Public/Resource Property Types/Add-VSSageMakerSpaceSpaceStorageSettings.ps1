@@ -19,7 +19,7 @@ function Add-VSSageMakerSpaceSpaceStorageSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.SpaceStorageSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSConnectCampaignsV2CampaignEventTrigger {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.EventTrigger')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

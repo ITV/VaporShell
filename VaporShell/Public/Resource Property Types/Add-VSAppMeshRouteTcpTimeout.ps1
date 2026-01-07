@@ -19,7 +19,7 @@ function Add-VSAppMeshRouteTcpTimeout {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.TcpTimeout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

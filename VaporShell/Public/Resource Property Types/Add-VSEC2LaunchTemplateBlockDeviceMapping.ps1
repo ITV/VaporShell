@@ -34,7 +34,7 @@ function Add-VSEC2LaunchTemplateBlockDeviceMapping {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.BlockDeviceMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

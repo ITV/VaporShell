@@ -29,7 +29,7 @@ function Add-VSS3BucketTopicConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.TopicConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

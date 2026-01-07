@@ -24,7 +24,7 @@ function Add-VSEMRClusterOnDemandProvisioningSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.OnDemandProvisioningSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSIoTWirelessWirelessDeviceAbpV11 {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.WirelessDevice.AbpV11')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

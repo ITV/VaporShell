@@ -24,7 +24,7 @@ function Add-VSEC2LaunchTemplateAcceleratorCount {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.AcceleratorCount')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

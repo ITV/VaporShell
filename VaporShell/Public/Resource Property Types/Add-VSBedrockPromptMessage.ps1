@@ -26,7 +26,7 @@ function Add-VSBedrockPromptMessage {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Prompt.Message')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

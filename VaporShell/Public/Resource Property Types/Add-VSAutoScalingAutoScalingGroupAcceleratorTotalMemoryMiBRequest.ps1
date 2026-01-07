@@ -24,7 +24,7 @@ function Add-VSAutoScalingAutoScalingGroupAcceleratorTotalMemoryMiBRequest {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.AcceleratorTotalMemoryMiBRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

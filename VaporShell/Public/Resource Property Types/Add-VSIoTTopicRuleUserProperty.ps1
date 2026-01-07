@@ -24,7 +24,7 @@ function Add-VSIoTTopicRuleUserProperty {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.UserProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

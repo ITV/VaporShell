@@ -29,7 +29,7 @@ function Add-VSLightsailDistributionInputOrigin {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Distribution.InputOrigin')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

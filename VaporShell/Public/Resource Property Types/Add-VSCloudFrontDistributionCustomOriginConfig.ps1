@@ -9,6 +9,11 @@ function Add-VSCloudFrontDistributionCustomOriginConfig {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html
 
+    .PARAMETER IpAddressType
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-ipaddresstype
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER OriginReadTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originreadtimeout
         UpdateType: Mutable
@@ -18,6 +23,11 @@ function Add-VSCloudFrontDistributionCustomOriginConfig {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpsport
         UpdateType: Mutable
         PrimitiveType: Integer
+
+    .PARAMETER OriginMtlsConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originmtlsconfig
+        UpdateType: Mutable
+        Type: OriginMtlsConfig
 
     .PARAMETER OriginKeepaliveTimeout
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout
@@ -46,10 +56,22 @@ function Add-VSCloudFrontDistributionCustomOriginConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Distribution.CustomOriginConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $IpAddressType,
+
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Int32","Vaporshell.Function"
@@ -73,6 +95,9 @@ function Add-VSCloudFrontDistributionCustomOriginConfig {
                 }
             })]
         $HTTPSPort,
+
+        [Parameter(Mandatory = $false)]
+        $OriginMtlsConfig,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

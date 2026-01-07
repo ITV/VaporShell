@@ -26,7 +26,7 @@ function Add-VSCognitoIdentityPoolPushSync {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.IdentityPool.PushSync')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

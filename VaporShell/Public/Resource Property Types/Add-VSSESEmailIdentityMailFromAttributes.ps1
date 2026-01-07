@@ -24,7 +24,7 @@ function Add-VSSESEmailIdentityMailFromAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.SES.EmailIdentity.MailFromAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

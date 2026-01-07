@@ -24,7 +24,7 @@ function Add-VSElasticsearchDomainEncryptionAtRestOptions {
     #>
 
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.EncryptionAtRestOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

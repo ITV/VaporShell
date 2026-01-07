@@ -74,7 +74,7 @@ function Add-VSRUMAppMonitorAppMonitorConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.RUM.AppMonitor.AppMonitorConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

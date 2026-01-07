@@ -25,7 +25,7 @@ function Add-VSDLMLifecyclePolicyAction {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.Action')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

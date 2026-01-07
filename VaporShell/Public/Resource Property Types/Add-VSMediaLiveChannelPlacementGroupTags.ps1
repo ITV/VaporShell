@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelPlacementGroupTags {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.ChannelPlacementGroup.Tags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

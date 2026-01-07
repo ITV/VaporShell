@@ -26,7 +26,7 @@ function Add-VSMediaTailorChannelHlsPlaylistSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.Channel.HlsPlaylistSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

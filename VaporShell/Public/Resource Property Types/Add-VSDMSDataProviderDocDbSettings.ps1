@@ -39,7 +39,7 @@ function Add-VSDMSDataProviderDocDbSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.DataProvider.DocDbSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

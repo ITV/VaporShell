@@ -19,7 +19,7 @@ function Add-VSCleanRoomsIdNamespaceAssociationIdMappingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.IdNamespaceAssociation.IdMappingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

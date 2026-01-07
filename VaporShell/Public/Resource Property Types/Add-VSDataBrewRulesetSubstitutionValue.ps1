@@ -24,7 +24,7 @@ function Add-VSDataBrewRulesetSubstitutionValue {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Ruleset.SubstitutionValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -9,6 +9,11 @@ function Add-VSB2BIPartnershipCapabilityOptions {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html
 
+    .PARAMETER InboundEdi
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html#cfn-b2bi-partnership-capabilityoptions-inboundedi
+        UpdateType: Mutable
+        Type: InboundEdiOptions
+
     .PARAMETER OutboundEdi
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-partnership-capabilityoptions.html#cfn-b2bi-partnership-capabilityoptions-outboundedi
         UpdateType: Mutable
@@ -19,10 +24,13 @@ function Add-VSB2BIPartnershipCapabilityOptions {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Partnership.CapabilityOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $InboundEdi,
+
         [Parameter(Mandatory = $false)]
         $OutboundEdi
 

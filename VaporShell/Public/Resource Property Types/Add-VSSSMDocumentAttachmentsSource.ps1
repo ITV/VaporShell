@@ -31,7 +31,7 @@ function Add-VSSSMDocumentAttachmentsSource {
     #>
 
     [OutputType('Vaporshell.Resource.SSM.Document.AttachmentsSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

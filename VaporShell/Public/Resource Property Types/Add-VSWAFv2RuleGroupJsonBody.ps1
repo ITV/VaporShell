@@ -34,7 +34,7 @@ function Add-VSWAFv2RuleGroupJsonBody {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.JsonBody')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

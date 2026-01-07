@@ -24,7 +24,7 @@ function Add-VSCloudFrontRealtimeLogConfigEndPoint {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.RealtimeLogConfig.EndPoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

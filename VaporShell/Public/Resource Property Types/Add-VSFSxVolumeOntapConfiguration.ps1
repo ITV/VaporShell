@@ -79,7 +79,7 @@ function Add-VSFSxVolumeOntapConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.Volume.OntapConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

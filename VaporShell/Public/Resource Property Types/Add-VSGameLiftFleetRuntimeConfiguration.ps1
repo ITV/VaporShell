@@ -31,7 +31,7 @@ function Add-VSGameLiftFleetRuntimeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.Fleet.RuntimeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

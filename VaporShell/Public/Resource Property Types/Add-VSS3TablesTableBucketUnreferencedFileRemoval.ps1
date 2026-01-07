@@ -29,7 +29,7 @@ function Add-VSS3TablesTableBucketUnreferencedFileRemoval {
     #>
 
     [OutputType('Vaporshell.Resource.S3Tables.TableBucket.UnreferencedFileRemoval')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

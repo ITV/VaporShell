@@ -24,7 +24,7 @@ function Add-VSACMPCACertificateApiPassthrough {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.Certificate.ApiPassthrough')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

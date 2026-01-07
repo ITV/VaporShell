@@ -24,7 +24,7 @@ function Add-VSGuardDutyDetectorTagItem {
     #>
 
     [OutputType('Vaporshell.Resource.GuardDuty.Detector.TagItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

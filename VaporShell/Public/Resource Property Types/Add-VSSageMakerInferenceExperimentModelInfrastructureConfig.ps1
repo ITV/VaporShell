@@ -24,7 +24,7 @@ function Add-VSSageMakerInferenceExperimentModelInfrastructureConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.InferenceExperiment.ModelInfrastructureConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

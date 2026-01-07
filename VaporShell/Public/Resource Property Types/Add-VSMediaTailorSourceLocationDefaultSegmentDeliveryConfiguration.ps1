@@ -19,7 +19,7 @@ function Add-VSMediaTailorSourceLocationDefaultSegmentDeliveryConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.SourceLocation.DefaultSegmentDeliveryConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

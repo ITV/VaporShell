@@ -31,7 +31,7 @@ function Add-VSVpcLatticeRuleHttpMatch {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.Rule.HttpMatch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

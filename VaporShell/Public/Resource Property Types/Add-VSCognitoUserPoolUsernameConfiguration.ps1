@@ -19,7 +19,7 @@ function Add-VSCognitoUserPoolUsernameConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.UsernameConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

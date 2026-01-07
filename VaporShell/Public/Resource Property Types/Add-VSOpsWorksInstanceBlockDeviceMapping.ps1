@@ -34,7 +34,7 @@ function Add-VSOpsWorksInstanceBlockDeviceMapping {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.Instance.BlockDeviceMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

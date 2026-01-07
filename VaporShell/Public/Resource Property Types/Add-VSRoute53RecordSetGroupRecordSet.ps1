@@ -96,7 +96,7 @@ function Add-VSRoute53RecordSetGroupRecordSet {
     #>
 
     [OutputType('Vaporshell.Resource.Route53.RecordSetGroup.RecordSet')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

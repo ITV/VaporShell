@@ -24,7 +24,7 @@ function Add-VSGreengrassFunctionDefinitionResourceAccessPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.FunctionDefinition.ResourceAccessPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

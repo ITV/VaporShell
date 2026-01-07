@@ -19,7 +19,7 @@ function Add-VSSageMakerEndpointConfigRoutingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.RoutingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

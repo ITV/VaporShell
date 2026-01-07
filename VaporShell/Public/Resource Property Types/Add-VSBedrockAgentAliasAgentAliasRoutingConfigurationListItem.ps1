@@ -19,7 +19,7 @@ function Add-VSBedrockAgentAliasAgentAliasRoutingConfigurationListItem {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.AgentAlias.AgentAliasRoutingConfigurationListItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

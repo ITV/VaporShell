@@ -53,7 +53,7 @@ function Add-VSQuickSightAnalysisComboChartVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ComboChartVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

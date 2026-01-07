@@ -24,7 +24,7 @@ function Add-VSLakeFormationTagAssociationDatabaseResource {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.TagAssociation.DatabaseResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -30,7 +30,7 @@ function Add-VSAppStreamStackStorageConnector {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.Stack.StorageConnector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

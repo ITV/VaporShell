@@ -29,7 +29,7 @@ function Add-VSCustomerProfilesIntegrationSalesforceSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.SalesforceSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

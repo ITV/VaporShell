@@ -24,7 +24,7 @@ function Add-VSFISExperimentTemplateExperimentTemplateStopCondition {
     #>
 
     [OutputType('Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentTemplateStopCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

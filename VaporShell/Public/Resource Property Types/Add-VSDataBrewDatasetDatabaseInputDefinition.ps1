@@ -34,7 +34,7 @@ function Add-VSDataBrewDatasetDatabaseInputDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.DatabaseInputDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

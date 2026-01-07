@@ -31,7 +31,7 @@ function Add-VSApplicationInsightsApplicationNetWeaverPrometheusExporter {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.NetWeaverPrometheusExporter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

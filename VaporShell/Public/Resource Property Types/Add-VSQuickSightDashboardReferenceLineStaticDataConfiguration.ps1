@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardReferenceLineStaticDataConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ReferenceLineStaticDataConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

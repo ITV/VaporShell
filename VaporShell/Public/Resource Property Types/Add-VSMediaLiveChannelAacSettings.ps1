@@ -59,7 +59,7 @@ function Add-VSMediaLiveChannelAacSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AacSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

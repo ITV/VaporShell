@@ -24,7 +24,7 @@ function Add-VSFSxDataRepositoryAssociationS3 {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.DataRepositoryAssociation.S3')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

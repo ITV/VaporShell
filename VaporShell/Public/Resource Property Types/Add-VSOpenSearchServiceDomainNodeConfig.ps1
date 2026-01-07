@@ -29,7 +29,7 @@ function Add-VSOpenSearchServiceDomainNodeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.NodeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

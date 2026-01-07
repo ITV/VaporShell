@@ -24,7 +24,7 @@ function Add-VSSageMakerEndpointConfigClarifyTextConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.ClarifyTextConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

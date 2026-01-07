@@ -24,7 +24,7 @@ function Add-VSSageMakerInferenceExperimentShadowModelVariantConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.InferenceExperiment.ShadowModelVariantConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

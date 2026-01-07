@@ -29,7 +29,7 @@ function Add-VSDeadlineQueueJobRunAsUser {
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Queue.JobRunAsUser')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSMSKClusterSasl {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.Sasl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

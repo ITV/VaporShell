@@ -24,7 +24,7 @@ function Add-VSCodePipelinePipelinePipelineTriggerDeclaration {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.PipelineTriggerDeclaration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

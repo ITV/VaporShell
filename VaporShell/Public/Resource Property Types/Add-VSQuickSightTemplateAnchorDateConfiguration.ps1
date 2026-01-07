@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateAnchorDateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.AnchorDateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

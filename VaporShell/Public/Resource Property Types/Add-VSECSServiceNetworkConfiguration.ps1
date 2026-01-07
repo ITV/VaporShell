@@ -19,7 +19,7 @@ function Add-VSECSServiceNetworkConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.NetworkConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

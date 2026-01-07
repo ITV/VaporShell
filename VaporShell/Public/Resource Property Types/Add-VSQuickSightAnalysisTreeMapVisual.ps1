@@ -53,7 +53,7 @@ function Add-VSQuickSightAnalysisTreeMapVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TreeMapVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

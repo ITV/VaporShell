@@ -19,7 +19,7 @@ function Add-VSNetworkFirewallRuleGroupAddress {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.RuleGroup.Address')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

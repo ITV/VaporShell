@@ -33,7 +33,7 @@ function Add-VSECSServiceAwsVpcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.AwsVpcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

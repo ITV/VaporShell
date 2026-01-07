@@ -34,7 +34,7 @@ function Add-VSGlueMLTransformGlueTables {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.MLTransform.GlueTables')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

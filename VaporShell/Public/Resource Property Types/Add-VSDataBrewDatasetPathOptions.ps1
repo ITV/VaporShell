@@ -31,7 +31,7 @@ function Add-VSDataBrewDatasetPathOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.PathOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

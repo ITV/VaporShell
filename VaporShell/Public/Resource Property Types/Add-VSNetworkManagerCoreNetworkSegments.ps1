@@ -28,7 +28,7 @@ function Add-VSNetworkManagerCoreNetworkSegments {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.CoreNetwork.Segments')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

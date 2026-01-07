@@ -19,7 +19,7 @@ function Add-VSEC2LaunchTemplateBaselinePerformanceFactors {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.BaselinePerformanceFactors')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

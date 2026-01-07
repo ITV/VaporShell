@@ -24,7 +24,7 @@ function Add-VSDataSyncTaskTaskSchedule {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.Task.TaskSchedule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

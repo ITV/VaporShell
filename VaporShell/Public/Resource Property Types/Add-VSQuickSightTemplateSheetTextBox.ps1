@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateSheetTextBox {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SheetTextBox')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

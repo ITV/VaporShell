@@ -42,12 +42,17 @@ function Add-VSApplicationSignalsServiceLevelObjectiveSliMetric {
         ItemType: MetricDataQuery
         DuplicatesAllowed: True
 
+    .PARAMETER DependencyConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-slimetric.html#cfn-applicationsignals-servicelevelobjective-slimetric-dependencyconfig
+        UpdateType: Mutable
+        Type: DependencyConfig
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.SliMetric')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -113,7 +118,10 @@ function Add-VSApplicationSignalsServiceLevelObjectiveSliMetric {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $MetricDataQueries
+        $MetricDataQueries,
+
+        [Parameter(Mandatory = $false)]
+        $DependencyConfig
 
     )
 

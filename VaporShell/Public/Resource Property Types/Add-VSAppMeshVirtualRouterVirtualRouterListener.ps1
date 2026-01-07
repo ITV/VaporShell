@@ -19,7 +19,7 @@ function Add-VSAppMeshVirtualRouterVirtualRouterListener {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualRouter.VirtualRouterListener')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

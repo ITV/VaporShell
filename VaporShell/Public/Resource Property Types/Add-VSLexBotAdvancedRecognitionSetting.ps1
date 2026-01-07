@@ -19,7 +19,7 @@ function Add-VSLexBotAdvancedRecognitionSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.AdvancedRecognitionSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

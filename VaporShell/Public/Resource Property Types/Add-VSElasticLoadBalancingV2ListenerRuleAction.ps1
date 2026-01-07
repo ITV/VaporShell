@@ -39,6 +39,11 @@ function Add-VSElasticLoadBalancingV2ListenerRuleAction {
         UpdateType: Mutable
         Type: RedirectConfig
 
+    .PARAMETER JwtValidationConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-jwtvalidationconfig
+        UpdateType: Mutable
+        Type: JwtValidationConfig
+
     .PARAMETER ForwardConfig
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-action.html#cfn-elasticloadbalancingv2-listenerrule-action-forwardconfig
         UpdateType: Mutable
@@ -54,7 +59,7 @@ function Add-VSElasticLoadBalancingV2ListenerRuleAction {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.Action')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -102,6 +107,9 @@ function Add-VSElasticLoadBalancingV2ListenerRuleAction {
 
         [Parameter(Mandatory = $false)]
         $RedirectConfig,
+
+        [Parameter(Mandatory = $false)]
+        $JwtValidationConfig,
 
         [Parameter(Mandatory = $false)]
         $ForwardConfig,

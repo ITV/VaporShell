@@ -34,7 +34,7 @@ function Add-VSAmplifyAppCustomRule {
     #>
 
     [OutputType('Vaporshell.Resource.Amplify.App.CustomRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

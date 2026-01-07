@@ -36,7 +36,7 @@ function Add-VSEntityResolutionIdMappingWorkflowIdMappingRuleBasedProperties {
     #>
 
     [OutputType('Vaporshell.Resource.EntityResolution.IdMappingWorkflow.IdMappingRuleBasedProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

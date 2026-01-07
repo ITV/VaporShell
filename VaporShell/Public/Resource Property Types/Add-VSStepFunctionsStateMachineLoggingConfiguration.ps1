@@ -31,7 +31,7 @@ function Add-VSStepFunctionsStateMachineLoggingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.StepFunctions.StateMachine.LoggingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

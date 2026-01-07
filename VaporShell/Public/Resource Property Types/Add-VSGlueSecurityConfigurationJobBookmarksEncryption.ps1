@@ -24,7 +24,7 @@ function Add-VSGlueSecurityConfigurationJobBookmarksEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.SecurityConfiguration.JobBookmarksEncryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

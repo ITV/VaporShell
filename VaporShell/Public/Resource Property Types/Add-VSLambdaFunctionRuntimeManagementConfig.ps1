@@ -24,7 +24,7 @@ function Add-VSLambdaFunctionRuntimeManagementConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Function.RuntimeManagementConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

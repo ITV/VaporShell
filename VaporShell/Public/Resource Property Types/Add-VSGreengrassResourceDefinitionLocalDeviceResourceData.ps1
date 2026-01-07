@@ -24,7 +24,7 @@ function Add-VSGreengrassResourceDefinitionLocalDeviceResourceData {
     #>
 
     [OutputType('Vaporshell.Resource.Greengrass.ResourceDefinition.LocalDeviceResourceData')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSGuardDutyPublishingDestinationCFNDestinationProperties {
     #>
 
     [OutputType('Vaporshell.Resource.GuardDuty.PublishingDestination.CFNDestinationProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

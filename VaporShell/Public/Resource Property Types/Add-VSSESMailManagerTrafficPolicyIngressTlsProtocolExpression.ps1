@@ -29,7 +29,7 @@ function Add-VSSESMailManagerTrafficPolicyIngressTlsProtocolExpression {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerTrafficPolicy.IngressTlsProtocolExpression')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

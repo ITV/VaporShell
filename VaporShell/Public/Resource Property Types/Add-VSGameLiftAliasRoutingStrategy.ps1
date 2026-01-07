@@ -29,7 +29,7 @@ function Add-VSGameLiftAliasRoutingStrategy {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.Alias.RoutingStrategy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

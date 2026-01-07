@@ -39,7 +39,7 @@ function Add-VSEvidentlyLaunchMetricDefinitionObject {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Launch.MetricDefinitionObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

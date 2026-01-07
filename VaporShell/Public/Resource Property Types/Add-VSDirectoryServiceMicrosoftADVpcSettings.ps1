@@ -26,7 +26,7 @@ function Add-VSDirectoryServiceMicrosoftADVpcSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DirectoryService.MicrosoftAD.VpcSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

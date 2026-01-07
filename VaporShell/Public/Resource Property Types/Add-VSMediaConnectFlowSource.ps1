@@ -34,6 +34,11 @@ function Add-VSMediaConnectFlowSource {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER RouterIntegrationTransitDecryption
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-routerintegrationtransitdecryption
+        UpdateType: Mutable
+        Type: FlowTransitEncryption
+
     .PARAMETER MediaStreamSourceConfigurations
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-mediastreamsourceconfigurations
         UpdateType: Mutable
@@ -55,6 +60,11 @@ function Add-VSMediaConnectFlowSource {
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-decryption
         UpdateType: Mutable
         Type: Encryption
+
+    .PARAMETER RouterIntegrationState
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-routerintegrationstate
+        UpdateType: Mutable
+        PrimitiveType: String
 
     .PARAMETER GatewayBridgeSource
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html#cfn-mediaconnect-flow-source-gatewaybridgesource
@@ -126,7 +136,7 @@ function Add-VSMediaConnectFlowSource {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.Flow.Source')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -191,6 +201,9 @@ function Add-VSMediaConnectFlowSource {
         $SenderIpAddress,
 
         [Parameter(Mandatory = $false)]
+        $RouterIntegrationTransitDecryption,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.MediaConnect.Flow.MediaStreamSourceConfiguration"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -228,6 +241,18 @@ function Add-VSMediaConnectFlowSource {
 
         [Parameter(Mandatory = $false)]
         $Decryption,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RouterIntegrationState,
 
         [Parameter(Mandatory = $false)]
         $GatewayBridgeSource,

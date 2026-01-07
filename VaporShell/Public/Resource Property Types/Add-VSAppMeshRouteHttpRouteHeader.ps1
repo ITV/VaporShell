@@ -29,7 +29,7 @@ function Add-VSAppMeshRouteHttpRouteHeader {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.HttpRouteHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

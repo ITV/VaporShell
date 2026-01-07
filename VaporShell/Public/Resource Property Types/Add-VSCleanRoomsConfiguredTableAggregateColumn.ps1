@@ -26,7 +26,7 @@ function Add-VSCleanRoomsConfiguredTableAggregateColumn {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTable.AggregateColumn')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

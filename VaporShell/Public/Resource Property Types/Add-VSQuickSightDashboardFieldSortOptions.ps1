@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardFieldSortOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FieldSortOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

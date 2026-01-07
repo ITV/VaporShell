@@ -24,6 +24,11 @@ function Add-VSWAFv2WebACLRateBasedStatementCustomKey {
         UpdateType: Mutable
         Type: RateLimitQueryArgument
 
+    .PARAMETER JA3Fingerprint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-ja3fingerprint
+        UpdateType: Mutable
+        Type: RateLimitJA3Fingerprint
+
     .PARAMETER Header
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-header
         UpdateType: Mutable
@@ -49,6 +54,16 @@ function Add-VSWAFv2WebACLRateBasedStatementCustomKey {
         UpdateType: Mutable
         PrimitiveType: Json
 
+    .PARAMETER JA4Fingerprint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-ja4fingerprint
+        UpdateType: Mutable
+        Type: RateLimitJA4Fingerprint
+
+    .PARAMETER ASN
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-asn
+        UpdateType: Mutable
+        PrimitiveType: Json
+
     .PARAMETER LabelNamespace
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html#cfn-wafv2-webacl-ratebasedstatementcustomkey-labelnamespace
         UpdateType: Mutable
@@ -59,7 +74,7 @@ function Add-VSWAFv2WebACLRateBasedStatementCustomKey {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RateBasedStatementCustomKey')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -80,6 +95,9 @@ function Add-VSWAFv2WebACLRateBasedStatementCustomKey {
 
         [Parameter(Mandatory = $false)]
         $QueryArgument,
+
+        [Parameter(Mandatory = $false)]
+        $JA3Fingerprint,
 
         [Parameter(Mandatory = $false)]
         $Header,
@@ -115,6 +133,21 @@ function Add-VSWAFv2WebACLRateBasedStatementCustomKey {
         $IP,
 
         [Parameter(Mandatory = $false)]
+        $JA4Fingerprint,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ASN,
+
+        [Parameter(Mandatory = $false)]
         $LabelNamespace
 
     )
@@ -127,7 +160,7 @@ function Add-VSWAFv2WebACLRateBasedStatementCustomKey {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                ForwardedIP {
+                'ForwardedIP' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -141,7 +174,7 @@ function Add-VSWAFv2WebACLRateBasedStatementCustomKey {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                HTTPMethod {
+                'HTTPMethod' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -155,7 +188,21 @@ function Add-VSWAFv2WebACLRateBasedStatementCustomKey {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                IP {
+                'IP' {
+                    if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
+                        try {
+                            $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
+                        }
+                        catch {
+                            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to convert parameter '$key' string value to PSObject! Please use a JSON string OR provide a Hashtable or PSCustomObject instead!"))
+                        }
+                    }
+                    else {
+                        $JSONObject = ([PSCustomObject]$PSBoundParameters[$key])
+                    }
+                    $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
+                }
+                'ASN' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

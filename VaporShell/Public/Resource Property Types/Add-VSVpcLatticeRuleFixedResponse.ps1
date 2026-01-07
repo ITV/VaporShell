@@ -19,7 +19,7 @@ function Add-VSVpcLatticeRuleFixedResponse {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.Rule.FixedResponse')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

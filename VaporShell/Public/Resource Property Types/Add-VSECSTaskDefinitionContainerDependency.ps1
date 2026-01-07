@@ -24,7 +24,7 @@ function Add-VSECSTaskDefinitionContainerDependency {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.ContainerDependency')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

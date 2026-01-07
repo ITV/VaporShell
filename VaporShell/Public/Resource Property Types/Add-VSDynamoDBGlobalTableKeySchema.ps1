@@ -24,7 +24,7 @@ function Add-VSDynamoDBGlobalTableKeySchema {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.KeySchema')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

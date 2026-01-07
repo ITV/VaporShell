@@ -29,7 +29,7 @@ function Add-VSConnectEvaluationFormSingleSelectQuestionRuleCategoryAutomation {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.SingleSelectQuestionRuleCategoryAutomation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

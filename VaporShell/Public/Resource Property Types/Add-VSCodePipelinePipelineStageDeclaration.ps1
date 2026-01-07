@@ -48,7 +48,7 @@ function Add-VSCodePipelinePipelineStageDeclaration {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.StageDeclaration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

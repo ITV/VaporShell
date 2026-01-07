@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisWaterfallChartColorConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.WaterfallChartColorConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

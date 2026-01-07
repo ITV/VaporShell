@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelUdpGroupSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.UdpGroupSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

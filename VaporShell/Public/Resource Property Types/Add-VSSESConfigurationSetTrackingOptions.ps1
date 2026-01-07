@@ -24,7 +24,7 @@ function Add-VSSESConfigurationSetTrackingOptions {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSet.TrackingOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSLambdaEventSourceMappingDestinationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.EventSourceMapping.DestinationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

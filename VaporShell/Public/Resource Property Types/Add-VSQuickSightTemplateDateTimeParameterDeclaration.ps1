@@ -41,7 +41,7 @@ function Add-VSQuickSightTemplateDateTimeParameterDeclaration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DateTimeParameterDeclaration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

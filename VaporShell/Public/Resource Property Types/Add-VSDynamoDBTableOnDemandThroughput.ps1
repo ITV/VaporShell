@@ -24,7 +24,7 @@ function Add-VSDynamoDBTableOnDemandThroughput {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.Table.OnDemandThroughput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

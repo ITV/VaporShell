@@ -21,7 +21,7 @@ function Add-VSLexBotCustomVocabulary {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.CustomVocabulary')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

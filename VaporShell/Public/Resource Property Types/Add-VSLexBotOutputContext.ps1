@@ -29,7 +29,7 @@ function Add-VSLexBotOutputContext {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.OutputContext')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

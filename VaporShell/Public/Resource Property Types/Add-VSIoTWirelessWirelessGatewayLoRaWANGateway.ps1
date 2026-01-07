@@ -24,7 +24,7 @@ function Add-VSIoTWirelessWirelessGatewayLoRaWANGateway {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.WirelessGateway.LoRaWANGateway')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

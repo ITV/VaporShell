@@ -19,7 +19,7 @@ function Add-VSSageMakerFeatureGroupOnlineStoreSecurityConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.FeatureGroup.OnlineStoreSecurityConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

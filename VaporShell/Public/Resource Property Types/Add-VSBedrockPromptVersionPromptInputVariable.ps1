@@ -19,7 +19,7 @@ function Add-VSBedrockPromptVersionPromptInputVariable {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.PromptVersion.PromptInputVariable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

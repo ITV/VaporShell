@@ -19,7 +19,7 @@ function Add-VSEC2SpotFleetSpotFleetMonitoring {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.SpotFleetMonitoring')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

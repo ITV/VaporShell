@@ -34,7 +34,7 @@ function Add-VSAppFlowFlowSalesforceSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.SalesforceSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

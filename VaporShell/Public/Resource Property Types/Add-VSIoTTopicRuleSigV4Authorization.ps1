@@ -29,7 +29,7 @@ function Add-VSIoTTopicRuleSigV4Authorization {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.SigV4Authorization')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

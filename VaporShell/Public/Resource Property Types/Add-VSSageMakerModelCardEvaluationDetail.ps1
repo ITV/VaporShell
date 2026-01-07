@@ -49,7 +49,7 @@ function Add-VSSageMakerModelCardEvaluationDetail {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.EvaluationDetail')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

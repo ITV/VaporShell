@@ -28,7 +28,7 @@ function Add-VSSageMakerDataQualityJobDefinitionVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.DataQualityJobDefinition.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

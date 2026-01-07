@@ -19,7 +19,7 @@ function Add-VSKinesisAnalyticsApplicationInputParallelism {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalytics.Application.InputParallelism')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

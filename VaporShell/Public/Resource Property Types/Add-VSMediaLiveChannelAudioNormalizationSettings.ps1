@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelAudioNormalizationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioNormalizationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightDataSourceIdentityCenterConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.IdentityCenterConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

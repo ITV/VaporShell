@@ -24,7 +24,7 @@ function Add-VSECSServiceSecret {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.Secret')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

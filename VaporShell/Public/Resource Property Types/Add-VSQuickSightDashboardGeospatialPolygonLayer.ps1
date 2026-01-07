@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardGeospatialPolygonLayer {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GeospatialPolygonLayer')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

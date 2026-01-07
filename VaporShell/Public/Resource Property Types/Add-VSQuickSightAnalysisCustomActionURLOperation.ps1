@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisCustomActionURLOperation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.CustomActionURLOperation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

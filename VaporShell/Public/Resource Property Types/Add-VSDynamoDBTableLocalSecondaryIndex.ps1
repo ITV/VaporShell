@@ -31,7 +31,7 @@ function Add-VSDynamoDBTableLocalSecondaryIndex {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.Table.LocalSecondaryIndex')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

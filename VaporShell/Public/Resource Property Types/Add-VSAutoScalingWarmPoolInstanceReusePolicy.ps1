@@ -19,7 +19,7 @@ function Add-VSAutoScalingWarmPoolInstanceReusePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.WarmPool.InstanceReusePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

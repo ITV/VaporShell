@@ -19,7 +19,7 @@ function Add-VSEC2NetworkInterfaceInstanceIpv6Address {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInterface.InstanceIpv6Address')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

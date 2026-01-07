@@ -19,7 +19,7 @@ function Add-VSCodePipelinePipelineRetryConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.RetryConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

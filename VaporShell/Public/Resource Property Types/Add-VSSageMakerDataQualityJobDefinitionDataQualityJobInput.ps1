@@ -24,7 +24,7 @@ function Add-VSSageMakerDataQualityJobDefinitionDataQualityJobInput {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.DataQualityJobDefinition.DataQualityJobInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

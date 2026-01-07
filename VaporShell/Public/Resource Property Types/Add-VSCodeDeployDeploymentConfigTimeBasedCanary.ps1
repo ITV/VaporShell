@@ -24,7 +24,7 @@ function Add-VSCodeDeployDeploymentConfigTimeBasedCanary {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentConfig.TimeBasedCanary')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

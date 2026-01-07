@@ -39,7 +39,7 @@ function Add-VSConnectUserHierarchyStructureUserHierarchyStructure {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.UserHierarchyStructure.UserHierarchyStructure')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSPipesPipeDimensionMapping {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.DimensionMapping')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

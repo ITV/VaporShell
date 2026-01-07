@@ -29,7 +29,7 @@ function Add-VSQuickSightDashboardCategoryInnerFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.CategoryInnerFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

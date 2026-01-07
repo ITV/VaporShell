@@ -21,12 +21,17 @@ function Add-VSQuickSightAnalysisInsightConfiguration {
         UpdateType: Mutable
         Type: CustomNarrativeOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-insightconfiguration.html#cfn-quicksight-analysis-insightconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.InsightConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -43,7 +48,10 @@ function Add-VSQuickSightAnalysisInsightConfiguration {
         $Computations,
 
         [Parameter(Mandatory = $false)]
-        $CustomNarrative
+        $CustomNarrative,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions
 
     )
 

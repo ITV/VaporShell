@@ -19,7 +19,7 @@ function Add-VSGlueDatabaseDataLakePrincipal {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Database.DataLakePrincipal')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

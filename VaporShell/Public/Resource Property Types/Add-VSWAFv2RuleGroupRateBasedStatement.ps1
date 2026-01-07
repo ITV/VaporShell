@@ -46,7 +46,7 @@ function Add-VSWAFv2RuleGroupRateBasedStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.RateBasedStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

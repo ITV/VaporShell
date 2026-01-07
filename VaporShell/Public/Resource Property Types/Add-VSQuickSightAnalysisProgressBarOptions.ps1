@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisProgressBarOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ProgressBarOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

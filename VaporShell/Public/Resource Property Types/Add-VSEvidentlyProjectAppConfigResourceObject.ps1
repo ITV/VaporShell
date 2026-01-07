@@ -24,7 +24,7 @@ function Add-VSEvidentlyProjectAppConfigResourceObject {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Project.AppConfigResourceObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

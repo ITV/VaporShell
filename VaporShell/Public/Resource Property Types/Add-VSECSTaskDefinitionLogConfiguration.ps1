@@ -32,7 +32,7 @@ function Add-VSECSTaskDefinitionLogConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.LogConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

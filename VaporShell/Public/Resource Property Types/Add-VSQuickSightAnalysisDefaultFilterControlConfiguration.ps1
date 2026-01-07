@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisDefaultFilterControlConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DefaultFilterControlConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

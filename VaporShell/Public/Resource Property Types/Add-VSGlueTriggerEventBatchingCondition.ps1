@@ -24,7 +24,7 @@ function Add-VSGlueTriggerEventBatchingCondition {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Trigger.EventBatchingCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSPCAConnectorADTemplateGeneralFlagsV3 {
     #>
 
     [OutputType('Vaporshell.Resource.PCAConnectorAD.Template.GeneralFlagsV3')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

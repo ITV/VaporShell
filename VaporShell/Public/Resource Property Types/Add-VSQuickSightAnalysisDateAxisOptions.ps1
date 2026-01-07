@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisDateAxisOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DateAxisOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

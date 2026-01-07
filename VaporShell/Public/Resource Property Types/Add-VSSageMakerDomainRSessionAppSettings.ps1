@@ -26,7 +26,7 @@ function Add-VSSageMakerDomainRSessionAppSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.RSessionAppSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

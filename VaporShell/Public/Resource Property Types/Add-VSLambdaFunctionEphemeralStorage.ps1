@@ -19,7 +19,7 @@ function Add-VSLambdaFunctionEphemeralStorage {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Function.EphemeralStorage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSBedrockAgentActionGroupExecutor {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Agent.ActionGroupExecutor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSMediaPackagePackagingConfigurationDashEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.PackagingConfiguration.DashEncryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

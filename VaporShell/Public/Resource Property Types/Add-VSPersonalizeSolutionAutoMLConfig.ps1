@@ -26,7 +26,7 @@ function Add-VSPersonalizeSolutionAutoMLConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Personalize.Solution.AutoMLConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

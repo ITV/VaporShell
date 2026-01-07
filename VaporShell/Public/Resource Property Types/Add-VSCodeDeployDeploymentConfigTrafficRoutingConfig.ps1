@@ -29,7 +29,7 @@ function Add-VSCodeDeployDeploymentConfigTrafficRoutingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentConfig.TrafficRoutingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

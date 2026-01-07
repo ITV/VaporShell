@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateStringFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.StringFormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

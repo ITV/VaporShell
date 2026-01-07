@@ -38,7 +38,7 @@ function Add-VSEMRStepHadoopJarStepConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Step.HadoopJarStepConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

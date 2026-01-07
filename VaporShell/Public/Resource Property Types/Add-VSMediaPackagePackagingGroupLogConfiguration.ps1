@@ -19,7 +19,7 @@ function Add-VSMediaPackagePackagingGroupLogConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.PackagingGroup.LogConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -31,7 +31,7 @@ function Add-VSResilienceHubAppPermissionModel {
     #>
 
     [OutputType('Vaporshell.Resource.ResilienceHub.App.PermissionModel')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

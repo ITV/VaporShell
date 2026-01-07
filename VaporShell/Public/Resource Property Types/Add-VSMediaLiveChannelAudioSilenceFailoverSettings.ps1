@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelAudioSilenceFailoverSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioSilenceFailoverSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

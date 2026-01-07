@@ -19,7 +19,7 @@ function Add-VSSESConfigurationSetGuardianOptions {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSet.GuardianOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

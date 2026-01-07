@@ -19,7 +19,7 @@ function Add-VSSageMakerDomainDefaultSpaceStorageSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.DefaultSpaceStorageSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

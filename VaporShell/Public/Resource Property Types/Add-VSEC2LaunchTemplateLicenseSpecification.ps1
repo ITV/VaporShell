@@ -19,7 +19,7 @@ function Add-VSEC2LaunchTemplateLicenseSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.LicenseSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

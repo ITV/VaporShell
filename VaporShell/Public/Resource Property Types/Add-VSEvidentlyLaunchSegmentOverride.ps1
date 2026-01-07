@@ -31,7 +31,7 @@ function Add-VSEvidentlyLaunchSegmentOverride {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Launch.SegmentOverride')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

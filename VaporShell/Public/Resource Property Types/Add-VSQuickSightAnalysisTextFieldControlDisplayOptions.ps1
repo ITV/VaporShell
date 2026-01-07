@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisTextFieldControlDisplayOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TextFieldControlDisplayOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

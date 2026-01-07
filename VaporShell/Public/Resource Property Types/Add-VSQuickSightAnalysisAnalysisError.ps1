@@ -31,7 +31,7 @@ function Add-VSQuickSightAnalysisAnalysisError {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.AnalysisError')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

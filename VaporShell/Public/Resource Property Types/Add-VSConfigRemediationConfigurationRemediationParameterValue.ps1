@@ -24,7 +24,7 @@ function Add-VSConfigRemediationConfigurationRemediationParameterValue {
     #>
 
     [OutputType('Vaporshell.Resource.Config.RemediationConfiguration.RemediationParameterValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

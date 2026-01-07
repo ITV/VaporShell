@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowGoogleAnalyticsSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.GoogleAnalyticsSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

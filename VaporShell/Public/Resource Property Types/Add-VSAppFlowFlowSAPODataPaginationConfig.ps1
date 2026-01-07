@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowSAPODataPaginationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.SAPODataPaginationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

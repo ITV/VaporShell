@@ -24,7 +24,7 @@ function Add-VSGlueTableIcebergInput {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Table.IcebergInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

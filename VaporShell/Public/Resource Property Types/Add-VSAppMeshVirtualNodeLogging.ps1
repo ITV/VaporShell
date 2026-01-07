@@ -19,7 +19,7 @@ function Add-VSAppMeshVirtualNodeLogging {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.Logging')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

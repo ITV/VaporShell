@@ -24,7 +24,7 @@ function Add-VSKinesisFirehoseDeliveryStreamDeliveryStreamEncryptionConfiguratio
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.DeliveryStreamEncryptionConfigurationInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSPinpointInAppTemplateOverrideButtonConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.InAppTemplate.OverrideButtonConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateTableFieldLinkContentConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TableFieldLinkContentConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

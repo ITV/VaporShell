@@ -49,7 +49,7 @@ function Add-VSQuickSightTemplateFunnelChartDataLabelOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.FunnelChartDataLabelOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -138,7 +138,7 @@ function Add-VSQuickSightTemplateFunnelChartDataLabelOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                MeasureLabelVisibility {
+                'MeasureLabelVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -152,7 +152,7 @@ function Add-VSQuickSightTemplateFunnelChartDataLabelOptions {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                Visibility {
+                'Visibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -166,7 +166,7 @@ function Add-VSQuickSightTemplateFunnelChartDataLabelOptions {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                CategoryLabelVisibility {
+                'CategoryLabelVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

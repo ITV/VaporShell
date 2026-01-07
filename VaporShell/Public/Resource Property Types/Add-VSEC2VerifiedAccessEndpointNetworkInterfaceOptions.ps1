@@ -36,7 +36,7 @@ function Add-VSEC2VerifiedAccessEndpointNetworkInterfaceOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessEndpoint.NetworkInterfaceOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

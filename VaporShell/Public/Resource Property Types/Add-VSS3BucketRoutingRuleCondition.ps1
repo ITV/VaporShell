@@ -24,7 +24,7 @@ function Add-VSS3BucketRoutingRuleCondition {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.RoutingRuleCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

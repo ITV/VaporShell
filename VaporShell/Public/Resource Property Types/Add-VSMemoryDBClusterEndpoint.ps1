@@ -24,7 +24,7 @@ function Add-VSMemoryDBClusterEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.MemoryDB.Cluster.Endpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

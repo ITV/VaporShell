@@ -41,7 +41,7 @@ function Add-VSQuickSightAnalysisLayerCustomAction {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.LayerCustomAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

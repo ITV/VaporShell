@@ -29,7 +29,7 @@ function Add-VSSageMakerModelPackageMetricsSource {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.MetricsSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

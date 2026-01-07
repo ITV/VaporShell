@@ -19,7 +19,7 @@ function Add-VSKinesisAnalyticsApplicationOutputDestinationSchema {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalytics.ApplicationOutput.DestinationSchema')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

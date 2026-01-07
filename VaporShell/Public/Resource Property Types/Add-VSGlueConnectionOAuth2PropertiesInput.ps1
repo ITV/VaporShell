@@ -44,7 +44,7 @@ function Add-VSGlueConnectionOAuth2PropertiesInput {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Connection.OAuth2PropertiesInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","OAuth2Credentials")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","OAuth2Credentials")]
 
@@ -105,7 +105,7 @@ function Add-VSGlueConnectionOAuth2PropertiesInput {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                TokenUrlParametersMap {
+                'TokenUrlParametersMap' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

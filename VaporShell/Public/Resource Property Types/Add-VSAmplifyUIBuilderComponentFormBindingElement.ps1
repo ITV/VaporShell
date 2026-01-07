@@ -24,7 +24,7 @@ function Add-VSAmplifyUIBuilderComponentFormBindingElement {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Component.FormBindingElement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

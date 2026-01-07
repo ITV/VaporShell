@@ -24,7 +24,7 @@ function Add-VSManagedBlockchainMemberMemberFabricConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ManagedBlockchain.Member.MemberFabricConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","AdminPassword")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","AdminPassword")]
 

@@ -19,7 +19,7 @@ function Add-VSSageMakerModelBiasJobDefinitionJson {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.Json')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

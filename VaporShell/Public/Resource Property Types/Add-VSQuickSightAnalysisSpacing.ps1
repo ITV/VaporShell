@@ -34,7 +34,7 @@ function Add-VSQuickSightAnalysisSpacing {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.Spacing')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

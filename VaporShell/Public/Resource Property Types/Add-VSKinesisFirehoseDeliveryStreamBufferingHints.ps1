@@ -9,14 +9,14 @@ function Add-VSKinesisFirehoseDeliveryStreamBufferingHints {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html
 
-    .PARAMETER SizeInMBs
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html#cfn-kinesisfirehose-deliverystream-bufferinghints-sizeinmbs
-        UpdateType: Conditional
-        PrimitiveType: Integer
-
     .PARAMETER IntervalInSeconds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html#cfn-kinesisfirehose-deliverystream-bufferinghints-intervalinseconds
-        UpdateType: Conditional
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
+    .PARAMETER SizeInMBs
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html#cfn-kinesisfirehose-deliverystream-bufferinghints-sizeinmbs
+        UpdateType: Mutable
         PrimitiveType: Integer
 
     .FUNCTIONALITY
@@ -24,7 +24,7 @@ function Add-VSKinesisFirehoseDeliveryStreamBufferingHints {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.BufferingHints')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -38,7 +38,7 @@ function Add-VSKinesisFirehoseDeliveryStreamBufferingHints {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SizeInMBs,
+        $IntervalInSeconds,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -50,7 +50,7 @@ function Add-VSKinesisFirehoseDeliveryStreamBufferingHints {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $IntervalInSeconds
+        $SizeInMBs
 
     )
 

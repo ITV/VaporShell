@@ -26,7 +26,7 @@ function Add-VSApplicationInsightsApplicationCustomComponent {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.CustomComponent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

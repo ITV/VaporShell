@@ -29,7 +29,7 @@ function Add-VSGammaDilithiumJobDefinitionUlimit {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.Ulimit')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

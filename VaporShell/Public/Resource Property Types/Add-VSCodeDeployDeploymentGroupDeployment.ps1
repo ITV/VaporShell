@@ -29,7 +29,7 @@ function Add-VSCodeDeployDeploymentGroupDeployment {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.Deployment')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

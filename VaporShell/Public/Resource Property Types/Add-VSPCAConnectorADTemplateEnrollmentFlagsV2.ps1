@@ -39,7 +39,7 @@ function Add-VSPCAConnectorADTemplateEnrollmentFlagsV2 {
     #>
 
     [OutputType('Vaporshell.Resource.PCAConnectorAD.Template.EnrollmentFlagsV2')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

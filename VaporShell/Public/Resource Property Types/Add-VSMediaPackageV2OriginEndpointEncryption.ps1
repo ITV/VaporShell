@@ -14,6 +14,11 @@ function Add-VSMediaPackageV2OriginEndpointEncryption {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER CmafExcludeSegmentDrmMetadata
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html#cfn-mediapackagev2-originendpoint-encryption-cmafexcludesegmentdrmmetadata
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER ConstantInitializationVector
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-encryption.html#cfn-mediapackagev2-originendpoint-encryption-constantinitializationvector
         UpdateType: Mutable
@@ -34,7 +39,7 @@ function Add-VSMediaPackageV2OriginEndpointEncryption {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint.Encryption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -49,6 +54,18 @@ function Add-VSMediaPackageV2OriginEndpointEncryption {
                 }
             })]
         $KeyRotationIntervalSeconds,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $CmafExcludeSegmentDrmMetadata,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

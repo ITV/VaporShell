@@ -54,7 +54,7 @@ function Add-VSQuickSightAnalysisFilterSliderControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FilterSliderControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

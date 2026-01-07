@@ -21,7 +21,7 @@ function Add-VSWAFv2WebACLCustomRequestHandling {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.CustomRequestHandling')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

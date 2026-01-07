@@ -24,7 +24,7 @@ function Add-VSConnectCampaignsV2CampaignTimeWindow {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.TimeWindow')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -9,6 +9,11 @@ function Add-VSDeadlineFleetServiceManagedEc2FleetConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html
 
+    .PARAMETER StorageProfileId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-storageprofileid
+        UpdateType: Mutable
+        PrimitiveType: String
+
     .PARAMETER InstanceMarketOptions
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-instancemarketoptions
         UpdateType: Mutable
@@ -19,20 +24,40 @@ function Add-VSDeadlineFleetServiceManagedEc2FleetConfiguration {
         UpdateType: Mutable
         Type: ServiceManagedEc2InstanceCapabilities
 
+    .PARAMETER VpcConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-servicemanagedec2fleetconfiguration.html#cfn-deadline-fleet-servicemanagedec2fleetconfiguration-vpcconfiguration
+        UpdateType: Mutable
+        Type: VpcConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Fleet.ServiceManagedEc2FleetConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $StorageProfileId,
+
         [Parameter(Mandatory = $true)]
         $InstanceMarketOptions,
 
         [Parameter(Mandatory = $true)]
-        $InstanceCapabilities
+        $InstanceCapabilities,
+
+        [Parameter(Mandatory = $false)]
+        $VpcConfiguration
 
     )
 

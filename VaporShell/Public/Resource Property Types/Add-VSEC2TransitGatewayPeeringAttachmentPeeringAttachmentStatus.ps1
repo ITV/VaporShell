@@ -24,7 +24,7 @@ function Add-VSEC2TransitGatewayPeeringAttachmentPeeringAttachmentStatus {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.TransitGatewayPeeringAttachment.PeeringAttachmentStatus')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

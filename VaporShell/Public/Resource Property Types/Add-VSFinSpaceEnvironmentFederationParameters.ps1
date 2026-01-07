@@ -46,7 +46,7 @@ function Add-VSFinSpaceEnvironmentFederationParameters {
     #>
 
     [OutputType('Vaporshell.Resource.FinSpace.Environment.FederationParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

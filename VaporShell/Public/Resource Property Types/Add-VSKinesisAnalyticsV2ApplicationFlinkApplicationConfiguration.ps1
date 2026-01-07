@@ -29,7 +29,7 @@ function Add-VSKinesisAnalyticsV2ApplicationFlinkApplicationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.FlinkApplicationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

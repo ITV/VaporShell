@@ -24,7 +24,7 @@ function Add-VSStepFunctionsActivityTagsEntry {
     #>
 
     [OutputType('Vaporshell.Resource.StepFunctions.Activity.TagsEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

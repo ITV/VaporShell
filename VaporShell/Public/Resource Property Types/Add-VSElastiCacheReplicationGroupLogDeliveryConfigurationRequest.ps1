@@ -34,7 +34,7 @@ function Add-VSElastiCacheReplicationGroupLogDeliveryConfigurationRequest {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.ReplicationGroup.LogDeliveryConfigurationRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

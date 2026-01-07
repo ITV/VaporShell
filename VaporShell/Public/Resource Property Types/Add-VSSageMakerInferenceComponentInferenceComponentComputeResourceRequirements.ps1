@@ -34,7 +34,7 @@ function Add-VSSageMakerInferenceComponentInferenceComponentComputeResourceRequi
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.InferenceComponent.InferenceComponentComputeResourceRequirements')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

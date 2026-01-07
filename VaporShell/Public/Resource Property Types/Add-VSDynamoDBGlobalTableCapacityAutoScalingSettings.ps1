@@ -34,7 +34,7 @@ function Add-VSDynamoDBGlobalTableCapacityAutoScalingSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.CapacityAutoScalingSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

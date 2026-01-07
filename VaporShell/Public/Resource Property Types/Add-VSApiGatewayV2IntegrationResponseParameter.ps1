@@ -24,7 +24,7 @@ function Add-VSApiGatewayV2IntegrationResponseParameter {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGatewayV2.Integration.ResponseParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

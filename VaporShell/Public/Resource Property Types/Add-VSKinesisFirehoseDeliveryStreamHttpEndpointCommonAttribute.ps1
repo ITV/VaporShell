@@ -24,7 +24,7 @@ function Add-VSKinesisFirehoseDeliveryStreamHttpEndpointCommonAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.HttpEndpointCommonAttribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

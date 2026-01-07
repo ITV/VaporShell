@@ -21,7 +21,7 @@ function Add-VSLogsTransformerAddKeys {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.AddKeys')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

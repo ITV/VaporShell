@@ -29,7 +29,7 @@ function Add-VSBedrockPromptToolChoice {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Prompt.ToolChoice')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -70,7 +70,7 @@ function Add-VSBedrockPromptToolChoice {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Auto {
+                'Auto' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -84,7 +84,7 @@ function Add-VSBedrockPromptToolChoice {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                Any {
+                'Any' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

@@ -24,7 +24,7 @@ function Add-VSEventSchemasSchemaTagsEntry {
     #>
 
     [OutputType('Vaporshell.Resource.EventSchemas.Schema.TagsEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

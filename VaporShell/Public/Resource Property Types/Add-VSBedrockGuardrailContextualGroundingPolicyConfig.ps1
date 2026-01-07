@@ -21,7 +21,7 @@ function Add-VSBedrockGuardrailContextualGroundingPolicyConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Guardrail.ContextualGroundingPolicyConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

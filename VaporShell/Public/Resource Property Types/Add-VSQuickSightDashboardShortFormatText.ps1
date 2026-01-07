@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardShortFormatText {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ShortFormatText')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

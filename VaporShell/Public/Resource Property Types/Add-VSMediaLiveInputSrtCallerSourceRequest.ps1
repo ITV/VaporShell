@@ -39,7 +39,7 @@ function Add-VSMediaLiveInputSrtCallerSourceRequest {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Input.SrtCallerSourceRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSBillingConductorCustomLineItemCustomLineItemFlatChargeDetails {
     #>
 
     [OutputType('Vaporshell.Resource.BillingConductor.CustomLineItem.CustomLineItemFlatChargeDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

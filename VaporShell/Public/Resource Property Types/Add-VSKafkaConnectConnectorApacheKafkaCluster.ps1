@@ -24,7 +24,7 @@ function Add-VSKafkaConnectConnectorApacheKafkaCluster {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.ApacheKafkaCluster')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

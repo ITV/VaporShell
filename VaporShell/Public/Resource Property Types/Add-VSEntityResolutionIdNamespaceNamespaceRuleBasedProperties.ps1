@@ -40,7 +40,7 @@ function Add-VSEntityResolutionIdNamespaceNamespaceRuleBasedProperties {
     #>
 
     [OutputType('Vaporshell.Resource.EntityResolution.IdNamespace.NamespaceRuleBasedProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

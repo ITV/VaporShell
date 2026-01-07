@@ -24,7 +24,7 @@ function Add-VSKafkaConnectConnectorCapacity {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.Capacity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

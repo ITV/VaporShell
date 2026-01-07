@@ -19,7 +19,7 @@ function Add-VSGuardDutyDetectorCFNScanEc2InstanceWithFindingsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GuardDuty.Detector.CFNScanEc2InstanceWithFindingsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

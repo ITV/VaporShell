@@ -19,7 +19,7 @@ function Add-VSDynamoDBGlobalTableStreamSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.StreamSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

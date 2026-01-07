@@ -24,7 +24,7 @@ function Add-VSVpcLatticeServiceDnsEntry {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.Service.DnsEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -31,7 +31,7 @@ function Add-VSLocationMapMapConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Location.Map.MapConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

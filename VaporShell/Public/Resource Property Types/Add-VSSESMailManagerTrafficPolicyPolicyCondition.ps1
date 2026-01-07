@@ -9,6 +9,11 @@ function Add-VSSESMailManagerTrafficPolicyPolicyCondition {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html
 
+    .PARAMETER Ipv6Expression
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html#cfn-ses-mailmanagertrafficpolicy-policycondition-ipv6expression
+        UpdateType: Mutable
+        Type: IngressIpv6Expression
+
     .PARAMETER BooleanExpression
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html#cfn-ses-mailmanagertrafficpolicy-policycondition-booleanexpression
         UpdateType: Mutable
@@ -34,10 +39,13 @@ function Add-VSSESMailManagerTrafficPolicyPolicyCondition {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerTrafficPolicy.PolicyCondition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $Ipv6Expression,
+
         [Parameter(Mandatory = $false)]
         $BooleanExpression,
 

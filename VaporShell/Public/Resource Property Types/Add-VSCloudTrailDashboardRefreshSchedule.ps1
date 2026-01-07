@@ -29,7 +29,7 @@ function Add-VSCloudTrailDashboardRefreshSchedule {
     #>
 
     [OutputType('Vaporshell.Resource.CloudTrail.Dashboard.RefreshSchedule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSMediaTailorPlaybackConfigurationCdnConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.PlaybackConfiguration.CdnConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

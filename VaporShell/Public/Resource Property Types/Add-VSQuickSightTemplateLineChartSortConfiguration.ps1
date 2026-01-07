@@ -43,7 +43,7 @@ function Add-VSQuickSightTemplateLineChartSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.LineChartSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

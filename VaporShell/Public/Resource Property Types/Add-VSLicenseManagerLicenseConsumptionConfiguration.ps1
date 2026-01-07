@@ -29,7 +29,7 @@ function Add-VSLicenseManagerLicenseConsumptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.LicenseManager.License.ConsumptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

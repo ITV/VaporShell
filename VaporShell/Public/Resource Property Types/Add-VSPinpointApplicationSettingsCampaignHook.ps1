@@ -29,7 +29,7 @@ function Add-VSPinpointApplicationSettingsCampaignHook {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.ApplicationSettings.CampaignHook')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

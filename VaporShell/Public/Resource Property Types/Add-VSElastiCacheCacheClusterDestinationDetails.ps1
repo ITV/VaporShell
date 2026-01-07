@@ -24,7 +24,7 @@ function Add-VSElastiCacheCacheClusterDestinationDetails {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.CacheCluster.DestinationDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

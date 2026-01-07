@@ -19,7 +19,7 @@ function Add-VSLexBotMultipleValuesSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.MultipleValuesSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

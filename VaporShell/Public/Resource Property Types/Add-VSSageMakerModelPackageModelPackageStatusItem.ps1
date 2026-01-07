@@ -29,7 +29,7 @@ function Add-VSSageMakerModelPackageModelPackageStatusItem {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelPackage.ModelPackageStatusItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

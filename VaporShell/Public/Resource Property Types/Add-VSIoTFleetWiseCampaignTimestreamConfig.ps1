@@ -11,12 +11,12 @@ function Add-VSIoTFleetWiseCampaignTimestreamConfig {
 
     .PARAMETER ExecutionRoleArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timestreamconfig.html#cfn-iotfleetwise-campaign-timestreamconfig-executionrolearn
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER TimestreamTableArn
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timestreamconfig.html#cfn-iotfleetwise-campaign-timestreamconfig-timestreamtablearn
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -24,7 +24,7 @@ function Add-VSIoTFleetWiseCampaignTimestreamConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.TimestreamConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

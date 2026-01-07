@@ -46,7 +46,7 @@ function Add-VSCloudFrontContinuousDeploymentPolicyContinuousDeploymentPolicyCon
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ContinuousDeploymentPolicy.ContinuousDeploymentPolicyConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

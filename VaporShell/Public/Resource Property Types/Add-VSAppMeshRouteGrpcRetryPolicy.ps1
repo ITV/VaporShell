@@ -42,7 +42,7 @@ function Add-VSAppMeshRouteGrpcRetryPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.GrpcRetryPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

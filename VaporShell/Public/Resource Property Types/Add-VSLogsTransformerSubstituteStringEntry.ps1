@@ -29,7 +29,7 @@ function Add-VSLogsTransformerSubstituteStringEntry {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.SubstituteStringEntry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

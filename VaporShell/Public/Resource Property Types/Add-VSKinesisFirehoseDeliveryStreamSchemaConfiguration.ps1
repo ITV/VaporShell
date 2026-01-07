@@ -44,7 +44,7 @@ function Add-VSKinesisFirehoseDeliveryStreamSchemaConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.SchemaConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSCodeBuildProjectWebhookFilter {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.WebhookFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

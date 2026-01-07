@@ -19,7 +19,7 @@ function Add-VSS3ExpressDirectoryBucketAbortIncompleteMultipartUpload {
     #>
 
     [OutputType('Vaporshell.Resource.S3Express.DirectoryBucket.AbortIncompleteMultipartUpload')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

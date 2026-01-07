@@ -19,7 +19,7 @@ function Add-VSAppMeshVirtualGatewayVirtualGatewayGrpcConnectionPool {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayGrpcConnectionPool')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

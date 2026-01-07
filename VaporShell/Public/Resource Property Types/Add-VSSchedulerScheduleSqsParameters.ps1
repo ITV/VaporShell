@@ -19,7 +19,7 @@ function Add-VSSchedulerScheduleSqsParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.SqsParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

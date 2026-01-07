@@ -24,12 +24,17 @@ function Add-VSQuickSightAnalysisSankeyDiagramChartConfiguration {
         UpdateType: Mutable
         Type: SankeyDiagramFieldWells
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-sankeydiagramchartconfiguration.html#cfn-quicksight-analysis-sankeydiagramchartconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SankeyDiagramChartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -40,7 +45,10 @@ function Add-VSQuickSightAnalysisSankeyDiagramChartConfiguration {
         $DataLabels,
 
         [Parameter(Mandatory = $false)]
-        $FieldWells
+        $FieldWells,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions
 
     )
 

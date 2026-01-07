@@ -39,7 +39,7 @@ function Add-VSAppMeshRouteRouteSpec {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.RouteSpec')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSSageMakerInferenceExperimentEndpointMetadata {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.InferenceExperiment.EndpointMetadata')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

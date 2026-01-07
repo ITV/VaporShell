@@ -19,7 +19,7 @@ function Add-VSIoTSiteWiseGatewaySiemensIE {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.Gateway.SiemensIE')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

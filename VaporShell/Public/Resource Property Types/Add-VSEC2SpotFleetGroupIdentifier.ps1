@@ -19,7 +19,7 @@ function Add-VSEC2SpotFleetGroupIdentifier {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.GroupIdentifier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

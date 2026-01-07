@@ -16,6 +16,11 @@ function Add-VSEC2SpotFleetInstanceRequirementsRequest {
         PrimitiveItemType: String
         DuplicatesAllowed: True
 
+    .PARAMETER RequireEncryptionInTransit
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancerequirementsrequest.html#cfn-ec2-spotfleet-instancerequirementsrequest-requireencryptionintransit
+        UpdateType: Immutable
+        PrimitiveType: Boolean
+
     .PARAMETER MemoryGiBPerVCpu
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instancerequirementsrequest.html#cfn-ec2-spotfleet-instancerequirementsrequest-memorygibpervcpu
         UpdateType: Immutable
@@ -155,12 +160,24 @@ function Add-VSEC2SpotFleetInstanceRequirementsRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.InstanceRequirementsRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
         $InstanceGenerations,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $RequireEncryptionInTransit,
 
         [Parameter(Mandatory = $false)]
         $MemoryGiBPerVCpu,

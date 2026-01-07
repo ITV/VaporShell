@@ -24,7 +24,7 @@ function Add-VSDataZoneEnvironmentProfileEnvironmentParameter {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.EnvironmentProfile.EnvironmentParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

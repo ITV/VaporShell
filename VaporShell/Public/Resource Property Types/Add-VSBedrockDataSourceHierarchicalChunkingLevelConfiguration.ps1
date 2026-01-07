@@ -19,7 +19,7 @@ function Add-VSBedrockDataSourceHierarchicalChunkingLevelConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.HierarchicalChunkingLevelConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

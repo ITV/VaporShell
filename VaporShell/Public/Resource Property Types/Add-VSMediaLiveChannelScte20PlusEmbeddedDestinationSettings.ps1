@@ -14,7 +14,7 @@ function Add-VSMediaLiveChannelScte20PlusEmbeddedDestinationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.Scte20PlusEmbeddedDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

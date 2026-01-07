@@ -19,7 +19,7 @@ function Add-VSGlueJobNotificationProperty {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Job.NotificationProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

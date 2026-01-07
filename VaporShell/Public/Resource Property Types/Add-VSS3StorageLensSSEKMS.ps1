@@ -19,7 +19,7 @@ function Add-VSS3StorageLensSSEKMS {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.SSEKMS')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

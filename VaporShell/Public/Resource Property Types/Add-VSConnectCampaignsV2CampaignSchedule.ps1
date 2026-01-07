@@ -29,7 +29,7 @@ function Add-VSConnectCampaignsV2CampaignSchedule {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.Schedule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

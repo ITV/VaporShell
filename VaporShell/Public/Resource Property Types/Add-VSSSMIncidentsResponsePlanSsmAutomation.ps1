@@ -48,7 +48,7 @@ function Add-VSSSMIncidentsResponsePlanSsmAutomation {
     #>
 
     [OutputType('Vaporshell.Resource.SSMIncidents.ResponsePlan.SsmAutomation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

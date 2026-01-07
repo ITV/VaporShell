@@ -34,7 +34,7 @@ function Add-VSEC2NetworkInsightsPathPathFilter {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsPath.PathFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

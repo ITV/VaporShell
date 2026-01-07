@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardDashboardVisualPublishOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DashboardVisualPublishOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

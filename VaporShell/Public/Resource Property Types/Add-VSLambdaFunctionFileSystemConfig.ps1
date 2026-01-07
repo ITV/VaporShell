@@ -24,7 +24,7 @@ function Add-VSLambdaFunctionFileSystemConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Function.FileSystemConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

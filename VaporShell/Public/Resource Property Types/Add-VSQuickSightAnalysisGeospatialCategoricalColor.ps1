@@ -36,7 +36,7 @@ function Add-VSQuickSightAnalysisGeospatialCategoricalColor {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialCategoricalColor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

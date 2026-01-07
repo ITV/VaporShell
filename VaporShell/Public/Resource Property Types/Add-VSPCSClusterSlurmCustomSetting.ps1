@@ -11,12 +11,12 @@ function Add-VSPCSClusterSlurmCustomSetting {
 
     .PARAMETER ParameterValue
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmcustomsetting.html#cfn-pcs-cluster-slurmcustomsetting-parametervalue
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .PARAMETER ParameterName
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmcustomsetting.html#cfn-pcs-cluster-slurmcustomsetting-parametername
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -24,7 +24,7 @@ function Add-VSPCSClusterSlurmCustomSetting {
     #>
 
     [OutputType('Vaporshell.Resource.PCS.Cluster.SlurmCustomSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

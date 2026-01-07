@@ -29,7 +29,7 @@ function Add-VSEC2InstancePrivateDnsNameOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.PrivateDnsNameOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisGeospatialLayerJoinDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialLayerJoinDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

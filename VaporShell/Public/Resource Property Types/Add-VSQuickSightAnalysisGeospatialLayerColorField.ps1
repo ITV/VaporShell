@@ -28,7 +28,7 @@ function Add-VSQuickSightAnalysisGeospatialLayerColorField {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.GeospatialLayerColorField')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

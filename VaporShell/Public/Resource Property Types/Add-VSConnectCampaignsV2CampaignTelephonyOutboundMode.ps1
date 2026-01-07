@@ -24,12 +24,17 @@ function Add-VSConnectCampaignsV2CampaignTelephonyOutboundMode {
         UpdateType: Mutable
         PrimitiveType: Json
 
+    .PARAMETER PreviewConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-telephonyoutboundmode.html#cfn-connectcampaignsv2-campaign-telephonyoutboundmode-previewconfig
+        UpdateType: Mutable
+        Type: PreviewConfig
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.TelephonyOutboundMode')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -49,7 +54,10 @@ function Add-VSConnectCampaignsV2CampaignTelephonyOutboundMode {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $AgentlessConfig
+        $AgentlessConfig,
+
+        [Parameter(Mandatory = $false)]
+        $PreviewConfig
 
     )
 
@@ -61,7 +69,7 @@ function Add-VSConnectCampaignsV2CampaignTelephonyOutboundMode {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                AgentlessConfig {
+                'AgentlessConfig' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

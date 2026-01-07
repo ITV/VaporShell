@@ -24,7 +24,7 @@ function Add-VSFSxVolumeTieringPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.Volume.TieringPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

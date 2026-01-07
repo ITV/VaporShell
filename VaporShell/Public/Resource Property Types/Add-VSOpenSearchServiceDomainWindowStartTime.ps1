@@ -24,7 +24,7 @@ function Add-VSOpenSearchServiceDomainWindowStartTime {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.WindowStartTime')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

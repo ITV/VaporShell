@@ -29,7 +29,7 @@ function Add-VSKendraDataSourceInlineCustomDocumentEnrichmentConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.DataSource.InlineCustomDocumentEnrichmentConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

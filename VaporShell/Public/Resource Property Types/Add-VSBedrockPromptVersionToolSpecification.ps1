@@ -29,7 +29,7 @@ function Add-VSBedrockPromptVersionToolSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.PromptVersion.ToolSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

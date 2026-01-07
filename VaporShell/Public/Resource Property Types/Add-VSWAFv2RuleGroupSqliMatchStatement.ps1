@@ -31,7 +31,7 @@ function Add-VSWAFv2RuleGroupSqliMatchStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.SqliMatchStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

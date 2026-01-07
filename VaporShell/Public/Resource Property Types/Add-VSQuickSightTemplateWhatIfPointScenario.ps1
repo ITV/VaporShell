@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateWhatIfPointScenario {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.WhatIfPointScenario')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

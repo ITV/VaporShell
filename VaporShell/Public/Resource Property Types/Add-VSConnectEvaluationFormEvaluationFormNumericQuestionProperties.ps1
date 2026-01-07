@@ -36,7 +36,7 @@ function Add-VSConnectEvaluationFormEvaluationFormNumericQuestionProperties {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.EvaluationFormNumericQuestionProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

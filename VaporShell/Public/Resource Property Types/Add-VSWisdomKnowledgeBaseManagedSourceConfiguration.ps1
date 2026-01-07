@@ -19,7 +19,7 @@ function Add-VSWisdomKnowledgeBaseManagedSourceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.KnowledgeBase.ManagedSourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

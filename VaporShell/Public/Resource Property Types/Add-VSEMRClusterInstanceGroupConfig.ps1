@@ -61,7 +61,7 @@ function Add-VSEMRClusterInstanceGroupConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.InstanceGroupConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

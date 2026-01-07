@@ -19,7 +19,7 @@ function Add-VSEC2VPNConnectionIKEVersionsRequestListValue {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VPNConnection.IKEVersionsRequestListValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

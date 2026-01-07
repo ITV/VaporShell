@@ -53,7 +53,7 @@ function Add-VSPipesPipeEcsTaskOverride {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.EcsTaskOverride')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

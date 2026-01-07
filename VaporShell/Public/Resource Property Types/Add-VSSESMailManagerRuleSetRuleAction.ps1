@@ -39,6 +39,11 @@ function Add-VSSESMailManagerRuleSetRuleAction {
         UpdateType: Mutable
         Type: S3Action
 
+    .PARAMETER PublishToSns
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-publishtosns
+        UpdateType: Mutable
+        Type: SnsAction
+
     .PARAMETER DeliverToQBusiness
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html#cfn-ses-mailmanagerruleset-ruleaction-delivertoqbusiness
         UpdateType: Mutable
@@ -59,7 +64,7 @@ function Add-VSSESMailManagerRuleSetRuleAction {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.RuleAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -80,6 +85,9 @@ function Add-VSSESMailManagerRuleSetRuleAction {
 
         [Parameter(Mandatory = $false)]
         $WriteToS3,
+
+        [Parameter(Mandatory = $false)]
+        $PublishToSns,
 
         [Parameter(Mandatory = $false)]
         $DeliverToQBusiness,
@@ -109,7 +117,7 @@ function Add-VSSESMailManagerRuleSetRuleAction {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Drop {
+                'Drop' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

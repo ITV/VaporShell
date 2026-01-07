@@ -26,7 +26,7 @@ function Add-VSQuickSightDashboardDateTimeHierarchy {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DateTimeHierarchy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

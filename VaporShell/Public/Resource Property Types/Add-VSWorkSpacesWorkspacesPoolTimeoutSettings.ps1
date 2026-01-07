@@ -29,7 +29,7 @@ function Add-VSWorkSpacesWorkspacesPoolTimeoutSettings {
     #>
 
     [OutputType('Vaporshell.Resource.WorkSpaces.WorkspacesPool.TimeoutSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

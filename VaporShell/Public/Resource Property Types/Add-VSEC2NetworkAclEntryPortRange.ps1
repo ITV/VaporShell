@@ -24,7 +24,7 @@ function Add-VSEC2NetworkAclEntryPortRange {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkAclEntry.PortRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

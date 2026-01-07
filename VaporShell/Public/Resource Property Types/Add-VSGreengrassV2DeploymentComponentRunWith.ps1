@@ -29,7 +29,7 @@ function Add-VSGreengrassV2DeploymentComponentRunWith {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.Deployment.ComponentRunWith')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

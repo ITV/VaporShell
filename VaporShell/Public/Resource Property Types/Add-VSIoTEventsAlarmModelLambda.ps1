@@ -24,7 +24,7 @@ function Add-VSIoTEventsAlarmModelLambda {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.AlarmModel.Lambda')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

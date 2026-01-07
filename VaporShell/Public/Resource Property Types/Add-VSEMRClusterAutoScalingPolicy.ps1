@@ -26,7 +26,7 @@ function Add-VSEMRClusterAutoScalingPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.AutoScalingPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

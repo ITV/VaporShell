@@ -29,7 +29,7 @@ function Add-VSMediaTailorPlaybackConfigurationAvailSuppression {
     #>
 
     [OutputType('Vaporshell.Resource.MediaTailor.PlaybackConfiguration.AvailSuppression')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

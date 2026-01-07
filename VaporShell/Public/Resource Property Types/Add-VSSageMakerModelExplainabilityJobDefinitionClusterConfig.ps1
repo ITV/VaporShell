@@ -34,7 +34,7 @@ function Add-VSSageMakerModelExplainabilityJobDefinitionClusterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelExplainabilityJobDefinition.ClusterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

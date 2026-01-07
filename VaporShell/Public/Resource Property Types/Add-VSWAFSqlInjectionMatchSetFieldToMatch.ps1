@@ -24,7 +24,7 @@ function Add-VSWAFSqlInjectionMatchSetFieldToMatch {
     #>
 
     [OutputType('Vaporshell.Resource.WAF.SqlInjectionMatchSet.FieldToMatch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

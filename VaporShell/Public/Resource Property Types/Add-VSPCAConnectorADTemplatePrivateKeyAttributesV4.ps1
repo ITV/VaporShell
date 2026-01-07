@@ -41,7 +41,7 @@ function Add-VSPCAConnectorADTemplatePrivateKeyAttributesV4 {
     #>
 
     [OutputType('Vaporshell.Resource.PCAConnectorAD.Template.PrivateKeyAttributesV4')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

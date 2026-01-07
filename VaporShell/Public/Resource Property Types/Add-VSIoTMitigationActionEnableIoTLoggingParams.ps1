@@ -24,7 +24,7 @@ function Add-VSIoTMitigationActionEnableIoTLoggingParams {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.MitigationAction.EnableIoTLoggingParams')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

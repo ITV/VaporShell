@@ -9,6 +9,11 @@ function Add-VSB2BITransformerOutputConversion {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html
 
+    .PARAMETER AdvancedOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html#cfn-b2bi-transformer-outputconversion-advancedoptions
+        UpdateType: Mutable
+        Type: AdvancedOptions
+
     .PARAMETER ToFormat
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-b2bi-transformer-outputconversion.html#cfn-b2bi-transformer-outputconversion-toformat
         UpdateType: Mutable
@@ -24,10 +29,13 @@ function Add-VSB2BITransformerOutputConversion {
     #>
 
     [OutputType('Vaporshell.Resource.B2BI.Transformer.OutputConversion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $AdvancedOptions,
+
         [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"

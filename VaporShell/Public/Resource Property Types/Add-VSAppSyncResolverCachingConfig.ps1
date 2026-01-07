@@ -26,7 +26,7 @@ function Add-VSAppSyncResolverCachingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.Resolver.CachingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

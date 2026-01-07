@@ -19,7 +19,7 @@ function Add-VSMSKClusterOpenMonitoring {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.OpenMonitoring')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

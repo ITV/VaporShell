@@ -19,7 +19,7 @@ function Add-VSElastiCacheCacheClusterKinesisFirehoseDestinationDetails {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.CacheCluster.KinesisFirehoseDestinationDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSPinpointEmailIdentityMailFromAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.PinpointEmail.Identity.MailFromAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

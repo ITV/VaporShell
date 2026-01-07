@@ -29,12 +29,17 @@ function Add-VSConnectCampaignsV2CampaignCommunicationTimeConfig {
         UpdateType: Mutable
         Type: TimeWindow
 
+    .PARAMETER WhatsApp
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaignsv2-campaign-communicationtimeconfig.html#cfn-connectcampaignsv2-campaign-communicationtimeconfig-whatsapp
+        UpdateType: Mutable
+        Type: TimeWindow
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.CommunicationTimeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -48,7 +53,10 @@ function Add-VSConnectCampaignsV2CampaignCommunicationTimeConfig {
         $Telephony,
 
         [Parameter(Mandatory = $false)]
-        $Sms
+        $Sms,
+
+        [Parameter(Mandatory = $false)]
+        $WhatsApp
 
     )
 

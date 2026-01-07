@@ -21,7 +21,7 @@ function Add-VSQuickSightDashboardLinkSharingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.LinkSharingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

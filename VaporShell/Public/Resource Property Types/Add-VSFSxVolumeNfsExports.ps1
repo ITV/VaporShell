@@ -20,7 +20,7 @@ function Add-VSFSxVolumeNfsExports {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.Volume.NfsExports')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

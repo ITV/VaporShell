@@ -19,7 +19,7 @@ function Add-VSMediaLiveMultiplexMultiplexMediaConnectOutputDestinationSettings 
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Multiplex.MultiplexMediaConnectOutputDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

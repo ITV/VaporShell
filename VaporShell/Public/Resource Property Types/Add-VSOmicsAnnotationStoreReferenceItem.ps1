@@ -19,7 +19,7 @@ function Add-VSOmicsAnnotationStoreReferenceItem {
     #>
 
     [OutputType('Vaporshell.Resource.Omics.AnnotationStore.ReferenceItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateConditionalFormattingIcon {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ConditionalFormattingIcon')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSIoTSiteWiseAccessPolicyUser {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.AccessPolicy.User')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

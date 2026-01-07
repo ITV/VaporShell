@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelVideoSelectorSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.VideoSelectorSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

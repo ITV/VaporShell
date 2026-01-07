@@ -11,7 +11,7 @@ function Add-VSEKSClusterRemoteNodeNetwork {
 
     .PARAMETER Cidrs
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-remotenodenetwork.html#cfn-eks-cluster-remotenodenetwork-cidrs
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
@@ -21,7 +21,7 @@ function Add-VSEKSClusterRemoteNodeNetwork {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.RemoteNodeNetwork')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

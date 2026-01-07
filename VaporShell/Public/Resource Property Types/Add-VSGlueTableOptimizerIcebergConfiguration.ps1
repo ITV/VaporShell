@@ -24,7 +24,7 @@ function Add-VSGlueTableOptimizerIcebergConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.TableOptimizer.IcebergConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

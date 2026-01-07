@@ -19,7 +19,7 @@ function Add-VSGroundStationConfigDemodulationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.Config.DemodulationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSDMSDataProviderMicrosoftSqlServerSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.DataProvider.MicrosoftSqlServerSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

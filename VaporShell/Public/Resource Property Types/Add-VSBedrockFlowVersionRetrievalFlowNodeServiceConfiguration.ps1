@@ -19,7 +19,7 @@ function Add-VSBedrockFlowVersionRetrievalFlowNodeServiceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.RetrievalFlowNodeServiceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

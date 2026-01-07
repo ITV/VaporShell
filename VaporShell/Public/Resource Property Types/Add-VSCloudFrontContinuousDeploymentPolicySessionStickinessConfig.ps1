@@ -24,7 +24,7 @@ function Add-VSCloudFrontContinuousDeploymentPolicySessionStickinessConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ContinuousDeploymentPolicy.SessionStickinessConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

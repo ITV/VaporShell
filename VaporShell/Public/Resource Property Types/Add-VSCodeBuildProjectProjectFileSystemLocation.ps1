@@ -39,7 +39,7 @@ function Add-VSCodeBuildProjectProjectFileSystemLocation {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.ProjectFileSystemLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

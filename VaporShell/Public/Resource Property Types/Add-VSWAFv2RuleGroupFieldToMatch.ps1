@@ -9,11 +9,6 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html
 
-    .PARAMETER JsonBody
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
-        UpdateType: Mutable
-        Type: JsonBody
-
     .PARAMETER AllQueryArguments
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
         UpdateType: Mutable
@@ -29,11 +24,6 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
         UpdateType: Mutable
         Type: SingleQueryArgument
 
-    .PARAMETER UriPath
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath
-        UpdateType: Mutable
-        PrimitiveType: Json
-
     .PARAMETER QueryString
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
         UpdateType: Mutable
@@ -44,15 +34,35 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
         UpdateType: Mutable
         Type: Headers
 
+    .PARAMETER Method
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
+        UpdateType: Mutable
+        PrimitiveType: Json
+
+    .PARAMETER UriFragment
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-urifragment
+        UpdateType: Mutable
+        Type: UriFragment
+
+    .PARAMETER JsonBody
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
+        UpdateType: Mutable
+        Type: JsonBody
+
+    .PARAMETER UriPath
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath
+        UpdateType: Mutable
+        PrimitiveType: Json
+
     .PARAMETER Cookies
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-cookies
         UpdateType: Mutable
         Type: Cookies
 
-    .PARAMETER Method
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
+    .PARAMETER JA4Fingerprint
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-ja4fingerprint
         UpdateType: Mutable
-        PrimitiveType: Json
+        Type: JA4Fingerprint
 
     .PARAMETER Body
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
@@ -69,13 +79,10 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.FieldToMatch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
-        [Parameter(Mandatory = $false)]
-        $JsonBody,
-
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
@@ -104,25 +111,10 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $UriPath,
-
-        [Parameter(Mandatory = $false)]
-        [ValidateScript( {
-                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
-                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
-                    $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
-                }
-            })]
         $QueryString,
 
         [Parameter(Mandatory = $false)]
         $Headers,
-
-        [Parameter(Mandatory = $false)]
-        $Cookies,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -135,6 +127,30 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
                 }
             })]
         $Method,
+
+        [Parameter(Mandatory = $false)]
+        $UriFragment,
+
+        [Parameter(Mandatory = $false)]
+        $JsonBody,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","System.Collections.Hashtable","System.Management.Automation.PSCustomObject"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UriPath,
+
+        [Parameter(Mandatory = $false)]
+        $Cookies,
+
+        [Parameter(Mandatory = $false)]
+        $JA4Fingerprint,
 
         [Parameter(Mandatory = $false)]
         $Body,
@@ -152,7 +168,7 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                AllQueryArguments {
+                'AllQueryArguments' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -166,7 +182,7 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                UriPath {
+                'QueryString' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -180,7 +196,7 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                QueryString {
+                'Method' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -194,7 +210,7 @@ function Add-VSWAFv2RuleGroupFieldToMatch {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                Method {
+                'UriPath' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

@@ -19,7 +19,7 @@ function Add-VSGammaDilithiumJobDefinitionImagePullSecret {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.ImagePullSecret')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSSecurityLakeSubscriberNotificationHttpsNotificationConfiguration 
     #>
 
     [OutputType('Vaporshell.Resource.SecurityLake.SubscriberNotification.HttpsNotificationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

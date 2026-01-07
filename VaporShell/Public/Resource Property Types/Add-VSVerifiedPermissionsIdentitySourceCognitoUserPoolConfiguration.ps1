@@ -31,7 +31,7 @@ function Add-VSVerifiedPermissionsIdentitySourceCognitoUserPoolConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.VerifiedPermissions.IdentitySource.CognitoUserPoolConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSAppSyncFunctionConfigurationLambdaConflictHandlerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.FunctionConfiguration.LambdaConflictHandlerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

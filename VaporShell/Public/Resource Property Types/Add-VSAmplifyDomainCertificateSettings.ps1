@@ -24,7 +24,7 @@ function Add-VSAmplifyDomainCertificateSettings {
     #>
 
     [OutputType('Vaporshell.Resource.Amplify.Domain.CertificateSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

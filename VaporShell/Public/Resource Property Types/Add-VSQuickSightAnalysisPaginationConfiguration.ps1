@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisPaginationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PaginationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

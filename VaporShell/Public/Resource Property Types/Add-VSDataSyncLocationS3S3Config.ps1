@@ -19,7 +19,7 @@ function Add-VSDataSyncLocationS3S3Config {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationS3.S3Config')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -28,7 +28,7 @@ function Add-VSCodePipelinePipelineGitTagFilterCriteria {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.GitTagFilterCriteria')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

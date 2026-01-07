@@ -19,7 +19,7 @@ function Add-VSWorkSpacesWorkspacesPoolCapacity {
     #>
 
     [OutputType('Vaporshell.Resource.WorkSpaces.WorkspacesPool.Capacity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

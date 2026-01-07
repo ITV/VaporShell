@@ -9,6 +9,11 @@ function Add-VSAccessAnalyzerAnalyzerAnalyzerConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analyzerconfiguration.html
 
+    .PARAMETER InternalAccessConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analyzerconfiguration.html#cfn-accessanalyzer-analyzer-analyzerconfiguration-internalaccessconfiguration
+        UpdateType: Conditional
+        Type: InternalAccessConfiguration
+
     .PARAMETER UnusedAccessConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analyzerconfiguration.html#cfn-accessanalyzer-analyzer-analyzerconfiguration-unusedaccessconfiguration
         UpdateType: Conditional
@@ -19,10 +24,13 @@ function Add-VSAccessAnalyzerAnalyzerAnalyzerConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AccessAnalyzer.Analyzer.AnalyzerConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $InternalAccessConfiguration,
+
         [Parameter(Mandatory = $false)]
         $UnusedAccessConfiguration
 

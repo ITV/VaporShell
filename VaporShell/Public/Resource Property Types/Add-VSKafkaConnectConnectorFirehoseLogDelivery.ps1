@@ -24,7 +24,7 @@ function Add-VSKafkaConnectConnectorFirehoseLogDelivery {
     #>
 
     [OutputType('Vaporshell.Resource.KafkaConnect.Connector.FirehoseLogDelivery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

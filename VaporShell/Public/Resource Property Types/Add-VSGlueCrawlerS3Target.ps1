@@ -46,7 +46,7 @@ function Add-VSGlueCrawlerS3Target {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Crawler.S3Target')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

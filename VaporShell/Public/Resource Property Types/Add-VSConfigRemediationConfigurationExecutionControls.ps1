@@ -19,7 +19,7 @@ function Add-VSConfigRemediationConfigurationExecutionControls {
     #>
 
     [OutputType('Vaporshell.Resource.Config.RemediationConfiguration.ExecutionControls')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

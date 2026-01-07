@@ -44,7 +44,7 @@ function Add-VSEC2NetworkInsightsAnalysisAnalysisSecurityGroupRule {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAnalysis.AnalysisSecurityGroupRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateWhatIfRangeScenario {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.WhatIfRangeScenario')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

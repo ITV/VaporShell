@@ -24,7 +24,7 @@ function Add-VSEvidentlyLaunchGroupToWeight {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Launch.GroupToWeight')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

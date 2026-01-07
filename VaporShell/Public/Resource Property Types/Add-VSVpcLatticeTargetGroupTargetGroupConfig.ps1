@@ -49,7 +49,7 @@ function Add-VSVpcLatticeTargetGroupTargetGroupConfig {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.TargetGroup.TargetGroupConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

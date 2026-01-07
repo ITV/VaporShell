@@ -29,7 +29,7 @@ function Add-VSSageMakerFeatureGroupThroughputConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.FeatureGroup.ThroughputConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

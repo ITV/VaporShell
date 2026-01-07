@@ -24,7 +24,7 @@ function Add-VSDeadlineQueueJobAttachmentSettings {
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.Queue.JobAttachmentSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

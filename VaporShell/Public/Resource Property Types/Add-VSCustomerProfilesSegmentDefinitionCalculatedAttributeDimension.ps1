@@ -31,7 +31,7 @@ function Add-VSCustomerProfilesSegmentDefinitionCalculatedAttributeDimension {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.SegmentDefinition.CalculatedAttributeDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

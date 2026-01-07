@@ -47,7 +47,7 @@ function Add-VSEC2NetworkInsightsAnalysisAnalysisPacketHeader {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAnalysis.AnalysisPacketHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

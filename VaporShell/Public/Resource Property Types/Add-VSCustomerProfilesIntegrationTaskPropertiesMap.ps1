@@ -24,7 +24,7 @@ function Add-VSCustomerProfilesIntegrationTaskPropertiesMap {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.TaskPropertiesMap')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSS3BucketEventBridgeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.EventBridgeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

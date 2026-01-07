@@ -29,7 +29,7 @@ function Add-VSMediaLiveChannelArchiveGroupSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.ArchiveGroupSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

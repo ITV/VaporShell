@@ -26,7 +26,7 @@ function Add-VSBackupLogicallyAirGappedBackupVaultNotificationObjectType {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.LogicallyAirGappedBackupVault.NotificationObjectType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

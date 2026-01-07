@@ -24,12 +24,17 @@ function Add-VSQuickSightAnalysisKPIConfiguration {
         UpdateType: Mutable
         Type: KPIFieldWells
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-kpiconfiguration.html#cfn-quicksight-analysis-kpiconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.KPIConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -40,7 +45,10 @@ function Add-VSQuickSightAnalysisKPIConfiguration {
         $KPIOptions,
 
         [Parameter(Mandatory = $false)]
-        $FieldWells
+        $FieldWells,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions
 
     )
 

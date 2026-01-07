@@ -24,7 +24,7 @@ function Add-VSLambdaEventInvokeConfigDestinationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.EventInvokeConfig.DestinationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

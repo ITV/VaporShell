@@ -34,7 +34,7 @@ function Add-VSImageBuilderInfrastructureConfigurationPlacement {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.InfrastructureConfiguration.Placement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

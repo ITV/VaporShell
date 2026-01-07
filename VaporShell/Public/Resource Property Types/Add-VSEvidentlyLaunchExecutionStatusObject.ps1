@@ -29,7 +29,7 @@ function Add-VSEvidentlyLaunchExecutionStatusObject {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Launch.ExecutionStatusObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

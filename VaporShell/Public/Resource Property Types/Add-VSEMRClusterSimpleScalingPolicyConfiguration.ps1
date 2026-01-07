@@ -29,7 +29,7 @@ function Add-VSEMRClusterSimpleScalingPolicyConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.SimpleScalingPolicyConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

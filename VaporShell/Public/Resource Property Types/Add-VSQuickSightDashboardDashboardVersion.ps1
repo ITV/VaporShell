@@ -70,7 +70,7 @@ function Add-VSQuickSightDashboardDashboardVersion {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DashboardVersion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSQuickSightTopicTopicRelativeDateFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.TopicRelativeDateFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

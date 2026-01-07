@@ -19,7 +19,7 @@ function Add-VSLogsTransformerParseWAF {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.ParseWAF')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -28,7 +28,7 @@ function Add-VSBedrockKnowledgeBaseQueryGenerationContext {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.KnowledgeBase.QueryGenerationContext')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

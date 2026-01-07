@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelAudioWatermarkSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioWatermarkSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

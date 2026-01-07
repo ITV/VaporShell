@@ -44,7 +44,7 @@ function Add-VSRDSDBClusterScalingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBCluster.ScalingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -11,22 +11,22 @@ function Add-VSIoTFleetWiseCampaignSignalInformation {
 
     .PARAMETER MaxSampleCount
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html#cfn-iotfleetwise-campaign-signalinformation-maxsamplecount
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Double
 
     .PARAMETER DataPartitionId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html#cfn-iotfleetwise-campaign-signalinformation-datapartitionid
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .PARAMETER MinimumSamplingIntervalMs
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html#cfn-iotfleetwise-campaign-signalinformation-minimumsamplingintervalms
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Double
 
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html#cfn-iotfleetwise-campaign-signalinformation-name
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -34,7 +34,7 @@ function Add-VSIoTFleetWiseCampaignSignalInformation {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.SignalInformation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

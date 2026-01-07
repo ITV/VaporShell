@@ -51,7 +51,7 @@ function Add-VSQuickSightAnalysisInsightVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.InsightVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

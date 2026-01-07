@@ -24,7 +24,7 @@ function Add-VSRDSDBInstanceDBInstanceRole {
     #>
 
     [OutputType('Vaporshell.Resource.RDS.DBInstance.DBInstanceRole')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSIoTTopicRuleIotSiteWiseAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.IotSiteWiseAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

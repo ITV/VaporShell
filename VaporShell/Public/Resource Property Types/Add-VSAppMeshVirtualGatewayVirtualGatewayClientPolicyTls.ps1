@@ -35,7 +35,7 @@ function Add-VSAppMeshVirtualGatewayVirtualGatewayClientPolicyTls {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayClientPolicyTls')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

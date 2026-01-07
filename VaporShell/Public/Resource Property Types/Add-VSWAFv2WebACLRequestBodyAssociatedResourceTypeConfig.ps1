@@ -19,7 +19,7 @@ function Add-VSWAFv2WebACLRequestBodyAssociatedResourceTypeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RequestBodyAssociatedResourceTypeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

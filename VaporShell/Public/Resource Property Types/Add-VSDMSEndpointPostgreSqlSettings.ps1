@@ -94,7 +94,7 @@ function Add-VSDMSEndpointPostgreSqlSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.PostgreSqlSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEMRInstanceFleetConfigOnDemandProvisioningSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceFleetConfig.OnDemandProvisioningSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSApplicationInsightsApplicationSQLServerPrometheusExporter {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.SQLServerPrometheusExporter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

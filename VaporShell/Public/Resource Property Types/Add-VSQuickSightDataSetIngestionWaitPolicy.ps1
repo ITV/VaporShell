@@ -24,7 +24,7 @@ function Add-VSQuickSightDataSetIngestionWaitPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.IngestionWaitPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

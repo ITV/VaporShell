@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelThumbnailConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.ThumbnailConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -30,7 +30,7 @@ function Add-VSQuickSightTopicSemanticEntityType {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.SemanticEntityType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSDMSMigrationProjectDataProviderDescriptor {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.MigrationProject.DataProviderDescriptor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

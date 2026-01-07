@@ -34,7 +34,7 @@ function Add-VSRedshiftEndpointAccessNetworkInterface {
     #>
 
     [OutputType('Vaporshell.Resource.Redshift.EndpointAccess.NetworkInterface')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

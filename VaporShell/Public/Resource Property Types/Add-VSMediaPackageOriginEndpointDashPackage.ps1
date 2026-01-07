@@ -98,7 +98,7 @@ function Add-VSMediaPackageOriginEndpointDashPackage {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.DashPackage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

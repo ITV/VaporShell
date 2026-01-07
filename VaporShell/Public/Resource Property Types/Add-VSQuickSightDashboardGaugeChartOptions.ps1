@@ -39,7 +39,7 @@ function Add-VSQuickSightDashboardGaugeChartOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GaugeChartOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

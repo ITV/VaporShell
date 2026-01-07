@@ -29,7 +29,7 @@ function Add-VSIoTTopicRuleSnsAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.SnsAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

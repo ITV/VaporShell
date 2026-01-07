@@ -24,7 +24,7 @@ function Add-VSBatchJobDefinitionRuntimePlatform {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.RuntimePlatform')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

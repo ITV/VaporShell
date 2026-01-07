@@ -29,7 +29,7 @@ function Add-VSECSServiceServiceConnectTlsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Service.ServiceConnectTlsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

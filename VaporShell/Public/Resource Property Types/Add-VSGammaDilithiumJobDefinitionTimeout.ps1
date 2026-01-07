@@ -19,7 +19,7 @@ function Add-VSGammaDilithiumJobDefinitionTimeout {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.Timeout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

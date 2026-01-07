@@ -29,7 +29,7 @@ function Add-VSWAFv2WebACLCookies {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.Cookies')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

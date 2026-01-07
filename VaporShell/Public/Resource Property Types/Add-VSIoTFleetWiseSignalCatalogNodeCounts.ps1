@@ -39,7 +39,7 @@ function Add-VSIoTFleetWiseSignalCatalogNodeCounts {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.SignalCatalog.NodeCounts')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

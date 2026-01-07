@@ -33,7 +33,7 @@ function Add-VSQuickSightThemeDataColorPalette {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Theme.DataColorPalette')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

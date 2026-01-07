@@ -26,7 +26,7 @@ function Add-VSIoTAnalyticsDatasetQueryAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.QueryAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

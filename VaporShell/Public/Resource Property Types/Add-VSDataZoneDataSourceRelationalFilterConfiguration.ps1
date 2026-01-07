@@ -31,7 +31,7 @@ function Add-VSDataZoneDataSourceRelationalFilterConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.DataSource.RelationalFilterConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSS3BucketAccessControlTranslation {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.AccessControlTranslation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

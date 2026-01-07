@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelAudioLanguageSelection {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioLanguageSelection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

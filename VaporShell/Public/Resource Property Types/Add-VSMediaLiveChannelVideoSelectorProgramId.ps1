@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelVideoSelectorProgramId {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.VideoSelectorProgramId')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

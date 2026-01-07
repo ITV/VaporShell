@@ -19,7 +19,7 @@ function Add-VSDataSyncLocationFSxOpenZFSMountOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationFSxOpenZFS.MountOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

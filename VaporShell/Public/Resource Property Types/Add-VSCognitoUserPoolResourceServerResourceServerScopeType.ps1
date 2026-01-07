@@ -24,7 +24,7 @@ function Add-VSCognitoUserPoolResourceServerResourceServerScopeType {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPoolResourceServer.ResourceServerScopeType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSIoTEventsDetectorModelAssetPropertyVariant {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.DetectorModel.AssetPropertyVariant')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

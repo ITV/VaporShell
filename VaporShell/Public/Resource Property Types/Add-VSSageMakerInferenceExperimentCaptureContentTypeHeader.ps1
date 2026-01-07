@@ -28,7 +28,7 @@ function Add-VSSageMakerInferenceExperimentCaptureContentTypeHeader {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.InferenceExperiment.CaptureContentTypeHeader')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

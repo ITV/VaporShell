@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateDefaultInteractiveLayoutConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DefaultInteractiveLayoutConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSQuickSightRefreshScheduleRefreshScheduleMap {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.RefreshSchedule.RefreshScheduleMap')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

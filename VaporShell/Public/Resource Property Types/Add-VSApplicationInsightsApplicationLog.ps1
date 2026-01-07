@@ -39,7 +39,7 @@ function Add-VSApplicationInsightsApplicationLog {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.Log')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

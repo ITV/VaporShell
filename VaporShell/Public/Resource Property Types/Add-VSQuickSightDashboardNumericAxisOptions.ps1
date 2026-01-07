@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardNumericAxisOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.NumericAxisOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

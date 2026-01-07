@@ -39,7 +39,7 @@ function Add-VSAppMeshRouteHeaderMatchMethod {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.HeaderMatchMethod')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSEC2NetworkInterfacePrivateIpAddressSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInterface.PrivateIpAddressSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

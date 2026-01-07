@@ -29,7 +29,7 @@ function Add-VSAppFlowFlowErrorHandlingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.ErrorHandlingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

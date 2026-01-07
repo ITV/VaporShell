@@ -34,7 +34,7 @@ function Add-VSResilienceHubResiliencyPolicyPolicyMap {
     #>
 
     [OutputType('Vaporshell.Resource.ResilienceHub.ResiliencyPolicy.PolicyMap')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

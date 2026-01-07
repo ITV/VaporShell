@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateDonutCenterOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DonutCenterOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -45,7 +45,7 @@ function Add-VSQuickSightTemplateDonutCenterOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                LabelVisibility {
+                'LabelVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

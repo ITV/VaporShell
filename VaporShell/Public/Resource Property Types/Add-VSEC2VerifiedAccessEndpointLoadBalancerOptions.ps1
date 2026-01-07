@@ -43,7 +43,7 @@ function Add-VSEC2VerifiedAccessEndpointLoadBalancerOptions {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VerifiedAccessEndpoint.LoadBalancerOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

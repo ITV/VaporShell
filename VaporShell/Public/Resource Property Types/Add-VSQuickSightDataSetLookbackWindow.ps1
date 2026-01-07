@@ -29,7 +29,7 @@ function Add-VSQuickSightDataSetLookbackWindow {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.LookbackWindow')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSMSKClusterNodeExporter {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.NodeExporter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

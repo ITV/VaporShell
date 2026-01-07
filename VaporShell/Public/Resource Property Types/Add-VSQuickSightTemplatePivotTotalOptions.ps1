@@ -56,7 +56,7 @@ function Add-VSQuickSightTemplatePivotTotalOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PivotTotalOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -139,7 +139,7 @@ function Add-VSQuickSightTemplatePivotTotalOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                TotalsVisibility {
+                'TotalsVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

@@ -26,7 +26,7 @@ function Add-VSACMPCACertificateAuthorityCsrExtensions {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.CertificateAuthority.CsrExtensions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

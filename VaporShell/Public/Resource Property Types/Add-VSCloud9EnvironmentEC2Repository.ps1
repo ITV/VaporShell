@@ -24,7 +24,7 @@ function Add-VSCloud9EnvironmentEC2Repository {
     #>
 
     [OutputType('Vaporshell.Resource.Cloud9.EnvironmentEC2.Repository')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSMediaLiveChannelBandwidthReductionFilterSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.BandwidthReductionFilterSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

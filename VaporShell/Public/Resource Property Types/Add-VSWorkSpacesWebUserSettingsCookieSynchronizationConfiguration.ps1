@@ -28,7 +28,7 @@ function Add-VSWorkSpacesWebUserSettingsCookieSynchronizationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.WorkSpacesWeb.UserSettings.CookieSynchronizationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

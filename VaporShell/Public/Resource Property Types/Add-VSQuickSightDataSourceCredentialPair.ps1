@@ -31,7 +31,7 @@ function Add-VSQuickSightDataSourceCredentialPair {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.CredentialPair')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
 

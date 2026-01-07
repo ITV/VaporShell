@@ -24,7 +24,7 @@ function Add-VSGlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.DataCatalogEncryptionSettings.DataCatalogEncryptionSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","ConnectionPasswordEncryption")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","ConnectionPasswordEncryption")]
 

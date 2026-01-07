@@ -24,7 +24,7 @@ function Add-VSElasticBeanstalkConfigurationTemplateSourceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticBeanstalk.ConfigurationTemplate.SourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

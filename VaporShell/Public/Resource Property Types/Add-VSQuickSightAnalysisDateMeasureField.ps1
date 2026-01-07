@@ -34,7 +34,7 @@ function Add-VSQuickSightAnalysisDateMeasureField {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DateMeasureField')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

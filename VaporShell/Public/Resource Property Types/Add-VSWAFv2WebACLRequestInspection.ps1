@@ -29,7 +29,7 @@ function Add-VSWAFv2WebACLRequestInspection {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RequestInspection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","PasswordField")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","PasswordField")]
 

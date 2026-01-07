@@ -29,7 +29,7 @@ function Add-VSQBusinessIndexDocumentAttributeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Index.DocumentAttributeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

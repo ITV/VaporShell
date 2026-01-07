@@ -29,7 +29,7 @@ function Add-VSAppRunnerServiceImageRepository {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.ImageRepository')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

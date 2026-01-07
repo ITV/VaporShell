@@ -39,7 +39,7 @@ function Add-VSCognitoManagedLoginBrandingAssetType {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.ManagedLoginBranding.AssetType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

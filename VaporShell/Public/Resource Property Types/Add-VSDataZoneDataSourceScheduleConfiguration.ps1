@@ -24,7 +24,7 @@ function Add-VSDataZoneDataSourceScheduleConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.DataSource.ScheduleConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

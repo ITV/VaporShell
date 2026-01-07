@@ -30,7 +30,7 @@ function Add-VSIoTAnalyticsPipelineAddAttributes {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Pipeline.AddAttributes')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

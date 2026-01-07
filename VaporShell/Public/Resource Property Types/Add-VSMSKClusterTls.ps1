@@ -26,7 +26,7 @@ function Add-VSMSKClusterTls {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.Tls')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

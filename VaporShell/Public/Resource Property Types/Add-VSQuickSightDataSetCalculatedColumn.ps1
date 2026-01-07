@@ -29,7 +29,7 @@ function Add-VSQuickSightDataSetCalculatedColumn {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.CalculatedColumn')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

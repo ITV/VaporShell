@@ -24,7 +24,7 @@ function Add-VSKendraIndexJsonTokenTypeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.Index.JsonTokenTypeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSS3StorageLensStorageLensGroupLevel {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.StorageLensGroupLevel')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -64,7 +64,7 @@ function Add-VSApiGatewayStageMethodSetting {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.Stage.MethodSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

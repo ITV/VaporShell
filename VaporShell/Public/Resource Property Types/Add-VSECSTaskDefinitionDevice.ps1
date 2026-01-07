@@ -31,7 +31,7 @@ function Add-VSECSTaskDefinitionDevice {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.Device')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

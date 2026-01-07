@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardCustomNarrativeOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.CustomNarrativeOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

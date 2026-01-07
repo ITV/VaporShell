@@ -19,7 +19,7 @@ function Add-VSECSTaskDefinitionRepositoryCredentials {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.RepositoryCredentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","CredentialsParameter")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","CredentialsParameter")]
 

@@ -41,7 +41,7 @@ function Add-VSEMRServerlessApplicationCloudWatchLoggingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.CloudWatchLoggingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

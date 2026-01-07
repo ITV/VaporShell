@@ -56,7 +56,7 @@ function Add-VSPCAConnectorADTemplateTemplateV2 {
     #>
 
     [OutputType('Vaporshell.Resource.PCAConnectorAD.Template.TemplateV2')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

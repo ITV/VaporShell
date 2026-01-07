@@ -19,7 +19,7 @@ function Add-VSConnectRoutingProfileCrossChannelBehavior {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.RoutingProfile.CrossChannelBehavior')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

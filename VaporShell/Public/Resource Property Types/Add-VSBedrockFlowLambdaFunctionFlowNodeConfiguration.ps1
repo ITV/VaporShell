@@ -19,7 +19,7 @@ function Add-VSBedrockFlowLambdaFunctionFlowNodeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Flow.LambdaFunctionFlowNodeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

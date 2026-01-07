@@ -19,7 +19,7 @@ function Add-VSCustomerProfilesIntegrationIncrementalPullConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.IncrementalPullConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

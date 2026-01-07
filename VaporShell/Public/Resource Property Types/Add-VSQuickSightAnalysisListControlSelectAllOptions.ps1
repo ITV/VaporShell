@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisListControlSelectAllOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ListControlSelectAllOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

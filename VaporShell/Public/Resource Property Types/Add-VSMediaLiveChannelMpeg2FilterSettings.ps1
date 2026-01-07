@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelMpeg2FilterSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.Mpeg2FilterSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

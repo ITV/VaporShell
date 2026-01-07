@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardVisualSubtitleLabelOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.VisualSubtitleLabelOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

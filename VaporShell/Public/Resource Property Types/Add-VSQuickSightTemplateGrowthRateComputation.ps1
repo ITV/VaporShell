@@ -39,7 +39,7 @@ function Add-VSQuickSightTemplateGrowthRateComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.GrowthRateComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

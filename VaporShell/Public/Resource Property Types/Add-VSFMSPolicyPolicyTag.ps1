@@ -24,7 +24,7 @@ function Add-VSFMSPolicyPolicyTag {
     #>
 
     [OutputType('Vaporshell.Resource.FMS.Policy.PolicyTag')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

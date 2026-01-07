@@ -24,7 +24,7 @@ function Add-VSSageMakerModelBiasJobDefinitionModelBiasBaselineConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelBiasJobDefinition.ModelBiasBaselineConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

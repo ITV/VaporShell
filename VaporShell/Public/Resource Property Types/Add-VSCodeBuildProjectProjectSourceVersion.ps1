@@ -24,7 +24,7 @@ function Add-VSCodeBuildProjectProjectSourceVersion {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.ProjectSourceVersion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

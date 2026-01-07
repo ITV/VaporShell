@@ -19,7 +19,7 @@ function Add-VSBatchJobDefinitionRepositoryCredentials {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.RepositoryCredentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","CredentialsParameter")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","CredentialsParameter")]
 

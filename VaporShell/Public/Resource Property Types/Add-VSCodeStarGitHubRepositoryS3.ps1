@@ -29,7 +29,7 @@ function Add-VSCodeStarGitHubRepositoryS3 {
     #>
 
     [OutputType('Vaporshell.Resource.CodeStar.GitHubRepository.S3')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSCustomerProfilesCalculatedAttributeDefinitionAttributeItem {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.CalculatedAttributeDefinition.AttributeItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

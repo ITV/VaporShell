@@ -21,7 +21,7 @@ function Add-VSQuickSightTemplateKPIConditionalFormatting {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.KPIConditionalFormatting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

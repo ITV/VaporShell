@@ -29,7 +29,7 @@ function Add-VSSESMailManagerRuleSetDeliverToMailboxAction {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.DeliverToMailboxAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

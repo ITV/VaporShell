@@ -24,7 +24,7 @@ function Add-VSDynamoDBTableProvisionedThroughput {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.Table.ProvisionedThroughput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

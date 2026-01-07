@@ -44,7 +44,7 @@ function Add-VSQuickSightTemplatePercentageDisplayFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PercentageDisplayFormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

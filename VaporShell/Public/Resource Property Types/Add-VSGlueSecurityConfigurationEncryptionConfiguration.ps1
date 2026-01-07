@@ -29,7 +29,7 @@ function Add-VSGlueSecurityConfigurationEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.SecurityConfiguration.EncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

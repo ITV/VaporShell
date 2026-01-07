@@ -39,7 +39,7 @@ function Add-VSAppFlowConnectorProfileGoogleAnalyticsConnectorProfileCredentials
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.GoogleAnalyticsConnectorProfileCredentials')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

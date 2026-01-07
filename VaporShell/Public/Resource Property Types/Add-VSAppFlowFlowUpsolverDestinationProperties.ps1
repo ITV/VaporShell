@@ -29,7 +29,7 @@ function Add-VSAppFlowFlowUpsolverDestinationProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.UpsolverDestinationProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

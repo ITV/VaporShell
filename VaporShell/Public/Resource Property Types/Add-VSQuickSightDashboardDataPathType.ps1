@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardDataPathType {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DataPathType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

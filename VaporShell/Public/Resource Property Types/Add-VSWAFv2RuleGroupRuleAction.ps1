@@ -39,7 +39,7 @@ function Add-VSWAFv2RuleGroupRuleAction {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.RuleAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

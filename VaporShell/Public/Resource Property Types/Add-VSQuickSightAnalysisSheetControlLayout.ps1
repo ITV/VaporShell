@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisSheetControlLayout {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SheetControlLayout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

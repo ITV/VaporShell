@@ -64,7 +64,7 @@ function Add-VSMediaLiveChannelOutputGroupSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.OutputGroupSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

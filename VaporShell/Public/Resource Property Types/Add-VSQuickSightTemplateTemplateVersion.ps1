@@ -65,7 +65,7 @@ function Add-VSQuickSightTemplateTemplateVersion {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TemplateVersion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

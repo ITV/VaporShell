@@ -34,7 +34,7 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Multiplexprogram.MultiplexProgramSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

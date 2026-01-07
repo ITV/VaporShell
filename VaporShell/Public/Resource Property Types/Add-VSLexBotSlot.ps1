@@ -24,6 +24,11 @@ function Add-VSLexBotSlot {
         UpdateType: Mutable
         Type: SlotValueElicitationSetting
 
+    .PARAMETER SubSlotSetting
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-subslotsetting
+        UpdateType: Mutable
+        Type: SubSlotSetting
+
     .PARAMETER ObfuscationSetting
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slot.html#cfn-lex-bot-slot-obfuscationsetting
         UpdateType: Mutable
@@ -44,7 +49,7 @@ function Add-VSLexBotSlot {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.Slot')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -74,6 +79,9 @@ function Add-VSLexBotSlot {
 
         [Parameter(Mandatory = $true)]
         $ValueElicitationSetting,
+
+        [Parameter(Mandatory = $false)]
+        $SubSlotSetting,
 
         [Parameter(Mandatory = $false)]
         $ObfuscationSetting,

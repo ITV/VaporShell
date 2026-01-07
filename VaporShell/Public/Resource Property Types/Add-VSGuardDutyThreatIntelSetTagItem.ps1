@@ -24,7 +24,7 @@ function Add-VSGuardDutyThreatIntelSetTagItem {
     #>
 
     [OutputType('Vaporshell.Resource.GuardDuty.ThreatIntelSet.TagItem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

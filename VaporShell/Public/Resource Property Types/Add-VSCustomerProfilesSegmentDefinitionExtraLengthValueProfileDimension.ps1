@@ -26,7 +26,7 @@ function Add-VSCustomerProfilesSegmentDefinitionExtraLengthValueProfileDimension
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.SegmentDefinition.ExtraLengthValueProfileDimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSGammaDilithiumJobDefinitionVolumesHost {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.VolumesHost')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

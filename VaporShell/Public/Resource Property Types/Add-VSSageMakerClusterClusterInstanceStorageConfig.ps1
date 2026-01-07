@@ -19,7 +19,7 @@ function Add-VSSageMakerClusterClusterInstanceStorageConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Cluster.ClusterInstanceStorageConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

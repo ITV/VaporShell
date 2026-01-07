@@ -24,7 +24,7 @@ function Add-VSIoTFleetWiseCampaignStorageMaximumSize {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.StorageMaximumSize')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

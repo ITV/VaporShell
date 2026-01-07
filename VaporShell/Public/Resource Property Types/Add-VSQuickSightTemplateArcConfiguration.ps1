@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateArcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ArcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

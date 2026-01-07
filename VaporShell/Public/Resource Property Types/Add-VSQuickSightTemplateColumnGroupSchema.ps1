@@ -26,7 +26,7 @@ function Add-VSQuickSightTemplateColumnGroupSchema {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ColumnGroupSchema')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

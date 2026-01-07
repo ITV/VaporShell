@@ -29,7 +29,7 @@ function Add-VSKinesisFirehoseDeliveryStreamCopyCommand {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.CopyCommand')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -56,7 +56,7 @@ function Add-VSQuickSightAnalysisPivotTotalOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.PivotTotalOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

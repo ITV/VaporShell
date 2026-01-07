@@ -19,7 +19,7 @@ function Add-VSDataBrewJobCsvOutputOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Job.CsvOutputOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

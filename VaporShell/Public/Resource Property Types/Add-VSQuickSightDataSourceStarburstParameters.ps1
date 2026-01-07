@@ -49,7 +49,7 @@ function Add-VSQuickSightDataSourceStarburstParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.StarburstParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

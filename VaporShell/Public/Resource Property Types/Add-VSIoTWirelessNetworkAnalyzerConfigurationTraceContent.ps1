@@ -24,7 +24,7 @@ function Add-VSIoTWirelessNetworkAnalyzerConfigurationTraceContent {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.NetworkAnalyzerConfiguration.TraceContent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

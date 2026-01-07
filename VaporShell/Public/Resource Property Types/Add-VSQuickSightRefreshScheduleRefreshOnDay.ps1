@@ -24,7 +24,7 @@ function Add-VSQuickSightRefreshScheduleRefreshOnDay {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.RefreshSchedule.RefreshOnDay')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

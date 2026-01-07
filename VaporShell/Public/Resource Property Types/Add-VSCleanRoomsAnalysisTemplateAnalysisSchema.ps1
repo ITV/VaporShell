@@ -11,7 +11,7 @@ function Add-VSCleanRoomsAnalysisTemplateAnalysisSchema {
 
     .PARAMETER ReferencedTables
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisschema.html#cfn-cleanrooms-analysistemplate-analysisschema-referencedtables
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: List
         PrimitiveItemType: String
         DuplicatesAllowed: True
@@ -21,7 +21,7 @@ function Add-VSCleanRoomsAnalysisTemplateAnalysisSchema {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.AnalysisTemplate.AnalysisSchema')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

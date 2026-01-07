@@ -26,7 +26,7 @@ function Add-VSWAFv2RuleGroupRateLimitCookie {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.RateLimitCookie')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

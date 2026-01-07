@@ -19,7 +19,7 @@ function Add-VSEMRClusterScalingTrigger {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.ScalingTrigger')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

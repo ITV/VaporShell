@@ -29,7 +29,7 @@ function Add-VSAmplifyAppBasicAuthConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Amplify.App.BasicAuthConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
 

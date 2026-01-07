@@ -29,7 +29,7 @@ function Add-VSGreengrassV2DeploymentDeploymentPolicies {
     #>
 
     [OutputType('Vaporshell.Resource.GreengrassV2.Deployment.DeploymentPolicies')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

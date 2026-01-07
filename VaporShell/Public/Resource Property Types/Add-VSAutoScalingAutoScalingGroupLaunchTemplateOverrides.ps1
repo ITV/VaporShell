@@ -19,6 +19,11 @@ function Add-VSAutoScalingAutoScalingGroupLaunchTemplateOverrides {
         UpdateType: Conditional
         PrimitiveType: String
 
+    .PARAMETER ImageId
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-imageid
+        UpdateType: Conditional
+        PrimitiveType: String
+
     .PARAMETER InstanceRequirements
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-instancerequirements
         UpdateType: Conditional
@@ -34,7 +39,7 @@ function Add-VSAutoScalingAutoScalingGroupLaunchTemplateOverrides {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.LaunchTemplateOverrides')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -52,6 +57,18 @@ function Add-VSAutoScalingAutoScalingGroupLaunchTemplateOverrides {
                 }
             })]
         $WeightedCapacity,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $ImageId,
 
         [Parameter(Mandatory = $false)]
         $InstanceRequirements,

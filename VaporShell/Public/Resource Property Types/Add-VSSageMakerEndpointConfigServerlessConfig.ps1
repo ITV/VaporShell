@@ -29,7 +29,7 @@ function Add-VSSageMakerEndpointConfigServerlessConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.EndpointConfig.ServerlessConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

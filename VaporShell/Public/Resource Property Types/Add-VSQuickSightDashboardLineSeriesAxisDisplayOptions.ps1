@@ -26,7 +26,7 @@ function Add-VSQuickSightDashboardLineSeriesAxisDisplayOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.LineSeriesAxisDisplayOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

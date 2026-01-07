@@ -36,7 +36,7 @@ function Add-VSWAFv2WebACLSizeConstraintStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.SizeConstraintStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

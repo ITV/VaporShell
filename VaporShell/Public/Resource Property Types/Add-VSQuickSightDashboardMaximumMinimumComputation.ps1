@@ -39,7 +39,7 @@ function Add-VSQuickSightDashboardMaximumMinimumComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.MaximumMinimumComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

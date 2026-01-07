@@ -24,7 +24,7 @@ function Add-VSIoTSecurityProfileMetricsExportConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.SecurityProfile.MetricsExportConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

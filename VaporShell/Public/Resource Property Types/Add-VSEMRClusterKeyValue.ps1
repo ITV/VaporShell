@@ -24,7 +24,7 @@ function Add-VSEMRClusterKeyValue {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.KeyValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

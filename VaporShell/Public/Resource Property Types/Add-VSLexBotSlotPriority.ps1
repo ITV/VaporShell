@@ -24,7 +24,7 @@ function Add-VSLexBotSlotPriority {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.SlotPriority')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

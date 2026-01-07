@@ -19,7 +19,7 @@ function Add-VSEMRServerlessApplicationAutoStartConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.AutoStartConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSDataBrewRulesetColumnSelector {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Ruleset.ColumnSelector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

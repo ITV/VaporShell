@@ -14,6 +14,11 @@ function Add-VSQuickSightDashboardScatterPlotConfiguration {
         UpdateType: Mutable
         Type: ChartAxisLabelOptions
 
+    .PARAMETER SortConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-scatterplotconfiguration.html#cfn-quicksight-dashboard-scatterplotconfiguration-sortconfiguration
+        UpdateType: Mutable
+        Type: ScatterPlotSortConfiguration
+
     .PARAMETER Legend
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-scatterplotconfiguration.html#cfn-quicksight-dashboard-scatterplotconfiguration-legend
         UpdateType: Mutable
@@ -44,6 +49,11 @@ function Add-VSQuickSightDashboardScatterPlotConfiguration {
         UpdateType: Mutable
         Type: ChartAxisLabelOptions
 
+    .PARAMETER Interactions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-scatterplotconfiguration.html#cfn-quicksight-dashboard-scatterplotconfiguration-interactions
+        UpdateType: Mutable
+        Type: VisualInteractionOptions
+
     .PARAMETER VisualPalette
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-scatterplotconfiguration.html#cfn-quicksight-dashboard-scatterplotconfiguration-visualpalette
         UpdateType: Mutable
@@ -59,12 +69,15 @@ function Add-VSQuickSightDashboardScatterPlotConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ScatterPlotConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
         $YAxisLabelOptions,
+
+        [Parameter(Mandatory = $false)]
+        $SortConfiguration,
 
         [Parameter(Mandatory = $false)]
         $Legend,
@@ -83,6 +96,9 @@ function Add-VSQuickSightDashboardScatterPlotConfiguration {
 
         [Parameter(Mandatory = $false)]
         $XAxisLabelOptions,
+
+        [Parameter(Mandatory = $false)]
+        $Interactions,
 
         [Parameter(Mandatory = $false)]
         $VisualPalette,

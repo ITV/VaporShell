@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardNestedFilter {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.NestedFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

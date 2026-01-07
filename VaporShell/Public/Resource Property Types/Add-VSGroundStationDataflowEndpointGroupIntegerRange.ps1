@@ -11,12 +11,12 @@ function Add-VSGroundStationDataflowEndpointGroupIntegerRange {
 
     .PARAMETER Minimum
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-integerrange.html#cfn-groundstation-dataflowendpointgroup-integerrange-minimum
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER Maximum
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-integerrange.html#cfn-groundstation-dataflowendpointgroup-integerrange-maximum
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .FUNCTIONALITY
@@ -24,7 +24,7 @@ function Add-VSGroundStationDataflowEndpointGroupIntegerRange {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.DataflowEndpointGroup.IntegerRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

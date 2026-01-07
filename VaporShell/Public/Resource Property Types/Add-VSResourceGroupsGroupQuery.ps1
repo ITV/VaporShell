@@ -33,7 +33,7 @@ function Add-VSResourceGroupsGroupQuery {
     #>
 
     [OutputType('Vaporshell.Resource.ResourceGroups.Group.Query')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

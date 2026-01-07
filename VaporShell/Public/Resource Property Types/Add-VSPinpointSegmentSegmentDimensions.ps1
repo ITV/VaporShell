@@ -44,7 +44,7 @@ function Add-VSPinpointSegmentSegmentDimensions {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.Segment.SegmentDimensions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -103,7 +103,7 @@ function Add-VSPinpointSegmentSegmentDimensions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Metrics {
+                'Metrics' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -117,7 +117,7 @@ function Add-VSPinpointSegmentSegmentDimensions {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                Attributes {
+                'Attributes' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -131,7 +131,7 @@ function Add-VSPinpointSegmentSegmentDimensions {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                UserAttributes {
+                'UserAttributes' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

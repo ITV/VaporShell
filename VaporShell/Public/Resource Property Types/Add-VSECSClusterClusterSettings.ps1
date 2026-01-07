@@ -24,7 +24,7 @@ function Add-VSECSClusterClusterSettings {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.Cluster.ClusterSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

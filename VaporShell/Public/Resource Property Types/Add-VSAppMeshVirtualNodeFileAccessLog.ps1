@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualNodeFileAccessLog {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.FileAccessLog')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSCodeBuildProjectSourceAuth {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.SourceAuth')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

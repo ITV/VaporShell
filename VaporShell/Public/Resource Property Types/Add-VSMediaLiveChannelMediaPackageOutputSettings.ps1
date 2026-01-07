@@ -9,15 +9,23 @@ function Add-VSMediaLiveChannelMediaPackageOutputSettings {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputsettings.html
 
+    .PARAMETER MediaPackageV2DestinationSettings
+        Type: MediaPackageV2DestinationSettings
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputsettings.html#cfn-medialive-channel-mediapackageoutputsettings-mediapackagev2destinationsettings
+        UpdateType: Mutable
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.MediaPackageOutputSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $MediaPackageV2DestinationSettings
+
     )
 
     Begin {

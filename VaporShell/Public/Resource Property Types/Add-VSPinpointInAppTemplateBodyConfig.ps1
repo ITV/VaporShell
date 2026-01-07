@@ -29,7 +29,7 @@ function Add-VSPinpointInAppTemplateBodyConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Pinpoint.InAppTemplate.BodyConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

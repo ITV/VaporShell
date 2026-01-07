@@ -36,7 +36,7 @@ function Add-VSBillingConductorCustomLineItemCustomLineItemChargeDetails {
     #>
 
     [OutputType('Vaporshell.Resource.BillingConductor.CustomLineItem.CustomLineItemChargeDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

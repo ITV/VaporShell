@@ -19,7 +19,7 @@ function Add-VSLogsTransformerParseVPC {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.ParseVPC')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

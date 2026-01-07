@@ -25,6 +25,11 @@ function Add-VSSyntheticsCanaryRunConfig {
         UpdateType: Mutable
         PrimitiveType: Integer
 
+    .PARAMETER EphemeralStorage
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-ephemeralstorage
+        UpdateType: Mutable
+        PrimitiveType: Integer
+
     .PARAMETER ActiveTracing
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
         UpdateType: Mutable
@@ -35,7 +40,7 @@ function Add-VSSyntheticsCanaryRunConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Synthetics.Canary.RunConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -66,6 +71,18 @@ function Add-VSSyntheticsCanaryRunConfig {
                 }
             })]
         $MemoryInMB,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Int32","Vaporshell.Function"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $EphemeralStorage,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

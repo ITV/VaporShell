@@ -54,7 +54,7 @@ function Add-VSQuickSightAnalysisFilterDropDownControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FilterDropDownControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

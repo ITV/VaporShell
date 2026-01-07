@@ -34,7 +34,7 @@ function Add-VSIoTTopicRuleFirehoseAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.FirehoseAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

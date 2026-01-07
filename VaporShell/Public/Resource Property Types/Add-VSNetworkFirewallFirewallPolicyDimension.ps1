@@ -19,7 +19,7 @@ function Add-VSNetworkFirewallFirewallPolicyDimension {
     #>
 
     [OutputType('Vaporshell.Resource.NetworkFirewall.FirewallPolicy.Dimension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

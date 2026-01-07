@@ -42,7 +42,7 @@ function Add-VSQuickSightDashboardParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.Parameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

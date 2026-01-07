@@ -34,7 +34,7 @@ function Add-VSCleanRoomsMembershipProtectedQueryS3OutputConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Membership.ProtectedQueryS3OutputConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

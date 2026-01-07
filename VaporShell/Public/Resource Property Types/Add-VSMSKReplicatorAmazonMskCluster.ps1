@@ -19,7 +19,7 @@ function Add-VSMSKReplicatorAmazonMskCluster {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Replicator.AmazonMskCluster')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

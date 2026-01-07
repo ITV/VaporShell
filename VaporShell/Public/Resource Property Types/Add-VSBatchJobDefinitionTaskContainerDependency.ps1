@@ -24,7 +24,7 @@ function Add-VSBatchJobDefinitionTaskContainerDependency {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.TaskContainerDependency')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

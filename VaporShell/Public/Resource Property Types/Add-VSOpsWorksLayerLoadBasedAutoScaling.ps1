@@ -29,7 +29,7 @@ function Add-VSOpsWorksLayerLoadBasedAutoScaling {
     #>
 
     [OutputType('Vaporshell.Resource.OpsWorks.Layer.LoadBasedAutoScaling')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

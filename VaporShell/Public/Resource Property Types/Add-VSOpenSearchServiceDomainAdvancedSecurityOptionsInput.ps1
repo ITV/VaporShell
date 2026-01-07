@@ -9,6 +9,11 @@ function Add-VSOpenSearchServiceDomainAdvancedSecurityOptionsInput {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html
 
+    .PARAMETER IAMFederationOptions
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-iamfederationoptions
+        UpdateType: Mutable
+        Type: IAMFederationOptions
+
     .PARAMETER AnonymousAuthEnabled
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html#cfn-opensearchservice-domain-advancedsecurityoptionsinput-anonymousauthenabled
         UpdateType: Mutable
@@ -49,10 +54,13 @@ function Add-VSOpenSearchServiceDomainAdvancedSecurityOptionsInput {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.AdvancedSecurityOptionsInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $IAMFederationOptions,
+
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"

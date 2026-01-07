@@ -21,7 +21,7 @@ function Add-VSEC2EC2FleetCpuPerformanceFactorRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.CpuPerformanceFactorRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -55,7 +55,7 @@ function Add-VSMediaLiveChannelCaptionDescription {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.CaptionDescription')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

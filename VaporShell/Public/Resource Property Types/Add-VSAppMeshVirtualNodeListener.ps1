@@ -44,7 +44,7 @@ function Add-VSAppMeshVirtualNodeListener {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.Listener')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

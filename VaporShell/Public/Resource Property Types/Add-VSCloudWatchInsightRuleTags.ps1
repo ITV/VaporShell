@@ -14,7 +14,7 @@ function Add-VSCloudWatchInsightRuleTags {
     #>
 
     [OutputType('Vaporshell.Resource.CloudWatch.InsightRule.Tags')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

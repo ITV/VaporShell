@@ -19,7 +19,7 @@ function Add-VSAthenaWorkGroupCustomerContentEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Athena.WorkGroup.CustomerContentEncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

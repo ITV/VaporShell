@@ -19,7 +19,7 @@ function Add-VSGameLiftFleetCertificateConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.Fleet.CertificateConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

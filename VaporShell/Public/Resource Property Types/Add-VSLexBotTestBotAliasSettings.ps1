@@ -36,7 +36,7 @@ function Add-VSLexBotTestBotAliasSettings {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.TestBotAliasSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

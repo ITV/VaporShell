@@ -19,7 +19,7 @@ function Add-VSAmplifyAppCacheConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Amplify.App.CacheConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

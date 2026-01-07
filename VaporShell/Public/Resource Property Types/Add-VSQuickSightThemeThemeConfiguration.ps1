@@ -34,7 +34,7 @@ function Add-VSQuickSightThemeThemeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Theme.ThemeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

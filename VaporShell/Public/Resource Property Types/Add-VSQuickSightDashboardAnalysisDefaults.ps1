@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardAnalysisDefaults {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.AnalysisDefaults')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

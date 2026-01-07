@@ -34,7 +34,7 @@ function Add-VSDataBrewDatasetInput {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.Input')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

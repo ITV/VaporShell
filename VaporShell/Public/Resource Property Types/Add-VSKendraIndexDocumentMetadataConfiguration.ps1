@@ -34,7 +34,7 @@ function Add-VSKendraIndexDocumentMetadataConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.Index.DocumentMetadataConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

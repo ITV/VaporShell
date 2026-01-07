@@ -39,7 +39,7 @@ function Add-VSSESReceiptRuleBounceAction {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ReceiptRule.BounceAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

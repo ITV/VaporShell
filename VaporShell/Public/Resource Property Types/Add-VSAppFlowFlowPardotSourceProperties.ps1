@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowPardotSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.PardotSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

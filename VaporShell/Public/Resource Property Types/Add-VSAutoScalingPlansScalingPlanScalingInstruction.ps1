@@ -85,7 +85,7 @@ function Add-VSAutoScalingPlansScalingPlanScalingInstruction {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScalingPlans.ScalingPlan.ScalingInstruction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

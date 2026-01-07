@@ -24,7 +24,7 @@ function Add-VSBackupFrameworkControlInputParameter {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.Framework.ControlInputParameter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

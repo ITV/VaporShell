@@ -29,7 +29,7 @@ function Add-VSPersonalizeSolutionContinuousHyperParameterRange {
     #>
 
     [OutputType('Vaporshell.Resource.Personalize.Solution.ContinuousHyperParameterRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

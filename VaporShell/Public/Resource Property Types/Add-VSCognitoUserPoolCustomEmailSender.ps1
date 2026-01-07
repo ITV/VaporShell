@@ -24,7 +24,7 @@ function Add-VSCognitoUserPoolCustomEmailSender {
     #>
 
     [OutputType('Vaporshell.Resource.Cognito.UserPool.CustomEmailSender')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

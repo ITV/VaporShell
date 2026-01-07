@@ -33,7 +33,7 @@ function Add-VSSageMakerUserProfileKernelGatewayAppSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.KernelGatewayAppSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

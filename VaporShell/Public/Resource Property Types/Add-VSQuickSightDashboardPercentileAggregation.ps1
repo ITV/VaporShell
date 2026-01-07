@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardPercentileAggregation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PercentileAggregation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

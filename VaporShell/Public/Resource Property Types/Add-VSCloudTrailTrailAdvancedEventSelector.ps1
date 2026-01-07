@@ -26,7 +26,7 @@ function Add-VSCloudTrailTrailAdvancedEventSelector {
     #>
 
     [OutputType('Vaporshell.Resource.CloudTrail.Trail.AdvancedEventSelector')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

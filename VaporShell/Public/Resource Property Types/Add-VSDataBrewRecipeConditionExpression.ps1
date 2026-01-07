@@ -29,7 +29,7 @@ function Add-VSDataBrewRecipeConditionExpression {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Recipe.ConditionExpression')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSCodeDeployDeploymentGroupDeploymentReadyOption {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.DeploymentReadyOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

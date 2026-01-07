@@ -33,7 +33,7 @@ function Add-VSLambdaFunctionImageConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.Function.ImageConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSBillingConductorPricingRuleTiering {
     #>
 
     [OutputType('Vaporshell.Resource.BillingConductor.PricingRule.Tiering')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

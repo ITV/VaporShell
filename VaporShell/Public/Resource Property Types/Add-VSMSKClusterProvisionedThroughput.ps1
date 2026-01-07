@@ -24,7 +24,7 @@ function Add-VSMSKClusterProvisionedThroughput {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.ProvisionedThroughput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

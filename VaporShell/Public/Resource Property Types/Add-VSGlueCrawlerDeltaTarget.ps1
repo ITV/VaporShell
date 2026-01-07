@@ -36,7 +36,7 @@ function Add-VSGlueCrawlerDeltaTarget {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Crawler.DeltaTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSServiceDiscoveryPrivateDnsNamespaceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.ServiceDiscovery.PrivateDnsNamespace.Properties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

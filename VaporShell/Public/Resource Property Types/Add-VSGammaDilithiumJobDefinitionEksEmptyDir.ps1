@@ -24,7 +24,7 @@ function Add-VSGammaDilithiumJobDefinitionEksEmptyDir {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.EksEmptyDir')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -39,7 +39,7 @@ function Add-VSECSCapacityProviderManagedScaling {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.CapacityProvider.ManagedScaling')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

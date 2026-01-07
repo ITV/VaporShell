@@ -24,7 +24,7 @@ function Add-VSCloudFormationTypeActivationLoggingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFormation.TypeActivation.LoggingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSWAFv2WebACLForwardedIPConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.ForwardedIPConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

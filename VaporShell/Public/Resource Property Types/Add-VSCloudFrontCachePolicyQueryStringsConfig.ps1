@@ -26,7 +26,7 @@ function Add-VSCloudFrontCachePolicyQueryStringsConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.CachePolicy.QueryStringsConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -51,7 +51,7 @@ function Add-VSAppMeshRouteHttpRouteMatch {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.HttpRouteMatch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

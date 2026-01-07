@@ -29,7 +29,7 @@ function Add-VSCodeBuildProjectEnvironmentVariable {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.EnvironmentVariable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

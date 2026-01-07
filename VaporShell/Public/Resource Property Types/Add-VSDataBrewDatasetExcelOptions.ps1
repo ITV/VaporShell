@@ -33,7 +33,7 @@ function Add-VSDataBrewDatasetExcelOptions {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Dataset.ExcelOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

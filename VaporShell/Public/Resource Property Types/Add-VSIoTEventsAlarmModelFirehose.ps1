@@ -29,7 +29,7 @@ function Add-VSIoTEventsAlarmModelFirehose {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.AlarmModel.Firehose')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

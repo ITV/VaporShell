@@ -19,7 +19,7 @@ function Add-VSCloudFrontFunctionKeyValueStoreAssociation {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Function.KeyValueStoreAssociation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

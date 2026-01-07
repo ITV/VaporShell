@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisDefaultSectionBasedLayoutConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DefaultSectionBasedLayoutConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

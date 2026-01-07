@@ -19,7 +19,7 @@ function Add-VSCustomerProfilesIntegrationZendeskSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.ZendeskSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

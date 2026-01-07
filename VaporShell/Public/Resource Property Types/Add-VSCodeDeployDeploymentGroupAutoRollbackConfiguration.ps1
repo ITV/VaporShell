@@ -26,7 +26,7 @@ function Add-VSCodeDeployDeploymentGroupAutoRollbackConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.AutoRollbackConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSFMSPolicyPortRange {
     #>
 
     [OutputType('Vaporshell.Resource.FMS.Policy.PortRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

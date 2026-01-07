@@ -26,7 +26,7 @@ function Add-VSEC2SpotFleetSpotFleetTagSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.SpotFleet.SpotFleetTagSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

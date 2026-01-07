@@ -26,7 +26,7 @@ function Add-VSEC2InstanceSsmAssociation {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.Instance.SsmAssociation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

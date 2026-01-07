@@ -24,7 +24,7 @@ function Add-VSS3BucketMetrics {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.Metrics')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

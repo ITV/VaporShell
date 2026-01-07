@@ -34,7 +34,7 @@ function Add-VSAppSyncGraphQLApiUserPoolConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.GraphQLApi.UserPoolConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

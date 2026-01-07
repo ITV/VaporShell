@@ -24,7 +24,7 @@ function Add-VSSchedulerScheduleRetryPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.Scheduler.Schedule.RetryPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

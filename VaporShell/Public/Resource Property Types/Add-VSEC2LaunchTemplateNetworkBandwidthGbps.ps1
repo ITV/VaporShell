@@ -24,7 +24,7 @@ function Add-VSEC2LaunchTemplateNetworkBandwidthGbps {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.NetworkBandwidthGbps')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

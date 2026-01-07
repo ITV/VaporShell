@@ -19,7 +19,7 @@ function Add-VSACMPCACertificateAuthorityCrlDistributionPointExtensionConfigurat
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.CertificateAuthority.CrlDistributionPointExtensionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

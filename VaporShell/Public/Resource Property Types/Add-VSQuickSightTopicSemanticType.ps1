@@ -54,7 +54,7 @@ function Add-VSQuickSightTopicSemanticType {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.SemanticType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

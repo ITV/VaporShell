@@ -24,7 +24,7 @@ function Add-VSConnectRuleRuleTriggerEventSource {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.Rule.RuleTriggerEventSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

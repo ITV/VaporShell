@@ -19,7 +19,7 @@ function Add-VSCodeBuildProjectProjectFleet {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.ProjectFleet')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

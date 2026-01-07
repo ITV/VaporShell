@@ -35,7 +35,7 @@ function Add-VSAppMeshVirtualNodeAwsCloudMapServiceDiscovery {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.AwsCloudMapServiceDiscovery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

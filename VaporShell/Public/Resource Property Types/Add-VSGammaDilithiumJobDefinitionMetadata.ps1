@@ -19,7 +19,7 @@ function Add-VSGammaDilithiumJobDefinitionMetadata {
     #>
 
     [OutputType('Vaporshell.Resource.GammaDilithium.JobDefinition.Metadata')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -45,7 +45,7 @@ function Add-VSGammaDilithiumJobDefinitionMetadata {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Labels {
+                'Labels' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

@@ -41,7 +41,7 @@ function Add-VSGlueCrawlerCatalogTarget {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Crawler.CatalogTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

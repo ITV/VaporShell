@@ -24,7 +24,7 @@ function Add-VSWAFv2WebACLCustomResponseBody {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.CustomResponseBody')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

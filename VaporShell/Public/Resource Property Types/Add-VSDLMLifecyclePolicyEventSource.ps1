@@ -24,7 +24,7 @@ function Add-VSDLMLifecyclePolicyEventSource {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.EventSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

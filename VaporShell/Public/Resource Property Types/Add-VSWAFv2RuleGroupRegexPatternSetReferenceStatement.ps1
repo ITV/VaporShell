@@ -31,7 +31,7 @@ function Add-VSWAFv2RuleGroupRegexPatternSetReferenceStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.RegexPatternSetReferenceStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

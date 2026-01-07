@@ -24,7 +24,7 @@ function Add-VSFSxVolumeOriginSnapshot {
     #>
 
     [OutputType('Vaporshell.Resource.FSx.Volume.OriginSnapshot')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

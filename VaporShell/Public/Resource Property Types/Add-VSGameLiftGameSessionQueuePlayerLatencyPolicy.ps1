@@ -24,7 +24,7 @@ function Add-VSGameLiftGameSessionQueuePlayerLatencyPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.GameSessionQueue.PlayerLatencyPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

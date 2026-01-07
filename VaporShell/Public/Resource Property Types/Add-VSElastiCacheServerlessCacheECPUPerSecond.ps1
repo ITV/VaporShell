@@ -24,7 +24,7 @@ function Add-VSElastiCacheServerlessCacheECPUPerSecond {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.ServerlessCache.ECPUPerSecond')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

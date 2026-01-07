@@ -19,7 +19,7 @@ function Add-VSSageMakerSpaceFSxLustreFileSystem {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Space.FSxLustreFileSystem')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

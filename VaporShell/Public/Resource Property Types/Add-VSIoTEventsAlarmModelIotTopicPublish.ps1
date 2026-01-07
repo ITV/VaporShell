@@ -24,7 +24,7 @@ function Add-VSIoTEventsAlarmModelIotTopicPublish {
     #>
 
     [OutputType('Vaporshell.Resource.IoTEvents.AlarmModel.IotTopicPublish')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

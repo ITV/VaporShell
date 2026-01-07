@@ -44,7 +44,7 @@ function Add-VSIoTTopicRuleCloudwatchMetricAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.CloudwatchMetricAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

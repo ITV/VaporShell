@@ -19,7 +19,7 @@ function Add-VSWAFv2RuleGroupLabelSummary {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.LabelSummary')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

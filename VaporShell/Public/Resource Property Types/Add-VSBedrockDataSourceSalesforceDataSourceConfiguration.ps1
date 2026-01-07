@@ -24,7 +24,7 @@ function Add-VSBedrockDataSourceSalesforceDataSourceConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.SalesforceDataSourceConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

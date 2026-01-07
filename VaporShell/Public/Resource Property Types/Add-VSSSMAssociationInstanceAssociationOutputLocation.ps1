@@ -19,7 +19,7 @@ function Add-VSSSMAssociationInstanceAssociationOutputLocation {
     #>
 
     [OutputType('Vaporshell.Resource.SSM.Association.InstanceAssociationOutputLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

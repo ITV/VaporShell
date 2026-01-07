@@ -21,7 +21,7 @@ function Add-VSInvoicingInvoiceUnitRule {
     #>
 
     [OutputType('Vaporshell.Resource.Invoicing.InvoiceUnit.Rule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

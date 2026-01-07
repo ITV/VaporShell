@@ -27,7 +27,7 @@ function Add-VSSageMakerPartnerAppPartnerAppConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.PartnerApp.PartnerAppConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

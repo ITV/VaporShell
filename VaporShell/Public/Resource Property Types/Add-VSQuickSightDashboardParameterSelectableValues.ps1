@@ -26,7 +26,7 @@ function Add-VSQuickSightDashboardParameterSelectableValues {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ParameterSelectableValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

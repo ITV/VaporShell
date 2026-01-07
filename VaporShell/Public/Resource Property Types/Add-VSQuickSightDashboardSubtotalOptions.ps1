@@ -58,7 +58,7 @@ function Add-VSQuickSightDashboardSubtotalOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.SubtotalOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

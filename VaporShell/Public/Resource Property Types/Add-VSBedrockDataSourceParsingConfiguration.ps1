@@ -29,7 +29,7 @@ function Add-VSBedrockDataSourceParsingConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.ParsingConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

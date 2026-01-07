@@ -19,7 +19,7 @@ function Add-VSGlueTableOptimizerOrphanFileDeletionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.TableOptimizer.OrphanFileDeletionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

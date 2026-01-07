@@ -34,7 +34,7 @@ function Add-VSQBusinessWebExperienceCustomizationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.WebExperience.CustomizationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

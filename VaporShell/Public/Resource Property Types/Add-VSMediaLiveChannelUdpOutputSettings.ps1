@@ -34,7 +34,7 @@ function Add-VSMediaLiveChannelUdpOutputSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.UdpOutputSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

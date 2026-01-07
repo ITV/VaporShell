@@ -24,7 +24,7 @@ function Add-VSEMRServerlessApplicationS3MonitoringConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMRServerless.Application.S3MonitoringConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -79,6 +79,11 @@ function Add-VSMediaLiveChannelDvbSubDestinationSettings {
         PrimitiveType: String
         UpdateType: Mutable
 
+    .PARAMETER SubtitleRows
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubdestinationsettings.html#cfn-medialive-channel-dvbsubdestinationsettings-subtitlerows
+        PrimitiveType: String
+        UpdateType: Mutable
+
     .PARAMETER FontOpacity
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dvbsubdestinationsettings.html#cfn-medialive-channel-dvbsubdestinationsettings-fontopacity
         PrimitiveType: Integer
@@ -99,7 +104,7 @@ function Add-VSMediaLiveChannelDvbSubDestinationSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.DvbSubDestinationSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -261,6 +266,18 @@ function Add-VSMediaLiveChannelDvbSubDestinationSettings {
                 }
             })]
         $TeletextGridControl,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $SubtitleRows,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

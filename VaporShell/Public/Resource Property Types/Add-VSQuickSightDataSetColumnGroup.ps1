@@ -19,7 +19,7 @@ function Add-VSQuickSightDataSetColumnGroup {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.ColumnGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

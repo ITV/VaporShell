@@ -19,7 +19,7 @@ function Add-VSConnectInstanceStorageConfigKinesisFirehoseConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.InstanceStorageConfig.KinesisFirehoseConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

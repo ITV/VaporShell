@@ -21,7 +21,7 @@ function Add-VSDataSyncLocationNFSOnPremConfig {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationNFS.OnPremConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

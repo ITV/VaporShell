@@ -24,7 +24,7 @@ function Add-VSIoTFleetWiseCampaignCollectionScheme {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.CollectionScheme')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

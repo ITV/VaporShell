@@ -25,7 +25,7 @@ function Add-VSQuickSightTopicNamedEntityDefinitionMetric {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.NamedEntityDefinitionMetric')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

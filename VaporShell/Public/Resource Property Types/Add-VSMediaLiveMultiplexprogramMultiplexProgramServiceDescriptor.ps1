@@ -24,7 +24,7 @@ function Add-VSMediaLiveMultiplexprogramMultiplexProgramServiceDescriptor {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Multiplexprogram.MultiplexProgramServiceDescriptor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

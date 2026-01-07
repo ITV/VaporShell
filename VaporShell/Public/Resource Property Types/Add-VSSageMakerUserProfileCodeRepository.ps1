@@ -19,7 +19,7 @@ function Add-VSSageMakerUserProfileCodeRepository {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.CodeRepository')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSInternetMonitorMonitorInternetMeasurementsLogDelivery {
     #>
 
     [OutputType('Vaporshell.Resource.InternetMonitor.Monitor.InternetMeasurementsLogDelivery')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

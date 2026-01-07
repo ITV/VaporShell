@@ -14,7 +14,7 @@ function Add-VSMediaPackageOriginEndpointEncryptionContractConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.EncryptionContractConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

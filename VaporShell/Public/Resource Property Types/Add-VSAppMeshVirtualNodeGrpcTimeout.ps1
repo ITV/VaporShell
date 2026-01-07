@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualNodeGrpcTimeout {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.GrpcTimeout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSBedrockAgentFunctionSchema {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Agent.FunctionSchema')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

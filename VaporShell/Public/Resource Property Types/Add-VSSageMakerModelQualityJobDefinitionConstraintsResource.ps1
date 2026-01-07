@@ -19,7 +19,7 @@ function Add-VSSageMakerModelQualityJobDefinitionConstraintsResource {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelQualityJobDefinition.ConstraintsResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

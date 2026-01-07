@@ -24,7 +24,7 @@ function Add-VSSESConfigurationSetEventDestinationKinesisFirehoseDestination {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSetEventDestination.KinesisFirehoseDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

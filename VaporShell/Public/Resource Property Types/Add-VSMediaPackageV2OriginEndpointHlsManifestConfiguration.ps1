@@ -39,6 +39,11 @@ function Add-VSMediaPackageV2OriginEndpointHlsManifestConfiguration {
         UpdateType: Mutable
         Type: FilterConfiguration
 
+    .PARAMETER UrlEncodeChildManifest
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-urlencodechildmanifest
+        UpdateType: Mutable
+        PrimitiveType: Boolean
+
     .PARAMETER Url
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html#cfn-mediapackagev2-originendpoint-hlsmanifestconfiguration-url
         UpdateType: Mutable
@@ -54,7 +59,7 @@ function Add-VSMediaPackageV2OriginEndpointHlsManifestConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackageV2.OriginEndpoint.HlsManifestConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -111,6 +116,18 @@ function Add-VSMediaPackageV2OriginEndpointHlsManifestConfiguration {
 
         [Parameter(Mandatory = $false)]
         $FilterConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "System.Boolean","Vaporshell.Function","Vaporshell.Condition"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $UrlEncodeChildManifest,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -24,7 +24,7 @@ function Add-VSVpcLatticeResourceConfigurationDnsResource {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.ResourceConfiguration.DnsResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

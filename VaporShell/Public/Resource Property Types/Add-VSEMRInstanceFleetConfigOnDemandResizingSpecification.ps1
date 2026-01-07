@@ -29,7 +29,7 @@ function Add-VSEMRInstanceFleetConfigOnDemandResizingSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceFleetConfig.OnDemandResizingSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

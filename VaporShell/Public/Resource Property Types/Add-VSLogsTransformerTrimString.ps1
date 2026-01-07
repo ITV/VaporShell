@@ -21,7 +21,7 @@ function Add-VSLogsTransformerTrimString {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.TrimString')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

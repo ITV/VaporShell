@@ -59,7 +59,7 @@ function Add-VSGameLiftContainerFleetScalingPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerFleet.ScalingPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSSSMAssociationTarget {
     #>
 
     [OutputType('Vaporshell.Resource.SSM.Association.Target')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

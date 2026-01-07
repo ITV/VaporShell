@@ -39,7 +39,7 @@ function Add-VSConnectRuleSendNotificationAction {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.Rule.SendNotificationAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

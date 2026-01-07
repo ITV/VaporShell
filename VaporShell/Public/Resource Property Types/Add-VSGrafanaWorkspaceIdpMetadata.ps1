@@ -24,7 +24,7 @@ function Add-VSGrafanaWorkspaceIdpMetadata {
     #>
 
     [OutputType('Vaporshell.Resource.Grafana.Workspace.IdpMetadata')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSSESMailManagerRuleSetRuleDmarcExpression {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.RuleDmarcExpression')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

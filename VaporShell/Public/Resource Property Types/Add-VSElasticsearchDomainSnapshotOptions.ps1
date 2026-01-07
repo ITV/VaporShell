@@ -19,7 +19,7 @@ function Add-VSElasticsearchDomainSnapshotOptions {
     #>
 
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.SnapshotOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

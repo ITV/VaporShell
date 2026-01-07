@@ -29,7 +29,7 @@ function Add-VSGluePartitionSchemaReference {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Partition.SchemaReference')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

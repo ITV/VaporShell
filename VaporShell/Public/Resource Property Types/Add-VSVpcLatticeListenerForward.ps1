@@ -21,7 +21,7 @@ function Add-VSVpcLatticeListenerForward {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.Listener.Forward')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

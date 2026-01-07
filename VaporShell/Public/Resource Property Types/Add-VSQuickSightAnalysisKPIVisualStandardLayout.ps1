@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisKPIVisualStandardLayout {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.KPIVisualStandardLayout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -69,7 +69,7 @@ function Add-VSSecretsManagerRotationScheduleHostedRotationLambda {
     #>
 
     [OutputType('Vaporshell.Resource.SecretsManager.RotationSchedule.HostedRotationLambda')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

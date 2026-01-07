@@ -29,7 +29,7 @@ function Add-VSAppStreamStackUserSetting {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.Stack.UserSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

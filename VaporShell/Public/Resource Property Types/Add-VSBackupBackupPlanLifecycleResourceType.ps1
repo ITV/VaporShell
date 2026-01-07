@@ -29,7 +29,7 @@ function Add-VSBackupBackupPlanLifecycleResourceType {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.BackupPlan.LifecycleResourceType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

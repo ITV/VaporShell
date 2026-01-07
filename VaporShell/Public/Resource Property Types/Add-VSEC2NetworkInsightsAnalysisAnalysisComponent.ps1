@@ -24,7 +24,7 @@ function Add-VSEC2NetworkInsightsAnalysisAnalysisComponent {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAnalysis.AnalysisComponent')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

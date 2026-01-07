@@ -19,7 +19,7 @@ function Add-VSMSKClusterVpcConnectivityScram {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.VpcConnectivityScram')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

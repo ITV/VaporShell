@@ -19,7 +19,7 @@ function Add-VSEC2NetworkInterfaceIpv6PrefixSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInterface.Ipv6PrefixSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

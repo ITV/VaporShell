@@ -19,7 +19,7 @@ function Add-VSEC2VPNConnectionPhase2IntegrityAlgorithmsRequestListValue {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.VPNConnection.Phase2IntegrityAlgorithmsRequestListValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSS3StorageLensDetailedStatusCodesMetrics {
     #>
 
     [OutputType('Vaporshell.Resource.S3.StorageLens.DetailedStatusCodesMetrics')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

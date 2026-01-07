@@ -19,7 +19,7 @@ function Add-VSConnectRuleEventBridgeAction {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.Rule.EventBridgeAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

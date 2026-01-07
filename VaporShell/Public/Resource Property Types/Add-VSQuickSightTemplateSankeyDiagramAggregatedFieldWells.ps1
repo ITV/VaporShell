@@ -35,7 +35,7 @@ function Add-VSQuickSightTemplateSankeyDiagramAggregatedFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SankeyDiagramAggregatedFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

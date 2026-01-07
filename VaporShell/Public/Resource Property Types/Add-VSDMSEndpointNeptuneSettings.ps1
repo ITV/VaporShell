@@ -49,7 +49,7 @@ function Add-VSDMSEndpointNeptuneSettings {
     #>
 
     [OutputType('Vaporshell.Resource.DMS.Endpoint.NeptuneSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

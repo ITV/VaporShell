@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardGeospatialCircleRadius {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.GeospatialCircleRadius')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

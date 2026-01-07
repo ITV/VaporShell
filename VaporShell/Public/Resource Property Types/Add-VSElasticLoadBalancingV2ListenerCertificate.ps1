@@ -19,7 +19,7 @@ function Add-VSElasticLoadBalancingV2ListenerCertificate {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.Listener.Certificate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSQuickSightAnalysisDefaultDateTimePickerControlOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DefaultDateTimePickerControlOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

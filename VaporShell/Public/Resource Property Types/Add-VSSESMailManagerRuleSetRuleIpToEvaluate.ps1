@@ -19,7 +19,7 @@ function Add-VSSESMailManagerRuleSetRuleIpToEvaluate {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.RuleIpToEvaluate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

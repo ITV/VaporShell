@@ -31,7 +31,7 @@ function Add-VSElastiCacheGlobalReplicationGroupRegionalConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.GlobalReplicationGroup.RegionalConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

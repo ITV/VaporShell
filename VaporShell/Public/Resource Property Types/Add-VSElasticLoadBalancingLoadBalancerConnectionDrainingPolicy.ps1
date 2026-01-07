@@ -24,7 +24,7 @@ function Add-VSElasticLoadBalancingLoadBalancerConnectionDrainingPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancing.LoadBalancer.ConnectionDrainingPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

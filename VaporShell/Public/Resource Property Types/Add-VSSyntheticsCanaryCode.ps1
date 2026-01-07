@@ -29,6 +29,13 @@ function Add-VSSyntheticsCanaryCode {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER BlueprintTypes
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-blueprinttypes
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: True
+
     .PARAMETER Handler
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-handler
         UpdateType: Mutable
@@ -39,12 +46,19 @@ function Add-VSSyntheticsCanaryCode {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER Dependencies
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-code.html#cfn-synthetics-canary-code-dependencies
+        UpdateType: Mutable
+        Type: List
+        ItemType: Dependency
+        DuplicatesAllowed: True
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.Synthetics.Canary.Code')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -96,7 +110,10 @@ function Add-VSSyntheticsCanaryCode {
             })]
         $S3Key,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $BlueprintTypes,
+
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -118,7 +135,19 @@ function Add-VSSyntheticsCanaryCode {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SourceLocationArn
+        $SourceLocationArn,
+
+        [Parameter(Mandatory = $false)]
+        [ValidateScript( {
+                $allowedTypes = "Vaporshell.Resource.Synthetics.Canary.Dependency"
+                if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
+                    $true
+                }
+                else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
+                }
+            })]
+        $Dependencies
 
     )
 

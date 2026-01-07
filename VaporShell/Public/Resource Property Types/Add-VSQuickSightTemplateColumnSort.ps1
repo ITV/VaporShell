@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateColumnSort {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ColumnSort')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

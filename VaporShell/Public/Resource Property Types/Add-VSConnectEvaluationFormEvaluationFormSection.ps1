@@ -41,7 +41,7 @@ function Add-VSConnectEvaluationFormEvaluationFormSection {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.EvaluationForm.EvaluationFormSection')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

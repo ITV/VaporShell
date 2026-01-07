@@ -43,7 +43,7 @@ function Add-VSMediaStoreContainerCorsRule {
     #>
 
     [OutputType('Vaporshell.Resource.MediaStore.Container.CorsRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

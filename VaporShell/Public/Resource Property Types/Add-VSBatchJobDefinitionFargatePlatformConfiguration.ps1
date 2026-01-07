@@ -19,7 +19,7 @@ function Add-VSBatchJobDefinitionFargatePlatformConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.FargatePlatformConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

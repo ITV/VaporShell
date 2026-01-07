@@ -21,7 +21,7 @@ function Add-VSS3BucketCorsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.CorsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

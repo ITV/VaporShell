@@ -58,7 +58,7 @@ function Add-VSQuickSightTemplateSubtotalOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.SubtotalOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -141,7 +141,7 @@ function Add-VSQuickSightTemplateSubtotalOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                TotalsVisibility {
+                'TotalsVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

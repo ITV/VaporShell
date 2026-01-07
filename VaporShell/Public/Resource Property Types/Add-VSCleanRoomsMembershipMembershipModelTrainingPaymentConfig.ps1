@@ -19,7 +19,7 @@ function Add-VSCleanRoomsMembershipMembershipModelTrainingPaymentConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Membership.MembershipModelTrainingPaymentConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

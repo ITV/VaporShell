@@ -29,7 +29,7 @@ function Add-VSS3BucketLambdaConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.LambdaConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

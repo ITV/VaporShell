@@ -19,7 +19,7 @@ function Add-VSSageMakerDomainCodeRepository {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.CodeRepository')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

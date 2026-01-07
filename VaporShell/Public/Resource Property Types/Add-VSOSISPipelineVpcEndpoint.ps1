@@ -29,7 +29,7 @@ function Add-VSOSISPipelineVpcEndpoint {
     #>
 
     [OutputType('Vaporshell.Resource.OSIS.Pipeline.VpcEndpoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

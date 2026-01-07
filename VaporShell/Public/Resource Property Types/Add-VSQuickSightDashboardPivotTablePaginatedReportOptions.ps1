@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardPivotTablePaginatedReportOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.PivotTablePaginatedReportOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

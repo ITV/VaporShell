@@ -26,7 +26,7 @@ function Add-VSWAFv2WebACLXssMatchStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.XssMatchStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

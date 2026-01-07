@@ -11,12 +11,12 @@ function Add-VSIoTFleetWiseCampaignSignalFetchConfig {
 
     .PARAMETER ConditionBased
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchconfig.html#cfn-iotfleetwise-campaign-signalfetchconfig-conditionbased
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: ConditionBasedSignalFetchConfig
 
     .PARAMETER TimeBased
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchconfig.html#cfn-iotfleetwise-campaign-signalfetchconfig-timebased
-        UpdateType: Mutable
+        UpdateType: Immutable
         Type: TimeBasedSignalFetchConfig
 
     .FUNCTIONALITY
@@ -24,7 +24,7 @@ function Add-VSIoTFleetWiseCampaignSignalFetchConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoTFleetWise.Campaign.SignalFetchConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

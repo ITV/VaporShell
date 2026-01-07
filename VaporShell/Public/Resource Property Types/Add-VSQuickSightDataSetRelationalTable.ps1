@@ -41,7 +41,7 @@ function Add-VSQuickSightDataSetRelationalTable {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.RelationalTable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -57,7 +57,7 @@ function Add-VSQuickSightDataSetRelationalTable {
             })]
         $DataSourceArn,
 
-        [Parameter(Mandatory = $false)]
+        [Parameter(Mandatory = $true)]
         [ValidateScript( {
                 $allowedTypes = "Vaporshell.Resource.QuickSight.DataSet.InputColumn"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {

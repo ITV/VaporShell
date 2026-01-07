@@ -19,7 +19,7 @@ function Add-VSImageBuilderDistributionConfigurationFastLaunchSnapshotConfigurat
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.DistributionConfiguration.FastLaunchSnapshotConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

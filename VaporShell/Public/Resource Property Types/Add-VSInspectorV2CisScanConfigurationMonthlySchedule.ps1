@@ -24,7 +24,7 @@ function Add-VSInspectorV2CisScanConfigurationMonthlySchedule {
     #>
 
     [OutputType('Vaporshell.Resource.InspectorV2.CisScanConfiguration.MonthlySchedule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

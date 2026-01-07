@@ -24,7 +24,7 @@ function Add-VSNotificationsEventRuleEventRuleStatusSummary {
     #>
 
     [OutputType('Vaporshell.Resource.Notifications.EventRule.EventRuleStatusSummary')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

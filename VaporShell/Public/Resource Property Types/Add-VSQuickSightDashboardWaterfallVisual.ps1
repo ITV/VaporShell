@@ -53,7 +53,7 @@ function Add-VSQuickSightDashboardWaterfallVisual {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.WaterfallVisual')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

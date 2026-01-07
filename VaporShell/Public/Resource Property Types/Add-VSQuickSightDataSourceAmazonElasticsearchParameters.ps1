@@ -19,7 +19,7 @@ function Add-VSQuickSightDataSourceAmazonElasticsearchParameters {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSource.AmazonElasticsearchParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

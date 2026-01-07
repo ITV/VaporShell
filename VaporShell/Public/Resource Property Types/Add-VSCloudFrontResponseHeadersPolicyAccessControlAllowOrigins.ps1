@@ -21,7 +21,7 @@ function Add-VSCloudFrontResponseHeadersPolicyAccessControlAllowOrigins {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.ResponseHeadersPolicy.AccessControlAllowOrigins')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

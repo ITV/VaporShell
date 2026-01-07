@@ -24,7 +24,7 @@ function Add-VSLexBotCloudWatchLogGroupLogDestination {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.CloudWatchLogGroupLogDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

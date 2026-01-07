@@ -39,7 +39,7 @@ function Add-VSTransferWorkflowDecryptStepDetails {
     #>
 
     [OutputType('Vaporshell.Resource.Transfer.Workflow.DecryptStepDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

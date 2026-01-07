@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateYAxisOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.YAxisOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

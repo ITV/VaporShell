@@ -24,7 +24,7 @@ function Add-VSAthenaWorkGroupEngineVersion {
     #>
 
     [OutputType('Vaporshell.Resource.Athena.WorkGroup.EngineVersion')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisShortFormatText {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ShortFormatText')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

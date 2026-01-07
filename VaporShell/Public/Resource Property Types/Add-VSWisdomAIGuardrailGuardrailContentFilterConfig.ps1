@@ -29,7 +29,7 @@ function Add-VSWisdomAIGuardrailGuardrailContentFilterConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Wisdom.AIGuardrail.GuardrailContentFilterConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

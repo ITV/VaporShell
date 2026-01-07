@@ -21,7 +21,7 @@ function Add-VSQuickSightAnalysisColorsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ColorsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSIoTSiteWiseAssetModelTransform {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.AssetModel.Transform')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

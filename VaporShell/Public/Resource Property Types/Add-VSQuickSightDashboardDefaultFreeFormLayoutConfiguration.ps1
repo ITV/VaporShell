@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardDefaultFreeFormLayoutConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DefaultFreeFormLayoutConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

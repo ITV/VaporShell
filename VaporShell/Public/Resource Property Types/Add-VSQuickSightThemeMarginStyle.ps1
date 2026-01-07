@@ -19,7 +19,7 @@ function Add-VSQuickSightThemeMarginStyle {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Theme.MarginStyle')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

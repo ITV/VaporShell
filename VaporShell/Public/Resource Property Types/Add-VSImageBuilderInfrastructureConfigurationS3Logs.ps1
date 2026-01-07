@@ -24,7 +24,7 @@ function Add-VSImageBuilderInfrastructureConfigurationS3Logs {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.InfrastructureConfiguration.S3Logs')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

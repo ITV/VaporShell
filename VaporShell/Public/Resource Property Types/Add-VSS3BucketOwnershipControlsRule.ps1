@@ -19,7 +19,7 @@ function Add-VSS3BucketOwnershipControlsRule {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.OwnershipControlsRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

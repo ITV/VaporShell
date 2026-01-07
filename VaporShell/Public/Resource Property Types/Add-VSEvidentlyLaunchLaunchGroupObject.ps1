@@ -34,7 +34,7 @@ function Add-VSEvidentlyLaunchLaunchGroupObject {
     #>
 
     [OutputType('Vaporshell.Resource.Evidently.Launch.LaunchGroupObject')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSSageMakerDomainAppLifecycleManagement {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Domain.AppLifecycleManagement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

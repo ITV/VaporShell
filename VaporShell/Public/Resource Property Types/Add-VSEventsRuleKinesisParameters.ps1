@@ -19,7 +19,7 @@ function Add-VSEventsRuleKinesisParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.KinesisParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

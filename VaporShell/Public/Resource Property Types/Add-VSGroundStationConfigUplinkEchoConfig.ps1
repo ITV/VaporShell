@@ -24,7 +24,7 @@ function Add-VSGroundStationConfigUplinkEchoConfig {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.Config.UplinkEchoConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

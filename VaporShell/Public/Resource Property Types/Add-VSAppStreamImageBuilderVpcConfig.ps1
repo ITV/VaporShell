@@ -28,7 +28,7 @@ function Add-VSAppStreamImageBuilderVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppStream.ImageBuilder.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

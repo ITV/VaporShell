@@ -24,7 +24,7 @@ function Add-VSEC2EC2FleetCapacityRebalance {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.EC2Fleet.CapacityRebalance')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

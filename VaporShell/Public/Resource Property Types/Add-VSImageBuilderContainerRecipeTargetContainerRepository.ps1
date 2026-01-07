@@ -24,7 +24,7 @@ function Add-VSImageBuilderContainerRecipeTargetContainerRepository {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.ContainerRecipe.TargetContainerRepository')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -28,7 +28,7 @@ function Add-VSBedrockFlowVersionFlowDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.FlowVersion.FlowDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

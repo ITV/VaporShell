@@ -19,7 +19,7 @@ function Add-VSEC2LaunchTemplateMonitoring {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.LaunchTemplate.Monitoring')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

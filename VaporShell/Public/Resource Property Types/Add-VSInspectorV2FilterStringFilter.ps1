@@ -24,7 +24,7 @@ function Add-VSInspectorV2FilterStringFilter {
     #>
 
     [OutputType('Vaporshell.Resource.InspectorV2.Filter.StringFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

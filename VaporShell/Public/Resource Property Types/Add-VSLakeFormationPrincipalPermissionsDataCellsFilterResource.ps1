@@ -34,7 +34,7 @@ function Add-VSLakeFormationPrincipalPermissionsDataCellsFilterResource {
     #>
 
     [OutputType('Vaporshell.Resource.LakeFormation.PrincipalPermissions.DataCellsFilterResource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

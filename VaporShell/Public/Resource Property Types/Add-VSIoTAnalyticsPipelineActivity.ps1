@@ -64,7 +64,7 @@ function Add-VSIoTAnalyticsPipelineActivity {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Pipeline.Activity')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

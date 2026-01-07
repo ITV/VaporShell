@@ -49,7 +49,7 @@ function Add-VSOpenSearchServiceDomainSAMLOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.SAMLOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

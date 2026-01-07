@@ -24,7 +24,7 @@ function Add-VSSESMailManagerRuleSetAddHeaderAction {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.AddHeaderAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

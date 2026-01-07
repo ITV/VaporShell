@@ -97,7 +97,7 @@ function Add-VSPipesPipePipeTargetEcsTaskParameters {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.PipeTargetEcsTaskParameters')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

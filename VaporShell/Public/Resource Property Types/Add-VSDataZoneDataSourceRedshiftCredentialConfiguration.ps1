@@ -19,7 +19,7 @@ function Add-VSDataZoneDataSourceRedshiftCredentialConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.DataZone.DataSource.RedshiftCredentialConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

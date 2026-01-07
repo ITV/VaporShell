@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplateDataBarsOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DataBarsOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

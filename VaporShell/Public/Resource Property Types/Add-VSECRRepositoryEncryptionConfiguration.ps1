@@ -24,7 +24,7 @@ function Add-VSECRRepositoryEncryptionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECR.Repository.EncryptionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

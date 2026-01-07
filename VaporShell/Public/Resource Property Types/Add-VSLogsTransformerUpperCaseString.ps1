@@ -21,7 +21,7 @@ function Add-VSLogsTransformerUpperCaseString {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.UpperCaseString')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -28,7 +28,7 @@ function Add-VSBackupRestoreTestingSelectionProtectedResourceConditions {
     #>
 
     [OutputType('Vaporshell.Resource.Backup.RestoreTestingSelection.ProtectedResourceConditions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

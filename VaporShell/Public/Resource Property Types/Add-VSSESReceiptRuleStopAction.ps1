@@ -24,7 +24,7 @@ function Add-VSSESReceiptRuleStopAction {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ReceiptRule.StopAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

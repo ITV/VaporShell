@@ -48,7 +48,7 @@ function Add-VSAmplifyUIBuilderComponentPredicate {
     #>
 
     [OutputType('Vaporshell.Resource.AmplifyUIBuilder.Component.Predicate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

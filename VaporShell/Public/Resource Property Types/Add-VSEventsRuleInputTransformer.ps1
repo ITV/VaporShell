@@ -25,7 +25,7 @@ function Add-VSEventsRuleInputTransformer {
     #>
 
     [OutputType('Vaporshell.Resource.Events.Rule.InputTransformer')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

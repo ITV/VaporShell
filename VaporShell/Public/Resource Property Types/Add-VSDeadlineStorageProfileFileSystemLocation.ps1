@@ -29,7 +29,7 @@ function Add-VSDeadlineStorageProfileFileSystemLocation {
     #>
 
     [OutputType('Vaporshell.Resource.Deadline.StorageProfile.FileSystemLocation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

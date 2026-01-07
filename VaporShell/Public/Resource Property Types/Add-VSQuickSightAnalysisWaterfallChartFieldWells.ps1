@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisWaterfallChartFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.WaterfallChartFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

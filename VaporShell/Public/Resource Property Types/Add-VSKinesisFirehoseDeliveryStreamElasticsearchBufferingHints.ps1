@@ -24,7 +24,7 @@ function Add-VSKinesisFirehoseDeliveryStreamElasticsearchBufferingHints {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.ElasticsearchBufferingHints')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

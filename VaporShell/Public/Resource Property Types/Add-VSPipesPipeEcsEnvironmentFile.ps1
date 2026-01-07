@@ -24,7 +24,7 @@ function Add-VSPipesPipeEcsEnvironmentFile {
     #>
 
     [OutputType('Vaporshell.Resource.Pipes.Pipe.EcsEnvironmentFile')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

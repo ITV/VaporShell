@@ -54,7 +54,7 @@ function Add-VSLexBotSlotCaptureSetting {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.SlotCaptureSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

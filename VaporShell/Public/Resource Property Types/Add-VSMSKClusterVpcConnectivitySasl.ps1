@@ -24,7 +24,7 @@ function Add-VSMSKClusterVpcConnectivitySasl {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.VpcConnectivitySasl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSIoTSecurityProfileMetricToRetain {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.SecurityProfile.MetricToRetain')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

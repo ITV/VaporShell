@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardDecimalPlacesConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.DecimalPlacesConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

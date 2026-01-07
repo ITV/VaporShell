@@ -24,7 +24,7 @@ function Add-VSXRayGroupInsightsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.XRay.Group.InsightsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

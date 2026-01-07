@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateTreeMapFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.TreeMapFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

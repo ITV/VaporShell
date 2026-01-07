@@ -24,7 +24,7 @@ function Add-VSImageBuilderDistributionConfigurationTargetContainerRepository {
     #>
 
     [OutputType('Vaporshell.Resource.ImageBuilder.DistributionConfiguration.TargetContainerRepository')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

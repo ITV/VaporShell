@@ -24,7 +24,7 @@ function Add-VSGlueConnectionOAuth2ClientApplication {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Connection.OAuth2ClientApplication')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

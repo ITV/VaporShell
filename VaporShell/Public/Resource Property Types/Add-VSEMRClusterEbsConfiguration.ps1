@@ -26,7 +26,7 @@ function Add-VSEMRClusterEbsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.EbsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

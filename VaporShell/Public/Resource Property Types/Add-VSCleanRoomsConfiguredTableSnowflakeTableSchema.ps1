@@ -11,7 +11,7 @@ function Add-VSCleanRoomsConfiguredTableSnowflakeTableSchema {
 
     .PARAMETER V1
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-snowflaketableschema.html#cfn-cleanrooms-configuredtable-snowflaketableschema-v1
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         ItemType: SnowflakeTableSchemaV1
         DuplicatesAllowed: True
@@ -21,7 +21,7 @@ function Add-VSCleanRoomsConfiguredTableSnowflakeTableSchema {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTable.SnowflakeTableSchema')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

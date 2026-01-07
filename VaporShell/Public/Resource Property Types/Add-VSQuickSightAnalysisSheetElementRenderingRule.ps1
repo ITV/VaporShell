@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisSheetElementRenderingRule {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.SheetElementRenderingRule')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

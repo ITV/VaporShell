@@ -19,7 +19,7 @@ function Add-VSBedrockDataSourceIntermediateStorage {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.IntermediateStorage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

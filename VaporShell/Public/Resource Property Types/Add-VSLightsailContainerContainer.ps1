@@ -45,7 +45,7 @@ function Add-VSLightsailContainerContainer {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Container.Container')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

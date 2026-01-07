@@ -19,6 +19,13 @@ function Add-VSBillingConductorCustomLineItemLineItemFilter {
         UpdateType: Mutable
         PrimitiveType: String
 
+    .PARAMETER AttributeValues
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-lineitemfilter.html#cfn-billingconductor-customlineitem-lineitemfilter-attributevalues
+        UpdateType: Mutable
+        Type: List
+        PrimitiveItemType: String
+        DuplicatesAllowed: False
+
     .PARAMETER Values
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-lineitemfilter.html#cfn-billingconductor-customlineitem-lineitemfilter-values
         UpdateType: Mutable
@@ -31,7 +38,7 @@ function Add-VSBillingConductorCustomLineItemLineItemFilter {
     #>
 
     [OutputType('Vaporshell.Resource.BillingConductor.CustomLineItem.LineItemFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -59,7 +66,10 @@ function Add-VSBillingConductorCustomLineItemLineItemFilter {
             })]
         $Attribute,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
+        $AttributeValues,
+
+        [Parameter(Mandatory = $false)]
         $Values
 
     )

@@ -21,7 +21,7 @@ function Add-VSEKSClusterClusterLogging {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.Cluster.ClusterLogging')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -49,7 +49,7 @@ function Add-VSQuickSightTemplateGeospatialMapConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.GeospatialMapConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

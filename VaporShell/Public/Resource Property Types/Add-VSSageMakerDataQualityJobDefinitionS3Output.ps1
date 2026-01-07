@@ -29,7 +29,7 @@ function Add-VSSageMakerDataQualityJobDefinitionS3Output {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.DataQualityJobDefinition.S3Output')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

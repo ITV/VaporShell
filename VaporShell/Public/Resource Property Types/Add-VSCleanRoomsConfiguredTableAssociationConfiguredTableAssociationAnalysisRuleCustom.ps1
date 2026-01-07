@@ -28,7 +28,7 @@ function Add-VSCleanRoomsConfiguredTableAssociationConfiguredTableAssociationAna
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTableAssociation.ConfiguredTableAssociationAnalysisRuleCustom')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

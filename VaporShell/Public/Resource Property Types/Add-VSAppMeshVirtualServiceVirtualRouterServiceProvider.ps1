@@ -19,7 +19,7 @@ function Add-VSAppMeshVirtualServiceVirtualRouterServiceProvider {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualService.VirtualRouterServiceProvider')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

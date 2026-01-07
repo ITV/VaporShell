@@ -26,7 +26,7 @@ function Add-VSQuickSightTemplateStringDefaultValues {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.StringDefaultValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

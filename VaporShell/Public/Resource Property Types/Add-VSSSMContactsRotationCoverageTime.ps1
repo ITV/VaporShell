@@ -24,7 +24,7 @@ function Add-VSSSMContactsRotationCoverageTime {
     #>
 
     [OutputType('Vaporshell.Resource.SSMContacts.Rotation.CoverageTime')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

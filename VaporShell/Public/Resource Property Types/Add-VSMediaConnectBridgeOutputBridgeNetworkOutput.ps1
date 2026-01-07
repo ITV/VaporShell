@@ -39,7 +39,7 @@ function Add-VSMediaConnectBridgeOutputBridgeNetworkOutput {
     #>
 
     [OutputType('Vaporshell.Resource.MediaConnect.BridgeOutput.BridgeNetworkOutput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

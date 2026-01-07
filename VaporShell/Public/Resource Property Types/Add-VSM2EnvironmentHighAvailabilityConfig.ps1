@@ -19,7 +19,7 @@ function Add-VSM2EnvironmentHighAvailabilityConfig {
     #>
 
     [OutputType('Vaporshell.Resource.M2.Environment.HighAvailabilityConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

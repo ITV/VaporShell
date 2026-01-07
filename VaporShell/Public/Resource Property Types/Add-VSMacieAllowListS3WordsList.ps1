@@ -24,7 +24,7 @@ function Add-VSMacieAllowListS3WordsList {
     #>
 
     [OutputType('Vaporshell.Resource.Macie.AllowList.S3WordsList')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

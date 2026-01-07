@@ -19,7 +19,7 @@ function Add-VSWAFv2RuleGroupJA3Fingerprint {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.RuleGroup.JA3Fingerprint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

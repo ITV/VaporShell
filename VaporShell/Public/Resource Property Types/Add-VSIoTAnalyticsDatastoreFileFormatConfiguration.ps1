@@ -24,7 +24,7 @@ function Add-VSIoTAnalyticsDatastoreFileFormatConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Datastore.FileFormatConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -53,7 +53,7 @@ function Add-VSIoTAnalyticsDatastoreFileFormatConfiguration {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                JsonConfiguration {
+                'JsonConfiguration' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

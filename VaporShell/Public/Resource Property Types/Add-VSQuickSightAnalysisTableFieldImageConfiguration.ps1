@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisTableFieldImageConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TableFieldImageConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSCustomerProfilesEventStreamDestinationDetails {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.EventStream.DestinationDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

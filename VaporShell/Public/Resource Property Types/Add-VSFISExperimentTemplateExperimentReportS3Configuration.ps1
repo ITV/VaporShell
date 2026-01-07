@@ -24,7 +24,7 @@ function Add-VSFISExperimentTemplateExperimentReportS3Configuration {
     #>
 
     [OutputType('Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentReportS3Configuration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

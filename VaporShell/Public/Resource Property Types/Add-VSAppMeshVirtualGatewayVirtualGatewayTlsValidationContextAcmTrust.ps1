@@ -20,7 +20,7 @@ function Add-VSAppMeshVirtualGatewayVirtualGatewayTlsValidationContextAcmTrust {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.VirtualGatewayTlsValidationContextAcmTrust')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

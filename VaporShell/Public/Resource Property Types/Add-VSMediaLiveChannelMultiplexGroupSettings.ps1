@@ -14,7 +14,7 @@ function Add-VSMediaLiveChannelMultiplexGroupSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.MultiplexGroupSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

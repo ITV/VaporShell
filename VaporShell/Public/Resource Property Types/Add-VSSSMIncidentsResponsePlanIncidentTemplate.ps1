@@ -48,7 +48,7 @@ function Add-VSSSMIncidentsResponsePlanIncidentTemplate {
     #>
 
     [OutputType('Vaporshell.Resource.SSMIncidents.ResponsePlan.IncidentTemplate')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

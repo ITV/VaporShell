@@ -44,7 +44,7 @@ function Add-VSQuickSightDashboardFilterDateTimePickerControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FilterDateTimePickerControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

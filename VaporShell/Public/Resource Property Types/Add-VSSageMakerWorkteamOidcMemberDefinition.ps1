@@ -20,7 +20,7 @@ function Add-VSSageMakerWorkteamOidcMemberDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Workteam.OidcMemberDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -21,7 +21,7 @@ function Add-VSLogsTransformerSplitString {
     #>
 
     [OutputType('Vaporshell.Resource.Logs.Transformer.SplitString')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

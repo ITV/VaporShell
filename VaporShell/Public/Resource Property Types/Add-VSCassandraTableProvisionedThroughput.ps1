@@ -24,7 +24,7 @@ function Add-VSCassandraTableProvisionedThroughput {
     #>
 
     [OutputType('Vaporshell.Resource.Cassandra.Table.ProvisionedThroughput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

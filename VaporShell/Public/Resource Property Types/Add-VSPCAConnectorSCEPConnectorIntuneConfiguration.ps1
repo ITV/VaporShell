@@ -24,7 +24,7 @@ function Add-VSPCAConnectorSCEPConnectorIntuneConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.PCAConnectorSCEP.Connector.IntuneConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateCustomActionFilterOperation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.CustomActionFilterOperation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

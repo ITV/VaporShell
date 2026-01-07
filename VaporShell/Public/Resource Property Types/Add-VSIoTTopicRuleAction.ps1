@@ -124,7 +124,7 @@ function Add-VSIoTTopicRuleAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.TopicRule.Action')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSLightsailInstanceAddOn {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Instance.AddOn')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

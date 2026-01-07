@@ -24,7 +24,7 @@ function Add-VSQuickSightDashboardReferenceLineValueLabelConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ReferenceLineValueLabelConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

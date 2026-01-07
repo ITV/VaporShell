@@ -24,7 +24,7 @@ function Add-VSQuickSightDataSetDataSetUsageConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.DataSetUsageConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

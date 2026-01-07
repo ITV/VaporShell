@@ -24,7 +24,7 @@ function Add-VSAppMeshGatewayRouteGatewayRouteRangeMatch {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.GatewayRoute.GatewayRouteRangeMatch')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

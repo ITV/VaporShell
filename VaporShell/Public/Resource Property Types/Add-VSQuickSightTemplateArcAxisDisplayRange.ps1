@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateArcAxisDisplayRange {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ArcAxisDisplayRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

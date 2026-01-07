@@ -34,7 +34,7 @@ function Add-VSSageMakerEndpointTrafficRoutingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Endpoint.TrafficRoutingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

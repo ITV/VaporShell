@@ -35,7 +35,7 @@ function Add-VSConnectRuleTaskAction {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.Rule.TaskAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

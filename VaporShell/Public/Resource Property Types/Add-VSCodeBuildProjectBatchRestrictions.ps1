@@ -25,7 +25,7 @@ function Add-VSCodeBuildProjectBatchRestrictions {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.BatchRestrictions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

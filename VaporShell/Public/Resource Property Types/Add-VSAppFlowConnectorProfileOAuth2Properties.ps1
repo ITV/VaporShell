@@ -30,7 +30,7 @@ function Add-VSAppFlowConnectorProfileOAuth2Properties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.OAuth2Properties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

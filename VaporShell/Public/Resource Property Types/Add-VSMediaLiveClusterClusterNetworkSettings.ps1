@@ -26,7 +26,7 @@ function Add-VSMediaLiveClusterClusterNetworkSettings {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Cluster.ClusterNetworkSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

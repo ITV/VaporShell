@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualGatewayJsonFormatRef {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualGateway.JsonFormatRef')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

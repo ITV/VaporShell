@@ -24,7 +24,7 @@ function Add-VSAppRunnerServiceAuthenticationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.AppRunner.Service.AuthenticationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

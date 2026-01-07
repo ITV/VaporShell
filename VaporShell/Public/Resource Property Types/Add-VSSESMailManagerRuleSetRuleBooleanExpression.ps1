@@ -24,7 +24,7 @@ function Add-VSSESMailManagerRuleSetRuleBooleanExpression {
     #>
 
     [OutputType('Vaporshell.Resource.SES.MailManagerRuleSet.RuleBooleanExpression')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

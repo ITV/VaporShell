@@ -29,7 +29,7 @@ function Add-VSBatchJobDefinitionMountPoint {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.MountPoint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

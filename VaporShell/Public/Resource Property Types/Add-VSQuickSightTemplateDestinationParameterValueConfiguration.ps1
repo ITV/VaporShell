@@ -39,7 +39,7 @@ function Add-VSQuickSightTemplateDestinationParameterValueConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.DestinationParameterValueConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

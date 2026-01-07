@@ -24,7 +24,7 @@ function Add-VSLightsailInstanceState {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Instance.State')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

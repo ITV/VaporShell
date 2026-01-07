@@ -24,7 +24,7 @@ function Add-VSIoTWirelessFuotaTaskLoRaWAN {
     #>
 
     [OutputType('Vaporshell.Resource.IoTWireless.FuotaTask.LoRaWAN')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

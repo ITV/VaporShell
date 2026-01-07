@@ -24,7 +24,7 @@ function Add-VSComprehendDocumentClassifierDocumentClassifierOutputDataConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Comprehend.DocumentClassifier.DocumentClassifierOutputDataConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

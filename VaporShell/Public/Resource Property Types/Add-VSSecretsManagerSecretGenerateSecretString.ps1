@@ -64,7 +64,7 @@ function Add-VSSecretsManagerSecretGenerateSecretString {
     #>
 
     [OutputType('Vaporshell.Resource.SecretsManager.Secret.GenerateSecretString')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","PasswordLength")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","PasswordLength")]
 

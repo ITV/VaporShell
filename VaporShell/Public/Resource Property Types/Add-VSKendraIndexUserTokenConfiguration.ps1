@@ -24,7 +24,7 @@ function Add-VSKendraIndexUserTokenConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Kendra.Index.UserTokenConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

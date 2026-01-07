@@ -34,7 +34,7 @@ function Add-VSQuickSightAnalysisColumnConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ColumnConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

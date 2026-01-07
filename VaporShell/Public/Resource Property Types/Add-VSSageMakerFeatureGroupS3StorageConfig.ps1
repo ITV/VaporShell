@@ -24,7 +24,7 @@ function Add-VSSageMakerFeatureGroupS3StorageConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.FeatureGroup.S3StorageConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

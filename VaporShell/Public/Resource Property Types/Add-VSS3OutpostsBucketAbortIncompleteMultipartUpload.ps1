@@ -19,7 +19,7 @@ function Add-VSS3OutpostsBucketAbortIncompleteMultipartUpload {
     #>
 
     [OutputType('Vaporshell.Resource.S3Outposts.Bucket.AbortIncompleteMultipartUpload')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

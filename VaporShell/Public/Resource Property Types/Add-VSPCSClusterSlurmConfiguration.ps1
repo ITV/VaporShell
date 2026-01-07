@@ -9,32 +9,53 @@ function Add-VSPCSClusterSlurmConfiguration {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html
 
+    .PARAMETER JwtAuth
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-jwtauth
+        UpdateType: Mutable
+        Type: JwtAuth
+
+    .PARAMETER Accounting
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-accounting
+        UpdateType: Mutable
+        Type: Accounting
+
     .PARAMETER AuthKey
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-authkey
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: AuthKey
 
     .PARAMETER ScaleDownIdleTimeInSeconds
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-scaledownidletimeinseconds
-        UpdateType: Immutable
+        UpdateType: Mutable
         PrimitiveType: Integer
 
     .PARAMETER SlurmCustomSettings
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-slurmcustomsettings
-        UpdateType: Immutable
+        UpdateType: Mutable
         Type: List
         ItemType: SlurmCustomSetting
         DuplicatesAllowed: True
+
+    .PARAMETER SlurmRest
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pcs-cluster-slurmconfiguration.html#cfn-pcs-cluster-slurmconfiguration-slurmrest
+        UpdateType: Mutable
+        Type: SlurmRest
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.PCS.Cluster.SlurmConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
+        [Parameter(Mandatory = $false)]
+        $JwtAuth,
+
+        [Parameter(Mandatory = $false)]
+        $Accounting,
+
         [Parameter(Mandatory = $false)]
         $AuthKey,
 
@@ -60,7 +81,10 @@ function Add-VSPCSClusterSlurmConfiguration {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $SlurmCustomSettings
+        $SlurmCustomSettings,
+
+        [Parameter(Mandatory = $false)]
+        $SlurmRest
 
     )
 

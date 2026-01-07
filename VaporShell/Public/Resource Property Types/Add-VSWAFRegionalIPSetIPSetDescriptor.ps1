@@ -24,7 +24,7 @@ function Add-VSWAFRegionalIPSetIPSetDescriptor {
     #>
 
     [OutputType('Vaporshell.Resource.WAFRegional.IPSet.IPSetDescriptor')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

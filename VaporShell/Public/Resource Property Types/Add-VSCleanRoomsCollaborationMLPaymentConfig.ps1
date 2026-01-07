@@ -14,6 +14,11 @@ function Add-VSCleanRoomsCollaborationMLPaymentConfig {
         UpdateType: Immutable
         Type: ModelInferencePaymentConfig
 
+    .PARAMETER SyntheticDataGeneration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-mlpaymentconfig.html#cfn-cleanrooms-collaboration-mlpaymentconfig-syntheticdatageneration
+        UpdateType: Immutable
+        Type: SyntheticDataGenerationPaymentConfig
+
     .PARAMETER ModelTraining
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-mlpaymentconfig.html#cfn-cleanrooms-collaboration-mlpaymentconfig-modeltraining
         UpdateType: Immutable
@@ -24,12 +29,15 @@ function Add-VSCleanRoomsCollaborationMLPaymentConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.Collaboration.MLPaymentConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
         $ModelInference,
+
+        [Parameter(Mandatory = $false)]
+        $SyntheticDataGeneration,
 
         [Parameter(Mandatory = $false)]
         $ModelTraining

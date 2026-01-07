@@ -54,7 +54,7 @@ function Add-VSQuickSightAnalysisTopBottomMoversComputation {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.TopBottomMoversComputation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

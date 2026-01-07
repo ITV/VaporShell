@@ -29,7 +29,7 @@ function Add-VSSageMakerUserProfileSharingSettings {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.UserProfile.SharingSettings')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

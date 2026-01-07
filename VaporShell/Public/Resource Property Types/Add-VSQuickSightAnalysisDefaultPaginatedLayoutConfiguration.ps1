@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisDefaultPaginatedLayoutConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DefaultPaginatedLayoutConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

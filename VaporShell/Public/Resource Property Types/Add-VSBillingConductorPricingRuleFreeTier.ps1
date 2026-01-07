@@ -19,7 +19,7 @@ function Add-VSBillingConductorPricingRuleFreeTier {
     #>
 
     [OutputType('Vaporshell.Resource.BillingConductor.PricingRule.FreeTier')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSDataPipelinePipelinePipelineTag {
     #>
 
     [OutputType('Vaporshell.Resource.DataPipeline.Pipeline.PipelineTag')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

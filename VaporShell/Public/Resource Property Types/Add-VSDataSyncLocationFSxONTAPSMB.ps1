@@ -34,7 +34,7 @@ function Add-VSDataSyncLocationFSxONTAPSMB {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationFSxONTAP.SMB')]
-    [cmdletbinding()]
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingPlainTextForPassword","Password")]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSAvoidUsingUserNameAndPasswordParams","Password")]
 

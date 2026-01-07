@@ -54,7 +54,7 @@ function Add-VSQuickSightDashboardFilterControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.FilterControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

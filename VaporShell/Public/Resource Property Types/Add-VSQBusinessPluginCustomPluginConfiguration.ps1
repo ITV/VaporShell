@@ -29,7 +29,7 @@ function Add-VSQBusinessPluginCustomPluginConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QBusiness.Plugin.CustomPluginConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowServiceNowSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.ServiceNowSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

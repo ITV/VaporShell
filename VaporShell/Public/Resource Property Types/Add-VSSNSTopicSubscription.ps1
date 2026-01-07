@@ -24,7 +24,7 @@ function Add-VSSNSTopicSubscription {
     #>
 
     [OutputType('Vaporshell.Resource.SNS.Topic.Subscription')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

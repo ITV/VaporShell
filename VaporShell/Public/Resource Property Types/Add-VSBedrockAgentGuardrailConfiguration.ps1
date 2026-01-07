@@ -24,7 +24,7 @@ function Add-VSBedrockAgentGuardrailConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.Agent.GuardrailConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

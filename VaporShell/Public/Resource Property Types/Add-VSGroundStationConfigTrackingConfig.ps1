@@ -19,7 +19,7 @@ function Add-VSGroundStationConfigTrackingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.Config.TrackingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

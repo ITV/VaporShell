@@ -19,7 +19,7 @@ function Add-VSGlueTableOptimizerVpcConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.TableOptimizer.VpcConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

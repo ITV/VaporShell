@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateCalculatedMeasureField {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.CalculatedMeasureField')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

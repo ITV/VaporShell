@@ -19,7 +19,7 @@ function Add-VSResourceExplorer2ViewSearchFilter {
     #>
 
     [OutputType('Vaporshell.Resource.ResourceExplorer2.View.SearchFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSCodeDeployDeploymentGroupTargetGroupInfo {
     #>
 
     [OutputType('Vaporshell.Resource.CodeDeploy.DeploymentGroup.TargetGroupInfo')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

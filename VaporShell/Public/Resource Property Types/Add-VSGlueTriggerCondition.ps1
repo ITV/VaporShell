@@ -39,7 +39,7 @@ function Add-VSGlueTriggerCondition {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Trigger.Condition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

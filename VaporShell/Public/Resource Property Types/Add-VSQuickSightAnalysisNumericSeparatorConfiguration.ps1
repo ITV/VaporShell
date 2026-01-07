@@ -24,7 +24,7 @@ function Add-VSQuickSightAnalysisNumericSeparatorConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.NumericSeparatorConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

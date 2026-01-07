@@ -31,7 +31,7 @@ function Add-VSIoTSiteWiseAssetModelMetric {
     #>
 
     [OutputType('Vaporshell.Resource.IoTSiteWise.AssetModel.Metric')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

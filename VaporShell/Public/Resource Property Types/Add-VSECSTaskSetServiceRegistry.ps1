@@ -34,7 +34,7 @@ function Add-VSECSTaskSetServiceRegistry {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskSet.ServiceRegistry')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

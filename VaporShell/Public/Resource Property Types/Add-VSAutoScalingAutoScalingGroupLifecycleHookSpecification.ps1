@@ -49,7 +49,7 @@ function Add-VSAutoScalingAutoScalingGroupLifecycleHookSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.LifecycleHookSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -34,7 +34,7 @@ function Add-VSQuickSightDashboardKPISparklineOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.KPISparklineOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSWAFv2WebACLCountAction {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.CountAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

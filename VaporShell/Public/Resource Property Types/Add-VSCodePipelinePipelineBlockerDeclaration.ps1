@@ -24,7 +24,7 @@ function Add-VSCodePipelinePipelineBlockerDeclaration {
     #>
 
     [OutputType('Vaporshell.Resource.CodePipeline.Pipeline.BlockerDeclaration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

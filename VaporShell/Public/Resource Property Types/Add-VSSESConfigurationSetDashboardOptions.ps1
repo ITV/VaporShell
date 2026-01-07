@@ -19,7 +19,7 @@ function Add-VSSESConfigurationSetDashboardOptions {
     #>
 
     [OutputType('Vaporshell.Resource.SES.ConfigurationSet.DashboardOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

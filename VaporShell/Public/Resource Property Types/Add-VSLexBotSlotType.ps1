@@ -31,6 +31,11 @@ function Add-VSLexBotSlotType {
         UpdateType: Mutable
         Type: SlotValueSelectionSetting
 
+    .PARAMETER CompositeSlotTypeSetting
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-compositeslottypesetting
+        UpdateType: Mutable
+        Type: CompositeSlotTypeSetting
+
     .PARAMETER ExternalSourceSetting
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slottype.html#cfn-lex-bot-slottype-externalsourcesetting
         UpdateType: Mutable
@@ -46,7 +51,7 @@ function Add-VSLexBotSlotType {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.SlotType')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -88,6 +93,9 @@ function Add-VSLexBotSlotType {
 
         [Parameter(Mandatory = $false)]
         $ValueSelectionSetting,
+
+        [Parameter(Mandatory = $false)]
+        $CompositeSlotTypeSetting,
 
         [Parameter(Mandatory = $false)]
         $ExternalSourceSetting,

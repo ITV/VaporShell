@@ -84,7 +84,7 @@ function Add-VSKinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguratio
     #>
 
     [OutputType('Vaporshell.Resource.KinesisFirehose.DeliveryStream.ElasticsearchDestinationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

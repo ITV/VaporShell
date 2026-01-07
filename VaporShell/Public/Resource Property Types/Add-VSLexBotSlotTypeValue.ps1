@@ -26,7 +26,7 @@ function Add-VSLexBotSlotTypeValue {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.SlotTypeValue')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

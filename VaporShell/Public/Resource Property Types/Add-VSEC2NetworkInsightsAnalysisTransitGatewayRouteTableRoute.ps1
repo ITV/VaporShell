@@ -49,7 +49,7 @@ function Add-VSEC2NetworkInsightsAnalysisTransitGatewayRouteTableRoute {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAnalysis.TransitGatewayRouteTableRoute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

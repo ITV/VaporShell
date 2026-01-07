@@ -14,6 +14,11 @@ function Add-VSBedrockDataSourceVectorIngestionConfiguration {
         UpdateType: Immutable
         Type: ParsingConfiguration
 
+    .PARAMETER ContextEnrichmentConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-contextenrichmentconfiguration
+        UpdateType: Mutable
+        Type: ContextEnrichmentConfiguration
+
     .PARAMETER CustomTransformationConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-vectoringestionconfiguration.html#cfn-bedrock-datasource-vectoringestionconfiguration-customtransformationconfiguration
         UpdateType: Mutable
@@ -29,12 +34,15 @@ function Add-VSBedrockDataSourceVectorIngestionConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.VectorIngestionConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
         $ParsingConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $ContextEnrichmentConfiguration,
 
         [Parameter(Mandatory = $false)]
         $CustomTransformationConfiguration,

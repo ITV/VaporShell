@@ -26,7 +26,7 @@ function Add-VSQuickSightTemplateResourcePermission {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.ResourcePermission')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

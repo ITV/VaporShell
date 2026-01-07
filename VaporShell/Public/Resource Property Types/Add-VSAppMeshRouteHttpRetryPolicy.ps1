@@ -36,7 +36,7 @@ function Add-VSAppMeshRouteHttpRetryPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.HttpRetryPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

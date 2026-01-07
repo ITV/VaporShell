@@ -24,7 +24,7 @@ function Add-VSLightsailBucketAccessRules {
     #>
 
     [OutputType('Vaporshell.Resource.Lightsail.Bucket.AccessRules')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

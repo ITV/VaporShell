@@ -31,12 +31,17 @@ function Add-VSEntityResolutionMatchingWorkflowOutputSource {
         UpdateType: Mutable
         PrimitiveType: Boolean
 
+    .PARAMETER CustomerProfilesIntegrationConfig
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-outputsource.html#cfn-entityresolution-matchingworkflow-outputsource-customerprofilesintegrationconfig
+        UpdateType: Mutable
+        Type: CustomerProfilesIntegrationConfig
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.EntityResolution.MatchingWorkflow.OutputSource')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -52,7 +57,7 @@ function Add-VSEntityResolutionMatchingWorkflowOutputSource {
             })]
         $KMSArn,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $false)]
         [ValidateScript( {
                 $allowedTypes = "System.String","Vaporshell.Function","Vaporshell.Condition"
                 if ([string]$($_.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -86,7 +91,10 @@ function Add-VSEntityResolutionMatchingWorkflowOutputSource {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $ApplyNormalization
+        $ApplyNormalization,
+
+        [Parameter(Mandatory = $false)]
+        $CustomerProfilesIntegrationConfig
 
     )
 

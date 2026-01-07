@@ -19,7 +19,7 @@ function Add-VSOpenSearchServiceDomainZoneAwarenessConfig {
     #>
 
     [OutputType('Vaporshell.Resource.OpenSearchService.Domain.ZoneAwarenessConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

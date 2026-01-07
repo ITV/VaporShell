@@ -24,7 +24,7 @@ function Add-VSEC2NetworkInsightsAnalysisAlternatePathHint {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAnalysis.AlternatePathHint')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

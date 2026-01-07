@@ -19,7 +19,7 @@ function Add-VSKinesisAnalyticsV2ApplicationGlueDataCatalogConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.KinesisAnalyticsV2.Application.GlueDataCatalogConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

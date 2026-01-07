@@ -51,7 +51,7 @@ function Add-VSFraudDetectorDetectorOutcome {
     #>
 
     [OutputType('Vaporshell.Resource.FraudDetector.Detector.Outcome')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

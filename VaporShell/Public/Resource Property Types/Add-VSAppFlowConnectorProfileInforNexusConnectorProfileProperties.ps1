@@ -19,7 +19,7 @@ function Add-VSAppFlowConnectorProfileInforNexusConnectorProfileProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.ConnectorProfile.InforNexusConnectorProfileProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

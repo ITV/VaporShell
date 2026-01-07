@@ -26,7 +26,7 @@ function Add-VSQuickSightAnalysisBoxPlotSortConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.BoxPlotSortConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

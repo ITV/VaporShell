@@ -39,7 +39,7 @@ function Add-VSMediaLiveChannelInputLossBehavior {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.InputLossBehavior')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

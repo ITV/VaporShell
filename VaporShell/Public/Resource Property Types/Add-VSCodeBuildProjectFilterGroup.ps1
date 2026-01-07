@@ -14,7 +14,7 @@ function Add-VSCodeBuildProjectFilterGroup {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.FilterGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

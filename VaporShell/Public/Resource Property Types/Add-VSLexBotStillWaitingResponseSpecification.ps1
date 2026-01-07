@@ -36,7 +36,7 @@ function Add-VSLexBotStillWaitingResponseSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.Lex.Bot.StillWaitingResponseSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

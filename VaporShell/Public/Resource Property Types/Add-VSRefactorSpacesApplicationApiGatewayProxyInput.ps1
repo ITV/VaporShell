@@ -24,7 +24,7 @@ function Add-VSRefactorSpacesApplicationApiGatewayProxyInput {
     #>
 
     [OutputType('Vaporshell.Resource.RefactorSpaces.Application.ApiGatewayProxyInput')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

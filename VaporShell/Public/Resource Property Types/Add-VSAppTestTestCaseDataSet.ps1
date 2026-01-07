@@ -39,7 +39,7 @@ function Add-VSAppTestTestCaseDataSet {
     #>
 
     [OutputType('Vaporshell.Resource.AppTest.TestCase.DataSet')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

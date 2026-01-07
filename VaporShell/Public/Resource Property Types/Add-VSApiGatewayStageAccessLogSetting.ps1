@@ -24,7 +24,7 @@ function Add-VSApiGatewayStageAccessLogSetting {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.Stage.AccessLogSetting')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

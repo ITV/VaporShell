@@ -46,7 +46,7 @@ function Add-VSWAFv2WebACLRateBasedStatement {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.RateBasedStatement')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

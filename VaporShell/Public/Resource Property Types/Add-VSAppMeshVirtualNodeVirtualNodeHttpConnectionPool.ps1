@@ -24,7 +24,7 @@ function Add-VSAppMeshVirtualNodeVirtualNodeHttpConnectionPool {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.VirtualNode.VirtualNodeHttpConnectionPool')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

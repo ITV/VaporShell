@@ -26,7 +26,7 @@ function Add-VSQuickSightAnalysisDateTimeHierarchy {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.DateTimeHierarchy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

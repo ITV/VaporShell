@@ -19,7 +19,7 @@ function Add-VSGuardDutyDetectorCFNKubernetesAuditLogsConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GuardDuty.Detector.CFNKubernetesAuditLogsConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSMSKClusterUnauthenticated {
     #>
 
     [OutputType('Vaporshell.Resource.MSK.Cluster.Unauthenticated')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSSageMakerModelCardUserContext {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.UserContext')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

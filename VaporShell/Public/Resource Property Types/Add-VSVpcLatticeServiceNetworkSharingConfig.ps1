@@ -19,7 +19,7 @@ function Add-VSVpcLatticeServiceNetworkSharingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.ServiceNetwork.SharingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

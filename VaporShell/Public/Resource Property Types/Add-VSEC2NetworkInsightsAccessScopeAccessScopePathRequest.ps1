@@ -31,7 +31,7 @@ function Add-VSEC2NetworkInsightsAccessScopeAccessScopePathRequest {
     #>
 
     [OutputType('Vaporshell.Resource.EC2.NetworkInsightsAccessScope.AccessScopePathRequest')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

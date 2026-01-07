@@ -21,7 +21,7 @@ function Add-VSGameLiftGameSessionQueueFilterConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.GameSessionQueue.FilterConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

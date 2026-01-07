@@ -19,7 +19,7 @@ function Add-VSS3BucketPartitionedPrefix {
     #>
 
     [OutputType('Vaporshell.Resource.S3.Bucket.PartitionedPrefix')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

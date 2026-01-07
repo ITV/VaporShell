@@ -19,7 +19,7 @@ function Add-VSAppFlowFlowSlackSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.SlackSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

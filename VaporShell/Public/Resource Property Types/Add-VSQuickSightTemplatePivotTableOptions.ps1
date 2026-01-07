@@ -79,7 +79,7 @@ function Add-VSQuickSightTemplatePivotTableOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PivotTableOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -195,7 +195,7 @@ function Add-VSQuickSightTemplatePivotTableOptions {
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                CollapsedRowDimensionsVisibility {
+                'CollapsedRowDimensionsVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -209,7 +209,7 @@ function Add-VSQuickSightTemplatePivotTableOptions {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                ColumnNamesVisibility {
+                'ColumnNamesVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -223,7 +223,7 @@ function Add-VSQuickSightTemplatePivotTableOptions {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                SingleMetricVisibility {
+                'SingleMetricVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)
@@ -237,7 +237,7 @@ function Add-VSQuickSightTemplatePivotTableOptions {
                     }
                     $obj | Add-Member -MemberType NoteProperty -Name $key -Value $JSONObject
                 }
-                ToggleButtonsVisibility {
+                'ToggleButtonsVisibility' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

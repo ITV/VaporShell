@@ -31,7 +31,7 @@ function Add-VSECSTaskDefinitionRestartPolicy {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.RestartPolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

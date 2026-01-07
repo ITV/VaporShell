@@ -9,13 +9,13 @@ function Add-VSAuditManagerAssessmentAWSAccount {
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html
 
-    .PARAMETER Id
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id
+    .PARAMETER EmailAddress
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
         UpdateType: Conditional
         PrimitiveType: String
 
-    .PARAMETER EmailAddress
-        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
+    .PARAMETER Id
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id
         UpdateType: Conditional
         PrimitiveType: String
 
@@ -29,7 +29,7 @@ function Add-VSAuditManagerAssessmentAWSAccount {
     #>
 
     [OutputType('Vaporshell.Resource.AuditManager.Assessment.AWSAccount')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -43,7 +43,7 @@ function Add-VSAuditManagerAssessmentAWSAccount {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $Id,
+        $EmailAddress,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {
@@ -55,7 +55,7 @@ function Add-VSAuditManagerAssessmentAWSAccount {
                     $PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: $($allowedTypes -join ", "). The current types of the value are: $($_.PSTypeNames -join ", ")."))
                 }
             })]
-        $EmailAddress,
+        $Id,
 
         [Parameter(Mandatory = $false)]
         [ValidateScript( {

@@ -31,7 +31,7 @@ function Add-VSQuickSightAnalysisColorScale {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ColorScale')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

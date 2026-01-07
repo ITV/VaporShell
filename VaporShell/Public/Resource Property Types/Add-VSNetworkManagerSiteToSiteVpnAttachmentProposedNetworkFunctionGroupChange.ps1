@@ -31,7 +31,7 @@ function Add-VSNetworkManagerSiteToSiteVpnAttachmentProposedNetworkFunctionGroup
     #>
 
     [OutputType('Vaporshell.Resource.NetworkManager.SiteToSiteVpnAttachment.ProposedNetworkFunctionGroupChange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

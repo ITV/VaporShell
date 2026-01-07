@@ -19,7 +19,7 @@ function Add-VSConnectCampaignsV2CampaignPredictiveConfig {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.PredictiveConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

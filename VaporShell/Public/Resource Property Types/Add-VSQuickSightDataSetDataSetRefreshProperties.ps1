@@ -14,17 +14,25 @@ function Add-VSQuickSightDataSetDataSetRefreshProperties {
         UpdateType: Mutable
         Type: RefreshConfiguration
 
+    .PARAMETER FailureConfiguration
+        Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html#cfn-quicksight-dataset-datasetrefreshproperties-failureconfiguration
+        UpdateType: Mutable
+        Type: RefreshFailureConfiguration
+
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.DataSetRefreshProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
         [Parameter(Mandatory = $false)]
-        $RefreshConfiguration
+        $RefreshConfiguration,
+
+        [Parameter(Mandatory = $false)]
+        $FailureConfiguration
 
     )
 

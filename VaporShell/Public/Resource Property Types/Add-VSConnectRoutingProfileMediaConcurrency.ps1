@@ -29,7 +29,7 @@ function Add-VSConnectRoutingProfileMediaConcurrency {
     #>
 
     [OutputType('Vaporshell.Resource.Connect.RoutingProfile.MediaConcurrency')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

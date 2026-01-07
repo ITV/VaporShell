@@ -19,7 +19,7 @@ function Add-VSOSISPipelineEncryptionAtRestOptions {
     #>
 
     [OutputType('Vaporshell.Resource.OSIS.Pipeline.EncryptionAtRestOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

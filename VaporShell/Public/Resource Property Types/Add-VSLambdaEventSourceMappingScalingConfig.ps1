@@ -19,7 +19,7 @@ function Add-VSLambdaEventSourceMappingScalingConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.EventSourceMapping.ScalingConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

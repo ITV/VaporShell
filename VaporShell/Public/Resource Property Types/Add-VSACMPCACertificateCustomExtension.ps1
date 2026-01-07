@@ -29,7 +29,7 @@ function Add-VSACMPCACertificateCustomExtension {
     #>
 
     [OutputType('Vaporshell.Resource.ACMPCA.Certificate.CustomExtension')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

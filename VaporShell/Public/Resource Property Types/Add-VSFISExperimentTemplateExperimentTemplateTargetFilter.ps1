@@ -26,7 +26,7 @@ function Add-VSFISExperimentTemplateExperimentTemplateTargetFilter {
     #>
 
     [OutputType('Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentTemplateTargetFilter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

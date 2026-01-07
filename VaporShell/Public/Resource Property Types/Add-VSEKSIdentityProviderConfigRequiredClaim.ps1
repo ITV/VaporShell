@@ -24,7 +24,7 @@ function Add-VSEKSIdentityProviderConfigRequiredClaim {
     #>
 
     [OutputType('Vaporshell.Resource.EKS.IdentityProviderConfig.RequiredClaim')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

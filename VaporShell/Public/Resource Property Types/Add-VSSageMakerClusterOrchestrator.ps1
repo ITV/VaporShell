@@ -19,7 +19,7 @@ function Add-VSSageMakerClusterOrchestrator {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Cluster.Orchestrator')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -30,7 +30,7 @@ function Add-VSSageMakerModelCardAdditionalInformation {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelCard.AdditionalInformation')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

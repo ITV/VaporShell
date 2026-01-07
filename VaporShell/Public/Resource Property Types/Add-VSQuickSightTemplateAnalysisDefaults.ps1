@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateAnalysisDefaults {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.AnalysisDefaults')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

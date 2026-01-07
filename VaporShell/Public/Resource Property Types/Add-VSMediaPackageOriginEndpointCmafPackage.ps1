@@ -41,7 +41,7 @@ function Add-VSMediaPackageOriginEndpointCmafPackage {
     #>
 
     [OutputType('Vaporshell.Resource.MediaPackage.OriginEndpoint.CmafPackage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

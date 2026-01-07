@@ -24,7 +24,7 @@ function Add-VSElastiCacheReplicationGroupDestinationDetails {
     #>
 
     [OutputType('Vaporshell.Resource.ElastiCache.ReplicationGroup.DestinationDetails')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

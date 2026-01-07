@@ -54,7 +54,7 @@ function Add-VSQuickSightAnalysisParameterDropDownControl {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.ParameterDropDownControl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

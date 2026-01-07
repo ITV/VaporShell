@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateBarChartFieldWells {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.BarChartFieldWells')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

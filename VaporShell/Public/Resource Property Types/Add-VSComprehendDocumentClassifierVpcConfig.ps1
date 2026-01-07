@@ -28,7 +28,7 @@ function Add-VSComprehendDocumentClassifierVpcConfig {
     #>
 
     [OutputType('Vaporshell.Resource.Comprehend.DocumentClassifier.VpcConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

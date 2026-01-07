@@ -33,7 +33,7 @@ function Add-VSEMRInstanceGroupConfigConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.InstanceGroupConfig.Configuration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

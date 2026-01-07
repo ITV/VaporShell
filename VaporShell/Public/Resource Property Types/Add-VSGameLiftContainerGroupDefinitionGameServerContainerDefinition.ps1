@@ -60,7 +60,7 @@ function Add-VSGameLiftContainerGroupDefinitionGameServerContainerDefinition {
     #>
 
     [OutputType('Vaporshell.Resource.GameLift.ContainerGroupDefinition.GameServerContainerDefinition')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

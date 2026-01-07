@@ -29,7 +29,7 @@ function Add-VSDataSyncTaskTaskReportConfigDestinationS3 {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.Task.TaskReportConfigDestinationS3')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

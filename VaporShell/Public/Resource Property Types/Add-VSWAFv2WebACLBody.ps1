@@ -19,7 +19,7 @@ function Add-VSWAFv2WebACLBody {
     #>
 
     [OutputType('Vaporshell.Resource.WAFv2.WebACL.Body')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

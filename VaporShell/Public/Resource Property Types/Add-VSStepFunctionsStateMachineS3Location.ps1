@@ -29,7 +29,7 @@ function Add-VSStepFunctionsStateMachineS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.StepFunctions.StateMachine.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

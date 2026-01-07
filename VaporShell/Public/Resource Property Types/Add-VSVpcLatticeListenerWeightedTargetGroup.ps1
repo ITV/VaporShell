@@ -24,7 +24,7 @@ function Add-VSVpcLatticeListenerWeightedTargetGroup {
     #>
 
     [OutputType('Vaporshell.Resource.VpcLattice.Listener.WeightedTargetGroup')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

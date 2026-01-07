@@ -26,7 +26,7 @@ function Add-VSBedrockPromptVersionMessage {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.PromptVersion.Message')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

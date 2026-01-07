@@ -29,7 +29,7 @@ function Add-VSEMRClusterInstanceTypeConfig {
     .PARAMETER CustomAmiId
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-customamiid
         PrimitiveType: String
-        UpdateType: Mutable
+        UpdateType: Immutable
 
     .PARAMETER EbsConfiguration
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-ebsconfiguration
@@ -56,7 +56,7 @@ function Add-VSEMRClusterInstanceTypeConfig {
     #>
 
     [OutputType('Vaporshell.Resource.EMR.Cluster.InstanceTypeConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

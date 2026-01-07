@@ -29,7 +29,7 @@ function Add-VSQuickSightTemplatePivotTableSortBy {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.PivotTableSortBy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -29,7 +29,7 @@ function Add-VSAppMeshRouteWeightedTarget {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.WeightedTarget')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

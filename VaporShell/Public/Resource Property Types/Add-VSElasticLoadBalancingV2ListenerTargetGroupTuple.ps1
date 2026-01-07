@@ -24,7 +24,7 @@ function Add-VSElasticLoadBalancingV2ListenerTargetGroupTuple {
     #>
 
     [OutputType('Vaporshell.Resource.ElasticLoadBalancingV2.Listener.TargetGroupTuple')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

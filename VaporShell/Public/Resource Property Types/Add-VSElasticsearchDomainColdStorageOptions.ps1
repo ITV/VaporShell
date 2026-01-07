@@ -19,7 +19,7 @@ function Add-VSElasticsearchDomainColdStorageOptions {
     #>
 
     [OutputType('Vaporshell.Resource.Elasticsearch.Domain.ColdStorageOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

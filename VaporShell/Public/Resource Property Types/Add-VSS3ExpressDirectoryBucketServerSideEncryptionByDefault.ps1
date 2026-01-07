@@ -24,7 +24,7 @@ function Add-VSS3ExpressDirectoryBucketServerSideEncryptionByDefault {
     #>
 
     [OutputType('Vaporshell.Resource.S3Express.DirectoryBucket.ServerSideEncryptionByDefault')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

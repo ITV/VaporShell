@@ -19,7 +19,7 @@ function Add-VSCustomerProfilesIntegrationServiceNowSourceProperties {
     #>
 
     [OutputType('Vaporshell.Resource.CustomerProfiles.Integration.ServiceNowSourceProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

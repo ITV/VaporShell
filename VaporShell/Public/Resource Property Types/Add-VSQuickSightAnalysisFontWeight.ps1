@@ -19,7 +19,7 @@ function Add-VSQuickSightAnalysisFontWeight {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Analysis.FontWeight')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

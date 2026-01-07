@@ -26,7 +26,7 @@ function Add-VSSecurityLakeDataLakeLifecycleConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.SecurityLake.DataLake.LifecycleConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

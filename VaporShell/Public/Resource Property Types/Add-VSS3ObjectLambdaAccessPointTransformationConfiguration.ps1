@@ -26,7 +26,7 @@ function Add-VSS3ObjectLambdaAccessPointTransformationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.S3ObjectLambda.AccessPoint.TransformationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

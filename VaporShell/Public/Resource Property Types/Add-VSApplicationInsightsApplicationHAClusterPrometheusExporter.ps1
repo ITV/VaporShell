@@ -19,7 +19,7 @@ function Add-VSApplicationInsightsApplicationHAClusterPrometheusExporter {
     #>
 
     [OutputType('Vaporshell.Resource.ApplicationInsights.Application.HAClusterPrometheusExporter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -44,7 +44,7 @@ function Add-VSEntityResolutionSchemaMappingSchemaInputAttribute {
     #>
 
     [OutputType('Vaporshell.Resource.EntityResolution.SchemaMapping.SchemaInputAttribute')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

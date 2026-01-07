@@ -29,7 +29,7 @@ function Add-VSSageMakerDataQualityJobDefinitionDataQualityBaselineConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.DataQualityJobDefinition.DataQualityBaselineConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

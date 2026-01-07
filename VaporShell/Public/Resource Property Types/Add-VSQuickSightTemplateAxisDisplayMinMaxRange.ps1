@@ -24,7 +24,7 @@ function Add-VSQuickSightTemplateAxisDisplayMinMaxRange {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.AxisDisplayMinMaxRange')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

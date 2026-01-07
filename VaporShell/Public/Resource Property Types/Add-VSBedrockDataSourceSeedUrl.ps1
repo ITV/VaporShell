@@ -19,7 +19,7 @@ function Add-VSBedrockDataSourceSeedUrl {
     #>
 
     [OutputType('Vaporshell.Resource.Bedrock.DataSource.SeedUrl')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -26,7 +26,7 @@ function Add-VSSSMContactsPlanStage {
     #>
 
     [OutputType('Vaporshell.Resource.SSMContacts.Plan.Stage')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

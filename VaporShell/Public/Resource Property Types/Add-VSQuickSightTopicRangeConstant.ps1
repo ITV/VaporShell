@@ -24,7 +24,7 @@ function Add-VSQuickSightTopicRangeConstant {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Topic.RangeConstant')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

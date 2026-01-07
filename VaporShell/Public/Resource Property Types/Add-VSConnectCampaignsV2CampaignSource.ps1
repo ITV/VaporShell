@@ -24,7 +24,7 @@ function Add-VSConnectCampaignsV2CampaignSource {
     #>
 
     [OutputType('Vaporshell.Resource.ConnectCampaignsV2.Campaign.Source')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

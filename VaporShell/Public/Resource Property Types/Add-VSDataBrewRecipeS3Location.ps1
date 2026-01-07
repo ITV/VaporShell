@@ -24,7 +24,7 @@ function Add-VSDataBrewRecipeS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.DataBrew.Recipe.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

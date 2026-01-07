@@ -24,7 +24,7 @@ function Add-VSAutoScalingAutoScalingGroupCapacityReservationSpecification {
     #>
 
     [OutputType('Vaporshell.Resource.AutoScaling.AutoScalingGroup.CapacityReservationSpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

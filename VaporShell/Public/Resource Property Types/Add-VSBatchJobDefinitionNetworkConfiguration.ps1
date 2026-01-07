@@ -19,7 +19,7 @@ function Add-VSBatchJobDefinitionNetworkConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.Batch.JobDefinition.NetworkConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

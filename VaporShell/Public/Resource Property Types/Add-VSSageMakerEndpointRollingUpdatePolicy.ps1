@@ -34,7 +34,7 @@ function Add-VSSageMakerEndpointRollingUpdatePolicy {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.Endpoint.RollingUpdatePolicy')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

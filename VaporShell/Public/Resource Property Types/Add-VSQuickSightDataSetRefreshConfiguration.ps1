@@ -19,7 +19,7 @@ function Add-VSQuickSightDataSetRefreshConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.DataSet.RefreshConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

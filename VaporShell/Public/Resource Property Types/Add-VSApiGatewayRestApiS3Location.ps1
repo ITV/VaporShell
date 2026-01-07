@@ -34,7 +34,7 @@ function Add-VSApiGatewayRestApiS3Location {
     #>
 
     [OutputType('Vaporshell.Resource.ApiGateway.RestApi.S3Location')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

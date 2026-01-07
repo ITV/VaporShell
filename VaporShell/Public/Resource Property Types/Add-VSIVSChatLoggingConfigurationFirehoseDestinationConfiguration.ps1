@@ -19,7 +19,7 @@ function Add-VSIVSChatLoggingConfigurationFirehoseDestinationConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.IVSChat.LoggingConfiguration.FirehoseDestinationConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -49,7 +49,7 @@ function Add-VSMediaLiveChannelVideoDescription {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.VideoDescription')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

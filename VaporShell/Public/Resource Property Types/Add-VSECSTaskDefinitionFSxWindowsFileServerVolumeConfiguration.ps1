@@ -29,7 +29,7 @@ function Add-VSECSTaskDefinitionFSxWindowsFileServerVolumeConfiguration {
     #>
 
     [OutputType('Vaporshell.Resource.ECS.TaskDefinition.FSxWindowsFileServerVolumeConfiguration')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

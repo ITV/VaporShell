@@ -19,7 +19,7 @@ function Add-VSCloudFrontFunctionFunctionMetadata {
     #>
 
     [OutputType('Vaporshell.Resource.CloudFront.Function.FunctionMetadata')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

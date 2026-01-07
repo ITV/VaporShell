@@ -19,7 +19,7 @@ function Add-VSDataSyncLocationFSxOpenZFSNFS {
     #>
 
     [OutputType('Vaporshell.Resource.DataSync.LocationFSxOpenZFS.NFS')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

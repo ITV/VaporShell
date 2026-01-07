@@ -24,7 +24,7 @@ function Add-VSDynamoDBGlobalTablePointInTimeRecoverySpecification {
     #>
 
     [OutputType('Vaporshell.Resource.DynamoDB.GlobalTable.PointInTimeRecoverySpecification')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

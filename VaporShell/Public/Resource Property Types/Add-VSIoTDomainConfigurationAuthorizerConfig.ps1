@@ -24,7 +24,7 @@ function Add-VSIoTDomainConfigurationAuthorizerConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.DomainConfiguration.AuthorizerConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

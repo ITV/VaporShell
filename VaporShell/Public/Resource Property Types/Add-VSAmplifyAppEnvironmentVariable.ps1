@@ -24,7 +24,7 @@ function Add-VSAmplifyAppEnvironmentVariable {
     #>
 
     [OutputType('Vaporshell.Resource.Amplify.App.EnvironmentVariable')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

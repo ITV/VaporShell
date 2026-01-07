@@ -19,7 +19,7 @@ function Add-VSIoTSecurityProfileMachineLearningDetectionConfig {
     #>
 
     [OutputType('Vaporshell.Resource.IoT.SecurityProfile.MachineLearningDetectionConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

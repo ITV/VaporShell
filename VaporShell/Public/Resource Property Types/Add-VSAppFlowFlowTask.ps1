@@ -43,7 +43,7 @@ function Add-VSAppFlowFlowTask {
     #>
 
     [OutputType('Vaporshell.Resource.AppFlow.Flow.Task')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

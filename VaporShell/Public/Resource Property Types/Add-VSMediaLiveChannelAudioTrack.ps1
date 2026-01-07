@@ -19,7 +19,7 @@ function Add-VSMediaLiveChannelAudioTrack {
     #>
 
     [OutputType('Vaporshell.Resource.MediaLive.Channel.AudioTrack')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

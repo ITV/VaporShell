@@ -29,7 +29,7 @@ function Add-VSSageMakerModelQualityJobDefinitionNetworkConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.ModelQualityJobDefinition.NetworkConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

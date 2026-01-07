@@ -19,7 +19,7 @@ function Add-VSAppSyncSourceApiAssociationSourceApiAssociationConfig {
     #>
 
     [OutputType('Vaporshell.Resource.AppSync.SourceApiAssociation.SourceApiAssociationConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

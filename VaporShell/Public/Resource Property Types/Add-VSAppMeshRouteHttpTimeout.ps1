@@ -24,7 +24,7 @@ function Add-VSAppMeshRouteHttpTimeout {
     #>
 
     [OutputType('Vaporshell.Resource.AppMesh.Route.HttpTimeout')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

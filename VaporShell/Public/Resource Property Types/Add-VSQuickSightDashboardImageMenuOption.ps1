@@ -19,7 +19,7 @@ function Add-VSQuickSightDashboardImageMenuOption {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Dashboard.ImageMenuOption')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

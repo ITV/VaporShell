@@ -19,7 +19,7 @@ function Add-VSSageMakerAppImageConfigCodeEditorAppImageConfig {
     #>
 
     [OutputType('Vaporshell.Resource.SageMaker.AppImageConfig.CodeEditorAppImageConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

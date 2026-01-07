@@ -19,7 +19,7 @@ function Add-VSCleanRoomsConfiguredTableDifferentialPrivacyColumn {
     #>
 
     [OutputType('Vaporshell.Resource.CleanRooms.ConfiguredTable.DifferentialPrivacyColumn')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

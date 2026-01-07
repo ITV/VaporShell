@@ -19,7 +19,7 @@ function Add-VSLambdaEventSourceMappingFilter {
     #>
 
     [OutputType('Vaporshell.Resource.Lambda.EventSourceMapping.Filter')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

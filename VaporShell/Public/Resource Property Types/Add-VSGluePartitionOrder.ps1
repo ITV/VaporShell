@@ -24,7 +24,7 @@ function Add-VSGluePartitionOrder {
     #>
 
     [OutputType('Vaporshell.Resource.Glue.Partition.Order')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

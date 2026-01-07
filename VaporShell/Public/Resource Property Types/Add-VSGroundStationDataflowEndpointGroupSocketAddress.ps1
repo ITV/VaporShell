@@ -11,12 +11,12 @@ function Add-VSGroundStationDataflowEndpointGroupSocketAddress {
 
     .PARAMETER Port
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html#cfn-groundstation-dataflowendpointgroup-socketaddress-port
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: Integer
 
     .PARAMETER Name
         Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-socketaddress.html#cfn-groundstation-dataflowendpointgroup-socketaddress-name
-        UpdateType: Mutable
+        UpdateType: Immutable
         PrimitiveType: String
 
     .FUNCTIONALITY
@@ -24,7 +24,7 @@ function Add-VSGroundStationDataflowEndpointGroupSocketAddress {
     #>
 
     [OutputType('Vaporshell.Resource.GroundStation.DataflowEndpointGroup.SocketAddress')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSHealthLakeFHIRDatastorePreloadDataConfig {
     #>
 
     [OutputType('Vaporshell.Resource.HealthLake.FHIRDatastore.PreloadDataConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

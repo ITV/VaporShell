@@ -14,7 +14,7 @@ function Add-VSDLMLifecyclePolicyVolumeTypeValues {
     #>
 
     [OutputType('Vaporshell.Resource.DLM.LifecyclePolicy.VolumeTypeValues')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -24,7 +24,7 @@ function Add-VSCodeBuildProjectLogsConfig {
     #>
 
     [OutputType('Vaporshell.Resource.CodeBuild.Project.LogsConfig')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

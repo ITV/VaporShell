@@ -19,7 +19,7 @@ function Add-VSResourceExplorer2ViewIncludedProperty {
     #>
 
     [OutputType('Vaporshell.Resource.ResourceExplorer2.View.IncludedProperty')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

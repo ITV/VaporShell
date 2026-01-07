@@ -39,7 +39,7 @@ function Add-VSServiceCatalogCloudFormationProductProvisioningArtifactProperties
     #>
 
     [OutputType('Vaporshell.Resource.ServiceCatalog.CloudFormationProduct.ProvisioningArtifactProperties')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
@@ -113,7 +113,7 @@ function Add-VSServiceCatalogCloudFormationProductProvisioningArtifactProperties
     Process {
         foreach ($key in $PSBoundParameters.Keys | Where-Object {$commonParams -notcontains $_}) {
             switch ($key) {
-                Info {
+                'Info' {
                     if (($PSBoundParameters[$key]).PSObject.TypeNames -contains "System.String"){
                         try {
                             $JSONObject = (ConvertFrom-Json -InputObject $PSBoundParameters[$key] -ErrorAction Stop)

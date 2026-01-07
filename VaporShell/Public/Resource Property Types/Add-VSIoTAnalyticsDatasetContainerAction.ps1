@@ -36,7 +36,7 @@ function Add-VSIoTAnalyticsDatasetContainerAction {
     #>
 
     [OutputType('Vaporshell.Resource.IoTAnalytics.Dataset.ContainerAction')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

@@ -19,7 +19,7 @@ function Add-VSQuickSightTemplateKPIVisualLayoutOptions {
     #>
 
     [OutputType('Vaporshell.Resource.QuickSight.Template.KPIVisualLayoutOptions')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

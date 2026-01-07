@@ -24,7 +24,7 @@ function Add-VSCassandraTableBillingMode {
     #>
 
     [OutputType('Vaporshell.Resource.Cassandra.Table.BillingMode')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (

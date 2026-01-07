@@ -24,7 +24,7 @@ function Add-VSECRReplicationConfigurationReplicationDestination {
     #>
 
     [OutputType('Vaporshell.Resource.ECR.ReplicationConfiguration.ReplicationDestination')]
-    [cmdletbinding()]
+    [CmdletBinding()]
 
     Param
     (
