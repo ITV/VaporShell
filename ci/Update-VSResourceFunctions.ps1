@@ -19,13 +19,6 @@ function Update-VSResourceFunctions {
     $vsPath = (Resolve-Path "$PSScriptRoot/../VaporShell").Path
     $vsTypeFuncPath = (Resolve-Path "$vsPath/Public/Resource Types").Path
     $vsPropFuncPath = (Resolve-Path "$vsPath/Public/Resource Property Types").Path
-    $vsSdkFunctions = (Get-ChildItem (Resolve-Path "$vsPath/Public/SDK Wrappers").Path -Recurse -Filter '*.ps1').BaseName
-
-    # NB the check below will work on EP developer workstations but not currently on CICD server as ECP repository is not configured there.
-    # However for the time being builds are not run on CICD server.
-    $current = Find-Module VaporShell -Repository ECP
-    $BeforeTypeCount = ($current.Includes.Command | Where-Object {$_ -match '^New\-VS' -and $_ -notin $vsSdkFunctions}).Count
-    $BeforePropCount = ($current.Includes.Command | Where-Object {$_ -match '^Add\-VS' -and $_ -notin $vsSdkFunctions}).Count
 
     # URLs for CFN spec
     $regHash = @{
@@ -106,20 +99,9 @@ function Update-VSResourceFunctions {
         Convert-SpecToFunction -Resource $resource -ResourceType Property
     }
 
-    # Get some stats
-    $AfterTypeCount = (Get-ChildItem -Path (Resolve-Path "$vsPath\Public\Resource Types").Path).Count
-    $AfterPropCount = (Get-ChildItem -Path (Resolve-Path "$vsPath\Public\Resource Property Types").Path).Count
-    $newType = $AfterTypeCount - $BeforeTypeCount
-    $newProp = $AfterPropCount - $BeforePropCount
-    Write-Verbose "`n`n$newType new Resource Type and $newProp Resource Property Type functions added to Vaporshell [$($newType + $newProp) total]`n"
-
-    Write-Host "Resource function update stats:"
+    Write-Host "Generated function stats:"
     [PSCustomObject][Ordered]@{
-        'Resource Type Functions [Before]' = $BeforeTypeCount
-        'Resource Type Functions [After]' = $AfterTypeCount
-        'Resource Type Functions [Diff]' = $newType
-        'Resource Prop Functions [Before]' = $BeforePropCount
-        'Resource Prop Functions [After]' = $AfterPropCount
-        'Resource Prop Functions [Diff]' = $newProp
+        'Resource Type Functions' = $AfterTypeCount
+        'Resource Property Functions' = $AfterPropCount
     }
 }
