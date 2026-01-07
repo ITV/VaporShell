@@ -13,7 +13,7 @@ catch {
     throw
 }
 
-'platyPS','PoshRSJob' | ForEach-Object {
+'platyPS' | ForEach-Object {
     Write-Host "[$_] Resolving module"
     Install-Module $_ -Repository PSGallery -Scope CurrentUser -ErrorAction SilentlyContinue
     Import-Module $_
@@ -35,13 +35,14 @@ Get-ChildItem "$($docsPath)/docs/glossary" -Exclude "index.md" | Remove-Item -Fo
 
 $vsCommands = (Get-ChildItem "$($basePath)/VaporShell/Public" -Filter '*.ps1' -Recurse).BaseName
 
-Write-Host -ForegroundColor Green "Starting runspaces to build the updated docs"
-$vsCommands | Start-RSJob -Name {$_} -ModulesToImport platyPS,"$basePath\BuildOutput\VaporShell" -VariablesToImport docsPath -ScriptBlock {
+Write-Host -ForegroundColor Green "Starting parallel processing to build the updated docs"
+$vsCommands | ForEach-Object -Parallel {
+    $docsPath = $using:docsPath
+    Import-Module platyPS
+    Import-Module "$using:basePath\BuildOutput\VaporShell"
     Write-Host "Working on: $($_)"
     New-MarkdownHelp -Command "VaporShell\$_" -Force -NoMetadata -OutputFolder "$($docsPath)\docs\glossary"
-} | Wait-RSJob | Receive-RSJob
-
-Get-RSJob | Remove-RSJob
+} -ThrottleLimit 10
 
 $files = Get-ChildItem "$($docsPath)/docs/glossary" -Exclude "index.md"
 
