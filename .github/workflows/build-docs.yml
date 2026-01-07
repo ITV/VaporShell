@@ -17,6 +17,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           persist-credentials: false
+          ref: main
 
       - name: Build 🔧
         run: |
