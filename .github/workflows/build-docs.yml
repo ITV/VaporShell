@@ -18,7 +18,12 @@ jobs:
 
       - name: Install PowerShell Modules 📦
         run: |
-            Install-Module -Name platyPS -Force -Scope CurrentUser
+          $localModules = Get-Module -ListAvailable
+          'platyPS' | ForEach-Object {
+            if ($_ -notin $localModules.Name) {
+              Install-Module -Name $_ -Force -Scope CurrentUser
+            }
+          }
         shell: pwsh
 
       - name: Build 🔧

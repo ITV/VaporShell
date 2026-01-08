@@ -37,10 +37,10 @@ Import-Module "$($basePath)/BuildOutput/VaporShell" -Force
 Write-Host -ForegroundColor Magenta "Removing existing glossary docs"
 Get-ChildItem "$($docsPath)/docs/glossary" -Exclude "index.md" | Remove-Item -Force
 
-# Get all commands and prepare to batch them up. Batch size can be controlled to modify the execution time.
-$batchSize = 1000
+# Get all commands and prepare to batch them up. Testing on a laptop suggests 3 or 4 is the optimal number of batches.
+$numberOfBatches = 3
 $vsCommands = (Get-ChildItem "$($basePath)/VaporShell/Public" -Filter '*.ps1' -Recurse).BaseName | Sort-Object
-$numberOfBatches = [Math]::Ceiling($vsCommands.Count / $batchSize)
+$batchSize = [Math]::Ceiling($vsCommands.Count / $numberOfBatches)
 
 # Work out information for each batch
 $batchInfo = @{}
@@ -77,10 +77,12 @@ $batches | ForEach-Object -Parallel {
     $docsPath = $using:docsPath
     Import-Module platyPS
     Import-Module "$using:basePath\BuildOutput\VaporShell"
+    Import-Module AWS.Tools.S3
+    Import-Module AWS.Tools.CloudFormation
     $commandBatch | ForEach-Object {
         $command = $_
         Write-Host "Working on: $($command)"
-        New-MarkdownHelp -Command "VaporShell\$command" -Force -NoMetadata -OutputFolder "$($docsPath)\docs\glossary"
+        $null = New-MarkdownHelp -Command "VaporShell\$command" -Force -NoMetadata -OutputFolder "$($docsPath)\docs\glossary"
     }
 } -ThrottleLimit $numberOfBatches
 
