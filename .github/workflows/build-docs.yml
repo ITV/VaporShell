@@ -14,20 +14,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
+        uses: actions/checkout@v6
 
       - name: Install PowerShell Modules 📦
         run: |
             Install-Module -Name platyPS -Force -Scope CurrentUser
         shell: pwsh
-        
+
       - name: Build 🔧
         run: |
-            . ./docs/ci/glossarydataCSVGenerator.ps1
+            # glossaryUpdater.ps1 must run first since the VaporShell module is built there
             . ./docs/ci/glossaryUpdater.ps1
+            . ./docs/ci/glossarydataCSVGenerator.ps1
         shell: pwsh
 
       - name: Deploy 🚀
