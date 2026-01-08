@@ -86,8 +86,8 @@ function Update-VSResourceFunctions {
     }
 
     # Clean up the directories with dynamically generated content to ensure no legacy files are included in the module
-    Get-ChildItem $vsTypeFuncPath | Remove-Item -Force -Recurse
-    Get-ChildItem $vsPropFuncPath | Remove-Item -Force -Recurse
+    Get-ChildItem $vsTypeFuncPath -Exclude '.git*' | Remove-Item -Force -Recurse
+    Get-ChildItem $vsPropFuncPath -Exclude '.git*' | Remove-Item -Force -Recurse
 
     # Regenerate New-VS... and Add-VS... commands
     foreach ($resource in $final['ResourceTypes'].Values | Sort-Object Name) {
