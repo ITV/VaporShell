@@ -52,7 +52,7 @@ function Update-VSResourceFunctions {
         ResourceTypes = @{}
         PropertyTypes = @{}
     }
-    Write-Verbose "Getting CloudFormation spec from region: us-east-1 (N. Virginia)"
+    Write-Host "Getting CloudFormation spec from region: us-east-1 (N. Virginia)"
     $URL = 'https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
     $specs = Invoke-RestMethod $URL -Verbose:$false
     foreach ($resource in $specs.ResourceTypes.PSObject.Properties) {
@@ -65,7 +65,7 @@ function Update-VSResourceFunctions {
     # Get the rest and add anything missing from us-east-1 for full coverage
     foreach ($region in $regHash.GetEnumerator() | Where-Object {$_.Key -ne 'us-east-1 (N. Virginia)'}) {
         try {
-            Write-Verbose "Getting CloudFormation spec from region: $($region.Key)"
+            Write-Host "Getting CloudFormation spec from region: $($region.Key)"
             $specs = Invoke-RestMethod $region.Value -Verbose:$false
             if ($newResources = $specs.ResourceTypes.PSObject.Properties | Where-Object {$_.Name -notin $final['ResourceTypes'].Keys}) {
                 Write-Host -ForegroundColor Green "Found $($newResources.Count) new resource types in region: $($region.Key)`n- $($newResources.Name -join "`n- ")"
