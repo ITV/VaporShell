@@ -96,6 +96,7 @@ function Update-VSResourceFunctions {
         Write-Verbose "Updating Resource Type [$($resource.Name)]"
         Convert-SpecToFunction -Resource $resource -ResourceType Resource
     }
+    $AfterTypeCount = (Get-ChildItem -Path (Resolve-Path "$vsPath\Public\Resource Types").Path).Count
     Write-Host -ForegroundColor Green ('Generated {0} Resource Type functions' -f $AfterTypeCount)
 
     Write-Host -ForegroundColor Green 'Generate Resource Property functions'
@@ -103,5 +104,6 @@ function Update-VSResourceFunctions {
         Write-Verbose "Updating Resource Property [$($resource.Name)]"
         Convert-SpecToFunction -Resource $resource -ResourceType Property
     }
+    $AfterPropCount = (Get-ChildItem -Path (Resolve-Path "$vsPath\Public\Resource Property Types").Path).Count
     Write-Host -ForegroundColor Green ('Generated {0} Resource Property functions' -f $AfterPropCount)
 }
