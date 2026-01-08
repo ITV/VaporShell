@@ -76,6 +76,9 @@ function $FunctionName {
     .LINK
         $Link
 
+    .EXAMPLE
+        Example not available for this automatically generated function.
+
 "@
 
     foreach ($Prop in $Properties) {
