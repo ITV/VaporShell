@@ -8,7 +8,14 @@ vaporshell-snippets**
 TestResults**.xml
 VaporShell.zip
 ci/https*
-VaporShell/Public
+
+# these functions are dynamically generated on build
+VaporShell/Public/Resource\ Types/
+VaporShell/Public/Resource\ Property\ Types/
+
+# glossary docs for module commands are dynamically generated except for the index page in that folder
+# since index.md has already been added to git before, the whole folder can now be exluded here
+docs/docs/glossary/*
 
 # User-specific files
 *.suo
