@@ -12,15 +12,15 @@ function Update-VSResourceFunctions {
     .FUNCTIONALITY
         Vaporshell
     #>
+
     [CmdletBinding()]
     Param()
-    $vsPath = (Resolve-Path "$PSScriptRoot\..\VaporShell").Path
-    $vsTypeFuncPath = (Resolve-Path "$vsPath\Public\Resource Types").Path
-    $vsPropFuncPath = (Resolve-Path "$vsPath\Public\Resource Property Types").Path
-    $vsSdkFunctions = (Get-ChildItem (Resolve-Path "$vsPath\Public\SDK Wrappers").Path -Recurse -Filter '*.ps1').BaseName
-    $current = Find-Module VaporShell -Repository PSGallery -AllowPrerelease
-    $BeforeTypeCount = ($current.Includes.Command | Where-Object {$_ -match '^New\-VS' -and $_ -notin $vsSdkFunctions}).Count
-    $BeforePropCount = ($current.Includes.Command | Where-Object {$_ -match '^Add\-VS' -and $_ -notin $vsSdkFunctions}).Count
+
+    $vsPath = (Resolve-Path "$PSScriptRoot/../VaporShell").Path
+    $vsTypeFuncPath = (Resolve-Path "$vsPath/Public/Resource Types").Path
+    $vsPropFuncPath = (Resolve-Path "$vsPath/Public/Resource Property Types").Path
+
+    # URLs for CFN spec
     $regHash = @{
         'us-east-1 (N. Virginia)'     = 'https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
         'ap-east-1 (Hong Kong)' = 'https://cfn-resource-specifications-ap-east-1-prod.s3.ap-east-1.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json'
@@ -52,7 +52,7 @@ function Update-VSResourceFunctions {
         ResourceTypes = @{}
         PropertyTypes = @{}
     }
-    Write-Verbose "Getting CloudFormation spec from region: us-east-1 (N. Virginia)"
+    Write-Host "Getting CloudFormation spec from region: us-east-1 (N. Virginia)"
     $URL = 'https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
     $specs = Invoke-RestMethod $URL -Verbose:$false
     foreach ($resource in $specs.ResourceTypes.PSObject.Properties) {
@@ -61,10 +61,11 @@ function Update-VSResourceFunctions {
     foreach ($resource in $specs.PropertyTypes.PSObject.Properties) {
         $final['PropertyTypes'][$resource.Name] = $resource
     }
+
     # Get the rest and add anything missing from us-east-1 for full coverage
     foreach ($region in $regHash.GetEnumerator() | Where-Object {$_.Key -ne 'us-east-1 (N. Virginia)'}) {
         try {
-            Write-Verbose "Getting CloudFormation spec from region: $($region.Key)"
+            Write-Host "Getting CloudFormation spec from region: $($region.Key)"
             $specs = Invoke-RestMethod $region.Value -Verbose:$false
             if ($newResources = $specs.ResourceTypes.PSObject.Properties | Where-Object {$_.Name -notin $final['ResourceTypes'].Keys}) {
                 Write-Host -ForegroundColor Green "Found $($newResources.Count) new resource types in region: $($region.Key)`n- $($newResources.Name -join "`n- ")"
@@ -83,26 +84,24 @@ function Update-VSResourceFunctions {
             Write-Host -ForegroundColor Yellow "WARNING: Failed to get specs from region: $($_.Key)"
         }
     }
+
+    # Clean up the directories with dynamically generated content to ensure no legacy files are included in the module
+    Write-Host -ForegroundColor Green 'Clean up the directories where functions will be generated'
+    Get-ChildItem $vsTypeFuncPath -Exclude '.git*' | Remove-Item -Force -Recurse
+    Get-ChildItem $vsPropFuncPath -Exclude '.git*' | Remove-Item -Force -Recurse
+
+    # Regenerate New-VS... and Add-VS... commands
+    Write-Host -ForegroundColor Green 'Generate Resource Type functions'
     foreach ($resource in $final['ResourceTypes'].Values | Sort-Object Name) {
         Write-Verbose "Updating Resource Type [$($resource.Name)]"
         Convert-SpecToFunction -Resource $resource -ResourceType Resource
     }
+    Write-Host -ForegroundColor Green ('Generated {0} Resource Type functions' -f $AfterTypeCount)
+
+    Write-Host -ForegroundColor Green 'Generate Resource Property functions'
     foreach ($resource in $final['PropertyTypes'].Values | Sort-Object Name) {
         Write-Verbose "Updating Resource Property [$($resource.Name)]"
         Convert-SpecToFunction -Resource $resource -ResourceType Property
     }
-    $AfterTypeCount = (Get-ChildItem -Path (Resolve-Path "$vsPath\Public\Resource Types").Path).Count
-    $AfterPropCount = (Get-ChildItem -Path (Resolve-Path "$vsPath\Public\Resource Property Types").Path).Count
-    $newType = $AfterTypeCount - $BeforeTypeCount
-    $newProp = $AfterPropCount - $BeforePropCount
-    Write-Verbose "`n`n$newType new Resource Type and $newProp Resource Property Type functions added to Vaporshell [$($newType + $newProp) total]`n"
-    Write-Host "Resource function update stats:"
-    [PSCustomObject][Ordered]@{
-        'Resource Type Functions [Before]' = $BeforeTypeCount
-        'Resource Type Functions [After]' = $AfterTypeCount
-        'Resource Type Functions [Diff]' = $newType
-        'Resource Prop Functions [Before]' = $BeforePropCount
-        'Resource Prop Functions [After]' = $AfterPropCount
-        'Resource Prop Functions [Diff]' = $newProp
-    }
+    Write-Host -ForegroundColor Green ('Generated {0} Resource Property functions' -f $AfterPropCount)
 }
