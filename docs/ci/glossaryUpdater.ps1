@@ -72,11 +72,15 @@ for ($i=0; $i -lt $numberOfBatches; $i++) {
 # and finally process the batches in parallel
 Write-Host -ForegroundColor Green ("Starting parallel processing to build the updated docs {0} in batches of max {1} commands" -f $numberOfBatches, $batchSize)
 $batches | ForEach-Object -Parallel {
+    $commandBatch = $_
     $docsPath = $using:docsPath
     Import-Module platyPS
     Import-Module "$using:basePath\BuildOutput\VaporShell"
-    Write-Host "Working on: $($_)"
-    New-MarkdownHelp -Command "VaporShell\$_" -Force -NoMetadata -OutputFolder "$($docsPath)\docs\glossary"
+    $commandBatch | ForEach-Object {
+        $command = $_
+        Write-Host "Working on: $($command)"
+        New-MarkdownHelp -Command "VaporShell\$command" -Force -NoMetadata -OutputFolder "$($docsPath)\docs\glossary"
+    }
 } -ThrottleLimit $numberOfBatches
 
 # Comment this out for now to speed up execution - adding a dummy example to generated commands instead of removing the placeholder here
