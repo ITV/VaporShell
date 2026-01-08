@@ -96,16 +96,12 @@ function Update-VSResourceFunctions {
         Write-Verbose "Updating Resource Type [$($resource.Name)]"
         Convert-SpecToFunction -Resource $resource -ResourceType Resource
     }
+    Write-Host -ForegroundColor Green ('Generated {0} Resource Type functions' -f $AfterTypeCount)
 
     Write-Host -ForegroundColor Green 'Generate Resource Property functions'
     foreach ($resource in $final['PropertyTypes'].Values | Sort-Object Name) {
         Write-Verbose "Updating Resource Property [$($resource.Name)]"
         Convert-SpecToFunction -Resource $resource -ResourceType Property
     }
-
-    Write-Host "Generated function stats:"
-    [PSCustomObject][Ordered]@{
-        'Resource Type Functions' = $AfterTypeCount
-        'Resource Property Functions' = $AfterPropCount
-    }
+    Write-Host -ForegroundColor Green ('Generated {0} Resource Property functions' -f $AfterPropCount)
 }
