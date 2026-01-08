@@ -71,7 +71,7 @@ for ($i=0; $i -lt $numberOfBatches; $i++) {
 }
 
 # and finally process the batches in parallel
-Write-Host -ForegroundColor Green ("Starting parallel processing to build the updated docs {0} in batches of max {1} commands" -f $numberOfBatches, $batchSize)
+Write-Host -ForegroundColor Green ("Starting parallel processing to build the updated docs in {0} batches of max {1} commands" -f $numberOfBatches, $batchSize)
 $batches | ForEach-Object -Parallel {
     $commandBatch = $_
     $docsPath = $using:docsPath
