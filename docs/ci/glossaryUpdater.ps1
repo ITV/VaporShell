@@ -59,7 +59,8 @@ $batchInfo[$id]['Size'] = $vsCommands.Count - ($numberOfBatches-1) * $batchSize
 foreach ($key in $batchInfo.Keys | Sort-Object) {
     $batchInfo[$key]['Commands'] = [array]::CreateInstance([object], $batchInfo[$key]['Size'])
     [array]::Copy($vsCommands, $batchInfo[$key]['StartIndex'], $batchInfo[$key]['Commands'], 0, $batchInfo[$key]['Size'])
-    Write-Host -ForegroundColor Green ("`nBatch {0} contains {1} commands:`n{2}" -f $key, $batchInfo[$key]['Size'], ($batchInfo[$key]['Commands'] -join ', '))
+    Write-Host -ForegroundColor Green ("Batch {0} contains {1} commands: {2} to {3}" -f $key, $batchInfo[$key]['Size'], $batchInfo[$key]['Commands'][0], $batchInfo[$key]['Commands'][-1])
+    Write-Verbose ("All commands in batch {0}:`n{1}`n" -f $key, ($batchInfo[$key]['Commands'] -join ', '))
 }
 
 # prepare an array of arrays to process
