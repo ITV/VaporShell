@@ -37,16 +37,47 @@ Import-Module "$($basePath)/BuildOutput/VaporShell" -Force
 Write-Host -ForegroundColor Magenta "Removing existing glossary docs"
 Get-ChildItem "$($docsPath)/docs/glossary" -Exclude "index.md" | Remove-Item -Force
 
-$vsCommands = (Get-ChildItem "$($basePath)/VaporShell/Public" -Filter '*.ps1' -Recurse).BaseName
+# Get all commands and prepare to batch them up. Batch size can be controlled to modify the execution time.
+$batchSize = 1000
+$vsCommands = (Get-ChildItem "$($basePath)/VaporShell/Public" -Filter '*.ps1' -Recurse).BaseName | Sort-Object
+$numberOfBatches = [Math]::Ceiling($vsCommands.Count / $batchSize)
 
-Write-Host -ForegroundColor Green "Starting parallel processing to build the updated docs"
-$vsCommands | ForEach-Object -Parallel {
+# Work out information for each batch
+$batchInfo = @{}
+for ($i=0; $i -lt $numberOfBatches; $i++) {
+    $id = 'b{0}' -f $i
+    $batchInfo[$id] = @{
+        StartIndex = $i * $batchSize
+        Size       = $batchSize
+    }
+}
+
+# Last batch size needs to be corrected for the actual number of remaining elements
+$batchInfo[$id]['Size'] = $vsCommands.Count - ($numberOfBatches-1) * $batchSize
+
+# prepare each batch with the commands to process
+foreach ($key in $batchInfo.Keys | Sort-Object) {
+    $batchInfo[$key]['Commands'] = [array]::CreateInstance([object], $batchInfo[$key]['Size'])
+    [array]::Copy($vsCommands, $batchInfo[$key]['StartIndex'], $batchInfo[$key]['Commands'], 0, $batchInfo[$key]['Size'])
+    Write-Host -ForegroundColor Green ("`nBatch {0} contains {1} commands:`n{2}" -f $key, $batchInfo[$key]['Size'], ($batchInfo[$key]['Commands'] -join ', '))
+}
+
+# prepare an array of arrays to process
+$batches = [array]::CreateInstance([object], $numberOfBatches)
+for ($i=0; $i -lt $numberOfBatches; $i++) {
+    $id = 'b{0}' -f $i
+    $batches[$i] = $batchInfo[$id]['Commands']
+}
+
+# and finally process the batches in parallel
+Write-Host -ForegroundColor Green ("Starting parallel processing to build the updated docs {0} in batches of max {1} commands" -f $numberOfBatches, $batchSize)
+$batches | ForEach-Object -Parallel {
     $docsPath = $using:docsPath
     Import-Module platyPS
     Import-Module "$using:basePath\BuildOutput\VaporShell"
     Write-Host "Working on: $($_)"
     New-MarkdownHelp -Command "VaporShell\$_" -Force -NoMetadata -OutputFolder "$($docsPath)\docs\glossary"
-} -ThrottleLimit 10
+} -ThrottleLimit $numberOfBatches
 
 # Comment this out for now to speed up execution - adding a dummy example to generated commands instead of removing the placeholder here
 # $files = Get-ChildItem "$($docsPath)/docs/glossary" -Exclude "index.md"
