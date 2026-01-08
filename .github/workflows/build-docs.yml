@@ -19,7 +19,7 @@ jobs:
       - name: Install PowerShell Modules 📦
         run: |
           $localModules = Get-Module -ListAvailable
-          'platyPS' | ForEach-Object {
+          'platyPS', 'AWS.Tools.S3', 'AWS.Tools.CloudFormation' | ForEach-Object {
             if ($_ -notin $localModules.Name) {
               Install-Module -Name $_ -Force -Scope CurrentUser
             }
