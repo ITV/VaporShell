@@ -86,14 +86,18 @@ function Update-VSResourceFunctions {
     }
 
     # Clean up the directories with dynamically generated content to ensure no legacy files are included in the module
+    Write-Host -ForegroundColor Green 'Clean up the directories where functions will be generated'
     Get-ChildItem $vsTypeFuncPath -Exclude '.git*' | Remove-Item -Force -Recurse
     Get-ChildItem $vsPropFuncPath -Exclude '.git*' | Remove-Item -Force -Recurse
 
     # Regenerate New-VS... and Add-VS... commands
+    Write-Host -ForegroundColor Green 'Generate Resource Type functions'
     foreach ($resource in $final['ResourceTypes'].Values | Sort-Object Name) {
         Write-Verbose "Updating Resource Type [$($resource.Name)]"
         Convert-SpecToFunction -Resource $resource -ResourceType Resource
     }
+
+    Write-Host -ForegroundColor Green 'Generate Resource Property functions'
     foreach ($resource in $final['PropertyTypes'].Values | Sort-Object Name) {
         Write-Verbose "Updating Resource Property [$($resource.Name)]"
         Convert-SpecToFunction -Resource $resource -ResourceType Property
