@@ -39,7 +39,8 @@ Get-ChildItem "$($docsPath)/docs/glossary" -Exclude "index.md" | Remove-Item -Fo
 
 # Get all commands and prepare to batch them up. Testing on a laptop suggests 3 or 4 is the optimal number of batches.
 $numberOfBatches = 3
-$vsCommands = (Get-ChildItem "$($basePath)/VaporShell/Public" -Filter '*.ps1' -Recurse).BaseName | Sort-Object
+# XXX temp limit to 100 for testing docs generation
+$vsCommands = (Get-ChildItem "$($basePath)/VaporShell/Public" -Filter '*.ps1' -Recurse).BaseName | Sort-Object | Select-Object -First 100
 $batchSize = [Math]::Ceiling($vsCommands.Count / $numberOfBatches)
 
 # Work out information for each batch
