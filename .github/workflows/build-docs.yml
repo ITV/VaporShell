@@ -2,13 +2,15 @@ name: Build and Deploy Docs
 permissions:
   contents: write
 on:
-  push:
-    branches:
-      - main
-    tags:
-      - '*'
+  # XXX docs site does not seem to work properly at the moment - parking it, no time
+  # push:
+  #   branches:
+  #     - main
+  #   tags:
+  #     - '*'
   workflow_dispatch:
-
+    # XXX CANCEL ON NEW MERGE
+    # XXX consider installing from ecp repo rather than building (may be ahead of the actual published module)
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
