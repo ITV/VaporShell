@@ -73,5 +73,5 @@ function Add-FnCidr {
         "Fn::Cidr" = @($IpBlock,$Count,$CidrBits)
     }
     $obj | Add-ObjectDetail -TypeName 'Vaporshell.Function','Vaporshell.Function.Cidr'
-    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 5 -Compress)`n"
+    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 10 -Compress)`n"
 }

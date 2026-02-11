@@ -2,7 +2,7 @@ function Add-FnSelect {
     <#
     .SYNOPSIS
         Adds the intrinsic function "Fn::Select" to a resource property
-    
+
     .DESCRIPTION
         The intrinsic function Fn::Select returns a single object from a list of objects by index.
 
@@ -13,7 +13,7 @@ function Add-FnSelect {
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-select.html
-    
+
     .PARAMETER Index
         The index of the object to retrieve. This must be a value from zero to N-1, where N represents the number of elements in the array.
 
@@ -78,5 +78,5 @@ function Add-FnSelect {
         }
     }
     $obj | Add-ObjectDetail -TypeName 'Vaporshell.Function','Vaporshell.Function.Select'
-    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 5 -Compress)`n"
+    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 10 -Compress)`n"
 }

@@ -65,5 +65,5 @@ function Add-FnJoin {
         "Fn::Join" = @($Delimiter,@($ListOfValues))
     }
     $obj | Add-ObjectDetail -TypeName 'Vaporshell.Function','Vaporshell.Function.Join'
-    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 5 -Compress)`n"
+    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 10 -Compress)`n"
 }

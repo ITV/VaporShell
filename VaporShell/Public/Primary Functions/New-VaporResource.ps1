@@ -32,7 +32,7 @@ function New-VaporResource {
 
         To keep a resource when its stack is deleted, specify Retain for that resource. You can use retain for any resource. For example, you can retain a nested stack, S3 bucket, or EC2 instance so that you can continue to use or modify those resources after you delete their stacks.
 
-        You must use one of the following options: "Delete","Retain","Snapshot"
+        You must use one of the following options: "Delete","Retain","Snapshot","RetainExceptOnCreate"
 
     .PARAMETER DependsOn
         With the DependsOn attribute you can specify that the creation of a specific resource follows another. When you add a DependsOn attribute to a resource, that resource is created only after the creation of the resource specified in the DependsOn attribute.
@@ -136,11 +136,11 @@ function New-VaporResource {
             })]
         $CreationPolicy,
         [parameter(Mandatory = $false,Position = 4)]
-        [ValidateSet("Delete","Retain","Snapshot")]
+        [ValidateSet("Delete","Retain","Snapshot","RetainExceptOnCreate")]
         [System.String]
         $DeletionPolicy,
         [parameter(Mandatory = $false)]
-        [ValidateSet("Delete","Retain","Snapshot")]
+        [ValidateSet("Delete","Retain","Snapshot","RetainExceptOnCreate")]
         [System.String]
         $UpdateReplacePolicy,
         [parameter(Mandatory = $false,Position = 5)]
@@ -203,5 +203,5 @@ function New-VaporResource {
     }
     $obj | Add-Member -MemberType ScriptMethod -Name ToString -Value {$this.LogicalId} -Force
     $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource'
-    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$(@{$obj.LogicalId = $obj.Props} | ConvertTo-Json -Depth 5)`n"
+    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$(@{$obj.LogicalId = $obj.Props} | ConvertTo-Json -Depth 10)`n"
 }

@@ -2,13 +2,13 @@ function Add-FnBase64 {
     <#
     .SYNOPSIS
         Adds the intrinsic function "Fn::Base64" to a resource property
-    
+
     .DESCRIPTION
         The intrinsic function Fn::Base64 returns the Base64 representation of the input string. This function is typically used to pass encoded data to Amazon EC2 instances by way of the UserData property.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-base64.html
-    
+
     .PARAMETER ValueToEncode
         The string value you want to convert to Base64.
 
@@ -48,5 +48,5 @@ function Add-FnBase64 {
         "Fn::Base64" = $ValueToEncode
     }
     $obj | Add-ObjectDetail -TypeName 'Vaporshell.Function','Vaporshell.Function.Base64'
-    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 5 -Compress)`n"
+    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 10 -Compress)`n"
 }

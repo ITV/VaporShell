@@ -80,5 +80,5 @@ function New-VaporMetadata {
         "Props" = $Metadata
     }
     $obj | Add-ObjectDetail -TypeName 'Vaporshell.Metadata'
-    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$(@{$obj.LogicalId = $obj.Props} | ConvertTo-Json -Depth 5 -Compress)`n"
+    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$(@{$obj.LogicalId = $obj.Props} | ConvertTo-Json -Depth 10 -Compress)`n"
 }

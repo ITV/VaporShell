@@ -13,13 +13,13 @@ function New-SAMFunction {
         The logical ID must be alphanumeric (A-Za-z0-9) and unique within the template. Use the logical name to reference the resource in other parts of the template. For example, if you want to map an Amazon Elastic Block Store volume to an Amazon EC2 instance, you reference the logical IDs to associate the block stores with the instance.
 
     .PARAMETER Handler
-        Required. Function within your code that is called to begin execution.  
+        Required. Function within your code that is called to begin execution.
 
     .PARAMETER Runtime
-		Required. The runtime environment.  
+		Required. The runtime environment.
 
     .PARAMETER CodeUri
-		Required. S3 Uri or location to the function code. The S3 object this Uri references MUST be a Lambda deployment package.  
+		Required. S3 Uri or location to the function code. The S3 object this Uri references MUST be a Lambda deployment package.
 
     .PARAMETER FunctionName
 		A name for the function. If you don't specify a name, a unique name will be generated for you.
@@ -55,12 +55,12 @@ function New-SAMFunction {
 		String that specifies the function's X-Ray tracing mode. Accepted values are Active and PassThrough
 
     .NOTES
-        Return values  
+        Return values
 
-        Ref  
+        Ref
         When the logical ID of this resource is provided to the Ref intrinsic function, it returns the resource name of the underlying Lambda function.
 
-        Fn::GetAtt  
+        Fn::GetAtt
         When the logical ID of this resource is provided to the Fn::GetAtt intrinsic function, it returns a value for a specified attribute of this type. This section lists the available attributes.
 
     .FUNCTIONALITY
@@ -249,6 +249,6 @@ function New-SAMFunction {
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Serverless.Function'
-        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$(@{$obj.LogicalId = $obj.Props} | ConvertTo-Json -Depth 5)`n"
+        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$(@{$obj.LogicalId = $obj.Props} | ConvertTo-Json -Depth 10)`n"
     }
 }

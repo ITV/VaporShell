@@ -71,5 +71,5 @@ function Add-ConIf {
         "Fn::If" = @($ConditionName,$ValueIfTrue,$ValueIfFalse)
     }
     $obj | Add-ObjectDetail -TypeName 'Vaporshell.Condition','Vaporshell.Condition.If'
-    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 5 -Compress)`n"
+    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 10 -Compress)`n"
 }

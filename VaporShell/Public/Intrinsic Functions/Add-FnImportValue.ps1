@@ -2,7 +2,7 @@ function Add-FnImportValue {
     <#
     .SYNOPSIS
         Adds the intrinsic function "Fn::ImportValue" to a resource property
-    
+
     .DESCRIPTION
         The intrinsic function Fn::ImportValue returns the value of an output exported by another stack. You typically use this function to create cross-stack references.
 
@@ -17,7 +17,7 @@ function Add-FnImportValue {
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html
-    
+
     .PARAMETER ValueToImport
         The stack output value that you want to import.
 
@@ -60,5 +60,5 @@ function Add-FnImportValue {
         "Fn::ImportValue" = $ValueToImport
     }
     $obj | Add-ObjectDetail -TypeName 'Vaporshell.Function','Vaporshell.Function.ImportValue'
-    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 5 -Compress)`n"
+    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 10 -Compress)`n"
 }

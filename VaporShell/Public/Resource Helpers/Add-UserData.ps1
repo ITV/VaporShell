@@ -116,6 +116,6 @@ function Add-UserData {
             $obj = Add-FnBase64 -ValueToEncode $Values -Verbose:$false
         }
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.UserData'
-        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 5)`n"
+        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$($obj | ConvertTo-Json -Depth 10)`n"
     }
 }

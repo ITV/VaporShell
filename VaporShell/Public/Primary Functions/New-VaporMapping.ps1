@@ -2,7 +2,7 @@ function New-VaporMapping {
     <#
     .SYNOPSIS
         Adds a Mapping object to the template
-    
+
     .DESCRIPTION
         The optional Mappings section matches a key to a corresponding set of named values. For example, if you want to set values based on a region, you can create a mapping that uses the region name as a key and contains the values you want to specify for each specific region. You use the Fn::FindInMap intrinsic function to retrieve values in a map.
 
@@ -10,10 +10,10 @@ function New-VaporMapping {
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html
-    
+
     .PARAMETER LogicalId
         An identifier for the current condition. The logical ID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.
-    
+
     .PARAMETER Map
         A 2 level collection of key/value pairs. If you would like your collection to remain ordered the same as called, use an ordered PSCustomObject, otherwise a hashtable is fine.
 
@@ -46,7 +46,7 @@ function New-VaporMapping {
             })
         ))
 
-        When the template is exported, this will convert to: 
+        When the template is exported, this will convert to:
             {
                 "AWSTemplateFormatVersion":  "2010-09-09",
                 "Description":  "Testing Mapping addition",
@@ -114,5 +114,5 @@ function New-VaporMapping {
         "Props" = $Map
     }
     $obj | Add-ObjectDetail -TypeName 'Vaporshell.Mapping'
-    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$(@{$obj.LogicalId = $obj.Props} | ConvertTo-Json -Depth 5 -Compress)`n"
+    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$(@{$obj.LogicalId = $obj.Props} | ConvertTo-Json -Depth 10 -Compress)`n"
 }

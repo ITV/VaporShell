@@ -2,7 +2,7 @@ function New-VaporParameter {
     <#
     .SYNOPSIS
         Adds a Parameter object to the template
-    
+
     .DESCRIPTION
         You can use the optional Parameters section to pass values into your template when you create a stack. With parameters, you can create templates that are customized each time you create a stack. Each parameter must contain a value when you create a stack. You can specify a default value to make the parameter optional so that you don't need to pass in a value when creating a stack. AWS CloudFormation will use the default value. For more information about creating stacks, see Working with Stacks.
 
@@ -17,10 +17,10 @@ function New-VaporParameter {
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html
-    
+
     .PARAMETER LogicalId
         An identifier for the current condition. The logical ID must be alphanumeric (a-z, A-Z, 0-9) and unique within the template.
-    
+
     .PARAMETER Type
         The Properties type for the parameter (PropertiesType).
 
@@ -116,34 +116,34 @@ function New-VaporParameter {
                 When you use the AWS CloudFormation console to create or update a stack, the console alphabetically lists input parameters by their logical ID. To override the default ordering, you can use the AWS::CloudFormation::Interface metaProperties key. By grouping and ordering parameters, you make it easier for users to specify parameter values. For example, you could group all VPC-related parameters so that they aren't scattered throughout an alphabetical list.
 
                 In the metaProperties key, you can specify the groups to create, the parameters to include in each group, and the order in which the console shows each parameter within its group. You can also define friendly parameter names so that the console shows descriptive names instead of logical IDs. All parameters that you reference in the metaProperties key must be declared in the Parameters section of the template.
-    
+
     .PARAMETER Default
         A value of the appropriate type for the template to use if no value is specified when a stack is created. If you define constraints for the parameter, you must specify a value that adheres to those constraints.
-    
+
     .PARAMETER NoEcho
         Whether to mask the parameter value whenever anyone makes a call that describes the stack. If you set the value to true, the parameter value is masked with asterisks (*****).
-    
+
     .PARAMETER AllowedPattern
         A regular expression that represents the patterns you want to allow for String types.
-    
+
     .PARAMETER AllowedValues
         An array containing the list of values allowed for the parameter.
-    
+
     .PARAMETER ConstraintDescription
         A string that explains the constraint when the constraint is violated.
-    
+
     .PARAMETER Description
         A string of up to 4000 characters that describes the parameter.
-    
+
     .PARAMETER MaxLength
         An integer value that determines the largest number of characters you want to allow for String types.
-    
+
     .PARAMETER MaxValue
         A numeric value that determines the largest numeric value you want to allow for Number types.
-    
+
     .PARAMETER MinLength
         An integer value that determines the smallest number of characters you want to allow for String types.
-    
+
     .PARAMETER MinValue
         A numeric value that determines the smallest numeric value you want to allow for Number types.
 
@@ -154,7 +154,7 @@ function New-VaporParameter {
             (New-VaporParameter -LogicalId "DBPwd" -NoEcho -Description "The Propertiesbase admin account password" -Type "String" -MinLength 1 -MaxLength 41 -AllowedPattern "^[a-zA-Z0-9]*$")
         )
 
-        When the template is exported, this will convert to: 
+        When the template is exported, this will convert to:
             {
                 "AWSTemplateFormatVersion":  "2010-09-09",
                 "Description":  "Testing Mapping addition",
@@ -285,6 +285,6 @@ function New-VaporParameter {
             "Props" = $Properties
         }
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Parameter'
-        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$(@{$obj.LogicalId = $obj.Props} | ConvertTo-Json -Depth 5 -Compress)`n"
+        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$(@{$obj.LogicalId = $obj.Props} | ConvertTo-Json -Depth 10 -Compress)`n"
     }
 }

@@ -2,13 +2,13 @@ function Add-FnFindInMap {
     <#
     .SYNOPSIS
         Adds the intrinsic function "Fn::FindInMap" to a resource property
-    
+
     .DESCRIPTION
         The intrinsic function Fn::FindInMap returns the value corresponding to keys in a two-level map that is declared in the Mappings section.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-findinmap.html
-    
+
     .PARAMETER MapName
         The logical name of a mapping declared in the Mappings section that contains the keys and values. The value can be another function.
 
@@ -73,5 +73,5 @@ function Add-FnFindInMap {
         "Fn::FindInMap" = @($MapName,$TopLevelKey,$SecondLevelKey)
     }
     $obj | Add-ObjectDetail -TypeName 'Vaporshell.Function','Vaporshell.Function.FindInMap'
-    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 5 -Compress)`n"
+    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 10 -Compress)`n"
 }
