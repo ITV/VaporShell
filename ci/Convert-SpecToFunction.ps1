@@ -112,7 +112,7 @@ function $FunctionName {
 
         To keep a resource when its stack is deleted, specify Retain for that resource. You can use retain for any resource. For example, you can retain a nested stack, S3 bucket, or EC2 instance so that you can continue to use or modify those resources after you delete their stacks.
 
-        You must use one of the following options: "Delete","Retain","Snapshot"`n
+        You must use one of the following options: "Delete","Retain","Snapshot","RetainExceptOnCreate"`n
 "@
     }
 
@@ -134,7 +134,7 @@ function $FunctionName {
 
         UpdateReplacePolicy differs from the DeletionPolicy attribute in that it only applies to resources replaced during stack updates. Use DeletionPolicy for resources deleted when a stack is deleted, or when the resource definition itself is deleted from the template as part of a stack update.
 
-        You must use one of the following options: "Delete","Retain","Snapshot"`n
+        You must use one of the following options: "Delete","Retain","Snapshot","RetainExceptOnCreate"`n
 "@
     }
 
@@ -400,7 +400,7 @@ function $FunctionName {
 
     if ($addCommonCfnProperty['DeletionPolicy']) {
         $scriptContents += @"
-        [ValidateSet("Delete","Retain","Snapshot")]
+        [ValidateSet("Delete","Retain","Snapshot","RetainExceptOnCreate")]
         [System.String]
         `$DeletionPolicy,`n
 "@
@@ -408,7 +408,7 @@ function $FunctionName {
 
     if ($addCommonCfnProperty['UpdateReplacePolicy']) {
         $scriptContents += @"
-        [ValidateSet("Delete","Retain","Snapshot")]
+        [ValidateSet("Delete","Retain","Snapshot","RetainExceptOnCreate")]
         [System.String]
         `$UpdateReplacePolicy,`n
 "@
@@ -595,7 +595,7 @@ function $FunctionName {
     End {
         `$obj = New-VaporResource @ResourceParams
         `$obj | Add-ObjectDetail -TypeName '$TypeName'
-        Write-Verbose "Resulting JSON from `$(`$MyInvocation.MyCommand): ``n``n`$(@{`$obj.LogicalId = `$obj.Props} | ConvertTo-Json -Depth 5)``n"
+        Write-Verbose "Resulting JSON from `$(`$MyInvocation.MyCommand): ``n``n`$(@{`$obj.LogicalId = `$obj.Props} | ConvertTo-Json -Depth 10)``n"
     }
 }
 "@
@@ -647,7 +647,7 @@ function $FunctionName {
 
     End {
         `$obj | Add-ObjectDetail -TypeName '$TypeName'
-        Write-Verbose "Resulting JSON from `$(`$MyInvocation.MyCommand): ``n``n`$(`$obj | ConvertTo-Json -Depth 5)``n"
+        Write-Verbose "Resulting JSON from `$(`$MyInvocation.MyCommand): ``n``n`$(`$obj | ConvertTo-Json -Depth 10)``n"
     }
 }
 "@

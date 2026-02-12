@@ -2,13 +2,13 @@ function Add-ConOr {
     <#
     .SYNOPSIS
         Adds the condition function "Fn::Or" to a resource property
-    
+
     .DESCRIPTION
         Returns true if any one of the specified conditions evaluate to true, or returns false if all of the conditions evaluates to false. Fn::Or acts as an OR operator. The minimum number of conditions that you can include is 2, and the maximum is 10.
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-conditions.html#intrinsic-function-reference-conditions-or
-    
+
     .PARAMETER Condition
         A condition such as Fn::Equals that evaluates to true or false.
 
@@ -48,5 +48,5 @@ function Add-ConOr {
         "Fn::Or" = @($Conditions)
     }
     $obj | Add-ObjectDetail -TypeName 'Vaporshell.Condition','Vaporshell.Condition.Or'
-    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 5 -Compress)`n"
+    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 10 -Compress)`n"
 }

@@ -2,7 +2,7 @@ function Add-CreationPolicy {
     <#
     .SYNOPSIS
         Adds a CreationPolicy property to a resoure on the template
-    
+
     .DESCRIPTION
         Associate the CreationPolicy attribute with a resource to prevent its status from reaching create complete until AWS CloudFormation receives a specified number of success signals or the timeout period is exceeded. To signal a resource, you can use the cfn-signal helper script or SignalResource API. AWS CloudFormation publishes valid signals to the stack events so that you track the number of signals sent.
 
@@ -12,23 +12,23 @@ function Add-CreationPolicy {
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
-    
+
     .PARAMETER AutoScalingCreationPolicy
         For an Auto Scaling group replacement update, specifies how many instances must signal success for the update to succeed.
 
         Parameter accepts a PSCustomObject. Use this if you are customizing the AutoScalingCreationPolicy properties outside of MinSuccessfulInstancesPercent.
-    
+
     .PARAMETER MinSuccessfulInstancesPercent
         Specifies the percentage of instances in an Auto Scaling replacement update that must signal success for the update to succeed. You can specify a value from 0 to 100. AWS CloudFormation rounds to the nearest tenth of a percent. For example, if you update five instances with a minimum successful percentage of 50, three instances must signal success. If an instance doesn't send a signal within the time specified by the Timeout property, AWS CloudFormation assumes that the instance wasn't created.
-    
+
     .PARAMETER ResourceSignal
         When AWS CloudFormation creates the associated resource, configures the number of required success signals and the length of time that AWS CloudFormation waits for those signals.
 
         Parameter accepts a PSCustomObject. Use this if you are customizing the ResourceSignal properties outside of Count and/or Timeout.
-    
+
     .PARAMETER Count
         The number of success signals AWS CloudFormation must receive before it sets the resource status as CREATE_COMPLETE. If the resource receives a failure signal or doesn't receive the specified number of signals before the timeout period expires, the resource creation fails and AWS CloudFormation rolls the stack back.
-    
+
     .PARAMETER Timeout
         The length of time that AWS CloudFormation waits for the number of signals that was specified in the Count property. The timeout period starts after AWS CloudFormation starts creating the resource, and the timeout expires no sooner than the time you specify but can occur shortly thereafter. The maximum time that you can specify is 12 hours.
 
@@ -48,7 +48,7 @@ function Add-CreationPolicy {
             )
         )
 
-        When the template is exported, this will convert to: 
+        When the template is exported, this will convert to:
 ```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
@@ -162,6 +162,6 @@ function Add-CreationPolicy {
     }
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.CreationPolicy'
-        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 5)`n"
+        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 10)`n"
     }
 }

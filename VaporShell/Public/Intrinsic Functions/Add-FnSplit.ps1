@@ -2,7 +2,7 @@ function Add-FnSplit {
     <#
     .SYNOPSIS
         Adds the intrinsic function "Fn::Split" to a resource property
-    
+
     .DESCRIPTION
         To split a string into a list of string values so that you can select an element from the resulting string list, use the Fn::Split intrinsic function. Specify the location of splits with a delimiter, such as , (a comma). After you split a string, use the Fn::Select function to pick a specific element.
 
@@ -10,7 +10,7 @@ function Add-FnSplit {
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-split.html
-    
+
     .PARAMETER Delimiter
         A string value that determines where the source string is divided.
 
@@ -61,5 +61,5 @@ function Add-FnSplit {
         "Fn::Split" = @($Delimiter,$SourceString)
     }
     $obj | Add-ObjectDetail -TypeName 'Vaporshell.Function','Vaporshell.Function.Split'
-    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 5 -Compress)`n"
+    Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 10 -Compress)`n"
 }

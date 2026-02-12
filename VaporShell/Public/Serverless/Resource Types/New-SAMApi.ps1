@@ -18,7 +18,7 @@ function New-SAMApi {
         Required. The name of the stage, which API Gateway uses as the first path segment in the invoke Uniform Resource Identifier (URI).
 
     .PARAMETER DefinitionUri
-		Required. S3 URI or location to the Swagger document describing the API. Either one of DefinitionUri or DefinitionBody must be specified. 
+		Required. S3 URI or location to the Swagger document describing the API. Either one of DefinitionUri or DefinitionBody must be specified.
 
     .PARAMETER DefinitionBody
 		Required. Swagger specification that describes your API. Either one of DefinitionUri or DefinitionBody must be specified.
@@ -33,7 +33,7 @@ function New-SAMApi {
 		A hashtable (string to string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: [A-Za-z0-9._~:/?#&amp;=,-]+.
 
     .NOTES
-        Return values  
+        Return values
 
         Ref
         When the logical ID of this resource is provided to the Ref intrinsic function, it returns the resource name of the underlying API Gateway RestApi.
@@ -114,6 +114,6 @@ function New-SAMApi {
     End {
         $obj = New-VaporResource @ResourceParams
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Serverless.Api'
-        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$(@{$obj.LogicalId = $obj.Props} | ConvertTo-Json -Depth 5)`n"
+        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n$(@{$obj.LogicalId = $obj.Props} | ConvertTo-Json -Depth 10)`n"
     }
 }

@@ -2,7 +2,7 @@ function Add-UpdatePolicy {
     <#
     .SYNOPSIS
         Adds an UpdatePolicy property to a resoure on the template
-    
+
     .DESCRIPTION
         Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a scheduled action is associated with the Auto Scaling group.
 
@@ -15,7 +15,7 @@ function Add-UpdatePolicy {
 
     .LINK
         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html
-    
+
     .PARAMETER AutoScalingReplacingUpdate
         To specify how AWS CloudFormation handles replacement updates for an Auto Scaling group, use the AutoScalingReplacingUpdate policy. This policy enables you to specify whether AWS CloudFormation replaces an Auto Scaling group with a new one or replaces only the instances in the Auto Scaling group.
 
@@ -23,14 +23,14 @@ function Add-UpdatePolicy {
                 Before attempting an update, ensure that you have sufficient Amazon EC2 capacity for both your old and new Auto Scaling groups.
 
         Parameter accepts a PSCustomObject. Use this if you are customizing the AutoScalingReplacingUpdate properties outside of WillReplace.
-    
+
     .PARAMETER WillReplace
         Specifies whether an Auto Scaling group and the instances it contains are replaced during an update. During replacement, AWS CloudFormation retains the old group until it finishes creating the new one. If the update fails, AWS CloudFormation can roll back to the old Auto Scaling group and delete the new Auto Scaling group.
 
         While AWS CloudFormation creates the new group, it doesn't detach or attach any instances. After successfully creating the new Auto Scaling group, AWS CloudFormation deletes the old Auto Scaling group during the cleanup process.
 
         When you set the WillReplace parameter, remember to specify a matching CreationPolicy. If the minimum number of instances (specified by the WillReplace property) don't signal success within the Timeout period (specified in the CreationPolicy policy), the replacement update fails and AWS CloudFormation rolls back to the old Auto Scaling group.
-    
+
     .PARAMETER AutoScalingRollingUpdate
         To specify how AWS CloudFormation handles rolling updates for an Auto Scaling group, use the AutoScalingRollingUpdate policy. Rolling updates enable you to specify whether AWS CloudFormation updates instances that are in an Auto Scaling group in batches or all at once.
 
@@ -38,20 +38,20 @@ function Add-UpdatePolicy {
                 During a rolling update, some Auto Scaling processes might make changes to the Auto Scaling group before AWS CloudFormation completes the rolling update. These changes might cause the rolling update to fail. To prevent Auto Scaling from running processes during a rolling update, use the SuspendProcesses property.
 
         Parameter accepts a PSCustomObject. Use this if you are customizing the AutoScalingRollingUpdate properties outside of MaxBatchSize, MinInstancesInService, WillReplace, PauseTime, SuspendProcesses, and/or WaitOnAutoScalingRollingUpdates.
-    
+
     .PARAMETER MaxBatchSize
         Specifies the maximum number of instances that AWS CloudFormation updates.
-    
+
     .PARAMETER MinInstancesInService
         Specifies the minimum number of instances that must be in service within the Auto Scaling group while AWS CloudFormation updates old instances.
-    
+
     .PARAMETER WillReplace
         Specifies the percentage of instances in an Auto Scaling rolling update that must signal success for an update to succeed. You can specify a value from 0 to 100. AWS CloudFormation rounds to the nearest tenth of a percent. For example, if you update five instances with a minimum successful percentage of 50, three instances must signal success.
 
         If an instance doesn't send a signal within the time specified in the PauseTime property, AWS CloudFormation assumes that the instance wasn't updated.
 
         If you specify this property, you must also enable the WaitOnAutoScalingRollingUpdates and PauseTime properties.
-    
+
     .PARAMETER PauseTime
         The amount of time that AWS CloudFormation pauses after making a change to a batch of instances to give those instances time to start software applications. For example, you might need to specify PauseTime when scaling up the number of instances in an Auto Scaling group.
 
@@ -60,15 +60,15 @@ function Add-UpdatePolicy {
         Specify PauseTime in the ISO8601 duration format (in the format PT#H#M#S, where each # is the number of hours, minutes, and seconds, respectively). The maximum PauseTime is one hour (PT1H).
 
         Default: PT0S (zero seconds). If the WaitOnAutoScalingRollingUpdates property is set to true, the default is PT5M.
-    
+
     .PARAMETER SuspendProcesses
         Specifies the Auto Scaling processes to suspend during a stack update. Suspending processes prevents Auto Scaling from interfering with a stack update. For example, you can suspend alarming so that Auto Scaling doesn't execute scaling policies associated with an alarm. For valid values, see the `ScalingProcesses.member.N parameter` for the SuspendProcesses action in the Auto Scaling API Reference.
-    
+
     .PARAMETER WaitOnAutoScalingRollingUpdates
         Specifies whether the Auto Scaling group waits on signals from new instances during an update. Use this property to ensure that instances have completed installing and configuring applications before the Auto Scaling group update proceeds. AWS CloudFormation suspends the update of an Auto Scaling group after new EC2 instances are launched into the group. AWS CloudFormation must receive a signal from each new instance within the specified PauseTime before continuing the update. To signal the Auto Scaling group, use the cfn-signal helper script or SignalResource API.
 
         To have instances wait for an Elastic Load Balancing health check before they signal success, add a health-check verification by using the cfn-init helper script. For an example, see the `verify_instance_health` command in the Auto Scaling rolling updates sample template.
-    
+
     .PARAMETER AutoScalingScheduledAction
         To specify how AWS CloudFormation handles updates for the MinSize, MaxSize, and DesiredCapacity properties when the AWS::AutoScaling::AutoScalingGroup resource has an associated scheduled action, use the AutoScalingScheduledAction policy.
 
@@ -95,7 +95,7 @@ function Add-UpdatePolicy {
             )
         )
 
-        When the template is exported, this will convert to: 
+        When the template is exported, this will convert to:
 ```json
 {
     "AWSTemplateFormatVersion": "2010-09-09",
@@ -285,6 +285,6 @@ function Add-UpdatePolicy {
     }
     End {
         $obj | Add-ObjectDetail -TypeName 'Vaporshell.Resource.UpdatePolicy'
-        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 5)`n"
+        Write-Verbose "Resulting JSON from $($MyInvocation.MyCommand): `n`n`t$($obj | ConvertTo-Json -Depth 10)`n"
     }
 }
