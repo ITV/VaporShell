@@ -9,43 +9,36 @@
 @{
 
     # Script module or binary module file associated with this manifest.
-    RootModule             = 'VaporShell.psm1'
+    RootModule            = 'VaporShell.psm1'
 
     # Version number of this module.
     # NB do not change this in ECP when rebuilding only without making manual code changes in the repository.
     #    Date will be appended to the PS module version automatically as part of the build process
-    ModuleVersion          = '2.17.0'
+    ModuleVersion         = '2.18.0'
 
     # ID used to uniquely identify this module
-    GUID                   = 'd526494c-6e59-41ff-ad05-eedbc1473b6a'
+    GUID                  = 'd526494c-6e59-41ff-ad05-eedbc1473b6a'
 
     # Author of this module
-    Author                 = 'Nate Ferrell'
+    Author                = 'ITV'
 
     # Company or vendor of this module
-    CompanyName            = 'SCRT HQ'
+    CompanyName           = 'ITV'
 
     # Copyright statement for this module
-    Copyright              = '(c) SCRT HQ 2017 . All rights reserved.'
+    Copyright             = '(c) ITV 2024. All rights reserved.'
 
     # Description of the functionality provided by this module
-    Description            = "A PowerShell module for building, packaging and deploying AWS CloudFormation templates
+    Description           = 'A PowerShell module for building, packaging and deploying AWS CloudFormation templates
 
 Prerequisites
 
-- PowerShell 3+
-    - On Linux or macOS? Grab PowerShell 6 here: https://github.com/powershell/powershell#get-powershell
-- .NET 4.7.2+ OR .netstandard 1.3+
-    - if you have PowerShell 4 or greater, you're covered!
-
-For further information, please checkout the README on the GitHub page and the module website:
-
-Readme: https://github.com/scrthq/VaporShell/blob/master/README.md
-Website: https://vaporshell.io/
-"
+- PowerShell 5.1+ (PowerShell 7+ recommended)
+- .netstandard 2.0+
+'
 
     # Minimum version of the Windows PowerShell engine required by this module
-    PowerShellVersion      = '3.0'
+    PowerShellVersion     = '5.1'
 
     # Name of the Windows PowerShell host required by this module
     # PowerShellHostName = ''
@@ -53,44 +46,44 @@ Website: https://vaporshell.io/
     # Minimum version of the Windows PowerShell host required by this module
     # PowerShellHostVersion = ''
 
-    # Minimum version of Microsoft .NET Framework required by this module
-    DotNetFrameworkVersion = '4.7.2'
+    # Minimum version of Microsoft .NET Framework required by this module (Windows PowerShell only)
+    # DotNetFrameworkVersion = '4.7.2'
 
     # Minimum version of the common language runtime (CLR) required by this module
     # CLRVersion = ''
 
     # Processor architecture (None, X86, Amd64) required by this module
-    ProcessorArchitecture  = 'None'
+    ProcessorArchitecture = 'None'
 
     # Modules that must be imported into the global environment prior to importing this module
-    RequiredModules        = @()
+    RequiredModules       = @()
 
     # Assemblies that must be loaded prior to importing this module
-    RequiredAssemblies     = @()
+    RequiredAssemblies    = @()
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module.
-    ScriptsToProcess       = @()
+    ScriptsToProcess      = @()
 
     # Type files (.ps1xml) to be loaded when importing this module
-    TypesToProcess         = @()
+    TypesToProcess        = @()
 
     # Format files (.ps1xml) to be loaded when importing this module
-    FormatsToProcess       = @()
+    FormatsToProcess      = @()
 
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
     # NestedModules          = @('VaporShell.DSL.psm1')
 
     # Functions to export from this module
-    FunctionsToExport      = '*'
+    FunctionsToExport     = '*'
 
     # Cmdlets to export from this module
-    CmdletsToExport        = @()
+    CmdletsToExport       = @()
 
     # Variables to export from this module
-    VariablesToExport      = '*'
+    VariablesToExport     = '*'
 
     # Aliases to export from this module
-    AliasesToExport        = '*'
+    AliasesToExport       = '*'
 
     # DSC resources to export from this module
     # DscResourcesToExport = @()
@@ -99,10 +92,10 @@ Website: https://vaporshell.io/
     # ModuleList = @()
 
     # List of all files packaged with this module
-    FileList               = @()
+    FileList              = @()
 
     # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
-    PrivateData            = @{
+    PrivateData           = @{
 
         PSData = @{
 
@@ -110,13 +103,13 @@ Website: https://vaporshell.io/
             Tags       = 'AWS', 'CloudFormation', 'CFN', 'DevOps', 'Automation', 'JSON', 'YAML', 'IaC', 'InfrastructureAsCode', 'PSEdition_Core', 'PSEdition_Desktop', 'Windows', 'Mac', 'Linux'
 
             # A URL to the license for this module.
-            LicenseUri = 'https://github.com/scrthq/VaporShell/blob/master/LICENSE'
+            LicenseUri = 'https://github.com/ITV/VaporShell/blob/main/LICENSE'
 
             # A URL to the main website for this project.
-            ProjectUri = 'https://github.com/scrthq/VaporShell'
+            ProjectUri = 'https://github.com/ITV/VaporShell'
 
             # A URL to an icon representing this module.
-            IconUri    = 'https://spotinst.com/app/themes/spotinst-theme/dist/images/features/elastigroup/intro/icons/cloudformation.svg'
+            # IconUri    = ''
 
             # ReleaseNotes of this module
             # ReleaseNotes = ''

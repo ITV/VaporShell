@@ -16,33 +16,35 @@ function Import-Vaporshell {
         Vaporshell
     #>
     [OutputType('Vaporshell.Template')]
-    [cmdletbinding(DefaultParameterSetName = "Path")]
-    Param
+    [cmdletbinding(DefaultParameterSetName = 'Path')]
+    param
     (
-        [parameter(Mandatory = $true,Position = 0,ParameterSetName = "Path")]
-        [Alias("FullName")]
-        [ValidateScript( {Test-Path $_})]
+        [parameter(Mandatory = $true, Position = 0, ParameterSetName = 'Path')]
+        [Alias('FullName')]
+        [ValidateScript( { Test-Path $_ })]
         [String]
         $Path,
-        [parameter(Mandatory = $true,Position = 0,ValueFromPipeline = $true,ParameterSetName = "TemplateBody")]
+        [parameter(Mandatory = $true, Position = 0, ValueFromPipeline = $true, ParameterSetName = 'TemplateBody')]
         [String]
         $TemplateBody,
-        [parameter(Mandatory = $true,Position = 0,ParameterSetName = "RawUrl")]
+        [parameter(Mandatory = $true, Position = 0, ParameterSetName = 'RawUrl')]
         [String]
         $RawUrl
     )
-    if ($PSCmdlet.ParameterSetName -eq "Path") {
+    if ($PSCmdlet.ParameterSetName -eq 'Path') {
         $TemplateBody = [System.IO.File]::ReadAllText((Resolve-Path $Path))
-    }
-    elseif ($PSCmdlet.ParameterSetName -eq "RawUrl") {
+    } elseif ($PSCmdlet.ParameterSetName -eq 'RawUrl') {
         $TemplateBody = (Invoke-WebRequest -Uri $RawUrl).Content
     }
-    if ($TemplateBody -match "Resources:") {
-        if (Get-Command cfn-flip -ErrorAction SilentlyContinue) {
+    if ($TemplateBody -match 'Resources:') {
+        if (Get-Module powershell-yaml -ListAvailable -ErrorAction SilentlyContinue) {
+            Import-Module powershell-yaml -ErrorAction SilentlyContinue
+            $yamlObj = ConvertFrom-Yaml -Yaml $TemplateBody
+            $TemplateBody = $yamlObj | ConvertTo-Json -Depth 100
+        } elseif (Get-Command cfn-flip -ErrorAction SilentlyContinue) {
             $TemplateBody = ($TemplateBody | cfn-flip)
-        }
-        else {
-            $PSCmdlet.ThrowTerminatingError((New-VSError -String "Template appears to be YAML but cfn-flip is not found in PATH. Unable to convert to JSON to import into Powershell. Please install cfn-flip then restart this console."))
+        } else {
+            $PSCmdlet.ThrowTerminatingError((New-VSError -String 'Template appears to be YAML but neither powershell-yaml module nor cfn-flip is available. Install with: Install-Module powershell-yaml'))
         }
     }
     $tempObj = ConvertFrom-Json -InputObject $TemplateBody -Verbose:$false
@@ -50,11 +52,11 @@ function Import-Vaporshell {
         $tempObj = $tempObj.TemplateBody
     }
     $toString = {
-        Process {
+        process {
             $params = @{
                 VaporshellTemplate = $this
-                As = 'JSON'
-                Force = $true
+                As                 = 'JSON'
+                Force              = $true
             }
             if ($args[0]) {
                 $params['Verbose'] = $args[0]
@@ -63,18 +65,18 @@ function Import-Vaporshell {
         }
     }
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "ToString"
+        Name        = 'ToString'
         Value       = $toString
     }
     Add-Member @memberParam -Force
     $toJSON = {
-        Process {
+        process {
             $params = @{
                 VaporshellTemplate = $this
-                As = 'JSON'
-                Force = $true
+                As                 = 'JSON'
+                Force              = $true
             }
             if ($args[0]) {
                 $params['Path'] = $args[0]
@@ -86,18 +88,18 @@ function Import-Vaporshell {
         }
     }
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "ToJSON"
+        Name        = 'ToJSON'
         Value       = $toJSON
     }
     Add-Member @memberParam
     $toYAML = {
-        Process {
+        process {
             $params = @{
                 VaporshellTemplate = $this
-                As = 'YAML'
-                Force = $true
+                As                 = 'YAML'
+                Force              = $true
             }
             if ($args[0]) {
                 $params['Path'] = $args[0]
@@ -109,14 +111,14 @@ function Import-Vaporshell {
         }
     }
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "ToYAML"
+        Name        = 'ToYAML'
         Value       = $toYAML
     }
     Add-Member @memberParam
     $validate = {
-        Process {
+        process {
             $params = @{
                 TemplateBody = $this.ToJSON()
             }
@@ -130,16 +132,16 @@ function Import-Vaporshell {
         }
     }
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "Validate"
+        Name        = 'Validate'
         Value       = $validate
     }
     Add-Member @memberParam
     $addMetadata = {
-        Process {
-            $ObjName = "Metadata"
-            $allowedTypes = "Vaporshell.Transform","Vaporshell.Metadata"
+        process {
+            $ObjName = 'Metadata'
+            $allowedTypes = 'Vaporshell.Transform', 'Vaporshell.Metadata'
             foreach ($obj in $args) {
                 if ([string]$($obj.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     if ( -not ($this.$ObjName)) {
@@ -147,17 +149,16 @@ function Import-Vaporshell {
                         $this | Add-Member -MemberType NoteProperty -Name "$ObjName" -Value ([PSCustomObject]@{})
                     }
                     Add-Member -InputObject $this.$ObjName -MemberType NoteProperty -Name $($obj.LogicalID) -Value $($obj.Props)
-                }
-                else {
-                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ", ")"
+                } else {
+                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ', ')"
                 }
             }
         }
     }
     $addParameter = {
-        Process {
-            $ObjName = "Parameters"
-            $allowedTypes = "Vaporshell.Parameter"
+        process {
+            $ObjName = 'Parameters'
+            $allowedTypes = 'Vaporshell.Parameter'
             foreach ($obj in $args) {
                 if ([string]$($obj.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     if ( -not ($this.$ObjName)) {
@@ -165,17 +166,16 @@ function Import-Vaporshell {
                         $this | Add-Member -MemberType NoteProperty -Name "$ObjName" -Value ([PSCustomObject]@{})
                     }
                     Add-Member -InputObject $this.$ObjName -MemberType NoteProperty -Name $($obj.LogicalID) -Value $($obj.Props)
-                }
-                else {
-                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ", ")"
+                } else {
+                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ', ')"
                 }
             }
         }
     }
     $addMapping = {
-        Process {
-            $ObjName = "Mappings"
-            $allowedTypes = "Vaporshell.Transform","Vaporshell.Mapping"
+        process {
+            $ObjName = 'Mappings'
+            $allowedTypes = 'Vaporshell.Transform', 'Vaporshell.Mapping'
             foreach ($obj in $args) {
                 if ([string]$($obj.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     if ( -not ($this.$ObjName)) {
@@ -183,17 +183,16 @@ function Import-Vaporshell {
                         $this | Add-Member -MemberType NoteProperty -Name "$ObjName" -Value ([PSCustomObject]@{})
                     }
                     Add-Member -InputObject $this.$ObjName -MemberType NoteProperty -Name $($obj.LogicalID) -Value $($obj.Props)
-                }
-                else {
-                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ", ")"
+                } else {
+                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ', ')"
                 }
             }
         }
     }
     $addCondition = {
-        Process {
-            $ObjName = "Conditions"
-            $allowedTypes = "Vaporshell.Transform","Vaporshell.Condition"
+        process {
+            $ObjName = 'Conditions'
+            $allowedTypes = 'Vaporshell.Transform', 'Vaporshell.Condition'
             foreach ($obj in $args) {
                 if ([string]$($obj.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     if ( -not ($this.$ObjName)) {
@@ -201,24 +200,22 @@ function Import-Vaporshell {
                         $this | Add-Member -MemberType NoteProperty -Name "$ObjName" -Value ([PSCustomObject]@{})
                     }
                     Add-Member -InputObject $this.$ObjName -MemberType NoteProperty -Name $($obj.LogicalID) -Value $($obj.Props)
-                }
-                else {
-                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ", ")"
+                } else {
+                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ', ')"
                 }
             }
         }
     }
     $addResource = {
-        Process {
-            $ObjName = "Resources"
-            $allowedTypes = "Vaporshell.Transform","Vaporshell.Resource"
+        process {
+            $ObjName = 'Resources'
+            $allowedTypes = 'Vaporshell.Transform', 'Vaporshell.Resource'
             foreach ($obj in $args) {
-                if ($obj.Props.Type -like "AWS::Serverless*" -and $this.Transform -ne "AWS::Serverless-2016-10-31") {
+                if ($obj.Props.Type -like 'AWS::Serverless*' -and $this.Transform -ne 'AWS::Serverless-2016-10-31') {
                     if ( -not ($this.Transform)) {
-                        $this | Add-Member -MemberType NoteProperty -Name Transform -Value "AWS::Serverless-2016-10-31"
-                    }
-                    else {
-                        $this.Transform = "AWS::Serverless-2016-10-31"
+                        $this | Add-Member -MemberType NoteProperty -Name Transform -Value 'AWS::Serverless-2016-10-31'
+                    } else {
+                        $this.Transform = 'AWS::Serverless-2016-10-31'
                     }
                 }
                 if ([string]$($obj.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
@@ -227,17 +224,16 @@ function Import-Vaporshell {
                         $this | Add-Member -MemberType NoteProperty -Name "$ObjName" -Value ([PSCustomObject]@{})
                     }
                     Add-Member -InputObject $this.$ObjName -MemberType NoteProperty -Name $($obj.LogicalID) -Value $($obj.Props)
-                }
-                else {
-                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ", ")"
+                } else {
+                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ', ')"
                 }
             }
         }
     }
     $addOutput = {
-        Process {
-            $ObjName = "Outputs"
-            $allowedTypes = "Vaporshell.Transform","Vaporshell.Output"
+        process {
+            $ObjName = 'Outputs'
+            $allowedTypes = 'Vaporshell.Transform', 'Vaporshell.Output'
             foreach ($obj in $args) {
                 if ([string]$($obj.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     if ( -not ($this.$ObjName)) {
@@ -245,84 +241,81 @@ function Import-Vaporshell {
                         $this | Add-Member -MemberType NoteProperty -Name "$ObjName" -Value ([PSCustomObject]@{})
                     }
                     Add-Member -InputObject $this.$ObjName -MemberType NoteProperty -Name $($obj.LogicalID) -Value $($obj.Props)
-                }
-                else {
-                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ", ")"
+                } else {
+                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ', ')"
                 }
             }
         }
     }
     $addTransform = {
-        Process {
-            $ObjName = "Transform"
-            $allowedTypes = "Vaporshell.Transform.Include"
+        process {
+            $ObjName = 'Transform'
+            $allowedTypes = 'Vaporshell.Transform.Include'
             foreach ($obj in $args) {
                 if ([string]$($obj.PSTypeNames) -match "($(($allowedTypes|ForEach-Object{[RegEx]::Escape($_)}) -join '|'))") {
                     if ( -not ($this.$ObjName)) {
                         $this | Add-Member -MemberType NoteProperty -Name "$ObjName" -Value $($obj.Props)
-                    }
-                    else {
+                    } else {
                         throw "There is already a $ObjName property on this object!"
                     }
-                }
-                else {
-                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ", ")"
+                } else {
+                    throw "You must use one of the following object types with this parameter: $($allowedTypes -join ', ')"
                 }
             }
         }
     }
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "AddMetadata"
+        Name        = 'AddMetadata'
         Value       = $addMetadata
     }
     Add-Member @memberParam
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "AddParameter"
+        Name        = 'AddParameter'
         Value       = $addParameter
     }
     Add-Member @memberParam
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "AddMapping"
+        Name        = 'AddMapping'
         Value       = $addMapping
     }
     Add-Member @memberParam
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "AddCondition"
+        Name        = 'AddCondition'
         Value       = $addCondition
     }
     Add-Member @memberParam
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "AddResource"
+        Name        = 'AddResource'
         Value       = $addResource
     }
     Add-Member @memberParam
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "AddOutput"
+        Name        = 'AddOutput'
         Value       = $addOutput
     }
     Add-Member @memberParam
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "AddTransform"
+        Name        = 'AddTransform'
         Value       = $addTransform
     }
     Add-Member @memberParam
     $remMetadata = {
-        Process {
-            $ObjName = "Metadata"
+        process {
+            $ObjName = 'Metadata'
             foreach ($LogicalID in $args) {
                 $this.$ObjName.PSObject.Properties.Remove($LogicalID)
                 if ([string]::IsNullOrWhiteSpace($($this.$ObjName.PSObject.Properties | Out-String))) {
@@ -333,8 +326,8 @@ function Import-Vaporshell {
         }
     }
     $remParameter = {
-        Process {
-            $ObjName = "Parameters"
+        process {
+            $ObjName = 'Parameters'
             foreach ($LogicalID in $args) {
                 $this.$ObjName.PSObject.Properties.Remove($LogicalID)
                 if ([string]::IsNullOrWhiteSpace($($this.$ObjName.PSObject.Properties | Out-String))) {
@@ -345,8 +338,8 @@ function Import-Vaporshell {
         }
     }
     $remMapping = {
-        Process {
-            $ObjName = "Mappings"
+        process {
+            $ObjName = 'Mappings'
             foreach ($LogicalID in $args) {
                 $this.$ObjName.PSObject.Properties.Remove($LogicalID)
                 if ([string]::IsNullOrWhiteSpace($($this.$ObjName.PSObject.Properties | Out-String))) {
@@ -357,8 +350,8 @@ function Import-Vaporshell {
         }
     }
     $remCondition = {
-        Process {
-            $ObjName = "Conditions"
+        process {
+            $ObjName = 'Conditions'
             foreach ($LogicalID in $args) {
                 $this.$ObjName.PSObject.Properties.Remove($LogicalID)
                 if ([string]::IsNullOrWhiteSpace($($this.$ObjName.PSObject.Properties | Out-String))) {
@@ -369,8 +362,8 @@ function Import-Vaporshell {
         }
     }
     $remResource = {
-        Process {
-            $ObjName = "Resources"
+        process {
+            $ObjName = 'Resources'
             foreach ($LogicalID in $args) {
                 $this.$ObjName.PSObject.Properties.Remove($LogicalID)
                 if ([string]::IsNullOrWhiteSpace($($this.$ObjName.PSObject.Properties | Out-String))) {
@@ -381,8 +374,8 @@ function Import-Vaporshell {
         }
     }
     $remOutput = {
-        Process {
-            $ObjName = "Outputs"
+        process {
+            $ObjName = 'Outputs'
             foreach ($LogicalID in $args) {
                 $this.$ObjName.PSObject.Properties.Remove($LogicalID)
                 if ([string]::IsNullOrWhiteSpace($($this.$ObjName.PSObject.Properties | Out-String))) {
@@ -393,57 +386,57 @@ function Import-Vaporshell {
         }
     }
     $remTransform = {
-        $ObjName = "Transform"
+        $ObjName = 'Transform'
         if ($this.$ObjName) {
             $this.PSObject.Properties.Remove($ObjName)
         }
     }
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "RemoveMetadata"
+        Name        = 'RemoveMetadata'
         Value       = $remMetadata
     }
     Add-Member @memberParam
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "RemoveParameter"
+        Name        = 'RemoveParameter'
         Value       = $remParameter
     }
     Add-Member @memberParam
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "RemoveMapping"
+        Name        = 'RemoveMapping'
         Value       = $remMapping
     }
     Add-Member @memberParam
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "RemoveCondition"
+        Name        = 'RemoveCondition'
         Value       = $remCondition
     }
     Add-Member @memberParam
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "RemoveResource"
+        Name        = 'RemoveResource'
         Value       = $remResource
     }
     Add-Member @memberParam
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "RemoveOutput"
+        Name        = 'RemoveOutput'
         Value       = $remOutput
     }
     Add-Member @memberParam
     $memberParam = @{
-        MemberType  = "ScriptMethod"
+        MemberType  = 'ScriptMethod'
         InputObject = $tempObj
-        Name        = "RemoveTransform"
+        Name        = 'RemoveTransform'
         Value       = $remTransform
     }
     Add-Member @memberParam

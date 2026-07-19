@@ -2,26 +2,26 @@ function Export-Vaporshell {
     <#
     .SYNOPSIS
         Exports the template object to JSON file.
-    
+
     .DESCRIPTION
         Exports the template object to JSON file.
 
         Requires the Vaporshell input object to be type 'Vaporshell.Template'
-    
+
     .PARAMETER VaporshellTemplate
         The input template object
-    
+
     .PARAMETER As
         Specify JSON or YAML for your preferred output. Defaults to JSON.
 
-        **Important**: In order to use YAML, you must have cfn-flip installed: https://github.com/awslabs/aws-cfn-template-flip
-    
+        **Important**: In order to use YAML, you must have the powershell-yaml module installed: Install-Module powershell-yaml
+
     .PARAMETER Path
         Path to save the resulting JSON file.
-    
+
     .PARAMETER ValidateTemplate
         Validates the template using the AWS .NET SDK
-    
+
     .PARAMETER Force
         Forces an overwrite if the Path already exists
 
@@ -39,24 +39,23 @@ function Export-Vaporshell {
         Vaporshell
     #>
     [cmdletbinding()]
-    Param
+    param
     (
-        [parameter(Mandatory = $true,Position = 0,ValueFromPipeline = $true)]
+        [parameter(Mandatory = $true, Position = 0, ValueFromPipeline = $true)]
         [ValidateScript( {
                 if ($_.Resources) {
                     $true
-                }
-                else {
-                    $PSCmdlet.ThrowTerminatingError((New-VSError -String "Unable to find any resources on this Vaporshell template. Resources are required in CloudFormation templates at the minimum."))
+                } else {
+                    $PSCmdlet.ThrowTerminatingError((New-VSError -String 'Unable to find any resources on this Vaporshell template. Resources are required in CloudFormation templates at the minimum.'))
                 }
             })]
         [PSTypeName('Vaporshell.Template')]
         $VaporshellTemplate,
-        [parameter(Mandatory = $false,Position = 1)]
-        [ValidateSet("JSON","YAML")]
+        [parameter(Mandatory = $false, Position = 1)]
+        [ValidateSet('JSON', 'YAML')]
         [System.String]
-        $As = "JSON",
-        [parameter(Mandatory = $false,Position = 2)]
+        $As = 'JSON',
+        [parameter(Mandatory = $false, Position = 2)]
         [System.String]
         $Path,
         [parameter(Mandatory = $false)]
@@ -66,28 +65,31 @@ function Export-Vaporshell {
         [Switch]
         $Force
     )
-    Begin {
+    begin {
         $ForcePref = @{}
         if ($Force) {
-            $ForcePref.add("Force",$True)
+            $ForcePref.add('Force', $True)
         }
     }
-    Process {
-        Write-Verbose "Converting template object to JSON"
+    process {
+        Write-Verbose 'Converting template object to JSON'
         $JSON = ConvertTo-Json -Depth 100 -InputObject $VaporshellTemplate -Verbose:$false | Format-Json
     }
-    End {
-        if ($As -eq "YAML") {
-            if (Get-Command cfn-flip -ErrorAction SilentlyContinue) {
-                Write-Verbose "Converting JSON to YAML with cfn-flip"
+    end {
+        if ($As -eq 'YAML') {
+            if (Get-Module powershell-yaml -ListAvailable -ErrorAction SilentlyContinue) {
+                Import-Module powershell-yaml -ErrorAction SilentlyContinue
+                Write-Verbose 'Converting JSON to YAML with powershell-yaml'
+                $obj = $JSON | ConvertFrom-Json -Depth 100
+                $Final = ConvertTo-Yaml -Data $obj
+            } elseif (Get-Command cfn-flip -ErrorAction SilentlyContinue) {
+                Write-Verbose 'Converting JSON to YAML with cfn-flip (deprecated fallback)'
                 $Final = $JSON | cfn-flip
-            }
-            else {
-                Write-Warning "cfn-flip not found in PATH! Skipping conversion to YAML to prevent failure."
+            } else {
+                Write-Warning 'YAML conversion requires the powershell-yaml module. Install with: Install-Module powershell-yaml'
                 $Final = $JSON
             }
-        }
-        else {
+        } else {
             $Final = $JSON
         }
         if ($ValidateTemplate) {
@@ -96,8 +98,7 @@ function Export-Vaporshell {
         if ($Path) {
             Write-Verbose "Exporting template to: $Path"
             $Final | Set-Content -Path $Path @ForcePref -Verbose:$false
-        }
-        else {
+        } else {
             return ($Final -join "`n")
         }
     }
