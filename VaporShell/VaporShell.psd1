@@ -14,19 +14,19 @@
     # Version number of this module.
     # NB do not change this in ECP when rebuilding only without making manual code changes in the repository.
     #    Date will be appended to the PS module version automatically as part of the build process
-    ModuleVersion         = '2.18.0'
+    ModuleVersion         = '2.17.0'
 
     # ID used to uniquely identify this module
     GUID                  = 'd526494c-6e59-41ff-ad05-eedbc1473b6a'
 
     # Author of this module
-    Author                = 'ITV'
+    Author                = 'Nate Ferrell'
 
     # Company or vendor of this module
-    CompanyName           = 'ITV'
+    CompanyName           = 'SCRT HQ'
 
     # Copyright statement for this module
-    Copyright             = '(c) ITV 2024. All rights reserved.'
+    Copyright             = '(c) 2017 Nate Ferrell / SCRT HQ. All rights reserved. Modifications (c) 2024 ITV.'
 
     # Description of the functionality provided by this module
     Description           = 'A PowerShell module for building, packaging and deploying AWS CloudFormation templates
