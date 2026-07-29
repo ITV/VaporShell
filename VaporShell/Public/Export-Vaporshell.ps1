@@ -77,16 +77,28 @@ function Export-Vaporshell {
     }
     end {
         if ($As -eq 'YAML') {
-            if (Get-Module powershell-yaml -ListAvailable -ErrorAction SilentlyContinue) {
+            if (Get-Command cfn-flip -ErrorAction SilentlyContinue) {
+                Write-Verbose 'Converting JSON to YAML with cfn-flip'
+                $Final = $JSON | cfn-flip
+            } elseif (Get-Module powershell-yaml -ListAvailable -ErrorAction SilentlyContinue) {
                 Import-Module powershell-yaml -ErrorAction SilentlyContinue
-                Write-Verbose 'Converting JSON to YAML with powershell-yaml'
+                Write-Verbose 'Converting JSON to YAML with powershell-yaml (cfn-flip not found)'
                 $obj = $JSON | ConvertFrom-Json -Depth 100
                 $Final = ConvertTo-Yaml -Data $obj
-            } elseif (Get-Command cfn-flip -ErrorAction SilentlyContinue) {
-                Write-Verbose 'Converting JSON to YAML with cfn-flip (deprecated fallback)'
-                $Final = $JSON | cfn-flip
+
+                # Post-process: restore .0 suffix on whole-number floats.
+                # ConvertTo-Yaml emits [double]60.0 as '60' (integer).
+                # CFN treats 60 vs 60.0 as a template diff, triggering resource replacement.
+                # Find "key": value.0 pairs in JSON, then fix those specific keys in YAML.
+                $keyFloatPattern = [regex]'"([^"]+)"\s*:\s*(\d+)\.0\b'
+                $keyFloatMatches = $keyFloatPattern.Matches(($JSON -join "`n"))
+                foreach ($m in $keyFloatMatches) {
+                    $key = $m.Groups[1].Value
+                    $val = $m.Groups[2].Value
+                    $Final = $Final -replace "(?m)(${key}:\s+)${val}(\s*)$", "`${1}${val}.0`$2"
+                }
             } else {
-                Write-Warning 'YAML conversion requires the powershell-yaml module. Install with: Install-Module powershell-yaml'
+                Write-Warning 'YAML conversion requires cfn-flip (pip install cfn-flip) or the powershell-yaml module (Install-Module powershell-yaml)'
                 $Final = $JSON
             }
         } else {

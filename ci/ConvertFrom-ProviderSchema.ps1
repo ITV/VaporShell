@@ -218,6 +218,45 @@ function ConvertFrom-ProviderSchema {
                     continue
                 }
 
+                # Handle oneOf/anyOf definitions by flattening all variant properties
+                # into a single property type (each property becomes optional).
+                # This covers union types like TargetConfiguration, McpTargetConfiguration, etc.
+                if (-not $defObj.properties -and ($defObj.oneOf -or $defObj.anyOf)) {
+                    $variants = if ($defObj.oneOf) { $defObj.oneOf } else { $defObj.anyOf }
+                    $qualifiedName = "$ParentTypeName.$defName"
+
+                    if ($PropertyTypesRef.ContainsKey($qualifiedName)) {
+                        continue
+                    }
+
+                    $unionProperties = [ordered]@{}
+                    foreach ($variant in $variants) {
+                        if ($variant.properties) {
+                            foreach ($vProp in $variant.properties.PSObject.Properties) {
+                                if (-not $unionProperties.Contains($vProp.Name)) {
+                                    $unionProperties[$vProp.Name] = Convert-PropertyToLegacy `
+                                        -PropName $vProp.Name `
+                                        -PropObj $vProp.Value `
+                                        -IsRequired $false `
+                                        -Definitions $Definitions
+                                }
+                            }
+                        }
+                    }
+
+                    if ($unionProperties.Count -gt 0) {
+                        $propTypeEntry = [PSCustomObject]@{
+                            Name  = $qualifiedName
+                            Value = [PSCustomObject]@{
+                                Documentation = $documentation
+                                Properties    = [PSCustomObject]$unionProperties
+                            }
+                        }
+                        $PropertyTypesRef[$qualifiedName] = $propTypeEntry
+                    }
+                    continue
+                }
+
                 # Skip definitions that don't have properties (e.g. simple enums/strings)
                 if (-not $defObj.properties) {
                     continue
