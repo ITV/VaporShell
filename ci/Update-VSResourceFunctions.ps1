@@ -1,88 +1,183 @@
 function Update-VSResourceFunctions {
     <#
     .SYNOPSIS
-        Updates the Resource and Property Type functions
+        Updates the Resource and Property Type functions using CloudFormation Resource Provider Schemas.
 
     .DESCRIPTION
-        Updates the Resource and Property Type functions
+        Downloads the per-resource JSON Schema files from the CloudFormation registry for each region,
+        merges them to get maximum resource coverage, then generates PowerShell functions for each
+        resource and property type.
 
-    .PARAMETER Region
-        The AWS region by location whose specification sheet you'd like to use to update your functions
+        Uses the new schema format (https://schema.cloudformation.<region>.amazonaws.com/CloudformationSchema.zip)
+        instead of the deprecated monolithic CloudFormation Resource Specification.
 
     .FUNCTIONALITY
         Vaporshell
     #>
 
     [CmdletBinding()]
-    Param()
+    param()
 
     $vsPath = (Resolve-Path "$PSScriptRoot/../VaporShell").Path
     $vsTypeFuncPath = (Resolve-Path "$vsPath/Public/Resource Types").Path
     $vsPropFuncPath = (Resolve-Path "$vsPath/Public/Resource Property Types").Path
 
-    # URLs for CFN spec
-    $regHash = @{
-        'us-east-1 (N. Virginia)'     = 'https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'ap-east-1 (Hong Kong)' = 'https://cfn-resource-specifications-ap-east-1-prod.s3.ap-east-1.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json'
-        'ap-south-1 (Mumbai)'   = 'https://d2senuesg1djtx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'ap-northeast-3 (Osaka-Local)' = 'https://d2zq80gdmjim8k.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'ap-northeast-2 (Seoul)'    = 'https://d1ane3fvebulky.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'ap-southeast-1 (Singapore)' = 'https://doigdx0kgq9el.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'ap-southeast-2 (Sydney)' = 'https://d2stg8d246z9di.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'ap-northeast-1 (Tokyo)' = 'https://d33vqc0rt9ld30.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'ca-central-1 (Canada-Central)' = 'https://d2s8ygphhesbe7.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'cn-north-1 (Beijing)' = 'https://cfn-resource-specifications-cn-north-1-prod.s3.cn-north-1.amazonaws.com.cn/latest/gzip/CloudFormationResourceSpecification.json'
-        'cn-northwest-1 (Ningxia)' = 'https://cfn-resource-specifications-cn-northwest-1-prod.s3.cn-northwest-1.amazonaws.com.cn/latest/gzip/CloudFormationResourceSpecification.json'
-        'eu-central-1 (Frankfurt)' = 'https://d1mta8qj7i28i2.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'eu-west-1 (Ireland)' = 'https://d3teyb21fexa9r.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'eu-west-2 (London)' = 'https://d1742qcu2c1ncx.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'eu-west-3 (Paris)' = 'https://d2d0mfegowb3wk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'eu-north-1 (Stockholm)' = 'https://diy8iv58sj6ba.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'us-gov-east-1 (GovCloud East)' = 'https://s3.us-gov-east-1.amazonaws.com/cfn-resource-specifications-us-gov-east-1-prod/latest/CloudFormationResourceSpecification.json'
-        'us-gov-west-1 (GovCloud West)' = 'https://s3.us-gov-west-1.amazonaws.com/cfn-resource-specifications-us-gov-west-1-prod/latest/CloudFormationResourceSpecification.json'
-        'me-south-1 (Bahrain)' = 'https://cfn-resource-specifications-me-south-1-prod.s3.me-south-1.amazonaws.com/latest/gzip/CloudFormationResourceSpecification.json'
-        'sa-east-1 (São Paulo)' = 'https://d3c9jyj3w509b0.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'us-east-2 (Ohio)' = 'https://dnwj8swjjbsbt.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'us-west-1 (N. California)' = 'https://d68hl49wbnanq.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-        'us-west-2 (Oregon)' = 'https://d201a2mn26r7lk.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-    }
+    # All regions that publish CloudFormation Resource Provider Schemas
+    $regions = @(
+        'us-east-1'
+        'us-east-2'
+        'us-west-1'
+        'us-west-2'
+        'af-south-1'
+        'ap-east-1'
+        'ap-south-1'
+        'ap-south-2'
+        'ap-southeast-1'
+        'ap-southeast-2'
+        'ap-southeast-3'
+        'ap-southeast-4'
+        'ap-southeast-5'
+        'ap-northeast-1'
+        'ap-northeast-2'
+        'ap-northeast-3'
+        'ca-central-1'
+        'ca-west-1'
+        'eu-central-1'
+        'eu-central-2'
+        'eu-west-1'
+        'eu-west-2'
+        'eu-west-3'
+        'eu-north-1'
+        'eu-south-1'
+        'eu-south-2'
+        'il-central-1'
+        'me-central-1'
+        'me-south-1'
+        'sa-east-1'
+    )
 
-    # Get us-east-1 as the base
+    # China regions use different TLD
+    $chinaRegions = @(
+        @{ Region = 'cn-north-1'; Suffix = 'amazonaws.com.cn' }
+        @{ Region = 'cn-northwest-1'; Suffix = 'amazonaws.com.cn' }
+    )
+
+    # GovCloud regions
+    $govRegions = @(
+        'us-gov-east-1'
+        'us-gov-west-1'
+    )
+
+    $tempPath = Join-Path ([System.IO.Path]::GetTempPath()) "VaporShell-SchemaDownload-$(Get-Date -Format 'yyyyMMddHHmmss')"
+    New-Item -ItemType Directory -Path $tempPath -Force | Out-Null
+
+    # Collect all resource and property types across regions
     $final = @{
         ResourceTypes = @{}
         PropertyTypes = @{}
     }
-    Write-Host "Getting CloudFormation spec from region: us-east-1 (N. Virginia)"
-    $URL = 'https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json'
-    $specs = Invoke-RestMethod $URL -Verbose:$false
-    foreach ($resource in $specs.ResourceTypes.PSObject.Properties) {
-        $final['ResourceTypes'][$resource.Name] = $resource
-    }
-    foreach ($resource in $specs.PropertyTypes.PSObject.Properties) {
-        $final['PropertyTypes'][$resource.Name] = $resource
+
+    # Helper to download and process a schema zip
+    function Import-SchemaZip {
+        param(
+            [string]$Url,
+            [string]$RegionName,
+            [string]$TempBasePath
+        )
+
+        $zipPath = Join-Path $TempBasePath "$RegionName.zip"
+        $extractPath = Join-Path $TempBasePath $RegionName
+
+        try {
+            Write-Host "Downloading CloudFormation schemas from region: $RegionName"
+            Invoke-WebRequest -Uri $Url -OutFile $zipPath -UseBasicParsing -ErrorAction Stop
+
+            Write-Host "Extracting schemas for region: $RegionName"
+            if (Test-Path $extractPath) {
+                Remove-Item $extractPath -Recurse -Force
+            }
+            Expand-Archive -Path $zipPath -DestinationPath $extractPath -Force
+
+            # Process each schema file
+            $schemaFiles = Get-ChildItem -Path $extractPath -Filter '*.json' -File
+            $newResourceCount = 0
+            $newPropertyCount = 0
+
+            foreach ($schemaFile in $schemaFiles) {
+                try {
+                    $schema = Get-Content $schemaFile.FullName -Raw | ConvertFrom-Json -ErrorAction Stop
+
+                    # Skip non-AWS resources (third-party types)
+                    if ($schema.typeName -notmatch '^AWS::') {
+                        continue
+                    }
+
+                    $converted = ConvertFrom-ProviderSchema -SchemaObject $schema
+
+                    # Add resource type if not already present
+                    if ($converted.ResourceType -and $converted.ResourceType.Name -and
+                        -not $final['ResourceTypes'].ContainsKey($converted.ResourceType.Name)) {
+                        $final['ResourceTypes'][$converted.ResourceType.Name] = $converted.ResourceType
+                        $newResourceCount++
+                    }
+
+                    # Add property types if not already present
+                    foreach ($ptKey in $converted.PropertyTypes.Keys) {
+                        if (-not $final['PropertyTypes'].ContainsKey($ptKey)) {
+                            $final['PropertyTypes'][$ptKey] = $converted.PropertyTypes[$ptKey]
+                            $newPropertyCount++
+                        }
+                    }
+                } catch {
+                    Write-Verbose "Failed to process schema file: $($schemaFile.Name) - $_"
+                }
+            }
+
+            if ($newResourceCount -gt 0) {
+                Write-Host -ForegroundColor Green "Found $newResourceCount new resource types in region: $RegionName"
+            }
+            if ($newPropertyCount -gt 0) {
+                Write-Host -ForegroundColor Magenta "Found $newPropertyCount new property types in region: $RegionName"
+            }
+        } catch {
+            Write-Host -ForegroundColor Yellow "WARNING: Failed to download/process schemas from region: $RegionName - $_"
+        } finally {
+            # Clean up zip to save disk space
+            if (Test-Path $zipPath) {
+                Remove-Item $zipPath -Force -ErrorAction SilentlyContinue
+            }
+        }
     }
 
-    # Get the rest and add anything missing from us-east-1 for full coverage
-    foreach ($region in $regHash.GetEnumerator() | Where-Object {$_.Key -ne 'us-east-1 (N. Virginia)'}) {
-        try {
-            Write-Host "Getting CloudFormation spec from region: $($region.Key)"
-            $specs = Invoke-RestMethod $region.Value -Verbose:$false
-            if ($newResources = $specs.ResourceTypes.PSObject.Properties | Where-Object {$_.Name -notin $final['ResourceTypes'].Keys}) {
-                Write-Host -ForegroundColor Green "Found $($newResources.Count) new resource types in region: $($region.Key)`n- $($newResources.Name -join "`n- ")"
-                foreach ($resource in $newResources) {
-                    $final['ResourceTypes'][$resource.Name] = $resource
-                }
-            }
-            if ($newProps = $specs.PropertyTypes.PSObject.Properties | Where-Object {$_.Name -notin $final['PropertyTypes'].Keys}) {
-                Write-Host -ForegroundColor Magenta "Found $($newProps.Count) new property types in region: $($region.Key)`n- $($newProps.Name -join "`n- ")"
-                foreach ($resource in $newProps) {
-                    $final['PropertyTypes'][$resource.Name] = $resource
-                }
-            }
-        }
-        catch {
-            Write-Host -ForegroundColor Yellow "WARNING: Failed to get specs from region: $($_.Key)"
-        }
+    # Process us-east-1 first as the baseline (has the most resources)
+    $baseUrl = 'https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip'
+    Import-SchemaZip -Url $baseUrl -RegionName 'us-east-1' -TempBasePath $tempPath
+
+    Write-Host "Baseline: $($final['ResourceTypes'].Count) resource types, $($final['PropertyTypes'].Count) property types from us-east-1"
+
+    # Process remaining commercial regions
+    foreach ($region in $regions | Where-Object { $_ -ne 'us-east-1' }) {
+        $url = "https://schema.cloudformation.$region.amazonaws.com/CloudformationSchema.zip"
+        Import-SchemaZip -Url $url -RegionName $region -TempBasePath $tempPath
+    }
+
+    # Process China regions
+    foreach ($entry in $chinaRegions) {
+        $url = "https://schema.cloudformation.$($entry.Region).$($entry.Suffix)/CloudformationSchema.zip"
+        Import-SchemaZip -Url $url -RegionName $entry.Region -TempBasePath $tempPath
+    }
+
+    # Process GovCloud regions
+    foreach ($region in $govRegions) {
+        $url = "https://schema.cloudformation.$region.amazonaws.com/CloudformationSchema.zip"
+        Import-SchemaZip -Url $url -RegionName $region -TempBasePath $tempPath
+    }
+
+    Write-Host -ForegroundColor Cyan "Total: $($final['ResourceTypes'].Count) resource types, $($final['PropertyTypes'].Count) property types across all regions"
+
+    # Clean up temp directory
+    if (Test-Path $tempPath) {
+        Remove-Item $tempPath -Recurse -Force -ErrorAction SilentlyContinue
     }
 
     # Clean up the directories with dynamically generated content to ensure no legacy files are included in the module
@@ -92,18 +187,18 @@ function Update-VSResourceFunctions {
 
     # Regenerate New-VS... and Add-VS... commands
     Write-Host -ForegroundColor Green 'Generate Resource Type functions'
-    foreach ($resource in $final['ResourceTypes'].Values | Sort-Object Name) {
+    foreach ($resource in $final['ResourceTypes'].Values | Sort-Object { $_.Name }) {
         Write-Verbose "Updating Resource Type [$($resource.Name)]"
         Convert-SpecToFunction -Resource $resource -ResourceType Resource
     }
-    $AfterTypeCount = (Get-ChildItem -Path (Resolve-Path "$vsPath\Public\Resource Types").Path).Count
+    $AfterTypeCount = (Get-ChildItem -Path $vsTypeFuncPath).Count
     Write-Host -ForegroundColor Green ('Generated {0} Resource Type functions' -f $AfterTypeCount)
 
     Write-Host -ForegroundColor Green 'Generate Resource Property functions'
-    foreach ($resource in $final['PropertyTypes'].Values | Sort-Object Name) {
+    foreach ($resource in $final['PropertyTypes'].Values | Sort-Object { $_.Name }) {
         Write-Verbose "Updating Resource Property [$($resource.Name)]"
         Convert-SpecToFunction -Resource $resource -ResourceType Property
     }
-    $AfterPropCount = (Get-ChildItem -Path (Resolve-Path "$vsPath\Public\Resource Property Types").Path).Count
+    $AfterPropCount = (Get-ChildItem -Path $vsPropFuncPath).Count
     Write-Host -ForegroundColor Green ('Generated {0} Resource Property functions' -f $AfterPropCount)
 }
