@@ -1,49 +1,31 @@
 function Import-AWSSDK {
     [CmdletBinding()]
-    Param()
-    Process {
-        # Load the AWSSDK assemblies without conflict and kill any warning messages thrown by AWS.Tools.* modules
+    param()
+    process {
+        # Load the AWSSDK assemblies via AWS.Tools modules or from the VaporShell module directory
         try {
             $currentWarningPref = $WarningPreference
-            $WarningPreference = "SilentlyContinue"
             $currentErrorPref = $ErrorActionPreference
-            $ErrorActionPreference = "SilentlyContinue"
-            $awsModules = if ($tools = (Get-Module AWS.Tools* -ListAvailable -Verbose:$false).Name | Where-Object {$_ -match '^AWS\.Tools\.(CloudFormation|S3)$'}) {
-                $tools | Select-Object -Unique
-            }
-            else {
-                (Get-Module AWS* -ListAvailable -Verbose:$false).Name | Select-Object -Unique
-            }
+            $WarningPreference = 'SilentlyContinue'
+            $ErrorActionPreference = 'SilentlyContinue'
+
             @(
-                'AWSSDK.CloudFormation.dll'
-                'AWSSDK.S3.dll'
+                @{ Assembly = 'AWSSDK.CloudFormation.dll'; Module = 'AWS.Tools.CloudFormation' }
+                @{ Assembly = 'AWSSDK.S3.dll'; Module = 'AWS.Tools.S3' }
             ) | ForEach-Object {
-                $assemblyName = $_
-                if ($null -eq ([System.AppDomain]::CurrentDomain.GetAssemblies() | Where-Object {$_.Location -match $assemblyName})) {
-                    $toolsModule = switch ($assemblyName) {
-                        'AWSSDK.CloudFormation.dll' {'AWS.Tools.CloudFormation'}
-                        'AWSSDK.S3.dll' {'AWS.Tools.S3'}
-                    }
-                    if ($awsModules -contains $toolsModule) {
+                $assemblyName = $_.Assembly
+                $toolsModule = $_.Module
+                if ($null -eq ([System.AppDomain]::CurrentDomain.GetAssemblies() | Where-Object { $_.Location -match $assemblyName })) {
+                    if (Get-Module $toolsModule -ListAvailable -Verbose:$false) {
                         Write-Verbose "Importing $assemblyName via module $toolsModule"
                         Import-Module $toolsModule -Verbose:$false -ErrorAction SilentlyContinue
-                    }
-                    elseif ($awsModules -contains 'AWSPowerShell.NetCore') {
-                        Write-Verbose "Importing $assemblyName via module AWSPowerShell.NetCore"
-                        Import-Module 'AWSPowerShell.NetCore' -Verbose:$false -ErrorAction SilentlyContinue
-                    }
-                    elseif ($awsModules -contains 'AWSPowerShell') {
-                        Write-Verbose "Importing $assemblyName via module AWSPowerShell"
-                        Import-Module 'AWSPowerShell' -Verbose:$false -ErrorAction SilentlyContinue
-                    }
-                    else {
+                    } else {
                         Write-Verbose "Importing $assemblyName from VaporShell module base"
                         [System.Reflection.Assembly]::LoadFrom((Join-Path $PSScriptRoot $assemblyName)) | Out-Null
                     }
                 }
             }
-        }
-        catch {}
+        } catch {}
         finally {
             $WarningPreference = $currentWarningPref
             $ErrorActionPreference = $currentErrorPref

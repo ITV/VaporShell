@@ -140,7 +140,7 @@ function New-VaporResource {
         [System.String]
         $DeletionPolicy,
         [parameter(Mandatory = $false)]
-        [ValidateSet("Delete","Retain","Snapshot","RetainExceptOnCreate")]
+        [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         $UpdateReplacePolicy,
         [parameter(Mandatory = $false,Position = 5)]

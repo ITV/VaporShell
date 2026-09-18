@@ -7,3 +7,4 @@ AWS::StackName
 AWS::Include
 AWS::Partition
 AWS::URLSuffix
+AWS::LanguageExtensions

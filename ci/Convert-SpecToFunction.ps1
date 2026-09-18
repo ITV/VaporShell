@@ -134,7 +134,7 @@ function $FunctionName {
 
         UpdateReplacePolicy differs from the DeletionPolicy attribute in that it only applies to resources replaced during stack updates. Use DeletionPolicy for resources deleted when a stack is deleted, or when the resource definition itself is deleted from the template as part of a stack update.
 
-        You must use one of the following options: "Delete","Retain","Snapshot","RetainExceptOnCreate"`n
+        You must use one of the following options: "Delete","Retain","Snapshot"`n
 "@
     }
 
@@ -408,7 +408,7 @@ function $FunctionName {
 
     if ($addCommonCfnProperty['UpdateReplacePolicy']) {
         $scriptContents += @"
-        [ValidateSet("Delete","Retain","Snapshot","RetainExceptOnCreate")]
+        [ValidateSet("Delete","Retain","Snapshot")]
         [System.String]
         `$UpdateReplacePolicy,`n
 "@

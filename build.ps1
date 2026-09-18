@@ -1,5 +1,5 @@
 ﻿[CmdletBinding()]
-Param(
+param(
     # Process-specific parameters
     [Parameter()]
     [string]
@@ -7,17 +7,15 @@ Param(
     [Parameter()]
     [hashtable]
     $Dependencies = @{
-        Configuration     = '1.3.1'
-        PackageManagement = '1.3.1'
-        PowerShellGet     = '2.1.2'
-        InvokeBuild       = '5.5.2'
+        Configuration = '1.3.1'
+        InvokeBuild   = '5.5.2'
     },
     [Parameter()]
     [Switch]
     $NoUpdate,
     #region: Invoke-Build parameters
     [Parameter()]
-    [ValidateSet('Init','Clean','Build','DotnetOnly','Test','Analyze','Deploy','Full')]
+    [ValidateSet('Init', 'Clean', 'Build', 'DotnetOnly', 'Test', 'Analyze', 'Deploy', 'Full')]
     [string[]]
     $Task,
     [Parameter()]
@@ -31,34 +29,9 @@ Param(
     $Summary
     #endregion: Invoke-Build parameters
 )
-#region: Import Azure Pipeline Helper functions from Gist or cached version if already pulled.
-# Gist is specified via Commit SHA so future Gist updates cannot introduce breaking changes to
-# scripts pinned to the specific commit.
-$helperUri = @(
-    'https://gist.githubusercontent.com'
-    'scrthq'                                    # User
-    'a99cc06e75eb31769d01b2adddc6d200'          # Gist ID
-    'raw'
-    '958909a13527fa8c345b6bb552a737b0d9862bc0'  # Commit SHA
-    'AzurePipelineHelpers.ps1'                  # Filename
-) -join '/'
-$fileUri = $helperUri -replace "[$([RegEx]::Escape("$(([System.IO.Path]::GetInvalidFileNameChars() + [System.IO.Path]::GetInvalidPathChars()) -join '')"))]","_"
-$ciPath = [System.IO.Path]::Combine($PSScriptRoot,'ci')
-$localGistPath = [System.IO.Path]::Combine($ciPath,$fileUri)
-if (Test-Path $localGistPath) {
-    Write-Host -ForegroundColor Cyan "##[section] Importing Azure Pipelines Helper from Cached Gist: $localGistPath"
-    $helperContent = Get-Content $localGistPath -Raw
-}
-else {
-    Write-Host -ForegroundColor Cyan "##[section] Cleaning out stale Gist scripts from the CI Path"
-    Get-ChildItem $ciPath -Filter 'https___gist.githubusercontent.com_scrthq*.ps1' | Remove-Item -Force
-    Write-Host -ForegroundColor Cyan "##[section] Importing Azure Pipelines Helper from Gist: $helperUri"
-    $helperContent = Invoke-RestMethod -Uri $helperUri
-    $helperContent | Set-Content $localGistPath -Force
-}
-. $localGistPath $ModuleName
-Set-BuildVariables
-#endregion
+
+# Import build helper functions
+. (Join-Path $PSScriptRoot 'ci/BuildHelpers.ps1')
 
 Add-Heading "Setting PSGallery InstallationPolicy to 'Trusted'"
 if ((Get-PSRepository -Name PSGallery).InstallationPolicy -ne 'Trusted') {
@@ -77,7 +50,7 @@ $PSDefaultParameterValues = @{
     'Install-Module:Scope'              = 'CurrentUser'
     'Install-Module:SkipPublisherCheck' = $true
 }
-Add-Heading "Resolving module dependencies"
+Add-Heading 'Resolving module dependencies'
 $moduleDependencies = @()
 foreach ($module in $Dependencies.Keys) {
     $moduleDependencies += @{
@@ -85,7 +58,7 @@ foreach ($module in $Dependencies.Keys) {
         MinimumVersion = $Dependencies[$module]
     }
 }
-(Import-PowerShellDataFile ([System.IO.Path]::Combine($PSScriptRoot,$ModuleName,"$ModuleName.psd1"))).RequiredModules | ForEach-Object {
+(Import-PowerShellDataFile ([System.IO.Path]::Combine($PSScriptRoot, $ModuleName, "$ModuleName.psd1"))).RequiredModules | ForEach-Object {
     $item = $_
     if ($item -is [hashtable]) {
         $hash = @{
@@ -95,8 +68,7 @@ foreach ($module in $Dependencies.Keys) {
             $hash['RequiredVersion'] = $item['ModuleVersion']
         }
         $moduleDependencies += $hash
-    }
-    else {
+    } else {
         if ($Dependencies.Keys -notcontains $item) {
             $moduleDependencies += @{
                 Name = $item
@@ -106,8 +78,7 @@ foreach ($module in $Dependencies.Keys) {
 }
 try {
     $null = Get-PackageProvider -Name Nuget -ForceBootstrap -Verbose:$false -ErrorAction Stop
-}
-catch {
+} catch {
     throw
 }
 foreach ($item in $moduleDependencies) {
@@ -118,13 +89,12 @@ foreach ($item in $moduleDependencies) {
             $imported | Remove-Module
         }
         Import-Module @item
-    }
-    catch {
+    } catch {
         Write-BuildLog "[$($item['Name'])] Installing missing module"
         Install-Module @item
         Import-Module @item
     }
 }
 
-Add-Heading "Executing Invoke-Build"
+Add-Heading 'Executing Invoke-Build'
 Invoke-Build -ModuleName $ModuleName @PSBoundParameters
