@@ -29,8 +29,13 @@ Describe 'ConvertFrom-ProviderSchema' {
             $result.ResourceType.Name | Should -Be 'AWS::S3::Bucket'
         }
 
-        It 'Marks required properties as Required True' {
-            $result.ResourceType.Value.Properties.BucketName.Required | Should -Be 'True'
+        It 'Does not propagate provider-schema required into resource parameters' {
+            # The Resource Provider Schema "required" list reflects the provider/registry
+            # contract, not CloudFormation template-input requirements. Propagating it made
+            # generated functions mandatory (and interactively prompt) for values that the
+            # legacy spec never required — e.g. StackName on AWS::CloudFormation::Stack.
+            # Resource-level properties are therefore always emitted as Required 'False'.
+            $result.ResourceType.Value.Properties.BucketName.Required | Should -Be 'False'
         }
 
         It 'Marks non-required properties as Required False' {
@@ -154,6 +159,83 @@ Describe 'ConvertFrom-ProviderSchema' {
             $pt = $result.PropertyTypes['AWS::ECS::Service.LoadBalancer']
             $pt.Value.Properties.ContainerPort.Required | Should -Be 'True'
             $pt.Value.Properties.ContainerName.Required | Should -Be 'False'
+        }
+    }
+
+    Context 'Property that $refs a scalar-alias definition (e.g. Arn)' {
+        BeforeAll {
+            $schema = @{
+                typeName    = 'AWS::CE::AnomalySubscription'
+                properties  = [PSCustomObject]@{
+                    SubscriptionArn = [PSCustomObject]@{
+                        '$ref' = '#/definitions/Arn'
+                    }
+                    MonitorArnList  = [PSCustomObject]@{
+                        type  = 'array'
+                        items = [PSCustomObject]@{
+                            '$ref' = '#/definitions/Arn'
+                        }
+                    }
+                }
+                definitions = [PSCustomObject]@{
+                    Arn = [PSCustomObject]@{
+                        type    = 'string'
+                        pattern = '^arn:'
+                    }
+                }
+            } | ConvertTo-Json -Depth 10 | ConvertFrom-Json
+
+            $result = ConvertFrom-ProviderSchema -SchemaObject $schema
+        }
+
+        It 'Resolves a scalar-alias $ref to PrimitiveType String (not a complex Type)' {
+            $result.ResourceType.Value.Properties.SubscriptionArn.PrimitiveType | Should -Be 'String'
+            $result.ResourceType.Value.Properties.SubscriptionArn.PSObject.Properties.Name | Should -Not -Contain 'Type'
+        }
+
+        It 'Resolves an array of scalar-alias $refs to List + PrimitiveItemType String' {
+            $result.ResourceType.Value.Properties.MonitorArnList.Type | Should -Be 'List'
+            $result.ResourceType.Value.Properties.MonitorArnList.PrimitiveItemType | Should -Be 'String'
+            $result.ResourceType.Value.Properties.MonitorArnList.PSObject.Properties.Name | Should -Not -Contain 'ItemType'
+        }
+
+        It 'Does not generate a PropertyType entry for the scalar alias' {
+            $result.PropertyTypes.Keys | Should -Not -Contain 'AWS::CE::AnomalySubscription.Arn'
+        }
+    }
+
+    Context 'Resource with readOnlyProperties' {
+        BeforeAll {
+            $schema = @{
+                typeName           = 'AWS::CloudFormation::Stack'
+                properties         = [PSCustomObject]@{
+                    TemplateURL = [PSCustomObject]@{ type = 'string' }
+                    StackName   = [PSCustomObject]@{ type = 'string' }
+                    StackId     = [PSCustomObject]@{ type = 'string' }
+                    StackStatus = [PSCustomObject]@{ type = 'string' }
+                }
+                required           = @('StackName')
+                readOnlyProperties = @('/properties/StackId', '/properties/StackStatus')
+                definitions        = $null
+            } | ConvertTo-Json -Depth 10 | ConvertFrom-Json
+
+            $result = ConvertFrom-ProviderSchema -SchemaObject $schema
+        }
+
+        It 'Excludes read-only properties from generated parameters' {
+            $names = @($result.ResourceType.Value.Properties.PSObject.Properties.Name)
+            $names | Should -Not -Contain 'StackId'
+            $names | Should -Not -Contain 'StackStatus'
+        }
+
+        It 'Keeps settable properties' {
+            $names = @($result.ResourceType.Value.Properties.PSObject.Properties.Name)
+            $names | Should -Contain 'TemplateURL'
+            $names | Should -Contain 'StackName'
+        }
+
+        It 'Does not force provider-schema required into a mandatory parameter' {
+            $result.ResourceType.Value.Properties.StackName.Required | Should -Be 'False'
         }
     }
 
@@ -324,6 +406,110 @@ Describe 'ConvertFrom-ProviderSchema' {
 
         It 'Maps oneOf with $ref to Type with definition name' {
             $result.ResourceType.Value.Properties.Target.Type | Should -Be 'EcsParameters'
+        }
+    }
+
+    Context 'oneOf with an array-of-$ref variant (e.g. DynamoDB KeySchema)' {
+        BeforeAll {
+            $schema = @{
+                typeName    = 'AWS::DynamoDB::Table'
+                properties  = [PSCustomObject]@{
+                    KeySchema = [PSCustomObject]@{
+                        oneOf = @(
+                            [PSCustomObject]@{
+                                type  = 'array'
+                                items = [PSCustomObject]@{ '$ref' = '#/definitions/KeySchema' }
+                            }
+                            [PSCustomObject]@{ type = 'object' }
+                        )
+                    }
+                }
+                definitions = [PSCustomObject]@{
+                    KeySchema = [PSCustomObject]@{
+                        type       = 'object'
+                        properties = [PSCustomObject]@{
+                            AttributeName = [PSCustomObject]@{ type = 'string' }
+                            KeyType       = [PSCustomObject]@{ type = 'string' }
+                        }
+                    }
+                }
+            } | ConvertTo-Json -Depth 10 | ConvertFrom-Json
+
+            $result = ConvertFrom-ProviderSchema -SchemaObject $schema
+        }
+
+        It 'Prefers the array variant, mapping to List + ItemType' {
+            $result.ResourceType.Value.Properties.KeySchema.Type | Should -Be 'List'
+            $result.ResourceType.Value.Properties.KeySchema.ItemType | Should -Be 'KeySchema'
+        }
+
+        It 'Does not collapse the union to a String' {
+            $result.ResourceType.Value.Properties.KeySchema.PSObject.Properties.Name | Should -Not -Contain 'PrimitiveType'
+        }
+    }
+
+    Context 'Property using patternProperties without an explicit type (a map)' {
+        BeforeAll {
+            $schema = @{
+                typeName    = 'AWS::Glue::UsageProfile'
+                properties  = [PSCustomObject]@{
+                    JobConfiguration = [PSCustomObject]@{
+                        patternProperties = [PSCustomObject]@{
+                            '^.+$' = [PSCustomObject]@{ '$ref' = '#/definitions/ConfigurationObject' }
+                        }
+                        additionalProperties = $false
+                    }
+                }
+                definitions = $null
+            } | ConvertTo-Json -Depth 10 | ConvertFrom-Json
+
+            $result = ConvertFrom-ProviderSchema -SchemaObject $schema
+        }
+
+        It 'Maps a patternProperties map of complex values to Json (accepts hashtable/PSCustomObject)' {
+            # The map values are a $ref to a complex object, so the property must accept
+            # a PSCustomObject (e.g. a Vaporshell.Resource.* object), not a strict
+            # [System.Collections.Hashtable]. It is therefore emitted as PrimitiveType Json.
+            $result.ResourceType.Value.Properties.JobConfiguration.PrimitiveType | Should -Be 'Json'
+        }
+    }
+
+    Context 'Property with a simple map (additionalProperties of a primitive)' {
+        BeforeAll {
+            $schema = @{
+                typeName    = 'AWS::CloudFormation::Stack'
+                properties  = [PSCustomObject]@{
+                    Parameters = [PSCustomObject]@{
+                        type                 = 'object'
+                        additionalProperties = [PSCustomObject]@{ type = 'string' }
+                    }
+                }
+                definitions = $null
+            } | ConvertTo-Json -Depth 10 | ConvertFrom-Json
+
+            $result = ConvertFrom-ProviderSchema -SchemaObject $schema
+        }
+
+        It 'Keeps a primitive-valued map as Type Map' {
+            $result.ResourceType.Value.Properties.Parameters.Type | Should -Be 'Map'
+        }
+    }
+
+    Context 'Property with an empty schema' {
+        BeforeAll {
+            $schema = @{
+                typeName    = 'AWS::QBusiness::DataSource'
+                properties  = [PSCustomObject]@{
+                    Configuration = [PSCustomObject]@{}
+                }
+                definitions = $null
+            } | ConvertTo-Json -Depth 10 | ConvertFrom-Json
+
+            $result = ConvertFrom-ProviderSchema -SchemaObject $schema
+        }
+
+        It 'Maps an empty schema to Json (accepts any object), not String' {
+            $result.ResourceType.Value.Properties.Configuration.PrimitiveType | Should -Be 'Json'
         }
     }
 

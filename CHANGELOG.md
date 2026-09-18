@@ -58,6 +58,16 @@
 
 <!-- /TOC -->
 
+## 2.18.1 - 2026-09-18
+
+* Fixed: `ConvertFrom-ProviderSchema` (the adapter that maps the new AWS Resource Provider Schemas onto the legacy resource-spec structure) mis-classified several property shapes, producing generated `New-VS*`/`Add-VS*` functions that rejected valid input. Corrected:
+    * Scalar-alias `$ref`s (e.g. definitions like `Arn` / `PlatformType` declared as `{ "type": "string" }`) are now resolved to `PrimitiveType` / `PrimitiveItemType` `String` instead of a non-existent complex Vaporshell type, so parameters again accept strings and intrinsic functions.
+    * `readOnlyProperties` (Fn::GetAtt-only attributes such as `StackId`, `Outputs`) are excluded from generated parameters, and the Resource Provider Schema `required` list is no longer treated as PowerShell-mandatory (this removes spurious mandatory parameters and the interactive prompt that hung `New-VSCloudFormationStack`).
+    * `oneOf` / `anyOf` unions now select the most structured variant (including an array-of-`$ref` variant, e.g. DynamoDB `KeySchema`) rather than collapsing to `String`.
+    * Map typing improved: `patternProperties` / `additionalProperties` without an explicit `type` are recognised as maps; maps of complex (`$ref`) values and empty (`{}`) schemas map to `Json` (accepting a hashtable / PSCustomObject) instead of `String` or a strict `Hashtable`.
+* Miscellaneous
+    * Migrated the module test suite (`VaporShell.Tests.ps1`, `TransformTagAttribute.tests.ps1`) from legacy Pester v3/v4 syntax to Pester 5, with cross-platform paths, so `build.ps1 -Task Test` runs on macOS/Linux. Added unit tests covering the adapter fixes above.
+
 ## 2.13.0 - 2020-07-30
 
 * [Issue #81](https://github.com/SCRT-HQ/VaporShell/issues/81)
