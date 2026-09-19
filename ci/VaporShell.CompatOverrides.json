@@ -1,0 +1,4466 @@
+{
+ "Add-VSAccessAnalyzerAnalyzerAnalysisRuleCriteria/ResourceTags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSACMPCACertificateAuthorityCsrExtensions/SubjectInformationAccess": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ACMPCA.CertificateAuthority.AccessDescription",
+  "Set": null
+ },
+ "Add-VSACMPCACertificateAuthoritySubject/CustomAttributes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ACMPCA.CertificateAuthority.CustomAttribute",
+  "Set": null
+ },
+ "Add-VSACMPCACertificateExtensions/CustomExtensions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ACMPCA.Certificate.CustomExtension",
+  "Set": null
+ },
+ "Add-VSACMPCACertificateExtensions/CertificatePolicies": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ACMPCA.Certificate.PolicyInformation",
+  "Set": null
+ },
+ "Add-VSACMPCACertificateExtensions/SubjectAlternativeNames": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ACMPCA.Certificate.GeneralName",
+  "Set": null
+ },
+ "Add-VSACMPCACertificateExtensions/ExtendedKeyUsage": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ACMPCA.Certificate.ExtendedKeyUsage",
+  "Set": null
+ },
+ "Add-VSACMPCACertificatePolicyInformation/PolicyQualifiers": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ACMPCA.Certificate.PolicyQualifierInfo",
+  "Set": null
+ },
+ "Add-VSACMPCACertificateSubject/CustomAttributes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ACMPCA.Certificate.CustomAttribute",
+  "Set": null
+ },
+ "Add-VSAmplifyUIBuilderComponentActionParameters/Fields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentProperty",
+  "Set": null
+ },
+ "Add-VSAmplifyUIBuilderComponentComponentChild/Properties": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentProperty",
+  "Set": null
+ },
+ "Add-VSAmplifyUIBuilderComponentComponentChild/Events": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentEvent",
+  "Set": null
+ },
+ "Add-VSAmplifyUIBuilderComponentComponentProperty/Bindings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AmplifyUIBuilder.Component.FormBindingElement",
+  "Set": null
+ },
+ "Add-VSAmplifyUIBuilderComponentComponentVariant/VariantValues": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSAmplifyUIBuilderComponentComponentVariant/Overrides": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSAmplifyUIBuilderFormValueMappings/BindingProperties": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AmplifyUIBuilder.Form.FormInputBindingPropertiesValue",
+  "Set": null
+ },
+ "Add-VSApiGatewayUsagePlanApiStage/Throttle": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ApiGateway.UsagePlan.ThrottleSettings",
+  "Set": null
+ },
+ "Add-VSApiGatewayV2ApiGatewayManagedOverridesStageOverrides/StageVariables": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSApiGatewayV2IntegrationResponseParameterMap/ResponseParameters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ApiGatewayV2.Integration.ResponseParameter",
+  "Set": null
+ },
+ "Add-VSAppFlowConnectorProfileCustomAuthCredentials/CredentialsMap": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSAppFlowConnectorProfileCustomConnectorProfileProperties/ProfileProperties": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSAppFlowConnectorProfileOAuth2Properties/TokenUrlCustomProperties": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSAppFlowFlowCustomConnectorDestinationProperties/CustomProperties": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSAppFlowFlowCustomConnectorSourceProperties/DataTransferApi": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSAppFlowFlowCustomConnectorSourceProperties/CustomProperties": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSAppIntegrationsDataIntegrationFileConfiguration/Filters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSApplicationAutoScalingScalableTargetScheduledAction/EndTime": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSApplicationAutoScalingScalableTargetScheduledAction/StartTime": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSApplicationSignalsServiceLevelObjectiveCompositeSliConfig/CompositeSliComponents": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.CompositeSliComponent",
+  "Set": null
+ },
+ "Add-VSApplicationSignalsServiceLevelObjectiveDependencyConfig/DependencyKeyAttributes": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSApplicationSignalsServiceLevelObjectiveMetricSource/MetricSourceKeyAttributes": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSApplicationSignalsServiceLevelObjectiveMetricSource/MetricSourceAttributes": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSApplicationSignalsServiceLevelObjectiveMonitoredRequestCountMetric/GoodCountMetric": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.MetricDataQuery",
+  "Set": null
+ },
+ "Add-VSApplicationSignalsServiceLevelObjectiveMonitoredRequestCountMetric/BadCountMetric": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.MetricDataQuery",
+  "Set": null
+ },
+ "Add-VSApplicationSignalsServiceLevelObjectiveRequestBasedSliMetric/TotalRequestCountMetric": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.MetricDataQuery",
+  "Set": null
+ },
+ "Add-VSApplicationSignalsServiceLevelObjectiveRequestBasedSliMetric/KeyAttributes": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSApplicationSignalsServiceLevelObjectiveSliMetric/KeyAttributes": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSApplicationSignalsServiceLevelObjectiveSliMetric/MetricDataQueries": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.MetricDataQuery",
+  "Set": null
+ },
+ "Add-VSAppSyncApiEventConfig/AuthProviders": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AppSync.Api.AuthProvider",
+  "Set": null
+ },
+ "Add-VSAppSyncApiEventConfig/ConnectionAuthModes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AppSync.Api.AuthMode",
+  "Set": null
+ },
+ "Add-VSAppSyncApiEventConfig/DefaultPublishAuthModes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AppSync.Api.AuthMode",
+  "Set": null
+ },
+ "Add-VSAppSyncApiEventConfig/DefaultSubscribeAuthModes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AppSync.Api.AuthMode",
+  "Set": null
+ },
+ "Add-VSAppSyncGraphQLApiLambdaAuthorizerConfig/AuthorizerResultTtlInSeconds": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.Double,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSAppTestTestCaseBatch/BatchJobParameters": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSARCRegionSwitchPlanArcRoutingControlConfiguration/RegionAndRoutingControls": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSARCRegionSwitchPlanAuroraProvisionedScalingConfiguration/InstanceArns": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSARCRegionSwitchPlanAuroraProvisionedScalingConfiguration/RegionDatabaseClusterArns": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSARCRegionSwitchPlanAuroraServerlessScalingConfiguration/RegionDatabaseClusterArns": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSARCRegionSwitchPlanEksResourceScalingConfiguration/ScalingResources": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSARCRegionSwitchPlanLambdaEventSourceMappingConfiguration/RegionEventSourceMappings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ARCRegionSwitch.Plan.EventSourceMapping",
+  "Set": null
+ },
+ "Add-VSARCRegionSwitchPlanNeptuneGlobalDatabaseConfiguration/RegionDatabaseClusterArns": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSARCRegionSwitchPlanRdsCreateCrossRegionReplicaConfiguration/DbInstanceArnMap": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSARCRegionSwitchPlanRdsPromoteReadReplicaConfiguration/DbInstanceArnMap": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSAthenaCapacityReservationCapacityAssignmentConfiguration/CapacityAssignments": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Athena.CapacityReservation.CapacityAssignment",
+  "Set": null
+ },
+ "Add-VSAthenaWorkGroupCloudWatchLoggingConfiguration/LogTypes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSAthenaWorkGroupWorkGroupConfiguration/BytesScannedCutoffPerQuery": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSAutoScalingAutoScalingGroupCpuPerformanceFactorRequest/References": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AutoScaling.AutoScalingGroup.PerformanceFactorReferenceRequest",
+  "Set": null
+ },
+ "Add-VSBatchJobDefinitionConsumableResourceRequirement/Quantity": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSBCMDashboardDisplayConfig/Graph": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BCM.Dashboard.GraphDisplayConfig",
+  "Set": null
+ },
+ "Add-VSBCMDashboardDisplayConfig/Table": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBCMDataExportsExportDataQuery/TableConfigurations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreGatewaySessionConfiguration/SessionTimeoutInSeconds": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.Int32,Vaporshell.Function",
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreGatewayTargetMcpServerTargetConfiguration/ResourcePriority": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.Int32,Vaporshell.Function",
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreGatewayTargetOAuthCredentialProvider/GrantType": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreGatewayTargetOAuthCredentialProvider/CustomParameters": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreGatewayTargetSchemaDefinition/Properties": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BedrockAgentCore.GatewayTarget.SchemaDefinition",
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreGatewayTargetStickinessConfiguration/Timeout": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.Int32,Vaporshell.Function",
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreHarnessHarnessAgentCoreMemoryConfiguration/RetrievalConfig": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BedrockAgentCore.Harness.HarnessAgentCoreMemoryRetrievalConfig",
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreHarnessHarnessAgentCoreMemoryRetrievalConfig/TopK": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreHarnessHarnessAgentCoreMemoryRetrievalConfig/RelevanceScore": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreHarnessHarnessMemoryConfiguration/Disabled": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreMemoryMemoryRecordSchema/MetadataSchema": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BedrockAgentCore.Memory.MetadataSchemaEntry",
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreMemorySelfManagedConfiguration/TriggerConditions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BedrockAgentCore.Memory.TriggerConditionInput",
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreRuntimeAllowedWorkloadConfiguration/HostingEnvironments": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BedrockAgentCore.Runtime.HostingEnvironment",
+  "Set": null
+ },
+ "Add-VSBedrockAgentCoreRuntimeCustomJWTAuthorizerConfiguration/CustomClaims": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BedrockAgentCore.Runtime.CustomClaimValidationType",
+  "Set": null
+ },
+ "Add-VSBedrockAgentFunction/Parameters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.Agent.ParameterDetail",
+  "Set": null
+ },
+ "Add-VSBedrockAgentPromptConfiguration/AdditionalModelRequestFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockAutomatedReasoningPolicyPolicyDefinition/Variables": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.AutomatedReasoningPolicy.PolicyDefinitionVariable",
+  "Set": null
+ },
+ "Add-VSBedrockAutomatedReasoningPolicyPolicyDefinition/Types": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.AutomatedReasoningPolicy.PolicyDefinitionType",
+  "Set": null
+ },
+ "Add-VSBedrockAutomatedReasoningPolicyPolicyDefinition/Rules": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.AutomatedReasoningPolicy.PolicyDefinitionRule",
+  "Set": null
+ },
+ "Add-VSBedrockAutomatedReasoningPolicyPolicyDefinitionType/Values": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.AutomatedReasoningPolicy.PolicyDefinitionTypeValue",
+  "Set": null
+ },
+ "Add-VSBedrockDataAutomationLibraryEncryptionConfiguration/KmsEncryptionContext": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSBedrockDataSourcePatternObjectFilterConfiguration/Filters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.DataSource.PatternObjectFilter",
+  "Set": null
+ },
+ "Add-VSBedrockDataSourceUrlConfiguration/SeedUrls": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.DataSource.SeedUrl",
+  "Set": null
+ },
+ "Add-VSBedrockFlowFlowNodeConfiguration/Input": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockFlowFlowNodeConfiguration/Output": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockFlowFlowNodeConfiguration/Iterator": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockFlowFlowNodeConfiguration/Collector": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockFlowFlowNodeConfiguration/LoopInput": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockFlowKnowledgeBaseOrchestrationConfiguration/AdditionalModelRequestFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockFlowRerankingMetadataSelectiveModeConfiguration/FieldsToInclude": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.Flow.FieldForReranking",
+  "Set": null
+ },
+ "Add-VSBedrockFlowRerankingMetadataSelectiveModeConfiguration/FieldsToExclude": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.Flow.FieldForReranking",
+  "Set": null
+ },
+ "Add-VSBedrockFlowVectorSearchBedrockRerankingModelConfiguration/AdditionalModelRequestFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockFlowVersionFlowNodeConfiguration/Input": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockFlowVersionFlowNodeConfiguration/Output": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockFlowVersionFlowNodeConfiguration/Iterator": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockFlowVersionFlowNodeConfiguration/Collector": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockFlowVersionFlowNodeConfiguration/LoopInput": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockFlowVersionKnowledgeBaseOrchestrationConfiguration/AdditionalModelRequestFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockFlowVersionRerankingMetadataSelectiveModeConfiguration/FieldsToInclude": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.FlowVersion.FieldForReranking",
+  "Set": null
+ },
+ "Add-VSBedrockFlowVersionRerankingMetadataSelectiveModeConfiguration/FieldsToExclude": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.FlowVersion.FieldForReranking",
+  "Set": null
+ },
+ "Add-VSBedrockFlowVersionVectorSearchBedrockRerankingModelConfiguration/AdditionalModelRequestFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockKnowledgeBaseBedrockEmbeddingModelConfiguration/Video": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.KnowledgeBase.VideoConfiguration",
+  "Set": null
+ },
+ "Add-VSBedrockKnowledgeBaseBedrockEmbeddingModelConfiguration/Audio": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.KnowledgeBase.AudioConfiguration",
+  "Set": null
+ },
+ "Add-VSBedrockKnowledgeBaseQueryGenerationContext/CuratedQueries": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.KnowledgeBase.CuratedQuery",
+  "Set": null
+ },
+ "Add-VSBedrockKnowledgeBaseQueryGenerationContext/Tables": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.KnowledgeBase.QueryGenerationTable",
+  "Set": null
+ },
+ "Add-VSBedrockKnowledgeBaseQueryGenerationTable/Columns": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.KnowledgeBase.QueryGenerationColumn",
+  "Set": null
+ },
+ "Add-VSBedrockKnowledgeBaseRedshiftConfiguration/StorageConfigurations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.KnowledgeBase.RedshiftQueryEngineStorageConfiguration",
+  "Set": null
+ },
+ "Add-VSBedrockKnowledgeBaseSupplementalDataStorageConfiguration/SupplementalDataStorageLocations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Bedrock.KnowledgeBase.SupplementalDataStorageLocation",
+  "Set": null
+ },
+ "Add-VSBedrockPromptPromptVariant/AdditionalModelRequestFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockPromptToolChoice/Auto": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockPromptToolChoice/Any": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockPromptVersionPromptVariant/AdditionalModelRequestFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockPromptVersionToolChoice/Auto": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBedrockPromptVersionToolChoice/Any": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSBillingConductorCustomLineItemCustomLineItemChargeDetails/LineItemFilters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BillingConductor.CustomLineItem.LineItemFilter",
+  "Set": null
+ },
+ "Add-VSCasesCaseRuleOperandTwo/EmptyValue": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSChatbotCustomActionCustomActionAttachment/Variables": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSCleanRoomsIdNamespaceAssociationIdNamespaceAssociationInputReferenceProperties/IdMappingWorkflowsSupported": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSCloudFrontAnycastIpListAnycastIpList/IpamCidrConfigResults": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.CloudFront.AnycastIpList.IpamCidrConfigResult",
+  "Set": null
+ },
+ "Add-VSCodeDeployDeploymentConfigZonalConfig/MonitorDurationInSeconds": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSCodeDeployDeploymentConfigZonalConfig/FirstZoneMonitorDurationInSeconds": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSComputeOptimizerAutomationRuleCriteria/EstimatedMonthlySavings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ComputeOptimizer.AutomationRule.DoubleCriteriaCondition",
+  "Set": null
+ },
+ "Add-VSComputeOptimizerAutomationRuleCriteria/ResourceArn": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ComputeOptimizer.AutomationRule.StringCriteriaCondition",
+  "Set": null
+ },
+ "Add-VSComputeOptimizerAutomationRuleCriteria/ResourceTag": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ComputeOptimizer.AutomationRule.ResourceTagsCriteriaCondition",
+  "Set": null
+ },
+ "Add-VSComputeOptimizerAutomationRuleCriteria/RestartNeeded": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ComputeOptimizer.AutomationRule.StringCriteriaCondition",
+  "Set": null
+ },
+ "Add-VSComputeOptimizerAutomationRuleCriteria/Region": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ComputeOptimizer.AutomationRule.StringCriteriaCondition",
+  "Set": null
+ },
+ "Add-VSComputeOptimizerAutomationRuleCriteria/LookBackPeriodInDays": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ComputeOptimizer.AutomationRule.IntegerCriteriaCondition",
+  "Set": null
+ },
+ "Add-VSComputeOptimizerAutomationRuleCriteria/EbsVolumeType": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ComputeOptimizer.AutomationRule.StringCriteriaCondition",
+  "Set": null
+ },
+ "Add-VSComputeOptimizerAutomationRuleCriteria/EbsVolumeSizeInGib": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ComputeOptimizer.AutomationRule.IntegerCriteriaCondition",
+  "Set": null
+ },
+ "Add-VSConnectCampaignsV2CampaignCommunicationLimits/CommunicationLimitList": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ConnectCampaignsV2.Campaign.CommunicationLimit",
+  "Set": null
+ },
+ "Add-VSConnectCampaignsV2CampaignDailyHour/Value": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ConnectCampaignsV2.Campaign.TimeRange",
+  "Set": null
+ },
+ "Add-VSConnectCampaignsV2CampaignEmailOutboundMode/AgentlessConfig": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSConnectCampaignsV2CampaignOpenHours/DailyHours": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ConnectCampaignsV2.Campaign.DailyHour",
+  "Set": null
+ },
+ "Add-VSConnectCampaignsV2CampaignRestrictedPeriods/RestrictedPeriodList": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ConnectCampaignsV2.Campaign.RestrictedPeriod",
+  "Set": null
+ },
+ "Add-VSConnectCampaignsV2CampaignSmsOutboundMode/AgentlessConfig": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSConnectCampaignsV2CampaignTelephonyOutboundMode/AgentlessConfig": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSConnectCampaignsV2CampaignWhatsAppOutboundMode/AgentlessConfig": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSConnectHoursOfOperationHoursOfOperationOverride/OverrideConfig": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.HoursOfOperation.HoursOfOperationOverrideConfig",
+  "Set": null
+ },
+ "Add-VSConnectRuleActions/EventBridgeActions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.Rule.EventBridgeAction",
+  "Set": null
+ },
+ "Add-VSConnectRuleActions/UpdateCaseActions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.Rule.UpdateCaseAction",
+  "Set": null
+ },
+ "Add-VSConnectRuleActions/CreateCaseActions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.Rule.CreateCaseAction",
+  "Set": null
+ },
+ "Add-VSConnectRuleActions/AssignSlaActions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.Rule.AssignSlaAction",
+  "Set": null
+ },
+ "Add-VSConnectRuleActions/TaskActions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.Rule.TaskAction",
+  "Set": null
+ },
+ "Add-VSConnectRuleActions/SubmitAutoEvaluationActions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.Rule.SubmitAutoEvaluationAction",
+  "Set": null
+ },
+ "Add-VSConnectRuleActions/SendNotificationActions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.Rule.SendNotificationAction",
+  "Set": null
+ },
+ "Add-VSConnectRuleCreateCaseAction/Fields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.Rule.Field",
+  "Set": null
+ },
+ "Add-VSConnectRuleTaskAction/References": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.Rule.Reference",
+  "Set": null
+ },
+ "Add-VSConnectRuleUpdateCaseAction/Fields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.Rule.Field",
+  "Set": null
+ },
+ "Add-VSConnectTaskTemplateConstraints/ReadOnlyFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.TaskTemplate.ReadOnlyFieldInfo",
+  "Set": null
+ },
+ "Add-VSConnectTaskTemplateConstraints/InvisibleFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.TaskTemplate.InvisibleFieldInfo",
+  "Set": null
+ },
+ "Add-VSConnectTaskTemplateConstraints/RequiredFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Connect.TaskTemplate.RequiredFieldInfo",
+  "Set": null
+ },
+ "Add-VSControlTowerEnabledBaselineParameter/Value": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSControlTowerEnabledControlEnabledControlParameter/Value": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSCustomerProfilesCalculatedAttributeDefinitionAttributeDetails/Attributes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.CustomerProfiles.CalculatedAttributeDefinition.AttributeItem",
+  "Set": null
+ },
+ "Add-VSCustomerProfilesDomainConsolidation/MatchingAttributesList": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSCustomerProfilesEventTriggerEventTriggerCondition/EventTriggerDimensions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.CustomerProfiles.EventTrigger.EventTriggerDimension",
+  "Set": null
+ },
+ "Add-VSCustomerProfilesEventTriggerEventTriggerDimension/ObjectAttributes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.CustomerProfiles.EventTrigger.ObjectAttribute",
+  "Set": null
+ },
+ "Add-VSCustomerProfilesEventTriggerEventTriggerLimits/Periods": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.CustomerProfiles.EventTrigger.Period",
+  "Set": null
+ },
+ "Add-VSCustomerProfilesEventTriggerEventTriggerLimits/EventExpiration": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSCustomerProfilesSegmentDefinitionDimension/CalculatedAttributes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.CustomerProfiles.SegmentDefinition.CalculatedAttributeDimension",
+  "Set": null
+ },
+ "Add-VSCustomerProfilesSegmentDefinitionProfileAttributes/Attributes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.CustomerProfiles.SegmentDefinition.AttributeDimension",
+  "Set": null
+ },
+ "Add-VSDataBrewJobJobSample/Size": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSDataBrewJobStatisticOverride/Parameters": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSDataBrewRulesetRule/SubstitutionMap": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.DataBrew.Ruleset.SubstitutionValue",
+  "Set": null
+ },
+ "Add-VSDataSyncTaskOptions/BytesPerSecond": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSDataZoneConnectionAuthenticationConfigurationInput/CustomAuthenticationCredentials": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSDataZoneConnectionConnectionConfiguration/Properties": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSDataZoneConnectionConnectionPropertiesInput/WorkflowsServerlessProperties": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSDataZoneConnectionGlueConnectionInput/PythonProperties": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSDataZoneConnectionGlueConnectionInput/SparkProperties": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSDataZoneConnectionGlueConnectionInput/ConnectionProperties": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSDataZoneConnectionGlueConnectionInput/AthenaProperties": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSDataZoneConnectionOAuth2Properties/TokenUrlParametersMap": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSDataZoneDataSourceRedshiftRunConfigurationInput/RelationalFilterConfigurations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.DataZone.DataSource.RelationalFilterConfiguration",
+  "Set": null
+ },
+ "Add-VSDataZoneDataSourceSageMakerRunConfigurationInput/TrackingAssets": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSDataZoneEnvironmentBlueprintConfigurationRegionalParameter/Parameters": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSDataZonePolicyGrantDomainUnitGrantFilter/AllDomainUnitsGrantFilter": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSDataZonePolicyGrantPolicyGrantDetail/CreateEnvironmentFromBlueprint": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSDataZonePolicyGrantPolicyGrantDetail/DelegateCreateEnvironmentProfile": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSDataZonePolicyGrantPolicyGrantDetail/CreateEnvironment": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSDataZonePolicyGrantUserPolicyGrantPrincipal/AllUsersGrantFilter": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSDeadlineQueueSchedulingConfiguration/PriorityFifo": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSDeadlineQueueSchedulingMaxPriorityOverride/AlwaysScheduleFirst": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSDeadlineQueueSchedulingMinPriorityOverride/AlwaysScheduleLast": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSDevOpsAgentAssociationAWSConfiguration/Resources": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.DevOpsAgent.Association.AWSResource",
+  "Set": null
+ },
+ "Add-VSDevOpsAgentAssociationAWSConfiguration/Tags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.DevOpsAgent.Association.KeyValuePair",
+  "Set": null
+ },
+ "Add-VSDevOpsAgentAssociationSourceAwsConfiguration/Resources": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.DevOpsAgent.Association.AWSResource",
+  "Set": null
+ },
+ "Add-VSDevOpsAgentAssociationSourceAwsConfiguration/Tags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.DevOpsAgent.Association.KeyValuePair",
+  "Set": null
+ },
+ "Add-VSDevOpsGuruResourceCollectionResourceCollectionFilter/Tags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.DevOpsGuru.ResourceCollection.TagCollection",
+  "Set": null
+ },
+ "Add-VSDLMLifecyclePolicyExclusions/ExcludeTags": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSEC2IPAMPrefixListResolverIpamPrefixListResolverRuleCondition/ResourceTag": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSEC2LaunchTemplateCpu/References": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.EC2.LaunchTemplate.Reference",
+  "Set": null
+ },
+ "Add-VSEC2RouteServerPeerBgpOptions/PeerAsn": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSEKSClusterClusterLogging/EnabledTypes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.EKS.Cluster.LoggingTypeConfig",
+  "Set": null
+ },
+ "Add-VSEKSClusterRemoteNetworkConfig/RemoteNodeNetworks": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.EKS.Cluster.RemoteNodeNetwork",
+  "Set": null
+ },
+ "Add-VSEKSClusterRemoteNetworkConfig/RemotePodNetworks": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.EKS.Cluster.RemotePodNetwork",
+  "Set": null
+ },
+ "Add-VSElasticLoadBalancingV2ListenerRuleRewriteConfigObject/Rewrites": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ElasticLoadBalancingV2.ListenerRule.RewriteConfig",
+  "Set": null
+ },
+ "Add-VSElasticLoadBalancingV2TrustStoreRevocationTrustStoreRevocation/NumberOfRevokedEntries": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSElementalInferenceFeedOutputConfig/Cropping": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSEMRClusterAutoTerminationPolicy/IdleTimeout": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSEMRServerlessApplicationInitialCapacityConfig/WorkerCount": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSFinSpaceEnvironmentFederationParameters/AttributeMap": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.FinSpace.Environment.AttributeMapItems",
+  "Set": null
+ },
+ "Add-VSFISExperimentTemplateExperimentTemplateTarget/Filters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentTemplateTargetFilter",
+  "Set": null
+ },
+ "Add-VSFMSPolicyNetworkAclEntrySet/LastEntries": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.FMS.Policy.NetworkAclEntry",
+  "Set": null
+ },
+ "Add-VSFMSPolicyNetworkAclEntrySet/FirstEntries": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.FMS.Policy.NetworkAclEntry",
+  "Set": null
+ },
+ "Add-VSForecastDatasetSchema/Attributes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Forecast.Dataset.AttributesItems",
+  "Set": null
+ },
+ "Add-VSGlueIntegrationIntegrationConfig/SourceProperties": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSGlueSecurityConfigurationEncryptionConfiguration/S3Encryptions": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSGlueUsageProfileProfileConfiguration/JobConfiguration": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Glue.UsageProfile.ConfigurationObject",
+  "Set": null
+ },
+ "Add-VSGlueUsageProfileProfileConfiguration/SessionConfiguration": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Glue.UsageProfile.ConfigurationObject",
+  "Set": null
+ },
+ "Add-VSGreengrassV2ComponentVersionLambdaFunctionRecipeSource/ComponentDependencies": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.GreengrassV2.ComponentVersion.ComponentDependencyRequirement",
+  "Set": null
+ },
+ "Add-VSGreengrassV2DeploymentSystemResourceLimits/Memory": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSGuardDutyFilterCondition/LessThan": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSGuardDutyFilterCondition/LessThanOrEqual": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSGuardDutyFilterCondition/GreaterThan": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSGuardDutyFilterCondition/GreaterThanOrEqual": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSGuardDutyFilterFindingCriteria/Criterion": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.GuardDuty.Filter.Condition",
+  "Set": null
+ },
+ "Add-VSInspectorV2CisScanConfigurationCisTargets/TargetResourceTags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSInspectorV2CisScanConfigurationSchedule/OneTime": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterDateFilter/EndInclusive": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterDateFilter/StartInclusive": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/ResourceTags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.MapFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/Ec2InstanceImageId": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/FirstObservedAt": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.DateFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/InspectorScore": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.NumberFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/Ec2InstanceVpcId": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/LambdaFunctionName": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/LambdaFunctionRuntime": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/LastObservedAt": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.DateFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/EcrImagePushedAt": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.DateFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/LambdaFunctionLayers": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/FixAvailable": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/ExploitAvailable": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/EcrImageArchitecture": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/RelatedVulnerabilities": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/EcrImageTags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/VulnerabilityId": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/ComponentType": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/LambdaFunctionExecutionRoleArn": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/VendorSeverity": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/CodeVulnerabilityDetectorTags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/CodeVulnerabilityDetectorName": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/EcrImageRepositoryName": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/Title": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/ResourceType": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/Severity": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/NetworkProtocol": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/UpdatedAt": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.DateFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/CodeVulnerabilityFilePath": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/EcrImageHash": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/LambdaFunctionLastModifiedAt": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.DateFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/PortRange": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.PortRangeFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/VulnerabilitySource": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/Ec2InstanceSubnetId": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/FindingArn": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/ResourceId": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/FindingStatus": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/VulnerablePackages": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.PackageFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/AwsAccountId": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/EpssScore": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.NumberFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/ComponentId": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/EcrImageRegistry": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSInspectorV2FilterFilterCriteria/FindingType": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.InspectorV2.Filter.StringFilter",
+  "Set": null
+ },
+ "Add-VSIoTAnalyticsChannelChannelStorage/ServiceManagedS3": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSIoTAnalyticsDatastoreDatastoreStorage/ServiceManagedS3": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSIoTAnalyticsDatastoreFileFormatConfiguration/JsonConfiguration": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSIoTCommandCommandParameter/ValueConditions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoT.Command.CommandParameterValueCondition",
+  "Set": null
+ },
+ "Add-VSIoTCoreDeviceAdvisorSuiteDefinitionSuiteDefinitionConfiguration/Devices": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTCoreDeviceAdvisor.SuiteDefinition.DeviceUnderTest",
+  "Set": null
+ },
+ "Add-VSIoTEventsAlarmModelAlarmEventActions/AlarmActions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTEvents.AlarmModel.AlarmAction",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestCanSignal/IsBigEndian": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestCanSignal/Length": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestCanSignal/Factor": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestCanSignal/IsSigned": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestCanSignal/StartBit": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestCanSignal/MessageId": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestCanSignal/Offset": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdInterface/HasTransmissionEcu": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdInterface/PidRequestIntervalSeconds": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdInterface/UseExtendedIds": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdInterface/RequestMessageId": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdInterface/DtcRequestIntervalSeconds": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdSignal/BitRightShift": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdSignal/BitMaskLength": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdSignal/StartByte": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdSignal/ByteLength": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdSignal/PidResponseLength": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdSignal/Scaling": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdSignal/Pid": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdSignal/IsSigned": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdSignal/ServiceMode": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseDecoderManifestObdSignal/Offset": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSIoTFleetWiseVehicleStateTemplateUpdateStrategy/OnChange": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSIoTTwinMakerComponentTypeDataValue/MapValue": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTTwinMaker.ComponentType.DataValue",
+  "Set": null
+ },
+ "Add-VSIoTTwinMakerComponentTypeStatus/Error": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSIoTTwinMakerEntityComponent/PropertyGroups": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTTwinMaker.Entity.PropertyGroup",
+  "Set": null
+ },
+ "Add-VSIoTTwinMakerEntityComponent/Properties": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTTwinMaker.Entity.Property",
+  "Set": null
+ },
+ "Add-VSIoTTwinMakerEntityCompositeComponent/PropertyGroups": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTTwinMaker.Entity.PropertyGroup",
+  "Set": null
+ },
+ "Add-VSIoTTwinMakerEntityCompositeComponent/Properties": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTTwinMaker.Entity.Property",
+  "Set": null
+ },
+ "Add-VSIoTTwinMakerEntityDataValue/MapValue": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTTwinMaker.Entity.DataValue",
+  "Set": null
+ },
+ "Add-VSIoTTwinMakerEntityDefinition/Configuration": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSIoTTwinMakerEntityStatus/Error": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSIoTWirelessTaskDefinitionLoRaWANUpdateGatewayTaskCreate/SigKeyCrc": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSKafkaConnectConnectorCustomPlugin/Revision": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSKafkaConnectConnectorWorkerConfiguration/Revision": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSKafkaConnectCustomPluginCustomPluginFileDescription/FileSize": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSKendraDataSourceCustomDocumentEnrichmentConfiguration/InlineConfigurations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Kendra.DataSource.InlineCustomDocumentEnrichmentConfiguration",
+  "Set": null
+ },
+ "Add-VSKendraDataSourceDocumentAttributeValue/LongValue": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSKendraIndexRelevance/ValueImportanceItems": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Kendra.Index.ValueImportanceItem",
+  "Set": null
+ },
+ "Add-VSKinesisAnalyticsV2ApplicationApplicationConfiguration/VpcConfigurations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.KinesisAnalyticsV2.Application.VpcConfiguration",
+  "Set": null
+ },
+ "Add-VSKinesisAnalyticsV2ApplicationCheckpointConfiguration/CheckpointInterval": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSKinesisAnalyticsV2ApplicationCheckpointConfiguration/MinPauseBetweenCheckpoints": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSKinesisAnalyticsV2ApplicationZeppelinApplicationConfiguration/CustomArtifactsConfiguration": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.KinesisAnalyticsV2.Application.CustomArtifactConfiguration",
+  "Set": null
+ },
+ "Add-VSKinesisFirehoseDeliveryStreamIcebergDestinationConfiguration/DestinationTableConfigurationList": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.KinesisFirehose.DeliveryStream.DestinationTableConfiguration",
+  "Set": null
+ },
+ "Add-VSLakeFormationPrincipalPermissionsLFTagPolicyResource/Expression": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.LakeFormation.PrincipalPermissions.LFTag",
+  "Set": null
+ },
+ "Add-VSLakeFormationPrincipalPermissionsResource/Catalog": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSLakeFormationPrincipalPermissionsTableResource/TableWildcard": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSLakeFormationTagAssociationResource/Catalog": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSLakeFormationTagAssociationTableResource/TableWildcard": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSLexBotAliasConversationLogSettings/TextLogSettings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.BotAlias.TextLogSetting",
+  "Set": null
+ },
+ "Add-VSLexBotAliasConversationLogSettings/AudioLogSettings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.BotAlias.AudioLogSetting",
+  "Set": null
+ },
+ "Add-VSLexBotConditionalSpecification/ConditionalBranches": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.ConditionalBranch",
+  "Set": null
+ },
+ "Add-VSLexBotConversationLogSettings/TextLogSettings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.TextLogSetting",
+  "Set": null
+ },
+ "Add-VSLexBotConversationLogSettings/AudioLogSettings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.AudioLogSetting",
+  "Set": null
+ },
+ "Add-VSLexBotCustomVocabulary/CustomVocabularyItems": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.CustomVocabularyItem",
+  "Set": null
+ },
+ "Add-VSLexBotFulfillmentStartResponseSpecification/MessageGroups": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.MessageGroup",
+  "Set": null
+ },
+ "Add-VSLexBotFulfillmentUpdateResponseSpecification/MessageGroups": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.MessageGroup",
+  "Set": null
+ },
+ "Add-VSLexBotIntent/InputContexts": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.InputContext",
+  "Set": null
+ },
+ "Add-VSLexBotIntent/OutputContexts": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.OutputContext",
+  "Set": null
+ },
+ "Add-VSLexBotIntent/SlotPriorities": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.SlotPriority",
+  "Set": null
+ },
+ "Add-VSLexBotIntent/SampleUtterances": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.SampleUtterance",
+  "Set": null
+ },
+ "Add-VSLexBotPromptSpecification/MessageGroupsList": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.MessageGroup",
+  "Set": null
+ },
+ "Add-VSLexBotPromptSpecification/PromptAttemptsSpecification": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.PromptAttemptSpecification",
+  "Set": null
+ },
+ "Add-VSLexBotResponseSpecification/MessageGroupsList": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.MessageGroup",
+  "Set": null
+ },
+ "Add-VSLexBotSlotType/SlotTypeValues": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.SlotTypeValue",
+  "Set": null
+ },
+ "Add-VSLexBotSlotTypeValue/Synonyms": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.SampleValue",
+  "Set": null
+ },
+ "Add-VSLexBotSlotValueElicitationSetting/SampleUtterances": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.SampleUtterance",
+  "Set": null
+ },
+ "Add-VSLexBotSlotValueOverride/Values": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.SlotValueOverride",
+  "Set": null
+ },
+ "Add-VSLexBotStillWaitingResponseSpecification/MessageGroupsList": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.MessageGroup",
+  "Set": null
+ },
+ "Add-VSLexBotSubSlotSetting/SlotSpecifications": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.Specifications",
+  "Set": null
+ },
+ "Add-VSLexBotSubSlotValueElicitationSetting/SampleUtterances": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.SampleUtterance",
+  "Set": null
+ },
+ "Add-VSLexBotTestBotAliasSettings/BotAliasLocaleSettings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.Bot.BotAliasLocaleSettingsItem",
+  "Set": null
+ },
+ "Add-VSLightsailDistributionCacheSettings/MinimumTTL": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSLightsailDistributionCacheSettings/MaximumTTL": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSLightsailDistributionCacheSettings/DefaultTTL": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSLogsTransformerCsv/Columns": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSLogsTransformerDateTimeConverter/MatchPatterns": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSMacieFindingsFilterCriterionAdditionalProperties/lt": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSMacieFindingsFilterCriterionAdditionalProperties/gte": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSMacieFindingsFilterCriterionAdditionalProperties/lte": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSMacieFindingsFilterCriterionAdditionalProperties/gt": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSMacieFindingsFilterFindingCriteria/Criterion": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Macie.FindingsFilter.CriterionAdditionalProperties",
+  "Set": null
+ },
+ "Add-VSMediaConnectFlowFlowTransitEncryptionKeyConfiguration/Automatic": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSMediaConnectFlowOutputFlowTransitEncryptionKeyConfiguration/Automatic": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSMediaConnectRouterInputFlowTransitEncryptionKeyConfiguration/Automatic": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSMediaConnectRouterInputMaintenanceConfiguration/Default": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSMediaConnectRouterInputMediaLiveTransitEncryptionKeyConfiguration/Automatic": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSMediaConnectRouterInputRouterInputTransitEncryptionKeyConfiguration/Automatic": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSMediaConnectRouterOutputFlowTransitEncryptionKeyConfiguration/Automatic": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSMediaConnectRouterOutputMaintenanceConfiguration/Default": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSMediaConnectRouterOutputMediaLiveTransitEncryptionKeyConfiguration/Automatic": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSMediaLiveMultiplexMultiplexOutputDestination/MultiplexMediaConnectOutputDestinationSettings": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSMediaTailorPlaybackConfigurationHttpRequest/Headers": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSNetworkFirewallFirewallPolicyPolicyVariables/RuleVariables": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.NetworkFirewall.FirewallPolicy.IPSet",
+  "Set": null
+ },
+ "Add-VSNetworkFirewallRuleGroupReferenceSets/IPSetReferences": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.NetworkFirewall.RuleGroup.IPSetReference",
+  "Set": null
+ },
+ "Add-VSNetworkFirewallRuleGroupRuleVariables/PortSets": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.NetworkFirewall.RuleGroup.PortSet",
+  "Set": null
+ },
+ "Add-VSNetworkFirewallRuleGroupRuleVariables/IPSets": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.NetworkFirewall.RuleGroup.IPSet",
+  "Set": null
+ },
+ "Add-VSObservabilityAdminOrganizationTelemetryRuleFilter/Conditions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ObservabilityAdmin.OrganizationTelemetryRule.Condition",
+  "Set": null
+ },
+ "Add-VSObservabilityAdminOrganizationTelemetryRuleLoggingFilter/Filters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ObservabilityAdmin.OrganizationTelemetryRule.Filter",
+  "Set": null
+ },
+ "Add-VSObservabilityAdminOrganizationTelemetryRuleWAFLoggingParameters/RedactedFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ObservabilityAdmin.OrganizationTelemetryRule.FieldToMatch",
+  "Set": null
+ },
+ "Add-VSObservabilityAdminTelemetryRuleFilter/Conditions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ObservabilityAdmin.TelemetryRule.Condition",
+  "Set": null
+ },
+ "Add-VSObservabilityAdminTelemetryRuleLoggingFilter/Filters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ObservabilityAdmin.TelemetryRule.Filter",
+  "Set": null
+ },
+ "Add-VSObservabilityAdminTelemetryRuleWAFLoggingParameters/RedactedFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ObservabilityAdmin.TelemetryRule.FieldToMatch",
+  "Set": null
+ },
+ "Add-VSOmicsAnnotationStoreTsvStoreOptions/Schema": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSOmicsAnnotationStoreTsvStoreOptions/FormatToHeader": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSOpenSearchServerlessIndexAnalysis/Analyzer": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.OpenSearchServerless.Index.AnalyzerItems",
+  "Set": null
+ },
+ "Add-VSOpenSearchServerlessIndexMappings/Properties": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.OpenSearchServerless.Index.PropertyMapping",
+  "Set": null
+ },
+ "Add-VSOpenSearchServerlessIndexPropertyMapping/Properties": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.OpenSearchServerless.Index.PropertyMapping",
+  "Set": null
+ },
+ "Add-VSOpenSearchServiceApplicationDataSource/DataSourceArn": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSOpenSearchServiceApplicationIamIdentityCenterOptions/IamIdentityCenterInstanceArn": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,Vaporshell.Function,Vaporshell.Condition",
+  "Set": null
+ },
+ "Add-VSPipesPipePipeEnrichmentHttpParameters/HeaderParameters": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSPipesPipePipeEnrichmentHttpParameters/QueryStringParameters": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSPipesPipePipeTargetBatchJobParameters/Parameters": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSPipesPipePipeTargetHttpParameters/HeaderParameters": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSPipesPipePipeTargetHttpParameters/QueryStringParameters": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSQBusinessPluginPluginAuthConfiguration/NoAuthConfiguration": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSQuickSightAnalysisAxisDisplayRange/DataDriven": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSQuickSightAnalysisFilterScopeConfiguration/AllSheets": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSQuickSightDashboardAxisDisplayRange/DataDriven": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSQuickSightDashboardFilterScopeConfiguration/AllSheets": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSQuickSightDataSetDataPrepConfiguration/DestinationTableMap": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.QuickSight.DataSet.DestinationTable",
+  "Set": null
+ },
+ "Add-VSQuickSightDataSetDataPrepConfiguration/TransformStepMap": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.QuickSight.DataSet.TransformStep",
+  "Set": null
+ },
+ "Add-VSQuickSightDataSetDataPrepConfiguration/SourceTableMap": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.QuickSight.DataSet.SourceTable",
+  "Set": null
+ },
+ "Add-VSQuickSightDataSetRowLevelPermissionTagConfiguration/TagRuleConfigurations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSQuickSightDataSetSemanticModelConfiguration/TableMap": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.QuickSight.DataSet.SemanticTable",
+  "Set": null
+ },
+ "Add-VSQuickSightTemplateAxisDisplayRange/DataDriven": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSQuickSightTemplateFilterScopeConfiguration/AllSheets": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSQuickSightTopicNamedEntityDefinitionMetric/AggregationFunctionParameters": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSQuickSightTopicSemanticEntityType/TypeParameters": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSQuickSightTopicSemanticType/TypeParameters": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSRTBFabricLinkOpenRtbAttributeModuleParameters/Action": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSS3FilesFileSystemImportDataRule/SizeLessThan": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSS3ObjectLambdaAccessPointTransformationConfiguration/ContentTransformation": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSS3StorageLensGroupAnd/MatchAnyTag": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSS3StorageLensGroupFilter/MatchAnyTag": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSS3StorageLensGroupMatchObjectSize/BytesGreaterThan": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSS3StorageLensGroupMatchObjectSize/BytesLessThan": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSS3StorageLensGroupOr/MatchAnyTag": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSS3TablesTableIcebergMetadata/TableProperties": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSS3TablesTableIcebergPartitionSpec/Fields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.S3Tables.Table.IcebergPartitionField",
+  "Set": null
+ },
+ "Add-VSS3TablesTableIcebergSchema/SchemaFieldList": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.S3Tables.Table.SchemaField",
+  "Set": null
+ },
+ "Add-VSS3TablesTableIcebergSchemaV2/SchemaV2FieldList": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.S3Tables.Table.SchemaV2Field",
+  "Set": null
+ },
+ "Add-VSS3TablesTableIcebergSortOrder/Fields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.S3Tables.Table.IcebergSortField",
+  "Set": null
+ },
+ "Add-VSS3TablesTableSchemaV2Field/Type": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSSageMakerClusterClusterCapacityRequirements/Spot": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSSageMakerClusterClusterCapacityRequirements/OnDemand": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSSageMakerClusterClusterInstanceGroup/InstanceStorageConfigs": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.Cluster.ClusterInstanceStorageConfig",
+  "Set": null
+ },
+ "Add-VSSageMakerClusterClusterKubernetesConfig/Labels": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSSageMakerClusterClusterKubernetesConfig/Taints": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.Cluster.ClusterKubernetesTaint",
+  "Set": null
+ },
+ "Add-VSSageMakerClusterClusterRestrictedInstanceGroup/InstanceStorageConfigs": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.Cluster.ClusterInstanceStorageConfig",
+  "Set": null
+ },
+ "Add-VSSageMakerClusterDeploymentConfig/AutoRollbackConfiguration": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.Cluster.AlarmDetails",
+  "Set": null
+ },
+ "Add-VSSageMakerEndpointConfigClarifyInferenceConfig/LabelHeaders": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.EndpointConfig.ClarifyHeader",
+  "Set": null
+ },
+ "Add-VSSageMakerEndpointConfigClarifyInferenceConfig/FeatureTypes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.EndpointConfig.ClarifyFeatureType",
+  "Set": null
+ },
+ "Add-VSSageMakerEndpointConfigClarifyInferenceConfig/FeatureHeaders": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.EndpointConfig.ClarifyHeader",
+  "Set": null
+ },
+ "Add-VSSageMakerEndpointConfigProductionVariant/InstancePools": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.EndpointConfig.InstancePools",
+  "Set": null
+ },
+ "Add-VSSageMakerInferenceComponentInferenceComponentContainerSpecification/Environment": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSSageMakerModelCardContent/EvaluationDetails": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.ModelCard.EvaluationDetail",
+  "Set": null
+ },
+ "Add-VSSageMakerModelCardMetricGroup/MetricData": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.ModelCard.MetricDataItems",
+  "Set": null
+ },
+ "Add-VSSageMakerModelCardModelPackageDetails/SourceAlgorithms": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.ModelCard.SourceAlgorithm",
+  "Set": null
+ },
+ "Add-VSSageMakerModelPackageModelPackageContainerDefinition/Environment": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSSageMakerModelPackageTransformJobDefinition/Environment": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSSageMakerMonitoringScheduleMonitoringJobDefinition/MonitoringInputs": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.MonitoringSchedule.MonitoringInput",
+  "Set": null
+ },
+ "Add-VSSageMakerProjectCfnTemplateProviderDetail/Parameters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.Project.CfnStackParameter",
+  "Set": null
+ },
+ "Add-VSSageMakerSpaceSpaceSettings/CustomFileSystems": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.Space.CustomFileSystem",
+  "Set": null
+ },
+ "Add-VSSchedulerScheduleEcsParameters/Tags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSSecurityHubAutomationRuleNoteUpdate/UpdatedBy": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSSecurityHubAutomationRuleRelatedFinding/Id": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSSecurityHubConfigurationPolicySecurityControlCustomParameter/Parameters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SecurityHub.ConfigurationPolicy.ParameterConfiguration",
+  "Set": null
+ },
+ "Add-VSSecurityLakeSubscriberNotificationNotificationConfiguration/SqsNotificationConfiguration": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSSESMailManagerRelayRelayAuthentication/NoAuthentication": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSSESMailManagerRuleSetRuleAction/Drop": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSSESMultiRegionEndpointDetails/RouteDetails": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SES.MultiRegionEndpoint.RouteDetailsItems",
+  "Set": null
+ },
+ "Add-VSShieldProtectionApplicationLayerAutomaticResponseConfiguration/Action": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSSSMGuiConnectPreferencesRecordingDestinations/S3Buckets": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SSMGuiConnect.Preferences.S3Bucket",
+  "Set": null
+ },
+ "Add-VSSSMQuickSetupConfigurationManagerConfigurationDefinition/Parameters": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSSSMQuickSetupConfigurationManagerStatusSummary/StatusDetails": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSTimestreamScheduledQueryMixedMeasureMapping/MultiMeasureAttributeMappings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Timestream.ScheduledQuery.MultiMeasureAttributeMapping",
+  "Set": null
+ },
+ "Add-VSTimestreamScheduledQueryMultiMeasureMappings/MultiMeasureAttributeMappings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Timestream.ScheduledQuery.MultiMeasureAttributeMapping",
+  "Set": null
+ },
+ "Add-VSTimestreamScheduledQueryTimestreamConfiguration/DimensionMappings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Timestream.ScheduledQuery.DimensionMapping",
+  "Set": null
+ },
+ "Add-VSTimestreamScheduledQueryTimestreamConfiguration/MixedMeasureMappings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Timestream.ScheduledQuery.MixedMeasureMapping",
+  "Set": null
+ },
+ "Add-VSTimestreamTableSchema/CompositePartitionKey": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Timestream.Table.PartitionKey",
+  "Set": null
+ },
+ "Add-VSVerifiedPermissionsPolicyStoreEncryptionSettings/Default": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSVerifiedPermissionsPolicyStoreKmsEncryptionSettings/EncryptionContext": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSVerifiedPermissionsPolicyStoreKmsEncryptionState/EncryptionContext": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSWAFv2RuleGroupCryptoConfig/PaymentNetworks": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.WAFv2.RuleGroup.PaymentNetwork",
+  "Set": null
+ },
+ "Add-VSWAFv2RuleGroupPaymentNetwork/Prices": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.WAFv2.RuleGroup.Price",
+  "Set": null
+ },
+ "Add-VSWAFv2RuleGroupRateBasedStatementCustomKey/ForwardedIP": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSWAFv2RuleGroupRateBasedStatementCustomKey/HTTPMethod": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSWAFv2RuleGroupRateBasedStatementCustomKey/IP": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSWAFv2RuleGroupRateBasedStatementCustomKey/ASN": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSWAFv2WebACLApplicationConfig/Attributes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.WAFv2.WebACL.ApplicationAttribute",
+  "Set": null
+ },
+ "Add-VSWAFv2WebACLAssociationConfig/RequestBody": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.WAFv2.WebACL.RequestBodyAssociatedResourceTypeConfig",
+  "Set": null
+ },
+ "Add-VSWAFv2WebACLClientSideAction/ExemptUriRegularExpressions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.WAFv2.WebACL.Regex",
+  "Set": null
+ },
+ "Add-VSWAFv2WebACLCryptoConfig/PaymentNetworks": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.WAFv2.WebACL.PaymentNetwork",
+  "Set": null
+ },
+ "Add-VSWAFv2WebACLDataProtectionConfig/DataProtections": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.WAFv2.WebACL.DataProtect",
+  "Set": null
+ },
+ "Add-VSWAFv2WebACLPaymentNetwork/Prices": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.WAFv2.WebACL.Price",
+  "Set": null
+ },
+ "Add-VSWAFv2WebACLRateBasedStatementCustomKey/ForwardedIP": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSWAFv2WebACLRateBasedStatementCustomKey/HTTPMethod": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSWAFv2WebACLRateBasedStatementCustomKey/IP": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSWAFv2WebACLRateBasedStatementCustomKey/ASN": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSWAFv2WebACLRequestInspectionACFP/AddressFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.WAFv2.WebACL.FieldIdentifier",
+  "Set": null
+ },
+ "Add-VSWAFv2WebACLRequestInspectionACFP/PhoneNumberFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.WAFv2.WebACL.FieldIdentifier",
+  "Set": null
+ },
+ "Add-VSWisdomAIAgentOrchestrationAIAgentConfiguration/ToolConfigurations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Wisdom.AIAgent.ToolConfiguration",
+  "Set": null
+ },
+ "Add-VSWisdomAIAgentToolConfiguration/OutputFilters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Wisdom.AIAgent.ToolOutputFilter",
+  "Set": null
+ },
+ "Add-VSWisdomAIAgentToolConfiguration/Annotations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSWisdomAIAgentToolConfiguration/OverrideInputValues": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Wisdom.AIAgent.ToolOverrideInputValue",
+  "Set": null
+ },
+ "Add-VSWisdomMessageTemplateCustomerProfileAttributes/Custom": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSWisdomMessageTemplateMessageTemplateAttributes/CustomAttributes": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "Add-VSWorkSpacesWebSessionLoggerEventFilter/All": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "Add-VSWorkSpacesWebUserSettingsBrandingConfiguration/LocalizedStrings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.WorkSpacesWeb.UserSettings.LocalizedBrandingStrings",
+  "Set": null
+ },
+ "New-VSAmplifyUIBuilderComponent/BindingProperties": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentBindingPropertiesValue",
+  "Set": null
+ },
+ "New-VSAmplifyUIBuilderComponent/Properties": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentProperty",
+  "Set": null
+ },
+ "New-VSAmplifyUIBuilderComponent/CollectionProperties": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentDataConfiguration",
+  "Set": null
+ },
+ "New-VSAmplifyUIBuilderComponent/Events": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AmplifyUIBuilder.Component.ComponentEvent",
+  "Set": null
+ },
+ "New-VSAmplifyUIBuilderComponent/Overrides": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "New-VSAmplifyUIBuilderComponent/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSAmplifyUIBuilderForm/Fields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AmplifyUIBuilder.Form.FieldConfig",
+  "Set": null
+ },
+ "New-VSAmplifyUIBuilderForm/SectionalElements": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AmplifyUIBuilder.Form.SectionalElement",
+  "Set": null
+ },
+ "New-VSAmplifyUIBuilderForm/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSAmplifyUIBuilderTheme/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSApiGatewayV2Integration/ResponseParameters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ApiGatewayV2.Integration.ResponseParameterMap",
+  "Set": null
+ },
+ "New-VSApiGatewayV2RouteResponse/ResponseParameters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ApiGatewayV2.RouteResponse.ParameterConstraints",
+  "Set": null
+ },
+ "New-VSAppConfigExtension/Parameters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AppConfig.Extension.Parameter",
+  "Set": null
+ },
+ "New-VSAppIntegrationsDataIntegration/ObjectConfiguration": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "New-VSApplicationSignalsGroupingConfiguration/GroupingAttributeDefinitions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ApplicationSignals.GroupingConfiguration.GroupingAttributeDefinition",
+  "Set": null
+ },
+ "New-VSApplicationSignalsServiceLevelObjective/BurnRateConfigurations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.BurnRateConfiguration",
+  "Set": null
+ },
+ "New-VSApplicationSignalsServiceLevelObjective/ExclusionWindows": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ApplicationSignals.ServiceLevelObjective.ExclusionWindow",
+  "Set": null
+ },
+ "New-VSApplicationSignalsServiceLevelObjective/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSAppSyncApi/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSAppSyncChannelNamespace/SubscribeAuthModes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AppSync.ChannelNamespace.AuthMode",
+  "Set": null
+ },
+ "New-VSAppSyncChannelNamespace/PublishAuthModes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.AppSync.ChannelNamespace.AuthMode",
+  "Set": null
+ },
+ "New-VSAppSyncChannelNamespace/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSAppSyncDomainName/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSAppSyncGraphQLApi/EnvironmentVariables": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "New-VSAppTestTestCase/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSARCRegionSwitchPlan/AssociatedAlarms": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ARCRegionSwitch.Plan.AssociatedAlarm",
+  "Set": null
+ },
+ "New-VSARCRegionSwitchPlan/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSAthenaCapacityReservation/TargetDpus": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSAthenaDataCatalog/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSAthenaWorkGroup/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBackupRestoreTestingSelection/RestoreMetadataOverrides": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBatchConsumableResource/TotalQuantity": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBatchServiceEnvironment/CapacityLimits": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Batch.ServiceEnvironment.CapacityLimit",
+  "Set": null
+ },
+ "New-VSBedrockAgent/TestAliasTags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockAgent/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockAgentAlias/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreBrowserCustom/Certificates": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BedrockAgentCore.BrowserCustom.Certificate",
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreBrowserCustom/EnterprisePolicies": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BedrockAgentCore.BrowserCustom.BrowserEnterprisePolicy",
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreBrowserCustom/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreBrowserProfile/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreCodeInterpreterCustom/Certificates": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BedrockAgentCore.CodeInterpreterCustom.Certificate",
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreCodeInterpreterCustom/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreConfigurationBundle/Components": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BedrockAgentCore.ConfigurationBundle.ComponentConfiguration",
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreGateway/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreMemory/IndexedKeys": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BedrockAgentCore.Memory.IndexedKey",
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreMemory/MemoryStrategies": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BedrockAgentCore.Memory.MemoryStrategy",
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreMemory/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreRuntime/EnvironmentVariables": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreRuntime/FilesystemConfigurations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.BedrockAgentCore.Runtime.FilesystemConfiguration",
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreRuntime/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockAgentCoreRuntimeEndpoint/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockAutomatedReasoningPolicy/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockAutomatedReasoningPolicyVersion/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockFlow/TestAliasTags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockFlow/DefinitionSubstitutions": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockFlow/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockFlowAlias/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockKnowledgeBase/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockPrompt/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSBedrockPromptVersion/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSCasesField/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSCasesLayout/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSCertificateManagerAcmeDomainValidation/Tags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.CertificateManager.AcmeDomainValidation.TagsItems",
+  "Set": null
+ },
+ "New-VSCertificateManagerAcmeEndpoint/Tags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.CertificateManager.AcmeEndpoint.TagsItems",
+  "Set": null
+ },
+ "New-VSCertificateManagerAcmeExternalAccountBinding/Tags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.CertificateManager.AcmeExternalAccountBinding.TagsItems",
+  "Set": null
+ },
+ "New-VSCloudFormationGuardHook/Options": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSCloudFormationGuardHook/TargetFilters": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSCloudFormationLambdaHook/TargetFilters": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSCloudFrontAnycastIpList/IpamCidrConfigs": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.CloudFront.AnycastIpList.IpamCidrConfig",
+  "Set": null
+ },
+ "New-VSCognitoIdentityPoolRoleAttachment/RoleMappings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Cognito.IdentityPoolRoleAttachment.RoleMapping",
+  "Set": null
+ },
+ "New-VSCognitoLogDeliveryConfiguration/LogConfigurations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Cognito.LogDeliveryConfiguration.LogConfiguration",
+  "Set": null
+ },
+ "New-VSCognitoManagedLoginBranding/Assets": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Cognito.ManagedLoginBranding.AssetType",
+  "Set": null
+ },
+ "New-VSCognitoTerms/Links": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSCustomerProfilesCalculatedAttributeDefinition/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSCustomerProfilesDomainObjectType/Fields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.CustomerProfiles.DomainObjectType.DomainObjectTypeField",
+  "Set": null
+ },
+ "New-VSCustomerProfilesDomainObjectType/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSCustomerProfilesEventTrigger/EventTriggerConditions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.CustomerProfiles.EventTrigger.EventTriggerCondition",
+  "Set": null
+ },
+ "New-VSCustomerProfilesEventTrigger/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSDataSyncLocationHDFS/ReplicationFactor": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSDataSyncLocationHDFS/BlockSize": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSEC2CarrierGateway/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSEC2IPAMPrefixListResolverTarget/DesiredVersion": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSEC2LocalGatewayRouteTable/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSEC2LocalGatewayRouteTableVirtualInterfaceGroupAssociation/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSEC2LocalGatewayRouteTableVPCAssociation/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSEC2LocalGatewayVirtualInterface/PeerBgpAsnExtended": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSEC2LocalGatewayVirtualInterfaceGroup/LocalBgpAsnExtended": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSEC2RouteServer/PersistRoutesDuration": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSEC2RouteServer/AmazonSideAsn": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSEC2TransitGateway/AmazonSideAsn": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSEC2VPNGateway/AmazonSideAsn": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSECRRegistryScanningConfiguration/Rules": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ECR.RegistryScanningConfiguration.ScanningRule",
+  "Set": null
+ },
+ "New-VSECSClusterCapacityProviderAssociations/DefaultCapacityProviderStrategy": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ECS.ClusterCapacityProviderAssociations.CapacityProviderStrategy",
+  "Set": null
+ },
+ "New-VSElasticsearchDomain/LogPublishingOptions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Elasticsearch.Domain.LogPublishingOption",
+  "Set": null
+ },
+ "New-VSElementalInferenceDictionary/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSElementalInferenceFeed/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSEMRServerlessApplication/WorkerTypeSpecifications": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.EMRServerless.Application.WorkerTypeSpecificationInput",
+  "Set": null
+ },
+ "New-VSEMRServerlessApplication/RuntimeConfiguration": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.EMRServerless.Application.ConfigurationObject",
+  "Set": null
+ },
+ "New-VSEMRServerlessApplication/InitialCapacity": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.EMRServerless.Application.InitialCapacityConfigKeyValuePair",
+  "Set": null
+ },
+ "New-VSEMRStudio/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSEntityResolutionSchemaMapping/MappedInputFields": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.EntityResolution.SchemaMapping.SchemaInputAttribute",
+  "Set": null
+ },
+ "New-VSEventsEndpoint/EventBuses": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Events.Endpoint.EndpointEventBus",
+  "Set": null
+ },
+ "New-VSFISExperimentTemplate/Actions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentTemplateAction",
+  "Set": null
+ },
+ "New-VSFISExperimentTemplate/StopConditions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentTemplateStopCondition",
+  "Set": null
+ },
+ "New-VSFISExperimentTemplate/Targets": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.FIS.ExperimentTemplate.ExperimentTemplateTarget",
+  "Set": null
+ },
+ "New-VSForecastDataset/Tags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Forecast.Dataset.TagsItems",
+  "Set": null
+ },
+ "New-VSGameLiftGameServerGroup/InstanceDefinitions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.GameLift.GameServerGroup.InstanceDefinition",
+  "Set": null
+ },
+ "New-VSGameLiftGameServerGroup/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSGameLiftStreamsApplication/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSGameLiftStreamsStreamGroup/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSGlueDataQualityRuleset/Tags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "New-VSGlueIntegration/AdditionalEncryptionContext": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSGlueMLTransform/Tags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "New-VSGreengrassV2Deployment/Components": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.GreengrassV2.Deployment.ComponentDeploymentSpecification",
+  "Set": null
+ },
+ "New-VSHealthImagingDatastore/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSInspectorV2CisScanConfiguration/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSInspectorV2CodeSecurityIntegration/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSInspectorV2CodeSecurityScanConfiguration/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSInspectorV2Filter/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSInvoicingInvoiceUnit/ResourceTags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Invoicing.InvoiceUnit.ResourceTag",
+  "Set": null
+ },
+ "New-VSIoTCommand/MandatoryParameters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoT.Command.CommandParameter",
+  "Set": null
+ },
+ "New-VSIoTFleetWiseDecoderManifest/SignalDecoders": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTFleetWise.DecoderManifest.SignalDecodersItems",
+  "Set": null
+ },
+ "New-VSIoTFleetWiseDecoderManifest/NetworkInterfaces": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTFleetWise.DecoderManifest.NetworkInterfacesItems",
+  "Set": null
+ },
+ "New-VSIoTFleetWiseVehicle/Attributes": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSIoTManagedIntegrationsCredentialLocker/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSIoTManagedIntegrationsManagedThing/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSIoTManagedIntegrationsProvisioningProfile/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSIoTSecurityProfile/AlertTargets": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoT.SecurityProfile.AlertTarget",
+  "Set": null
+ },
+ "New-VSIoTSiteWiseComputationModel/ComputationModelDataBinding": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTSiteWise.ComputationModel.ComputationModelDataBindingValue",
+  "Set": null
+ },
+ "New-VSIoTSiteWisePortal/PortalTypeConfiguration": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTSiteWise.Portal.PortalTypeEntry",
+  "Set": null
+ },
+ "New-VSIoTSoftwarePackageVersion/Attributes": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSIoTTwinMakerComponentType/PropertyDefinitions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTTwinMaker.ComponentType.PropertyDefinition",
+  "Set": null
+ },
+ "New-VSIoTTwinMakerComponentType/PropertyGroups": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTTwinMaker.ComponentType.PropertyGroup",
+  "Set": null
+ },
+ "New-VSIoTTwinMakerComponentType/Functions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTTwinMaker.ComponentType.Function",
+  "Set": null
+ },
+ "New-VSIoTTwinMakerComponentType/CompositeComponentTypes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTTwinMaker.ComponentType.CompositeComponentType",
+  "Set": null
+ },
+ "New-VSIoTTwinMakerEntity/Components": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTTwinMaker.Entity.Component",
+  "Set": null
+ },
+ "New-VSIoTTwinMakerEntity/CompositeComponents": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.IoTTwinMaker.Entity.CompositeComponent",
+  "Set": null
+ },
+ "New-VSKendraDataSource/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSKendraFaq/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSKendraIndex/DocumentMetadataConfigurations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Kendra.Index.DocumentMetadataConfiguration",
+  "Set": null
+ },
+ "New-VSKendraIndex/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSKendraIndex/UserTokenConfigurations": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Kendra.Index.UserTokenConfiguration",
+  "Set": null
+ },
+ "New-VSKendraRankingExecutionPlan/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSLakeFormationDataLakeSettings/ExternalDataFilteringAllowList": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSLakeFormationDataLakeSettings/CreateTableDefaultPermissions": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSLakeFormationDataLakeSettings/ReadOnlyAdmins": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSLakeFormationDataLakeSettings/Admins": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSLakeFormationDataLakeSettings/CreateDatabaseDefaultPermissions": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSLakeFormationTagAssociation/LFTags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.LakeFormation.TagAssociation.LFTagPair",
+  "Set": null
+ },
+ "New-VSLaunchWizardDeployment/Specifications": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSLexBotAlias/BotAliasLocaleSettings": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.BotAlias.BotAliasLocaleSettingsItem",
+  "Set": null
+ },
+ "New-VSLexBotVersion/BotVersionLocaleSpecification": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Lex.BotVersion.BotVersionLocaleSpecification",
+  "Set": null
+ },
+ "New-VSLexResourcePolicy/Policy": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "New-VSLogsScheduledQuery/Tags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Logs.ScheduledQuery.TagsItems",
+  "Set": null
+ },
+ "New-VSM2Application/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSM2Environment/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSMediaLiveCloudWatchAlarmTemplate/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSMediaLiveCloudWatchAlarmTemplateGroup/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSMediaLiveEventBridgeRuleTemplate/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSMediaLiveEventBridgeRuleTemplateGroup/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSMediaLiveSignalMap/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSMediaTailorPlaybackConfiguration/ConfigurationAliases": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSMPAApprovalTeam/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSMPAIdentitySource/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSMSKVpcConnection/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSMWAAServerlessWorkflow/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSNimbleStudioStudio/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSNotificationsContactsEmailContact/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSNotificationsNotificationConfiguration/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSOmicsAnnotationStore/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSOmicsConfiguration/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSOmicsReferenceStore/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSOmicsRunGroup/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSOmicsSequenceStore/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSOmicsVariantStore/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSOmicsWorkflow/ParameterTemplate": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Omics.Workflow.WorkflowParameter",
+  "Set": null
+ },
+ "New-VSOmicsWorkflow/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSOmicsWorkflowVersion/ParameterTemplate": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.Omics.WorkflowVersion.WorkflowParameter",
+  "Set": null
+ },
+ "New-VSOmicsWorkflowVersion/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSOpenSearchServiceDomain/LogPublishingOptions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.OpenSearchService.Domain.LogPublishingOption",
+  "Set": null
+ },
+ "New-VSPanoramaApplicationInstance/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSPanoramaPackage/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSPCAConnectorADConnector/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSPCAConnectorADDirectoryRegistration/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSPCAConnectorADTemplate/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSPCAConnectorSCEPChallenge/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSPCAConnectorSCEPConnector/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSPipesPipe/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSQuickSightDataSet/PhysicalTableMap": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.QuickSight.DataSet.PhysicalTable",
+  "Set": null
+ },
+ "New-VSQuickSightDataSet/FieldFolders": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.QuickSight.DataSet.FieldFolder",
+  "Set": null
+ },
+ "New-VSRDSIntegration/AdditionalEncryptionContext": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSRedshiftIntegration/AdditionalEncryptionContext": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSRekognitionStreamProcessor/PolygonRegionsOfInterest": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "New-VSResilienceHubApp/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSResilienceHubResiliencyPolicy/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSResourceExplorer2Index/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSResourceExplorer2View/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSResourceGroupsGroup/Configuration": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.ResourceGroups.Group.ConfigurationItem",
+  "Set": null
+ },
+ "New-VSRoboMakerFleet/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSRoboMakerRobot/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSRoboMakerRobotApplication/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSRoboMakerSimulationApplication/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSRTBFabricInboundExternalLink/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSRTBFabricLink/ModuleConfigurationList": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.RTBFabric.Link.ModuleConfiguration",
+  "Set": null
+ },
+ "New-VSRTBFabricLink/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSRTBFabricLinkRoutingRule/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSRTBFabricOutboundExternalLink/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSRTBFabricRequesterGateway/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSRTBFabricResponderGateway/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSRUMAppMonitor/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSS3TablesTableBucketPolicy/ResourcePolicy": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "New-VSS3TablesTablePolicy/ResourcePolicy": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "New-VSS3VectorsVectorBucketPolicy/Policy": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "New-VSSageMakerCluster/InstanceGroups": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.Cluster.ClusterInstanceGroup",
+  "Set": null
+ },
+ "New-VSSageMakerCluster/RestrictedInstanceGroups": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.Cluster.ClusterRestrictedInstanceGroup",
+  "Set": null
+ },
+ "New-VSSageMakerExperiment/Tags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.Experiment.TagsItems",
+  "Set": null
+ },
+ "New-VSSageMakerInferenceComponent/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSageMakerModelPackage/CustomerMetadataProperties": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSageMakerModelPackage/AdditionalInferenceSpecificationsToAdd": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.ModelPackage.AdditionalInferenceSpecificationDefinition",
+  "Set": null
+ },
+ "New-VSSageMakerModelPackage/AdditionalInferenceSpecifications": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.ModelPackage.AdditionalInferenceSpecificationDefinition",
+  "Set": null
+ },
+ "New-VSSageMakerPipeline/PipelineDefinition": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSageMakerProcessingJob/Environment": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSageMakerTrialComponent/Parameters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.TrialComponent.TrialComponentParameterValue",
+  "Set": null
+ },
+ "New-VSSageMakerTrialComponent/InputArtifacts": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.TrialComponent.TrialComponentArtifact",
+  "Set": null
+ },
+ "New-VSSageMakerTrialComponent/OutputArtifacts": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.TrialComponent.TrialComponentArtifact",
+  "Set": null
+ },
+ "New-VSSageMakerTrialComponent/Tags": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SageMaker.TrialComponent.TagsItems",
+  "Set": null
+ },
+ "New-VSSecurityAgentAgentSpace/IntegratedResources": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SecurityAgent.AgentSpace.IntegratedResource",
+  "Set": null
+ },
+ "New-VSSecurityHubAggregatorV2/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSecurityHubAutomationRule/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSecurityHubAutomationRuleV2/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSecurityHubConfigurationPolicy/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSecurityHubConnector/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSecurityHubConnectorV2/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSecurityHubHub/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSecurityHubHubV2/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSecurityHubSecurityControl/Parameters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SecurityHub.SecurityControl.ParameterConfiguration",
+  "Set": null
+ },
+ "New-VSServiceCatalogAppRegistryApplication/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSServiceCatalogAppRegistryAttributeGroup/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSServiceDiscoveryService/ServiceAttributes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "New-VSSESMultiRegionEndpoint/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSSMIncidentsReplicationSet/Regions": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SSMIncidents.ReplicationSet.ReplicationRegion",
+  "Set": null
+ },
+ "New-VSSSMQuickSetupConfigurationManager/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSSMQuickSetupLifecycleAutomation/AutomationParameters": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "New-VSSSMQuickSetupLifecycleAutomation/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSSSOInstanceAccessControlAttributeConfiguration/AccessControlAttributes": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.SSO.InstanceAccessControlAttributeConfiguration.AccessControlAttribute",
+  "Set": null
+ },
+ "New-VSStepFunctionsStateMachine/DefinitionSubstitutions": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSStepFunctionsStateMachine/Definition": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "System.String,System.Collections.Hashtable,System.Management.Automation.PSCustomObject",
+  "Set": null
+ },
+ "New-VSStepFunctionsStateMachineAlias/RoutingConfiguration": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.StepFunctions.StateMachineAlias.RoutingConfigurationVersion",
+  "Set": null
+ },
+ "New-VSTimestreamScheduledQuery/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSVpcLatticeResourceConfiguration/ResourceConfigurationDefinition": {
+  "Type": "System.Object",
+  "Kind": "Object",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSWAFv2RuleGroup/CustomResponseBodies": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.WAFv2.RuleGroup.CustomResponseBody",
+  "Set": null
+ },
+ "New-VSWAFv2WebACL/CustomResponseBodies": {
+  "Type": "System.Object",
+  "Kind": "AllowedTypes",
+  "Allowed": "Vaporshell.Resource.WAFv2.WebACL.CustomResponseBody",
+  "Set": null
+ },
+ "New-VSWisdomAIAgent/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSWisdomAIGuardrail/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSWisdomAIPrompt/Tags": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSWorkSpacesWebBrowserSettings/AdditionalEncryptionContext": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSWorkSpacesWebDataProtectionSettings/AdditionalEncryptionContext": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSWorkSpacesWebIdentityProvider/IdentityProviderDetails": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSWorkSpacesWebIpAccessSettings/AdditionalEncryptionContext": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSWorkSpacesWebPortal/AdditionalEncryptionContext": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSWorkSpacesWebSessionLogger/AdditionalEncryptionContext": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSWorkSpacesWebUserSettings/AdditionalEncryptionContext": {
+  "Type": "System.Collections.Hashtable",
+  "Kind": "Hashtable",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSXRayGroup/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ },
+ "New-VSXRaySamplingRule/Tags": {
+  "Type": "System.Object",
+  "Kind": "TransformTag",
+  "Allowed": null,
+  "Set": null
+ }
+}

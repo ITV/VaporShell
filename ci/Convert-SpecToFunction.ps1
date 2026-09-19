@@ -9,6 +9,91 @@ function Convert-SpecToFunction {
         [String]
         $ResourceType
     )
+    # --- Backward-compatibility override table -------------------------------
+    # The migration from the monolithic CloudFormation Resource Specification to the
+    # per-region Resource Provider Schemas changed the *type mapping* for some
+    # properties (most visibly map-shaped properties such as Tags, whose parameter
+    # type flipped between [Hashtable], [object]+ValidateScript, etc.). Downstream
+    # consumers (e.g. ITV.PS.Cfn EcpBase) key on the exact parameter TYPE to decide
+    # serialisation, so a change there is a backward-compatibility break.
+    #
+    # VaporShell.CompatOverrides.json pins, for every parameter that existed in the
+    # last monolithic-spec release (2.17.0) AND whose generated signature would
+    # otherwise differ, the exact legacy type/validation. Parameters not in the table
+    # (i.e. new resources/properties added since) are generated from the schema as
+    # normal — they have no existing consumers to stay compatible with.
+    if (-not $script:VSCompatOverrides) {
+        $overridePath = Join-Path $PSScriptRoot 'VaporShell.CompatOverrides.json'
+        if (Test-Path $overridePath) {
+            $raw = Get-Content $overridePath -Raw | ConvertFrom-Json
+            $script:VSCompatOverrides = @{}
+            foreach ($prop in $raw.PSObject.Properties) {
+                $script:VSCompatOverrides[$prop.Name] = $prop.Value
+            }
+        } else {
+            $script:VSCompatOverrides = @{}
+        }
+    }
+
+    # Emit the exact legacy parameter block for an overridden parameter, from its
+    # captured descriptor (Kind + Allowed/Set/Type). Returns $null when there is no
+    # override for this function/parameter, so the caller falls through to the normal
+    # schema-derived generation.
+    function Get-LegacyCompatParamBlock {
+        param([string]$Function, [string]$ParamName, [string]$Mandatory)
+        $desc = $script:VSCompatOverrides["$Function/$($ParamName.TrimEnd(','))"]
+        if (-not $desc) { return $null }
+
+        switch ($desc.Kind) {
+            'TransformTag' {
+                return @"
+        [VaporShell.Core.TransformTag()]
+        [Parameter(Mandatory = $Mandatory)]
+        `$$ParamName
+"@
+            }
+            'Hashtable' {
+                return @"
+        [Parameter(Mandatory = $Mandatory)]
+        [System.Collections.Hashtable]
+        `$$ParamName
+"@
+            }
+            'ValidateSet' {
+                $vals = ($desc.Set -split ',' | ForEach-Object { '"{0}"' -f $_ }) -join ','
+                return @"
+        [Parameter(Mandatory = $Mandatory)]
+        [ValidateSet($vals)]
+        `$$ParamName
+"@
+            }
+            'AllowedTypes' {
+                $allowed = ($desc.Allowed -split ',' | ForEach-Object { '"{0}"' -f $_ }) -join ','
+                return @"
+        [Parameter(Mandatory = $Mandatory)]
+        [ValidateScript( {
+                `$allowedTypes = $allowed
+                if ([string]`$(`$_.PSTypeNames) -match "(`$((`$allowedTypes|ForEach-Object{[RegEx]::Escape(`$_)}) -join '|'))") {
+                    `$true
+                }
+                else {
+                    `$PSCmdlet.ThrowTerminatingError((New-VSError -String "This parameter only accepts the following types: `$(`$allowedTypes -join ", "). The current types of the value are: `$(`$_.PSTypeNames -join ", ")."))
+                }
+            })]
+        `$$ParamName
+"@
+            }
+            'Object' {
+                return @"
+        [Parameter(Mandatory = $Mandatory)]
+        `$$ParamName
+"@
+            }
+            default { return $null }
+        }
+    }
+    # -------------------------------------------------------------------------
+
     $ModPath = (Resolve-Path "$PSScriptRoot\..\VaporShell").Path
     $folder = "$($ModPath)\Public"
     $Name = $Resource.Name
@@ -221,6 +306,14 @@ function $FunctionName {
         }
         else {
             $Mandatory = '$false'
+        }
+        # Backward-compat: if this parameter existed in 2.17.0 and its signature would
+        # otherwise change, emit the pinned legacy block instead of the schema-derived one.
+        $legacyBlock = Get-LegacyCompatParamBlock -Function $FunctionName -ParamName $ParamName -Mandatory $Mandatory
+        if ($null -ne $legacyBlock) {
+            $scriptContents += $legacyBlock
+            $scriptContents += ""
+            continue
         }
         if ($Prop.Value.ItemType) {
             if ($Prop.Value.ItemType -eq "Tag") {
