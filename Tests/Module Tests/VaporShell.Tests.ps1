@@ -244,4 +244,31 @@ Describe 'Unit tests' {
             { $t.AddMapping('Fail') } | Should -Throw '*You must use one of the following object types with this parameter: Vaporshell.Transform, Vaporshell.Mapping*'
         }
     }
+
+    Context 'Map-typed properties render as a JSON object, not an array (backward-compat regression guard)' {
+        # A map-shaped CloudFormation property (e.g. AWS::BedrockAgentCore::Runtime Tags,
+        # which the resource schema defines via a $ref to a patternProperties "TagsMap"
+        # definition) must expose a [System.Collections.Hashtable] parameter and emit a
+        # JSON object. A previous schema-adapter change loosened the parameter to
+        # [object], which flipped downstream Tag serialisation to a Key/Value array and
+        # broke deploys of map-tagged resources. These guard against that regression.
+
+        It 'New-VSBedrockAgentCoreRuntime -Tags parameter is typed [Hashtable]' {
+            $p = (Get-Command New-VSBedrockAgentCoreRuntime).Parameters['Tags']
+            $p.ParameterType.FullName | Should -Be 'System.Collections.Hashtable'
+        }
+
+        It 'Renders map-typed Tags as a JSON object (hashtable/PSCustomObject), not an array' {
+            $resource = New-VSBedrockAgentCoreRuntime -LogicalId 'Runtime' -Tags @{ team = 'ecp'; env = 'dev' }
+            $tags = $resource.Props.Properties.Tags
+            # A map serialises to a single object; an array (the broken shape) would be
+            # a collection of Key/Value objects.
+            @($tags).Count | Should -Be 1
+            $tagObj = @($tags)[0]
+            $tagObj.team | Should -Be 'ecp'
+            $tagObj.env | Should -Be 'dev'
+            # It must NOT be the array-of-Key/Value shape.
+            $tagObj.PSObject.Properties.Name | Should -Not -Contain 'Key'
+        }
+    }
 }

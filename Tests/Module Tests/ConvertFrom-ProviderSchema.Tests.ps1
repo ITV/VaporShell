@@ -354,6 +354,88 @@ Describe 'ConvertFrom-ProviderSchema' {
         }
     }
 
+    Context 'Deeply nested inline objects generate a property type at each level' {
+        # Regression guard: inline objects nested more than one level deep (e.g.
+        # Timestream Table MagneticStoreWriteProperties -> MagneticStoreRejectedDataLocation
+        # -> S3Configuration) must each produce their own property type, so the
+        # corresponding Add-VS...<Name> helper functions are generated. A previous
+        # version only recursed one level and silently dropped the inner helpers.
+        BeforeAll {
+            $schema = @{
+                typeName    = 'AWS::Timestream::Table'
+                properties  = [PSCustomObject]@{
+                    MagneticStoreWriteProperties = [PSCustomObject]@{
+                        type       = 'object'
+                        properties = [PSCustomObject]@{
+                            EnableMagneticStoreWrites         = [PSCustomObject]@{ type = 'boolean' }
+                            MagneticStoreRejectedDataLocation = [PSCustomObject]@{
+                                type       = 'object'
+                                properties = [PSCustomObject]@{
+                                    S3Configuration = [PSCustomObject]@{
+                                        type       = 'object'
+                                        properties = [PSCustomObject]@{
+                                            BucketName = [PSCustomObject]@{ type = 'string' }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                definitions = $null
+            } | ConvertTo-Json -Depth 20 | ConvertFrom-Json
+
+            $result = ConvertFrom-ProviderSchema -SchemaObject $schema
+        }
+
+        It 'Generates a property type for each nesting level' {
+            $result.PropertyTypes.Keys | Should -Contain 'AWS::Timestream::Table.MagneticStoreWriteProperties'
+            $result.PropertyTypes.Keys | Should -Contain 'AWS::Timestream::Table.MagneticStoreRejectedDataLocation'
+            $result.PropertyTypes.Keys | Should -Contain 'AWS::Timestream::Table.S3Configuration'
+        }
+
+        It 'Wires each level to reference the next as a complex Type' {
+            $result.PropertyTypes['AWS::Timestream::Table.MagneticStoreWriteProperties'].Value.Properties.MagneticStoreRejectedDataLocation.Type | Should -Be 'MagneticStoreRejectedDataLocation'
+            $result.PropertyTypes['AWS::Timestream::Table.MagneticStoreRejectedDataLocation'].Value.Properties.S3Configuration.Type | Should -Be 'S3Configuration'
+        }
+    }
+
+    Context 'Array of inline objects generates an <Name>Items property type' {
+        # Regression guard: an array whose items are an inline object (e.g. Logs
+        # ScheduledQuery Tags -> array of { Key, Value }) must produce a
+        # "<PropertyName>Items" property type (legacy naming), so Add-VS...<Name>Items
+        # is generated and the resource property references ItemType = <Name>Items.
+        BeforeAll {
+            $schema = @{
+                typeName    = 'AWS::Logs::ScheduledQuery'
+                properties  = [PSCustomObject]@{
+                    Tags = [PSCustomObject]@{
+                        type  = 'array'
+                        items = [PSCustomObject]@{
+                            type       = 'object'
+                            properties = [PSCustomObject]@{
+                                Key   = [PSCustomObject]@{ type = 'string' }
+                                Value = [PSCustomObject]@{ type = 'string' }
+                            }
+                        }
+                    }
+                }
+                definitions = $null
+            } | ConvertTo-Json -Depth 20 | ConvertFrom-Json
+
+            $result = ConvertFrom-ProviderSchema -SchemaObject $schema
+        }
+
+        It 'Generates a <Name>Items property type for the array item' {
+            $result.PropertyTypes.Keys | Should -Contain 'AWS::Logs::ScheduledQuery.TagsItems'
+        }
+
+        It 'References the array as List + ItemType <Name>Items' {
+            $result.ResourceType.Value.Properties.Tags.Type | Should -Be 'List'
+            $result.ResourceType.Value.Properties.Tags.ItemType | Should -Be 'TagsItems'
+        }
+    }
+
     Context 'Resource with object/map property' {
         BeforeAll {
             $schema = @{

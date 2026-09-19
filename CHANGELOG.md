@@ -58,6 +58,15 @@
 
 <!-- /TOC -->
 
+## 2.18.2 - 2026-09-19
+
+* Fixed: map-shaped resource properties (e.g. `Tags` on `AWS::BedrockAgentCore::Runtime`, which the Resource Provider Schema expresses as a `$ref` to a `patternProperties` map definition) had their generated parameter type changed by the schema migration — most notably `[System.Collections.Hashtable]` flipping to `[object]`. Downstream consumers key on the exact parameter type to decide how to serialise a property (a JSON object vs a `Key`/`Value` array), so this broke CloudFormation deploys for map-tagged resources.
+    * Introduced a backward-compatibility override table (`ci/VaporShell.CompatOverrides.json`) captured from the last monolithic-spec release (2.17.0). At generation time, any parameter that existed in 2.17.0 is emitted with its exact original type/validation; parameters added since are generated from the schema as before. This restores the generated signatures of all pre-existing parameters (verified: 0 signature differences versus 2.17.0 across ~39,000 parameters), not just the reported `Tags` case.
+    * Added a regression guard asserting `New-VSBedrockAgentCoreRuntime` exposes a `[Hashtable]` `Tags` parameter and renders `Tags` as a JSON object.
+* Fixed: inline object property types nested more than one level deep were not generated, so some `Add-VS*` helper functions present in 2.17.0 went missing. The schema adapter's inline-object extraction only recursed one level; for example `AWS::Timestream::Table` (`MagneticStoreWriteProperties` -> `MagneticStoreRejectedDataLocation` -> `S3Configuration`), `AWS::Timestream::InfluxDBCluster`/`InfluxDBInstance` (`LogDeliveryConfiguration` -> `S3Configuration`) and `AWS::Logs::ScheduledQuery` (`Tags` array items) lost their nested helpers, breaking consumers that build those structures.
+    * The adapter now extracts inline objects (and arrays of inline objects) to arbitrary depth, naming array-item types `<Property>Items` to match the legacy convention. This restored 57 previously-missing functions, including every one referenced by ITV.PS.Cfn. The remaining differences versus 2.17.0 are functions for properties AWS itself has removed or de-specified in the current schema (no consumers).
+    * Added adapter regression tests for deeply-nested inline objects and arrays of inline objects.
+
 ## 2.18.1 - 2026-09-18
 
 * Fixed: `ConvertFrom-ProviderSchema` (the adapter that maps the new AWS Resource Provider Schemas onto the legacy resource-spec structure) mis-classified several property shapes, producing generated `New-VS*`/`Add-VS*` functions that rejected valid input. Corrected:

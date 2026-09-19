@@ -182,6 +182,11 @@ function ConvertFrom-ProviderSchema {
                                 $legacy['ItemType'] = $defName
                             }
                         }
+                    } elseif ($PropObj.items.type -eq 'object' -and $PropObj.items.properties -and
+                        -not $PropObj.items.additionalProperties -and -not $PropObj.items.patternProperties) {
+                        # Array of an inline object — a dedicated property type is
+                        # extracted for it, named "<PropertyName>Items" (legacy convention).
+                        $legacy['ItemType'] = "$($PropName)Items"
                     } elseif ($PropObj.items.type) {
                         # Array of primitives
                         $legacy['PrimitiveItemType'] = Convert-JsonTypeToPrimitive $PropObj.items.type
@@ -367,6 +372,76 @@ function ConvertFrom-ProviderSchema {
         # Build property type entries from definitions AND inline objects
         $propertyTypes = @{}
 
+        # Recursively register a property type for an inline object schema, and for any
+        # of ITS properties (or array items) that are themselves inline objects, to
+        # arbitrary depth. CloudFormation Resource Provider Schemas frequently nest
+        # inline objects several levels deep (e.g. Timestream Table
+        # MagneticStoreWriteProperties -> MagneticStoreRejectedDataLocation ->
+        # S3Configuration). The legacy monolithic spec generated an Add-VS...<Name>
+        # helper for each such level; failing to recurse dropped those helpers and
+        # broke downstream consumers that build the nested structure bottom-up.
+        #
+        # $QualifiedName is the property-type key (e.g. 'AWS::Timestream::Table.S3Configuration').
+        # $ObjSchema is the inline object schema ({ type: object, properties: {...} }).
+        function Add-InlinePropertyType {
+            param(
+                [string]$QualifiedName,
+                [object]$ObjSchema,
+                [string]$ParentTypeName,
+                [object]$Definitions,
+                [hashtable]$PropertyTypesRef
+            )
+            if ($PropertyTypesRef.ContainsKey($QualifiedName)) { return }
+
+            $req = @()
+            if ($ObjSchema.required) { $req = @($ObjSchema.required) }
+
+            $props = [ordered]@{}
+            foreach ($p in $ObjSchema.properties.PSObject.Properties) {
+                $pv = $p.Value
+                $isReq = $p.Name -in $req
+
+                # A directly-nested inline object -> extract as its own property type and recurse.
+                if ($pv.type -eq 'object' -and $pv.properties -and
+                    -not $pv.additionalProperties -and -not $pv.patternProperties) {
+                    $childQN = "$ParentTypeName.$($p.Name)"
+                    Add-InlinePropertyType -QualifiedName $childQN -ObjSchema $pv `
+                        -ParentTypeName $ParentTypeName -Definitions $Definitions -PropertyTypesRef $PropertyTypesRef
+                    $props[$p.Name] = Convert-PropertyToLegacy -PropName $p.Name `
+                        -PropObj ([PSCustomObject]@{ '$ref' = "#/definitions/$($p.Name)" }) `
+                        -IsRequired $isReq -Definitions $Definitions
+                }
+                # An array whose items are an inline object -> extract the item type and recurse.
+                # The legacy spec names array-item inline types "<PropertyName>Items".
+                elseif ($pv.type -eq 'array' -and $pv.items -and $pv.items.type -eq 'object' -and
+                    $pv.items.properties -and -not $pv.items.additionalProperties -and -not $pv.items.patternProperties) {
+                    $itemName = "$($p.Name)Items"
+                    $childQN = "$ParentTypeName.$itemName"
+                    Add-InlinePropertyType -QualifiedName $childQN -ObjSchema $pv.items `
+                        -ParentTypeName $ParentTypeName -Definitions $Definitions -PropertyTypesRef $PropertyTypesRef
+                    $legacyArr = [ordered]@{
+                        Documentation = $documentation
+                        Required      = if ($isReq) { 'True' } else { 'False' }
+                        Type          = 'List'
+                        ItemType      = $itemName
+                    }
+                    $props[$p.Name] = [PSCustomObject]$legacyArr
+                }
+                else {
+                    $props[$p.Name] = Convert-PropertyToLegacy -PropName $p.Name `
+                        -PropObj $pv -IsRequired $isReq -Definitions $Definitions
+                }
+            }
+
+            $PropertyTypesRef[$QualifiedName] = [PSCustomObject]@{
+                Name  = $QualifiedName
+                Value = [PSCustomObject]@{
+                    Documentation = $documentation
+                    Properties    = [PSCustomObject]$props
+                }
+            }
+        }
+
         # Recursive function to extract property types from definitions,
         # including inline object definitions nested within other definitions
         function Extract-PropertyTypes {
@@ -453,41 +528,12 @@ function ConvertFrom-ProviderSchema {
                     # (not a $ref, and type=object with properties defined inline)
                     if ($propValue.type -eq 'object' -and $propValue.properties -and
                         -not $propValue.additionalProperties -and -not $propValue.patternProperties) {
-                        # This is an inline complex type — extract it as a named property type
+                        # This is an inline complex type — extract it (and any nested inline
+                        # objects/arrays, to arbitrary depth) as named property types.
                         $inlineDefName = $defProp.Name
                         $inlineQualifiedName = "$ParentTypeName.$inlineDefName"
-
-                        if (-not $PropertyTypesRef.ContainsKey($inlineQualifiedName)) {
-                            $inlineRequired = @()
-                            if ($propValue.required) {
-                                $inlineRequired = @($propValue.required)
-                            }
-
-                            $inlineProperties = [ordered]@{}
-                            foreach ($inlineProp in $propValue.properties.PSObject.Properties) {
-                                $inlineIsReq = $inlineProp.Name -in $inlineRequired
-                                $inlineProperties[$inlineProp.Name] = Convert-PropertyToLegacy `
-                                    -PropName $inlineProp.Name `
-                                    -PropObj $inlineProp.Value `
-                                    -IsRequired $inlineIsReq `
-                                    -Definitions $Definitions
-                            }
-
-                            $inlinePropTypeEntry = [PSCustomObject]@{
-                                Name  = $inlineQualifiedName
-                                Value = [PSCustomObject]@{
-                                    Documentation = $documentation
-                                    Properties    = [PSCustomObject]$inlineProperties
-                                }
-                            }
-                            $PropertyTypesRef[$inlineQualifiedName] = $inlinePropTypeEntry
-
-                            # Recursively check the inline object for further nested objects
-                            $syntheticDef = [PSCustomObject]@{
-                                $inlineDefName = $propValue
-                            }
-                            # Don't recurse further for now — inline objects rarely nest more than one level
-                        }
+                        Add-InlinePropertyType -QualifiedName $inlineQualifiedName -ObjSchema $propValue `
+                            -ParentTypeName $ParentTypeName -Definitions $Definitions -PropertyTypesRef $PropertyTypesRef
 
                         # Map this property as a reference to the extracted type
                         $defProperties[$defProp.Name] = Convert-PropertyToLegacy `
@@ -529,37 +575,19 @@ function ConvertFrom-ProviderSchema {
                     continue
                 }
                 $propValue = $prop.Value
+                # Inline object at resource level — extract it and all nested inline
+                # objects/arrays (to arbitrary depth) as property types.
                 if ($propValue.type -eq 'object' -and $propValue.properties -and
                     -not $propValue.additionalProperties -and -not $propValue.patternProperties) {
-                    # Inline object at resource level — extract as a property type
-                    $inlineDefName = $prop.Name
-                    $inlineQualifiedName = "$typeName.$inlineDefName"
-
-                    if (-not $propertyTypes.ContainsKey($inlineQualifiedName)) {
-                        $inlineRequired = @()
-                        if ($propValue.required) {
-                            $inlineRequired = @($propValue.required)
-                        }
-
-                        $inlineProperties = [ordered]@{}
-                        foreach ($inlineProp in $propValue.properties.PSObject.Properties) {
-                            $inlineIsReq = $inlineProp.Name -in $inlineRequired
-                            $inlineProperties[$inlineProp.Name] = Convert-PropertyToLegacy `
-                                -PropName $inlineProp.Name `
-                                -PropObj $inlineProp.Value `
-                                -IsRequired $inlineIsReq `
-                                -Definitions $SchemaObject.definitions
-                        }
-
-                        $inlinePropTypeEntry = [PSCustomObject]@{
-                            Name  = $inlineQualifiedName
-                            Value = [PSCustomObject]@{
-                                Documentation = $documentation
-                                Properties    = [PSCustomObject]$inlineProperties
-                            }
-                        }
-                        $propertyTypes[$inlineQualifiedName] = $inlinePropTypeEntry
-                    }
+                    Add-InlinePropertyType -QualifiedName "$typeName.$($prop.Name)" -ObjSchema $propValue `
+                        -ParentTypeName $typeName -Definitions $SchemaObject.definitions -PropertyTypesRef $propertyTypes
+                }
+                # Array whose items are an inline object at resource level. The legacy
+                # spec names the extracted item type "<PropertyName>Items".
+                elseif ($propValue.type -eq 'array' -and $propValue.items -and $propValue.items.type -eq 'object' -and
+                    $propValue.items.properties -and -not $propValue.items.additionalProperties -and -not $propValue.items.patternProperties) {
+                    Add-InlinePropertyType -QualifiedName "$typeName.$($prop.Name)Items" -ObjSchema $propValue.items `
+                        -ParentTypeName $typeName -Definitions $SchemaObject.definitions -PropertyTypesRef $propertyTypes
                 }
             }
         }
