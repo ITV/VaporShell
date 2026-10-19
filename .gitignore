@@ -232,3 +232,4 @@ src
 
 # Agent workflow planning artifacts
 .agents/
+.worktrees/
