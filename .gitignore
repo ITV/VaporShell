@@ -230,6 +230,9 @@ project.lock.json
 # VaporShell specific
 src
 
-# Agent workflow planning artifacts
+# Kiro / agent workflow planning artifacts
 .agents/
 .worktrees/
+.workflows/
+.kiro/
+kiro-artifact-*
