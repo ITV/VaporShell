@@ -39,7 +39,10 @@ function Watch-Stack {
         $RefreshRate = 2,
         [parameter(Mandatory = $false)]
         [String]
-        $ProfileName = $env:AWS_PROFILE
+        $ProfileName = $env:AWS_PROFILE,
+        [parameter(Mandatory = $false)]
+        [String]
+        $Region
     )
     Begin {
         Import-AWSSDK -Verbose:$false
@@ -57,6 +60,9 @@ function Watch-Stack {
                     if ($ProfileName) {
                         $command += " -ProfileName '$ProfileName'"
                     }
+                    if ($Region) {
+                        $command += " -Region '$Region'"
+                    }
                     $poshArg = "-noprofile -noexit -command & {$command}"
                     if ($env:ConEmuBaseDir) {
                         $poshArg += " -new_console:t:`"$stckName`""
@@ -71,6 +77,16 @@ function Watch-Stack {
             }
         }
         else {
+            # Target the requested region for the lifetime of the watch. Get-VSStack has no -Region
+            # parameter; its region is resolved by ProcessRequest4, which honours $env:AWS_REGION. So
+            # set AWS_REGION for the duration and restore the previous value in the finally below. This
+            # lets Watch-Stack follow a stack in any region without changing the shared request processor.
+            $previousAwsRegion = $env:AWS_REGION
+            $awsRegionWasSet = $PSBoundParameters.ContainsKey('Region') -and $Region
+            if ($awsRegionWasSet) {
+                $env:AWS_REGION = $Region
+            }
+          try {
             $i = 0
             $cont = $true
             $prof = @{
@@ -158,6 +174,17 @@ function Watch-Stack {
                 }
             }
             until ($null -eq $stcks)
+          }
+          finally {
+            # Restore AWS_REGION so the watch does not leak a region override into the caller's session.
+            if ($awsRegionWasSet) {
+                if ($null -eq $previousAwsRegion) {
+                    Remove-Item Env:\AWS_REGION -ErrorAction SilentlyContinue
+                } else {
+                    $env:AWS_REGION = $previousAwsRegion
+                }
+            }
+          }
         }
     }
 }
